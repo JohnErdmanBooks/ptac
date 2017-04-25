@@ -1,0 +1,94 @@
+\chapter{QUANTIFIERS}\label{quan}
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+Certainly  ``$2 + 2 = 4$'' and  ``$2 + 2 = 5$'' are statements---one true, the other false. On
+the other hand the appearance of the variable  $x$ prevents the expression  ``$x + 2 = 5$''
+from being a statement.  Such an expression we will call an
+ \index{open!sentence}%
+\df{open sentence}; its truth is open to question since $x$ is unidentified.  There are three
+standard ways of converting open sentences into statements.
+
+The first, and simplest, of these is to give the variable a particular value. If we
+``evaluate'' the expression  ``$x + 2 = 5$'' at $x = 4$, we obtain the (false) statement ``$4
++ 2 = 5$''.
+
+A second way of obtaining a statement from an expression involving a variable is \df{universal
+quantification}: we assert that the expression is true for all values of the variable.  In the
+preceding example we get, ``For all  $x$, $x + 2 = 5$.'' This is now a statement (and again
+false). The expression ``for all $x$'' (or equivalently, ``for every x'') is often denoted
+symbolically
+ \index{all@$\forall$ (for all, for every)}%
+ \index{<@$\forall$ (for all, for every)}%
+by~$(\forall x)$.  Thus the preceding sentence may be written, $(\forall x) x + 2 = 5$.  (The
+parentheses are optional; they may be used in the interest of clarity.) We call $\forall$ a
+ \index{universal quantifier}%
+ \index{quantifier!universal}%
+\df{universal quantifier}.
+
+Frequently there are several variables in an expression.  They may all be universally
+quantified.  For example
+  \begin{equation}\label{eq:first}
+             (\forall x)(\forall y)\, x^2 - y^2 = (x - y)(x + y)
+  \end{equation}
+is a (true) statement, which says that for every $x$ and for every $y$ the expression $x^2 -
+y^2$ factors in the familiar way.  The order of consecutive universal quantifiers is
+unimportant: the statement
+  \[ (\forall y)(\forall x)\, x^2 - y^2 = (x - y)(x + y) \]
+says exactly the same thing as~\eqref{eq:first}.  For this reason the notation may be
+contracted slightly to read
+  \[ (\forall x,y)\, x^2 - y^2 = (x - y)(x + y)\,. \]
+
+A third way of obtaining a statement from an open sentence $P(x)$ is \df{existential
+quantification}.  Here we assert that  $P(x)$ is true for \emph{at least one} value of~$x$.
+This is often written
+ \index{exists@$\exists$ (there exists)}%
+ \index{<@$\exists$ (there exists)}%
+``$(\exists x)$ such that $P(x)$'' or more briefly ``$(\exists x) P(x)$'', and is read ``there
+exists an $x$ such that $P(x)$'' or ``$P(x)$ is true for some~$x$.''  For example, if we
+existentially quantify the expression ``$x + 2 = 5$'' we obtain  ``$(\exists x)$ such that $x
++ 2 = 5$'' (which happens to be true).  We call $\exists$ an
+ \index{existential quantifier}%
+ \index{quantifier!existential}%
+\df{existential quantifier}.
+
+As is true for universal quantifiers, the order of consecutive existential quantifiers is
+immaterial.
+
+\begin{cau}  It is absolutely essential to realize that the order of an existential and a
+universal quantifier may \emph{not} in general be reversed. For example,
+  \[ (\exists x)(\forall y)\, x < y \]
+says that there is a number $x$ with the property that no matter how $y$ is chosen, $x$ is
+less than $y$; that is, there is a smallest real number. (This is, of course, false.) On the
+other hand
+  \[ (\forall y)(\exists x)\, x < y \]
+says that for every $y$ we can find a number $x$ smaller than $y$.  (This is true: take $x$ to
+be $y - 1$ for example.) \emph{The importance of getting quantifiers in the right order cannot
+be overestimated.}
+\end{cau}
+
+There is one frequently used convention concerning quantifiers that should be mentioned.  In
+the statement of definitions, propositions, theorems, \emph{etc.}, missing quantifiers are
+assumed to be universal; furthermore, they are assumed to be the innermost quantifiers.
+
+\begin{exam}  Let $f$ be a real valued function defined on the real line $\R$.  Many texts give
+the following definition. The function $f$ is \emph{continuous} at a point $a$ in $\R$ if: for
+every $\epsilon > 0$ there exists $\delta > 0$ such that
+  \[\abs{f(x) - f(a)} < \epsilon \quad\text{ whenever } \abs{x - a} < \delta\,. \]
+Here $\epsilon$ and $\delta$ are quantified; the function $f$ and the point $a$ are fixed for
+the discussion, so they do not require quantifiers. What about $x$?  According to the
+convention just mentioned, $x$ is universally quantified and that quantifier is the innermost
+one. Thus the definition reads: for every $\epsilon > 0$ there exists $\delta > 0$ such that
+for every $x$
+  \[\abs{f(x) - f(a)} < \epsilon \quad\text{ whenever } \abs{x - a} < \delta\,. \]
+\end{exam}
+
+
+\begin{exam}Sometimes all quantifiers are missing.  In this case the preceding convention dictates
+that all variables are universally quantified. Thus
+  \[ \text{Theorem.}\quad  x^2 - y^2 = (x - y)(x + y) \]
+is interpreted to mean
+  \[\text{Theorem.}\quad  (\forall x)(\forall y)\, x^2 - y^2  = (x - y)(x+y)\,. \]
+\end{exam}
+

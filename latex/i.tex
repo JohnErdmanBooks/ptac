@@ -1,0 +1,202 @@
+\chapter{NATURAL NUMBERS AND MATHEMATICAL INDUCTION}\label{nat_nos}
+
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+
+The \emph{principle of mathematical induction} is predicated on a knowledge of the natural
+numbers, which we introduce in this section.  In what follows it is helpful to keep in mind
+that the axiomatic development of the real numbers sketched in the preceding chapter says
+nothing about the natural numbers; in fact, it provides explicit names for only three real
+numbers: $0$, $1$, and $-1$.
+
+\begin{defn}  A collection $J$ of real numbers is
+ \index{inductive set}%
+\df{inductive} if
+ \begin{enumerate}
+  \item $1 \in J$,\; and
+  \item $x + 1 \in J$ whenever $x \in J$.
+ \end{enumerate}
+\end{defn}
+
+\begin{exam}  The set $\R$ is itself inductive; so are the intervals $(0,\infty)$, $[-1, \infty)$,
+and $[1,\infty)$.
+\end{exam}
+
+\begin{prop}\label{prop_intrs_ind}  Let $\sfml A$ be a family of inductive subsets of $\R$. Then
+$\cap \sfml A$ is inductive.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_intrs_ind}.)   \ns
+\end{proof}
+
+\begin{defn}  Let $J$ be the family of all inductive subsets of~$\R$.  Define
+   \[ \N := \cap J\,. \]
+We call $\N$ the set of
+ \index{natural numbers}%
+ \index{numbers!natural}%
+\df{natural numbers}.
+\end{defn}
+
+Notice that according to proposition~\ref{prop_intrs_ind} the set $\N$ is inductive.  It is
+the \emph{smallest} inductive set, in the sense that it is contained in \emph{every} inductive
+set.  The elements of $\N$ have standard names. Define $2 := 1 + 1$.  Since $1$ belongs to
+$\N$ and $\N$ is inductive, $2$~belongs to~$\N$. Define $3 := 2 + 1$.  Since $2$ belongs
+to~$\N$, so does~$3$. Define $4 := 3 + 1$; \emph{etc.}
+
+\begin{defn} The set of
+ \index{integers}%
+\df{integers}, denoted by $\Z$, is defined to be
+  \[ -\N \cup \{0\} \cup \N \]
+where $-\N := \{-n: n \in \N\}$.
+\end{defn}
+
+The next proposition is practically obvious; but as it is an essential ingredient of several
+subsequent arguments (\emph{e.g.} problem~\ref{prob_less_pos}), we state it formally.
+
+\begin{prop}\label{prop_natno_pos} If $n \in \N$, then $n \ge 1$.
+\end{prop}
+
+\begin{proof}  Since the set $[1,\infty)$ is inductive, it must contain~$\N$.
+\end{proof}
+
+The observation made previously that $\N$ is the smallest inductive set clearly implies that
+no proper subset of $\N$ can be inductive. This elementary fact has a rather fancy name: it is
+the \emph{principle of mathematical induction}.
+
+\begin{thm}[Principle of Mathematical Induction]\label{thm_mth_ind}
+ \index{mathematical induction}%
+ \index{induction!mathematical}%
+ \index{principle!of mathematical induction}
+Every inductive subset of $\N$ equals $\N$.
+\end{thm}
+
+By spelling out the definition of ``inductive set'' in the preceding theorem we obtain a
+longer, perhaps more familiar, statement of the \emph{principle of mathematical induction.}
+
+\begin{cor}\label{cor_mi2}  If $S$ is a subset of $\N$ which satisfies
+ \begin{enumerate}
+  \item $1 \in S$,\quad and
+  \item $n + 1 \in S$ whenever $n \in S$,
+ \end{enumerate}
+then $S = \N$.
+\end{cor}
+
+Perhaps even more familiar is the version of the preceding which refers to ``a proposition (or
+assertion, or statement) concerning the natural number $n$''.
+
+\begin{cor}\label{cor_mi3}  Let $P(n)$ be a proposition concerning the natural number~$n$.  If
+$P(1)$ is true, and if $P(n + 1)$ is true whenever $P(n)$ is true, then $P(n)$ is true for all
+$n \in \N$.
+\end{cor}
+
+\begin{proof}  In corollary~\ref{cor_mi2} let $S = \{n \in \N \colon P(n) \text{ is true}\}$.
+Then $1 \in S$ and $n + 1$ belongs to $S$ whenever $n$ does.  Thus $S = \N$.  That is, $P(n)$
+is true for all $n \in \N$.
+\end{proof}
+
+\begin{exer}\label{exer_mi1}  Use \emph{mathematical induction} to prove the following assertion:
+The sum of the first $n$ natural numbers is $\frac 12n(n+1)$.  \emph{Hint.}  Recall that if
+$p$ and $q$ are integers with $p \le q$ and if $c_p, c_{p+1}, \dots, c_q$ are real numbers,
+then the sum $c_p + c_{p+1} + \dots + c_q$ may be denoted by $\sum_{k=p}^q c_k$. Using this
+summation notation, we may write the desired conclusion as $\sum_{k=1}^n k = \frac 12
+n(n+1)$.)  (Solution~\ref{sol_exer_mi1}.)
+\end{exer}
+
+It is essentially obvious that there is nothing crucial about starting inductions with $n =
+1$. Let $m$ be any integer and $P(n)$ be a proposition concerning integers $n \ge m$.  If we
+prove that $P(m)$ is true and that $P(n + 1)$ is true whenever $P(n)$ is true and $n \ge m$,
+then we may conclude that $P(n)$ is true for all $n \ge m$. [Proof: Apply
+corollary~\ref{cor_mi3} to the proposition $Q$  where $Q(n) = P(n + m - 1)$.]
+
+\begin{prob}\label{prob_factor_ambm}  Let $a,b \in \R$ and $m \in \N$.  Then
+  \[ a^m - b^m = (a - b) \sum_{k=0}^{m-1} a^k b^{m-k-1}\,. \]
+\emph{Hint.}  Multiply out the right hand side. This is not an induction problem.
+\end{prob}
+
+\begin{prob}\label{prob_geomser1} If $r \in \R$, $r \ne 1$, and $n \in \N$, then
+  \[ \sum_{k=0}^n r^k = \frac{1 - r^{n+1}}{1 - r}\,. \]
+\emph{Hint.}  Use \ref{prob_factor_ambm}
+\end{prob}
+
+\begin{defn}  Let  $m$, $n \in \N$. We say that $m$ is a
+ \index{factor}%
+\df{factor} of $n$ if $n/m \in \N$.  Notice that  $1$ and $n$ are always factors of $n$; these
+are the
+ \index{factor!trivial}%
+ \index{trivial!factor}%
+\df{trivial factors} of~$n$.  The number $n$ is
+ \index{composite!number}%
+ \index{number!composite}%
+\df{composite} if $n > 1$ and if it has at least one nontrivial factor. (For example, $20$ has
+several nontrivial factors: $2$, $4$, $5$, and $10$.  Therefore it is composite.) If $n > 1$
+and it is not composite, it is
+ \index{prime number}%
+ \index{number!prime}%
+\df{prime}.  (For example, $7$ is prime; its only factors are $1$ and~$7$.)
+\end{defn}
+
+\begin{prob}  Prove that if $n \in \N$ and $2^n - 1$ is prime, then so is~$n$. (\emph{Hint.}
+Prove the contrapositive.  Use problem~\ref{prob_factor_ambm}.)  Illustrate your technique by
+finding a nontrivial factor of $2^{403} - 1$.
+\end{prob}
+
+\begin{prob}\label{prob_sum_sqrs}  Show that $\sum_{k=1}^nk^2 = \frac16 n(n+1)(2n+1)$ for every
+$n \in \N$.
+\end{prob}
+
+\begin{prob}\label{prob_less_pos}  Use only the definition of $\N$ and the results given in this
+section to prove (a) and (b).
+ \begin{enumerate}
+  \item[(a)] If $m,n \in \N$ and $m < n$, then $n - m \in \N$. \emph{Hint.}  One proof of this
+involves an induction within an induction.  Restate the assertion to be proved as follows.
+For every $m \in \N$ it is true that:
+   \begin{equation}\label{prob_eqn1_mi}
+         \text{if $n \in \N$ and $n > m$, then $n - m \in \N$.}
+   \end{equation}
+Prove this assertion by induction on~$m$.  That is, show that \eqref{prob_eqn1_mi} holds for
+$m = 1$, and then show that it holds for $m = k + 1$ provided that it holds for $m = k$.  To
+show that \eqref{prob_eqn1_mi} holds for $m = 1$, prove that the set
+   \[ J := \{1\} \cup \{n \in \N \colon n - 1 \in \N\} \]
+is an inductive set.
+  \item[(b)] Let $n \in \N$.  There does not exist a natural number $k$ such that $n < k < n+1$.
+\emph{Hint.}  Argue by contradiction. Use part~(a).
+ \end{enumerate}
+\end{prob}
+
+ \index{binomial theorem}%
+\begin{prob}[The binomial theorem.]\label{binom_thm} If $x$, $y \in \R$ and $n \in \N$, then
+  \[ (x + y)^n = \sum_{k=0}^n\binom nkx^{n-k}y^k\,. \]
+\emph{Hint.}  Use induction.  Recall that $0! = 1$, that $n! = n(n - 1)(n - 2) \dots 1$ for $n
+\in \N$, and that
+  \[ \binom nk = \frac{n!}{k!(n-k)!} \]
+for  $0 \le k \le n$.
+\end{prob}
+
+The final result of this section is the
+ \index{well-ordering}%
+ \index{principle!of well-ordering}%
+\emph{principle of well-ordering}.  It asserts that every nonempty subset of the natural
+numbers has a smallest element.
+
+\begin{prop}\label{prop_well_ord}  If $\emptyset \ne K \subseteq \N$, then there exists
+$a \in K$ such that $a \le k$ for every $k \in K$.
+\end{prop}
+
+\begin{proof}  Exercise. \emph{Hint.}  Assume that $K$ has no smallest member.  Show that
+this implies $K = \emptyset$ by proving that the set
+  \[ J \equiv \{n \in \N \colon n < k  \text{ for every } k \in K\} \]
+is inductive.  In the inductive step problem~\ref{prob_less_pos}(b) may prove useful.
+(Solution~\ref{sol_prop_well_ord}.)  \ns
+\end{proof}
+
+\begin{prob}  (This slight modification of the \emph{principle of mathematical induction}
+is occasionally useful.)  Let $P(n)$ be a proposition concerning the natural number $n$. If
+$P(n)$ is true whenever $P(k)$ is true for all $k \in \N$ such that $k < n$, then $P(n)$ is
+true for all $n$.  \emph{Hint.}  Use the \emph{well-ordering principle.}
+\end{prob}
+
+
+
+\endinput

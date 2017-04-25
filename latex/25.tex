@@ -1,0 +1,856 @@
+\chapter{DIFFERENTIAL CALCULUS}\label{diff_calc}
+
+In chapter~\ref{dorf} we studied the calculus of real valued functions of a real variable.  We
+now extend that study to vector valued functions of a vector variable.  The first three
+sections of this chapter repeat almost exactly the material in chapter~\ref{dorf}.  Absolute
+values are replaced by norms, and linear maps by continuous linear maps.  Other than that
+there are few differences.  In fact, if you have done chapter~\ref{dorf} carefully you may
+wish just to glance over the first three sections of this chapter and move on to
+section~\ref{diff_curv}.
+
+\vspace{.2in}
+
+\begin{center}
+\fbox{\parbox{3.8in}{\textbf{Throughout this chapter $V$, $W$, and $X$ (with or without
+subscripts) will be normed linear spaces.}}}
+\end{center}
+
+ \vspace{.2in}
+
+\section{$\lobo O$ AND $\lobo o$ FUNCTIONS}
+
+\begin{notn}  Let $a \in V$.  We denote
+ \index{f@$\fml F_a(V,W)$ (functions defined in a neighborhood of~$a$)}%
+by~$\fml F_a(V,W)$ the family of all functions defined on a neighborhood of $a$ taking values
+in~$W$.  That is, $f$ belongs to $\fml F_a(V,W)$ if there exists a set $U$ such that $a \in
+\open U {\dom f} \subseteq V$ and if the image of $f$ is contained in~$W$.  We shorten $\fml
+F_a(V,W)$ to $\fml F_a$ when no confusion will result.  Notice that for each $a \in V$, the
+set $\fml F_a$ is closed under addition and scalar multiplication. (As usual, we define the
+sum of two functions $f$ and $g$ in $\fml F_a$ to be the function $f+g$ whose value at $x$ is
+$f(x)+g(x)$ whenever $x$ belongs to $\dom f \,\cap\, \dom g$.)  Despite the closure of $\fml
+F_a$ under these operations, $\fml F_a$ is \emph{not} a vector space.
+\end{notn}
+
+\begin{prob}  Let $a \in V \ne \{\vc 0\}$. Prove that $\fml F_a(V,W)$ is not a vector space.
+\end{prob}
+
+Among the functions defined on a neighborhood of the zero vector in $V$ are two
+subfamilies of crucial importance; they are $\lobo O(V,W)$ (the family of
+\emph{``big-oh''} functions) and $\lobo o(V,W)$ (the family of \emph{``little-oh''}
+functions).
+
+\begin{defn}  A function $f$ in $\fml F_{\vc 0}(V,W)$ belongs to
+ \index{ohbig@$\lobo O(V,W)$ functions}%
+$\lobo O(V,W)$ if there exist numbers $c > 0$ and $\delta > 0$ such that
+ \[\norm{f(x)} \le c\,\norm x\]
+whenever $\norm x < \delta$.
+
+A function $f$ in $\fml F_{\vc 0}(V,W)$ belongs to
+ \index{ohlittle@$\lobo o(V,W)$ functions}%
+$\lobo o(V,W)$ if for every $c > 0$ there exists $\delta > 0$ such that
+  \[ \norm{f(x)} \le c\,\norm x \]
+whenever $\norm x < \delta$.  Notice that $f$ belongs to $\lobo o(V,W)$ if and only if $f(\vc
+0) = \vc 0$ and
+  \[ \lim_{h \sto \vc 0}\frac{\norm{f(h)}}{\norm h} = \vc 0\,. \]
+When no confusion seems likely we will shorten $\lobo O(V,W)$ to $\lobo O$ and $\lobo o(V,W)$
+to $\lobo o$.
+\end{defn}
+
+
+The properties of the families $\lobo O$ and $\lobo o$ are given in
+propositions~\ref{prop_o_in_O}--\ref{prop_comp_Oo}, \ref{prop_o_x_vect},
+and~\ref{prop_O_x_fcn}.
+
+\begin{prop}\label{prop_o_in_O} Every member of $\lobo o(V,W)$ belongs to $\lobo O(V,W)$; so does
+every member of $\lobo B(V,W)$. Every member of $\lobo O(V,W)$ is continuous at~$\vc 0$.
+\end{prop}
+
+\begin{proof}  Obvious from the definitions.   \end{proof}
+
+\begin{prop}\label{prop_bdd_not_o} Other than the zero transformation, no bounded linear
+transformation belongs to~$\lobo o$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_bdd_not_o}.)  \ns  \end{proof}
+
+\begin{prop}\label{prop_O_cl_add} The family $\lobo O$ is closed under addition and scalar
+multiplication.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_O_cl_add}.) \ns   \end{proof}
+
+\begin{prop}\label{prop_o_cl_add}  The family $\lobo o$ is closed under addition and scalar
+multiplication.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+The next two propositions say that the composite of a function in $\lobo O$ with one in $\lobo
+o$ (in either order) ends up in $\lobo o$.
+
+\begin{prop} If $g \in \lobo O(V,W)$ and $f \in \lobo o(W,X)$, then $f \circ g \in \lobo o(V,X)$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prop}\label{prop_comp_Oo} If $g \in \lobo o(V,W)$ and $f \in \lobo O(W,X)$, then
+$f \circ g \in \lobo o(V,X)$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_comp_Oo}.)
+  \ns   \end{proof}
+
+\begin{notn}\label{notn_fcns_mult}  In the sequel it will be convenient to multiply vectors
+not only by scalars but also by scalar valued functions.  If $\phi$ is a function in $\fml
+F_a(V,\R)$ and $w \in W$, we define the function $\phi w$ by
+  \[ (\phi w)(x) = \phi (x) \cdot w \]
+for all $x$ in the domain of $\phi$.  Clearly, $\phi w$ belongs to $\fml F_a(V,W)$.
+
+Similarly, it is useful to multiply vector valued functions by scalar valued functions.  If
+$\phi \in \fml F_a(V,\R)$ and $f \in \fml F_a(V,W)$, we define the function $\phi f$ by
+  \[ (\phi f)(x) = \phi (x) \cdot f(x) \]
+for all $x$ in $\dom \phi\, \cap\, \dom f$. Then $\phi f$ belongs to $\fml F_a(V,W)$.
+\end{notn}
+
+\begin{prop}\label{prop_o_x_vect}  If $\phi \in \lobo o(V,\R)$ and $w \in W$, then
+$\phi w \in \lobo o(V,W)$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_o_x_vect}.)  \ns   \end{proof}
+
+\begin{prop}\label{prop_O_x_fcn}  If $\phi \in \lobo O(V,\R)$ and $f \in \lobo O(V,W)$,
+then $\phi f \in \lobo o(V,W)$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_O_x_fcn}.)  \ns   \end{proof}
+
+\begin{rem}  The list summarizing these facts is almost the same as the one in~\ref{rem_oO_R}.
+In (1) and (2) the linear maps $\ofml L$ have been replaced by continuous linear maps $\ofml
+B$; and (7) is new.  (As before,
+ \index{continuous@$\fml C_{\vc 0}$ (functions continuous at~$\vc 0$)}%
+$\fml C_{\vc 0}$ is the set of all functions in $\fml F_{\vc 0}$ which are continuous at~$\vc
+0$.)
+  \begin{align*}
+    &(1)\qquad \lobo B \cup \lobo o \subseteq \lobo O \subseteq \fml C_{\vc 0} \, .\\
+    &(2)\qquad \lobo B \cap \lobo o = \{\vc 0\}\,. \\
+    &(3)\qquad \lobo O + \lobo O \subseteq \lobo O\,; \qquad \alpha\,\lobo O \subseteq \lobo O\,. \\
+    &(4)\qquad \lobo o + \lobo o \subseteq \lobo o\,; \qquad \alpha\,\lobo o \subseteq \lobo o\,. \\
+    &(5)\qquad \lobo o \circ \lobo O \subseteq \lobo o\,. \\
+    &(6)\qquad \lobo O \circ \lobo o \subseteq \lobo o\,. \\
+    &(7)\qquad \lobo o(V,\R)\cdot W\subseteq \lobo o(V,W)\,.\\
+    &(8)\qquad \lobo O(V,\R)\cdot \lobo O(V,W) \subseteq  \lobo o(V,W)\,.
+  \end{align*}
+\end{rem}
+
+\begin{prob}  Find a function in $\fml C_{\vc 0}(\R^2, \R) \setminus \lobo O(\R^2, \R)$.  Also,
+find a function in $\lobo O(\R^2, \R) \setminus \lobo o(\R^2, \R)$.
+\end{prob}
+
+\begin{prob}\label{prob_O_comp_O}  Show that $\lobo O \circ \lobo O\subseteq\lobo O$.  That is,
+if $g \in \lobo O(V,W)$ and $f \in \lobo O(W,X)$, then $f \circ g \in \lobo O(V,X)$.  (As
+usual, the domain of $f \circ g$ is taken to be $\{x \in V \colon g(x) \in \dom f\}$.)
+\end{prob}
+
+\begin{prob} If $f^1 \in \lobo O(V_1,W)$ and $f^2 \in \lobo O(V_2,W)$, then the function $g$
+defined on $\dom f^1 \times \dom f^2$ by
+  \[ g(v^1,v^2) = f^1(v^1) + f^2(v^2) \]
+belongs to $\lobo O(V_1 \times V_2, W)$. \emph{Hint.}  The simplest proof never mentions the
+domain elements $v^1$ and $v^2$. Instead write $g$ in terms of the projection maps $\pi_1$ and
+$\pi_2$ on $V_1 \times V_2$, and apply problem~\ref{prob_O_comp_O}.
+\end{prob}
+
+\begin{prob} If $\phi \in \lobo O(V_1,\R)$ and $f \in \lobo O(V_2,W)$, then the function $h$
+defined on $\dom \phi \times \dom f$ by
+  \[ h(v^1,v^2) = \phi(v^1)\,f(v^2) \]
+belongs to $\lobo o(V_1 \times V_2,W)$. (Use the hint given in the preceding problem.)
+\end{prob}
+
+\begin{prob} Show that the membership of the families $\lobo O(V,W)$ and $\lobo o(V,W)$ is not
+changed when the norms on the spaces $V$ and $W$ are replaced by equivalent norms.
+\end{prob}
+
+
+
+
+
+
+
+\section{TANGENCY}
+
+\begin{defn} Two functions $f$ and $g$ in $\fml F_{\vc 0}(V,W)$ are
+ \index{tangent!at zero}%
+\df{tangent at zero}, in which case we write
+ \index{<@$\simeq$ (tangency)}%
+$f \simeq g$, if $f - g \in \lobo o(V,W)$.
+\end{defn}
+
+\begin{prop}\label{prop_tan_equiv} The relation ``tangency at zero'' is an equivalence relation
+on~$\fml F_{\vc 0}$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_tan_equiv}.)  \ns   \end{proof}
+
+
+The next result shows that at most one bounded linear transformation can be tangent at zero to
+a given function.
+
+\begin{prop}\label{prop_tan_lin}  Let $S,T \in \ofml B$ and $f \in \fml F_0$.  If $S \simeq f$
+and $T \simeq f$, then $S = T$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_tan_lin}.) \ns   \end{proof}
+
+\begin{prop}\label{prop_tan_sum}  If $f \simeq g$ and $j \simeq k$, then $f + j \simeq g + k$,
+and furthermore, $\alpha f \simeq \alpha g$ for all $\alpha \in \R$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+In the next proposition we see that if two real valued functions are tangent at zero,
+multiplication by a vector does not disrupt this relationship.  (For notation
+see~\ref{notn_fcns_mult}.)
+
+\begin{prop}\label{prop_tan_x_vec}  Let $\phi, \psi \in \fml F_0(V,\R)$ and $w \in W$.  If
+$\phi \simeq \psi$, then $\phi w \simeq \psi w$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_tan_x_vec}.)  \ns   \end{proof}
+
+\begin{prop}\label{prop_lin_comp_tan}  Let $f$, $g \in \fml F_{\vc 0}(V,W)$ and $T \in
+\ofml B(W,X)$.  If $f \simeq g$, then $T \circ f \simeq T \circ g$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prop}\label{prop_tan_comp_O}  Let $h \in \lobo O(V,W)$ and $f$, $g \in \fml F_0(W,X)$.
+If $f \simeq g$, then $f \circ h \simeq g \circ h$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob}  Fix a vector $x$ in $V$. Define a function $M_x \colon \R \sto V$ by
+  \[ M_x(\alpha)=\alpha x \qquad \text{for all $\alpha \in \R$.} \]
+Notice that $M_x \in \lobo B(\R,V)$.  If $f \in \fml F_0(\R,V)$ and $f \simeq M_x$, then
+ \begin{enumerate}
+  \item[(a)] $\dfrac{f(\alpha)}{\alpha} \sto x$ as $\alpha \sto 0$;
+and
+  \item[(b)] $f(\alpha) \sto 0$ as $\alpha \sto 0$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Each of the following is an abbreviated version of a proposition.  Formulate precisely
+and prove.
+ \begin{enumerate}
+  \item[(a)] $\fml C_{\vc 0} + \lobo O \subseteq \fml C_{\vc 0}$.
+  \item[(b)] $\fml C_{\vc 0} + \lobo o \subseteq \fml C_{\vc 0}$.
+  \item[(c)] $\lobo O + \lobo o \subseteq \lobo O$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Suppose that $f \simeq g$. Then the following hold.
+ \begin{enumerate}
+  \item[(a)] If $g$ is continuous at $\vc 0$, so is $f$.
+  \item[(b)] If $g$ belongs to $\lobo O$, so does $f$.
+  \item[(c)] If $g$ belongs to $\lobo o$, so does $f$.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+\section{DIFFERENTIATION}
+
+\begin{defn}  Let $f \in \fml F_a(V,W)$. Define the function
+ \index{<@$\Delta F_a$}%
+ \index{delta@$\Delta F_a$}%
+$\Delta f_a$ by
+  \[ \Delta f_a(h) \equiv f(a+h) - f(a) \]
+for all $h$ such that $a + h$ is in the domain of $f$.  Notice that since $f$ is defined in a
+neighborhood of $a$, the function $\Delta f_a$ is defined in a neighborhood of $\vc 0$; that
+is, $\Delta f_a$ belongs to $\fml F_{\vc 0}(V,W)$. Notice also that $\Delta f_a(\vc 0) = \vc
+0$.
+\end{defn}
+
+\begin{prop}\label{prop_del_sm} If $f \in \fml F_a(V,W)$ and $\alpha \in \R$, then
+  \[ \Delta(\alpha f)_a = \alpha\,\Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} No changes need to be made in the proof of~\ref{del_sm}.   \end{proof}
+
+\begin{prop}\label{prop_del_sum} If $f$, $g \in \fml F_a(V,W)$, then
+  \[ \Delta(f+g)_a = \Delta f_a + \Delta g_a\,. \]
+\end{prop}
+
+\begin{proof} The proof given (in the \emph{solutions to exercises}) for
+proposition~\ref{del_sum} needs no alteration.
+\end{proof}
+
+\begin{prop}\label{prop_del_mult}  If $\phi \in \fml F_a(V,\R)$ and $f \in \fml F_a(V,W)$, then
+  \[ \Delta(\phi f)_a = \phi(a)\cdot\Delta f_a \,+\, \Delta\phi_a\cdot f(a)
+                                            \,+\, \Delta\phi_a\cdot\Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prop}\label{prop_del_comp} If $f \in \fml F_a(V,W)$, $g \in \fml F_{f(a)}(W,X)$, and
+$g \circ f \in \fml F_a(V,X)$, then
+  \[ \Delta(g \circ f)_a = \Delta g_{{}_{\sst{f(a)}}} \circ \Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} Use the proof given (in the \emph{solutions to exercises}) for
+proposition~\ref{del_comp}.
+\end{proof}
+
+\begin{prop}  A function $f \colon V \sto W$ is continuous at the point $a$ in $V$  if and only if
+$\Delta f_a$ is continuous at $\vc 0$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prop}\label{prop_del_inv}  If $f \colon U \sto U_1$ is a bijection between subsets of
+arbitrary vector spaces, then for each $a$ in $U$ the function $\Delta f_a \colon U - a \sto
+U_1 - f(a)$ is invertible and
+  \[ \bigl(\Delta f_a\bigr)^{-1}=\Delta\bigl(f^{-1}\bigr)_{f(a)}\,. \]
+\end{prop}
+
+\begin{proof} Problem.   \ns    \end{proof}
+
+\begin{defn}  Let $f \in \fml F_a(V,W)$.  We say that $f$ is
+ \index{differentiable!at a point}%
+\df{differentiable at} $a$ if there exists a bounded linear map which is tangent at $\vc 0$ to
+$\Delta f_a$. If such a map exists, it is called the
+ \index{differential}%
+\df{differential} of $f$ at $a$ and is denoted
+ \index{dfa@$df_a$ (differential of $f$ at~$a$)}%
+by~$df_a$. Thus $df_a$ is just a member of $\ofml B(V,W)$ which satisfies $df_a \simeq \Delta
+f_a$.  We denote by $\fml D_a(V,W)$ the family of all functions in $\fml F_a(V,W)$ which are
+differentiable at~$a$. We often shorten this to~$\fml D_a$.
+\end{defn}
+
+\begin{prop}\label{prop_diff_uniq}  Let $f \in \fml F_a(V,W)$. If $f$ is differentiable at $a$,
+then its differential is unique. (That is, there is at most one bounded linear map tangent at
+$0$ to $\Delta f_a$.)
+\end{prop}
+
+\begin{proof} Proposition~\ref{prop_tan_lin}.  \end{proof}
+
+\begin{rem}\label{rem_prop_diff}  If $f$ is a function in $\fml F_a(V,W)$ which is differentiable
+at $a$, its differential $df_a$ has three important properties:
+ \begin{enumerate}
+  \item[(i)] it is linear;
+  \item[(ii)] it is continuous (that is, bounded as a linear map);
+  \item[(iii)] $\D\lim_{h \sto \vc 0} \frac{\Delta f_a(h) - df_a(h)}{\norm h} = \vc 0$\,.
+ \end{enumerate}
+(An expression of the form $\dfrac{\Delta f_a(h) - df_a(h)}{\norm h}$ is called a
+ \index{Newton quotient}%
+ \index{quotient!Newton}%
+\df{Newton quotient}.)
+\end{rem}
+
+\begin{exer}\label{exer_diff_R2}  Let $f(x,y) = 3x^2 - xy + 4y^2$. Show that $df_{(1,-1)}(x,y) =
+7x - 9y$.  Interpret $df_{(1,-1)}$ geometrically.  (Solution~\ref{sol_exer_diff_R2}.)
+\end{exer}
+
+\begin{exer}\label{exer_diff_R3R2}  Let
+  \[ f \colon \R^3 \sto \R^2 \colon (x,y,z) \mapsto (x^2y - 7, 3xz + 4y) \]
+and $a = (1,-1,0)$.  Use the \emph{definition} of ``differential'' to find $df_a$.
+\emph{Hint.}  Work with the matrix representation of $df_a$.  Since the differential must
+belong to $\ofml B(\R^3,\R^2)$, its matrix representation is a $2 \times 3$ matrix
+$M = \begin{bmatrix}
+          r  &  s  &  t \\
+          u  &  v  &  w
+     \end{bmatrix}$\,.  Use the requirement---condition (iii) of the preceding remark---that
+$\norm h^{-1}\,\norm{\Delta f_a(h) - Mh} \sto \vc 0$ as $h \sto \vc 0$ to discover the
+identity of the entries in~$M$.   (Solution~\ref{sol_exer_diff_R3R2}.)
+\end{exer}
+
+\begin{prop}\label{prop_diff_O}  If $f \in \fml D_a$, then $\Delta f_a \in \lobo O$.
+\end{prop}
+
+\begin{proof} Use the proof given (in the \emph{solutions to exercises}) for
+proposition~\ref{del_in_O}.  Since we are working with bounded linear maps between normed
+spaces instead of linear maps on~$\R$, we must change $\ofml L$ to~$\ofml B$.
+\end{proof}
+
+\begin{cor}\label{cor_diff_cont} Every function which is differentiable at a point is continuous
+there.
+\end{cor}
+
+\begin{proof} Use the proof given (in the \emph{solutions to exercises}) for
+corollary~\ref{diff_cont}.  \end{proof}
+
+\begin{prop}\label{prop_diff_sm}  If $f$ is differentiable at $a$ and $\alpha \in \R$, then
+$\alpha f$ is differentiable at $a$ and
+  \[ d(\alpha f)_a = \alpha\,df_a\,. \]
+\end{prop}
+
+\begin{proof} The proof given (in the \emph{solutions to exercises}) for
+proposition~\ref{diff_sm} works, but three references need to be changed.  (What are the
+correct references?)
+\end{proof}
+
+\begin{prop}\label{prop_diff_sum} If $f$ and $g$ are differentiable at $a$, then $f + g$ is
+differentiable at $a$ and
+  \[ d(f+g)_a = df_a + dg_a\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+ \index{Leibniz's rule}%
+\begin{prop}[Leibniz's Rule]\label{prop_Leib_rul}
+ \index{Leibniz's rule}%
+If $\phi \in \fml D_a(V,\R)$ and $f \in \fml D_a(V,W)$, then $\phi f \in \fml D_a(V,W)$ and
+  \[ d(\phi f)_a = d\phi_a \cdot f(a) \,+\, \phi(a)\,df_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_Leib_rul}.)  \ns   \end{proof}
+
+In the chapters of beginning calculus texts devoted to the differential calculus of several
+variables, the expression ``chain rule'' refers most frequently to a potentially infinite
+collection of related results concerning the differentiation of composite functions.  Several
+examples such as the following are usually given:
+
+\begin{quote}
+Let $w = f(x,y,z)$, $x = x(u,v)$, $y = y(u,v)$, and $z = z(u,v)$. If these functions are all
+differentiable, then the function
+  \[ w = f(x(u,v)\,,\,y(u,v)\,,\,z(u,v)) \]
+is differentiable and
+ \begin{equation*}\tag{$\ast$}
+  \begin{split}\label{eqn_pd_cr}
+    \frac{\partial w}{\partial u}
+     &= \frac{\partial w}{\partial x}\frac{\partial x}{\partial u}
+     + \frac{\partial w}{\partial y}\frac{\partial y}{\partial u}
+     + \frac{\partial w}{\partial z}\frac{\partial z}{\partial u}\\
+   \frac{\partial w}{\partial v}
+     &= \frac{\partial w}{\partial x}\frac{\partial x}{\partial v}
+     + \frac{\partial w}{\partial y}\frac{\partial y}{\partial v}
+     + \frac{\partial w}{\partial z}\frac{\partial z}{\partial v}\\
+  \end{split}
+ \end{equation*}
+\end{quote}
+
+\noindent Then the reader is encouraged to invent new ``chain rules'' for functions having
+different numbers of variables. Formulations such as \eqref{eqn_pd_cr} have many shortcomings
+the most serious of which is a nearly complete lack of discernible geometric content.  The
+version of the \emph{chain rule} which we will prove says that (after a suitable translation)
+the best linear approximation to the composite of two functions is the composite of the best
+linear approximations.  In other words, the differential of the composite is the composite of
+the differentials.  Notice that theorem~\ref{thm_ch_rul}, where this is stated formally, is
+simpler than \eqref{eqn_pd_cr}; it has obvious geometric content; it is a single ``rule''
+rather than a family of them; and it holds in arbitrary infinite dimensional normed linear
+spaces as well as in finite dimensional ones.
+
+\begin{prop}[The Chain Rule.]\label{thm_ch_rul}
+ \index{chain rule}%
+If $f \in \fml D_a(V,W)$ and $g \in \fml D_{f(a)}(W,X)$, then $g \circ f \in \fml D_a(V,X)$
+and
+  \[ d(g \circ f)_a = dg_{{}_{\scriptstyle{f(a)}}} \circ df_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_thm_ch_rul}.)  \ns   \end{proof}
+
+Each of the preceding propositions concerning differentiation is a direct consequence of a
+similar result concerning the map $\Delta$. In particular, the linearity of the map $f \mapsto
+df_a$ (propositions~\ref{prop_diff_sm} and~\ref{prop_diff_sum}) follows from the fact that the
+function $f \mapsto \Delta f_a$ is linear (propositions~\ref{prop_del_sm}
+and~\ref{prop_del_sum}); \emph{Leibniz's rule}~\ref{prop_Leib_rul} is a consequence of
+proposition~\ref{prop_del_mult}; and the proof of the \emph{chain rule}~\ref{thm_ch_rul} makes
+use of proposition~\ref{prop_del_comp}.  It is reasonable to hope that the result given in
+proposition~\ref{prop_del_inv} concerning $\Delta\bigl(f^{-1}\bigr)_{f(a)}$ will lead to
+useful information concerning the differential of the inverse function. This is indeed the
+case; but obtaining information about $d\bigl(f^{-1}\bigr)_{f(a)}$ from~\ref{prop_del_inv} is
+a rather involved undertaking.  It turns out, happily enough, that (under mild hypotheses) the
+differential of $f^{-1}$ is the inverse of the differential of $f$.  This result is known as
+the \emph{inverse function theorem}, and the whole of chapter~\ref{IFT} is devoted to
+detailing its proof and to examining some of its consequences.
+
+\begin{prob} Show that proposition~\ref{prop_diff_sm} is actually a special case of
+\emph{Leibniz's rule}~\ref{prop_Leib_rul}.  Also, suppose that $\phi \in \fml D_a(V,\R)$ and
+$w \in W$.  Prove that $\phi w \in \fml D_a(V,W)$ and that $d(\phi w)_a = d\phi_a \cdot w$.
+\end{prob}
+
+\begin{prob}  Let $f \colon \R^2 \sto \R^2$ be defined by $f(x) = (3x_1 - x_2 + 7, x_1 + 4x_2)$.
+Show that $\bigl[df_{(1,0)}\bigr] =
+ \begin{bmatrix}
+     3  &  -1 \\
+     1  &  4
+ \end{bmatrix}$.  \emph{Hint.}  Let
+ $M = \begin{bmatrix}
+            3  &  -1 \\
+            1  &  4
+      \end{bmatrix}$ and $a = (1,0)$.  Show that the Newton quotient
+$\dfrac{\mathstrut\Delta^{\mathstrut} f_a(h) - Mh}{\norm h}$ approaches $\vc 0$ as $h \sto \vc
+0$. Use the uniqueness of differentials (proposition~\ref{prop_diff_uniq}) to conclude that
+$\bigl[df_a\bigr] = M$.
+\end{prob}
+
+\begin{prob}  Let $F \colon \R^2 \sto \R^4$ be defined by
+  \[ F(x) = (x_2\,,\,{x_1}^2\,,\,4 - x_1x_2\,,\,7x_1) \]
+and let $a = (1,1)$. Use the \emph{definition} of ``differential'' to show that
+  \[\bigl[dF_a\bigr] =
+     \begin{bmatrix}
+         0  &  1 \\
+         2  &  0 \\
+        -1  & -1 \\
+         7  &  0
+     \end{bmatrix}\,. \]
+\end{prob}
+
+\begin{prob}  Let $F \colon \R^3 \sto \R^4\colon  x \mapsto (x_1 + 2x_3, x_2 - x_3, 4x_2,
+2x_1 - 5x_2)$ and $a = (1,2,-5)$. Use the \emph{definition} of ``differential'' to find
+$\bigl[dF_a\bigr]$.  \emph{Hint.} Use the technique suggested in
+exercise~\ref{exer_diff_R3R2}.
+\end{prob}
+
+\begin{prob}  Let $F \colon \R^3 \sto \R^2$ be defined by $F(x,y,z) = (xy - 3,y + 2z^2)$.
+Use the \emph{definition} of ``differential'' to find $\bigl[dF_{(1,-1,2)}\bigr]$.
+\end{prob}
+
+\begin{prob}  Let $F \colon \R^3 \sto \R^3: x \mapsto (x_1x_2,x_2 - {x_3}^2,2x_1x_3)$.  Use the
+\emph{definition} of ``differential'' to find $\bigl[dF_a\bigr]$ at $a$ in~$\R^3$.
+\end{prob}
+
+\begin{prob}\label{prob_diff_lt} Let $T \in \ofml B(V,W)$ and $a \in V$. Find $dT_a$.
+\end{prob}
+
+
+
+
+
+
+
+
+\section{DIFFERENTIATION OF CURVES}\label{diff_curv} In the preceding section we have discussed
+the differentiability of functions mapping one normed linear space into another. Here we
+briefly consider the important and interesting special case which occurs when the domains of
+the functions are one dimensional.
+\begin{defn}  A
+ \index{curve}%
+\df{curve} in a normed linear space $V$ is a continuous mapping from an interval in $\R$
+into~$V$.  If $c \colon J \sto V$ is a curve, if $0$ belongs to the interval $J$, and if $c(0)
+= a \in V$, then $c$ is a
+ \index{curve!at a point}%
+\df{curve at}~$a$.
+\end{defn}
+
+In classical terminology a curve $c \colon J \sto V \colon t \mapsto c(t)$ is usually referred
+to as a
+ \index{curve!parametrized}%
+ \index{parametrized!curve}%
+\df{parametrized curve} in~$V$.  The interval $J$ is the
+ \index{parameter!interval}%
+\df{parameter interval} and the variable $t$ belonging to $J$ is the
+ \index{parameter}%
+\df{parameter}.  If you start with a subset $A$ of $V$ and find a continuous function $c$ from
+an interval $J$ onto $A$, then $c$ is called a
+ \index{parametrization}%
+\df{parametrization} of~$A$.
+
+\begin{exam}  Let
+ \begin{align*}
+      c_1 &\colon [0,2\pi] \sto \R^2 \colon t \mapsto (\cos t,\sin t) \\
+   \intertext{and}
+      c_2 &\colon [0,3\pi] \sto \R^2 \colon t \mapsto (\sin(2t + 1), \cos(2t + 1)).
+ \end{align*}
+Then $c_1$ and $c_2$ are two different parametrizations of the unit circle
+  \[ \Sp^1 := \{(x,y) \in \R^2 \colon x^2 + y^2 = 1\}\,. \]
+Parameters need have no physical significance, but it is quite common to think of a curve in
+$\R^2$ or $\R^3$ as representing the motion of a particle in that  space: the parameter $t$ is
+taken to be time and the range value $c(t)$ is the position of the particle at time~$t$.  With
+this interpretation we may view $c_1$ and $c_2$ as representing the motion of particles
+traveling around the unit circle.  In the first case the particle starts (when $t=0$) at the
+point $(1,0)$ and makes one complete trip around the circle traveling counterclockwise.  In
+the second case, the particle starts at the point $(\sin 1,\cos 1)$ and traverses $\Sp^1$
+three times moving clockwise.
+\end{exam}
+
+\begin{exam}  Let $a$ and $u \ne \vc 0$ be vectors in $V$. The curve
+  \[ \ell\colon \R \sto V\colon t \mapsto a + tu \]
+is the
+ \index{parametrized!line}%
+ \index{line!parametrized}%
+\df{parametrized line} through $a$ in the direction of~$u$.  Of course, infinitely many other
+parametrizations of the range of $\ell$ are possible, but this is the standard one and we
+adopt it.
+\end{exam}
+
+\begin{prob}  Find a parametrization of the unit square
+  \[ A := \{(x,y) \in \R^2\colon  d_u\bigl((x,y)\, , \,({\tfrac12},
+                       {\tfrac12}) \bigr) = {\tfrac12}\}\]
+which starts at $(0,0)$ and traverses $A$ once in a counterclockwise direction.
+\end{prob}
+
+\begin{defn} Let $c\colon J \sto V$ be a curve in $V$ and suppose that $a$ is a point in the
+interior of the interval~$J$.  Then
+ \index{dc@$Dc$ (derivative of a curve $c$)}%
+$Dc(a)$, the
+ \index{derivative!of a curve}%
+ \index{curve!derivative of}%
+\df{derivative} of $c$ at $a$, is defined by the formula
+  \[ Dc(a) := \lim_{h \sto \vc 0}\frac{\Delta c_a(h)}h \]
+if the indicated limit exists.  Notice that this is just the definition of ``derivative''
+given in beginning calculus.  The derivative at $a$ is also called the
+ \index{tangent!vector}%
+\df{tangent vector} to $c$ at $a$ or, in case we are thinking of the motion of a particle, the
+ \index{velocity}%
+\df{velocity} of $c$ at~$a$.  If $Dc(a)$ exists and is not zero, then the parametrized line
+through $c(a)$ in the direction of $Dc(a)$ is the
+ \index{tangent!line}%
+ \index{line!tangent}%
+\df{tangent line} to the image of $c$ at the point~$c(a)$.
+\end{defn}
+
+\begin{exer}\label{exer_tang_curv}  Let $c\colon [0,2\pi] \sto \R^2\colon  t \mapsto (\cos t,\sin t)$.
+ \begin{enumerate}
+  \item[(a)] Find the tangent vector to $c$ at $t=\frac{\pi}3$.
+  \item[(b)] Find the tangent line to the range of $c$ at the point $(\frac12,\frac{\sqrt 3}2)$.
+  \item[(c)] Write the equation of the range in $\R^2$ of the tangent line found in~(b).
+ \end{enumerate}
+(Solution~\ref{sol_exer_tang_curv}.)
+\end{exer}
+
+\begin{prop} \label{prop_diff_der} If a curve $c\colon J \sto V$ is differentiable at a point $a$
+in the interior of the interval $J$, then it has a derivative at $a$ and
+  \[ Dc(a) = dc_a(1)\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Start with the Newton quotient $\dfrac{\Delta c_a(h)}h$.
+Subtract and add $\dfrac{dc_a(h)}h$.)  (Solution~\ref{sol_prop_diff_der}.)    \ns
+\end{proof}
+
+
+The converse of the preceding proposition is also true. Every curve possessing a derivative is
+differentiable. This is our next proposition.
+
+\begin{prop}\label{prop_der_diff} If a curve $c\colon J \sto V$ has a derivative at a point $a$
+in $\intr J$, then it is differentiable at $a$ and
+  \[ dc_a(h) = h\,Dc(a) \qquad \text{ for all $h \in \R$}. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Define $T \colon \R \sto V\colon  h \mapsto h\,Dc(a)$.
+Show that $\Delta c_a \simeq T$.  \ns
+\end{proof}
+
+\begin{prob} Suppose that curves $c_1$ and $c_2$ in a normed linear space are defined and
+differentiable in some neighborhood of $a \in \R$.  Then
+ \begin{enumerate}
+  \item[(a)] $D(c_1 + c_2)(a) = Dc_1(a) + Dc_2(a)$.
+  \item[(b)] $D(\alpha c_1)(a) = \alpha\,Dc_1(a)$ for all $\alpha \in \R$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{prob_nasc_tan_curves} Let $V$ be a normed linear space and $a \in V$.
+ \begin{enumerate}
+  \item[(a)] Suppose $c$ is a differentiable curve at the zero vector in~$V$.  Then $c \simeq \vc 0$
+if and only if $Dc(0) = \vc 0$.
+  \item[(b)] Suppose $c_1$ and $c_2$ are differentiable curves at~$a$.  Then $c_1 \simeq c_2$ if
+and only if $Dc_1(0) = Dc_2(0)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop}\label{prob_der_curv1} If $c \in \fml D_t(\R, V)$ and $f \in \fml D_a(V,W)$, where
+$a = c(t)$, then $f \circ c \in \fml D_t(\R,W)$ and
+  \[ D(f \circ c)(t) = df_a(Dc(t))\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+Thus far integration and differentiation have been treated as if they belong to separate
+worlds. In the next theorem, known as the \emph{fundamental theorem of calculus}, we derive
+the most important link between these two topics.
+
+ \index{fundamental theorem of calculus}%
+\begin{thm}[Fundamental Theorem Of Calculus]\label{thm_ftc}  Let $a$ belong to an open interval
+$J$ in the real line, $E$ be a Banach space, and $f \colon J \sto E$ be a regulated curve.
+Define $F(x) = \int_a^xf$ for all $x \in J$.  If $f$ is continuous at $c \in J$, then $F$ is
+differentiable at $c$ and $DF(c) = f(c)$.
+\end{thm}
+
+\begin{proof}  Exercise. \emph{Hint.}   For every $\epsilon > 0$ there exists $\delta > 0$
+such that $c + h \in J$ and $\norm{\Delta f_c(h)} < \epsilon$ whenever $\abs h < \delta$.
+(Why?)  Use the (obvious) fact that $h\,f(c) = \int_c^{c + h}f(c)\,dt$ to show that
+$\norm{\Delta F_c(h) - h\,f(c)} < \epsilon\,\abs h$ whenever $0 < \abs h < \delta$. From this
+conclude that $\lim\limits_{h \sto 0}\dfrac 1h \Delta F_c(h) = f(c)$.
+(Solution~\ref{sol_thm_ftc}.)  \ns
+\end{proof}
+
+
+
+
+\section{DIRECTIONAL DERIVATIVES} We now return to the study of maps between arbitrary normed
+linear spaces.  Closely related to differentiability is the concept of \emph{directional
+derivative}, an examination of which provides some technical advantages and also throws light
+on the geometric aspect of differentiation.
+
+\begin{defn}  Let $f$ be a member of $\fml F_a(V,W)$ and $v$ be a nonzero vector in~$V$.  Then
+$D_vf(a)$, the
+ \index{dvf@$D_vf$ (directional derivative)}%
+ \index{derivative!directional}%
+ \index{directional derivative}%
+\df{derivative of $f$ at $a$ in the direction of $v$}, is defined by
+  \[ D_vf(a) := \lim_{t \sto 0} \frac1t\,\Delta f_a(tv)\]
+if this limit exists.  This directional derivative is also called the
+ \index{G\^ateaux!differential}%
+ \index{differential!G\^ateaux}%
+\df{G\^ateaux differential} (or
+ \index{G\^ateaux!variation}%
+ \index{variation!G\^ateaux}%
+\df{G\^ateaux variation}) of $f$, and is sometimes denoted by $\delta f(a;v)$. Many authors
+require that in the preceding definition $v$ be a unit vector.  We will \emph{not} adopt this
+convention.
+\end{defn}
+
+Recall that for $\vc 0 \ne v \in V$ the curve $\ell \colon \R \sto V$ defined by $\ell(t) = a
++ tv$ is the parametrized line through $a$ in the direction of~$v$.  In the following
+proposition, which helps illuminate our use of the adjective ``directional'', we understand
+the domain of $f \circ \ell$ to be the set of all numbers $t$ for which the expression
+$f(\ell(t))$ makes sense; that is,
+  \[ \dom(f \circ \ell) = \{t \in \R \colon  a + tv \in \dom f\}\,. \]
+Since $a$ is an interior point of the domain of $f$, the domain of $f \circ \ell$ contains an
+open interval about~$0$.
+
+\begin{prop}\label{prop_diff_dd}  If $f \in \fml D_a(V,W)$ and $\vc 0 \ne v \in V$, then the
+directional derivative $D_vf(a)$ exists and is the tangent vector to the curve $f \circ \ell$
+at $0$ (where $\ell$ is the parametrized line through $a$ in the direction of~$v$).  That is,
+  \[ D_vf(a) = D(f \circ \ell)(0)\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_diff_dd}.)  \ns   \end{proof}
+
+\begin{exer}\label{exer_dd1} Let $f(x,y) = \ln\bigl(x^2 + y^2\bigr)^{\frac12}$.  Find $D_vf(a)$
+when $a=(1,1)$ and $v=(\frac35,\frac45)$.  (Solution~\ref{sol_exer_dd1}.)
+\end{exer}
+
+\begin{notn}  For $a < b$ let $\fml C^1([a,b],\R)$ be the family of all functions $f$ differentiable
+on some open subset of $\R$ containing $[a,b]$ whose derivative $Df$ is continuous on~$[a,b]$.
+\end{notn}
+
+\begin{exer}\label{exer_dd2}  For all $f$ in $\fml C^1([0,\frac{\pi}2],\R)$ define
+  \[ \phi(f) = \int_0^{\frac{\pi}2}(\cos x + Df(x))^2\,dx\,. \]
+Compute $D_v\phi(a)$ when $a(x) = 1 + \sin x$ and $v(x) = 2 - \cos x$ for $0 \le x \le
+\frac{\pi}2$.   (Solution~\ref{sol_exer_dd2}.)
+\end{exer}
+
+\begin{prob} Let $f(x,y) = e^{x^2 + y^2}$, $a = (1,-1)$, and $v = (-1,2)$.  Find $D_vf(a)$.
+\end{prob}
+
+\begin{prob} Let $f(x,y) = (2xy,y^2 - x^2)$, $a = (-1,2)$, and $v =
+\bigl(\frac1{\sqrt2},\frac1{\sqrt2}\bigr)$.  Find $D_vf(a)$.
+\end{prob}
+
+\begin{prob} Let $\phi\colon \fml C([0,1],\R) \sto \R\colon  f \mapsto
+\int_0^1\bigl(\sin^6\pi x + (f(x))^2\bigr)\,dx$, and for $0 \le x \le 1$ let $a(x) = e^{-x} -
+x + 3$ and $v(x) = e^x$.  Find $D_v\phi(a)$.
+\end{prob}
+
+According to proposition~\ref{prop_diff_dd}, differentiability implies the existence of
+directional derivatives in all directions. (In problem~\ref{prob_dd3} you are asked to show
+that the converse is not true.)  The next proposition makes explicit the relationship between
+differentials and directional derivatives for differentiable functions.
+
+\begin{prop}\label{prop_dd_diff} If $f \in \fml D_a(V,W)$, then for every nonzero $v$ in $V$
+  \[ D_vf(a) = df_a(v)\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.} Use problem~\ref{prob_der_curv1}
+(Solution~\ref{sol_prop_dd_diff}.)  \ns
+\end{proof}
+
+It is worth noticing that even though the domain of a curve is $1$-dimensional, it is still
+possible to take directional derivatives.  The relationship between derivatives and
+directional derivatives is very simple: the derivative of a curve $c$ at a point $t$ is just
+the directional derivative at $t$ in the direction of the unit vector $1$ in~$\R$.  Proof:
+ \begin{alignat*}{2}
+    Dc(t) &= dc_t(1) & &\quad \text{(by
+                           proposition~\ref{prop_diff_der})} \\
+          &= D_1c(t) & &\quad \text{(by
+                           proposition~\ref{prop_dd_diff})}
+ \end{alignat*}
+
+\begin{prob}  Let $\phi \colon \fml C([0,1],\R) \sto \fml C^1([0,1],\R)$ be defined by $\phi f(x)
+= \int_0^x f(s)\,ds$ for all $f$ in $\fml C([0,1],\R)$ and $x$ in~$[0,1]$. For arbitrary
+functions $a$ and $v \ne 0$ in $\fml C([0,1],\R)$ compute $D_v\phi(a)$ using
+ \begin{enumerate}
+  \item[(a)] the definition of ``directional derivative''.
+  \item[(b)] proposition~\ref{prop_diff_dd}.
+  \item[(c)] proposition~\ref{prop_dd_diff}.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{prob_dd3}  Show that the converse of proposition~\ref{prop_diff_dd} need not hold.
+A function may have directional derivatives in all directions but fail to be differentiable.
+\emph{Hint.}  Consider the function defined by $f(x,y) = \smash[b]{\dfrac{x^3}{x^2 + y^2}}$
+for $(x,y) \ne (0,0)$ and $f(0,0) = 0$.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+\section{FUNCTIONS MAPPING INTO PRODUCT SPACES} In this short section we examine the
+differentiability of functions which map into the product of normed linear spaces. This turns
+out to be a very simple matter: a necessary and sufficient condition for a function whose
+codomain is a product to be differentiable is that each of its components be differentiable.
+The somewhat more complicated topic of differentiation of functions whose \emph{domain} lies
+in a product of normed linear spaces is deferred until the next chapter when we have the
+\emph{mean value theorem} at our disposal.
+
+\begin{prop}\label{prop_diff_prodsp} If $f^1 \in \fml D_a(V,W_1)$ and $f^2 \in \fml D_a(V,W_2)$,
+then the function $f = \bigl(f^1,f^2\bigr)$ belongs to $\fml D_a(V,W_1 \times W_2)$ and $df_a
+= \bigl(d(f^1)_a,d(f^2)_a\bigr)$.
+\end{prop}
+
+\begin{proof}    Exercise. \emph{Hint.}  The function $f$ is defined by $f(x) =
+\bigl(f^1(x),f^2(x)\bigr)$ for all $x \in \dom f^1 \cap \dom f^2$.  Check that $f =
+j_{{}_{\sst 1}} \circ f^1 \,+\, j_{{}_{\sst 2}} \circ f^2$ where $j_{{}_{\sst 1}}\colon  W_1
+\sto W_1 \times W_2\colon  u \mapsto (u,0)$ and $j_{{}_{\sst 2}}\colon W_2 \sto W_1 \times
+W_2\colon  v \mapsto (0,v)$.  Use proposition \ref{prop_diff_sum}, theorem \ref{thm_ch_rul},
+and problem~\ref{prob_diff_lt}.  (Solution~\ref{sol_prop_diff_prodsp}.)  \ns
+\end{proof}
+
+The preceding proposition says that a function is differentiable if its components are. The
+converse, which is the next proposition, is also true: the components of a differentiable
+function are differentiable.
+
+\begin{prop}\label{prop_diff_coord}  If $f$ belongs to $\fml D_a(V, W_1 \times W_2)$, then its
+components $f^1$ and $f^2$ belong to $\fml D_a(V,W_1)$ and $\fml D_a(V,W_2)$, respectively,
+and
+  \[ df_a = \bigl(d(f^1)_a, d(f^2)_a\bigr)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  For $k = 1$, $2$ write $f^k = \pi_k \circ f$ where, as usual,
+$\pi_k(x_1,x_2) = x_k$. Then use the \emph{chain rule}~\ref{thm_ch_rul} and
+problem~\ref{prob_diff_lt}.   \ns  \end{proof}
+
+An easy consequence of the two preceding propositions is that curves in product spaces have
+derivatives if and only if their components do.
+
+\begin{cor}\label{cor_diff_prodcurv}  Let $c^1$ and $c^2$ be curves in $W_1$ and $W_2$,
+respectively.  If $c^1$ and $c^2$ are differentiable at $t$, then so is the curve $c =
+(c^1,c^2)$ in $W_1 \times W_2$ and $Dc(t) = \bigl(Dc^1(t), Dc^2(t)\bigr)$. Conversely, if $c$
+is a differentiable curve in the product $W_1 \times W_2$, then its components $c^1$ and $c^2$
+are differentiable and $Dc = \bigl(Dc^1,Dc^2\bigr)$.
+\end{cor}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_cor_diff_prodcurv}.)  \ns  \end{proof}
+
+It is easy to see how to generalize the three preceding results to functions whose codomains
+are the products of any finite collection of normed linear spaces.  Differentiation is done
+componentwise.
+
+\begin{exam}  Consider the helix
+  \[ c \colon \R \sto \R^3 \colon t \mapsto (\cos t,\sin t,t)\,. \]
+Its derivative at $t$ is found by differentiating each component separately. That is, $Dc(t) =
+(-\sin t,\cos t,1)$ for all $t \in \R$.
+\end{exam}
+
+\begin{prob}  Let $f(x,y) = (\ln(xy), y^2 - x^2)$, $a = (1,1)$, and $v = (\frac35,\frac45)$.
+Find the directional derivative $D_vf(a)$.
+\end{prob}

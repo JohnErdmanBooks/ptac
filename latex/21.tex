@@ -1,0 +1,1077 @@
+\chapter{LINEARITY}
+
+
+\section{LINEAR TRANSFORMATIONS}  Linear transformations are central to our study of calculus.
+Functions are differentiable, for example, if they are smooth enough to admit decent
+approximation by (translates of) linear transformations. Thus before tackling differentiation
+(in chapter \ref{diff_calc}) we familiarize ourselves with some elementary facts about
+linearity.
+
+\begin{defn}  A function $T \colon V \sto W$ between vector spaces is
+ \index{linear}%
+ \index{linear!function}%
+ \index{function!linear}%
+\df{linear} if
+ \begin{equation}\label{lt_cond1}
+      T(x + y) = Tx + Ty \qquad \text{for all $x,y \in V$}
+ \end{equation}
+and
+ \begin{equation}\label{lt_cond2}
+     T(\alpha x) = \alpha Tx \qquad \text{for all $x \in V$ and
+           $\alpha \in \R$.}
+ \end{equation}
+\end{defn}
+
+A linear function is most commonly called a
+ \index{linear!transformation}%
+ \index{transformation!linear}%
+\df{linear transformation},
+sometimes a
+ \index{linear!mapping}%
+ \index{mapping!linear}%
+\df{linear mapping}. If the domain and codomain of a linear transformation are the same vector
+space, then it is often called a
+ \index{linear!operator}%
+ \index{operator!linear}%
+\df{linear operator}, and occasionally a
+ \index{vector!space!endomorphism}%
+\df{vector space endomorphism}.  The family of all linear transformations from $V$ into $W$ is
+denoted
+ \index{l@$\ofml L(V,W)$ (linear maps between vector spaces)}%
+by~$\ofml L(V,W)$.  Two oddities of notation concerning linear transformations deserve
+comment.  First, the value of $T$ at x is usually written $Tx$ rather than~$T(x)$.  Naturally
+the parentheses are used whenever their omission would create ambiguity.  For example, in
+\eqref{lt_cond1} above $Tx + y$ is not an acceptable substitute for $T(x + y)$.  Second, the
+symbol for composition of two linear transformations is ordinarily omitted.  If $S \in \ofml
+L(U,V)$ and $T \in \ofml L(V,W)$, then the composite of $T$ and $S$ is denoted
+ \index{<@$TS$ (composite of linear maps)}%
+ \index{composite!of linear maps}%
+by~$TS$ (rather than by $T \circ S$).  This will cause no confusion since we will define no
+other ``multiplication'' of linear maps. As a consequence of this convention if $T$ is a
+linear operator, then $T \circ T$ is written as $T^2$, $T \circ T \circ T$ as $T^3$, and so
+on. One may think of condition \eqref{lt_cond1} in the definition of linearity in the
+following fashion. Let $T \times T$ be the mapping from $V \times V$ into $W \times W$ defined
+by
+ \[(T \times T)(x,y) = (Tx,Ty).\]
+Then condition \eqref{lt_cond1} holds if and only if the diagram
+ \[ \xy
+     \square<800,500>[V \times V`W \times W`V`W;T \times T`+`+`T]
+    \endxy \]
+commutes.  (The vertical maps are addition in $V$ and in $W$.)
+
+Condition \eqref{lt_cond2} of the definition can similarly be thought of in terms of a
+diagram.  For each scalar a define the function $M_\alpha$, \df{multiplication by} $\alpha$,
+from a vector space into itself by
+ \[ M_\alpha(x) = \alpha x\,. \]
+(We use the same symbol for multiplication by $\alpha$ in both of the spaces $V$ and~$W$.)
+Then condition \eqref{lt_cond2} holds if and only if for every scalar $\alpha$ the following
+diagram commutes.
+ \[ \xy
+     \square[V`W`V`W;T`M_\alpha`M_\alpha`T]
+    \endxy \]
+
+\begin{exam}\label{lt_exam1}  If $T \colon \R^3 \sto \R^2 \colon  x \mapsto (x_1
++ x_3, x_1 - 2x_2)$, then $T$ is linear.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_lt_exam1}.)  \ns  \end{proof}
+
+\begin{prob}  Let $T \colon  \R^2 \sto \R^4$ be defined by
+  \[ T(x,y) = (x + 2y, 3x - y, -2x, -x + y). \]
+Show that T is linear.
+\end{prob}
+
+\begin{exer}\label{lt_exer1}  Let $T \colon  \R^3 \sto \R^3$ be a linear transformation which
+satisfies $T(e^1) = (1, 0, 1)$, $T(e^2) = (0, 2, -1)$, and $T(e^3) = (-4, -1, 3)$ (where
+$e^1$, $e^2$, and $e^3$ are the standard basis vectors for $\R^3$ defined in example
+\ref{basis_vect}).  Find $T(2, 1, 5)$.  \emph{Hint.}  Use problem \ref{vs_prob3}.
+(Solution~\ref{sol_lt_exer1}.)
+\end{exer}
+
+\begin{prob}  Suppose that $T \in \ofml L(\R^3,\R^3)$ satisfies
+ \begin{align*}
+          T e^1 &= (1,2,-3) \\
+          T e^2 &= (1,-1,0) \\
+          T e^3 &= (-2,0,1)
+ \end{align*}
+Find $T(3,-2,1)$.
+\end{prob}
+
+\begin{prop}\label{lt_prop1} Let $T \colon  V \sto W$ be a linear transformation between two vector
+spaces. Then
+ \begin{enumerate}
+  \item[(a)] $T(0) = 0$.
+  \item[(b)] $T(x - y) = Tx - Ty$ for all $x$, $y \in V$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_lt_prop1}.)  \ns  \end{proof}
+
+\begin{exam}  The identity map from a vector space into itself is linear.
+\end{exam}
+
+\begin{proof} Obvious.     \end{proof}
+
+\begin{exam}  Each coordinate projection defined on $\R^n$
+ \[ \pi_k \colon  \R^n \sto \R \colon  x \mapsto x_k \]
+is linear.
+\end{exam}
+
+\begin{proof} For $1 \le k \le n$, we have $\pi_k(x + y) = \pi_k(x_1 + y_1, \dots, x_n + y_n) =
+x_k + y_k = \pi_k(x) + \pi_k(y)$ and $\pi_k(\alpha x) = \pi_k(\alpha x_1, \dots, \alpha x_n) =
+\alpha x_k = \alpha \pi_k(x)$.
+\end{proof}
+
+\begin{exam}\label{lt_exam2}  Let $\fml F = \fml F((a,b),\R)$ be the family of all real valued
+functions defined on the open interval $(a,b)$ and let $\fml D = \fml D((a,b),\R)$ be the set
+of all members of $\fml F$ which are differentiable at each point of~$(a,b)$.  Then $\fml D$
+is a vector subspace of $\fml F$ and that the differentiation operator
+  \[ D \colon \fml D \sto \fml F \colon  f \mapsto f' \]
+(where $f'$ is the derivative of $f$) is linear.
+\end{exam}
+
+\begin{proof} We know from example \ref{vs_exam1} that $\fml F$ is a vector space.  To show that
+$\fml D$ is a vector subspace of~$\fml F$ use proposition~\ref{vs_prop1}.  That $\fml D$ is
+nonempty is clear since constant functions are differentiable. That the space $\fml D$ of
+differentiable functions is closed under addition and scalar multiplication and that the
+operation $D$ of differentiation is linear (that is, $D(\alpha f) = \alpha Df$ and $D(f + g) =
+Df + Dg$) are immediate consequences of propositions \ref{diff_sm} and~\ref{diff_sum}.
+\end{proof}
+
+\begin{exam} We have not yet discussed integration of continuous functions, but recalling a few
+basic facts about integration from beginning calculus shows us that this is another example of
+a linear transformation.  Let $\fml C = \fml C([a,b],\R)$ be the family of all members of
+$\fml F = \fml F([a,b],\R)$ which are continuous.  We know from beginning calculus that any
+continuous function on a closed and bounded interval is (Riemann) integrable, that
+ \[ \int_a^b \alpha f(x)\,dx = \alpha \int_a^b f(x)\,dx \]
+where $\alpha \in \R$ and $f \in \fml C$, and that
+ \[\int_a^b (f(x) + g(x))\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx \]
+where $f,g \in \fml C$.  It then follows easily (again from \ref{vs_prop1}) that $\fml C$ is a
+vector subspace of $\fml F$ and that the function $K \colon \fml C \sto \R \colon  f \mapsto
+\int_a^b f(x)\,dx$ is linear.
+\end{exam}
+
+
+An important observation is that the composite of two linear transformations is linear.
+
+\begin{prop}\label{prop_comp_lt} Let $U$, $V$, and $W$ be vector spaces. If $S \in \ofml L(U,V)$
+and $T \in \ofml L(V,W)$ then $TS \in \ofml L(U,W)$.
+\end{prop}
+
+\begin{proof}  Problem. \ns  \end{proof}
+
+\begin{defn}  If $T \colon  V \sto W$ is a linear transformation between vector spaces, then the
+ \index{kernel}%
+\df{kernel} (or
+ \index{null space}%
+\df{null space}) of~$T$, denoted
+ \index{kernel@$\ker T$ (kernel of a linear map)}%
+by~$\ker T$, is $T^\gets\{\vc 0\}$. That is,
+ \[ \ker T := \{x \in V \colon  Tx = \vc 0\}. \]
+\end{defn}
+
+\begin{exer}\label{lt_exer2}  Let $T \in \ofml L(\R^3,\R^3)$
+satisfy
+ \begin{align*}
+                        T e^1 &= (1,-2,3) \\
+                        T e^2 &= (0,0,0)  \\
+                        T e^3 &= (-2,4,-6)
+ \end{align*}
+where $e^1$, $e^2$, and $e^3$ are the standard basis vectors in $\R^3$.  Find and describe
+geometrically both the kernel of $T$ and the range of~$T$. (Solution~\ref{sol_lt_exer2}.)
+\end{exer}
+
+\begin{prob} Let $T$ be the linear transformation of example \ref{lt_exam1}.  Find and describe
+geometrically the kernel and the range of~$T$.
+\end{prob}
+
+\begin{prob} Let $D$ be the linear transformation defined in \ref{lt_exam2}. What is the kernel
+of~$D$?
+\end{prob}
+
+It is useful to know that the kernel of a linear transformation is always a vector subspace of
+its domain, that its range is a vector subspace of its codomain, and that a necessary and
+sufficient condition for a linear transformation to be injective is that its kernel contain
+only the zero vector.
+
+\begin{prop}\label{prop_ker_vsubsp} If $T \colon  V \sto W$ is a linear transformation between vector
+spaces, then $\ker T$ is a subspace of~$V$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Use proposition \ref{vs_prop1}. \ns
+\end{proof}
+
+\begin{prop}\label{lt_prop2} If $T \colon  V \sto W$ is a linear transformation between vector spaces,
+then $\ran T$ is a subspace of~$W$.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.} Use proposition \ref{vs_prop1}.
+(Solution~\ref{sol_lt_prop2}.) \ns
+\end{proof}
+
+\begin{prop}\label{lt_prop3}  A linear transformation $T$ is injective if and only if $\ker~T~=~\{0\}$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} First show that if $T$ is injective and $x \in \ker T$, then $x=0$.
+For the converse, suppose that $\ker T = \{\vc 0\}$ and that $Tx = Ty$.  Show that $x = y$.
+\ns
+\end{proof}
+
+\begin{prob}\label{prob_lt_det_bas}  Let $W$ be a vector space.
+ \begin{enumerate}
+  \item[(a)] Show that a linear transformation $T \colon  \R^n \sto W$ is
+completely determined by its values on the standard basis vectors
+$e^1, \dots e^n$ of~$\R^n$.  \emph{Hint.} Use problem
+\ref{vs_prob3}(b).
+  \item[(b)]  Show that if $S,T \in \ofml L(\R^n, W)$ and $Se^k =
+Te^k$ for $1 \le k \le n$, then $S = T$.
+  \item[(c)]  Let $w^1, \dots, w^n \in W$.  Show that there exists a
+unique $T \in \ofml L(\R^n)$ such that $Te^k = w^k$ for $1 \le k
+\le n$.
+ \end{enumerate}
+\end{prob}
+
+Injective linear mappings take linearly independent sets to linearly independent sets
+
+\begin{prop}  If $T \in \ofml L(V,W)$ is injective and $A$ is a linearly independent subset of $V$,
+then $T^\sto(A)$ is a linearly independent set in~$W$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Start with vectors $y^1, \dots y^n$ in $T^\sto(A)$ and suppose
+that some linear combination of them $\sum_{k=1}^n \alpha_kx^k$ is~$0$.  Show that all the
+scalars $\alpha_k$ are~$0$.  Use proposition~\ref{lt_prop3}.  \ns
+\end{proof}
+
+Linear mappings take convex sets to convex sets.
+
+\begin{prop}  If $V$ and $W$ are vector spaces, $C$ is a convex subset of $V$, and $T \colon
+V \sto W$ is linear, then $T^\sto(C)$ is a convex subset of~$W$.
+\end{prop}
+
+\begin{proof}  Problem.  \emph{Hint.}  Let $u$, $v \in T^\sto(C)$ and $0 \le t \le 1$.  Show
+that $(1-t)u + tv \in T^\sto(C)$.    \ns
+\end{proof}
+
+\begin{prob} Let $T \in \ofml L(\R^3,\R^3)$ satisfy :
+ \begin{align*}
+         Te^1 &= (0,1,0) \\
+         Te^2 &= (0,0,1) \\
+         Te^3 &= (3,-2,0)
+ \end{align*}
+Show that $T$ is bijective. \emph{Hint.} To show that $T$ is injective use
+proposition~\ref{lt_prop3}.
+\end{prob}
+
+\begin{prob}\label{prob_intop_c1}  Let $\fml C^1 = \fml C^1([a,b],\R)$ be the set of all functions
+$f$ in $\fml F = \fml F([a,b],\R)$ such that $f'$ exists on $[a,b]$ in the usual sense of
+having one-sided derivatives at $a$ and $b$) and is continuous.  (A function belonging to
+$\fml C^1$ is said to be
+ \index{continuously differentiable}%
+ \index{differentiable!continuously}%
+\df{continuously differentiable}.)  It is easy to see that the set of all $C^1$ functions is a
+vector subspace of~$\fml F$.  Let $\fml C = \fml C([a,b],\R)$ be the family of all continuous
+members of~$\fml F$.  For every $f \in \fml C$ and every $x \in [a,b]$ let
+  \[ (Jf)(x) := \int_a^x f(t)\,dt\,. \]
+ \begin{enumerate}
+  \item[(a)]  Why does $Jf$ belong to $\fml C^1$?
+  \item[(b)]  Show that the map $J \colon \fml C \sto \fml C^1 \colon  f \mapsto Jf$ is linear.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} (Products) Recall (see Appendix \ref{prods}) that for every pair of functions
+$f^1 \colon T \sto S_1$ and $f^2 \colon T \sto S_2$ having the same domain there exists a
+unique map, namely $f = (f^1, f^2)$, mapping $T$ into the product space $S^1 \times S^2$ which
+satisfies $\pi_1 \circ f = f^1$ and $\pi_2 \circ f = f^2$.  (See in particular exercise
+\ref{prod_exer}.)  Now suppose that $T$, $S_1$, and $S_2$ are vector spaces and that $f^1$ and
+$f^2$ are linear. Then $S_1 \times S_2$ is a vector space (see example \ref{prod_vs}).  Show
+that the function $f = (f^1,f^2)$ is linear.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+\section{THE ALGEBRA OF LINEAR TRANSFORMATIONS}  The set $\ofml L(V,W)$ of linear transformations
+between two vector spaces is contained in the vector space $\fml F(V,W)$ of \emph{all}
+$W$-valued functions whose domain is~$V$.  (That $\fml F$ is a vector space was proved in
+example~\ref{vs_exam1}.)  It is easy to show that $\ofml L(V,W)$ is a vector space; just show
+that it is a subspace of~$\fml F(V,W)$.
+
+\begin{prop}\label{endo_vs}  Let $V$ and $W$ be vector spaces. Then $\ofml L(V,W)$ with pointwise
+operations of addition and scalar multiplication is a vector space.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Use example \ref{vs_exam1} and proposition~\ref{vs_prop1}.
+(Solution~\ref{sol_endo_vs}.)   \ns
+\end{proof}
+
+Let $T \colon V \sto W$ be a function between two sets.  We say that $T$ is
+ \index{invertible!function}%
+\df{invertible} if there exists a function $T^{-1}$ mapping $W$ to $V$ such that $T \circ
+T^{-1}$ is the identity function on $V$ and $T^{-1} \circ T$ is the identity function on~$W$.
+(For details about this see appendix~\ref{inverses}.)   Now, suppose that $V$ and $W$ are
+vector spaces and that $T \colon V\sto W$ is a linear transformation.  In this context what do
+we mean when we say that $T$ is \emph{invertible}?  For a linear transformation to be
+invertible we will require two things: the transformation must possess an inverse function,
+and this function must itself be linear. It is a pleasant fact about linear transformations
+that the second condition is automatically satisfied whenever the first is.
+
+\begin{prop}\label{prop_Tinv_lin} If $T \in \ofml L(V,W)$ is bijective, then its inverse
+$T^{-1} \colon W \sto V$ is linear.
+\end{prop}
+
+\begin{proof} Exercise   (Solution~\ref{sol_prop_Tinv_lin}.) \ns    \end{proof}
+
+\begin{defn}
+A linear transformation $T \colon V \sto W$ is
+ \index{invertible!linear mapping}%
+ \index{linear!mapping!invertible}%
+ \index{mapping!linear!invertible}%
+\df{invertible} (or is an
+ \index{isomorphism}%
+\df{isomorphism}) if there exists a linear transformation $T^{-1}$ such that $T^{-1}\circ T =
+I_V$ and $T \circ T^{-1} = I_W$.
+\end{defn}
+
+The point of the preceding proposition is that this definition is somewhat redundant. In
+particular, the following are just different ways of saying the same thing about a linear
+transformation~$T$.
+ \begin{enumerate}
+  \item[(a)] $T$ is invertible.
+  \item[(b)] $T$ is an isomorphism.
+  \item[(c)] As a function $T$ has an inverse.
+  \item[(d)] $T$ is bijective.
+ \end{enumerate}
+
+\begin{defn} Vector spaces $V$ and $W$ are
+ \index{isomorphic}%
+\df{isomorphic} if there exists an isomorphism from $V$ onto~$W$.
+\end{defn}
+
+\begin{prob} Let $s$ be the set of all sequences of real numbers. Regard $s$ as a vector space
+under pointwise operations. That is,
+ \begin{align*}
+          x + y &:= (x_1 + y_1, x_2 + y_2, \dots)  \\
+       \alpha x &:= (\alpha x_1, \alpha x_2, \dots)
+ \end{align*}
+whenever $x = (x_1, x_2,  \dots)$ and $y = (y_1, y_2, \dots)$ belong to $s$ and $\alpha$ is a
+scalar.  Define the
+ \index{unilateral shift}%
+ \index{shift!unilateral}%
+ \index{operator!unilateral shift}%
+\df{unilateral shift operator} $U \colon  s \sto s$ by  \[U(x_1,x_2,x_3,\dots) := (0,x_1,x_2,
+\dots).\]
+ \begin{enumerate}
+  \item[(a)] Show that $U \in \ofml L(s,s)$.
+  \item[(b)] Does $U$ have a right inverse?  If so, what is it?
+  \item[(c)] Does $U$ have a left inverse?  If so, what is it?
+ \end{enumerate}
+\end{prob}
+
+\begin{defn}\label{def_alg} Suppose that a vector space $V$ is equipped with an additional operation
+$(x,y) \mapsto xy$ from $V \times V$ into~$V$ (we will call it \emph{multiplication}) which
+satisfies
+ \begin{enumerate}
+  \item[(a)] $x(y + z) = xy + xz$,
+  \item[(b)] $(x + y)z = xz + yz$,
+  \item[(c)] $(xy)z = x(yz)$, and
+  \item[(d)] $\alpha(xy) = x(\alpha  y)$
+ \end{enumerate}
+whenever  $x,y,z \in V$ and $\alpha \in \R$.  Then $V$ is an
+ \index{algebra}%
+\df{algebra}.  (Sometimes it is called a \df{linear associative algebra}.)  If an algebra
+possesses a multiplicative identity (that is, a vector $\vc 1$ such that $\vc 1\,x = x\,\vc 1
+= x$ for all $x \in V$), then it is a
+ \index{unital!algebra}%
+ \index{algebra!unital}%
+\df{unital algebra}.  A subset of an algebra $A$ which is closed under the operations of
+addition, multiplication, and scalar multiplication is a
+ \index{subalgebra}%
+\df{subalgebra} of~$A$.  If $A$ is a unital algebra and $B$ is a subalgebra of $A$ which
+contains the multiplicative identity of $A$, then $B$ is a
+ \index{unital!subalgebra}%
+ \index{subalgebra!unital}%
+\df{unital subalgebra} of~$A$.
+\end{defn}
+
+\begin{exam}\label{exam_cont_alg} If $M$ is a compact metric space, then the vector space
+$\fml B(M,\R)$ of bounded functions on $M$ is a unital algebra under pointwise operations.
+(The constant function $1$ is its multiplicative identity.)  We have already seen in
+chapter~\ref{cpt} that the space $\fml C(M,\R)$ of continuous functions on $M$ is a vector
+subspace of $\fml B(M,\R)$. Since the product of continuous functions is continuous (and
+constant functions are continuous) $\fml C(M,\R)$ is a unital subalgebra of $\fml B(M,\R)$.
+\end{exam}
+
+\begin{prob}\label{prob_lt_alg} It has already been shown (in proposition~\ref{endo_vs}) that
+if $V$ is a vector space, then so is~$\ofml L(V,V)$.  Show that with the additional operation
+of composition serving as multiplication $\ofml L(V,V)$ is a unital algebra.
+\end{prob}
+
+\begin{prob} If $T \in \ofml L(V,W)$ is invertible, then so is $T^{-1}$ and
+$\bigl(T^{-1})\bigr)^{-1} = T$.
+\end{prob}
+
+\begin{prob} If $S \in \ofml L(U,V)$ and $T \in \ofml L(V,W)$ are both invertible, then so is
+$TS$ and $(TS)^{-1} = S^{-1}T^{-1}$.
+\end{prob}
+
+\begin{prob} If $T \in \ofml L(V,V)$ satisfies the equation
+  \[ T^2 - T + I = \vc 0 \]
+then it is invertible.  What is $T^{-1}$?
+\end{prob}
+
+\begin{prob}\label{lt_transfer} Let $V$ be a vector space; let $W$ be a set which is provided
+with operations $(u,v) \mapsto u + v$ from $W \times W$ into $W$ and $(\alpha,u) \mapsto
+\alpha u$ from $\R \times W$ into $W$; and let $T \colon V \sto W$. If $T$ is bijective and it
+preserves operations (that is, $T(x + y) = Tx + Ty$ and $T(\alpha x) = \alpha Tx$ for all $x$,
+$y \in V$ and $\alpha \in \R$), then $W$ is a vector space which is isomorphic to~$V$.
+\emph{Hint.}  Verify the eight defining axioms for a vector space. The first axiom is
+associativity of addition.  Let $u$, $v$, $w \in W$. Write $(u + v) + w$ as $\bigl(T(T^{-1}u)
++ T(T^{-1}v)\bigr) + T(T^{-1}w)$ and use the hypothesis that $T$ is operation preserving.
+\end{prob}
+
+\begin{prob}\label{prob_vsp_from_bij}  Let $V$ be a vector space, $W$ be a set, and $T \colon
+V \sto W$ be a bijection. Explain carefully how $W$ can be made into a vector space
+isomorphic to~$V$. \emph{Hint.} Use problem \ref{lt_transfer}.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+\section{MATRICES}\label{matr}
+The purpose of this section and the next two is almost entirely computational.  Many (but by
+no means all!) of the linear transformations we will consider in the sequel are maps between
+various Euclidean spaces; that is, between $\R^n$ and $\R^m$ where $m$, $n \in \N$.  Such
+transformations may be represented by matrices.  This of great convenience in dealing with
+specific examples because matrix computations are so very simple. We begin by reviewing a few
+elementary facts about matrices and matrix operations.
+
+For each $n \in \N$ let $\N_n$ be $\{1, \dots, n\}$.  An $m \times n$ (read ``$m$ by $n$'')
+ \index{matrix}%
+\df{matrix} is a function whose domain is $\N_m \times \N_n$.  We deal here only with matrices
+of real numbers; that is, with real valued functions on $\N_m \times \N_n$.  If $a \colon
+\N_m \times \N_n \sto \R$ is an $m \times n$ matrix, its value at $(i,j) \in \N_m \times \N_n$
+will be denoted by~$a_j^i$.  (Occasionally we use the notation $a_{ij}$ instead.)  The matrix
+$a$ itself may be denoted by ${\bigl[a_j^i\bigr]_{i=1}^m}_{j=1}^n$,
+ \index{<@$[a_j^i]$, $[a_{ij}]$ (matrix notation)}%
+by $[a_j^i]$,  or by a rectangular array whose entry in row $i$ and
+column $j$ is $a_j^i$.
+ \[ \begin{bmatrix}
+             a_1^1  &  a_2^1  &  \hdots &  a_n^1  \\
+             a_1^2  &  a_2^2  &  \hdots &  a_n^2  \\
+             \vdots &  \vdots &  \ddots &  \vdots \\
+             a_1^m  &  a_2^m  &  \hdots &  a_n^m
+    \end{bmatrix} \]
+In light of this notation it is reasonable to refer to the index $i$ in the expression $a_j^i$
+as the
+ \index{row!index}%
+\df{row!index} and to call $j$ the
+ \index{column!index}%
+\df{column index}.  (If you are accustomed to thinking of a matrix as \emph{being} a
+rectangular array, no harm will result.  The reason for defining a matrix as a function is to
+make good on the boast made in appendix~\ref{sets} that everything in the sequel can be
+defined ultimately in terms of sets.) We denote the family of all $m \times n$ matrices of
+real numbers
+ \index{matrices@$M_{m \times n}$ ($m$ by $n$ matrices)}%
+by~$M_{m \times n}$.  For families of square matrices we shorten $M_{n \times n}$
+ \index{matrices@$M_n$ (square matrices)}%
+to~$M_n$.
+
+Two $m \times n$ matrices $a$ and $b$ may be added. Addition is done pointwise. The sum
+ \index{<add@$a+b$ (sum of matrices)}%
+$a+b$ is the $m \times n$ matrix whose
+value at $(i,j)$ is $a_j^i + b_j^i$,  That is,
+  \[ (a + b)_j^i =  a_j^i + b_j^i \]
+for $1 \le i \le m$ and $1 \le j \le n$.  Scalar multiplication is also defined pointwise.  If
+$a$ is an $m \times n$ matrix and $\alpha \in \R$, then
+ \index{<@$\alpha a$ (scalar multiple of a matrix)}%
+$\alpha a$ is the $m \times n$ matrix whose
+value at $(i,j)$ is $\alpha a_j^i$.  That is,
+  \[ (\alpha a)_j^i  =  \alpha a_j^i \]
+for $1 \le i \le m$ and $1 \le j \le n$.  We may also subtract matrices. By $-b$ we mean
+$(-1)b$, and by $a - b$ we mean~$a + (-b)$.
+
+\begin{exer}\label{ex_mat_add} Let
+ \[ \begin{bmatrix}
+              4  &  2  &  0  & -1  \\
+             -1  & -3  &  1  &  5
+    \end{bmatrix} \qquad \text{ and } \qquad
+    \begin{bmatrix}
+              1  & -5  &  3  & -1  \\
+              3  &  1  &  0  & -1
+    \end{bmatrix}\,. \]
+Find $a + b$, $3a$, and $a - 2b$.   (Solution~\ref{sol_ex_mat_add}.)
+\end{exer}
+
+If $a$ is an $m \times n$ matrix and $b$ is an $n \times p$ matrix, the product of $a$ and $b$
+is the $m \times p$ matrix whose value at $(i,j)$ is $\sum_{k=1}^n a_k^i b_j^k$.  That is,
+ \[ (ab)_j^i = \sum_{k=1}^n a_k^i b_j^k\]
+for $1 \le i \le m$ and $1 \le j \le p$.  Notice that in order for the product
+ \index{<@$ab$ (product of matrices)}%
+ \index{product!of matrices}%
+$ab$ to be defined the number of columns of $a$ must be the same as the number of rows of~$b$.
+Here is a slightly different way of thinking of the product of $a$ and~$b$.  Define the
+ \index{inner product}%
+ \index{product!inner}%
+\df{inner product} (or
+ \index{dot product}%
+ \index{product!dot}%
+\df{dot product}) of two $n$-tuples $(x_1,x_2,\dots, x_n)$ and $(y_1,y_2,\dots, y_n)$ to be
+$\sum_{k=1}^n x_k y_k$.  Regard the rows of the matrix $a$ as $n$-tuples (read from left to
+right) and the columns of $b$ as $n$-tuples (read from top to bottom).  Then the entry in the
+$i^{\text{th}}$ row and $j^{\text{th}}$ column of the product $ab$ is the dot product of the
+$i^{\text{th}}$ row of $a$ and the $j^{\text{th}}$ column of~$b$.
+
+\begin{exam} Matrix multiplication is not commutative.  If $a$ is a $2 \times 3$ matrix and
+$b$ is a $3 \times 4$ matrix, then $ab$ is defined but $ba$ is not.  Even in situations where
+both products $ab$ and $ba$ are defined, they need not be equal.  For example, if $a =
+\begin{bmatrix} 1 & 2 \\ 1 & 0 \end{bmatrix}$ and $b = \begin{bmatrix} -1 & 1 \\ 2 & 3
+\end{bmatrix}$, then $ab =
+\begin{bmatrix} 3 & 7 \\ -1 & 1 \end{bmatrix}$ whereas $ba =
+\begin{bmatrix} 0 & -2 \\ 5 & 4 \end{bmatrix}$.
+\end{exam}
+
+\begin{exer}\label{ex_mat_mult} Let $a = \begin{bmatrix} 2 & 3 & -1 \\ 0 & 1 & 4 \end{bmatrix}$
+and $b = \begin{bmatrix} 1 & 0 \\ 2 & -1 \\ 1 & -\end{bmatrix}$.  Find $ab$.
+(Solution~\ref{sol_ex_mat_mult}.)
+\end{exer}
+
+\begin{prob} Let $a = \begin{bmatrix}
+                            4 &  3 &  1 &  2 \\
+                            0 & -1 & -1 &  1 \\
+                            2 &  0 &  1 &  3
+                      \end{bmatrix}$
+and $b = \begin{bmatrix}
+                   2 & -1 \\
+                   0 &  1 \\
+                   1 &  0 \\
+                  -3 &  2
+         \end{bmatrix}$.
+ \begin{enumerate}
+  \item[(a)] Find the product $ab$ (if it exists).
+  \item[(b)] Find the product $ba$ (if it exists).
+ \end{enumerate}
+\end{prob}
+
+\begin{defn} Let $a$ be an $m \times n$ matrix.  The
+ \index{transpose}%
+\df{transpose} of $a$, denoted by $a^t$, is the $n \times m$ matrix obtained by interchanging
+the rows and columns of~$a$.  That is, if $b = a^t$, then $b_j^i = a_i^j$ for $1 \le i \le n$
+and $1 \le j \le  m$.
+\end{defn}
+
+\begin{exam} Let $a =  \begin{bmatrix}
+                            1 &  2 &  0 & -4 \\
+                            3 &  0 & -1 &  5
+                       \end{bmatrix}$.  Then
+$a^t = \begin{bmatrix}
+               1 &  3 \\
+               2 &  0 \\
+               0 & -1 \\
+              -4 &  5
+       \end{bmatrix}$.
+\end{exam}
+
+For material in the sequel the most important role played by matrices will be as
+(representations of) linear transformations on finite dimensional vector spaces. Here is how
+it works.
+
+\begin{defn}\label{def_act_matr} We define the \emph{action} of a matrix on a vector.  If
+$a \in M_{m \times n}$ and $x \in \R^n$, then $ax$, the
+ \index{action of a matrix}%
+\df{result of} $a$ \df{acting on} $x$, is defined to be the vector in $\R^m$ whose
+$j^{\text{th}}$ coordinate is $\sum_{k=1}^n a_k^j x_k$ (this is just the dot product of the
+$j^{\text{th}}$ row of $a$ with~$x$).  That is,
+  \[ (ax)_j := \sum_{k=1}^n a_k^jx_k \]
+for $1 \le j \le m$.  Here is another way of saying the same thing: Regard $x$ as an $n \times
+1$ matrix
+  \[ \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \]
+(sometimes called a
+ \index{column!vector}%
+ \index{vector!column}%
+\df{column vector}).  Now multiply the $m \times n$ matrix $a$ by the $n \times 1$ matrix~$x$.
+The result will be an $m \times 1$ matrix (another column vector), say
+  \[ \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix}\,. \]
+Then
+ \index{<@$ax$ (action of a matrix on a vector)}%
+$ax$ is the $m$-tuple $(y_1,\dots, y_m)$.  Thus $a$ may be thought of as a mapping from $\R^n$
+into $\R^m$.
+\end{defn}
+
+\begin{exer}\label{ex_mat_act} Let $a =
+        \begin{bmatrix}
+             3 &  0 & -1 & -4 \\
+             2 &  1 & -1 & -2 \\
+             1 & -3 &  0 &  2
+        \end{bmatrix}$ and $x = (2, 1, -1, 1)$.  Find $ax$.  (Solution~\ref{sol_ex_mat_act}.)
+\end{exer}
+
+\begin{prob}  Let $a = \begin{bmatrix}
+                            2 &  0 \\
+                            1 & -3 \\
+                            5 &  1
+                       \end{bmatrix}$
+and $x = (1,-2)$.  Find $ax$.
+\end{prob}
+
+From the definition of the action of a matrix on a vector, we derive several formulas which
+will be useful in the sequel. Each is a simple computation.
+
+\begin{prop}\label{prop_matr_arith} Let $a$, $b \in M_{m \times n}$; $c \in M_{n \times p}$;
+$x$, $y \in \R^n$; $z \in \R^p$; and $\alpha \in \R$.  Then
+ \begin{enumerate}
+  \item[(a)] $a(x + y) = ax + ay$;
+  \item[(b)] $a(\alpha x) = \alpha(ax)$;
+  \item[(c)] $(a + b)x = ax + bx$;
+  \item[(d)] $(\alpha a)x = \alpha(ax)$;
+  \item[(e)] $(ac)z = a(cz)$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Part (a) is an exercise. (Solution~\ref{sol_prop_matr_arith}.)
+Parts (b)--(e) are problems.  \ns \end{proof}
+
+Next we show that a sufficient (and obviously necessary) condition for two $m \times n$
+matrices to be equal is that they have the same action on the standard basis vectors
+in~$\R^n$.
+
+\begin{prop}\label{prop_mrlt_bas}  Let $a$ and $b$ be $m \times n$ matrices and, as usual,
+let $e^1, \dots, e^n$ be the standard basis vectors in $\R^n$.  If $ae^k = be^k$ for $1 \le k
+\le n$, then $a = b$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Compute $(ae^k)_j$ and $(be^k)_j$ for $1 \le j \le m$
+and $1 \le k \le n$.  Remember that $(e^k)_l = 0$ if $k \ne l$ and that $(e^k)_k = 1$.  \ns
+\end{proof}
+
+\begin{rem} The definition~\ref{def_act_matr} of the action of a matrix on a vector technically
+requires us to think of vectors as ``column vectors''.  It is probably more likely that most
+of us think of vectors in $\R^n$ as
+ \index{row!vector}%
+ \index{vector!row}%
+``row vectors'', that is, as $n$-tuples or as $1 \times n$ matrices. Then for the matrix
+multiplication $ax$ to make sense and for the result to again be a ``row vector'' we really
+should write
+  \[ \bigl(a(x^t)\bigr)^t \]
+for the action of the matrix $a \in M_{m \times n}$ on the vector $x \in \R^n$. We won't do
+this.  We will regard vectors as ``row vectors'' or ``column vectors'' as convenience
+dictates.
+\end{rem}
+
+\begin{defn}  In our later work we will have occasion to consider
+the action of a
+ \index{square matrix}%
+\df{square matrix} (one with the same number of rows as columns) on a pair of vectors.  Let $a
+\in  M_n$ and $x,y \in \R^n$.  We denote by $xay$ the number $\sum_{j,k=1}^n a_k^jx_jy_k$.
+
+Since
+ \[\sum_{j,k=1}^n a_k^jx_jy_k = \sum_{j=1}^n x_j \sum_{k=1}^na_k^jy_k\]
+and since $\sum_{k=1}^na_k^jy_k$ is just $(ay)_j$, we may write
+ \[xay = \sum_{j=1}^n x_j(ay)_j.\]
+\end{defn}
+
+In other words $xay$ is just the dot product of the vectors $x$ and
+$ay$.  If we identify $n$-tuples (row vectors) with $1 \times n$
+matrices, then $xay$ is the product of the three matrices $x$, $a$,
+and $y^t$.  That is,
+ \[ xay = \begin{bmatrix} x_1 \dots x_n \end{bmatrix}
+   \begin{bmatrix}
+        a_1^1 & \hdots & a_n^1  \\
+       \vdots & \ddots & \vdots \\
+        a_1^n & \hdots & a_n^n
+   \end{bmatrix}
+   \begin{bmatrix}
+           y_1 \\
+           \vdots \\
+           y_n
+   \end{bmatrix}\,.\]
+
+\begin{exer}\label{ex_mat_act3} Let $a = \begin{bmatrix}
+                                              1 & 3 & -1 \\
+                                              0 & 2 & 4  \\
+                                              1 & -1 & 1
+                                         \end{bmatrix}$, $x = (1,-2,0)$, and $y = (3,0,1)$.
+Find the action of $a$ on the pair of vectors $x$ and $y$; that is, find~$xay$.
+(Solution~\ref{sol_ex_mat_act3}.)
+
+\end{exer}
+
+\begin{prob} Let $a = \begin{bmatrix}
+                               1 &  2 &  0 & -1 \\
+                               3 & -3 &  1 &  0 \\
+                               2 &  0 &  1 & -4 \\
+                              -1 &  1 & -1 &  1
+                      \end{bmatrix}$, $x = (1,-1,0,2)$, and $y = (1,0,3,1)$.  Find~$xay$.
+\end{prob}
+
+\begin{defn} The
+ \index{main diagonal}%
+ \index{diagonal!main}%
+\df{main} (or
+ \index{principal diagonal}%
+ \index{diagonal!principal}%
+\df{principal}) \df{diagonal} of a square matrix is the diagonal running from the upper left
+corner to the lower right corner.  That is, it consists of all the elements of the
+form~$a_k^k$.  If each entry on the main diagonal of an $n \times n$ matrix is $1$ and all its
+other entries are $0$, then the matrix is the $n \times n$
+ \index{identity matrix}%
+ \index{matrix!identity}%
+\df{identity matrix}.  This matrix is denoted
+ \index{identity@$I_n$, $I$ (identity matrix}%
+by~$I_n$ (or just by $I$ if no confusion will result).  If $c$ is a real number, it is
+conventional to denote the matrix $cI_n$ by~$c$.  It is clear that $a\,I_n = I_n\,a = a$ for
+every $n \times n$ matrix~$a$.  The $m \times n$
+ \index{zero!matrix}%
+ \index{matrix!zero}%
+\df{zero matrix} is the $m \times n$ matrix all of whose entries are~$0$.  It is denoted
+ \index{zero@$\vc 0_{m \times n}$ (zero matrix)}%
+by~$\vc 0_{m \times n}$ or just by $\vc 0$. Certainly $\vc 0 + a = a + \vc 0 = a$ for every $m
+\times n$ matrix~$a$.
+\end{defn}
+
+\begin{defn} A square matrix $a$ in $\ofml M_{n \times n}$ is invertible if there exists an
+$n \times n$ matrix $a^{-1}$ such that
+  \[ aa^{-1} = a^{-1}a = I_n\,. \]
+The matrix
+ \index{<@$a^{-1}$ (inverse of a matrix)}%
+$a^{-1}$ is the
+ \index{inverse!of a matrix}%
+ \index{matrix!inverse of a}%
+\df{inverse} of~$a$.
+\end{defn}
+
+
+\begin{prop}\label{mmult_uniq_inv} An $n \times n$-matrix has at most one inverse.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_mmult_uniq_inv}.)  \ns  \end{proof}
+
+\begin{exer}\label{ex_mat_inv}  Show that the matrix $b =
+    \begin{bmatrix}
+        -1/2 &  1/2 &  3/2 \\
+         1/4 &  1/4 & -1/4 \\
+         3/4 & -1/4 & -3/4
+    \end{bmatrix}$ is the inverse of the matrix $a =
+             \begin{bmatrix}
+                    1 &  0 &  2 \\
+                    0 &  3 & -1 \\
+                    1 & -1 &  1
+             \end{bmatrix}.$ (Solution~\ref{sol_ex_mat_inv}.)
+\end{exer}
+
+
+\begin{prob}\label{prob_matr_inv}  Show that the matrix $a =
+          \begin{bmatrix}
+                  1 &  3 & -1 \\
+                  0 &  2 &  1 \\
+                  1 & -2 &  1
+          \end{bmatrix}$ satisfies the equation
+  \[ a^3 - 4a^2 + 8a - 9 = \vc 0. \]
+Use this fact to find the inverse of~$a$.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+\section{DETERMINANTS}\label{dets} A careful development of the properties of the determinant
+function on $n \times n$ matrices is not a central concern of this course.  In this section we
+record without proof some of its elementary properties. (Proofs of these facts can be found in
+almost any linear algebra text. Two elegant (if not entirely elementary) presentations can be
+found in~\cite{Halmos:1958} and~\cite{HoffmanK:1971}.)
+
+\begin{fact}\label{mat_fact1} Let $n \in \N$.  There is exactly one function
+ \[ \det \colon  M_{n \times n} \sto \R \colon  a \mapsto \det a \]
+which satisfies
+ \begin{enumerate}
+  \item[(a)] $\det I_n = 1$.
+  \item[(b)] If $a \in \ofml M_{n \times n}$ and $a'$ is the matrix obtained by interchanging two
+rows of $a$, then $\det a' = - \det a$.
+  \item[(c)] If $a \in \ofml M_{n \times n}$, $c \in \R$, and $a'$ is the matrix obtained by
+multiplying each element in one row of $a$ by $c$, then $\det a' = c \det a$.
+  \item[(d)] If $a \in \ofml M_{n \times n}$, $c \in \R$, and $a'$ is the matrix obtained from $a$
+by multiplying one row of $a$ by $c$ and adding it to another row of $a$ (that is, choose $i,j
+\in \N_n$ with $i \ne j$ and replace $a_k^j$ by $a_k^j + ca_k^i$ for each $k$ in $N_n$), then
+$\det a' = \det a$.
+ \end{enumerate}
+\end{fact}
+
+\begin{defn} The unique function $\det \colon  \ofml M_{n \times n} \sto \R$ described above is
+the $n \times n$
+ \index{determinant@$\det a$ (determinant of a matrix)}%
+\df{determinant function}.
+\end{defn}
+
+\begin{fact} If $a \in \R$ ( = $\ofml M_{1 \times 1}$), then $\det a = a$; if
+$a \in \ofml M_{2 \times 2}$, then $\det a = a_1^1 a_2^2 - a_2^1 a_1^2$.
+\end{fact}
+
+\begin{fact} If $a, b \in \ofml M_{n \times n}$, then $\det(ab) = (\det a)(\det b)$.
+\end{fact}
+
+\begin{fact}\label{mat_fact4} If $a \in \ofml M_{n \times n}$, then $\det a^t = \det a$.
+(An obvious corollary of this: in conditions (b), (c), and (d) of fact \ref{mat_fact1} the
+word ``columns'' may be substituted for the word ``rows''.)
+\end{fact}
+
+\begin{defn} Let $a$ be an $n \times n$ matrix.  The
+ \index{minor}%
+\df{minor} of the element $a_k^j$, denoted by $M_k^j$, is the determinant of the $(n-1) \times
+(n-1)$ matrix which results from the deletion of the j$^{\text{th}}$ row and k$^{\text{th}}$
+column of~$a$.  The
+ \index{cofactor}%
+\df{cofactor} of the element~$a_k^j$, denoted by $C_k^j$ is defined
+by
+  \[ C_k^j := (-1)^{j+k}M_k^j\,. \]
+\end{defn}
+
+\begin{fact} If $a \in \ofml M_{n \times n}$ and $1 \le j \le n$, then
+  \[ \det a = \sum_{k=1}^n a_k^j C_k^j\,. \]
+This is the
+ \index{Laplace expansion}%
+ \index{expansion!of a determinant}%
+\df{(Laplace) expansion} of the determinant along the j$^{\text{th}}$ row.
+\end{fact}
+
+In light of fact~\ref{mat_fact4}, it is clear that expansion along columns works as well as
+expansion along rows.  That is,
+  \[ \det a = \sum_{j=1}^n a_k^j C_k^j \]
+for any $k$ between $1$ and~$n$.  This is the \df{(Laplace) expansion} of the determinant
+along the k$^{\text{th}}$ column.
+
+\begin{fact}\label{fact_matr_inv} An $n \times n$ matrix $a$ is invertible if and only if
+$\det a \ne 0$.  If $a$ is invertible, then
+ \[ a^{-1} =  (\det a)^{-1} C^t \]
+where $C = \bigl[C_k^j\bigr]$ is the matrix of cofactors of elements of~$a$.
+\end{fact}
+
+\begin{exer}\label{ex_mat_inv2} Let $a =
+         \begin{bmatrix}
+               1  &  0  &  2 \\
+               0  &  3  & -1 \\
+               1  & -1  &  1
+         \end{bmatrix}$. Use the preceding facts to show that $a$ is invertible and to compute
+the inverse of~$a$.  (Solution~\ref{sol_ex_mat_inv2}.)
+
+\end{exer}
+
+\begin{prob}  Let $a$ be the matrix given in problem~\ref{prob_matr_inv}.  Use the facts stated in
+section~\ref{dets} to show that $a$ is invertible and to compute~$a^{-1}$.
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{MATRIX REPRESENTATIONS OF LINEAR TRANSFORMATIONS}  We are now in a position to represent
+members of $\ofml L(\R^n,\R^m)$ by means of matrices.  This will simplify computations
+involving such linear transformations.
+
+\begin{defn} If $T \in \ofml L(\R^n,\R^m)$, we define $[T]$ to be the $m \times n$ matrix whose
+entry in the $j^{\text{th}}$ row and $k^{\text{th}}$ column is $(Te^k)_j$, the $j^{\text{th}}$
+component of the vector $Te^k$ in $\R^m$.  That is, if $a = [T]$, then $a_k^j = (Te^k)_j$.
+The matrix
+ \index{<@$[T]$ (matrix representation of a linear map)}%
+$[T]$ is the
+ \index{matrix!representation}%
+ \index{representation!matrix}%
+\df{matrix representation} of $T$ (with respect to the standard bases in $\R^n$ and~$\R^m$).
+\end{defn}
+
+\begin{exam}  Let $T \colon \R^4 \sto \R^3 \colon  (w,x,y,z) \mapsto (w+2x+3y, 5w+6x+7y+8z,
+-2x-3y-4z)$.  Then $T$ is linear and
+ \begin{align*}
+      Te^1 &= T(1,0,0,0) = (1,5,0)  \\
+      Te^2 &= T(0,1,0,0) = (2,6,-2) \\
+      Te^3 &= T(0,0,1,0) = (3,7,-3) \\
+      Te^4 &= T(0,0,0,1) = (0,8,-4).
+ \end{align*}
+Having computed $Te^1,\dots, Te^4$, we use these as the successive columns of~$[T]$.  Thus
+ \[ T = \begin{bmatrix}
+             1 &  2 &  3 &  0 \\
+             5 &  6 &  7 &  8 \\
+             0 & -2 & -3 & -4
+        \end{bmatrix}. \]
+\end{exam}
+
+\begin{exam} If $I \colon \R^n \sto \R^n$ is the identity map on $\R^n$, then its matrix
+representation $[I]$ is just the $n \times n$ identity matrix~$I_n$.
+\end{exam}
+
+\begin{exer}\label{exer_mrlt_exam}  Let $T \colon \R^2 \sto \R^4 \colon  (x,y) \mapsto
+(x - 3y, 7y, 2x + y, -4x + 5y)$.  Find $[T]$.  (Solution~\ref{sol_exer_mrlt_exam}.)
+
+\end{exer}
+
+The point of the representation just defined is that if we compute the action of the matrix
+$[T]$ on a vector $x$ (as defined in~\ref{def_act_matr}), what we get is the value of $T$
+at~$x$. Moreover, this representation is unique; that is, two distinct matrices cannot
+represent the same linear map.
+
+\begin{prop}\label{prop_mrT_is_T} If $T \in \ofml L(\R^n,\R^m)$, then for all $x$ in~$\R^n$
+  \[ Tx = [T]x\,. \]
+Furthermore, if $a$ is any $m \times n$ matrix which satisfies
+  \[ Tx = ax  \qquad \text{for all $x \in \R^n$},  \]
+then $a = [T]$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  For simplicity of notation let $b = [T]$.  The map
+$S \colon \R^n \sto \R^m \colon  x \mapsto bx$ is linear. Why?  To show that $Sx = Tx$ for all
+$x$ in $\R^n$ it suffices to show that $(Se^k)_j = (Te^k)_j$ for $1 \le k \le n$ and $1 \le j
+\le m$.  Why? (Solution~\ref{sol_prop_mrT_is_T}.)  \ns
+\end{proof}
+
+\begin{prop}\label{prop_matrep_bij}  Let $m$, $n \in \N$.  The map $T \mapsto [T]$ from
+$\ofml L(\R^n,\R^m)$ into $\ofml M_{m \times n}$ is a bijection.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_matrep_bij}.)  \ns  \end{proof}
+
+\begin{prop}\label{prop_arith_matrep}  Let $m$, $n \in \N$; let $S$, $T \in \ofml L(\R^n,\R^m)$;
+and let $\alpha \in \R$.  Then
+ \begin{enumerate}
+  \item[(a)] $[S + T] = [S] + [T]$, and
+  \item[(b)] $[\alpha T] = \alpha [T]$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  For (a) use propositions \ref{prop_mrlt_bas},
+\ref{prop_mrT_is_T}, and~\ref{prop_matr_arith}(c). (Solution~\ref{sol_prop_arith_matrep}.) \ns
+\end{proof}
+
+\begin{thm}  Under the operations of addition and scalar multiplication (defined in
+section~\ref{matr}) $\ofml M_{m \times n}$ is a vector space and the map $T \mapsto [T]$,
+which takes a linear transformation to its matrix representation, is an isomorphism between
+$\ofml L(\R^n,\R^m)$ and~$\ofml M_{m \times n}$.
+\end{thm}
+
+\begin{proof} Problem. \emph{Hint.} Use problem~\ref{lt_transfer}. \ns  \end{proof}
+
+\begin{prob} Define $T \colon \R^3 \sto \R^4$ by
+  \[ T(x,y,z) = (x - 2y, x + y - 3z, y + 4z, 3x - 2y + z)\,. \]
+Find $[T]$.
+\end{prob}
+
+\begin{prob} Define $T \colon \R^4 \sto \R^3$ by
+  \[ T(w,x,y,z) = (w - 3x + z, 2w + x + y - 4z, w + y + z)\,. \]
+ \begin{enumerate}
+  \item[(a)] Find $[T]$.
+  \item[(b)] Use proposition~\ref{prop_mrT_is_T} to calculate $T(4,0,-3,1)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f \colon \R^2 \sto \R^4$ be defined by
+  \[ f(x) = (x_1x_2, (x_1)^2 - 4(x_2)^2, (x_1)^3, x_1\sin(\pi x_2)) \]
+for all $x = (x_1, x_2)$ in $\R^2$, and let $T \colon \R^2 \sto \R^4$ be the linear
+transformation whose matrix representation is
+ \[ \begin{bmatrix}
+          4 &  0 \\
+          2 & -1 \\
+          5 & -8 \\
+         -1 &  2
+    \end{bmatrix}\,. \]
+Find $f(a + h) - f(a) - Th$ when $a = (-2,1/2)$ and $h = (-1,1)$.
+\end{prob}
+
+\begin{prop}\label{prop_comp_mrlt} If $S \in \ofml L(\R^p,\R^n)$ and
+$T \in \ofml L(\R^n,\R^m)$, then
+  \[ [TS] = [T] [S]\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Why does it suffice to show that $[TS]x = ([T][S])x$
+for all $x$ in $\R^p$?  Use propositions~\ref{prop_mrT_is_T} and~\ref{prop_matr_arith}(e). \ns
+\end{proof}
+
+\begin{prob} Let
+ \begin{align*}
+     T \colon \R^3 \sto \R^4 & \colon  (x,y,z) \mapsto (2x+y, x-z, y+z, 3x) \\
+  \intertext{and}
+     S \colon \R^4 \sto \R^3 & \colon  (w,x,y,z) \mapsto (x-y, y+z, z-w).
+ \end{align*}
+ \begin{enumerate}
+  \item[(a)] Use proposition~\ref{prop_comp_mrlt} to find~$[TS]$.
+  \item[(b)] Use proposition~\ref{prop_comp_mrlt} to find~$[ST]$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{prob_madd_assoc}  Show that matrix multiplication is associative; that is,
+show that if $a \in \ofml M_{m \times n}$, $b \in \ofml M_{n \times p}$, and $c \in \ofml M_{p
+\times r}$, then $(ab)c = a(bc)$. \emph{Hint.} Don't make a complicated and messy computation
+of this by trying to prove it directly.  Use propositions~\ref{prop_assoc_comp},
+\ref{prop_matrep_bij}, and~\ref{prop_comp_mrlt}.  \ns
+\end{prob}
+
+\begin{prob}  Show that $\ofml M_{n \times n}$ is a unital algebra.  \emph{Hint.}  Use the
+definition~\ref{def_alg}. Notice that problem~\ref{prob_madd_assoc} establishes condition (c)
+of~\ref{prob_madd_assoc}.  Verify the other conditions in a similar fashion.
+\end{prob}
+
+\begin{prop}\label{prop_matr_inv} A linear map $T \in \ofml L(\R^n,\R^n)$ is invertible if and
+only if $\det[T] \ne 0$.  If $T$ is invertible, then $[T^{-1}] = [T]^{-1}$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.}  Show that $T$ is invertible if and only if its matrix
+representation is.  Then use~\ref{fact_matr_inv}. \ns \end{proof}
+
+\begin{prob} Let $T \colon \R^3 \sto \R^3 \colon  (x,y,z) \mapsto (x + 2z, y - z, x + y)$.
+ \begin{enumerate}
+  \item[(a)] Compute $[T]$ by calculating $T$ and then writing down its matrix representation.
+  \item[(b)] Use proposition~\ref{prop_matr_inv} to find~$[T]$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{prob_p4_vs} Let $\fml P_4$ be the family of all polynomial functions on $\R$
+with degree (strictly) less than~$4$.
+ \begin{enumerate}
+  \item[(a)] Show that (under the usual pointwise operations) $\fml P_4$ is a vector space which
+is isomorphic to~$\R^4$. \emph{Hint.} Problem~\ref{lt_transfer}.
+  \item[(b)] Let $D \colon \fml P_4 \sto \fml P_4 \colon  f \mapsto f'$ (where $f'$ is the
+derivative of $f$).  Using part (a) to identify the spaces $\fml P_4$ and $\R^4$, find a
+matrix representation for the (obviously linear) differentiation operator~$D$.
+  \item[(c)] Use your answer to part (b) to differentiate the polynomial $7x^3 - 4x^2 + 5x - 81$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $\fml P_4$ be as in problem~\ref{prob_p4_vs}.  Consider the map
+ \[ K \colon \fml P_4 \sto \R \colon  f \mapsto \int_0^1 f(x)\,dx\,. \]
+ \begin{enumerate}
+  \item[(a)] Show that $K$ is linear.
+  \item[(b)] Find a way to represent $K$ as a matrix. \emph{Hint.} Use problem~\ref{prob_p4_vs}(a).
+  \item[(c)] Use your answer to part (b) to integrate the polynomial
+$8x^3 - 5x^2 - 4x + 6$ over the interval~$[0,1]$.
+  \item[(d)] Let $D$ be as in problem~\ref{prob_p4_vs}.  Find $[KD]$ by two different techniques.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $T \in \ofml L(\R^4,\R^4)$ satisfy:
+ \begin{align*}
+       Te^1 &= (1, 2, 0, -1) \\
+       Te^2 &= (1, 0, -3, 2) \\
+       Te^3 &= (1, -1,-1, 1) \\
+       Te^4 &= (0, 2, -1, 0).
+ \end{align*}
+Also let $x = (1,-2,3,-1)$ and $y = (0,1,2,1)$.  Find~$x[T]y$.
+\end{prob}

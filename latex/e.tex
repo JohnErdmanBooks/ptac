@@ -1,0 +1,310 @@
+\chapter{WRITING MATHEMATICS}
+
+\section{PROVING THEOREMS}
+Mathematical results are called \emph{theorems}---or \emph{propositions}, or \emph{lemmas}, or
+\emph{corollaries}, or \emph{examples}.  All these are intended to be mathematical facts. The
+different words reflect only a difference of emphasis. Theorems are more important than
+propositions.  A lemma is a result made use of in a (usually more important) subsequent
+result.  The German word for lemma is particularly suggestive: ``Hilfsatz,'' meaning ``helping
+statement.''  A corollary (to a theorem or proposition) is an additional result we get
+(almost) for free.  All these results are typically packaged in the form, ``If $P$, then
+$Q$.''  The assertion $P$ is the \emph{hypothesis} (or \emph{premise}, or \emph{assumption},
+or \emph{supposition}).  The assertion $Q$ is the \emph{conclusion}. Notice that the result
+``Every object of type $A$ is of type $B$'' is in this form.  It can be rephrased as, ``If $x$
+is an object of type $A$, then $x$ is of type~$B$.''
+
+The statements, $P$ and $Q$ themselves may be complicated conjunctions, or disjunctions,
+or conditionals of simpler statements.  One common type of theorem, for example, is, ``If
+$P_1$, $P_2$, \dots, and $P_m$, then $Q_1$, $Q_2$, \dots, and~$Q_n$.''  (Personally, I
+think such a theorem is clumsily stated if $m$ and $n$ turn out to be large.)
+
+A
+ \index{proofs}%
+\emph{proof} of a result is a sequence of statements, each with justification, which leads to
+the conclusion(s) of the desired result.  The statements that constitute a proof may be
+definitions, or hypotheses, or statements which result from applying to previous steps of the
+proof a valid
+ \index{rule of inference}%
+rule of inference.
+ \index{modus ponens}%
+\emph{Modus ponens} is the basic rule of inference.  It says that if you know a proposition
+$P$ and you also know that $P$ implies $Q$, then you can conclude that $Q$ is true.  Another
+important rule of inference (sometimes called \emph{universal instantiation}) is that if you
+know a proposition $P(x)$ to be true for every $x$ in a set $S$ and you know that $a$ is a
+member of $S$, then you can conclude that $P(a)$ is true.
+
+Other rules of inference can be derived from \emph{modus ponens}. Let's look at an
+example. Certainly, if we know that the proposition $P \land Q$ is true we should be able
+to conclude that $P$ is true.  The reason is simple we know (or can easily check) that
+  \begin{equation}\label{eqn_rul_inf}
+        (P \land Q) \Rightarrow P
+  \end{equation}
+is a tautology (true for all truth values of $P$ and $Q$).  Since $P \land Q$ is known to be
+true, $P$ follows from~\eqref{eqn_rul_inf} by \emph{modus ponens}.  No attempt is made here to
+list every rule of inference that it is appropriate to use.  Most of them should be entirely
+obvious.  For those that are not, truth tables may help.  (As an example consider
+problem~\ref{prob_zero_prod}: If the product of two numbers $x$ and $y$ is zero, then either
+$x$ or $y$ must be zero.  Some students feel obligated to prove two things: that if $xy=0$ and
+$x \neq 0$ then $y=0$ \textbf{AND} that if $xy=0$ and $y \neq 0$ then $x=0$. Examination of
+truth tables shows that this is not necessary.)
+
+A proof in which you start with the hypotheses and reason until you reach the conclusion is a
+ \index{direct proof}%
+ \index{proof!direct}%
+\emph{direct proof}.  There are two other proof formats, which are known as
+ \index{indirect proof}%
+ \index{proof!indirect}%
+\emph{indirect proofs}.  The first comes about by observing that the proposition $\sim Q
+\Rightarrow \sim P$ is logically equivalent to $P \Rightarrow Q$.  (We say that $\sim Q
+\Rightarrow \sim P$ is the
+ \index{contrapositive}%
+\emph{contrapositive} of $P \Rightarrow Q$.)  To prove that $P$ implies $Q$, it suffices to
+assume that $Q$ is false and prove, using this assumption that $P$ is false.  Some find it odd
+that to prove something is true one starts by assuming it to be false.  A slight variant of
+this is the
+ \index{proof!by contradiction}%
+ \index{contradiction, proof by}%
+\emph{proof by contradiction}.  Here, to prove that $P$ implies $Q$, assume two things: that
+$P$ is true and that $Q$ is false. Then attempt to show that these lead to a contradiction.
+We like to believe that the mathematical system we work in is consistent (although we know we
+can't prove it), so when an assumption leads us to a contradiction we reject it.  Thus in a
+proof by contradiction when we find that $P$ and $\sim Q$ can't both be true, we conclude that
+if $P$ is true $Q$ must also be true.
+
+\begin{prob} Prove that in an inconsistent system, everything is true.  That is, prove that if
+$P$ and $Q$ are propositions and that if both $P$ and $\sim P$ are true, then $Q$ is true.
+\emph{Hint.} Consider the proposition $(P \land \sim P) \Rightarrow Q$.
+\end{prob}
+
+\begin{prob} What is wrong with the following proof that $1$ is the largest natural number.
+ \begin{quote}
+Let $N$ be the largest natural number.  Since $N$ is a natural number so is~$N^2$.  We see
+that $N^2 = N \cdot N \ge N \cdot 1 = N$.  Clearly the reverse inequality $N^2 \le N$ holds
+because $N$ is the largest natural number.  Thus $N^2 = N$.  This equation has only two
+solutions: $N=0$ and $N=1$.  Since $0$ is not a natural number, we have $N=1$.  That is, $1$
+is the largest natural number.
+ \end{quote}
+\end{prob}
+
+
+
+
+
+
+
+\section{CHECKLIST FOR WRITING MATHEMATICS}  After you have solved a problem or discovered a
+counterexample or proved a theorem, there arises the problem of writing up your result.  You
+want to do this in a way that will be as clear and as easy to digest as possible. Check your
+work against the following list of suggestions.
+ \begin{enumerate}
+   \item \emph{Have you clearly stated the problem you are asked to solve or the result you
+are trying to prove?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Have an audience in mind.  Write to someone.  And don't assume the person you are writing to
+remembers the problem.  (S)he may have gone on vacation, or been fired; or maybe (s)he just
+has a bad memory.  You need not include every detail of the problem, but there should be
+enough explanation so that a person not familiar with the situation can understand what you
+are talking (writing) about.
+      \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Have you included a paragraph at the beginning explaining the method you are
+going to use to address the problem?}
+
+\vspace{10pt}
+
+     \begin{quote}
+No one is happy being thrown into a sea of mathematics with no clue as to what is going on or
+why.  Be nice.  Tell the reader what you are doing, what steps you intend to take, and what
+advantages you see to your particular approach to the problem.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Have you defined all the variables you use in your writeup?}
+
+\vspace{10pt}
+      \begin{quote}
+\emph{Never} be so rude as to permit a symbol to appear that has not been properly introduced.
+You may have a mental picture of a triangle with vertices labelled $A$, $B$, and~$C$.  When
+you use those letters no one will know what they stand for unless you tell them.  (Even if you
+have included a graph appropriately labelled, still tell the reader \emph{in the text} what
+the letters denote.) Similarly, you may be consistent in always using the letter $j$ to denote
+a natural number.  But how would you expect the reader to know?
+
+\vspace{5pt}
+
+It is good practice to italicize variables so that they can be easily distinguished from
+regular text.
+      \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Is the logic of your report entirely clear and entirely correct?}
+
+\vspace{10pt}
+
+     \begin{quote}
+It is an unfortunate fact of life that the slightest error in logic can make a ``solution'' to
+a problem totally worthless.  It is also unfortunate that even a technically correct argument
+can be so badly expressed that no one will believe it.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{In your writeup are your mathematical symbols and mathematical terms all correctly
+used in a standard fashion? And are all abbreviations standard?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Few things can make mathematics more confusing than misused or eccentrically used symbols.
+Symbols should \emph{clarify} arguments not create yet another level of difficulty.  By the
+way, symbols such as ``='' and ``$<$'' are used \emph{only} in formulas. They are not
+substitutes for the words ``equals'' and ``less than'' in ordinary text.  Logical symbols such
+as $\Rightarrow$ are rarely appropriate in mathematical exposition: write ``If A then B,'' not
+``$A \Rightarrow B$.''  Occasionally they may be used in displays.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Are the spelling, punctuation, diction, and grammar of your report all correct?}
+
+\vspace{15pt}
+
+   \item \emph{Is every word, every symbol, and every equation part of a sentence?  And is every
+sentence part of a paragraph?}
+
+\vspace{10pt}
+
+
+     \begin{quote}
+For some reason this seems hard for many students.  Scratchwork, of course, tends to be full
+of free floating symbols and formulas. When you write up a result get rid of all this clutter.
+Keep only what is necessary for a logically complete report of your work. And make sure any
+formula you keep becomes (an intelligible) part of a sentence.  Study how the author of any
+good mathematics text deals with the problem of incorporating symbols and formulas into text.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Does every sentence start correctly and end correctly?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Sentences start with capital letters.  \emph{Never} start a sentence with a number or with a
+mathematical or logical symbol. Every declarative sentence ends with a period.  Other
+sentences may end with a question mark or (rarely) an exclamation mark.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Is the \emph{function} of every sentence of your report clear?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Every sentence has a function.  It may be a definition.  Or it may be an assertion you are
+about to prove.  Or it may be a consequence of the preceding statement.  Or it may be a
+standard result your argument depends on.  Or it may be a summary of what you have just
+proved.  \textbf{Whatever function a sentence serves, that function should be entirely clear
+to your reader.}
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Have you avoided all unnecessary clutter?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Mindless clutter is one of the worst enemies of clear exposition.  No one wants to see all the
+details of your arithmetic or algebra or trigonometry or calculus.  Either your reader knows
+this stuff and could do it more easily than read it, or doesn't know it and will find it
+meaningless.  In either case, get rid of it.  If you solve an equation, for example, state
+what the solutions are; don't show how you used the quadratic formula to find them.  Write
+only things that inform.  Logical argument informs, reams of routine calculations do not.  Be
+ruthless in rooting out useless clutter.
+     \end{quote}
+
+\vspace{15pt}
+
+   \item \emph{Is the word ``any'' used unambiguously?  And is the order in which quantifiers
+act entirely clear?}
+
+\vspace{10pt}
+
+     \begin{quote}
+Be careful with the word ``any'', especially when taking negations.  It can be surprisingly
+treacherous.  ``Any'' may be used to indicate universal quantification.  (In the assertion,
+``It is true for any $x$ that $x^2 - 1 = (x + 1)(x - 1)$'', the word ``any'' means ``every''.)
+It may also be used for existential quantification.  (In the question, ``Does $x^2 + 2 = 2x$
+hold for any $x$?'' the word ``any'' means ``for some''.  Also notice that answering
+\emph{yes} to this question does not mean that you believe it is true that ``$x^2 + 2 = 2x$
+holds for any~$x$.'') Negations are worse.  (What does ``It is not true that $x^2 + 2 = 2x$
+for any $x$'' mean?)   One good way to avoid trouble: don't use ``any''.
+
+\vspace{5pt}
+
+And be careful of word order.  The assertions ``Not every element of $A$ is an element of
+$B$'' and ``Every element of $A$ is not an element of $B$'' say quite different things.  I
+recommend avoiding the second construction entirely.  Putting (some or all) quantifiers at the
+end of a sentence can be a dangerous business. (The statement, ``$P(x)$ or $Q(x)$ fails to
+hold for all~$x$,'' has at least two possible interpretations. So does ``$x \neq 2$ for all $x
+\in A$,'' depending on whether we read $\neq$ as ``is not equal to'' or as ``is different
+from''.)
+     \end{quote}
+ \end{enumerate}
+
+
+
+\section{FRAKTUR AND GREEK ALPHABETS}
+
+Fraktur is a typeface widely used until the middle of the twentieth century in Germany
+and a few other countries.  In this text it is used to denote families of sets and
+families of linear maps. In general it is not a good idea to try to reproduce these
+letters in handwritten material or when writing on the blackboard. In these cases English
+script letters are both easier to read and easier to write.  Here is a list of upper case
+Fraktur letters:
+\begin{align*} &\mathfrak A \quad (\text A)  &&\mathfrak B \quad (\text B)
+               &&\mathfrak C \quad (\text C) &&\mathfrak D \quad (\text D)
+               &&\mathfrak E \quad (\text E) &&\mathfrak F \quad (\text F)
+               &&\mathfrak G \quad (\text G)   \\
+               &\mathfrak H \quad (\text H)  &&\mathfrak I \quad (\text I)
+               &&\mathfrak J \quad (\text J) &&\mathfrak K \quad (\text K)
+               &&\mathfrak L \quad (\text L) &&\mathfrak M \quad (\text M)
+               &&\mathfrak N \quad (\text N)   \\
+               &\mathfrak O \quad (\text O)  &&\mathfrak P \quad (\text P)
+               &&\mathfrak Q \quad (\text Q) &&\mathfrak R \quad (\text R)
+               &&\mathfrak S \quad (\text S) &&\mathfrak T \quad (\text T)
+               &&\mathfrak U \quad (\text U)   \\
+               &\mathfrak V \quad (\text V)  &&\mathfrak W \quad (\text W)
+               &&\mathfrak X \quad (\text X) &&\mathfrak Y \quad (\text Y)
+               &&\mathfrak Z \quad (\text Z) && {}
+               && {}
+\end{align*}
+
+\vskip .2 in
+
+The following is a list of standard Greek letters used in mathematics. Notice that in
+some cases both upper case and lower case are commonly used:
+  \begin{align*} &\alpha \quad (\text{alpha})  &&\beta \quad (\text{beta})
+               &&\Gamma, \gamma \quad (\text{gamma}) &&\Delta, \delta \quad (\text{delta})
+               &&\epsilon \quad (\text{epsilon}) &&\zeta \quad (\text{zeta})  \\
+               &\eta \quad (\text{eta}) &&\Theta, \theta \quad (\text{theta})
+               &&\iota \quad (\text{iota})  &&\kappa \quad (\text{kappa})
+               &&\Lambda, \lambda \quad (\text{lambda}) &&\mu \quad (\text{mu})   \\
+               &\nu \quad (\text{nu})  &&\Xi, \xi \quad (\text{xi})
+               &&\Pi, \pi \quad (\text{pi})  &&\rho \quad (\text{rho})
+               &&\Sigma, \sigma \quad (\text{sigma}) &&\tau \quad (\text{tau})   \\
+               &\Phi, \phi \quad (\text{phi}) &&\Psi, \psi \quad (\text{psi})
+               &&\chi \quad (\text{chi})  &&\Omega, \omega \quad (\text{omega})
+               && {}  &&  {}
+  \end{align*}
+
+\endinput

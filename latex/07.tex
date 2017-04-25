@@ -1,0 +1,165 @@
+\chapter{LIMITS OF REAL VALUED FUNCTIONS}\label{lim_rvf}
+
+In chapter \ref{seqs_rn} we studied limits of sequences of real
+numbers.  In this very short chapter we investigate limits of real
+valued functions of a real variable.  Our principal result
+(\ref{cnt_vs_lim}) is a characterization of the continuity of a
+function $f$ at a point in terms of the limit of $f$ at that point.
+
+Despite the importance of this characterization, there is one
+crucial difference between a function being continuous at a point
+and having a limit there.  If $f$ is continuous at~$a$, then $a$
+must belong to the domain of $f$.  In order for $f$ to have a limit
+at~$a$, it is not required that $a$ be in the domain of~$f$.
+
+
+
+
+\section{DEFINITION} To facilitate the definition of ``limit'' we introduce the notion of a
+\emph{deleted neighborhood} of a point.
+
+\begin{defn} If $J = (b,c)$ is a neighborhood of a point~$a$ (that is, if $b < a < c$), then
+ \index{<@$J^*$ (deleted neighborhood)}%
+ \index{j@$J^*$ (deleted neighborhood)}%
+$J^*$, the
+ \index{deleted!neighborhood}%
+ \index{neighborhood!deleted}%
+\df{deleted neighborhood} associated with $J$, is just $J$ with the point $a$ deleted.  That
+is, $J^* = (b,a) \cup (a,c)$.  In particular, if $J_\delta(a)$ is the $\delta$-neighborhood of
+$a$, then $J^*_\delta(a)$ denotes $(a-\delta,a) \cup (a,a+\delta)$.
+\end{defn}
+
+\begin{defn} Let $A$ be a subset of $\R$, let $f \colon A \sto \R$, let $a$ be an accumulation
+point of $A$, and let $l$ be a real number.  We say that $l$ is the
+ \index{limit!of a function}%
+\df{limit of $f$ as $x$ approaches $a$} (or the \df{limit of $f$ at $a$}) if: for every
+$\epsilon > 0$ there exists $\delta > 0$ such that $f(x)\in J_\epsilon(l)$ whenever $x \in A
+\cap J_\delta^*(a)$.
+
+Using slightly different notation we may write this condition as
+   \[ (\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A)\,
+                    0 < \abs{x-a} < \delta \implies \abs{f(x) - l} < \epsilon\,. \]
+If this condition is satisfied we write
+ \index{<@$f(x) \sto l \text{ as } x \sto a$ (limit of a function at a point)}%
+      \[ f(x) \sto l \text{ as } x \sto a\]
+or
+ \index{limit@$\lim_{x \sto a}f(x)$ (limit of a function at a point)}%
+   \[ \lim_{x \sto a}f(x) = l\,. \]
+(Notice that this last notation is a bit optimistic.  It would not make sense if $f$ could
+have two distinct limits as $x$ approaches~$a$.  We will show in proposition \ref{rlim_uniq}
+that this cannot happen.)
+\end{defn}
+
+The first thing we notice about the preceding definition is that the point $a$ at which we
+take the limit need not belong to the domain $A$ of the function~$f$.  Very often in practice
+it does not.  Recall the definition in beginning calculus of the derivative of a function $f
+\colon \R \sto \R$ at a point $a$.  It is the limit as $h \sto 0$ of the Newton quotient
+$\dfrac{f(a+h) - f(a)}h$. This quotient is not defined at the point $h = 0$.  Nevertheless we
+may still take the limit as $h$ approaches~$0$.
+
+Here is another example of the same phenomenon.  The function on $(0,\infty)$ defined by $x
+\mapsto (1+x)^{1/x}$ is not defined at $x = 0$.  But its limit at $0$ exists: recall from
+beginning calculus that $\lim_{x \sto 0}(1+x)^{1/x} = e$.
+
+One last comment about the definition: even if a function $f$ is defined at a point $a$, the
+value of $f$ at $a$ is irrelevant to the question of the existence of a limit there.
+According to the definition we consider only points $x$ satisfying $0 < \abs{x-a} < \delta$.
+The condition $0 < \abs{x-a}$ says just one thing: $x \ne a$.
+
+\begin{prop}\label{rlim_uniq} Let $f \colon A \sto \R$ where $A \subseteq \R$, and let $a$ be an
+accumulation point of $A$.  If $f(x) \sto b$ as $x \sto a$, and if $f(x) \sto c$ as $x \sto
+a$, then $b = c$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_rlim_uniq}.)
+  \ns \end{proof}
+
+
+
+
+
+
+
+
+
+\section{CONTINUITY AND LIMITS}
+There is a close connection between the existence of a limit of a function at a point $a$ and
+the continuity of the function at $a$. In proposition \ref{cnt_vs_lim} we state the precise
+relationship. But first we give two examples to show that in the absence of additional
+hypotheses neither of these implies the other.
+
+\begin{exam} The inclusion function $f \colon  \N \sto \R \colon  n \mapsto n$ is continuous
+(because \emph{every} subset of $\N$ is open in $\N$, and thus every function defined on $\N$
+is continuous).  But the limit of $f$ exists at no point (because $\N$ has no accumulation
+points).
+\end{exam}
+
+\begin{exam} Let
+   \[ f(x) = \begin{cases}    0,  &\text{ for $x \ne 0$} \\
+                              1,  &\text{ for $x=0$\,.}
+             \end{cases} \]
+Then $\lim_{x \sto 0}f(x)$ exists (and equals $0$), but $f$ is not continuous at $x = 0$.
+\end{exam}
+
+We have shown in the two preceding examples that a function $f$ may be continuous at a point
+$a$ without having a limit there and that it may have a limit at $a$ without being continuous
+there.  If we require the point $a$ to belong to the domain of $f$ and to be an accumulation
+point of the domain of $f$ (these conditions are independent!), then a necessary and
+sufficient condition for $f$ to be continuous at $a$ is that the limit of $f$ as $x$
+approaches $a$ (exist and) be equal to $f(a)$.
+
+\begin{prop}\label{cnt_vs_lim} Let $f \colon  A \sto \R$ where $A \subseteq \R$, and let
+$a \in A \cap A'$.  Then $f$ is continuous at $a$ if and only if
+   \[ \lim_{x \sto a}f(x) = f(a)\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_cnt_vs_lim}.)  \ns \end{proof}
+
+\begin{prop}\label{trnsl_lim} If $f \colon A \sto \R$ where $A \subseteq \R$, and $a \in A'$, then
+   \[ \lim_{h \sto 0} f(a + h) = \lim_{x \sto a} f(x) \]
+in the sense that if either limit exists, then so does the other and the two limits are equal.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_trnsl_lim}.)  \ns \end{proof}
+
+\begin{prob}  Let $f(x) = 4 - x$ if $x < 0$ and $f(x) = (2 + x)^2$ if $x > 0$.  Using the
+definition of ``limit'' show that $\lim_{x \sto 0}f(x)$ exists.
+\end{prob}
+
+\begin{prop}  Let $f \colon A \sto \R$ where $A \subseteq \R$ and let $a \in A'$.  Then
+  \[ \lim_{x \sto a}f(x) = 0 \qquad \text{if and only if} \qquad
+                                        \lim_{x \sto a}\abs{f(x)} = 0\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prop}\label{sand_fcn} Let $f$, $g$, $h \colon A \sto \R$ where $A \subseteq \R$, and
+let $a \in A'$.  If $f \le g \le h$ and
+   \[ \lim_{x \sto a}f(x) = \lim_{x \sto a}h(x) = l, \]
+then $\lim_{x \sto a}g(x) = l$.
+\end{prop}
+
+
+\begin{proof} Problem. \emph{Hint.} A slight modification of your proof of proposition
+\ref{sand_seq} should do the trick.  \ns
+\end{proof}
+
+\begin{prob}[Limits of algebraic combinations of functions] Carefully formulate and prove
+the standard results from beginning calculus on the limits of sums, constant multiples,
+products, and quotients of functions.
+\end{prob}
+
+\begin{prob} Let $A$, $B \subseteq \R$, $a \in A$, $f \colon A \sto B$, and $g \colon B \sto \R$.
+ \begin{enumerate}
+  \item[(a)] If $l = \lim_{x \sto a}f(x)$ exists and $g$ is continuous at $l$, then
+    \[ \lim_{x \sto a}(g \circ f)(x) = g(l)\,. \]
+  \item[(b)] Show by example that the following assertion need not be true: If
+$l = \lim_{x \sto a}f(x)$ exists and $\lim_{y \sto l}g(y)$ exists, then $\lim_{x \sto a}(g
+\circ f)(x)$ exists.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+\endinput

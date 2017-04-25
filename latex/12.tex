@@ -1,0 +1,238 @@
+\chapter{SEQUENCES IN METRIC SPACES}\label{seqs_msps}
+
+
+
+In chapter \ref{seqs_rn} we were able to characterize several topological properties of the
+real line $\R$ by means of sequences. The same sort of thing works in general metric spaces.
+Early in this chapter we give sequential characterizations of open sets, closed sets, dense
+sets, closure, and interior.  Later we discuss products of metric spaces.
+
+
+\section{CONVERGENCE OF SEQUENCES}
+Recall that a
+ \index{sequence}%
+\df{sequence} is any function whose domain is the set $\N$ of natural numbers.  If $S$ is a
+set and $x \colon \N \sto S$, then we say that $x$ is a sequence of members of $S$.  A map $x
+\colon \N \sto \R$, for example, is a sequence of real numbers.  In dealing with sequences one
+usually (but not always) writes $x_n$ for $x(n)$.  The element $x_n$ in the range of a
+sequence is the $n^{\text{th}}$
+ \index{term!of a sequence}%
+\df{term} of the sequence. Frequently we use the notations $(x_n)_{n=1}^{\infty}$ or just
+$(x_n)$ to denote the sequence~$x$.
+
+\begin{defn}\label{defn_nbhd_pt} A
+ \index{neighborhood!of a point}%
+\df{neighborhood} of a point in a metric space is any open set containing the point.  Let $x$
+be a sequence in a set $S$ and $B$ be a subset of~$S$.  The sequence $x$ is
+ \index{eventually}%
+\df{eventually} in the set $B$ if there is a natural number $n_0$ such that $x_n \in B$
+whenever $n \ge n_0$.  A sequence $x$ in a metric space $M$
+ \index{convergence!of a sequence}%
+\df{converges} to a point $a$ in $M$ if $x$ is eventually in every neighborhood of $a$
+(equivalently, if it is eventually in every open ball about~$a$). The point $a$ is the
+ \index{limit!of a sequence}%
+\df{limit} of the sequence~$x$. (In proposition \ref{lim_uniq} we find that limits of
+sequences are unique, so references to ``the'' limit of a sequence are justified.)
+
+If a sequence $x$ converges to a point $a$ in a metric space we write
+ \index{<@$x_n \sto a \text{ as $n \sto \infty$}$ (limit of a sequence)}%
+   \[ x_n \sto a  \quad \text{ as } \quad n \sto \infty \]
+or
+ \index{limit@$\lim_{n \sto \infty}x_n$ (limit of a sequence)}%
+    \[ \lim_{n \sto \infty}x_n = a\,. \]
+It should be clear that the preceding definition may be rephrased as follows: The sequence $x$
+converges to the point $a$ if for every $\epsilon > 0$ there exists $n_0 \in \N$ such that
+$d(x_n,a) < \epsilon$ whenever $n \ge n_0$.  It follows immediately that $x_n \sto a$ if and
+only if $d(x_n,a) \sto 0$ as $n \sto \infty$.  Notice that in the metric space $\R$ the
+current definition agrees with the one given in chapter~\ref{seqs_rn}.
+\end{defn}
+
+
+
+
+
+
+
+
+\section{SEQUENTIAL CHARACTERIZATIONS OF TOPOLOGICAL PROPERTIES}
+Now we proceed to characterize some metric space concepts in terms of sequences.  The point of
+this is that sequences are often easier to work with than arbitrary open sets.
+
+\begin{prop} A subset $U$ of a metric space $M$ is open if and only if every sequence in $M$
+which converges to an element of $U$ is eventually in~$U$.
+\end{prop}
+
+\begin{proof} Suppose that $U$ is an open subset of $M$. Let $(x_n)$ be a sequence in $M$ which
+converges to a point $a$ in $U$. Then $U$ is a neighborhood of $a$. Since $x_n \sto a$, the
+sequence $(x_n)$ is eventually in~$U$.
+
+To obtain the converse suppose that $U$ is not open. Some point, say $a$, of $U$ is not an
+interior point of $U$. Then for every $n$ in $\N$ we may choose an element $x_n$ in
+$B_{1/n}(a)$ such that $x_n \notin U$. Then the sequence $(x_n)$ converges to $a \in U$, but
+it is certainly not true that $(x_n)$ is eventually in~$U$.
+\end{proof}
+
+\begin{prop}\label{scm_closed} A subset $A$ of a metric space is closed if and only if $b$
+belongs to $A$ whenever $(a_n)$ is a sequence in $A$ which converges to $b$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_scm_closed}.)  \ns \end{proof}
+
+\begin{prop}\label{scm_dense} A subset $D$ of a metric space $M$ is dense in $M$ if and only
+if every point of $M$ is the limit of a sequence of elements of~$D$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prop}\label{lim_uniq} In metric spaces limits of sequences are unique.  (That is,
+if $a_n \sto b$ and $a_n \sto c$ in some metric space, then $b = c$.)
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prob}\label{prob_clo_seq} Show that a point $p$ is in the closure of a subset $A$ of a
+metric space if and only if there is a sequence of points in $A$ which converges to~$p$.
+Also, give a characterization of the interior of a set by means of sequences.
+\end{prob}
+
+\begin{prob} Since the rationals are dense in $\R$, it must be possible, according to
+proposition~\ref{scm_dense}, to find a sequence of rational numbers which converges to the
+number~$\pi$. Identify one such sequence.
+\end{prob}
+
+\begin{prop}\label{conv_eqm} Let $d_1$ and $d_2$ be strongly equivalent metrics on a
+set~$M$.  If a sequence of points in $M$ converges to a point $b$ in the metric space
+$(M,d_1)$, then it also converges to $b$ in the space $(M,d_2)$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prob} Use proposition \ref{conv_eqm} to show that the metric $\rho$ defined in example
+\ref{Gam} is not strongly equivalent on $\R^2$ to the usual Euclidean
+(example~\ref{Eucl_met}). You gave a (presumably different) proof of this in
+problem~\ref{d_ne_rho}.
+\end{prob}
+
+\begin{prob} Let $M$ be a metric space with the discrete metric.  Give a simple characterization
+of the convergent sequences in~$M$.
+\end{prob}
+
+\begin{defn}\label{dist_sets} Let $A$ and $B$ be nonempty subsets of a metric space~$M$.  The
+ \index{distance!between sets}%
+\df{distance} between $A$ and $B$, which we denote
+ \index{dab@$d(A,B)$ (distance between two sets}%
+by~$d(A,B)$, is defined to be $\inf\{d(a,b) \colon a \in A \text{ and } b \in B\}$. If $a \in
+M$ we write $d(a,B)$ for $d(\{a\},B)$.
+\end{defn}
+
+\begin{prob}\label{dist_sets_prob} Let $B$ be a nonempty subset of a metric space~$M$.
+ \begin{enumerate}
+  \item[(a)] Show that if $x \in B$, then $d(x,B) = 0$.
+  \item[(b)] Give an example to show that the converse of (a) may fail.
+  \item[(c)] Show that if $B$ is closed, the converse of (a) holds.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+\section{PRODUCTS OF METRIC SPACES}
+\begin{defn}\label{3prods} Let $(M_1, \rho_1)$ and $(M_2,\rho_2)$ be metric spaces. We define three
+ \index{product!metrics}%
+ \index{metrics!on products}%
+metrics, $d$, $d_1$, and $d_u$, on the product $M_1 \times M_2$.  For $x = (x_1,x_2)$ and $y =
+(y_1,y_2)$ in $M_1 \times M_2$ let
+ \index{done@$d_1$ (taxicab metric, product metric)}%
+ \index{du@$d_u$ (uniform metric)}%
+   \begin{align*}
+          d(x,y)   &= \bigl((\rho_1(x_1,y_1))^2 +
+                   (\rho_2(x_2,y_2))^2\bigr)^{\frac12},
+                               \displaybreak[0]\\[.1 true in]
+          d_1(x,y) &= \rho_1(x_1,y_1) + \rho_2(x_2,y_2),
+                \text{\quad and}
+                               \displaybreak[0]\\[.1 true in]
+          d_u(x,y) &= \max\{\rho_1(x_1,y_1), \rho_2(x_2,y_2)\}\,.
+ \end{align*}
+It is not difficult to show that these really are metrics. They are just generalizations, to
+arbitrary products, of the metrics on $\R \times \R$ defined in \ref{Eucl_met}, \ref{taxicab},
+and \ref{unif_rn}.
+\end{defn}
+
+
+\begin{prop}\label{3equiv_ms} The three metrics on $M_1 \times M_2$ defined in \ref{3prods}
+are strongly equivalent.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Review proposition \ref{3equiv}.
+(Solution~\ref{sol_3equiv_ms}.) \ns
+\end{proof}
+
+In light of the preceding result and proposition \ref{mtr_vs_top} the three metrics defined on
+$M_1 \times M_2$ (in \ref{3prods}) all give rise to exactly the same topology on $M_1 \times
+M_2$. Since we will be concerned primarily with \emph{topological properties} of product
+spaces, it makes little difference which of these metrics we officially adopt as ``the''
+product metric. We choose $d_1$ because it is arithmetically simple (no square roots of sums
+of squares).
+
+\begin{defn}\label{prod_met} If $M_1$ and $M_2$ are metric spaces, then we say that the metric
+space $(M_1 \times M_2, d_1)$, where $d_1$ is defined in~\ref{3prods}, is the
+ \index{product!of metric spaces}%
+ \index{space!product}%
+\df{product (metric) space} of $M_1$ and $M_2$; and the metric $d_1$ is the
+ \index{done@$d_1$ (taxicab metric, product metric)}%
+ \index{product!metric, ``the''}%
+ \index{metric!product, ``the''}%
+\df{product metric}.  When we encounter a reference to ``the metric space $M_1 \times M_2$''
+we assume, unless the contrary is explicitly stated, that this space is equipped with
+\emph{the} product metric $d_1$.
+\end{defn}
+
+A minor technical point, which is perhaps worth mentioning, is that the usual (Euclidean)
+metric on $\R^2$ is not (according to the definition just given) the product metric. Since
+these two metrics \emph{are} equivalent and since most of the properties we consider are
+topological ones, this will cause little difficulty.
+
+It is easy to work with sequences in product spaces. This is a consequence of the fact, which
+we prove next, that a necessary and sufficient condition for the convergence of a sequence in
+a product space is the convergence of its coordinates.
+
+\begin{prop}\label{seq_prod} Let $M_1$ and $M_2$ be metric spaces.  A sequence
+$\bigl(\,(x_n,y_n)\,\bigr)_{n=1}^{\infty}$ in the product space converges to a point $(a,b)$
+in $M_1 \times M_2$ if and only if $x_n \sto a$ and $y_n \sto b$.
+\end{prop}
+
+\begin{proof} For $k=1,2$ let $\rho_k$ be the metric on the space $M_k$. The product metric
+$d_1$ on $M_1 \times M_2$ is defined in~\ref{3prods}.
+
+Suppose $(x_n,y_n) \sto (a,b)$. Then
+ \begin{align*}
+     \rho_1(x_n,a) &\le \rho_1(x_n,a) + \rho_2(y_n,b) \\
+                   &= d_1\bigl((x_n,y_n)\,,\,(a,b)\bigr) \sto 0;
+ \end{align*}
+so $x_n \sto a$. Similarly, $y_n \sto b$.
+
+Conversely, suppose $x_n \sto a$ in $M_1$ and $y_n \sto b$ in $M_2$. Given $\epsilon > 0$ we
+may choose $n_1,n_2 \in \N$ such that $\rho_1(x_n,a) < \frac12\epsilon$ when $n \ge n_1$ and
+$\rho_2(y_n,b) < \frac12\epsilon$ when $n \ge n_2$. Thus if $n \ge \max\{n_1,n_2\}$,
+   \[ d_1\bigl((x_n,y_n)\,,\,(a,b)\bigr)
+                       = \rho_1(x_n,a) + \rho_2(y_n,b)
+                 < \tfrac12\epsilon + \tfrac12\epsilon = \epsilon\,; \]
+so $(x_n,y_n) \sto (a,b)$ in $M_1 \times M_2$.
+\end{proof}
+
+\begin{rem}  By virtue of proposition \ref{conv_eqm}, the truth of the preceding proposition
+would not have been affected had either $d$ or $d_u$ (as defined in \ref{3prods}) been chosen
+as the product metric for $M_1 \times M_2$.
+\end{rem}
+
+\begin{prob} Generalize definitions \ref{3prods} and \ref{prod_met} to $\R^n$ where $n \in \N$.
+That is, write appropriate formulas for $d(x,y)$, $d_1(x,y)$, and $d_u(x,y)$ for $x,y \in
+\R^n$, and explain what we mean by the product metric on an arbitrary finite product $M_1
+\times M_2 \times \cdots \times M_n$ of metric spaces.
+
+Also state and prove generalizations of propositions \ref{3equiv_ms} and \ref{seq_prod} to
+arbitrary finite products.
+\end{prob}

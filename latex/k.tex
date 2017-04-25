@@ -1,0 +1,254 @@
+\chapter{PRODUCTS, RELATIONS, AND FUNCTIONS}\label{fcns}
+
+\section{CARTESIAN PRODUCTS}  Ordered pairs are familiar objects. They are used among other
+things for coordinates of points in the plane.  In the first sentence of chapter~\ref{sets} it
+was promised that all subsequent mathematical objects would be defined in terms of sets.  So
+here just for the record is a formal definition of ``ordered pair''.
+
+\begin{defn} Let $x$ and $y$ be elements of arbitrary sets.  Then the
+ \index{<@$(x,y)$ (ordered pair)}%
+ \index{ordered!pair}%
+\df{ordered pair} $(x,y)$ is defined to be $\{\{x,y\},\{x\}\}$.  This definition reflects our
+intuitive attitude: an ordered pair is a set $\{x,y\}$ with one of the elements, here $x$,
+designated as being ``first''.  Thus we specify two things: $\{x,y\}$ and~$\{x\}$.
+\end{defn}
+
+Ordered pairs have only one interesting property: two of them are equal if and only if both
+their first coordinates and their second coordinates are equal. As you will discover by
+proving the next proposition, this fact follows easily from the definition.
+
+\begin{prop}\label{lex1} Let $x$, $y$, $u$, and $v$ be elements of arbitrary sets.  Then
+$(x,y) = (u,v)$ if and only if $x = u$ and $y = v$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Do not assume that the set $\{x,y\}$ has two elements.
+If $x = y$, then $\{x,y\}$ has only one element. (Solution~\ref{sol_lex1}.)  \ns
+\end{proof}
+
+\begin{prob} Asked to define an ``ordered triple'', one might be tempted to try a definition
+analogous to the definition of ordered pairs: let $(a,b,c)$ be $\{\{a,b,c\},\{a,b\},\{a\}\}$.
+This appears to specify the entries, to pick out a ``first'' element, and to identify the
+``first two'' elements.  Explain why this won't work.  (See \ref{triple} for a definition that
+does work.)
+\end{prob}
+
+\begin{defn} Let $S$ and $T$ be sets.  The
+ \index{<@$\times$ (Cartesian product)}%
+ \index{product!Cartesian}%
+\df{Cartesian product} of $S$ and $T$, denoted by $S \times T$, is defined to be
+$\{(x,y)\colon x \in S \text{ and } y \in T\}$.  The set $S \times S$ is often denoted
+by~$S^2$.
+\end{defn}
+
+\begin{exam} Let $S = \{1,x\}$ and $T = \{x,y,z\}$.  Then
+  \[ S \times T = \{(1,x), (1,y), (1,z), (x,x), (x,y), (x,z)\}\,. \]
+\end{exam}
+
+\begin{prob} Let $S = \{0,1,2\}$ and $T = \{1,2,3\}$.  List all members of
+$(T \times S) \setminus (S \times T)$.
+\end{prob}
+
+\begin{prob} Let $S$, $T$, $U$, and $V$ be sets.  Then
+ \begin{enumerate}
+   \item[(a)] $(S \times T) \cap (U \times V) = (S \cap U) \times (T \cap V)$;
+   \item[(b)] $(S \times T) \cup (U \times V) \subseteq (S \cup U)
+        \times (T \cup V)$; and
+   \item[(c)] equality need not hold in (b).
+ \end{enumerate}
+\end{prob}
+
+The proofs of (a) and (b) in the preceding problem are not particularly difficult.
+Nonetheless, before one can write down a proof one must have a conjecture as to what is true.
+How could we have \emph{guessed} initially that equality holds in (a) but not in~(b)?  The
+answer is, as it frequently is in mathematics, \emph{by looking at pictures.}  Try the
+following:  Make a sketch where $S$ and $U$ are overlapping intervals on the $x$-axis and $T$
+and $V$ are overlapping intervals on the $y$-axis.  Then $S \times T$ and $U \times V$ are
+overlapping rectangles in the plane.  Are not (a) and (b) almost obvious from your sketch?
+
+We will also have occasion to use ordered $n$-tuples and $n$-fold Cartesian products for $n$
+greater than~$2$.
+
+\begin{defn}\label{triple} Let $n \ge 3$.  We define
+ \index{ordered!$n$-tuple}%
+\df{ordered} $n$-\df{tuples} inductively.  Suppose ordered $(n-1)$-tuples
+$\bigl(x_1,\dots,x_{n-1}\bigr)$ have been defined. Let $\bigl(x_1,\dots,x_n\bigr) :=
+\left(\bigl(x_1,\dots,x_{n-1}\bigr),x_n\right)$. An easy inductive proof shows that
+$\bigl(x_1,\dots,x_n\bigr) = \bigl(y_1,\dots,y_n\bigr)$ if and only if $x_k = y_k$ for $k = 1,
+\dots, n$.
+\end{defn}
+
+\begin{defn} If $S_1,\dots,S_n$ are sets, we define the
+ \index{Cartesian product}%
+ \index{product!Cartesian}%
+ \index{<@$S_1 \times \dots \times S_n$ ($n$-fold Cartesian product)}%
+\df{Cartesian product} $S_1 \times \dots \times S_n$ to be the set of all ordered
+ \index{<@$(x_1,x_2,\dots,x_n)$ ($n$-tuples)}%
+ \index{ntuple@$n$-tuple}%
+$n$-tuples $\bigl(x_1,\dots,x_n)$ where $x_k \in S_k$  for $1 \le k \le n$.  We write
+ \index{<@$S^n$ ($n$-fold Cartesian product)}%
+$S^n$ for $S \times \dots \times S$ ($n$ factors).
+\end{defn}
+
+\begin{exam}  The $n$-fold Cartesian product of the set $\R$ of real numbers is the set
+ \index{<@$\R^n$ ($n$-space)}%
+ \index{realnumberss@$\R^n$ ($n$-space)}%
+ \index{nspace@$n$-space}%
+$\R^n$ of all $n$-tuples of real numbers and is often called (Euclidean) $n$-space.
+\end{exam}
+
+
+
+
+
+
+
+\section{RELATIONS}  Calculus is primarily about functions.  We differentiate functions,
+we integrate them, we represent them as infinite series.  A function is a special kind of
+relation.  So it is convenient before introducing functions to make a few observations
+concerning the more general concept---relations.
+
+\begin{defn} A
+ \index{relation}%
+\df{relation} from a set $S$ to a set $T$ is a subset of the Cartesian product $S \times T$. A
+relation from the set $S$ to itself is often called a relation \emph{on} $S$ or a relation
+\emph{among members of}~$S$.
+\end{defn}
+
+There is a notational oddity concerning relations.  To indicate that an ordered pair $(a,b)$
+belongs to a relation $R \subseteq S \times T$, we almost always write something like $aRb$
+rather than $(a,b) \in R$, which we would expect from the definition.  For example, the
+relation ``less than'' is a relation on the real numbers.  (We discussed this relation in
+appendix \ref{order_R}.) Technically then, since $<$ is a subset of $\R \times \R$, we could
+(correctly) write expressions such as $(3,7) \in <$.  Of course we don't.  We write $3<7$
+instead.  And we say, ``$3$ is less than~$7$'', not ``the pair $(3,7)$ belongs to the relation
+\emph{less than}''.   This is simply a matter of convention; it has no mathematical or logical
+content.
+
+
+
+
+
+
+
+
+
+\section{FUNCTIONS} Functions are familiar from beginning calculus. Informally, a function
+consists of a pair of sets and a ``rule'' which associates with each member of the first set
+(the \emph{domain}) one and only one member of the second (the \emph{codomain}).  While this
+informal ``definition'' is certainly adequate for most purposes and seldom leads to any
+misunderstanding, it is nevertheless sometimes useful to have a more precise formulation.
+This is accomplished by defining a function to be a special type of relation between two sets.
+
+\begin{defn} A
+ \index{function}%
+\df{function} $f$ is an ordered triple $(S,T,G)$ where $S$ and $T$ are sets and $G$ is a
+subset of $S \times T$ satisfying:
+ \begin{enumerate}
+   \item for each $s \in S$ there is a $t \in T$ such that $(s,t) \in G$, and
+   \item if $(s,t_1)$ and $(s,t_2)$ belong to G, then $t_1 = t_2$.
+ \end{enumerate}
+In this situation we say that $f$ is a \emph{function from} $S$ \emph{into} $T$ (or that $f$
+\emph{maps} $S$ \emph{into} $T$) and write $f: S \sto T$.  The set $S$ is the
+ \index{domain}%
+\df{domain} (or the
+ \index{input space}%
+ \index{space!input}%
+\df{input space}) of~$f$.  The set $T$ is the
+ \index{codomain}%
+\df{codomain} (or
+ \index{target space}%
+ \index{space!target}%
+\df{target space}, or the
+ \index{output space}%
+ \index{space!output}%
+\df{output space}) of~$f$.  And the relation $G$ is the
+ \index{graph}%
+\df{graph} of~$f$.  In order to avoid explicit reference to the graph $G$ it is usual to
+replace the expression ``$(x,y) \in G\,$'' by ``$y = f(x)$''; the element $f(x)$ is the
+ \index{image!of a point}%
+\df{image} of $x$ under~$f$. In this text (but not everywhere!) the words
+ \index{transformation}%
+``transformation'',
+ \index{map}%
+``map'', and
+ \index{mapping}%
+``mapping'' are synonymous with ``function''.  The domain of $f$ is denoted
+ \index{domain@$\dom f$ (domain of a function $f$)}%
+by~$\dom f$.
+\end{defn}
+
+\begin{exam} There are many ways of specifying a function.  Statements (1)--(4) below define
+exactly the same function.  We will use these (and other similar) notations interchangeably.
+ \begin{enumerate}
+   \item[(1)] For each real number $x$ we let $f(x) =x^2$.
+   \item[(2)] Let $f = (S,T,G)$ where $S = T = \R$ and $G = \{(x,x^2) \colon x \in \R\}$.
+   \item[(3)] Let $f\colon \R \sto \R$ be defined by $f(x) = x^2$.
+   \item[(4)] Consider the function
+ \index{<@$f\colon A \sto B\colon x \mapsto f(x)$ (function notation)}%
+$f\colon \R \sto \R\colon  x \mapsto x^2$.
+ \end{enumerate}
+\end{exam}
+
+\begin{notn} If $S$ and $T$ are sets we denote
+ \index{functions@$\fml F(S,T)$ (functions from $S$ into $T$)}%
+by $\fml F(S,T)$ the family of all functions from $S$ into~$T$.
+\end{notn}
+
+\begin{conv} A
+ \index{real valued function}%
+\df{real valued} function is a function whose codomain lies in
+$\R$. A function
+ \index{function!of a real variable}%
+\df{of a real variable} is a function whose domain is contained in~$\R$.  Some real valued
+functions of a real variable may be specified simply by writing down a formula.  When the
+domain and codomain are not specified, the understanding is that the domain of the function is
+the largest set of real numbers for which the formula makes sense and the codomain is taken to
+be~$\R$.
+
+In the case of real valued functions on a set $S$, we frequently
+ \index{functions@$\fml F(S)$, $\fml F(S,\R)$ (real valued functions on a set)}%
+write $\fml F(S)$ instead of~$\fml F(S,\R)$.
+\end{conv}
+
+\begin{exam} Let $f(x) = (x^2 + x)^{-1}$. Since this formula is meaningful for all real numbers
+except $-1$ and $0$, we conclude that the domain of $f$ is $\R \setminus \{-1,0\}$.
+\end{exam}
+
+\begin{exam} Let $f(x) = (x^2 + x)^{-1}$ for $x > 0$. Here the domain of $f$ is specified: it is
+the interval $(0,\infty)$.
+\end{exam}
+
+\begin{exer}\label{lex2} Let $f(x)=(1- 2(1+(1-x)^{-1})^{-1})^{-1}$.
+ \begin{enumerate}
+  \item[(a)] Find $f(\frac12)$.
+  \item[(b)] Find the domain of $f$.
+ \end{enumerate}
+(Solution~\ref{sol_lex2}.)
+\end{exer}
+
+\begin{exer}\label{lex3} Let $f(x) = (-x^2 - 4x -1)^{-1/2}$. Find the domain of~$f$.
+(Solution~\ref{sol_lex3}.) \end{exer}
+
+\begin{prob} Let $f(x)=(1-(2+(3-(1+x)^{-1})^{-1})^{-1})^{-1}$
+ \begin{enumerate}
+  \item[(a)] Find $f(\frac12)$.
+  \item[(b)] Find the domain of $f$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f(x)=(-x^2-7x-10)^{-1/2}$.
+ \begin{enumerate}
+  \item[(a)] Find $f(-3)$.
+  \item[(b)] Find the domain of $f$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f(x)=\dfrac{\sqrt{x^2-4}}{5-\sqrt{36-x^2}}$. Find the domain of~$f$.
+Express your answer as a union of intervals.
+\end{prob}
+
+\begin{prob} Explain carefully why two functions $f$ and $g$ are equal if and only if
+their domains and codomains are equal and $f(x) = g(x)$ for every $x$ in their common domain.
+\end{prob}
+
+\endinput

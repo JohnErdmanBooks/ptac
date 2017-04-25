@@ -1,0 +1,550 @@
+\chapter{CONTINUOUS FUNCTIONS FROM $\R$ TO $\R$}\label{cont_on_R}
+
+
+The continuous functions are perhaps the most important single class of functions studied in
+calculus.  Very roughly, a function $f\colon\R \sto \R$ is continuous at a point $a$ in $\R$
+if $f(x)$ can be made arbitrarily close to $f(a)$ by insisting that $x$ be sufficiently close
+to $a$.  In this chapter we define continuity for real valued functions of a real variable and
+derive some useful necessary and sufficient conditions for such a function to be continuous.
+Also we will show that composites of continuous functions are themselves continuous.  We will
+postpone until the next chapter proofs that other combinations (sums, products, and so on) of
+continuous functions are continuous.  The first applications of continuity will come in
+chapters \ref{ivt} and \ref{evt} on connectedness and compactness.
+
+
+
+
+
+\section{CONTINUITY---AS A LOCAL PROPERTY}
+The definition of continuity uses the notion of the inverse image of a set under a function.
+It is a good idea to look at appendices \ref{images} and \ref{inverses}, at least to fix
+notation.
+
+\begin{defn}\label{df_continuity} A function $f\colon\R \sto \R$ is
+ \index{continuous!at a point}%
+\df{continuous at} a point $a$ in $\R$ if $f^\gets(V)$ contains a neighborhood of $a$ whenever
+$V$ is a neighborhood of~$f(a)$. Here is another way of saying exactly the same thing: $f$ is
+continuous at $a$ if every neighborhood of $f(a)$ contains the image under $f$ of a
+neighborhood of~$a$.  (If it is not entirely clear that these two assertions are equivalent,
+use propositions \ref{prop_f_finv}\,(a) and \ref{prop_finv_f}\,(a) to prove that $U \subseteq
+f^\gets(V)$ if and only if $f^\sto(U) \subseteq V$.)
+\end{defn}
+
+As we saw in chapter \ref{nbhds_in_r}, it seldom matters whether we work with general
+neighborhoods (as in the preceding definition) or with the more restricted
+$\epsilon$-neighborhoods (as in the next proposition).
+
+\begin{prop}\label{cond1_cont} A function $f\colon\R \sto \R$ is continuous at $a \in \R$
+if and only if for every $\epsilon > 0$ there exists $\delta > 0$ such that
+ \begin{equation}\label{continuity1}
+        J_\delta(a) \subseteq
+                   f^\gets \bigl(J_\epsilon(f(a))\bigr)
+ \end{equation}
+\end{prop}
+
+Before starting on a proof it is always a good idea to be certain that the meaning of the
+proposition is entirely clear.  In the present case the ``if and only if'' tells us that we
+are being given a condition \emph{characterizing} continuity at the point~$a$; that is, a
+condition which is both necessary and sufficient in order for the function to be continuous
+at~$a$. The condition states that no matter what positive number $\epsilon$ we are given, we
+can find a corresponding positive number $\delta$ such that property \eqref{continuity1}
+holds. This property is the heart of the matter and should be thought of conceptually rather
+than in terms of symbols.  Learning mathematics is easiest when we regard the content of
+mathematics to be ideas; it is hardest when mathematics is thought of as a game played with
+symbols.  Thus property \eqref{continuity1} says that if $x$ is any number in the open
+interval $(a-\delta, a+\delta)$, then the corresponding value $f(x)$ lies in the open interval
+between $f(a)-\epsilon$ and $f(a)+\epsilon$.  Once we are clear about what it is that we wish
+to establish, it is time to turn to the proof.
+
+\begin{proof} Suppose $f$ is continuous at $a$.  If $\epsilon > 0$, then $J_\epsilon(f(a))$
+is a neighborhood of $f(a)$ and therefore $f^\gets\bigl(J_\epsilon(f(a))\bigr)$ contains a
+neighborhood $U$ of $a$. Since $a$ is an interior point of $U$, there exists $\delta
+> 0$ such that $J_\delta(a) \subseteq U$.  Then
+  \[J_\delta(a) \subseteq U \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)\,.\]
+
+Conversely, suppose that for every $\epsilon > 0$ there exists $\delta > 0$ such that
+$J_\delta(a) \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)$.  Let $V$ be a neighborhood of
+$f(a)$.  Then $J_\epsilon(f(a)) \subseteq V$ for some $\epsilon > 0$.  By hypothesis, there
+exists $\delta > 0$ such that $J_\delta(a) \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)$.
+Then $J_\delta(a)$ is a neighborhood of $a$ and $J_\delta(a) \subseteq f^\gets(V)$; so $f$ is
+continuous at~$a$.
+\end{proof}
+
+We may use the remarks preceding the proof of \ref{cond1_cont} to give a second
+characterization of continuity at a point.  Even though the condition given is algebraic in
+form, it is best to think of it geometrically.  Think of it in terms of distance.  In the next
+corollary read ``$\abs{x-a}<\delta$'' as ``$x$ is within $\delta$ units of $a$'' (not as ``the
+absolute value of $x$ minus $a$ is less than $\delta$'').  If you follow this advice,
+statements about continuity, when we get to metric spaces, will sound familiar.  Otherwise,
+everything will appear new and strange.
+
+
+\begin{cor}\label{cond2_cont} A function $f\colon\R \sto \R$ is continuous at $a$ if and
+only if for every $\epsilon > 0$ there exists $\delta > 0$ such that
+ \begin{equation}\label{continuity2}
+   \abs{x - a} < \delta  \implies \abs{f(x) - f(a)} < \epsilon\,.
+ \end{equation}
+\end{cor}
+
+\begin{proof} This is just a restatement of proposition \ref{cond1_cont} because condition
+\eqref{continuity1} holds if and only if
+ \[ x \in J_\delta(a) \implies  f(x) \in J_\epsilon(f(a))\,. \]
+But $x$ belongs to the interval $J_\delta(a)$ if and only if $\abs{x - a} < \delta$, and
+$f(x)$ belongs to $J_\epsilon(f(a))$ if and only if $\abs{f(x) - f(a)} < \epsilon$. Thus
+\eqref{continuity1} and \eqref{continuity2} say exactly the same thing.
+\end{proof}
+
+Technically, \ref{df_continuity} is the definition of continuity at a point, while
+\ref{cond1_cont} and \ref{cond2_cont} are characterizations of this property.
+Nevertheless, it is not altogether wrong-headed to think of them as alternative (but
+equivalent) definitions of continuity.  It really doesn't matter which one we choose to
+be \emph{the} definition. Each of them has its uses.  For example, consider the result:
+if $f$ is continuous at $a$ and $g$ is continuous at $f(a)$, then $g \circ f$ is
+continuous at $a$ (see~\ref{comp_cont_loc}). The simplest proof of this uses
+\ref{df_continuity}.  On the other hand, when we wish to verify that some particular
+function is continuous at a point (see, for example, \ref{cont_exam1}), then, usually,
+\ref{cond2_cont} is best.  There are other characterizations of continuity (see
+\ref{cond3_cont}--\ref{cond7_cont}).  Before embarking on a particular problem involving
+this concept, it is wise to take a few moments to reflect on which choice among the
+assorted characterizations is likely to produce the simplest and most direct proof. This
+is a favor both to your reader and to yourself.
+
+
+
+
+
+
+
+
+
+
+
+\section{CONTINUITY---AS A GLOBAL PROPERTY}
+\begin{defn} A function $f\colon\R \sto \R$ is
+ \index{continuous}%
+\df{continuous} if it is continuous at every point in its domain.
+\end{defn}
+
+The purpose of the next few items is to give you practice in showing that particular functions
+are (or are not) continuous.  If you did a lot of this in beginning calculus, you may wish to
+skip to the paragraph preceding proposition~\ref{cond3_cont}.
+
+\begin{exam}\label{cont_exam1} The function $f\colon\R \sto \R\colon x \mapsto -2x + 3$ is
+continuous.
+\end{exam}
+
+\begin{proof} We use corollary \ref{cond2_cont}.  Let $a \in \R$. Given $\epsilon > 0$ choose
+$\delta = \frac12 \epsilon$. If $\abs{x - a} <  \delta$,then
+  \begin{align*} \abs{f(x)-f(a)} &= \abs{(-2x + 3) - (-2a + 3)} \\
+                                 &= 2\abs{x - a} < 2\delta = \epsilon.
+  \end{align*}
+\end{proof}
+
+\begin{exam} The function $f\colon\R \sto \R$ defined by
+ \[f(x) = \begin{cases} 0  &\text{for $x \le 0$}, \\
+                       1   &\text{for $x > 0$}  \end{cases}\]
+is not continuous at $a = 0$.
+\end{exam}
+
+\begin{proof} Use proposition \ref{cond1_cont}; the denial of the condition given there is
+that there exists a number $\epsilon$ such that for all $\delta > 0$ property
+\ref{continuity1} fails. (See example~\ref{exam_not_cont}.)  Let $\epsilon = \frac12$. Then
+$f^\gets\bigl(J_{1/2}(f(0))\bigr) = f^\gets(J_{1/2}(0)) = f^\gets(-\frac12, \frac12) =
+(-\infty, 0]$.  Clearly this contains no $\delta$-neighborhood of $0$.  Thus \ref{continuity1}
+is violated, and $f$ is not continuous at~$0$.
+\end{proof}
+
+\begin{exam}\label{cont_exam2} The function $f\colon\R \sto \R\colon x \mapsto 5x - 8$ is continuous.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_cont_exam2}.)  \ns \end{proof}
+
+\begin{exam}\label{cont_exam3} The function $f\colon x \mapsto x^3$ is continuous at the
+point~$a~=~-1$.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_cont_exam3}.)  \ns \end{proof}
+
+\begin{exam}\label{cont_exam4} The function $f\colon x \mapsto 2x^2 - 5$ is continuous.
+\end{exam}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_cont_exam4}.)
+  \ns \end{proof}
+
+\begin{exam} Let $f(x) = 7 - 5x$ for all $x \in \R$. Then $f$ is continuous at the point~$a = -2$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} Let $f(x) = \sqrt{|x + 2|}$ for all $x \in \R$.  Then $f$ is continuous at the 
+point~$a = 0$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam} If $f(x) = 3x - 5$ for all $x \in \R$, then $f$ is continuous.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} The function $f$ defined by
+ \[f(x) = \begin{cases}  -x^2        &\text{for $x < 0$}, \\
+                    x+\frac1{10}    &\text{for $x \ge 0$}
+          \end{cases}\]
+is not continuous.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} For $x > 0$ sketch the functions $x \mapsto \sin\frac1x$ and
+$x \mapsto x\sin\frac1x$.  Then verify the following.
+ \begin{enumerate}
+  \item[(a)] The function $f$ defined by
+   \[f(x) = \begin{cases}        0    &\text{for $x \le 0$}, \\
+                      \sin\frac1x,    &\text{for $x > 0$}
+            \end{cases}\]
+is not continuous.
+  \item[(b)]   The function $f$ defined by
+   \[f(x) = \begin{cases}        0    &\text{for $x \le 0$}, \\
+                    x \sin\frac1x,    &\text{for $x > 0$}
+            \end{cases}\]
+is continuous at $0$.
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+The continuity of a function $f$ at a point is a
+ \index{local!property}%
+\df{local} property; that is, it is entirely determined by the behavior of $f$ in arbitrarily
+small neighborhoods of the point. The continuity of $f$, on the other hand, is a
+ \index{global!property}%
+\df{global} property; it can be determined only if we know how $f$ behaves everywhere on its
+domain.  In \ref{df_continuity}--\ref{cond2_cont} we gave three equivalent conditions for
+local continuity.  In \ref{cond3_cont}--\ref{cond7_cont} we give equivalent conditions for the
+corresponding global concept.  The next proposition gives the most useful of these conditions;
+it is the one that becomes the \emph{definition} of continuity in arbitrary topological
+spaces. It says: a necessary and sufficient condition for $f$ to be continuous is that the
+inverse image under $f$ of open sets be open.  This shows that continuity is a purely
+ \index{topological!property}%
+\df{topological property}; that is, it is entirely determined by the topologies (families of
+all open sets) of the domain and the codomain of the function.
+
+\begin{prop}\label{cond3_cont} A function $f\colon\R \sto \R$ is continuous if and only if
+$f^\gets(U)$ is open whenever $U$ is open in $\R$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_cond3_cont}.)
+  \ns \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{prop}\label{cond4_cont} A function $f\colon\R \sto \R$ is continuous if and only if
+$f^\gets(C)$ is a closed set whenever $C$ is a closed subset of~$\R$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prop} A function $f\colon\R \sto \R$ is continuous if and only if
+ \[f^\gets(\intr B) \subseteq \intr{(f^\gets(B))}\]
+for all $B \subseteq \R$.
+\end{prop}
+
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prop} A function $f\colon\R \sto \R$ is continuous if and only if
+ \[f^\sto(\,\clo A\,) \subseteq \clo{f^\sto (A)}\]
+for all $A \subseteq \R$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  This isn't so easy.  Use problem \ref{cond4_cont}
+and the fact (see propositions \ref{prop_f_finv} and \ref{prop_finv_f}) that for any sets $A$
+and $B$
+ \[f^\sto(f^\gets(B)) \subseteq B \quad\text{ and }
+                     \quad A \subseteq f^\gets(f^\sto(A)).\]
+Show that if $f$ is continuous, then $\clo A \subseteq
+f^\gets\bigl(\,\clo{f^\sto(A)}\,\bigr)$. Then apply $f^\sto$.  For the converse, apply the
+hypothesis to the set $f^\gets(C)$ where $C$ is a closed subset of $\R$.  Then apply
+$f^\gets$.
+\end{proof}
+
+\begin{prop}\label{cond7_cont} A function $f\colon\R \sto \R$ is continuous if and only if
+ \[\clo{f^\gets(B)} \subseteq f^\gets(\,\clo B\,)\]
+for all $B \subseteq \R$.
+\end{prop}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prop}\label{comp_cont_loc} Let $f,g\colon\R \sto \R$. If $f$ is continuous at $a$ and
+$g$ is continuous at $f(a)$, then the composite function $g \circ f$ is continuous at $a$.
+\end{prop}
+
+\begin{proof} Let $W$ be a neighborhood of $g(f(a))$.  We wish to show that the inverse image
+of $W$ under $g \circ f$ contains a neighborhood of~$a$.  Since $g$ is continuous at $f(a)$,
+the set $g^\gets(W)$ contains a neighborhood $V$ of $f(a)$.  And since $f$ is continuous at
+$a$, the set $f^\gets(V)$ contains a neighborhood $U$ of~$a$.  Then
+ \begin{align*}
+   (g \circ f)^\gets(W) &= f^\gets(g^\gets(W)) \\
+                             &\supseteq f^\gets(V) \\
+                             &\supseteq U\,,
+ \end{align*}
+which is what we wanted.
+\end{proof}
+
+This important result has an equally important but entirely obvious consequence.
+
+\begin{cor}\label{comp_cont} The composite of two continuous functions is continuous.
+\end{cor}
+
+\begin{prob} Give a direct proof of corollary \ref{comp_cont}.  (That is, give a proof which
+does not rely on proposition~\ref{comp_cont_loc}.)
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{FUNCTIONS DEFINED ON SUBSETS OF $\R$}
+The remainder of this chapter is devoted to a small but important technical problem.  Thus far
+the definitions and propositions concerning continuity have dealt with functions whose domain
+is $\R$.  What do we do about functions whose domain is a proper subset of $\R$?  After all,
+many old friends---the functions $x \mapsto \sqrt x$, $x \mapsto \frac1x$, and $x \mapsto \tan
+x$, for example---have domains which are not all of~$\R$.  The difficulty is that if we were
+to attempt to apply proposition \ref{cond1_cont} to the square root function $f\colon x
+\mapsto \sqrt x$ (which would of course be improper since the hypothesis $f\colon\R \sto \R$
+is not satisfied), we would come to the unwelcome conclusion that $f$ is not continuous at
+$0$: if $\epsilon > 0$ then the set $f^\gets\bigl(J_\epsilon(f(0))\bigr) =
+f^\gets\bigl(J_\epsilon(0)\bigr) = f^\gets(-\epsilon,\epsilon) = [0,{\epsilon}^2)$ contains no
+neighborhood of $0$ in~$\R$.
+
+Now this can't be right.  What we must do is to provide an appropriate definition for the
+continuity of functions whose domains are proper subsets of $\R$.  And we wish to do it in
+such a way that we make as few changes as possible in the resulting propositions.
+
+The source of our difficulty is the demand (in definition \ref{df_continuity}) that
+$f^\gets(V)$ contain a neighborhood of the point $a$---and neighborhoods have been defined
+only in $\R$. But why~$\R$?  That is not the domain of our function; the set $A = [0,\infty)$
+is.  We \emph{should} be talking about neighborhoods in~$A$.  So the question we now face is:
+how should we define neighborhoods in (and open subsets of) proper subsets of~$\R$?  The best
+answer is astonishingly simple.  An open subset of $A$ is the intersection of an open subset
+of $\R$ with~$A$.
+
+\begin{defn}\label{rel_open} Let $A \subseteq \R$. A set $U$ contained in $A$ is
+ \index{open!in a subset}%
+\df{open in} $A$ if there exists an open subset $V$ of $\R$ such that $U = V \cap A$.
+Briefly, the open subsets of $A$ are restrictions to $A$ of open subsets of $\R$.  If $U$ is
+an open subset of $A$ we write $\open UA$.  A \df{neighborhood of $a$ in $A$} is an open
+subset of $A$ which contains~$a$.
+\end{defn}
+
+\begin{exam} The set $[0,1)$ is an open subset of~$[0,\infty)$.
+\end{exam}
+
+\begin{proof} Let $V = (-1,1)$. Then $\open V\R$ and $[0,1) = V
+\cap [0,\infty)$; so $\open{[0,1)}{[0,\infty)}$.
+\end{proof}
+
+Since, as we have just seen, $[0,1)$ is open in $[0,\infty)$ but is not open in $\R$, there is
+a possibility for confusion.  Openness is not an intrinsic property of a set.  When we say
+that a set is open, the answer to the question ``open in what?'' must be either clear from
+context or else specified.  Since the topology (that is, collection of open subsets) which a
+set $A$ inherits from $\R$ is often called the
+ \index{relative!topology}%
+ \index{topology!relative}%
+\df{relative topology} on $A$, emphasis may be achieved by saying
+that a subset $B$ of $A$ is
+ \index{relatively open}%
+\emph{relatively open} in~$A$. Thus, for example, we may say that
+$[0,1)$ is relatively open in $[0,\infty)$; or we may say that
+$[0,1)$ is a
+ \index{relative!neighborhood}%
+ \index{neighborhood!relative}%
+relative neighborhood of~$0$ (or any other point in the interval).
+The question here is emphasis and clarity, not logic.
+
+\begin{exam} The set $\{1\}$ is an open subset of~$\N$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} The set of all rational numbers $x$ such that $x^2 \le 2$ is an open subset of~$\Q$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} The set of all rational numbers $x$ such that $x^2 \le 4$ is \emph{not} an
+open subset of~$\Q$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{defn} Let $A \subseteq \R$, $a \in A$, and $\epsilon > 0$.  The
+ \index{relative!$\epsilon$-neighborhood}%
+$\epsilon$-\df{neighborhood of $a$ in $A$} is $(a-\epsilon, a+\epsilon) \cap A$.
+\end{defn}
+
+\begin{exam} In $\N$ the $\frac12$\,-\,neighborhood of $1$ is $\{1\}$.
+\end{exam}
+
+\begin{proof} Since $(1-\frac12, 1+\frac12) \cap \N = (\frac12, \frac32) \cap \N = \{1\}$,
+we conclude that the $\epsilon$-neighborhood of $1$ is~$\{1\}$.
+\end{proof}
+
+Now is the time to show that the family of relatively open subsets of $A$ (that is, the
+relative topology on $A$) is in fact a topology on~$A$.  In particular, we must show that this
+family is closed under unions and finite intersections.
+
+\begin{prop} Let $A \subseteq \R$.  Then
+ \begin{enumerate}
+  \item[(i)] $\emptyset$ and $A$ are relatively open in $A$;
+  \item[(ii)] if $\sfml U$ is a family of relatively open sets in $A$, then $\bigcup\sfml U$
+is relatively open in~$A$; and
+  \item[(iii)] if $\sfml U$ is a finite family of relatively open sets in $A$, then
+$\bigcap\sfml U$ is relatively open in~$A$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam}Every subset of $\N$ is relatively open in~$\N$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+Now we are in a position to consider the continuity of functions defined on proper subsets
+of~$\R$.
+
+\begin{defn} Let $a \in A \subseteq \R$ and $f\colon A \sto \R$.  The function $f$ is
+ \index{continuous!at a point}%
+\df{continuous at} $a$ if $f^\gets(V)$ contains a neighborhood of $a$ in $A$ whenever $V$ is a
+neighborhood of $f(a)$. The function $f$ is
+ \index{continuous}%
+\df{continuous} if it is continuous at each point in its domain.
+\end{defn}
+
+It is important to notice that we discuss the continuity of a function only at points where it
+is defined.  We will not, for example, make the claim found in so many beginning calculus
+texts that the function $x \mapsto 1/x$ is discontinuous at zero. Nor will we try to decide
+whether the sine function is continuous at the Bronx zoo.
+
+The next proposition tells us that the crucial characterization of continuity in terms of
+inverse images of open sets (see~\ref{cond3_cont}) still holds under the definition we have
+just given.  Furthermore codomains don't matter; that is, it doesn't matter whether we start
+with open subsets of $\R$ or with sets open in the range of the function.
+
+\begin{prop}\label{cond3a_cont} Let $A$ be a subset of~$\R$.  A function $f\colon A \sto \R$
+is continuous if and only if $f^\gets(V)$ is open in $A$ whenever $V$ is open in $\ran f$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Notice that if $\open W{\R}$ and $V = W \cap \ran f$,
+then $f^\gets(V) = f^\gets(W)$.  \ns
+\end{proof}
+
+\begin{prob}\label{cont_rel} Discuss the changes (if any) that must be made in \ref{cond1_cont},
+\ref{cond2_cont}, \ref{comp_cont_loc}, and \ref{comp_cont}, in order to accommodate functions
+whose domain is not all of~$\R$.
+\end{prob}
+
+\begin{prob} Let $A \subseteq \R$.  Explain what ``(relatively) closed subset of~$A$'' should mean.
+Suppose further that $B \subseteq A$.  Decide how to define ``the closure of $B$ in~$A$'' and
+``the interior of $B$ with respect to~$A$''.  Explain what changes these definitions will
+require in propositions \ref{cond4_cont}--\ref{cond7_cont} so that the results hold for
+functions whose domains are proper subsets of~$\R$.
+\end{prob}
+
+\begin{prob} Let $A = (0,1) \cup (1,2)$.  Define $f\colon A \sto \R$ by
+  \[f(x) = \begin{cases}   0   &\text{ for $0<x<1$}, \\
+                           1   &\text{ for $1<x<2$}\,.
+\end{cases}\]
+Is $f$ a continuous function?
+\end{prob}
+
+\begin{exam} The function $f$ defined by
+  \[f(x) = \frac1x \qquad\text{ for } x \ne 0\]
+is continuous.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} The function $f$ defined by
+  \[f(x) = \sqrt{x+2} \qquad\text{ for } x \ge -2\]
+is continuous at $x=-2$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam} The square root function is continuous.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prob} Define $f\colon (0,1) \sto \R$ by setting $f(x) =0$ if $x$ is irrational and
+$f(x) = 1/n$ if $x = m/n$ where $m$ and $n$ are natural numbers with no common factors.  Where
+is $f$ continuous?
+\end{prob}
+
+\begin{exam}\label{cont_exam5} Inclusion mappings between subsets of $\R$ are continuous.
+That is, if $A \subseteq B \subseteq \R$, then the inclusion mapping $\iota\colon A \sto
+B\colon a \mapsto a$ is continuous.  (See definition~\ref{def_incl_map}.)
+\end{exam}
+
+\begin{proof} Let $\open UB$.  By the definition of the relative topology on $B$ (see~\ref{rel_open}),
+there exists an open subset $V$ of $\R$ such that $U = V \cap B$.  Then $\iota^\gets(U) =
+\iota^\gets(V \cap B) = V \cap B \cap A = \open{V \cap A}A$.  Since the inverse image under
+$\iota$ of each open set is open, $\iota$ is continuous.
+\end{proof}
+
+It is amusing to note how easy it is with the preceding example in hand to show that
+restrictions of continuous functions are continuous.
+
+\begin{prop} Let $A \subseteq B \subseteq \R$.  If $f\colon B \sto \R$ is continuous,
+then $f|_A$, the restriction of $f$ to $A$, is continuous.
+\end{prop}
+
+\begin{proof} Recall (see appendix~\ref{images} section~\ref{sec_res_ext}) that $f|_A =
+f \circ \iota$ where $\iota$ is the inclusion mapping of $A$ into~$B$.  Since $f$ is
+continuous (by hypothesis) and $\iota$ is continuous (by example~\ref{cont_exam5}), their
+composite $f|_A$ is also continuous (by the generalization of \ref{comp_cont}
+in~\ref{cont_rel}).
+\end{proof}
+
+We conclude this chapter with the observation that if a continuous function is positive at a
+point, it is positive nearby.
+
+\begin{prop}\label{pos_at_pt} Let $A \subseteq \R$ and $f\colon A \sto \R$ be continuous at
+the point~$a$.  If $f(a)>0$, then there exists a neighborhood $J$ of $a$ in $A$ such that
+$f(x) > \frac12f(a)$ for all $x \in J$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+
+
+
+\endinput

@@ -1,0 +1,742 @@
+\chapter{MORE ON CONTINUITY AND LIMITS}
+
+\section{CONTINUOUS FUNCTIONS}
+As is the case with real valued functions of a real variable, a function $f\colon M_1 \sto
+M_2$ between two metric spaces is continuous at a point $a$ in $M_1$ if $f(x)$ can be made
+arbitrarily close to $f(a)$ by insisting that $x$ be sufficiently close to~$a$.
+
+\begin{defn} Let $(M_1,d_1)$ and $(M_2,d_2)$ be metric spaces.  A function $f\colon M_1 \sto M_2$ is
+ \index{continuous!at a point}%
+\df{continuous at} a point $a$ in $M_1$ if every neighborhood of $f(a)$ contains the image under
+$f$ of a neighborhood of~$a$. Since every neighborhood of a point contains an open ball about the
+point and since every open ball about a point \emph{is} a neighborhood of that point, we may
+restate the definition as follows. The function $f$ is \df{continuous at} $a$ if every open ball
+about $f(a)$ contains the image under $f$ of an open ball about~$a$; that is, if the following
+condition is satisfied: for every $\epsilon > 0$ there exists $\delta > 0$ such that
+  \begin{equation}\label{clms_eq1} f^{\sto} (B_\delta(a))
+                      \subseteq B_\epsilon(f(a)).
+  \end{equation}
+There are many equivalent ways of expressing \eqref{clms_eq1}.
+Here are three:
+ \begin{gather*}
+    B_\delta(a) \subseteq f^\gets(B_\epsilon(f(a))) \\
+    x \in B_\delta(a) \text{ implies } f(x) \in B_\epsilon(f(a)) \\
+    d_1(x,a) < \delta \text{ implies } d_2(f(x),f(a)) < \epsilon
+ \end{gather*}
+\end{defn}
+
+Notice that if $f$ is a real valued function of a real variable, then the definition above agrees
+with the one given at the beginning of chapter~\ref{cont_on_R}.
+
+\begin{defn} A function $f\colon M_1 \sto M_2$ between two metric spaces is
+ \index{continuous}%
+\df{continuous} if it is continuous at each point of $M_1$.
+\end{defn}
+
+In proving propositions concerning continuity, one should not slavishly insist on specifying
+the radii of open balls when these particular numbers are of no interest. As an illustration,
+the next proposition, concerning the composite of continuous functions, is given two
+proofs---one with the radii of open balls specified, and a smoother one in which they are
+suppressed.
+
+\begin{prop} Let $f\colon M_1 \sto M_2$ and $g\colon M_2 \sto M_3$ be functions between
+metric spaces. If $f$ is continuous at $a$ in $M_1$ and $g$ is continuous at $f(a)$
+in~$M_2$, then the composite function $g \circ f$ is continuous at~$a$.
+\end{prop}
+
+\begin{proof}[Proof 1] Let $\eta > 0$.  We wish to show that there
+exists $\delta > 0$ such that
+  \[B_\delta(a) \subseteq (g \circ f)^\gets(B_\eta(g(f(a)))). \]
+Since $g$ is continuous at $f(a)$ there exists $\epsilon > 0$ such
+that
+  \[B_\epsilon(f(a)) \subseteq g^\gets(B_\eta(g(f(a)))). \]
+Since $f$ is continuous at $a$ there exists $\delta > 0$ such that
+  \[B_\delta(a) \subseteq  f^\gets(B_\epsilon(f(a))).\]
+Thus we have
+  \begin{align*} (g \circ f)^\gets(B_\eta(g(f(a))))
+                  &= f^\gets(g^\gets(B_\eta(g(f(a))))) \\
+                  &\supseteq f^\gets(B_\epsilon(f(a))) \\
+                  &\supseteq B_\delta(a).  \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{proof}[Proof 2] Let $B_3$ be an arbitrary open ball about
+$g(f(a))$. We wish to show that the inverse image of $B_3$ under $g
+\circ f$ contains an open ball about~$a$.  Since $g$ is continuous
+at $f(a)$, the set $g^\gets(B_3)$ contains an open ball $B_2$ about
+$f(a)$. And since $f$ is continuous at $a$, the set $f^\gets(B_2)$
+contains an open ball $B_1$ about $a$. Thus we have
+  \begin{align*} (g \circ f)^\gets(B_3)
+              &= f^\gets(g^\gets(B_3)) \\
+              &\supseteq f^\gets(B_2) \\
+              &\supseteq B_1.   \qedhere
+  \end{align*}
+\end{proof}
+
+The two preceding proofs are essentially the same. The only difference is that the first proof
+suffers from a severe case of clutter. It certainly is not more rigorous; it is just harder to
+read. It is good practice to relieve proofs (and their readers) of extraneous detail. The following
+corollary is an obvious consequence of the proposition we have just proved.
+
+\begin{cor}\label{cmp_cnt} The composite of two continuous functions is continuous.
+\end{cor}
+
+Next we prove a result emphasizing that continuity is a topological notion; that is, it can be
+expressed in terms of open sets. A necessary and sufficient condition for a function to be
+continuous is that the inverse image of every open set be open.
+
+\begin{prop}\label{top_ch_cont} A function $f\colon M_1 \sto M_2$ between metric spaces is
+continuous if and only if $f^\gets(U)$ is an open subset of $M_1$ whenever $U$ is open in~$M_2$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_top_ch_cont}.)  \ns \end{proof}
+
+\begin{exam}\label{exam1_cont} As an application of the preceding proposition we show that the
+function
+  \[ f\colon \R^2 \sto \R\colon  (x,y) \mapsto 2x - 5y \]
+is continuous. One approach to this problem is to find, given a point $(a,b)$ in $\R^2$
+and $\epsilon > 0$, a number $\delta > 0$ sufficiently small that $\sqrt{(x - a)^2 + (y -
+b)^2} < \delta$ implies $\abs{(2x - 5y) - (2a - 5b)} < \epsilon$.  This is not
+excessively difficult, but it is made somewhat awkward by the appearance of squares and a
+square root in the definition of the usual metric on~$\R^2$.  A simpler approach is
+possible.  We wish to prove continuity of $f$ with respect to the usual metric $d$ on
+$\R^2$ (defined in~\ref{Eucl_met}).
+
+We know that the metric $d_1$ (defined in \ref{taxicab}) on $\R^2$ is (strongly)
+equivalent to $d$ (\ref{3equiv}) and that equivalent metrics produce identical
+topologies. Thus $(\R^2, d_1)$ and $(\R^2, d)$ have the same topologies. Since the
+continuity of a function is a topological concept (this was the point
+of~\ref{top_ch_cont}), we know that $f$ will be continuous with respect to $d$ if and
+only if it is continuous with respect to~$d_1$. Since the metric $d_1$ is algebraically
+simpler, we prove continuity with respect to $d_1$.  To this end, let $(a,b) \in \R^2$
+and $\epsilon > 0$.  Choose $\delta = \epsilon/5$.  If $d_1((x,y),(a,b)) = \abs{x - a} +
+\abs{y - b} < \delta$, then
+ \begin{align*}  \abs{f(x,y) - f(a,b)}
+                       &= \abs{2(x - a) - 5(y - b)} \\
+                       &\le 5(\abs{x - a} + \abs{y - b}) \\
+                       &< 5\delta \\
+                       &= \epsilon.
+ \end{align*}
+\end{exam}
+
+\begin{exam} The function
+  \[ f \colon \R^2 \sto \R \colon  (x,y) \mapsto 5x - 7y \]
+is continuous.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+The principle used in example \ref{exam1_cont} works generally: replacing a metric on the
+domain of a function by an equivalent metric does not affect the continuity of the function.
+The same assertion is true for the codomain of a function as well.  We state this formally.
+
+\begin{prop}\label{cont_eqmtr} Let $f\colon M_1 \sto M_2$ be a continuous function between two
+metric spaces $(M_1,d_1)$ and $(M_2,d_2)$.  If $\rho_1$ is a metric on $M_1$ equivalent to $d_1$
+and $\rho_2$ is equivalent to $d_2$, then $f$ considered as a function from the space
+$(M_1,\rho_1)$ to the space $(M_2,\rho_2)$ is still continuous.
+\end{prop}
+
+
+\begin{proof} This is an immediate consequence of propositions \ref{mtr_vs_top} and~\ref{top_ch_cont}.
+\end{proof}
+
+\begin{exam}\label{cont_mult} Multiplication is a continuous function on~$\R$.  That is,
+if we define
+  \[ M \colon \R^2 \sto \R \colon (x,y) \mapsto xy\,, \]
+then the function $M$ is continuous.
+\end{exam}
+
+\begin{proof} Exercise.  \emph{Hint.} Use \ref{cont_eqmtr}.   (Solution~\ref{sol_cont_mult}.)  \ns
+\end{proof}
+
+\begin{exam}\label{cont_add} Addition is a continuous function on $\R$.  That is, if we define
+  \[ A \colon \R^2 \sto \R \colon (x,y) \mapsto x+y\,, \]
+then the function $A$ is continuous.
+\end{exam}
+
+\begin{proof} Problem.    \ns  \end{proof}
+
+\begin{prob}  Let $d$ be the usual metric on $\R^2$, let $\rho$ be the metric on $\R^2$ defined in
+example \ref{Gam}, and let $f\colon (\R^2, d) \sto (\R^2,\rho)$ be the identity function on $\R^2$.
+Show that $f$ is \emph{not} continuous.
+\end{prob}
+
+\begin{prob} Let $\R_d$ be the set of real numbers with the discrete metric, and let $M$ be an
+arbitrary metric space. Describe the family of all continuous functions $f\colon \R_d \sto M$.
+\end{prob}
+
+\begin{prop}\label{prop_cont_closed} Let $f\colon M_1 \sto M_2$ where $M_1$ and $M_2$ are metric
+spaces.  Then $f$ is continuous if and only if $f^\gets(C)$ is a closed subset of $M_1$ whenever
+$C$ is a closed subset of~$M_2$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $f\colon M_1 \sto M_2$ be a function between metric spaces.  Then $f$ is
+continuous if and only if
+  \[ f^\gets(\intr B) \subseteq \intr{\bigl(f^\gets(B)\bigr)} \]
+for all $B \subseteq M_2$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $f \colon M_1 \sto M_2$ be a function between metric spaces.  Then $f$ is
+continuous if and only if
+  \[ f^{\sto}\bigl(\,\clo A\,\bigr) \subseteq \clo{f^{\sto}(A)} \]
+for every $A \subseteq M_1$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $f\colon M_1 \sto M_2$ be a function between metric spaces.  Then $f$ is
+continuous if and only if
+  \[ \clo{f^\gets(B)}  \subseteq f^\gets\bigl(\,\clo B\,\bigr) \]
+for every $B \subseteq M_2$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $f$ be a real valued function on a metric space $M$ and $a \in M$.  If $f$ is
+continuous at $a$ and $f(a) > 0$, then there exists a neighborhood $B$ of $a$ such that $f(x) >
+\frac12 f(a)$ for all $x \in B$.
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prop} Let $N$ be a metric space and $M$ be a subspace of~$N$.
+ \begin{enumerate}
+  \item[(a)] The inclusion map $\iota\colon M \sto N\colon x \mapsto x$ is continuous.
+  \item[(b)] Restrictions of continuous functions are continuous. That is, if $f\colon M_1 \sto M_2$
+is a continuous mapping between metric spaces and $A \subseteq M_1$, then $f|_A$ is continuous.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prob}  Show that alteration of the codomain of a continuous function does not affect its
+continuity.  Precisely: If $f\colon M_0 \sto M$ and $g\colon  M_0 \sto N$ are functions between
+metric spaces such that $f(x) = g(x)$ for all $x \in M_0$ and if their common image is a metric
+subspace of both $M$ and $N$, then $f$ is continuous if and only if $g$ is.
+\end{prob}
+
+In the next proposition we show that if two continuous functions agree on a dense subset of a
+metric space, they agree everywhere on that space.
+
+\begin{prop}\label{agree_dense} If $f$, $g \colon M \sto N$ are continuous functions between metric
+spaces, if $D$ is a dense subset of $M$, and if $f|_D = g|_D$, then $f = g$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Suppose that there is a point $a$ where $f$ and $g$ differ.
+Consider the inverse images under $f$ and $g$, respectively, of disjoint neighborhoods of $f(a)$
+and~$g(a)$.  Use proposition~\ref{cnd_dns}. \ns
+\end{proof}
+
+\begin{prob} Suppose that $M$ is a metric space and that $f\colon M \sto M$ is continuous but
+is \emph{not} the identity map.  Show that there exists a proper closed set $C \subseteq M$ such
+that
+  \[ C \cup f^\gets(C) = M\,. \]
+\emph{Hint.} Choose $x$ so that $x \ne f(x)$.  Look at the complement of $U \cap f^\gets(V)$ where
+$U$ and $V$ are disjoint neighborhoods of $x$ and $f(x)$, respectively.
+\end{prob}
+
+There are two ways in which metric spaces may be regarded as ``essentially the same'': They may be
+isometric (having essentially the same distance function); or they may be topologically equivalent
+(having essentially the same open sets).
+
+\begin{defn} Let$(M,d)$ and $(N,\rho)$ be metric spaces.  A bijection $f \colon M \sto N$ is an
+ \index{isometry}%
+\df{isometry} if
+  \[ \rho(f(x),f(y)) = d(x,y) \]
+for all $x$, $y \in M$. If an isometry exists between two metric spaces, the spaces are said
+to be
+ \index{isometric spaces}%
+\df{isometric}.
+\end{defn}
+
+\begin{defn} A bijection $g\colon M\sto N$ between metric spaces is a
+ \index{homeomorphism}%
+\df{homeomorphism} if both $g$ and $g^{-1}$ are continuous.  Notice that if $g$ is a
+homeomorphism, then $g^{\sto}$ establishes a one-to-one correspondence between the family
+of open subsets of $M$ and the family of open subsets of~$N$.  For this reason two metric
+spaces are said to be
+ \index{topological!equivalence}%
+ \index{equivalent!topologically}%
+\df{(topologically) equivalent} or
+ \index{homeomorphic}%
+\df{homeomorphic} if there exists a homeomorphism between them.  Since the open sets of a
+space are determined by its metric, it is clear that every isometry is automatically a
+homeomorphism. The converse, however, is not correct (see example \ref{exam2_cont}
+below).
+\end{defn}
+
+
+\begin{prob} Give an example of a bijection between metric spaces which is continuous but is not
+a homeomorphism.
+\end{prob}
+
+\begin{exam}\label{exam2_cont} The open interval $(0,1)$ and the real line $\R$ (with their usual
+metrics) are homeomorphic but not isometric.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+We have seen (in chapter \ref{seqs_msps}) that  certain properties of sets in metric spaces can be
+characterized by means of sequences.  Continuity of functions between metric spaces also has a
+simple and useful sequential characterization.
+
+\begin{prop}\label{seq_ch_cont} Let $f \colon M_1 \sto M_2$ be a function between metric spaces
+and $a$ be a point in~$M_1$.  The function $f$ is continuous at a if and only if $f(x_n) \sto f(a)$
+whenever $x_n \sto a$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_seq_ch_cont}.)
+  \ns \end{proof}
+
+\begin{prob} Give a second solution to proposition~\ref{agree_dense}, this time making use of
+propositions~\ref{scm_dense} and~\ref{seq_ch_cont}.
+\end{prob}
+
+\begin{prob} Use examples \ref{cont_add} and \ref{cont_mult} to show that if $x_n \sto a$ and
+$y_n \sto b$ in~$\R$, then $x_n + y_n \sto a + b$ and $x_ny_n \sto ab$. (Do not give an
+``$\epsilon$-$\delta$ proof''.)
+\end{prob}
+
+\begin{prob} Let $c$ be a point in a metric space $M$.  Show that the function
+  \[ f \colon M \sto \R \colon  x \mapsto d(x,c) \]
+is continuous. \emph{Hint.} Use problem \ref{ms_ineq}.
+\end{prob}
+
+\begin{prob}\label{dist_sets_cont}  Let $C$ be a nonempty subset of a metric space.  Then the
+function
+  \[ g \colon M \sto \R \colon  x \mapsto d(x,C) \]
+is continuous.  (See \ref{dist_sets} for the definition of $d(x,C)$.)
+\end{prob}
+
+ \index{Urysohn's lemma}%
+\begin{prop}[Urysohn's lemma]\label{prob_urys_lem} Let $A$ and $B$ be nonempty disjoint closed
+subsets of a metric space~$M$.  Then there exists a continuous function $f \colon M \sto \R$
+such that $\ran f \subseteq [0,1]$, $f^{\sto}(A) = \{0\}$, and $f^{\sto}(B) = \{1\}$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Consider $\dfrac{d(x,A)}{d(x,A) + d(x,B)}$.  Use
+problems~\ref{dist_sets_prob}(c) and~\ref{dist_sets_cont}.  \ns
+\end{proof}
+
+\begin{prob} (Definition. Disjoint sets $A$ and $B$ in a metric space $M$ are said to be
+ \index{separated!by open sets}%
+\df{separated by open sets} if there exist $\open{U,\,V}M$ such that $U \cap V = \emptyset$,
+$A \subseteq U$, and $B~\subseteq~V$.) Show that in a metric space every pair of disjoint
+closed sets can be separated by open sets.
+\end{prob}
+
+\begin{prob} If $f$ and $g$ are continuous real valued functions on a metric space~$M$, then
+$\{x \in M\colon  f(x) \ne g(x)\}$ is an open subset of~$M$.
+\end{prob}
+
+\begin{prob} Show that if $f$ is a continuous real valued function on a metric space,
+then $\abs{f}$ is continuous.  (We denote by $\abs{f}$ the function $x \mapsto \abs{f(x)}$.)
+\end{prob}
+
+\begin{prob} Show that metrics are continuous functions. That is, show that if $M$ is a set and
+$d\colon M \times M \sto \R$ is a metric, then $d$ is continuous. Conclude from this that if $x_n
+\sto a$ and $y_n \sto b$ in a metric space, then $d(x_n,y_n) \sto d(a,b)$.
+\end{prob}
+
+\begin{prob} Show that if $f$ and $g$ are continuous real valued functions on a metric space~$M$
+and $f(a) = g(a)$ at some point $a \in M$, then for every $\epsilon > 0$ there exists a
+neighborhood $U$ of $a$ such that $f(x) < g(x) + \epsilon$ for all $x \in U$.
+\end{prob}
+
+
+
+
+
+
+
+\section{MAPS INTO AND FROM PRODUCTS}
+Let $(M_1,\rho_1)$ and $(M_2,\rho_2)$ be metric spaces.  Define the
+ \index{coordinate projections}%
+ \index{projections!coordinate}%
+\df{coordinate projections} $\pi_1$ and $\pi_2$ on the product $M_1\times M_2$ by
+  \[\pi_k\colon M_1 \times M_2 \sto M_k\colon (x_1,x_2) \mapsto x_k
+                     \qquad\text{for $k=1,2$.}\]
+If $M_1 \times M_2$ has the product metric $d_1$ (see~\ref{3prods} and~\ref{prod_met}),
+then the coordinate projections turn out to be continuous functions.
+
+\begin{exer}\label{coord_projs} Prove the assertion made in the preceding sentence.
+(Solution~\ref{sol_coord_projs}.)
+\end{exer}
+
+\begin{notn} Let $S_1$, $S_2$, and $T$ be sets.  If $f\colon  T \sto S_1 \times S_2$, then we
+define functions
+ \index{<@$f^k$ ($k^{\text{th}}$ component of a function)}%
+$f^1 := \pi_1 \circ f$ and $f^2 := \pi_2 \circ f$.  These are the
+ \index{components!of a function}%
+\df{components} of $f$.
+
+If, on the other hand, functions $g\colon T \sto S_1$ and $h\colon T \sto S_2$ are given, we define
+the function $(g,h)$ by
+  \[(g,h)\colon T \sto S_1 \times S_2\colon x \mapsto (g(x),h(x))\,.\]
+Thus it is clear that whenever $f\colon T \sto S_1 \times S_2$, we have
+  \[f = (f^1,f^2)\,.\]
+\end{notn}
+
+\begin{prop}\label{components} Let $M_1$, $M_2$, and $N$ be metric spaces and $f\colon N \sto M_1
+\times M_2$. The function $f$ is continuous if and only if its components $f^1$ and $f^2$ are.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_components}.) \ns  \end{proof}
+
+\begin{prop}\label{prod_cont} Let $f$ and $g$ be continuous real valued functions on a metric space.
+ \begin{enumerate}
+  \item[(a)] The product $fg$ is a continuous function.
+  \item[(b)] For every real number $\alpha$ the function $\alpha g\colon x \mapsto \alpha g(x)$
+is continuous.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_prod_cont}.)  \ns  \end{proof}
+
+\begin{prob} Let $f$ and $g$ be continuous real valued functions on a metric space and suppose that
+$g$ is never zero.  Show that the function $f/g$ is continuous.
+\end{prob}
+
+\begin{prop} If $f$ and $g$ are continuous real valued functions on a metric space, then $f+g$ is
+continuous.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Show that every polynomial function on $\R$ is continuous.  \emph{Hint.} An induction
+on the degree of the polynomial works nicely.
+\end{prob}
+
+\begin{defn} Let $S$ be a set and $f$, $g\colon S \sto \R$.  Then $f \lor g$, the
+ \index{<@$f \lor g$ (supremum of two functions)}%
+ \index{supremum!of two functions}%
+\df{supremum} (or
+ \index{maximum!of two functions}%
+\df{maximum}) of $f$ and $g$, is defined by
+  \[(f \lor g)(x) := \max\{f(x),g(x)\}\]
+for every $x \in S$.  Similarly, $f \land g$, the
+ \index{<@$f \land g$ (infimum of two functions)}%
+ \index{infimum!of two functions}%
+\df{infimum} (or
+ \index{minimum!of two functions}%
+\df{minimum}) of $f$ and $g$, is defined by
+  \[ (f \land g)(x) := \min\{f(x),g(x)\} \]
+for every $x \in S$.
+\end{defn}
+
+\begin{prob} Let $f(x)= \sin x$ and $g(x) = \cos x$ for $0 \le x \le 2\pi$.  Make a careful
+sketch of $f \lor g$ and $f \land g$.
+\end{prob}
+
+\begin{prob}\label{prob_cont_sup}  Show that if $f$ and $g$ are continuous real valued functions
+on a metric space, then $f \lor g$ and $f \land g$ are continuous.  \emph{Hint.} Consider
+things like $f + g + \abs{f - g}$.
+\end{prob}
+
+In proposition \ref{components} we have dealt with the continuity of functions which map
+\emph{into} products of metric spaces.  We now turn to functions which map \emph{from}
+products; that is, to functions of several variables.
+
+\begin{notn} Let $S_1$, $S_2$, and $T$ be sets and $f\colon S_1 \times S_2 \sto T$.  For each
+$a \in S_1$ we define the function
+ \index{<@$f(a,\,\cdot\,)$, $f(\,\cdot\,,b)$}%
+  \[f(a,\,\cdot\,)\colon S_2 \sto T\colon y \mapsto f(a,y)\]
+and for each $b \in S_2$ we define the function
+  \[f(\,\cdot\,,b)\colon S_1 \sto T\colon  x \mapsto f(x,b)\,.\]
+Loosely speaking, $f(a,\,\cdot\,)$ is the result of regarding $f$ as a function of only its
+second variable; $f(\,\cdot\,,b)$ results from thinking of $f$ as depending on only its first
+variable.
+\end{notn}
+
+\begin{prop}\label{jc_sc} Let $M_1$, $M_2$, and $N$ be metric spaces and $f\colon M_1 \times
+M_2 \sto N$.  If $f$ is continuous, then so are $f(a,\,\cdot\,)$ and $f(\,\cdot\,,b)$ for all $a
+\in M_1$ and $b \in M_2$.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_jc_sc}.)  \ns  \end{proof}
+
+This proposition is sometimes paraphrased as follows: Joint continuity implies separate continuity.
+The converse is \emph{not} true. (See problem~\ref{sc_n_jc}.)
+
+\begin{rem} It should be clear how to extend the results of
+propositions~\ref{components} and~\ref{jc_sc} to products of any finite number of metric spaces.
+\end{rem}
+
+\begin{prob}\label{sc_n_jc} Let $f\colon \R^2 \sto \R$ be defined by
+  \[f(x,y) = \begin{cases} xy(x^2+y^2)^{-1},
+                    &\text{for $(x,y) \ne (0,0)$} \\
+                 0, &\text{ for $x = y = 0$.}
+             \end{cases}\]
+ \begin{enumerate}
+  \item[(a)] Show that $f$ is continuous at each point of $\R^2$ except at $(0,0)$, where it is
+\emph{not} continuous.
+  \item[(b)] Show that the converse of proposition \ref{jc_sc} is not true.
+ \end{enumerate}
+\end{prob}
+
+\begin{notn} Let $M$ and $N$ be metric spaces.  We denote by
+ \index{continuous@$\fml C(M,N)$!family of continuous functions from $M$ into $N$}%
+$\fml C(M,N)$ the family of all continuous functions $f$ taking $M$ into~$N$.
+\end{notn}
+
+In proposition \ref{unif_lim_bdd} we showed that the uniform limit of a sequence of bounded real
+valued functions is bounded.  We now prove an analogous result for continuous real valued
+functions: The uniform limit of a sequence of continuous real valued functions is continuous.
+
+\begin{prop}\label{unif_lim_cont} If $(f_n)$ is a sequence of continuous real valued functions
+on a metric space $M$ which converges uniformly to a real valued function $g$ on $M$, then $g$ is
+continuous.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_unif_lim_cont}.)  \ns  \end{proof}
+
+\begin{prob} If the word ``pointwise'' is substituted for ``uniformly'' in proposition
+\ref{unif_lim_cont}, the conclusion no longer follows.  In particular, find an example of a
+sequence $(f_n)$ of continuous functions on $[0,1]$ which converges pointwise to a function $g$ on
+$[0,1]$ which is \emph{not} continuous.
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{LIMITS}
+We now generalize to metric spaces the results of chapter \ref{lim_rvf} on limits of real
+valued functions.  Most of this generalization is accomplished quite simply: just replace open
+intervals on the real line with open balls in metric spaces.
+
+\begin{defn} If $B_r(a)$ is the open ball of radius $r$ about a point $a$ in a metric space~$M$,
+then $B_r^*(a)$, the
+ \index{ball@$B_r^*(a)$ (deleted open ball)}%
+ \index{deleted!open ball}%
+ \index{ball!deleted}%
+\df{deleted open ball} of radius $r$ about $a$, is just $B_r(a)$ with the point $a$ deleted.  That
+is, $B_r^*(a) = \{x \in M\colon  0 < d(x,a) < r\}$.
+\end{defn}
+
+\begin{defn} Let $(M,d)$ and $(N,\rho)$ be metric spaces, $A \subseteq M$, $f\colon A \sto N$,
+$a$ be an accumulation point of~$A$, and $l~\in~N$.  We say that $l$ is the
+ \index{limit!of a function}%
+\df{limit of} $f$ \df{as} $x$ \df{approaches}~$a$ (of the \df{limit of} $f$ \df{at}~$a$) if:
+for every $\epsilon > 0$ there exists $\delta > 0$ such that $f(x) \in B_\epsilon(l)$ whenever
+$x \in A \cap B_\delta^*(a)$.  In slightly different notation:
+  \[(\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A)\;
+        0 < d(x,a) < \delta \implies \rho(f(x),l) < \epsilon.\]
+When this condition is satisfied we write
+ \index{<@$f(x) \sto l \text{ as } x \sto a$ (limit of a
+function at a point)}%
+  \[f(x) \sto l \quad \text{ as } x \sto a\]
+or
+ \index{limit@$\lim_{x \sto a}f(x)$ (limit of a function at a point)}%
+  \[\lim_{x \sto a}f(x) = l.\]
+As in chapter~\ref{lim_rvf} this notation is optimistic.  We will show in the next proposition that
+limits, if they exist, are unique.
+\end{defn}
+
+\begin{prop}\label{mslim_uniq} Let $f\colon A \sto N$ where $M$ and $N$ are metric spaces and
+$A \subseteq M$, and let $a \in A'$.  If $f(x) \sto b$ as $x \sto a$ and $f(x) \sto c$ as $x \sto
+a$, then $b = c$.
+\end{prop}
+
+\begin{proof} Exercise.    (Solution~\ref{sol_mslim_uniq}.)   \ns  \end{proof}
+
+For a function between metric spaces the relationship between its continuity at a point and its
+limit there is exactly the same as in the case of real valued functions.  (See proposition
+\ref{cnt_vs_lim} and the two examples which precede~it.)
+
+\begin{prop}\label{cont_vs_lim} Let $M$ and $N$ be metric spaces, let $f\colon A \sto N$ where
+$A \subseteq M$, and let $a \in A \cap A'$. Then $f$ is continuous at $a$ if and only if
+   \[\lim_{x \sto a}f(x) = f(a).\]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Modify the proof of \ref{cnt_vs_lim}.  \ns
+\end{proof}
+
+\begin{prop}\label{lim_changvar_R} If $M$ is a metric space, $f\colon A \sto M$ where $A \subseteq \R$,
+and $a \in A'$, then
+   \[ \lim_{h \sto 0}f(a + h) = \lim_{x \sto a}f(x) \]
+in the sense that if either limit exists, then so does the other and the two limits are equal.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Modify the proof of \ref{trnsl_lim}.  \ns
+\end{proof}
+
+We conclude this chapter by examining the relationship between ``double'' and ``iterated'' limits
+of real valued functions of two real variables.  A limit of the form
+  \[ \lim_{(x,y) \sto (a,b)}f(x,y) \]
+is a
+ \index{limit@$\lim_{(x,y) \sto (a,b)}f(x,y)$ (double limits)}%
+ \index{double limit}%
+ \index{limit!double}%
+\df{double limit}; limits of the form
+   \[\lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr) \quad
+         \text{ and } \quad \lim_{y \sto b}
+         \bigl(\lim_{x \sto a}f(x,y)\bigr)\]
+are
+ \index{limit@$\lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr)$ (iterated limits)}%
+ \index{iterated limits}%
+ \index{limit!iterated}%
+\df{iterated limits}.  The meaning of the expression $\lim_{x \sto a}\bigl(\lim_{y \sto b}
+f(x,y)\bigr)$ should be clear: it is $\lim_{x \sto a}h(x)$ where $h$ is the function defined by
+$h(x) = \lim_{y \sto b}f(x,y)$.
+
+\begin{exam} Let $f(x,y) = x\sin(1 + x^2y^2)$ for all $x,y \in \R$.  Then
+$\lim_{(x,y)\sto(0,0)}f(x,y) = 0$.
+\end{exam}
+
+\begin{proof} The function $f$ maps $\R^2$ into $\R$.  We take the usual Euclidean metric on both
+of these spaces.  Given $\epsilon > 0$, choose $\delta = \epsilon$.  If $(x,y) \in
+B_\delta^*(0,0)$, then
+  \[\abs{f(x,y) - 0} = \abs x \abs{\sin(1 + x^2y^2)}  \le \abs x \\
+         \le \sqrt{x^2 + y^2} = d\bigl((x,y),(0,0)\bigr) <  \delta = \epsilon\,. \qedhere   \]
+\end{proof}
+
+\begin{exam} Let $f(x,y) = x\sin(1 + x^2y^2)$ for all $x$, $y \in \R$. Then
+$\lim_{x\sto 0}\bigl(\lim_{y \sto 0}f(x,y)\bigr)~=~0$.
+\end{exam}
+
+\begin{proof} Compute the inner limit first: $\lim_{x\sto 0}\bigl(\lim_{y \sto 0}
+\bigl(x\sin(1+x^2y^2)\bigr) = \lim_{x \sto 0}(x\sin 1)~=~0$.
+\end{proof}
+
+Because of the intimate relationship between continuity and limits
+(proposition~\ref{cont_vs_lim}) and because of the fact that joint continuity implies separate
+continuity (proposition~\ref{jc_sc}), many persons wrongly conclude that the existence of a
+double limit implies the existence of the corresponding iterated limits. One of the last
+problems in this chapter will provide you with an example of a function having a double limit
+at the origin but failing to have one of the corresponding iterated limits.  In the next
+proposition we prove that if in addition to the existence of the double limit we assume that
+$\lim_{x \sto a}f(x,y)$ and $\lim_{y \sto b}f(x,y)$ always exist, then both iterated limits
+exist and are equal.
+
+\begin{prop}\label{dbl_vs_iter}  Let $f$ be a real valued function of two real variables.  If the limit
+  \[l = \lim_{(x,y) \sto (a,b)}f(x,y)\]
+exists and if $\lim_{x \sto a}f(x,y)$ and $\lim_{y \sto b}f(x,y)$ exist for all $y$ and $x$,
+respectively, then the iterated limits
+   \[\lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr) \quad \text{
+               and } \quad \lim_{y \sto b}\bigl(\lim_{x \sto a}f(x,y)\bigr)\]
+both exist and are equal to~$l$.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Let $g(x) = \lim_{y \sto b}f(x,y)$ for all $x \in \R$.  We
+wish to show that $\lim_{x \sto a}g(x) = l$.  The quantity $\abs{g(x) - l}$ is small whenever both
+$\abs{g(x) - f(x,y)}$ and $\abs{f(x,y) - l}$ are.  Since $\lim_{(x,y) \sto (a,b)}f(x,y) = l$ it is
+easy to make $\abs{f(x,y) - l}$ small: insist that $(x,y)$ lie in some sufficiently small open ball
+about $(a,b)$ of radius, say, $\delta$.  This can be accomplished by requiring, for example, that
+ \begin{equation}\label{mslim_eq1}
+          \abs{x - a} < \delta/2
+ \end{equation}
+and that
+ \begin{equation}\label{mslim_eq2}
+          \abs{y - b} < \delta/2.
+ \end{equation}
+Since $g(x) = \lim_{y \sto b}f(x,y)$ for every $x$, we can make $\abs{g(x) - f(x,y)}$ small (for
+fixed $x$) by supposing that
+ \begin{equation}\label{mslim_eq3}
+          \abs{y - b} < \eta
+ \end{equation}
+for some sufficiently small~$\eta$.  So the proof is straightforward: require $x$ to satisfy
+\eqref{mslim_eq1} and for such $x$ require $y$ to satisfy \eqref{mslim_eq2} and
+\eqref{mslim_eq3}. (Solution~\ref{sol_dbl_vs_iter}.) \ns
+\end{proof}
+
+It is sometimes necessary to show that certain limits do \emph{not} exist. There is a rather simple
+technique which is frequently useful for showing that the limit of a given real valued function
+does not exist at a point~$a$.  Suppose we can find two numbers $\alpha \ne \beta$ such that in
+\emph{every} neighborhood of $a$ the function $f$ assumes (at points other than $a$) both the
+values $\alpha$ and~$\beta$.  (That is, for every $\delta > 0$ there exist points $u$ and $v$ in
+$B_\delta(a)$ distinct from $a$ such that $f(u) = \alpha$ and $f(v) = \beta$.)  Then it is easy to
+see that $f$ cannot have a limit as $x$ approaches~$a$.  Argue by contradiction: suppose $\lim_{x
+\sto a}f(x) = l$.  Let  $\epsilon = \abs{\alpha - \beta}$.  Then $\epsilon > 0$; so there exists
+$\delta > 0$ such that $\abs{f(x) - l} < \epsilon/2$ whenever $0 < d(x,a) < \delta$.  Let $u$ and
+$v$ be points in $B_\delta^*(a)$ satisfying $f(u) = \alpha$ and $f(v) = \beta$.  Since $\abs{f(u) -
+l} < \epsilon/2$ and $\abs{f(v) - l} < \epsilon/2$, it follows that
+ \begin{align*}
+              \epsilon  &= \abs{\alpha - \beta}   \\
+                        &= \abs{f(u) - f(v)}      \\
+                        &\le \abs{f(u) - l} + \abs{l - f(v)}  \\
+                        &< \epsilon
+ \end{align*}
+which is an obvious contradiction.
+
+\begin{exam}\label{lim_nex} Let $f(x,y) = \dfrac{x^2y^2}{x^2y^2 + (x + y)^4}$ if $(x,y) \ne (0,0)$.
+Then $\lim_{(x,y) \sto (0,0)}f(x,y)$ does not exist.
+\end{exam}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_lim_nex}.) \ns  \end{proof}
+
+\begin{exam} The limit as $(x,y) \sto (0,0)$ of $\dfrac{x^3y^3}{x^{12} + y^4}$ does not exist.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob}\label{abs_lim_R} Let $f\colon A \sto \R$ where $A \subseteq M$ and $M$ is a metric
+space, and let $a \in A'$.  Show that
+    \[ \lim_{x \sto a}f(x) = 0 \quad \text{ if and only if }
+                  \quad \lim_{x \sto a}\abs{f(x)} = 0\,. \]
+\end{prob}
+
+\begin{prob} Let $f$, $g$, $h\colon A \sto \R$ where $A \subseteq M$ and $M$ is a metric space,
+and let $a \in A'$.  Show that if $f \le g \le h$ and
+   \[ \lim_{x \sto a}f(x) = \lim_{x \sto a}h(x) = l\,, \]
+then $\lim_{x \sto a}g(x) = l$.
+\end{prob}
+
+\begin{prob} Let $M$, $N$, and $P$ be metric spaces, $a \in A \subseteq M$, $f\colon A \sto N$,
+and $g\colon N \sto P$.
+ \begin{enumerate}
+  \item[(a)] Show that if $l = \lim_{x \sto a}f(x)$ exists and $g$ is continuous at $l$, then
+$\lim_{x \sto a}(g \circ f)(x)$ exists and is equal to $g(l)$.
+  \item[(b)] Show by example that the following assertion need not be true: If $l =
+\lim_{x \sto a}f(x)$ exists and $\lim_{y \sto l}g(y)$ exists, then $\lim_{x \sto a}(g \circ f)(x)$
+exists.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $a$ be a point in a metric space. Show that
+   \[ \lim_{x \sto a}d(x,a) = 0\,. \]
+\end{prob}
+
+\begin{prob}\label{prob_lim_Rn} In this problem $\R^n$ has its usual metric; in particular,
+   \[ d(x,0) = \biggl(\sum_{k=1}^n x_k^2\biggr)^{1/2} \]
+for all $x = (x_1,\dots,x_n) \in \R^n$.
+ \begin{enumerate}
+  \item[(a)] Show that
+   \[ \lim_{x \sto 0} \frac{x_jx_k}{d(x,0)} = 0 \]
+whenever $1 \le j \le n$ and $1 \le k \le n$.
+  \item[(b)] For $1 \le k \le n$ show that $\lim_{x \sto 0}\dfrac{x_k}{d(x,0)}$ does not exist.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{lim_exam1} Let $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2}$ for $(x,y) \ne (0,0)$.
+Find the following limits, if they exist.
+ \begin{enumerate}
+  \item[(a)] $\lim_{(x,y) \sto (0,0)}f(x,y)$
+  \item[(b)] $\lim_{x \sto 0}\bigl(\lim_{y \sto 0}f(x,y)\bigr)$
+  \item[(c)] $\lim_{y \sto 0}\bigl(\lim_{x \sto 0}f(x,y)\bigr)$
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Same as problem \ref{lim_exam1}, but $f(x,y) = \dfrac{xy}{x^2 + y^2}$.
+\end{prob}
+
+\begin{prob} Same as problem \ref{lim_exam1}, but $f(x,y) = \dfrac{x^2y^2}{x^2 + y^2}$.
+\end{prob}
+
+\begin{prob} Same as problem \ref{lim_exam1}, but $f(x,y) = y\sin(1/x)$ if $x \ne 0$ and
+$f(x,y) = 0$ if $x = 0$.
+\end{prob}
+
+
+
+
+\endinput

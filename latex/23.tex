@@ -1,0 +1,669 @@
+\chapter{CONTINUITY AND LINEARITY}
+
+
+
+\section{BOUNDED LINEAR TRANSFORMATIONS}\label{blt}
+Normed linear spaces have both algebraic and topological structure.  It is therefore natural
+to be interested in those functions between normed linear spaces which preserve both types of
+structure, that is, which are both linear and continuous.  In this section we study such
+functions.
+\begin{defn}  A linear transformation $T \colon V \sto W$ between normed linear spaces is
+ \index{bounded!linear map}%
+\df{bounded} if there exists a number $M > 0$ such that
+  \[ \norm{Tx} \le M \norm x \]
+for all $x \in V$.  The family of all bounded linear transformations from $V$ into $W$ is
+denoted
+ \index{bounded@$\ofml B(V,W)$ (bounded linear maps between normed linear spaces)}%
+by~$\ofml B(V,W)$.
+\end{defn}
+
+\begin{cau}  There is a possibility of confusion.  Here we have defined bounded linear
+transformations; in section~\ref{space_bdd} we gave a quite different definition for
+``bounded'' as it applies to arbitrary vector valued functions; and certainly linear
+transformations are such functions.  The likelihood of becoming confused by these two
+different notions of boundedness is very small once one has made the following observation:
+Except for the zero function, it is impossible for a linear transformation to be bounded in
+the sense of section~\ref{space_bdd}.  (Proof. Let $T\colon V \sto W$ be a nonzero linear
+transformation between normed linear spaces.  Choose $a$ in $V$ so that $Ta \ne 0$.  Then
+$\norm{Ta} > 0$, so that by the Archimedean principle (proposition~\ref{arch_prop}) the number
+$\norm{T(na)} = n\norm{Ta}$ can be made as large as desired by choosing $n$ sufficiently
+large.  Thus there is certainly no $M > 0$ such that $\norm{Tx} \le M$ for all~$x$.)  Since
+nonzero linear transformations cannot be bounded in the sense of section~\ref{space_bdd}, an
+assertion that a linear map is bounded should always be interpreted in the sense of
+boundedness introduced in this section.
+\end{cau}
+
+A function $f\colon S \sto W$, which maps a set $S$ into a normed linear space $W$, is bounded
+if and only if it maps \emph{every} subset of $S$ into a bounded subset of~$W$.  However, a
+\emph{linear} map $T\colon V \sto W$ from one normed linear space into another is bounded if
+and only if it maps every bounded subset of $V$ into a bounded subset of~$W$.
+
+\begin{prop}  A linear transformation $T\colon V \sto W$ between normed linear spaces is bounded
+if and only if $T^\sto(A)$ is a bounded subset of $W$ whenever $A$ is a bounded subset of~$V$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{exam}\label{exam_bdd_lt}  Let $T \colon \R^2 \sto \R^3 \colon (x,y)
+\mapsto (3x + y,x - 3y,4y)$.  It is easily seen that $T$ is linear. For all $(x,y)$ in~$\R^2$
+ \begin{align*}
+   \norm{T(x,y)}
+           &= \norm{(3x + y,x - 3y,4y)} \\
+           &= \bigl((3x + y)^2 + (x - 3y)^2 + (4y)^2\bigr)^{\frac12} \\
+           &= (10x^2 + 26y^2)^{\frac12} \\
+           &\le \sqrt{26}(x^2 + y^2)^{\frac12} \\
+           &= \sqrt{26}\norm{(x,y)}\,.
+ \end{align*}
+So the linear transformation $T$ is bounded.
+\end{exam}
+
+Why is boundedness of linear transformations an important concept? Because it turns out to be
+equivalent to continuity and is usually easier to establish.
+
+\begin{prop}\label{prop_equiv_cont}  Let $T\colon V \sto W$ be a linear transformation between
+normed linear spaces.  The following are equivalent:
+ \begin{enumerate}
+  \item[(a)] $T$ is continuous.
+  \item[(b)] There is at least one point at which $T$ is continuous.
+  \item[(c)] $T$ is continuous at $\vc 0$.
+  \item[(d)] $T$ is bounded.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof}  Exercise. \emph{Hint.}  To prove that (c) implies (d) argue by contradiction.
+Show that for each $n$ there exists $x_n$ in $V$ such that $\norm{Tx_n} > n\norm{x_n}$.  Let
+$y_n = \bigl(n\norm{x_n}\bigr)^{-1}x_n$.  Give one argument to show that the sequence $(Ty_n)$
+converges to zero as $n \sto\infty$.  Give another to show that it does not.
+(Solution~\ref{sol_prop_equiv_cont}.)  \ns
+\end{proof}
+
+\begin{defn} Let $T \in \ofml B(V,W)$ where $V$ and $W$ are normed linear spaces.  Define
+  \[ \norm T := \inf\{M > 0\colon \norm{Tx} \le M \norm x \text{for all $x \in V$}\}. \]
+This number is called the
+ \index{<@$\norm T$ (norm of a linear transformation)}%
+ \index{linear!transformation, norm of a}%
+ \index{norm!of a linear transformation}%
+\df{norm} of~$T$.  We show in proposition~\ref{prop_opnorm} that the map $T \mapsto \norm T$
+really is a norm on $\ofml B(V,W)$.
+\end{defn}
+
+There are at least four ways to compute the norm of a linear transformation~$T$.  Use the
+definition or any of the three formulas given in the next lemma.
+
+\begin{lem}\label{lem_equiv_norm} Let $T$ be a bounded linear map between nonzero normed linear
+spaces. Then
+  \begin{align*}
+     \norm T &= \sup\{\norm x^{-1}\,\norm{Tx} \colon x \ne \vc 0\} \\
+             &= \sup\{\norm{Tu} \colon \norm u = 1\} \\
+             &= \sup\{\norm{Tu} \colon \norm u \le 1\}.
+  \end{align*}
+\end{lem}
+
+\begin{proof} Exercise. \emph{Hint.}  To obtain the first equality, use the fact that if a subset
+$A$ of $\R$ is bounded above then $\sup A = \inf\{M \colon \text{$M$ is an upper bound
+for~$A$}\}$.  (Solution~\ref{sol_lem_equiv_norm}.)  \ns
+\end{proof}
+
+\begin{cor}\label{cor_norm_op} If $T \in \ofml B(V,W)$ where $V$ and $W$ are normed linear spaces, then
+  \[ \norm{Tx} \le \norm T \, \norm x \]
+for all $x$ in~$V$.
+\end{cor}
+
+\begin{proof} By the preceding lemma $\norm T \ge \norm x^{-1}\norm{Tx}$ for all $x \ne 0$.  Thus
+$\norm{Tx} \le \norm T \,\norm x$ for all~$x$.
+\end{proof}
+
+
+The following example shows how to use lemma~\ref{lem_equiv_norm} (in conjunction with the
+definition) to compute the norm of a linear transformation.
+
+\begin{exam} Let $T$ be the linear map defined in example~\ref{exam_bdd_lt}.  We have already seen that
+$\norm{T(x,y)} \le \sqrt{26}\norm{(x,y)}$ for all $(x,y)$ in $\R^2$.  Since $\norm T$ is
+defined to be the infimum of the set of all numbers $M$ such that $\norm{T(x,y)} \le M
+\norm{(x,y)}$ for all $(x,y) \in \R^2$, and since $\sqrt{26}$ is such a number, we know that
+  \begin{equation}\label{eqn_norm_est1} \norm  T \le \sqrt{26}
+  \end{equation}
+On the other hand lemma~\ref{lem_equiv_norm} tells us that $\norm T$ is the supremum of the
+set of all numbers $\norm{Tu}$ where $u$ is a unit vector. Since $(0,1)$ is a unit vector and
+$\norm{T(0,1)} = \norm{(1,-3,4)} = \sqrt{26}$, we conclude that
+  \begin{equation}\label{eqn_norm_est2} \norm  T \ge \sqrt{26}
+  \end{equation}
+Conditions \eqref{eqn_norm_est1} and \eqref{eqn_norm_est2} imply that $\norm T = \sqrt{26}$.
+\end{exam}
+
+\begin{prob} Let $T\colon \R^2 \sto \R^3$ be the linear transformation defined by $T(x,y) =
+(3x, x + 2y, x - 2y)$.  Find $\norm T$.
+\end{prob}
+
+\begin{prob} Let $T\colon \R^3 \sto \R^4\colon x \mapsto (x_1 - 4x_2, 2x_1 + 3x_3, x_1 + 4x_2,
+x_1- 6x_3)$.  Find $\norm T$.
+\end{prob}
+
+\begin{exer}\label{exer_exam_norm}  Find the norm of each of the
+following.
+ \begin{enumerate}
+  \item[(a)] The identity map on a normed linear space.
+  \item[(b)] The zero map in $\ofml B(V,W)$.
+  \item[(c)] A coordinate projection $\pi_k: V_1 \times V_2 \sto V_k$
+($k = 1,2$) where $V_1$ and $V_2$ are nontrivial normed linear spaces (that is, normed linear
+spaces which contain vectors other than the zero vector.)
+ \end{enumerate}
+(Solution~\ref{sol_exer_exam_norm}.)
+\end{exer}
+
+\begin{exer}\label{exer_norm_int} Let $\fml C = \fml C([a,b],\R)$.  Define $J\colon
+\fml C \sto \R$ by
+  \[ Jf = \int_a^b f(x)\,dx\,. \]
+Show that $J \in \ofml B(\fml C,\R)$ and find~$\norm J$. (Solution~\ref{sol_exer_norm_int}.)
+\end{exer}
+
+\begin{prob} Let $\fml C^1$ and $\fml C$ be as in problem~\ref{prob_intop_c1}.  Let $D$ be the
+differentiation operator
+  \[ D \colon \fml C^1 \sto \fml C \colon f \mapsto f' \]
+(where $f'$ is the derivative of $f$).  Let both $\fml C^1$ and $\fml C$ have the uniform
+norm.  Is the linear transformation $D$ bounded?  \emph{Hint.}  Let $[a,b] = [0,1]$ and
+consider the functions $f_n(x) = x^n$ for $n \in \N$ and $0 \le x \le 1$.
+\end{prob}
+
+Next we show that the set $\ofml B(V,W)$ of all bounded linear transformations between two
+normed linear spaces is itself a normed linear space.
+
+\begin{prop}\label{prop_opnorm} If $V$ and $W$ are normed linear spaces then under pointwise
+operations $\ofml B(V,W)$ is a vector space and the map $T \mapsto \norm T$ from $\ofml
+B(V,W)$ into $\R$ defined above is a norm on $\ofml B(V,W)$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_opnorm}.) \ns  \end{proof}
+
+One obvious fact that we state for future reference is that the composite of bounded linear
+transformations is bounded and linear.
+
+\begin{prop}\label{prop_comp_op} If $S \in \ofml B(U,V)$ and $T \in \ofml B(V,W)$, then
+$TS \in \ofml B(U,W)$ and $\norm{TS} \le \norm T \, \norm S$
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_comp_op}.)  \ns  \end{proof}
+
+In propositions~\ref{prop_ker_vsubsp} and ~\ref{lt_prop2} we saw that the kernel and range of
+a linear map $T$ are vector subspaces, respectively, of the domain and codomain of~$T$.  It is
+interesting to note that the kernel is always a closed subspace while the range need not be.
+
+\begin{prop} If $V$ and $W$ are normed linear spaces and $T \in \ofml B(V,W)$, then $\ker T$
+is a closed linear subspace of~$V$.
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{exam} Let $c_0$ be the vector space of all sequences $x$ of real numbers (with pointwise
+operations) which converge to zero. Give $c_0$ the uniform norm (see example~\ref{exam_un_set}
+so that for every $x \in c_0$
+  \[ \norm x_u = \sup\{x_k: k \in \N\}\,. \]
+The family $l$ of sequences of real numbers which have only finitely many nonzero coordinates
+is a vector subspace of~$c_0$, but it is not a closed subspace.  Thus the range of the
+inclusion map of $l$ into $c_0$ does not have closed range.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+In general the calculus of infinite dimensional spaces is no more complicated than calculus on
+$\R^n$.  One respect in which the Euclidean spaces $\R^n$ turn out to be simpler, however, is
+the fact that every linear map from $\R^n$ into $\R^m$ is automatically continuous.  Between
+finite dimensional spaces there are no discontinuous linear maps.  And this is true regardless
+of the particular norms placed on these spaces.
+
+\begin{prop}\label{prop_fd_cont}  Let $\R^n$ and $\R^m$ have any norms whatever.  If
+$T \colon \R^n \sto \R^m$ is linear, then it is continuous.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}   Let $\bigl[t_k^j\bigr] = [T]$ be the matrix representation
+of $T$ and
+  \[ M = \max\{\bigl| t_k^j \bigr| \colon 1 \le j \le m \text{ and } 1 \le k \le n\}\,. \]
+Let $\R_u^m$ be $\R^m$ provided with the uniform norm
+  \[ \norm x_u := \max\{\abs{x_k} \colon 1 \le k \le m\} \]
+and $\R_1^n$ be $\R^n$ equipped with the norm
+  \[ \norm x_1 := \sum_{k=1}^n \abs{x_k}\,. \]
+Show that $T$ regarded as a map from $\R_1^n$ to $\R_u^m$ is bounded (with $\norm T \le M$).
+Then use problem~\ref{prob_norms_Rn}.  \ns   \end{proof}
+
+\begin{prob}\label{prob_eval_op} Let $V$ and $W$ be normed linear spaces and $x \in V$.
+Define a map $E_x$ (called
+ \index{evaluation map}%
+\df{evaluation at} $x$) by
+  \[ E_x\colon \ofml B(V,W) \sto W\colon T \mapsto Tx\,. \]
+Show that $E_x \in \ofml B\bigl(\ofml B(V,W),W\bigr)$ and that $\norm{E_x} \le \norm x$.
+\end{prob}
+
+\begin{prob}\label{prob_Ex_cms}  What changes in the preceding problem if we let $M$ be a
+compact metric space and $W$ be a nonzero normed linear space and consider the evaluation map
+$E_x \colon \fml C(M,W) \sto W \colon f \mapsto f(x)$?
+\end{prob}
+
+\begin{prob}\label{prob_comp_op} Let $S$ be a nonempty set and $T \colon V \sto W$ be a bounded
+linear transformation between normed linear spaces.  Define a function $C_T$ on the normed
+linear space $\fml B(S,V)$ by
+  \[ C_T(f) :=  T \circ f \]
+for all $f$ in $\fml B(S,V)$.
+ \begin{enumerate}
+  \item[(a)] Show that $C_T(f)$ belongs to $\fml B(S,W)$ whenever $f$ is a member of
+$\fml B(S,V)$.
+  \item[(b)] Show that the map $C_T\colon \fml B(S,V) \sto \fml B(S,W)$ is linear and
+continuous.
+  \item[(c)] Find $\norm{C_T}$.
+  \item[(d)] Show that if $f_n \sto g \text{\,(unif)}$ in $\fml B(S,V)$, then
+$T \circ f_n \sto T \circ g \text{\,(unif)}$ in $\fml B(S,W)$.
+  \item[(e)] Show that $C_T$ is injective if and only if $T$ is.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{prob_c_functor}  Let $M$ and $N$ be compact metric spaces and
+$\phi\colon M \sto N$ be continuous.  Define $T_\phi$ on $\fml C(N,\R)$ by
+  \[ T_\phi(g) := g \circ \phi \]
+for all $g$ in $\fml C(N,\R)$.
+ \begin{enumerate}
+  \item[(a)] $T_\phi$ maps $\fml C(N,\R)$ into $\fml C(M,\R)$.
+  \item[(b)] $T_\phi$ is a bounded linear transformation.
+  \item[(c)] $\norm{T_\phi} = 1$.
+  \item[(d)] If $\phi$ is surjective, then $T_\phi$ is injective.
+  \item[(e)] If $T_\phi$ is injective, then $\phi$ is surjective.
+\emph{Hint.}  Suppose $\phi$ is not surjective.  Choose $y$ in $N \setminus \ran\phi$.  Show
+that problem~\ref{prob_urys_lem} can be applied to the sets $\{y\}$ and $\ran\phi$.
+  \item[(f)] If $T_\phi$ is surjective, then $\phi$ is injective.  \emph{Hint.}  Here again
+problem~\ref{prob_urys_lem} is useful. [It is also true that if $\phi$ is injective, then
+$T_\phi$ is surjective.  But more machinery is needed before we can prove this.]
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Let $(S_k)$ be a sequence in $\ofml B(V,W)$ and $U$ be a member of $\ofml B(W,X)$
+where $V$, $W$, and $X$ are normed linear spaces.  If $S_k \sto T$ in $\ofml B(V,W)$, then
+$US_k \sto UT$.  Also, state and prove a similar result whose conclusion is, ``then $S_kU \sto
+TU$.''
+\end{prob}
+
+\begin{defn} A family $\ofml T$ of linear maps from a vector space into itself is a
+ \index{commuting!family}%
+ \index{family!commuting}%
+\df{commuting family} if $ST = TS$ for all $S$, $T \in \ofml T$.
+\end{defn}
+
+\begin{prob}[Markov-Kakutani Fixed Point Theorem]
+Prove: If $\ofml T$ is a commuting family of bounded linear maps from a normed linear
+space $V$ into itself and $K$ is a nonempty convex compact subset of $V$ which is mapped
+into itself by every member of $\ofml T$, then there is at least one point in $K$ which
+is fixed under every member of~$\ofml T$. \emph{Hint.}  For every $T$ in $\ofml T$ and
+$n$ in $\N$ define
+  \[ T_n = n^{-1}\sum_{j=0}^{n-1} T^j \]
+(where $T^0 := I$).  Let $\ofml U= \{T_n\colon T \in \ofml T \text{ and } n \in \N\}$.
+Show that $\ofml U$ is a commuting family of bounded linear maps on $V$ each of which
+maps $K$ into itself and that if $U_1,\dots, U_n \in \ofml U$, then
+  \[ (U_1 \dots U_n)^\sto (K) \subseteq \bigcap_{j=1}^n U_j^\sto (K)\,. \]
+Let $\sfml C = \{U^\sto (K)\colon U \in \ofml U\}$ and use problem~\ref{fip} to show that
+$\bigcap\sfml C \ne \emptyset$.
+
+Finally, show that every element of $\bigcap\sfml C$ is fixed under each $T$ in $\ofml
+T$; that is, if $a \in \bigcap\sfml C$ and $T \in \ofml T$, then $Ta = a$.  To this end
+argue that for every $n \in \N$ there exists $c_n \in K$ such that $a = T_nc_n$ and
+therefore $Ta - a$ belongs to $n^{-1}(K-K)$ for each~$n$.  Use
+problems~\ref{prob_sum_cpt} and \ref{cpt_clbdd} to show that every neighborhood of $0$
+contains, for sufficiently large $n$, sets of the form $n^{-1}(K-K)$.  What do these last
+two observations say about $Ta - a$?
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{THE STONE-WEIERSTRASS THEOREM}
+In example~\ref{exam_approx_sqrt} we found that the square root function can be uniformly
+approximated on $[0,1]$ by polynomials. In this section we prove the remarkable
+\emph{Weierstrass approximation theorem} which says that \emph{every} continuous real valued
+function can be uniformly approximated on compact intervals by polynomials.  We will in fact
+prove an even stronger result due to M. H. Stone which generalizes the Weierstrass theorem to
+arbitrary compact metric spaces.
+
+\begin{prop}\label{prop_SW_prep}  Let $A$ be a subalgebra of $\fml C(M,\R)$ where $M$ is a compact
+metric space.  If $f \in A$, then $\abs f \in \clo A$.
+\end{prop}
+
+\begin{proof}  Exercise.  \emph{Hint.}  Let $(p_n)$ be a sequence of polynomials converging uniformly
+on $[0,1]$ to the square root function. (See~\ref{exam_approx_sqrt}.)  What can you say about
+the sequence $(p_n \circ g^2)$ where $g = f / \|f\|$\,? (Solution~\ref{sol_prop_SW_prep}.) \ns
+\end{proof}
+
+\begin{cor}\label{cor_sup_clo}  If $A$ is a subalgebra of $\fml C(M,\R)$ where $M$ is a compact
+metric space, and if $f$, $g \in A$, then $f \lor g$ and $f \land g$ belong to~$\clo A$.
+\end{cor}
+
+\begin{proof}   As in the solution to problem~\ref{prob_cont_sup}, write $f \lor g =
+\frac12(f + g + \abs{f-g})$ and $f \land g = \frac12(f + g - \abs{f-g})$; then apply the
+preceding proposition.
+\end{proof}
+
+\begin{defn}  A family $\fml F$ of real valued functions defined on a set $S$ is a
+ \index{separating!family of functions}%
+ \index{family!separating}%
+\df{separating} family if corresponding to every pair of distinct points $x$ and $y$ and $S$
+there is a function $f$ in $\fml F$ such that $f(x) \ne f(y)$. In this circumstance we may
+also say that the family $\fml F$ \df{separates points} of~$S$.
+\end{defn}
+
+
+\begin{prop}\label{prop_sep_subalg}  Let $A$ be a separating unital subalgebra of
+$\fml C(M,\R)$ where $M$ is a compact metric space. If $a$ and $b$ are distinct points in
+$M$ and $\alpha,\beta \in \R$, then there exists a function $f \in A$ such that $f(a) =
+\alpha$ and $f(b) = \beta$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Let $g$ be any member of $A$ such that $g(a) \ne g(b)$.
+Notice that if $k$ is a constant, then the function $f \colon x \mapsto \alpha + k(g(x)-g(a))$
+satisfies $f(a) = \alpha$. Choose $k$ so that $f(b) = \beta$.   \ns
+\end{proof}
+
+Suppose that $M$ is a compact metric space. The \emph{Stone-Weierstrass theorem} says that any
+separating unital subalgebra of the algebra of continuous real valued functions on $M$ is
+dense.  That is, if $A$ is such a subalgebra, then we can approximate each function $f \in
+\fml C(M,\R)$ arbitrarily closely by members of~$A$.  The proof falls rather naturally into
+two steps.  First (in lemma~\ref{lem_SW_prep}) we find a function in $\clo A$ which does not
+exceed $f$ by much; precisely, given $a \in M$ and $\epsilon > 0$ we find a function $g$ in
+$\clo A$ which agrees with $f$ at $a$ and satisfies $g(x) < f(x) + \epsilon$ elsewhere.  Then
+(in theorem~\ref{SW_thm}) given $\epsilon > 0$ we find $h \in \clo A$ such that $f(x) -
+\epsilon < h(x) < f(x) + \epsilon$.
+
+\begin{lem}\label{lem_SW_prep}  Let $A$ be a unital separating subalgebra of $\fml C(M,\R)$
+where $M$ is a compact metric space.  For every $f \in \fml C(M,\R)$, every $a \in M$, and
+every $\epsilon > 0$ there exists a function $g \in \clo A$ such that $g(a) = f(a)$ and $g(x)
+< f(x) + \epsilon$ for all $x \in M$.
+\end{lem}
+
+\begin{proof} Exercise.   \emph{Hint.} For each $y \in M$ find a
+function $\phi_y$ which agrees with $f$ at $a$ and at $y$.  Then $\phi_y(x) < f(x) + \epsilon$
+for all $x$ in some neighborhood $U_y$ of~$y$.  Find finitely many of these neighborhoods
+$U_{y_1}, \dots, U_{y_n}$ which cover~$M$.  Let $g = \phi_{y_1} \land \dots \land \phi_{y_n}$.
+(Solution~\ref{sol_lem_SW_prep}.)    \ns
+\end{proof}
+
+ \index{Stone-Weierstrass theorem}%
+\begin{thm}[Stone-Weierstrass Theorem]\label{SW_thm}
+ \index{Stone-Weierstrass theorem}%
+Let $A$ be a unital separating subalgebra of $\fml C(M,\R)$ where $M$ is a compact metric
+space.  Then $A$ is dense in~$\fml C(M,\R)$.
+\end{thm}
+
+\begin{proof} All we need to show is that $\fml C(M,\R) \subseteq \clo A$.  So we choose
+$f \in \fml C(M,\R)$ and try to show that $f \in \clo A$.  It will be enough to show that for
+every $\epsilon > 0$ we can find a function $h \in \clo A$ such that $\norm{f - h}_u <
+\epsilon$. [Reason: then $f$ belongs to $\clo{\clo A}$ (by proposition\ref{cnd_dns}) and
+therefore to $\clo A$ (by~\ref{prop_clo}(b)).]
+
+Let $\epsilon > 0$.  For each $x \in M$ we may, according to lemma~\ref{lem_SW_prep}, choose a
+function $g_x \in \clo A$ such that $g_x(x) = f(x)$ and
+ \begin{equation}\label{SW_ineq1}
+       g_x(y) < f(y) + \epsilon
+ \end{equation}
+for every $y \in M$.  Since both $f$ and $g_x$ are continuous and they agree at $x$, there
+exists an open set $U_x$ containing $x$ such that
+ \begin{equation}\label{SW_ineq2}
+       f(y) < g_x(y) + \epsilon
+ \end{equation}
+for every $y \in U_x$.  (Why?)
+
+Since the family $\{U_x\colon x \in M\}$ covers $M$ and $M$ is compact, there exist points
+$x_1, \dots, x_n$ in $M$ such that $\{U_{x_1}, \dots U_{x_n}\}$ covers~$M$.  Let $h = g_{x_1}
+\lor \dots \lor g_{x_n}$.  We know from \ref{prob_clo_alg} that $\clo A$ is a subalgebra of
+$\fml C(M,\R)$.  So according to corollary~\ref{cor_sup_clo}, $h \in \clo{\clo A} = \clo A$.
+
+By inequality~\eqref{SW_ineq1}
+  \[ g_{x_k}(y) < f(y) + \epsilon \]
+holds for all $y \in M$ and $1 \le k \le n$.  Thus
+ \begin{equation}\label{SW_ineq3}
+       h(y) < f(y) + \epsilon
+ \end{equation}
+for all $y \in M$.  Each $y \in M$ belongs to at least one of the open sets~$U_{x_k}$.  Thus
+by~\eqref{SW_ineq2}
+ \begin{equation}\label{SW_ineq4}
+       f(y) < g_{x_k}(y) + \epsilon < h(y) + \epsilon
+ \end{equation}
+for every $y \in M$.  Together \eqref{SW_ineq3} and~\eqref{SW_ineq4} show that
+  \[ -\epsilon < f(y) - h(y) < \epsilon \]
+for all~$y \in M$.  That is, $\norm{f - h}_u < \epsilon$.
+\end{proof}
+
+\begin{prob} Give the missing reason for inequality~\eqref{SW_ineq2} in the preceding proof.
+\end{prob}
+
+
+\begin{thm}[Weierstrass Approximation Theorem]\label{Wat}
+ \index{Weierstrass approximation theorem}%
+ \index{approximation theorem!Weierstrass}%
+Every continuous real valued function on $[a,b]$ can be uniformly approximated by polynomials.
+\end{thm}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Let $\fml G$ be the set of all functions $f$ in $\fml C\bigl(\,[0,1]\,\bigr)$
+such that $f$ is differentiable on $(0,1)$ and $f\,'(\frac12) = 0$. Show that $\fml G$ is
+dense in~$\fml C\bigl(\,[0,1]\,\bigr)$.
+\end{prob}
+
+\begin{prop} If $M$ is a closed and bounded subset of $\R$, then the normed linear space
+$\fml C(M,\R)$ is separable.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{BANACH SPACES}
+
+\begin{defn} A
+ \index{Banach!space}%
+ \index{space!Banach}%
+\df{Banach space} is a normed linear space which is complete with respect to the metric
+induced by its norm.
+\end{defn}
+
+\begin{exam} In example~\ref{r_compl} we saw that $\R$ is complete; so it is a Banach space.
+\end{exam}
+
+\begin{exam} In example~\ref{Rn_compl} it was shown that the space $\R^n$ is complete with
+respect to the Euclidean norm.  Since all norms on $\R^n$ are equivalent
+(problem~\ref{prob_norms_Rn}) and since completeness of a space is not affected by changing to
+an equivalent metric (proposition~\ref{eq_compl}), we conclude that $\R^n$ is a Banach space
+under all possible norms.
+\end{exam}
+
+\begin{exam} If $S$ is a nonempty set, then (under the uniform norm) $\fml B(S,\R)$ is a
+Banach space (see example~\ref{bdd_compl}).
+\end{exam}
+
+\begin{exam} If $M$ is a compact metric space, then (under the uniform norm) $\fml C(M,\R)$
+is a Banach space (see example~\ref{CMR_cmpl}).
+\end{exam}
+
+At the beginning of section~\ref{sec_prod_nls} we listed 4 ways of making new normed linear
+spaces from old ones. Under what circumstances do these new spaces turn out to be Banach
+spaces?
+ \begin{enumerate}
+  \item[(i)] A closed vector subspace of a Banach space is a Banach space.
+(See proposition~\ref{prop_clss_ms}.)
+  \item[(ii)] The product of two Banach space is a Banach space.
+(See proposition~\ref{prod_compl}.)
+  \item[(iii)] If $S$ is a nonempty set and $E$ is a Banach space, then $\fml B(S,E)$ is a Banach
+space. (See problem~\ref{prob_BSV_compl}.)
+%\item[(v)] We defer until chapter 17 the proof that if $E$ is
+%a Banach space and $F$ is a closed vector subspace of $E$, then
+%$E/F$ is a Banach space.
+  \item[(iv)] If $V$ is a normed linear space and $F$ is a Banach space, then $\ofml B(V,F)$ is
+a Banach space. (See the following proposition.)
+ \end{enumerate}
+
+\begin{prop}\label{prop_BVW_compl}  Let $V$ and $W$ be normed linear spaces. Then $\ofml B(V,W)$
+is complete if $W$ is.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Show that if $(T_n)$ is a Cauchy sequence in $\ofml B(V,W)$,
+then $\lim\limits_{n \sto \infty} T_nx$ exists for every $x$ in $V$.  Let $Sx = \lim\limits_{n
+\sto \infty} T_nx$.  Show that the map $S\colon x \mapsto Sx$ is linear. If $\epsilon > 0$
+then for $m$ and $n$ sufficiently large $\norm{T_m - T_n} < \frac12 \epsilon$.  For such $m$
+and $n$ show that
+  \[ \norm{Sx - T_nx} \le \norm{Sx - T_mx} + \tfrac12 \epsilon \norm x \]
+and conclude from this that $S$ is bounded and that $T_n \sto S$ in $\ofml B(V,W)$.
+(Solution~\ref{sol_prop_BVW_compl}.) \ns
+\end{proof}
+
+\begin{prob}\label{prob_BSV_compl}  Let $S$ be a nonempty set and $V$ be a normed linear space.
+If $V$ is complete, so is $\fml B(S,V)$.   \emph{Hint.}  Make suitable modifications in the
+proof of example~\ref{bdd_compl}.
+\end{prob}
+
+\begin{prob}  Let $M$ be a compact metric space and $V$ be a normed linear space.  If $V$ is
+complete so is $\fml C(M,V)$. \emph{Hint.} Use proposition~\ref{prop_unif_lim}.
+\end{prob}
+
+\begin{prob} Let $m$ be the set of all bounded sequences of real numbers. (That is, a sequence
+$(x_1,x_2,\dots)$ of real numbers belongs to $m$ provided that there exists a constant $M>0$
+such that $\abs{x_k} \le M$ for all $k \in \N$.) If $x = (x_k)$ and $y = (y_k)$ belong to $m$
+and $\alpha$ is a scalar define
+  \[ x + y = (x_1 + y_1,x_2 + y_2,\dots) \]
+and
+  \[ \alpha x = (\alpha x_1, \alpha x_2, \dots)\,. \]
+Also, for each sequence $x$ in $m$ define
+  \[ \norm x_u = \sup\{\abs{x_k}\colon k \in \N \}\,. \]
+ \begin{enumerate}
+  \item[(a)] Show that $m$ is a Banach space. \emph{Hint.} The proof should be very short.  This
+is a special case of a previous example.
+  \item[(b)] The space $m$ is not separable.
+%The following hint should be rewritten
+%and references located.
+%\emph{Hint.} Consider the family $\sfml B$
+%of all open balls $B_{1/2}(a)$ of radius
+%$\frac12$ about those points $a$ in $m$
+%which are discussed in problem 16 of chapter 4;
+%that is, those sequences each of whose
+%entries is either $0$ or~$1$.  Argue by
+%contradiction: assume there does exist a
+%countable dense set $D$ in~$m$.  Let $D_0$
+%comprise those members of $D$ which lie in
+%some member of $\sfml B$.  Find a surjection
+%$f\colon D_0 \sto \sfml B$.  Use propositions 4.2.2,
+%5.4.7, and 4.2.5.
+  \item[(c)] The closed unit ball of the space $m$ is closed and bounded but not compact.
+%The following hint should be rewritten
+%and references located.
+%\emph{Hint.}  Trivial modifications of the
+%proof suggested in the hint for part (b) show
+%that the closed unit ball in $m$ (that is,
+%$\{x \in m\colon \norm x_u \le 1\}$) is not
+%separable. Use problem 13(b) of chapter 9
+%and proposition 7.4.3.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{DUAL SPACES AND ADJOINTS}
+
+\vskip .1 in
+
+\begin{center}
+\fbox{In this section $U$, $V$, and $W$ are normed linear spaces.}
+\end{center}
+
+\vskip .2 in
+
+Particularly important among the spaces of bounded linear transformations introduced in
+section~\ref{blt} are those consisting of maps from a space $V$ into its scalar field~$\R$.
+The space $\ofml B(V,\R)$ is the
+ \index{dual space}%
+ \index{space!dual}%
+ \index{<@$V^*$ (dual of a Banach space)}%
+\df{dual space} of $V$ and is usually denoted by~$V^*$.  Members of $V^*$ are called
+ \index{bounded!linear functionals}%
+ \index{functionals!bounded linear}%
+\df{bounded linear functionals}.  (When the word ``function'' is given the suffix ``al'' we
+understand that the function is scalar valued.)
+
+\begin{exam} Let $f\colon \R^3 \sto \R\colon (x,y,z) \mapsto x + y + z$. Then $f$ is a member
+of $(\R^3)^*$. (It is obviously linear and is bounded by proposition~\ref{prop_fd_cont}.)
+\end{exam}
+
+\begin{exam} The familiar Riemann integral of beginning calculus is a bounded linear functional
+on the space $\fml C = \fml C([a,b],\R)$.  That is, the functional $J$ defined in
+exercise~\ref{exer_norm_int} belongs to~$\fml C^*$.
+\end{exam}
+
+\begin{exam} Let $M$ be a compact metric space and $\fml C = \fml C(M,\R)$.  For each $x$ in $M$
+the evaluation functional $E_x\colon f \mapsto f(x)$ belongs to $\fml C^*$.  (Take $W = \R$ in
+problem~\ref{prob_Ex_cms}.)
+\end{exam}
+
+\begin{defn}  Let $T \in \ofml B(V,W)$.  Define $T^*$ by $T^*(g) = g \circ T$ for every $g$ in~$W^*$.
+The map $T^*$ is the
+ \index{adjoint}%
+\df{adjoint} of~$T$.  In the next two propositions and problem~\ref{prob_adj_bl} we state only
+the most elementary properties of the adjoint map $T \mapsto T^*$. We will see more of it
+later.
+\end{defn}
+
+\begin{prop}\label{prop_adj1} If $T \in \ofml B(V,W)$, then $T^*$ maps $W^*$ into~$V^*$.
+Furthermore, if $g \in W^*$, then $\norm{T^*g} \le \norm T \, \norm g$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_adj1}.)  \ns   \end{proof}
+
+\begin{prop} Let $S \in \ofml B(U,V)$, $T \in \ofml B(V,W)$, and $I_V$ be the identity map on $V$.
+Then
+ \begin{enumerate}
+  \item[(a)] $T^*$ belongs to $\ofml B(W^*,V^*)$ and $\norm{T^*} \le \norm T$;
+  \item[(b)] $(I_V)^*$ is $I_{V^*}$, the identity map on $V^*$; and
+  \item[(c)] $(TS)^* = S^*T^*$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prob}\label{prob_adj_bl} The adjoint map $T \mapsto T^*$ from $\ofml B(V,W)$ into
+$\ofml B(W^*,V^*)$ is itself a bounded linear transformation, and it has norm not
+exceeding~$1$.
+\end{prob}
+
+
+
+
+
+
+
+\endinput

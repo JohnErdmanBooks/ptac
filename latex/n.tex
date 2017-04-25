@@ -1,0 +1,93 @@
+\chapter{PRODUCTS}\label{prods}
+
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+
+The Cartesian product of two sets, which was defined in appendix~\ref{fcns}, is best thought
+of not just as a collection of ordered pairs but as this collection together with two
+distinguished ``projection'' mappings.
+
+\begin{defn} Let $S_1$ and $S_2$ be nonempty sets. For $k = 1$, $2$ define the
+ \index{pi@$\pi_k$ (coordinate projection)}%
+ \index{<@$\pi_k$ (coordinate projection)}%
+ \index{projections!coordinate}%
+\df{coordinate projections} $\pi_k \colon S_1 \times S_2 \sto S_k$ by $\pi_k(s_1,s_2) = s_k$.
+We notice two simple facts:
+ \begin{enumerate}
+  \item $\pi_1$ and $\pi_2$ are surjections; and
+  \item $z = (\pi_1(z),\pi_2(z))$ for all $z \in S_1 \times S_2$.
+\end{enumerate}
+If $T$ is a nonempty set and if $g \colon T \sto S_1$ and $h \colon T \sto S_2$, then we
+define the function $(g,h):T \sto S_1 \times S_2$ by
+  \[ (g,h)(t) = (g(t),h(t))\,. \]
+\end{defn}
+
+\begin{exam} If $g(t) = \cos t$ and $h(t) = \sin t$, then $(g,h)$ is a map from $\R$ to the
+unit circle in the plane. (This is a \emph{parametrization} of the unit circle.)
+\end{exam}
+
+\begin{defn}  Let $S_1$, $S_2$, and $T$ be nonempty sets and let $f \colon T \sto S_1 \times S_2$.
+For $k = 1$, $2$  we define functions $f^k \colon T \sto S_k$ by $f^k = \pi_k \circ f$; these
+are the
+ \index{components!of a function}%
+\df{components} of~$f$. (The superscripts have nothing to do with powers.  We use them because
+we wish later to attach subscripts to functions to indicate partial differentiation.)  Notice
+that $f(t) = (\pi_1(f(t)),\pi_2(f(t)))$ for all $t \in T$, so that
+  \[ f = (\pi_1 \circ f, \pi_2 \circ f) = (f^1,f^2)\,. \]
+If we are given the function $f$, the components $f^1$ and $f^2$ have been defined so as to
+make the following diagram commute.
+  \[ \xy
+        \Atrianglepair/>`>`>`<-`>/[T`S_1`S_1 \times S_2`S_2;f^1`f`f^2`\pi_1`\pi_2]
+     \endxy
+  \]
+
+On the other hand, if the functions $f^1 \colon T \sto S_1$ and $f^2 \colon T \sto S_2$ are
+given, then there exists a function $f$, namely $(f^1,f^2)$, which makes the diagram commute.
+Actually, $(f^1,f^2)$ is the \emph{only} function with this property, a fact which we prove in
+the next exercise.
+\end{defn}
+
+\begin{exer}\label{prod_exer} Suppose that $f^1 \in \fml F(T,S_1)$ and $f^2 \in \fml F(T,S_2)$.
+Then there exists a unique function $g \in \fml F(T,S_1 \times S_2)$ such that $\pi_1 \circ g
+= f^1$ and $\pi_2 \circ g = f^2$. (Solution~\ref{sol_prod_exer}.)
+\end{exer}
+
+The following problem, although interesting, is not needed elsewhere in this text, so it is
+listed as optional. It says, roughly, that any set which ``behaves like a Cartesian product''
+must be in one-to-one correspondence with the Cartesian product.
+
+\begin{prob}[optional]  Let $S_1$, $S_2$, and $P$ be nonempty sets and
+$\rho_k \colon P \sto S_k$ be surjections. Suppose that for every set $T$  and every pair of
+functions $f^k \in \fml F(T,S_k)$ ($k=1,2$), there exists a unique function $g \in \fml
+F(T,P)$ such that $f^k = \rho_k \circ g$ ($k = 1,2$). Then there exists a bijection from $P$
+onto $S_1 \times S_2$. \emph{Hint.}  Consider the following diagrams.
+  \begin{equation}\label{prod_diag1}
+    \xy
+      \Atrianglepair/>`>`>`<-`>/[P`S_1`S_1 \times S_2`S_2;\rho_1`\rho`\rho_2`\pi_1`\pi_2]
+    \endxy
+   \end{equation}
+
+  \begin{equation}\label{prod_diag2}
+    \xy
+      \Atrianglepair/>`>`>`<-`>/[S_1 \times S_2`S_1`P`S_2;\pi_1`\pi`\pi_2`\rho_1`\rho_2]
+    \endxy
+  \end{equation}
+
+  \begin{equation}\label{prod_diag3}
+    \xy
+      \Atrianglepair/>`>`>`<-`>/[P`S_1`P`S_2;\rho_1`\rho`\rho_2`\rho_1`\rho_2]
+    \endxy
+  \end{equation}
+
+Exercise~\ref{prod_exer} tells us that there exists a unique map $\rho$ which makes diagram
+\eqref{prod_diag1} commute, and by hypothesis there exists a unique map $\pi$ which makes
+diagram \eqref{prod_diag2} commute. Conclude from \eqref{prod_diag1} and \eqref{prod_diag2}
+that \eqref{prod_diag3} commutes when $g = \pi \circ \rho$.   It is obvious that
+\eqref{prod_diag3} commutes when $g = I_P$. Then use the uniqueness part of the hypothesis to
+conclude that $\pi$ is a left inverse for $\rho$. Now construct a new diagram replacing $P$ by
+$S_1 \times S_2$ and $\rho_k$ by $\pi_k$ in~\eqref{prod_diag3}.
+\end{prob}
+
+\endinput

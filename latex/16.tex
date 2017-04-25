@@ -1,0 +1,338 @@
+\chapter{SEQUENTIAL CHARACTERIZATION OF COMPACTNESS}
+
+We have previously characterized open sets, closed sets, closure, and continuity by means of
+sequences.  Our next goal is to produce a characterization of compactness in terms of
+sequences.  This is achieved in theorem~\ref{cpt_scpt} where it is shown that compactness in
+metric spaces is equivalent to something called \emph{sequential compactness}.  For this
+concept we need to speak of \emph{subsequences} of sequences of points in a metric space. In
+\ref{subseq_r} we defined ``subsequence'' for sequences of real numbers.  There is certainly
+no reason why we cannot speak of subsequences of arbitrary sequences.
+
+
+
+\section{SEQUENTIAL COMPACTNESS}
+\begin{defn} If $a$ is a sequence of elements of a set $S$ and $n \colon \N \sto \N$ is
+strictly increasing, then the composite function $a \circ n$ is a
+ \index{subsequence}%
+\df{subsequence} of the sequence~$a$. (Notice that $a \circ n$ is itself a sequence of
+elements of $S$ since it maps $\N$ into~$S$.) The $k^{\text{th}}$ term of $a \circ n$ is
+frequently written as $a_{n_k}$; other acceptable notations are $a_{n(k)}$ and $a(n(k))$.
+\end{defn}
+
+Notice that it is possible for a sequence which fails to converge to have subsequences which
+do converge.  For example, if $a_n = (-1)^n + (1/n)$ for each $n$, then the subsequence
+$(a_{2n})$ converges while the sequence $(a_n)$ itself does not.
+
+\begin{defn} A metric space $M$ is
+ \index{sequentially compact}%
+ \index{compact!sequentially}%
+\df{sequentially compact} if every sequence in $M$ has a convergent subsequence.
+\end{defn}
+
+\begin{exam} It is important to understand that for a space to be sequentially compact the
+preceding definition requires that every sequence in the space have a subsequence which
+converges to a point \emph{in that space}.  It is not enough to find a subsequence which
+converges in some larger space. For example, we know that the metric space $(0,1]$ regarded as
+a subspace of $\R$ is not sequentially compact because the sequence $\bigl(\frac1n \bigr)$ has
+no subsequence which converges to something in~$(0,1]$.  That $\bigl(\frac1n \bigr)$ happens
+to converge to $0$ in $\R$ is completely irrelevant.
+\end{exam}
+
+A major goal of this chapter is to demonstrate that in metric spaces compactness and
+sequential compactness are the same thing. This is done in theorem~\ref{cpt_scpt}.  Be aware
+however that in general topological spaces this is \emph{not} true.  An essential ingredient
+of the proof is the following chain of implications
+ \[ \text{sequentially compact} \Longrightarrow \text{totally bounded}
+                                            \Longrightarrow \text{separable}. \]
+So the next order of business is to define the last two concepts and prove that the preceding
+implications do hold.
+
+\begin{defn} A metric space $M$ is
+ \index{totally bounded}%
+ \index{bounded!totally}%
+\df{totally bounded} if for every $\epsilon > 0$ there exists a finite subset $F$ of $M$ such
+that for every $a \in M$ there is a point $x \in F$ such that $d(x,a) < \epsilon$.  This
+definition has a more or less standard paraphrase: A space is totally bounded if it can be
+kept under surveillance by a finite number of arbitrarily near-sighted policemen.
+\end{defn}
+
+\begin{prop}\label{tbdd_bdd} Every totally bounded metric space is bounded.
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{exam} The converse of the preceding proposition is false. Any infinite set with the
+discrete metric is an example of a bounded metric space which is not totally bounded.  (Why?)
+\end{exam}
+
+\begin{prop}\label{scpt_tbdd} Every sequentially compact metric space is totally bounded.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Assume that a metric space $M$ is not totally bounded.
+Inductively construct a sequence in $M$ no two terms of which are closer together than some
+fixed distance $\epsilon > 0$. (Solution~\ref{sol_scpt_tbdd}.)    \ns
+\end{proof}
+
+\begin{defn} A metric space is
+ \index{separable}%
+\df{separable} if it possesses a countable dense subset.
+\end{defn}
+
+\begin{exam} The space $\R^n$ is separable.  The set of points $(q_1, \dots, q_n)$ such that
+each coordinate $q_k$ is rational is a countable dense subset of~$\R^n$.
+\end{exam}
+
+\begin{exam} It follows easily from proposition~\ref{cnd_dns} that the real line (or indeed any
+uncountable set) with the discrete metric is \emph{not} separable. (Consider the open balls of
+radius $1$ about each point.)
+\end{exam}
+
+\begin{prop}\label{tbdd_sep} Every totally bounded metric space is separable.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Let $M$ be a totally bounded metric space.  For each $n$
+in $\N$ choose a finite set $F_n$ such that for each $a \in M$ the set $F_n \cap
+B_{\frac1n}(a)$ is nonempty.   \ns
+\end{proof}
+
+\begin{prob} The metric space $\R_d$ comprising the real numbers under the discrete metric is
+not separable.
+\end{prob}
+
+\begin{cor}\label{scpt_sep} Every sequentially compact metric space is separable.
+\end{cor}
+
+\begin{proof} Propositions~\ref{scpt_tbdd} and~\ref{tbdd_sep}.
+\end{proof}
+
+
+
+
+
+
+
+\section{CONDITIONS EQUIVALENT TO COMPACTNESS}
+We are now ready for a major result of this chapter---a sequential characterization of
+compactness.  We show that a space $M$ is compact if and only if every sequence in $M$ has a
+convergent subsequence. In other words, a space is compact if and only if it is sequentially
+compact. We will see later in the section how useful this result is when we use it to prove
+that a finite product of compact spaces is compact.
+
+The following theorem also provides a second characterization of compactness: a space $M$ is
+compact if and only if every infinite subset of $M$ has a point of accumulation in~$M$. The
+proof of the theorem is fairly straightforward except for one complicated bit. It is not easy
+to prove that every sequentially compact space is compact. This part of the proof comes
+equipped with an lengthy hint.
+
+\begin{thm}\label{cpt_scpt} If $M$ is a metric space then the following are equivalent:
+ \begin{enumerate}
+  \item[(1)] $M$ is compact;
+  \item[(2)] every infinite subset of $M$ has an accumulation point in $M$;
+  \item[(3)] $M$ is sequentially compact.
+ \end{enumerate}
+\end{thm}
+
+\begin{proof} Exercise. \emph{Hint.} Showing that (3) implies (1) is not so easy.  To
+show that a sequentially compact metric space $M$ is compact start with an arbitrary open
+cover $\sfml U$ for $M$ and show first that
+  \[ \text{(A)\quad $\sfml U$ has a {\sl countable\/} subfamily $\sfml V$ which covers $M$.} \]
+Then show that
+  \[ \text{(B)\quad there is a finite subfamily of $\sfml V$ which covers $M$.} \]
+The hard part is (A).  According to corollary~\ref{scpt_sep} we may choose a countable
+dense subset $A$ of $M$. Let $\sfml B$ be the family of all open balls $B_r(a)$ such that
+ \begin{align*}
+       \text{(i)\quad} &a \in A;\\
+      \text{(ii)\quad} &r \in \Q \text{ and;}\\
+     \text{(iii)\quad} &B_r(a) \subseteq U \text{\quad for some }U \in \sfml U.
+ \end{align*}
+For each $B$ in $\sfml B$ choose a set $U_B$ in $\sfml U$ such that $B \subseteq U_B$ and
+let
+   \[ \sfml V = \{U_B \colon B \in \sfml B\}. \]
+Then verify that $\sfml V$ is a countable subfamily of $\sfml U$ which covers~$M$.
+
+To show that $\sfml V$ covers $M$, start with an arbitrary point $x \in M$ and a set $U
+\in \sfml U$ containing $x$.  All that is needed is to find an open ball $B_s(a)$ in
+$\sfml B$ such that $x \in B_s(a) \subseteq U$. In order to do this the point $a \in A$
+must be taken sufficiently close to $x$ so that it is possible to choose a rational
+number $s$ which is both
+ \begin{align*}
+      \text{(i) } &\text{ small enough for $B_s(a)$ to be a subset of~$U$, and} \\
+      \text{(ii)} &\text{ large enough for $B_s(a)$ to contain $x$.}
+ \end{align*}
+To establish (B) let $(V_1, V_2, V_3, \dots)$ be an enumeration of $\sfml V$ and $W_n =
+\cup_{k=1}^n V_k$ for each $n \in \N$. If no one set $W_n$ covers $M$, then for every $k
+\in \N$ there is a point $x_k \in {W_k}^c$.    (Solution~\ref{sol_cpt_scpt}.)  \ns
+\end{proof}
+
+\begin{prob} Use theorem~\ref{cpt_scpt} to give three different proofs that the metric space
+$[0,1)$  (with the usual metric inherited from~$\R$) is not compact.
+\end{prob}
+
+
+\begin{cau} It is a common (and usually helpful) mnemonic device to reduce statements of
+complicated theorems in analysis to brief paraphrases.  In doing this considerable care should
+be exercised so that crucial information is not lost. Here is an example of the kind of thing
+that can go wrong.
+
+Consider the two statements:
+ \begin{enumerate}
+  \item[(1)] In the metric space $\R$ every infinite subset of the open unit interval has a point
+of accumulation; and
+  \item[(2)] A metric space is compact if every infinite subset has a point of accumulation.
+ \end{enumerate}
+Assertion (1) is a special case of proposition~\ref{Bolzano_thm}; and (2) is just part of
+theorem~\ref{cpt_scpt}. The unwary tourist might be tempted to conclude from (1) and (2) that
+the open unit interval $(0,1)$ is compact, which, of course, it is not. The problem here is
+that (1) is a correct assertion about $(0,1)$ regarded as a subset of the space $\R$; every
+infinite subset of $(0,1)$ does have a point of accumulation \emph{lying in}~$\R$.
+
+If, however, the metric space under consideration is $(0,1)$ itself, then (1) is no longer
+true. For example, the set of all numbers of the form $1/n$ for $n \ge 2$ has no accumulation
+point in $(0,1)$. When we use (2) to establish the compactness of a metric space~$M$, what we
+must verify is that every infinite subset of $M$ has a point of accumulation \emph{which lies
+in}~$M$. Showing that these points of accumulation exist in some space which contains $M$ just
+does not do the job. The complete statements of~\ref{Bolzano_thm} and~\ref{cpt_scpt} make this
+distinction clear; the paraphrases (1) and (2) above do not.
+\end{cau}
+
+
+
+
+
+\section{PRODUCTS OF COMPACT SPACES}
+It is possible using just the definition of compactness to prove that the product of two
+compact metric spaces is compact. It is a pleasant reward for the effort put into proving
+theorem~\ref{cpt_scpt} that it can be used to give a genuinely simple proof of this important
+result.
+
+\begin{thm} If $M_1$ and $M_2$ are compact metric spaces, then so is $M_1 \times M_2$.
+\end{thm}
+
+\begin{proof}  Problem.  \ns  \end{proof}
+
+\begin{cor}\label{prod_cpt} If $M_1, \dots, M_n$ are compact metric spaces, then the product
+space $M_1 \times \dots \times M_n$ is compact.
+\end{cor}
+
+\begin{proof} Induction. \end{proof}
+
+\begin{prob} Let $A$ and $B$ be subsets of a metric space. Recall from definition~\ref{dist_sets}
+that the distance between $A$ and $B$ is defined by
+  \[ d(A,B) := \inf\{d(a,b) \colon a \in A \text{ and } b \in B\}\,. \]
+Prove or disprove:
+ \begin{enumerate}
+  \item[(a)] If $A \cap B = \emptyset$, then $d(A,B) > 0$.
+  \item[(b)] If $A$ and $B$ are closed and $A \cap B = \emptyset$, then $d(A,B) > 0$.
+  \item[(c)] If $A$ is closed, $B$ is compact, and $A \cap B = \emptyset$, then $d(A,B) > 0$.
+\emph{Hint.} If $d(A,B) = 0$ then there exist sequences $a$ in $A$ and $b$ in $B$ such that
+$d(a_n,b_n) \sto 0$.
+  \item[(d)] If $A$ and $B$ are compact and $A \cap B = \emptyset$, then $d(A,B) > 0$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{elps_cpt} Let $a$, $b > 0$.  The elliptic disk
+  \[ D := \biggl\{(x,y) \colon \frac{x^2}{a^2} + \frac{y^2}{b^2} \le 1 \biggr\} \]
+is a compact subset of~$\R^2$. \emph{Hint.} Write the disk as a continuous image of the unit
+square $[0,1] \times [0,1]$.
+\end{prob}
+
+\begin{prob} The unit sphere
+  \[ S^2 \equiv \{(x,y,z) \colon x^2 + y^2 + z^2 = 1\} \]
+is a compact subset of $\R^3$. \emph{Hint.} Spherical coordinates.
+\end{prob}
+
+\begin{prob} Show that the interval $[0,\infty)$ is not a compact subset of $\R$ using each
+of the following:
+ \begin{enumerate}
+  \item[(a)] The definition of compactness.
+  \item[(b)] Proposition~\ref{mtc}.
+  \item[(c)] Proposition~\ref{cpt_clbdd}.
+  \item[(d)] The \emph{extreme value theorem}~(\ref{EVThm}).
+  \item[(e)] Theorem~\ref{cpt_scpt}, condition (2).
+  \item[(f)] Theorem~\ref{cpt_scpt}, condition (3).
+  \item[(g)] The \emph{finite intersection property}. (See problem~\ref{fip}.)
+  \item[(h)] \emph{Dini's theorem.} (See problem~\ref{Dini_thm}.)
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+\section{THE HEINE-BOREL THEOREM} We have seen in proposition~\ref{cpt_clbdd} that in an
+arbitrary metric space compact sets are always closed and bounded.  Recall also that the
+converse of this is not true in general (see problem~\ref{cpt_prb2}).  In $\R^n$, however, the
+converse does indeed hold. This assertion is the \emph{Heine-Borel theorem}. Notice that in
+example~\ref{HBthm} we have already established its correctness for the case $n=1$. The proof
+of the general case is now just as easy---we have done all the hard work in proving that the
+product of finitely many compact spaces is compact (corollary~\ref{prod_cpt}).
+
+\index{Heine-Borel theorem}%
+\begin{thm}[Heine-Borel Theorem]\label{HBThm} A subset of $\R^n$ is compact if and only if it
+is closed and bounded.
+\end{thm}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_HBThm}.) \ns  \end{proof}
+
+\begin{exam} The triangular region $T$ whose vertices are $(0,0)$, $(1,0)$, and $(0,1)$ is a
+compact subset of~$\R^2$.
+\end{exam}
+
+\begin{proof} Define functions $f,g,h: \R^2 \sto \R$ by $f(x,y) = x$, $g(x,y) = y$, and $h(x,y)
+= x + y$. Each of these functions is continuous. Thus the sets
+ \begin{align*}
+     A &:= f^{\gets}[0,\infty) = \{(x,y) : x \ge 0\}, \\
+     B &:= g^{\gets}[0,\infty) = \{(x,y) : y \ge 0\}\text{,\quad
+                       and} \\
+     C &:= h^{\gets}(-\infty,1] = \{(x,y) : x+y \le 1\}
+ \end{align*}
+are all closed sets. Thus $T = A \cap B \cap C$ is closed. It is bounded since it is contained
+in the open ball about the origin with radius~2.  Thus by the \emph{Heine-Borel
+theorem}~(\ref{HBThm}), $T$~is compact.
+\end{proof}
+
+\begin{prob} Do problem~\ref{elps_cpt} again, this time using the \emph{Heine-Borel theorem}.
+\end{prob}
+
+\index{Bolzano-Weierstrass theorem}%
+\begin{prob}[Bolzano-Weierstrass Theorem]\label{BWThm} Every bounded infinite subset of $\R^n$
+has at least one point of accumulation in $\R^n$ (compare proposition~\ref{Bolzano_thm}).
+\end{prob}
+
+\begin{prob}[Cantor Intersection Theorem]\label{CIThm} If $(A_n)$ is a nested sequence of
+ \index{Cantor intersection theorem}%
+nonempty closed bounded subsets of $\R^n$, then $\cap_{n=1}^{\infty}A_n$ is nonempty.
+Furthermore, if $\diam A_n \sto 0$, then $\cap_{n=1}^{\infty}A_n$ is a single point.
+\end{prob}
+
+\begin{prob} Use the \emph{Cantor intersection theorem} (problem~\ref{CIThm}) to show that the
+medians of a triangle are concurrent.
+\end{prob}
+
+\begin{prob}\label{cpt_prb3} Let $m$ be the set of all bounded sequences of real numbers under
+the uniform metric:
+   \[ d_u(a,b) = \sup \{\abs{a_n - b_n} \colon n \in \N\} \]
+whenever $a$, $b \in m$.
+ \begin{enumerate}
+  \item[(a)] Show by example that the \emph{Heine-Borel theorem} (\ref{HBThm}) does not hold for
+subsets of~$m$.
+  \item[(b)] Show by example that the \emph{Bolzano-Weierstrass theorem} does not hold for subsets
+of~$m$. (See problem~\ref{BWThm}.)
+  \item[(c)] Show by example that the \emph{Cantor intersection theorem} does not hold for subsets
+of~$m$. (See problem~\ref{CIThm}.)
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{cpt_prb4} Find a metric space $M$ with the property that every infinite subset
+of $M$ is closed and bounded but not compact.
+\end{prob}
+
+\begin{prob} Prove or disprove: If both the interior and the boundary of a set $A \subseteq \R$ are
+compact, then so is~$A$.
+\end{prob}
+
+
+
+\endinput

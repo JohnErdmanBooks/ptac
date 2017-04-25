@@ -1,0 +1,250 @@
+\chapter{COMPLETE SPACES}
+
+\section{CAUCHY SEQUENCES}
+\begin{defn} A sequence $(x_n)$ in a metric space is a
+ \index{Cauchy!sequence}%
+ \index{sequence!Cauchy}%
+\df{Cauchy sequence} if for every $\epsilon > 0$ there exists $n_0 \in \N$ such that
+$d(x_m,x_n) < \epsilon$ whenever $m$, $n \ge n_0$. This condition is often abbreviated as
+follows: $d(x_m, x_n) \sto 0$ as $m$, $n \sto \infty$ (or $\lim_{m,n \sto \infty}d(x_m,x_n) =
+0$).
+\end{defn}
+
+\begin{exam} In the metric space $\R$ the sequence $(1/n)$ is Cauchy.
+\end{exam}
+
+\begin{proof} Given $\epsilon > 0$ choose $n_0 > 2/\epsilon$. If $m$, $n > n_0$, then $d(1/m, 1/n)
+= \abs{(1/m) - (1/n)}  \le (1/m) + (1/n) \le 2/n_0 < \epsilon$.  Notice that in $\R$ this
+sequence is also convergent.
+\end{proof}
+
+\begin{exam}\label{compl_exm1} In the metric space $\R \setminus \{0\}$ the sequence $(1/n)$
+is Cauchy. (The proof is exactly the same as in the preceding example.)  Notice, however, that
+this sequence does not converge in $\R \setminus \{0\}$.
+\end{exam}
+
+\begin{prop}\label{conv_cau} In a metric space every convergent sequence is Cauchy.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_conv_cau}.)
+  \ns  \end{proof}
+
+\begin{prop}\label{cs_css} Every Cauchy sequence which has a convergent subsequence is itself
+convergent (and to the same limit as the subsequence).
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_cs_css}.)  \ns  \end{proof}
+
+\begin{prop}\label{cau_bdd} Every Cauchy sequence is bounded.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_cau_bdd}.)  \ns  \end{proof}
+
+Although every convergent sequence is Cauchy (proposition~\ref{conv_cau}), the converse need
+not be true (example~\ref{compl_exm1}). Those spaces for which the converse is true are said
+to be \emph{complete}.
+
+
+
+
+
+
+
+\section{COMPLETENESS}
+\begin{defn} A metric space $M$ is
+ \index{complete}%
+\df{complete} if every Cauchy sequence in $M$ converges to a point of~$M$.
+\end{defn}
+
+\begin{exam}\label{r_compl} The metric space $\R$ is complete.
+\end{exam}
+
+\begin{proof} Let $(x_n)$ be a Cauchy sequence in~$\R$.  By proposition~\ref{cau_bdd}
+the sequence $(x_n)$ is bounded; by corollary~\ref{bdd_convss} it has a convergent
+subsequence; and so by proposition~\ref{cs_css} it converges.
+\end{proof}
+
+\begin{exam} If $(x_n)$ and $(y_n)$ are Cauchy sequences in a metric space, then
+$\left(d\bigl(x_n,y_n\bigr)\right)_{n=1}^\infty$ is a Cauchy sequence in~$\R$.
+\end{exam}
+
+\begin{proof}  Problem. \emph{Hint.}  Proposition~\ref{ms_ineq}.
+\ns \end{proof}
+
+\begin{exam} The set $\Q$ of rational numbers (regarded as a subspace of $\R$) is not complete.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_cpt_impl_cmpl} Every compact metric space is complete.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Theorem~\ref{cpt_scpt} and
+proposition~\ref{cs_css}.  \ns  \end{proof}
+
+\begin{prob} Let $M$ be a metric space with the discrete metric.
+ \begin{enumerate}
+  \item[(a)] Which sequences in $M$ are Cauchy?
+  \item[(b)] Show that $M$ is complete.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Show that completeness is not a topological property.
+\end{prob}
+
+\begin{prop}\label{prop_clss_ms} Let $M$ be a complete metric space and $M_0$ be a subspace
+of~$M$.  Then $M_0$ is complete if and only if it is a closed subset of~$M$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prod_compl} The product of two complete metric spaces is complete.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prod_compl}.)  \ns  \end{proof}
+
+\begin{prop}\label{eq_compl} If $d$ and $\rho$ are strongly equivalent metrics on a
+set~$M$, then the space $(M,d)$ is complete if and only if $(M,\rho)$ is.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_eq_compl}.)  \ns  \end{proof}
+
+\begin{exam}\label{Rn_compl} With its usual metric the space $\R^n$
+is complete.
+\end{exam}
+
+\begin{proof} Since $\R$ is complete (\ref{r_compl}), proposition~\ref{prod_compl} and
+induction show that $\R^n$ is complete under the metric $d_1$ (defined in \ref{taxicab}).
+Since the usual metric is strongly equivalent to $d_1$, we may conclude from
+proposition~\ref{eq_compl} that $\R^n$ is complete under its usual metric.
+\end{proof}
+
+Here is one more example of a complete metric space.
+
+\begin{exam}\label{bdd_compl} If $S$ is a set, then the metric space $\fml B(S,\R)$ is complete.
+\end{exam}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_bdd_compl}.) \end{proof}
+
+\begin{exam}\label{CMR_cmpl} If $M$ is a compact metric space, then $\fml C(M,\R)$ is a
+complete metric space.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob} Give examples of metric spaces $M$ and $N$, a homeomorphism $f \colon M \sto N$,
+and a Cauchy sequence $(x_n)$ in $M$ such that the sequence $\bigl(f(x_n)\bigr)$ is \emph{not}
+Cauchy in~$N$.
+\end{prob}
+
+\begin{prob} Show that if $D$ is a dense subset of a metric space $M$ and every Cauchy sequence
+in $D$ converges to a point of~$M$, then $M$ is complete.
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{COMPLETENESS VS. COMPACTNESS}
+
+In proposition~\ref{prop_cpt_impl_cmpl} we saw that every compact metric space is complete.
+The converse of this is not true without additional assumptions. (Think of the reals.) In the
+remainder of this chapter we show that adding total boundedness to completeness will suffice.
+For the next problem we require the notion of the ``diameter'' of a set in a metric space.
+
+\begin{defn} The
+ \index{diameter@$\diam A$ (diameter of a set)}%
+\df{diameter} of a subset $A$ of a metric space is defined by
+   \[ \diam A := \sup\{d(x,y) \colon x,y \in A\} \]
+if this supremum exists.  Otherwise $\diam A := \infty$.
+\end{defn}
+
+\begin{prob}  Show that $\operatorname{diam} A = \diam \clo A$ for every subset $A$ of a metric space.
+\end{prob}
+
+\begin{prop} In a metric space $M$ the following are equivalent:
+ \begin{enumerate}
+  \item[(1)] $M$ is complete.
+  \item[(2)] Every nested sequence of nonempty closed sets in $M$ whose diameters approach
+$0$ has nonempty intersection.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} For the definition of ``nested'' see~\ref{nested}.
+To show that (1) implies (2), let $(F_k)$ be a nested sequence of nonempty closed subsets
+of~$M$. For each $k$ choose $x_k \in F_k$.  Show that the sequence $(x_k)$ is Cauchy.  To show
+that (2) implies (1), let $(x_k)$ be a Cauchy sequence in $M$.  Define $A_n = \{x_k \colon k
+\ge n\}$ and $F_n = \clo{A_n}$.  Show that $(F_n)$ is a nested sequence of closed sets whose
+diameters approach~$0$ (see the preceding problem).  Choose a point $a$ in $\cap F_n$.  Find a
+subsequence $\left(x_{n_k}\right)$ of $(x_n)$ such that $d\left(a,x_{n_k}\right) < 2^{-k}$.
+\ns
+\end{proof}
+
+\begin{prob} Since $\R$ is complete, the preceding problem tells us that every nested sequence
+of nonempty closed subsets of $\R$ whose diameters approach $0$ has nonempty intersection.
+ \begin{enumerate}
+  \item[(a)] Show that this statement is no longer correct if the words ``whose diameters
+approach~$0$'' are deleted.
+  \item[(b)] Show that the statement is no longer correct if the word ``closed'' is deleted.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop} In a totally bounded metric space every sequence has a Cauchy subsequence.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Let $(x_n)$ be a sequence in a totally bounded metric
+space~$M$.  For every $n \in \N$ the space $M$ can be covered by a finite collection of open
+balls of radius $1/n$.  Thus, in particular, there is an open ball of radius $1$ which
+contains infinitely many of the terms of the sequence~$(x_n)$.  Show that it is possible
+inductively to choose subsets $N_1, N_2, \dots$ of $\N$ such that for every $m,n \in \N$
+ \begin{enumerate}
+  \item[(i)] $n > m$ implies $N_n \subseteq N_m$,
+  \item[(ii)] $N_n$ is infinite, and
+  \item[(iii)] $\{x_k: k \in N_n\}$ is contained in some open ball of
+radius $1/n$.
+ \end{enumerate}
+Then show that we may choose (again, inductively) $n_1, n_2, \dots$
+in $\N$ such that for every $j,k \in \N$
+ \begin{enumerate}
+  \item[(iv)] $k > j$ implies $n_k > n_j$, and
+  \item[(v)] $n_k \in N_k$.
+ \end{enumerate}
+Finally, show that the sequence $(x_n)$ is Cauchy.   \ns
+\end{proof}
+
+\begin{prop} A metric space is compact if and only if it is complete and totally bounded.
+\end{prop}
+
+\begin{proof} Problem.   \ns   \end{proof}
+
+\begin{prob}  Let $(x_n)$ be a sequence of real numbers with the property that each term of
+the sequence (from the third term on) is the average of the two preceding terms.  Show that
+the sequence converges and find its limit.  \emph{Hint.}  Proceed as follows.
+
+(a) Compute the distance between $x_{n+1}$ and $x_n$ in terms of the distance between $x_n$
+and~$x_{n-1}$.
+
+(b) Show (inductively) that
+   \[ \abs{x_{n+1} - x_n} = 2^{1-n}\abs{x_2 - x_1}\,. \]
+
+(c) Prove that $(x_n)$ has a limit by showing that for $m < n$
+   \[ \abs{x_n - x_m} \le 2^{2-m}\abs{x_2 - x_1}\,. \]
+
+(d)  Show (again inductively) that $2x_{n+1} + x_n = 2x_2 + x_1$.
+\end{prob}
+
+\begin{prob} Show that if $(x_n)$ is a sequence lying in the
+interval $[-1,1]$ which satisfies
+   \[ \abs{x_{n+1} - x_n} \le \tfrac14 \abs{x_n^2 - x_{n-1}^2} \qquad\text{ for $n \ge 2$}\,, \]
+then $(x_n)$ converges.
+\end{prob}
+
+
+
+
+
+\endinput

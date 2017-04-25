@@ -1,0 +1,385 @@
+\chapter{SET OPERATIONS}
+
+
+\section{UNIONS}
+Recall that if $S$ and $T$ are sets, then the
+ \index{<@$\cup$ (union)}%
+\df{union} of $S$ and $T$, denoted by $S \cup T$, is defined to be the set of all those
+elements $x$ such that $x \in S$ or $x \in T$.
+
+That is,
+   \[ S \cup T  :=  \{x \colon x \in S \text{ or } x \in T\}\,. \]
+
+\begin{exam} If $S = [0,3]$ and $T = [2,5]$, then $S \cup T = [0,5]$.
+\end{exam}
+
+The operation of taking unions of sets has several essentially obvious properties.  In the
+next proposition we list some of these.
+
+\begin{prop}\label{prop_union_sets} Let $S$, $T$, $U$, and $V$ be sets.  Then
+ \begin{enumerate}
+   \item[(a)] $S \cup (T \cup U) = (S \cup T) \cup U$ \qquad (associativity);
+   \item[(b)] $S \cup T = T \cup S$ \qquad (commutativity);
+   \item[(c)] $S \cup \emptyset = S$;
+   \item[(d)] $S \subseteq S \cup T$;
+   \item[(e)] $S = S \cup T$ if and only if $T \subseteq S$; and
+   \item[(f)] If $S \subseteq T$ and $U \subseteq V$, then $S \cup U \subseteq T \cup V$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} We prove parts (a), (c), (d), and (e).  Ordinarily one would probably regard
+these results as too obvious to require proof.  The arguments here are presented only to
+display some techniques used in writing formal proofs.  Elsewhere in the text references will
+not be given to this proposition when the facts (a)--(f) are used.  When results are
+considered obvious, they may be mentioned but are seldom cited.  The proofs of the remaining
+parts (b) and (f) are left as problems.
+
+\begin{proof} (a)  A standard way to show that two sets are equal is to show that an element
+$x$ belongs to one if and only if it belongs to the other.  In the present case
+ \begin{align*}
+x \in S \cup(T \cup U) &\text{ iff } x \in S \text{ or } x \in T
+\cup U \\
+            &\text{ iff } x \in S \text{ or } (x \in T \text{ or }
+x \in U)\\
+            &\text{ iff } (x \in S \text{ or } x \in T) \text{ or
+} x \in U\\
+            &\text{ iff } x \in S \cup T \text{ or } x \in U\\
+            &\text{ iff } x \in (S \cup T) \cup U.
+ \end{align*}
+Notice that the proof of the associativity of union $\cup$ depends on the associativity of
+``or'' as a logical connective.
+
+Since we are asked to show that two sets are equal, some persons feel it necessary to write a
+chain of equalities between sets:
+ \begin{align*}
+     S \cup (T \cup U)  &= \{x\colon x \in S \cup (T \cup U)\}\\
+                 &= \{x\colon x \in S \text{ or } x \in T \cup U\}\\
+                 &= \{x\colon x \in S \text{ or }(x \in T \text{ or } x \in U)\}\\
+                 &= \{x\colon (x \in S \text{ or } x \in T)\text{ or }x \in U\}\\
+                 &= \{x\colon x \in S \cup T \text{ or } x \in U\}\\
+                 &= \{x\colon x \in (S \cup T) \cup U\}\\
+                 &= (S \cup T) \cup U.
+ \end{align*}
+This second proof is virtually identical to the first; it is just a bit more cluttered.  Try
+to avoid clutter; mathematics is hard enough without it. \ns\end{proof}
+
+\begin{proof} (c) An element $x$ belongs to $S \cup \emptyset$ if and only if $x \in S$ or
+$x \in \emptyset$.  Since $x \in \emptyset$ is never true, $x \in S \cup \emptyset$ if and
+only if $x \in S$. That is, $S \cup \emptyset = S$. \ns\end{proof}
+
+\begin{proof} (d)  To prove that $S \subseteq S \cup T$, show that $x \in S$ implies
+$x \in S \cup T$.  Suppose $x \in S$.  Then it is certainly true that $x \in S$ or $x \in T$;
+that is, $x \in S \cup T$. \ns\end{proof}
+
+\begin{proof} (e) First show that $S = S \cup T$ implies $T \subseteq S$; then prove the converse,
+if $T \subseteq S$, then $S = S \cup T$.  To prove that $S = S \cup T$ implies $T \subseteq
+S$, it suffices to prove the contrapositive.  We suppose that $T \not\subseteq S$ and show
+that $S \ne S \cup T$.  If $T \not\subseteq S$, then there is at least one element $t$ in $T$
+which does not belong to $S$.  Thus (by parts (d) and (b))
+   \[t \in T  \subseteq T \cup S  =  S \cup T;\]
+but $t \notin S$. Since $t$ belongs to $S \cup T$ but not to $S$ these sets are not equal.
+
+Now for the converse.  Suppose $T \subseteq S$.  Since we already know that $S \subseteq S
+\cup T$ (by part (d)), we need only show that $S \cup T \subseteq S$ in order to prove that
+the sets $S$ and $S \cup T$ are identical.  To this end suppose that $x \in S \cup T$.  Then
+$x \in S$ or $x \in T \subseteq S$. In either case $x \in S$. Thus $S \cup T \subseteq S$.
+\ns\end{proof}\end{proof}
+
+\begin{prob} Prove parts (b) and (f) of proposition~\ref{prop_union_sets}.
+\end{prob}
+
+On numerous occasions it is necessary for us to take the union of a large (perhaps
+infinite) family of sets.  When we consider a family of sets (that is, a set whose
+members are themselves sets), it is important to keep one thing in mind.  If $x$ is a
+member of a set $S$ and $S$ is in turn a member of a family $\sfml S$ of sets, it does
+not follow that $x \in \sfml S$.  For example, let $S = \{0, 1, 2\}$, $T = \{2, 3, 4\}$,
+$U = \{5, 6\}$, and $\sfml S = \{S, T, U\}$.  Then $1$ is a member of $S$ and $S$ belongs
+to $\sfml S$; but $1$ is not a member of $\sfml S$ (because $\sfml S$ has only 3 members:
+$S$, $T$, and $U$).
+
+\begin{defn} Let $\sfml S$ be a family of sets.  We define the
+ \index{union}%
+\df{union} of the family $\sfml S$ to be the set of all $x$ such that $x \in S$ for at
+least one set $S$ in $\sfml S$.  We denote the union of the family $\sfml S$ by  $\bigcup
+\sfml S$ (or by $\bigcup_{S \in \sfml S}S$, or by $\bigcup\{S: S \in \sfml S\}$). Thus $x
+\in \bigcup\sfml S$ if and only if there exists $S \in \sfml S$ such that $x \in S$.
+\end{defn}
+
+\begin{notn} If $\sfml S$ is a finite family of sets $S_1, \dots,S_n$, then we may write
+$\bigcup_{k=1}^n S_k$ or $S_1 \cup S_2 \cup \dots \cup S_n$ for $\bigcup \sfml S$.
+\end{notn}
+
+\begin{exam} Let $S = \{0,1,3\}$, $T = \{1,2,3\}$, $U = \{1,3,4,5\}$, and $\sfml S = \{S,T,U\}$.  Then
+   \[ \bigcup \sfml S = S \cup T \cup U = \{0,1,2,3,4,5\}\,. \]
+\end{exam}
+
+The following very simple observations are worthy of note.
+
+\begin{prop} If $\sfml S$ is a family of sets and $T \in \sfml S$, then
+$T \subseteq \bigcup \sfml S$.
+\end{prop}
+
+\begin{proof} If $x \in T$, then $x$ belongs to at least one of the sets in $\sfml S$,
+namely~$T$.
+\end{proof}
+
+\begin{prop}\label{union_of_fam1} If $\sfml S$ is a family of sets and each member of
+$\sfml S$ is contained in a set~$U$, then $\bigcup\sfml S \subseteq U$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+
+
+
+
+
+\section{INTERSECTIONS}
+\begin{defn} Let $S$ and $T$ be sets.  The
+ \index{<@$\cap$ (intersection)}%
+\df{intersection} of $S$ and $T$ is the set of all $x$ such that $x \in S$ and $x \in T$.
+\end{defn}
+
+\begin{exam} If $S = [0,3]$ and $T = [2,5]$, then $S \cap T = [2,3]$.
+\end{exam}
+
+\begin{prop}\label{prop_intersection_sets} Let $S$, $T$, $U$, and $V$ be sets.  Then
+ \begin{enumerate}
+   \item[(a)] $S \cap (T \cap U) = (S \cap T) \cap U$; \qquad (associativity)
+   \item[(b)] $S \cap T = T \cap S$; \qquad (commutativity)
+   \item[(c)] $S \cap \emptyset = \emptyset$;
+   \item[(d)] $S \cap T \subseteq S$;
+   \item[(e)] $S = S \cap T$ if and only if $S \subseteq T$;
+   \item[(f)] If $S \subseteq T$ and $U \subseteq V$, then $S \cap U \subseteq T \cap V$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+
+There are two distributive laws for sets: union distributes over intersection (proposition
+\ref{uoveri_fin} below) and intersection distributes over union (proposition
+\ref{ioveru_fin}).
+
+\begin{prop}\label{uoveri_fin} Let $S$, $T$, and $U$ be sets.  Then
+  \[ S \cup (T \cap U)  =  (S \cup T) \cap (S \cup U)\,. \]
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Use problem~\ref{prob_disj_conj}.
+(Solution~\ref{sol_uoveri_fin}.) \ns
+\end{proof}
+
+\begin{prop}\label{ioveru_fin}  Let $S$, $T$, and $U$ be sets. Then
+   \[ S \cap (T \cup U)  =  (S \cap T) \cup (S \cap U)\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+Just as we may take the union of an arbitrary family of sets, we may also take its
+intersection.
+
+\begin{defn}  Let $\sfml S$ be a family of sets.  We define the
+ \index{intersection}%
+\df{intersection} of the family $\sfml S$ to be the set of all $x$ such that $x \in \sfml
+S$ for every $S$ in $\sfml S$.  We denote the intersection of $\sfml S$ by $\bigcap\sfml
+S$ (or by $\bigcap_{S \in \sfml{S}}S$, or by $\bigcap\{S: S \in \sfml S\}$).
+\end{defn}
+
+\begin{notn} If $S$ is a finite family of sets $S_1,\dots,S_n$, then we may write
+$\bigcap_{k=1}^n S_k$ or $S_1 \cap S_2 \cap \dots \cap S_n$ for $\bigcap\sfml S$.
+Similarly, if $\sfml S = \{S_1,S_2,\dots\}$, then we may write
+$\smash[t]{\bigcap_{k=1}^\infty S_k}$ or $S_1 \cap S_2 \cap \dots$ for $\bigcap\sfml S$.
+\end{notn}
+
+
+\begin{exam} Let $S = \{0,1,3\}$, $T = \{1,2,3\}$, $U = \{1,3,4,5\}$, and $S = \{S,T,U\}$.
+Then
+   \[ \bigcap S = S \cap T \cap U = \{1,3\}\,. \]
+\end{exam}
+
+Proposition \ref{uoveri_fin} may be generalized to say that union distributes over the
+intersection of an arbitrary family of sets. Similarly there is a more general form of
+proposition \ref{ioveru_fin} which says that intersection distributes over the union of an
+arbitrary family of sets.  These two facts, which are stated precisely in the next two
+propositions, are known as
+ \index{generalized distributive law}%
+ \index{distributive law!generalized}%
+\df{generalized distributive laws}.
+
+\begin{prop}\label{uoveri_inf} Let $T$ be a set and $\sfml S$ be a family of sets.  Then
+   \[ T \cup \bigl(\,\bigcap\sfml S\,\bigr) = \bigcap\{T \cup S \colon  S \in \sfml S\}\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_uoveri_inf}.) \ns \end{proof}
+
+\begin{prop}\label{ioveru_inf}  Let $T$ be a set and $\sfml S$ be a family of sets.  Then
+   \[ T \cap \bigl(\,\bigcup \sfml S\,\bigr) = \bigcup\{T \cap S: S \in \sfml S\}\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{defn} Sets $S$ and $T$ are said to be
+ \index{disjoint}%
+\df{disjoint} if $S \cap T = \emptyset$.  More generally, a family $\sfml S$ of sets is a
+ \index{disjoint!family}%
+\df{disjoint family} (or a
+ \index{pairwise disjoint}%
+ \index{disjoint!pairwise}%
+\df{pairwise disjoint family}) if $S \cap T = \emptyset$ whenever $S$ and $T$ are
+distinct (that is, not equal) sets which belong to~$\sfml S$.
+\end{defn}
+
+\begin{cau} Let $\sfml S$ be a family of sets.  Do not confuse the following two statements.
+ \begin{enumerate}
+   \item[(a)] $\sfml S$ is a (pairwise) disjoint family.
+   \item[(b)] $\bigcap \sfml S = \emptyset$.
+ \end{enumerate}
+Certainly, if $\sfml S$ contains more than a single set, then (a) implies (b).  But if
+$\sfml S$ contains three or more sets the converse need not hold.  For example, let $S =
+\{0,1\}$, $T = \{3,4\}$, $U = \{0,2\}$, and $\sfml S = \{S,T,U\}$.  Then $\sfml S$ is not
+a disjoint family (because $S \cap U$ is nonempty), but $\bigcap\sfml S = \emptyset$.
+\end{cau}
+
+\begin{exam} Let $S$, $T$, $U$, and $V$ be sets.
+ \begin{enumerate}
+   \item[(a)] Then $(S \cap T) \cup (U \cap V) \subseteq (S \cup U)
+\cap (T \cup V)$.
+   \item[(b)] Give an example to show that equality need not hold
+in~(a).
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem.  \emph{Hint.}  Use propositions \ref{prop_union_sets}(d)  and
+\ref{prop_intersection_sets}(f) to show that $S \cap T$ and $U \cap V$ are contained in $(S
+\cup U) \cap (T \cup V)$.  Then use \ref{prop_union_sets}(f).   \ns
+\end{proof}
+
+
+
+
+
+
+
+\section{COMPLEMENTS} Recall that we regard all the sets with which we work in a particular
+situation as being subsets of some appropriate ``universal'' set.  For each set  $S$  we
+define the
+ \index{<@$S^c$ (complement of a set $S$)}%
+\df{complement} of  $S$ , denoted by  $S^c$, to be the set of all members of our universal set
+which do not belong to $S$.  That is, we write $x \in S^c$ if and only if $x \notin S$.
+
+\begin{exam} Let $S$ be the closed interval  $(-\infty, 3]$.  If nothing else is specified,
+we think of this interval as being a subset of the real  line $\R$ (our universal set).  Thus
+$S^c$ is the set of all  $x $ in $\R$ such that $x$ is not less than or equal to~$3$.  Thus
+$S^c$ is the interval $(3,\infty)$.
+\end{exam}
+
+\begin{exam} Let $S$ be the set of all points $(x,y)$ in the plane such that $x \ge 0$ and
+$y \ge 0$.  Then $S^c$ is the set of all points $(x,y)$  in the plane such that either $x < 0$
+or $y < 0$. That is ,
+   \[ S^c  =  \{(x,y)\colon x < 0\} \cup \{(x,y)\colon y < 0\}\,. \]
+\end{exam}
+
+The two following propositions are
+ \index{De Morgan's laws!for sets}%
+\df{De Morgan's laws} for sets.  As you may expect, they are obtained by translating into the
+language of sets the facts of logic which go under the same name. (See \ref{exam_demorg1} and
+\ref{prob_demorg2}.)
+
+\begin{prop}\label{prop_compl_union} Let $S$ and $T$ be sets.  Then
+    \[ (S \cup T)^c = S^c \cap T^c\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Use example~\ref{exam_demorg1}.
+(Solution~\ref{sol_prop_compl_union}.)   \ns
+\end{proof}
+
+\begin{prop} Let $S$ and $T$ be sets.  Then
+   \[ (S \cap T)^c = S^c \cup T^c\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+Just as the distributive laws can be generalized to arbitrary families of sets, so too can De
+Morgan's laws.  The complement of the union of a family is the intersection of the complements
+(proposition \ref{comp_of_union}), and the complement of the intersection of a family is the
+union of the complements (proposition \ref{comp_of_intersection}).
+
+\begin{prop}\label{comp_of_union} Let $\sfml S$ be a family of sets. Then
+   \[ (\bigcup \sfml S)^c = \bigcap\{S^c\colon S \in \sfml S\}\,. \]
+\end{prop}
+
+\begin{proof}  Exercise. (Solution~\ref{sol_comp_of_union}.) \ns \end{proof}
+
+\begin{prop}\label{comp_of_intersection} Let $\sfml S$ be a family of sets.  Then
+   \[ (\bigcap \sfml S)^c  = \bigcup\{S^c\colon S \in \sfml S\}\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{defn}If $S$ and $T$ are sets we define the
+ \index{complement!relative}%
+ \index{relative!complement}%
+\df{complement of} $T$ \df{relative to} $S$, denoted by $S \setminus T$, to be the set of all
+$x$ which belong to $S$ but not to~$T$.  That is,
+   \[ S \setminus T :=  S \cap T^c\,. \]
+The operation ${}\setminus{}$ is usually called
+ \index{set!subtraction}%
+\df{set subtraction} and $S \setminus T$ is read as ``$S$ minus $T$''.
+\end{defn}
+
+\begin{exam} Let $S = [0,5]$ and $T = [3,10]$.  Then $S \setminus T = [0,3)$.
+\end{exam}
+
+It is a frequently useful fact that the union of two sets can be rewritten as a disjoint union
+(that is, the union of two disjoint sets).
+
+\begin{prop}\label{prop_decomp_union}  Let $S$ and $T$ be sets. Then $S \setminus T$ and $T$ are
+disjoint sets whose union is $S \cup T$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_decomp_union}.) \ns \end{proof}
+
+\begin{exer}\label{exer_diff_union} Show that $(S \setminus T) \cup T = S$  if and only if
+$T \subseteq S$. (Solution~\ref{sol_exer_diff_union}.)
+\end{exer}
+
+\begin{prob} Let $S = (3,\infty)$, $T = (0,10]$, $U = (-4,5)$, $V = [-2,8]$, and $\sfml S =
+\{S^c, T, U, V\}$.
+ \begin{enumerate}
+   \item[(a)]  Find $\bigcup \sfml S$.
+   \item[(b)]  Find $\bigcap \sfml S$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} If $S$, $T$, and $U$ are sets, then
+   \[ (S \cap T) \setminus U  = (S \setminus U) \cap (T \setminus U)\,. \]
+\end{prob}
+
+\begin{prob} If $S$, $T$, and $U$ are sets, then
+  \[ S \cap (T \setminus U)  = (S  \cap T)  \setminus (S \cap U)\,. \]
+\end{prob}
+
+\begin{prob}\label{prob_sdiff1} If $S$ and $T$ are sets, then $T \setminus S$ and $T \cap S$
+are disjoint and
+   \[ T = (T \setminus S) \cup (T \cap S)\,. \]
+\end{prob}
+
+\begin{prob} If $S$ and $T$ are sets, then $S \cap T  =  S \setminus (S \setminus T)$.
+\end{prob}
+
+\begin{defn} A family $\sfml S$ of sets
+ \index{covers}%
+\df{covers} (or is a
+ \index{cover}%
+\df{cover for}, or is a
+ \index{covering}%
+\df{covering for}) a set $T$ if $T \subseteq \bigcup S$.
+\end{defn}
+
+\begin{prob}  Find a family of open intervals which covers the set $\N$ of natural numbers and has
+the property that the sum of the lengths of the intervals is~$1$.  \emph{Hint.}
+$\sum_{k=1}^\infty 2^{-k} = 1$.
+\end{prob}
+
+
+\endinput

@@ -1,0 +1,219 @@
+\chapter{SETS}\label{sets}
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+In this text everything is defined ultimately in terms of two primitive (that is, undefined)
+concepts:
+ \index{set}%
+set and
+ \index{set!membership in a}%
+set membership. We assume that these are already familiar to the reader.  In particular, it is
+assumed to be understood that distinct
+ \index{element}%
+elements (or
+ \index{member}%
+members, or points) can be regarded collectively as a single set (or family, or class, or
+collection). To indicate that $x$ belongs to a set $A$ (or that $x$ is a member of $A$) we
+write $x \in A$; to indicate that it does not belong to $A$ we write $x \notin A$.
+
+We specify a set by listing its members between braces  (for instance, $\{1, 2, 3, 4, 5\}$ is
+the set of the first five natural numbers), by listing some of its members between braces with
+an ellipsis (three dots) indicating the missing members (\emph{e.g.\ }$\{1, 2, 3, \dots\}$ is
+the set of all natural numbers), or by writing $\{x\colon P(x)\}$ where $P(x)$ is an open
+sentence which specifies what property the variable $x$ must satisfy in order to be included
+in the set (\emph{e.g.\ }$\{x\colon 0 \le x \le 1\}$ is the closed unit interval $[0,1]$).
+
+\begin{prob} Let $\N$ be the set of natural numbers $1$, $2$, $3$, \dots and let
+   \[ S = \{x \colon x < 30 \text{ and $x = n^2$ for some $n \in \N$}\}\,. \]
+List all the elements of~$S$.
+\end{prob}
+
+\begin{prob} Let $\N$ be the set of natural numbers $1$, $2$, $3$, \dots and let
+  \[ S = \{x \colon x = n + 2 \text{ for some $n \in \N$ such that $n < 6$}\}\,. \]
+List all the elements of~$S$.
+\end{prob}
+
+\begin{prob} Suppose that
+  \[ S = \{x \colon x = n^2 + 2 \text{ for some $n \in \N$}\} \]
+and that
+  \[ T = \{3,6,11,18,27,33,38,51\}\,. \]
+ \begin{enumerate}
+  \item[(a)] Find an element of $S$ that is not in~$T$.
+  \item[(b)] Find an element of $T$ that is not in~$S$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Suppose that
+  \[ S = \{x \colon x = n^2 + 2n \text{ for some $n \in \N$}\} \]
+and that
+  \[ T = \{x\colon x = 5n - 1 \text{ for some $n \in \N$}\}\,. \]
+Find an element which belongs to both $S$ and ~$T$.
+\end{prob}
+
+Since all of our subsequent work depends on the notions of set and of set membership, it is
+not altogether satisfactory to rely on intuition and shared understanding to provide a
+foundation for these crucial concepts. It is possible in fact to arrive at paradoxes using a
+naive approach to sets. (For example, ask yourself the question, ``If $S$ is the set of all
+sets which do not contain themselves as members, then does $S$ belong to $S$?'' If the answer
+is \emph{yes}, then it must be \emph{no}, and \emph{vice versa}.)  One satisfactory
+alternative to our intuitive approach to sets is axiomatic set theory.  There are many ways of
+axiomatizing set theory to provide a secure foundation for subsequent mathematical
+development.  Unfortunately, each of these ways turns out to be extremely intricate, and it is
+generally felt that the abstract complexities of axiomatic set theory do not serve well as a
+beginning to an introductory course in advanced calculus.
+
+Most of the paradoxes inherent in an intuitive approach to sets have to do with sets that are
+too ``large''. For example, the set $S$ mentioned above is enormous. Thus in the sequel we
+will assume that in each situation all the mathematical objects we are then considering (sets,
+functions, \emph{etc.}) belong to some appropriate ``universal'' set, which is ``small''
+enough to avoid set theoretic paradoxes. (Think of ``universal'' in terms of ``universe of
+discourse'', not ``all-encompassing''.)  In many cases an appropriate universal set is clear
+from the context. Previously we considered a statement
+    \[ (\forall y)(\exists x)\, x < y\,. \]
+The appearance of the symbol ``$<$'' suggests to most readers that $x$ and $y$ are real
+numbers. Thus the universal set from which the variables are chosen is the set $\R$ of all
+real numbers. When there is doubt that the universal set will be properly interpreted, it may
+be specified. In the example just mentioned we might write
+   \[(\forall y \in \R)(\exists x \in \R)\, x < y.\]
+This makes explicit the intended restriction that $x$ and $y$ be real numbers.
+
+As another example recall that in appendix~\ref{quan} we defined a real valued function $f$ to
+be continuous at a point $a \in \R$ if
+  \[(\forall\epsilon > 0)(\exists \delta > 0) \text{ such that
+        $(\forall x)\, \abs{f(x)-f(a)} < \epsilon$  whenever
+            $\abs{x - a} < \delta$}.\]
+Here the first two variables, $\epsilon$ and $\delta$, are restricted to lie in the open
+interval $(0, \infty)$. Thus we might rewrite the definition as follows:
+  \[\begin{split}
+    \forall\epsilon\in (0,\infty)\,\, &\exists\delta\in (0,\infty) \\
+        &\text{such that ($\forall x \in \R)\, \abs{f(x)-f(a)}
+        <\epsilon$ whenever $\abs{x-a} < \delta$}.
+  \end{split}\]
+The expressions ``$\forall x \in \R$'', ``\,$\exists\delta\in (0, \infty)$'', \emph{etc.}\ are
+called
+ \index{restricted quantifiers}%
+ \index{quantifier!restricted}%
+\df{restricted quantifiers}.
+
+\begin{defn} Let $S$ and $T$ be sets. We say that $S$ is a
+ \index{subset}%
+\df{subset} of $T$ and write
+ \index{subset@$\subseteq$ (subset of)}%
+ \index{<@$\subseteq$ (subset of)}%
+$S \subseteq T$ (or $T \supseteq S$) if every member of $S$ belongs to $T$. If $S \subseteq T$
+we also say that $S$ is \df{contained in} $T$ or that $T$
+ \index{contains}%
+\df{contains}~$S$.  Notice that the relation $\subseteq$ is
+ \index{reflexive}%
+\df{reflexive} (that is, $S \subseteq S$ for all $S$) and
+ \index{transitive}%
+\df{transitive} (that is, if $S \subseteq T$ and $T \subseteq U$,
+then $S \subseteq U$). It is also
+ \index{antisymmetric}%
+\df{antisymmetric} (that is, if $S \subseteq T$ and $T \subseteq S$, then $S = T$). If we wish
+to claim that $S$ is \emph{not} a subset of $T$ we may write $S \not\subseteq T$. In this case
+there is at least one member of $S$ which does not belong to $T$.
+\end{defn}
+
+\begin{exam} Since every number in the closed interval $[0,1]$ also belongs to the interval
+$[0,5]$, it is correct to write $[0, 1] \subseteq [0,5]$.  Since the number $\pi$ belongs to
+$[0,5]$ but not to $[0,1]$, we may also write $[0,5] \not\subseteq [0,1]$.
+\end{exam}
+
+\begin{defn} If $S \subseteq T$ but $S \ne T$, then we say that $S$ is a
+ \index{subset!proper}%
+ \index{proper subset}%
+\df{proper subset} of $T$ (or that $S$ is \df{properly contained in} $T$, or that~$T$
+ \index{properly contains}%
+\df{properly contains} $S$) and write
+ \index{subsetn@$\subsetneqq$ (proper subset of)}%
+ \index{<@$\subsetneqq$ (proper subset of)}%
+$S \subsetneqq T$.
+\end{defn}
+
+\begin{prob} Suppose that $S = \{x\colon x = 2n + 3 \text{ for some $n \in \N$}\}$ and that
+$T$ is the set of all odd natural numbers $1$, $3$, $5$, $\dots$\,.
+ \begin{enumerate}
+  \item[(a)] Is $S \subseteq T$?  If not, find an element of $S$ which does not
+belong to~$T$.
+  \item[(b)] Is $T \subseteq S$?  If not, find an element of $T$ which does not
+belong to~$S$.
+ \end{enumerate}
+\end{prob}
+
+
+\begin{defn}  The
+ \index{empty set}%
+\df{empty set} (or
+ \index{null set}%
+\df{null set}), which is denoted
+ \index{emptyset@$\emptyset$ (empty set, null set)}%
+ \index{<@$\emptyset$ (empty set, null set)}%
+ \index{nullset@$\emptyset$ (empty set, null set)}%
+by~$\emptyset$, is defined to be the set which has no elements. (Or, if you like, define it to
+be $\{x\colon x \ne x\}$.) It is regarded as a subset of every set, so that
+$\emptyset\subseteq S$ is always true.  (Note: ``$\emptyset$'' is a letter of the Danish
+alphabet, not the Greek letter ``phi''.)
+\end{defn}
+
+\begin{defn} If $S$ is a set, then the \df{power set} of $S$, which we denote
+ \index{powerset@$\sfml P$ (power set)}%
+by~$\sfml P(S)$, is the set of all subsets of $S$.
+\end{defn}
+
+\begin{exam} Let $S = \{a,b,c\}$.  Then the members of the power set of $S$ are the empty set,
+the three one-element subsets, the three two-element subsets, and the set $S$ itself.  That
+is,
+  \[ \sfml P(S) = \bigl\{\emptyset,\{a\},\{b\}, \{c\}, \{a,b\},
+            \{a,c\}, \{b,c\},S\bigr\}\,. \]
+\end{exam}
+
+\begin{prob} In each of the words (a)--(d) below let $S$ be the set of letters in the word.
+In each case find the number of members of $S$ and the number of members of $\sfml P(S)$
+the power set of~$S$.
+ \begin{enumerate}
+  \item[(a)] lull
+  \item[(b)] appall
+  \item[(c)] attract
+  \item[(d)] calculus
+ \end{enumerate}
+\end{prob}
+
+
+\begin{cau} In attempting to prove a theorem which has as a hypothesis ``Let
+$S$ be a set'' do not include in your proof something like ``Suppose $S = \{s_1, s_2, \dots,
+s_n\}$'' or ``Suppose $S = \{s_1, s_2, \dots\}$''.  In the first case you are tacitly assuming
+that $S$ is finite and in the second that it is countable. Neither is justified by the
+hypothesis.
+\end{cau}
+
+
+
+\begin{cau} A single letter $\sfml S$ (an S in fraktur font) is an acceptable symbol
+in printed documents. Don't try to imitate it in hand-written work or on the blackboard.  Use
+script letters instead.
+\end{cau}
+
+
+
+
+
+
+Finally a word on the use of the symbols $=$ and~$:=$.  In this text
+ \index{equality}%
+ \index{<@$=$ (equals)}%
+equality is used in the sense of identity.  We write $x = y$ to indicate that $x$ and $y$ are
+two names for the same object.  For example, $0.5 = 1/2 = 3/6 = 1/\sqrt 4$ because $0.5$,
+$1/2$, $3/6$, and $1/\sqrt 4$ are different names for the same real number.  You have probably
+encountered other uses of the term \emph{equality}. In many high school geometry texts, for
+example, one finds statements to the effect that a triangle is isosceles if it has two equal
+sides (or two equal angles).  What is meant of course is that a triangle is isosceles if it
+has two sides of \emph{equal length} (or two angles of \emph{equal angular measure}).  We also
+make occasional use of the
+ \index{equality!by definition}%
+ \index{<@$:=$ (equality by definition)}%
+symbol~$:=$ to indicate \emph{equality by definition}.  Thus when we write $a := b$ we are
+giving a new name $a$ to an object $b$ with which we are presumably already familiar.
+
+ \endinput

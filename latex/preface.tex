@@ -1,0 +1,142 @@
+\chapter*{PREFACE}
+
+In American universities two distinct types of courses are often called ``Advanced
+Calculus'': one, largely for engineers, emphasizes advanced computational techniques in
+calculus; the other, a more ``theoretical'' course, usually taken by majors in
+mathematics and physical sciences (and often called \emph{elementary analysis} or
+\emph{intermediate analysis}), concentrates on conceptual development and proofs. This
+\emph{ProblemText} is a book of the latter type. It is not a place to look for
+post-calculus material on Fourier series, Laplace transforms, and the like.  It is
+intended for students of mathematics and others who have completed (or nearly completed)
+a standard introductory calculus sequence and who wish to understand where all those
+rules and formulas come from.
+
+Many advanced calculus texts contain more topics than this \emph{ProblemText}.  When
+students are encouraged to develop much of the subject matter for themselves, it is not
+possible to ``cover'' material at the same breathtaking pace that can be achieved by a
+truly determined lecturer. But, while no attempt has been made to make the book
+encyclopedic, I do think it nevertheless provides an integrated overview of Calculus and,
+for those who continue, a solid foundation for a first year graduate course in Real
+Analysis.
+
+
+As the title of the present document, \emph{ProblemText in Advanced Calculus}, is
+intended to suggest, it is as much an extended problem set as a textbook.  The proofs of
+most of the major results are either \emph{exercises} or \emph{problems}.  The
+distinction here is that solutions to \emph{exercises} are written out in a separate
+chapter in the ProblemText while solutions to \emph{problems} are not given.  I hope that
+this arrangement will provide flexibility for instructors who wish to use it as a text.
+For those who prefer a (modified) Moore-style development, where students work out and
+present most of the material, there is a quite large collection of problems for them to
+hone their skills on.  For instructors who prefer a lecture format, it should be easy to
+base a coherent series of lectures on the presentation of solutions to thoughtfully
+chosen problems.
+
+I have tried to make the \emph{ProblemText} (in a rather highly qualified sense discussed
+below) ``self-contained''. In it we investigate how the edifice of calculus can be
+grounded in a carefully developed substrata of sets, logic, and numbers.  Will it be a
+``complete'' or ``totally rigorous'' development of the subject? Absolutely not.  I am
+not aware of any serious enthusiasm among mathematicians I know for requiring rigorous
+courses in \emph{Mathematical Logic} and \emph{Axiomatic Set Theory} as prerequisites for
+a first introduction to analysis.  In the use of the tools from set theory and formal
+logic there are many topics that because of their complexity and depth are cheated, or
+not even mentioned. (For example, though used often, the \emph{axiom of choice} is
+mentioned only once.) Even everyday topics such as ``arithmetic,'' see
+appendix~\ref{arithmetic}, are not developed in any great detail.
+
+Before embarking on the main ideas of Calculus proper one \emph{ideally} should have a
+good background in all sorts of things: quantifiers, logical connectives, set operations,
+writing proofs, the arithmetic and order properties of the real numbers, mathematical
+induction, least upper bounds, functions, composition of functions, images and inverse
+images of sets under functions, finite and infinite sets, countable and uncountable sets.
+On the one hand all these are technically prerequisite to a careful discussion of the
+foundations of calculus. On the other hand any attempt to do all this business
+systematically at the beginning of a course will defer the discussion of anything
+concerning calculus proper to the middle of the academic year and may very well both bore
+and discourage students.  Furthermore, in many schools there may be students who have
+already studied much of this material (in a ``proofs'' course, for example). In a spirit
+of compromise and flexibility I have relegated this material to appendices. Treat it any
+way you like.  I teach in a large university where students show up for Advanced Calculus
+with a wide variety of backgrounds, so it is my practice to go over the appendices first,
+covering many of them in a quite rapid and casual way, my goal being to provide just
+enough detail so that everyone will know where to find the relevant material when they
+need it later in the course.  After a rapid traversal of the appendices I start
+Chapter~$1$.
+
+For this text to be useful a student should have previously studied introductory
+calculus, more for mathematical maturity than anything else.  Familiarity with properties
+of elementary functions and techniques of differentiation and integration may be assumed
+and made use of in \emph{examples}---but is never relied upon in the logical development
+of the material.
+
+One motive for my writing this text is to make available in fairly simple form material
+that I think of as ``calculus done right.''  For example, differential calculus as it
+appears in many texts is a morass of tedious epsilon-delta arguments and partial
+derivatives, the net effect of which is to almost totally obscure the beauty and elegance
+which results from a careful and patient elaboration of the concept of tangency. On the
+other hand texts in which things are done right (for example Loomis and
+Sternberg~\cite{LoomisS:1990}) tend to be rather forbidding.  I have tried to write a
+text which will be helpful to a determined student with an average background.  (I
+seriously doubt that it will be of much use to the chronically lazy or totally
+unengaged.)
+
+In my mind one aspect of doing calculus ``correctly'' is arrange things so that there is
+nothing to unlearn later.  For example, in this text topological properties of the real
+line are discussed early on.  Later, topological things (continuity, compactness,
+connectedness, and so on) are discussed in the context of metric spaces (because they
+unify the material conceptually and greatly simplify subsequent arguments).  But the
+important thing is the \emph{definitions} in the single variable case and the metric
+space case are the same. Students do not have to ``unlearn'' material as they go to more
+general settings.  Similarly, the differential calculus is eventually developed in its
+natural habitat of normed linear spaces.  But here again, the student who has mastered
+the one-dimensional case, which occurs earlier in the text, will encounter definitions
+and theorems and proofs that are virtually identical to the ones with which (s)he is
+already familiar.  There is nothing to unlearn.
+
+In the process of writing this \emph{ProblemText} I have rethought the proofs of many
+standard theorems. Although some, perhaps most, results in advanced calculus have reached
+a final, optimal form, there are many others that, despite dozens of different approaches
+over the years, have proofs that are genuinely confusing to most students.  To mention
+just one example there is the theorem concerning change of order of differentiation whose
+conclusion is
+  \[ \frac{\partial^2f}{\partial x \, \partial y} =
+               \frac{\partial^2f}{\partial y \, \partial x}\,. \]
+This well-known result to this day still receives clumsy, impenetrable, and even
+incorrect proofs. I make an attempt, here and elsewhere in the text, to lead students to
+proofs that are conceptually clear, even when they may not be the shortest or most
+elegant.  And throughout I try very hard to show that mathematics is about ideas and not
+about manipulation of symbols.
+
+There are of course a number of advantages and disadvantages in consigning a document to
+electronic life. One slight advantage is the rapidity with which links implement
+cross-references.  Hunting about in a book for \emph{lemma 3.14.23} can be time-consuming
+(especially when an author engages in the entirely logical but utterly infuriating
+practice of numbering lemmas, propositions, theorems, corollaries, \emph{etc.}
+separately).  A perhaps more substantial advantage is the ability to correct errors, add
+missing bits, clarify opaque arguments, and remedy infelicities of style in a timely
+fashion.  The correlative disadvantage is that a reader returning to the web page after a
+short time may find everything (pages, definitions, theorems, sections) numbered
+differently.  (\LaTeX is an amazing tool.) I will change the date on the title page to
+inform the reader of the date of the last nontrivial update (that is, one that affects
+numbers or cross-references).
+
+The most serious disadvantage of electronic life is impermanence.  In most cases when a
+web page vanishes so, for all practical purposes, does the information it contains.  For
+this reason (and the fact that I want this material to be freely available to anyone who
+wants it) I am making use of a ``Share Alike'' license from Creative Commons. It is my
+hope that anyone who finds this text useful will correct what is wrong, add what is
+missing, and improve what is clumsy.  To make this possible I am also including the
+\LaTeX source code on my web page. For more information on creative commons licenses see
+   \[ \text{http://creativecommons.org/} \]
+
+I extend my gratitude to the many students over the years who have endured various
+versions of this ProblemText and to my colleagues who have generously nudged me when they
+found me napping.  I want especially to thank Dan Streeter who provided me with so much
+help in the technical aspects of getting this document produced.  The text was prepared
+using \AmS-\LaTeX. For the diagrams I used the macro package \Xy-pic by Kristoffer H.
+Rose and Ross Moore supplemented by additional macros in the diagxy package by Michael
+Barr.
+
+Finally it remains only to say that I will be delighted to receive, and will consider,
+any comments, suggestions, or error reports. My e-mail address is
+  \[  \text{erdman@pdx.edu} \]

@@ -1,0 +1,494 @@
+\chapter{VECTOR SPACES}\label{v_sps}
+
+Most introductory calculus texts, for pedagogical reasons, do calculus twice, once for a
+single variable and then for either two or three variables, leaving the general finite
+dimensional and infinite dimensional cases for future courses.  It is our goal eventually (in
+chapter \ref{diff_calc}) to develop differential calculus in a manner that is valid for any
+number of variables (even infinitely many).
+
+A certain amount of algebra always underlies analysis. Before one studies the calculus of a
+single variable, a knowledge of arithmetic in $\R$ is required.  For the calculus of a finite
+number of variables it is necessary to know something about $\R^n$. In this chapter and the
+next we lay the algebraic foundations for the differential calculus of an arbitrary number of
+variables; we study vector spaces and the operation preserving maps between them, called
+linear transformations.
+
+
+
+
+
+\section{DEFINITIONS AND EXAMPLES}
+\begin{defn}\label{vs_def1} A
+ \index{vector!space}%
+\df{(real) vector space} is a set $V$ together with a binary operation $(x,y) \mapsto x + y$
+(called \df{addition}) from $V \times V$ into $V$ and a mapping $(\alpha,x) \mapsto \alpha x$
+(called \df{scalar multiplication}) from $\R \times V$ into $V$ satisfying the following
+conditions:
+ \begin{enumerate}
+  \item[(1)]  Addition is associative. That is,
+     \[ x + (y + z) = (x + y) + z  \qquad\text{ for all $x$, $y$, $z \in V$}\,. \]
+  \item[(2)] In $V$ there is an element $\vc 0$ (called the
+ \index{zero!vector}%
+ \index{<@$\vc 0$ (zero vector)}%
+\df{zero vector}) such that
+     \[ x + \vc 0 = x  \qquad\text{ for all $x \in V$}\,. \]
+  \item[(3)] For each $x$ in $V$ there is a corresponding element
+$-x$ (the
+ \index{additive inverse}%
+ \index{inverse!additive}%
+\df{additive inverse} of $x$) such that
+     \[ x + (-x) = \vc 0\,. \]
+  \item[(4)] Addition is commutative. That is,
+     \[ x + y = y + x   \qquad\text{ for all $x$, $y \in V$}\,. \]
+  \item[(5)] If $\alpha \in \R$ and $x$, $y \in V$, then
+     \[ \alpha(x + y) = (\alpha x) + (\alpha y)\,. \]
+  \item[(6)] If $\alpha$, $\beta \in \R$ and $x \in V$, then
+     \[ (\alpha + \beta)x = (\alpha x) + (\beta x)\,. \]
+  \item[(7)] If $\alpha$, $\beta \in \R$ and $x \in V$, then
+     \[ \alpha(\beta x) = (\alpha\beta)x\,. \]
+  \item[(8)] If $x \in V$, then
+     \[ 1 \cdot x = x\,. \]
+ \end{enumerate}
+\end{defn}
+
+An element of $V$ is a
+ \index{vector}%
+\df{vector}; an element of $\R$ is, in this context, often called a
+ \index{scalar}%
+\df{scalar}.  Concerning the order of performing operations, we agree that scalar
+multiplication takes precedence over addition. Thus, for example, condition (5) above may be
+unambiguously written as
+ \[ \alpha(x + y) = \alpha x + \alpha y\,. \]
+(Notice that the parentheses on the left may not be omitted.)
+
+If $x$ and $y$ are vectors, we define $x - y$ to be $x + (-y)$.  If $A$ and $B$ are subsets of
+a vector space, we define
+ \index{<add@$A+B$ (sum of subsets of a vector space)}%
+ \[ A + B := \{a + b \colon  a \in A, b \in B\}\,; \]
+and if $\alpha \in \R$,
+ \index{<@$\alpha A$ (scalar multiple of a subset of a vector space)}%
+  \[ \alpha A  :=  \{\alpha a \colon a \in A\}\,. \]
+
+Condition (3) above is somewhat optimistic.  No uniqueness is asserted in (2) for the zero
+vector $\vc 0$, so one may well wonder whether (3) is supposed to hold for \emph{some} zero
+vector $\vc 0$ or for \emph{all} such vectors.  Fortunately, the problem evaporates since we
+can easily show that the zero vector is in fact unique.
+
+\begin{exer}\label{vs_exer3} A vector space has exactly one zero vector.  That is, if $\vc 0$
+and $\vc 0'$ are members of a vector space $V$ which satisfy $x + \vc 0 = x$ and $x + \vc 0' =
+x$ for all $x \in V$, then $\vc 0 = \vc 0'$. (Solution~\ref{sol_vs_exer3}.)
+
+\end{exer}
+
+In a vector space not only is the zero vector unique but so are additive inverses.
+
+\begin{prob}\label{vs_prob2} For every vector $x$ in a vector space $V$ there exists only one
+vector $-x$ such that
+ \[ x + (-x) = \vc 0\,. \]
+\end{prob}
+
+In \ref{vs_exer1} to \ref{vs_prob1} we state four useful, if elementary, facts concerning the
+arithmetic of vectors.
+
+\begin{exer}\label{vs_exer1} If $x$ is a vector (in some vector space) and $x + x = x$, then
+$x = \vc 0$. \emph{Hint.}  Add $\vc 0$ to $x$; then write $\vc 0$ as $x + (-x)$.
+(Solution~\ref{sol_vs_exer1}.)
+\end{exer}
+
+\begin{exer}\label{vs_exer2} Let $x$ be a vector (in a some vector space) and let $\alpha$ be a
+real number.  Then $\alpha x = \vc 0$ if and only if $x = \vc 0$ or $\alpha = 0$.
+\emph{Hint.} Show three things:
+ \begin{enumerate}
+  \item[(a)] $\alpha \vc 0 = \vc 0$,
+  \item[(b)] $0\,x = \vc 0$, and
+  \item[(c)] If $\alpha \ne 0$ and $\alpha x = \vc 0$, then $x = \vc 0$.
+ \end{enumerate} (If it is not clear to you that proving (a), (b), and (c) is the same thing as
+proving \ref{vs_exer2}, see the remark following this hint.)  To prove (a) write $\vc 0 +
+\vc 0 = \vc 0$, multiply by $\alpha$, and use \ref{vs_exer1}.  For (c) use the fact that
+if $\alpha \in \R$ is not zero, it has a reciprocal.  What happens if we multiply the
+vector $\alpha x$ by the scalar~$1/\alpha$?  (Solution~\ref{sol_vs_exer2}.)
+\end{exer}
+
+\begin{rem} It should be clear that proving (a) and (b) of the preceding hint proves that:
+  \[ \text{if $x = \vc 0$ or $\alpha = 0$, then $\alpha x = \vc 0$.} \]
+What may not be clear is that proving (c) is enough to establish:
+ \begin{equation}
+   \label{vs_eq1}\text{if $\alpha x = \vc 0$, then either $x = \vc 0$ or $\alpha = 0$.}
+ \end{equation}
+Some students feel that in addition to proving (c) it is also necessary to prove that:
+  \[ \text{if $x \ne \vc 0$ and $\alpha x = 0$, then $\alpha = 0$.} \]
+To see that this is unnecessary recognize that there are just two possible cases: either
+$\alpha$ is equal to zero, or it is not.  In case $\alpha$ \emph{is} equal to zero, then the
+conclusion of \eqref{vs_eq1} is certainly true.   The other case, where $\alpha$ is \emph{not}
+zero, is dealt with by~(c).
+\end{rem}
+
+\begin{exer}\label{vs_exer4} If $x$ is a vector, then $-(-x) = x$.  \emph{Hint.}  Show that
+$(-x) + x = \vc 0$.  What does \ref{vs_prob2} say about~$x$? (Solution~\ref{sol_vs_exer4}.)
+\end{exer}
+
+\begin{prob}\label{vs_prob1} If $x$ is a vector, then $(-1)x = -x$. \emph{Hint.}  Show that
+$x + (-1)x = \vc 0$.  Use~\ref{vs_prob2}.
+\end{prob}
+
+\begin{prob} Using nothing about vector spaces other than the definitions, prove that if $x$ is a
+vector, then $3x - x = x + x$. Write your proof using at most one vector space axiom (or
+definition) at each step.
+\end{prob}
+
+We now give some examples of vector spaces.
+
+\begin{exam} Let $V = \R^n$.  We make a standard notational convention.  If $x$ belongs to $\R^n$,
+then $x$ is an $n$-tuple whose coordinates are $x_1,x_2, \dots, x_n$; that is,
+  \[ x = (x_1, x_2, \dots ,x_n)\,. \]
+It must be confessed that we do not \emph{always} use this convention.  For example, the
+temptation to denote a member of $\R^3$ by $(x,y,z)$, rather than by $(x_1, x_2, x_3)$, is
+often just too strong to resist.  For $n$-tuples $x = (x_1, x_2,\dots, x_n)$ and $y = (y_1,
+y_2, \dots, y_n)$ in $V$ define
+ \[ x + y := (x_1 + y_1, x_2 + y_2,  \dots, x_n + y_n)\,. \]
+Accordingly we say that addition in $\R^n$ is defined coordinatewise.  Scalar multiplication
+is also defined in a coordinatewise fashion. That is, if $x = (x_1, x_2,\dots, x_n) \in V$ and
+$\alpha \in \R$, then we define
+  \[ \alpha x := (\alpha x_1, \alpha x_2, \dots, \alpha x_n)\,. \]
+Under these operations $\R^n$ becomes a vector space.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.} Just verify conditions (1)--(8) of definition \ref{vs_def1}. \ns
+\end{proof}
+
+\begin{prob} Let
+ \index{s@$s$ (sequences of real numbers)}%
+$s$ be the family of all sequences of real numbers.  Explain how to define addition and scalar
+multiplication on $s$ in such a way that it becomes a vector space.
+\end{prob}
+
+\begin{exam}\label{vs_exam1} Here is one of the ways in which we construct new vector spaces
+from old ones.  Let $V$ be an arbitrary vector space and $S$ be a nonempty set.  Let
+ \index{f@$\fml F(S,V)$ (vector valued functions on a set~$S$}%
+$\fml F(S,V)$ be the family of all $V$ valued functions defined on~$S$.  That is, $\fml
+F(S,V)$ is the set of all functions $f$ such that $f\colon S \sto V$.  We make $\fml F(S,V)$
+into a vector space by defining operations in a pointwise fashion.  For functions $f$, $g \in
+\fml F(S,V)$ define
+ \[ (f + g)(x) := f(x) + g(x) \qquad\text{for all $x \in S$}. \]
+It should be clear that the two ``+'' signs in the preceding equation denote operations in
+different spaces.  The one on the left (which is being defined) represents addition in the
+space $\fml F(S,V)$; the one on the right is addition in~$V$.  Because we specify the value of
+$f + g$ at each point $x$ by adding the values of $f$ and $g$ at that point, we say that we
+add $f$ and $g$
+ \index{pointwise!addition}%
+\df{pointwise}.
+
+We also define scalar multiplication to be a pointwise operation. That is, if $f \in \fml
+F(S,V)$ and $\alpha \in \R$, then we define the function $\alpha f$ by
+ \[ (\alpha f)(x) := \alpha(f(x)) \qquad\text{for every $x \in S$}. \]
+Notice that according to the definitions above, both $f + g$ and $\alpha $f belong to $\fml
+F(S,V)$.  Under these pointwise operations $\fml F(S,V)$ is a vector space.  (Notice that the
+family of real valued functions on a set $S$ is a special case of the preceding. Just let $V =
+\R$.)
+\end{exam}
+
+\begin{proof} Problem  \ns  \end{proof}
+
+Most of the vector spaces we encounter in the sequel are subspaces of $\fml F(S,V)$ for some
+appropriate set $S$ and vector space $V$: so we now take up the topic of subspaces of vector
+spaces.
+
+\begin{defn} A subset $W$ of a vector space $V$ is a
+ \index{subspace!vector}%
+\df{subspace} of $V$ if it is itself a vector space under the operations it inherits from~$V$.
+In subsequent chapters we will regularly encounter objects which are simultaneously vector
+spaces and metric spaces.  (One obvious example is $\R^n$).  We will often use the term
+ \index{vector!subspace}%
+\df{vector subspace} (or
+ \index{linear!subspace}%
+\df{linear subspace}) to distinguish a subspace of a vector space from a metric subspace.
+(Example: the unit circle $\{(x,y) \colon x^2 + y^2 = 1\}$ is a metric subspace of $\R^2$ but
+not a vector subspace thereof.)
+\end{defn}
+
+Given a subset $W$ of a vector space $V$ we do not actually need to check all eight vector
+space axioms to establish that it is a subspace of $V$.  We need only know that $W$ is
+nonempty and that it is closed under addition and scalar multiplication.
+
+\begin{prop}\label{vs_prop1} Let $W$ be a subset of a vector space $V$.  Then $W$ is a subspace
+of $V$ provided that
+ \begin{enumerate}
+  \item[(a)] $W \ne \emptyset$,
+  \item[(b)] $x + y \in W$ whenever $x \in W$ and $y \in W$, and
+  \item[(c)] $\alpha x \in W$ whenever $x \in W$ and $\alpha \in \R.$
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_vs_prop1}.)  \ns   \end{proof}
+
+\begin{exam} Let $S$ be a nonempty set.  Then the family $\fml B(S,\R)$ of all bounded real
+valued functions on $S$ is a vector space because it is a subspace of $\fml F(S,\R)$.
+\end{exam}
+
+\begin{proof}   That it \emph{is} a subspace of $\fml F(S,\R)$ is clear from the preceding
+proposition: every constant function is bounded, so the set $\fml B(S,\R)$ is nonempty; that
+it is closed under addition and scalar multiplication was proved in
+proposition~\ref{uc_prop1}.
+\end{proof}
+
+\begin{exam}  The $x$-axis (that is, $\{(x,0,0) \colon x \in \R\}$) is a subspace of~$\R^3$.
+So is the $xy$-plane (that is, $\{(x,y,0) \colon x,y \in \R\}$).  In both cases it is clear
+that the set in question is nonempty and is closed under addition and scalar multiplication.
+\end{exam}
+
+\begin{exam} Let $M$ be a metric space.  Then the set $\fml C(M,\R)$ of all continuous real
+valued functions on $M$ is a vector space.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob} Let $a < b$ and $\fml F$ be the vector space of all real valued functions on the
+interval $[a,b]$.  Consider the following subsets of $\fml F$:
+ \begin{align*}   \fml K    &=  \{f \in \fml F \colon \text{$f$ is constant}\} \\
+                  \fml D    &=  \{f \in \fml F \colon \text{$f$ is differentiable}\} \\
+                  \fml B    &=  \{f \in \fml F \colon \text{$f$ is bounded}\} \\
+                  \fml P_3  &=  \{f \in \fml F \colon \text{$f$ is a polynomial of degree $3$}\} \\
+                  \fml Q_3  &=  \{f \in \fml F \colon \text{$f$ is a polynomial of degree less
+                                                                       than or equal to $3$}\} \\
+                  \fml P    &=  \{f \in \fml F \colon \text{$f$ is a polynomial}\} \\
+                  \fml C    &=  \{f \in \fml F \colon \text{$f$ is continuous}\}
+ \end{align*}
+Which of these are subspaces of which? \emph{Hint.}  There is a ringer in the list.
+\end{prob}
+
+\begin{exam} The family of all solutions of the differential equation
+   \[ xy'' + y' + xy = 0 \]
+is a subspace of $\fml C(\R,\R)$.
+\end{exam}
+
+\begin{proof} Problem.   \ns   \end{proof}
+
+Let $A$ be a subset of a vector space $V$.  Question: What is meant by the phrase ``the
+smallest subspace of $V$ which contains $A$''? Answer: The intersection of all the subspaces
+of $V$ which contain $A$.  It is important to realize that in order for this answer to make
+sense, it must be known that the intersection of the family of subspaces containing $A$ is
+itself a subspace of $V$.  This is an obvious consequence of the fact (proved below) that the
+intersection of any family of subspaces is itself a subspace.
+
+\begin{prop}\label{intr_vsbs} Let $\sfml S$ be a nonempty family of subspaces of a vector
+space~$V$. Then $\bigcap \sfml S$ is a subspace of $V$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Use \ref{vs_prop1}.  (Solution~\ref{sol_intr_vsbs}.) \ns
+\end{proof}
+
+\begin{exam}\label{prod_vs} Let $V$ and $W$ be vector spaces.  If addition and scalar multiplication
+are defined on $V \times W$ by
+  \[ (v,w) + (x,y) := (v+x,w+y) \]
+and
+  \[ \alpha(v,w) := (\alpha v, \alpha w) \]
+for all $v$, $x \in V$, all $w$, $y \in W$, and all $\alpha \in \R$, then $V \times W$ becomes
+a vector space. (This is called the
+ \index{product!of vector spaces}%
+\df{product} or
+ \index{external direct sum}%
+ \index{direct sum!external}%
+ \index{sum!external direct}%
+\df{(external) direct sum} of $V$ and~$W$.  It is frequently denoted
+ \index{<@$V \oplus W$ (direct sum of vector spaces)}%
+by~$V \oplus W$.)
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+
+\section{LINEAR COMBINATIONS}
+\begin{defn} Let $V$ be a vector space. A
+ \index{linear!combination}%
+\df{linear combination} of a finite set $\{x_1, \dots, x_n\}$ of vectors in $V$ is a vector of
+the form $\sum_{k=1}^n \alpha_k x_k$ where $\alpha_1, \dots, \alpha_n \in \R$.  If $\alpha_1 =
+\alpha_2 = \dots = \alpha_n = 0$, then the linear combination is \df{trivial}; if at least one
+$\alpha_k$ is different from zero, the linear combination is \df{nontrivial}.
+\end{defn}
+
+\begin{exer}\label{vs_exer5}  Find a nontrivial linear combination of the following vectors in
+$\R^3$ which equals zero: $(1,0,0)$, $(1,0,1)$, $(1,1,1)$, and $(1,1,0)$.
+(Solution~\ref{sol_vs_exer5}.)
+\end{exer}
+
+\begin{prob} Find, if possible, a nontrivial linear combination of the following vectors in
+$\R^3$ which equals zero: $(4,1,3)$, $(-1,1,-7)$, and $(1,2,-8)$.
+\end{prob}
+
+\begin{prob} Find, if possible, a nontrivial linear combination of the following vectors in $\R^3$
+which equals zero: $(1,2,-3)$, $(1,-1,4)$, and $(5,4,-1)$.
+\end{prob}
+
+\begin{prob} Find a nontrivial linear combination of the polynomials $p^1$, $p^2$, $p^3$, and $p^4$
+which equal zero, where
+ \begin{align*}
+       p^1(x) &= x + 1 \\
+       p^2(x) &= x^3 - 1 \\
+       p^3(x) &= 3x^3 + 2x - 1 \\
+       p^4(x) &= -x^3 + x\,.
+ \end{align*}
+\end{prob}
+
+\begin{exam}\label{basis_vect} Define vectors $e^1,\dots , e^n$ in $\R^n$ by
+ \begin{align*}
+        e^1 &:= (1,0,0, \dots, 0) \\
+        e^2 &:= (0,1,0, \dots, 0) \\
+     \vdots &{} \\
+        e^n &:= (0,0, \dots ,0,1).
+ \end{align*}
+In other words, for $1 \le j \le n$ and $1 \le k \le n$, the $k^{\text{th}}$ coordinate of the
+vector $e^j$ (denote it by $(e^j)_k$ or $e_k^j$) is $1$ if $j=k$ and $0$ if $j \ne k$.  The
+vectors $e^1, \dots, e^n$ are the
+ \index{e@$e^1, \dots, e^n$ (standard basis vectors)}%
+ \index{standard basis}%
+ \index{basis!standard}%
+\df{standard basis vectors} in $\R^n$.  (Note that the superscripts here have nothing to do
+with powers.)  In $\R^3$ the three standard basis vectors are often denoted by $\vc i$, $\vc
+j$, and $\vc k$ rather than $e^1$, $e^2$, and $e^3$, respectively.
+
+Every vector in $\R^n$ is a linear combination of the standard basis vectors in that space. In
+fact, if $x = (x_1, \dots, x_n) \in \R^n$, then
+  \[ x = \sum_{k=1}^n x_ke^k\,. \]
+\end{exam}
+
+\begin{proof} The proof is quite easy:
+ \begin{align*}
+     x &= (x_1,x_2, \dots, x_n) \\
+       &= (x_1,0, \dots, 0) + (0,x_2, \dots, 0) + \dots + (0,0,
+              \dots, x_n) \\
+       &= x_1e^1 + x_2e^2 + \dots + x_ne^n \\
+       &= \sum_{k=1}^n x_ke^k\,.    \qedhere
+ \end{align*}
+\end{proof}
+
+\begin{defn} A subset $A$ (finite or not) of a vector space is
+ \index{linear!dependence, independence}%
+ \index{dependent!linearly}%
+\df{linearly dependent} if the zero vector $\vc 0$ can be written as a nontrivial linear
+combination of elements of~$A$; that is, if there exist vectors $\vc x_1, \dots, \vc x_n
+\in A$ and scalars $\alpha_1, \dots, \alpha_n$, \textbf{not all zero,} such that
+$\sum_{k=1}^n \alpha_k\vc x_k = \vc 0$. A subset of a vector space is
+ \index{independent!linearly}%
+\df{linearly independent} if it is not linearly dependent.
+\end{defn}
+
+\begin{defn} A set $A$ of vectors in a vector space $V$
+ \index{span}%
+\df{spans} the space if every member of $V$ can be written as a linear combination of members
+of~$A$.
+\end{defn}
+
+\begin{prob}\label{vs_prob3} Let $e^1, e^2, \dots e^n$ be the standard basis vectors in~$\R^n$
+(see example \ref{basis_vect}).
+ \begin{enumerate}
+  \item[(a)] Show that the set of standard basis vectors in~$\R^n$ is a linearly
+independent set.
+  \item[(b)] Show that the standard basis vectors span~$\R^n$.
+  \item[(c)] Show that in part (b) the representation of a vector in $\R^n$ as a linear
+combination of standard basis vectors is unique. (That is, show that if $x = \sum_{k=1}^n
+\alpha_k e^k = \sum_{k=1}^n \beta_k e^k$, then $\alpha_k = \beta_k$ for each~$k$.)
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+
+\section{CONVEX COMBINATIONS}
+\begin{defn} A linear combination $\sum_{k=1}^n\alpha_k x_k$ of the vectors $x_1, \dots, x_n$ is a
+ \index{convex!combination}%
+\df{convex combination} if $\alpha_k \ge 0$ for each $k$ ($1 \le k \le n$) and if
+$\sum_{k=1}^n \alpha_k = 1$.
+\end{defn}
+
+\begin{exer}\label{vs_exer6} Write the vector $(2,1/4)$ in $\R^2$ as a convex combination of the
+vectors $(1,0)$, $(0,1)$ , and~$(3,0)$. (Solution~\ref{sol_vs_exer6}.)
+
+\end{exer}
+
+\begin{prob} Write the vector $(1,1)$ as a convex combination of the vectors $(-2,2)$, $(2,2)$,
+and $(3,-3)$ in~$\R^2$.
+\end{prob}
+
+\begin{defn} If $x$ and $y$ are vectors in the vector space $V$, then the
+ \index{closed!segment}%
+\df{closed segment} between $x$ and $y$, denoted
+ \index{<@$[x,y]$ (closed segment in a vector space)}%
+by~$[x,y]$, is $\{(1 - t)x + ty \colon 0 \le t \le 1\}$.  (Note: In the vector space $\R$ this
+is the same as the closed interval $[x,y]$ provided that $x \le y$.  If $x > y$, however, the
+closed segment $[x,y]$ contains all numbers $z$ such that $y \le z \le x$, whereas the closed
+interval $[x,y]$ is empty.)
+
+A set $C \subseteq V$ is
+ \index{convex!set}%
+\df{convex} if the closed segment $[x,y]$ is contained in $C$ whenever $x$, $y \in C$.
+\end{defn}
+
+\begin{exam} A disk is a convex subset of $\R^2$.  The set $\{(x,y) \colon 1 \le x^2 + y^2 \le 2\}$
+is not a convex subset of~$\R^2$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} Every subspace of a vector space is convex.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The set
+  \[ \{(x,y) \in \R^2 \colon  \text{$x \ge 0$, $y \ge 0$, and $x + y \le 1$}\} \]
+is a convex subset of~$\R^2$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} Every convex subset of $\R^n$ is connected.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{defn} Let $A$ be a subset of a vector space $V$.  The
+ \index{convex!hull}%
+\df{convex hull} of $A$ is the smallest convex set containing~$A$; that is, it is the
+intersection of the family of all convex subsets of $V$ which contain $A$.
+\end{defn}
+
+\begin{exer}\label{vs_exer7} What fact must we know about convex sets in order for the
+preceding definition to make sense?  Prove this fact.  \emph{Hint.} Review
+proposition~\ref{intr_vsbs} and the discussion which precedes it.
+(Solution~\ref{sol_vs_exer7}.)
+\end{exer}
+
+\begin{prob} Consider the following subsets of $\R^2$:
+ \begin{align*}
+        A &= \{(x,y) \colon x \ge 0\} \\
+        B &= \{(x,y) \colon 0 \le y \le 2\} \\
+        C &= \{(x,y) \colon x + y \le 4\} \\
+        D &= A \cap B \cap C.
+ \end{align*}
+The set $D$ can be described as the convex hull of four points. Which four?
+\end{prob}
+
+\begin{prob} The concepts of convex combination and convex hull have been introduced.  The
+point of this problem is to explain the way in which these two ideas are related.  Start with
+a set~$A$.  Let $C$ be the set of all convex combinations of elements of~$A$.  Let $H$ be the
+convex hull of~$A$.  What relation can you find between $A$ and~$H$.  It might not be a bad
+idea to experiment a little; see what happens in some very simple concrete cases.  For
+example, take $A$ to be a pair of points in~$\R^3$.  Eventually you will have to consider the
+following question: Are convex sets closed under the taking of convex combinations?
+\end{prob}
+
+
+
+
+
+\endinput

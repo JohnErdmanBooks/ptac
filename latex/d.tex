@@ -1,0 +1,412 @@
+\chapter{LOGICAL CONNECTIVES}\label{log_con}
+
+\section{DISJUNCTION AND CONJUNCTION}\label{d_and_c} The word ``or'' in English has two
+distinct uses.  Suppose you ask a friend how he intends to spend the evening, and he replies,
+``I'll'' walk home or I'll take in a film.'' If you find that he then walked home and on the
+way stopped to see a film, it would not be reasonable to accuse him of having lied. He was
+using the inclusive ``or'', which is true when one or both alternatives are. On the other hand
+suppose that while walking along a street you are accosted by an armed robber who says, ``Put
+up your hands or I'll shoot.''  You obligingly raise your hands. If he then shoots you, you
+have every reason to feel ill-used. Convention and context dictate that he used the  exclusive
+``or'': either alternative, but not both.
+
+Since it is undesirable for ambiguities to arise in mathematical discourse, the inclusive
+``or'' has been adopted as standard for mathematical (and most scientific) purposes. A
+convenient way of defining logical connectives such as ``or'' is by means of a truth table.
+The formal definition of ``or'' looks like this.
+ \begin{center}
+  \begin{tabular}{|c|c||c|}\hline
+        \,$P$\,    &    \,$Q$\,    &   \,$P \lor Q$\,   \\
+    \hline\hline
+          $T$      &      $T$      &     $T$            \\
+    \hline
+          $T$      &      $F$      &     $T$            \\
+    \hline
+          $F$      &      $T$      &     $T$            \\
+    \hline
+          $F$      &      $F$      &     $F$            \\
+    \hline
+  \end{tabular}
+ \end{center}
+Here $P$ and $Q$ are any sentences. In the columns labeled $P$ and $Q$ we list all possible
+combinations of truth values for $P$ and $Q$ ($T$ for true, $F$ for false). In the third
+column appears the corresponding truth value for ``$P$ or $Q$''. According to the table ``$P$
+or $Q$'' is true in all cases except when both $P$ and $Q$ are false. The notation
+ \index{#@$\lor$ (or, disjunction)}%
+``$P \lor Q$'' is frequently used for ``$P$ or $Q$''.  The
+operation $\lor$ is called
+ \index{disjunction}%
+\df{disjunction}.
+
+\begin{exer}\label{and} Construct a truth table giving the formal definition of ``and'',
+frequently denoted
+ \index{#@$\land$ (and, conjunction)}%
+by~$\land$.  The operation $\land$ is called
+ \index{conjunction}%
+\df{conjunction}. (Solution~\ref{sol_and}.)
+\end{exer}
+
+We say that two sentences depending on variables $P,Q,\dots$ are
+ \index{logical equivalence}%
+ \index{equivalent!logically}%
+\df{logically equivalent} if they have the same truth value no matter how truth values $T$ and
+$F$ are assigned to the variables $P,Q,\dots$. It turns out that truth tables are quite
+helpful in deciding whether certain statements encountered in mathematical reasoning are
+logically equivalent to one another.  (But do \emph{not} clutter up mathematical proofs with
+truth tables. Everyone is supposed to argue logically. Truth tables are only scratch work for
+the perplexed.)
+
+\begin{exam} Suppose that $P$, $Q$, and $R$ are any sentences. To a person who habitually uses
+language carefully, it will certainly be clear that the following two assertions are
+equivalent:
+ \begin{enumerate}
+   \item[(a)] $P$ is true and so is either $Q$ or $R$.
+   \item[(b)] Either both $P$ and $Q$ are true or both $P$ and $R$ are
+true.
+ \end{enumerate}
+Suppose for a moment, however, that we are in doubt concerning the relation between (a) and
+(b).  We may represent (a) symbolically by $P \land (Q \lor R)$ and (b) by $(P \land Q) \lor
+(P \land R)$.  We conclude that they are indeed logically equivalent by examining the
+following truth table.  (Keep in mind that since there are 3 variables, $P$, $Q$, and $R$,
+there are $2^3 = 8$ ways of assigning truth values to them; so we need 8 lines in our truth
+table.)
+
+
+
+ \begin{center}
+  \begin{tabular}{|c|c|c||c|c|c|c|c|}\hline
+       (1)  &   (2)   &   (3)   &      (4)       &       (5)                &       (6)       &      (7)        &                (8)                 \\
+    \,$P$\, & \,$Q$\, & \,$R$\, & \,$Q \lor R$\, & \,$P \land (Q \lor R)$\, & \,$P \land Q$\, & \,$P \land R$\, & \,$(P \land Q) \lor (P \land R)$\, \\
+    \hline\hline
+      $T$   &   $T$   &   $T$   &     $T$        &       $T$                &      $T$        &      $T$        &                $T$                 \\
+    \hline
+      $T$   &   $T$   &   $F$   &     $T$        &       $T$                &      $T$        &      $F$        &                $T$                 \\
+    \hline
+      $T$   &   $F$   &   $T$   &     $T$        &       $T$                &      $F$        &      $T$        &                $T$                 \\
+    \hline
+      $T$   &   $F$   &   $F$   &     $F$        &       $F$                &      $F$        &      $F$        &                $F$                 \\
+    \hline
+      $F$   &   $T$   &   $T$   &     $T$        &       $F$                &      $F$        &      $F$        &                $F$                 \\
+    \hline
+      $F$   &   $T$   &   $F$   &     $T$        &       $F$                &      $F$        &      $F$        &                $F$                 \\
+    \hline
+      $F$   &   $F$   &   $T$   &     $T$        &       $F$                &      $F$        &      $F$        &                $F$                 \\
+    \hline
+      $F$   &   $F$   &   $F$   &     $F$        &       $F$                &      $F$        &      $F$        &                $F$                 \\
+    \hline
+  \end{tabular}
+ \end{center}
+Column (4) is obtained from (2) and (3), column (5) from (1) and (4), column (6) from (l) and
+(2), column (7) from (1) and (3), and column (8) from (6) and (7).  Comparing the truth values
+in columns (5) and (8), we see that they are exactly the same.  Thus $P \land (Q \lor R)$ is
+logically equivalent to $(P \land Q) \lor (P \land R)$. This result is a
+ \index{distributive law!in logic}%
+\df{distributive law}; it says that conjunction distributes over
+disjunction.
+\end{exam}
+
+\begin{prob} Use truth tables to show that the operation of disjunction is associative; that is,
+show that $(P \lor Q) \lor R$ and $P \lor (Q \lor R)$ are logically equivalent.
+\end{prob}
+
+\begin{prob}\label{prob_disj_conj} Use truth tables to show that disjunction distributes over
+conjunction; that is, show that $P \lor (Q \land R)$ is logically equivalent to $(P \lor Q)
+\land (P \lor R)$.
+\end{prob}
+
+One final remark: quantifiers may be ``moved past'' portions of disjunctions and conjunctions
+which do not contain the variable being quantified.  For example,
+  \[ (\exists y)(\exists x)\,[(y^2 \le 9) \land (2<x<y)] \]
+says the same thing as
+  \[ (\exists y)\,[(y^2 \le 9) \land (\exists x)\,2<x<y]. \]
+
+
+
+
+
+
+
+\section{IMPLICATION}\label{implication} Consider the assertion, ``If $1=2$, then $2=3$.''
+If you ask a large number of people (not mathematically trained) about the truth of this,
+you will probably find some who think it is true, some who think it is false, and some
+who think it is meaningless (therefore neither true nor false).  This is another example
+of the ambiguity of ordinary language. In order to avoid ambiguity and to insure that
+``$P$ implies $Q$'' has a truth value whenever $P$ and $Q$ do, we define the operation of
+ \index{implication}%
+\df{implication}, denoted
+ \index{#@$\Rightarrow$ (implies)}%
+by~$\Rightarrow$, by means of the
+following truth table.
+ \begin{center}
+  \begin{tabular}{|c|c||c|}\hline
+        \,$P$\,    &    \,$Q$\,    &   \,$P \Rightarrow Q$\,   \\
+    \hline\hline
+          $T$      &      $T$      &         $T$            \\
+    \hline
+          $T$      &      $F$      &         $F$            \\
+    \hline
+          $F$      &      $T$      &         $T$            \\
+    \hline
+          $F$      &      $F$      &         $T$            \\
+    \hline
+  \end{tabular}
+ \end{center}
+
+There are many ways of saying that $P$ implies $Q$. The following assertions are all identical.
+\begin{align*}
+  &P \Rightarrow Q. \\
+  &\text{$P$ implies $Q$.} \\
+  &\text{If $P$, then $Q$.} \\
+  &\text{$P$ is sufficient (or a sufficient condition) for $Q$.}\\
+  &\text{Whenever $P$, then $Q$.} \\
+  &Q \Leftarrow P \\
+  &\text{$Q$ is implied by $P$.} \\
+  &\text{$Q$ is a consequence of $P$.} \\
+  &\text{$Q$ follows from $P$.} \\
+  &\text{$Q$ is necessary (or a necessary condition) for $P$.} \\
+  &\text{$Q$ whenever $P$.}
+\end{align*}
+The statement $Q \Rightarrow P$ is the
+ \index{converse}%
+\df{converse} of $P \Rightarrow Q$. It is a common mistake to confuse a statement with its
+converse. This is a grievous error. For example: it is correct to say that if a geometric
+figure is a square, then it is a quadrilateral; but it is \emph{not} correct to say that if a
+figure is a quadrilateral it must be a square.
+
+\begin{defn} If $P$ and $Q$ are sentences, we define the logical connective ``iff'' (read
+``if and only if'') by the following truth table.
+
+
+ \begin{center}
+  \begin{tabular}{|c|c||c|}\hline
+        \,$P$\,    &    \,$Q$\,    &   \,$P \text{ iff } Q$\,   \\
+    \hline\hline
+          $T$      &      $T$      &     $T$            \\
+    \hline
+          $T$      &      $F$      &     $F$            \\
+    \hline
+          $F$      &      $T$      &     $F$            \\
+    \hline
+          $F$      &      $F$      &     $T$            \\
+    \hline
+  \end{tabular}
+ \end{center}
+Notice that the sentence ``$P$ iff $Q$'' is true exactly in those cases where $P$ and $Q$ have
+the same truth values. That is, saying that ``$P$ iff $Q$'' is a
+ \index{tautology}%
+\df{tautology} (true for all truth values of $P$ and $Q$) is the same as saying that $P$ and
+$Q$ are equivalent sentences.  Thus the connective ``iff'' is called
+ \index{logical equivalence}%
+ \index{equivalent!logically}%
+\df{equivalence}. An alternative notation
+ \index{iff (logical equivalence)}%
+for~``iff''
+ \index{#@$\Leftrightarrow$ (logical equivalence)}%
+is~``$\Leftrightarrow$''.
+\end{defn}
+
+\begin{exam} By comparing columns (3) and (6) of the following truth table, we see that
+``$P$ iff $Q$'' is logically equivalent to ``$(P \Rightarrow Q) \land (Q \Rightarrow P)$''.
+ \begin{center}
+  \begin{tabular}{|c|c||c|c|c|c|}\hline
+           (1)  &   (2)   &       (3)              &      (4)              &      (5)              &                      (6)                        \\
+        \,$P$\, & \,$Q$\, & \,$P \text{ iff } Q$\, & \,$P \Rightarrow Q$\, & \,$Q \lor (\sim P)$\, & \,$(P \Rightarrow Q) \land (Q \Rightarrow P)$\, \\
+    \hline\hline
+          $T$   &   $T$   &       $T$              &      $T$              &       $T$             &                       $T$                       \\
+    \hline
+          $T$   &   $F$   &       $F$              &      $F$              &       $T$             &                       $F$                       \\
+    \hline
+          $F$   &   $T$   &       $F$              &      $T$              &       $F$             &                       $F$                       \\
+    \hline
+          $F$   &   $F$   &       $T$              &      $T$              &       $T$             &                       $T$                       \\
+    \hline
+  \end{tabular}
+ \end{center}
+This is a very important fact. Many theorems of the form $P$ iff $Q$ are most conveniently
+proved by verifying separately that $P \Rightarrow Q$ and that $Q \Rightarrow P$.
+\end{exam}
+
+
+
+
+
+
+\section{RESTRICTED QUANTIFIERS}\label{restr_quan}  Now that we have the logical connectives
+$\Rightarrow$ and $\land$ at our disposal, it is possible to introduce restricted quantifiers
+formally in terms of unrestricted ones. This enables one to obtain properties of the former
+from corresponding facts about the latter.
+
+(See exercise~\ref{exer_ueq} and problems~\ref{prob_ord_restr_quan}
+and~\ref{prob_neg_restr_quan}.)
+
+\begin{defn}[of restricted quantifiers]
+ \index{restricted quantifiers}%
+Let $S$ be a set and $P(x)$ be an open sentence. We define $(\forall x \in S)\,P(x)$ to be
+true if and only if $(\forall x)\,\bigl((x \in S) \Rightarrow P(x)\bigr)$ is true; and we
+define $(\exists x \in S)\,P(x)$ to be true if and only if $(\exists x)\, \bigl((x \in S)
+\land P(x)\bigr)$ is true.
+\end{defn}
+
+\begin{exer}\label{exer_ueq} Use the preceding definition and the fact (mentioned in
+chapter~\ref{quan}) that the order of unrestricted existential quantifiers does not matter to
+show that the order of restricted existential quantifiers does not matter. That is, show that
+if $S$ and $T$ are sets and $P(x,y)$ is an open sentence, then $(\exists x \in S)\,(\exists y
+\in T)\, P(x,y)$ holds if and only if $(\exists y \in T)\,(\exists x \in S)\, P(x,y)$ does.
+(Solution~\ref{sol_exer_ueq}.)
+\end{exer}
+
+
+
+
+
+
+\section{NEGATION}\label{neg} If $P$ is a sentence,
+ \index{#@$\sim P$ (negation of $P$)}
+then $\sim P$, read ``the
+ \index{negation}%
+\df{negation} of $P$'' or ``the
+ \index{denial}%
+\df{denial} of $P$'' or just ``not $P$'', is the sentence whose truth values are the opposite
+of~$P$.
+ \begin{center}
+  \begin{tabular}{|c||c|}\hline
+        \,$P$\,    &    \,$\sim P$\,  \\
+    \hline\hline
+          $T$      &        $F$       \\
+    \hline
+          $F$      &        $T$       \\
+    \hline
+  \end{tabular}
+ \end{center}
+
+\begin{exam}\label{exam_demorg1} It should be clear that the denial of the disjunction of two
+sentences $P$ and $Q$ is logically equivalent to the conjunction of their denials. If we were
+in doubt about the correctness of this, however, we could appeal to a truth table to prove
+that $\sim(P \lor Q)$ is logically equivalent to $\sim P \land \sim Q$.
+
+ \begin{center}
+  \begin{tabular}{|c|c||c|c|c|c|c|}\hline
+           (1)  &   (2)   &       (3)      &      (4)             &      (5)     &     (6)      &               (7)              \\
+        \,$P$\, & \,$Q$\, & \,$P \lor Q$\, & \,$\sim(P \lor Q)$\, & \,$\sim P$\, & \,$\sim Q$\, & \,$(\sim P) \land (\sim Q)$\,  \\
+    \hline\hline
+          $T$   &   $T$   &       $T$      &      $F$             &       $F$    &     $F$      &               $F$              \\
+    \hline
+          $T$   &   $F$   &       $T$      &      $F$             &       $F$    &     $T$      &               $F$              \\
+    \hline
+          $F$   &   $T$   &       $T$      &      $F$             &       $T$    &     $F$      &               $F$              \\
+    \hline
+          $F$   &   $F$   &       $F$      &      $T$             &       $T$    &     $T$      &               $T$              \\
+    \hline
+  \end{tabular}
+ \end{center}
+Columns (4) and (7) have the same truth values: That is, the denial of the disjunction of $P$
+and $Q$ is logically equivalent to the conjunction of their denials. This result is one of
+ \index{De Morgan's laws!in logic}%
+\emph{De Morgan's laws}. The other is given as
+problem~\ref{prob_demorg2}.
+\end{exam}
+
+
+ \index{De Morgan's laws!in logic}%
+\begin{prob}[De Morgan's law]\label{prob_demorg2} Use a truth table to show that $\sim~(P \land Q)$
+is logically equivalent to $(\sim P) \lor (\sim Q)$.
+\end{prob}
+
+\begin{prob} Obtain the result in problem \ref{prob_demorg2} without using truth tables.
+\emph{Hint.} Use \ref{exam_demorg1} together with the fact that a proposition $P$ is logically
+equivalent to $\sim\sim P$. Start by writing $(\sim P) \lor (\sim Q)$ iff $\sim\sim((\sim P)
+\lor (\sim Q))$.
+\end{prob}
+
+\begin{exer}\label{equiv_impl} Let $P$ and $Q$ be sentences. Then $P \Rightarrow Q$ is logically
+equivalent to $Q \lor (\sim P)$.  (Solution~\ref{sol_equiv_impl}.)
+\end{exer}
+
+One very important matter is the process of taking the negation of a quantified statement. Let
+$P(x)$ be an open sentence. If it is not the case that $P(x)$ holds for every $x$, then it
+must fail for some $x$, and conversely. That is, $\sim(\forall x)P(x)$ is logically equivalent
+to $(\exists x)\sim P(x)$.
+
+Similarly, $\sim(\exists x)P(x)$ is logically equivalent to $(\forall x)\sim P(x)$. (If it is
+not the case that $P(x)$ is true for some $x$, then it must fail for all $x$, and conversely.)
+
+\begin{exam}\label{exam_not_cont} In chapter \ref{cont_on_R} we define a real valued function
+$f$ on the real line to be continuous provided that
+  \[(\forall a)(\forall \epsilon)(\exists \delta)(\forall x)\,\abs{x-a}
+          < \delta \Rightarrow \abs{f(x) - f(a)} < \epsilon.\]
+How does one prove that a particular function $f$ is \emph{not} continuous?  Answer: find
+numbers $a$ and $\epsilon$ such that for every $\delta$ it is possible to find an $x$ such
+that $\abs{f(x) - f(a)} \ge \epsilon$ and $\abs{x - a} < \delta$. To see that this is in fact
+what we must do, notice that each pair of consecutive lines in the following argument are
+logically equivalent.
+\begin{alignat*}{2}
+  &\sim[(\forall a)(\forall \epsilon)(\exists \delta)(\forall x)\,
+          &&\abs{x-a} < \delta \Rightarrow
+          \abs{f(x) - f(a)} < \epsilon] \\
+  &(\exists a)\sim[(\forall \epsilon)(\exists \delta)(\forall x)\,
+          &&\abs{x-a} < \delta \Rightarrow
+          \abs{f(x) - f(a)} < \epsilon] \\
+  &(\exists a)(\exists \epsilon)\sim[(\exists \delta)(\forall x)\,
+          &&\abs{x-a} <  \delta \Rightarrow
+          \abs{f(x) - f(a)} < \epsilon] \\
+  &(\exists a)(\exists \epsilon)(\forall \delta)\sim[(\forall x)\,
+          &&\abs{x-a} <  \delta \Rightarrow
+          \abs{f(x) - f(a)} < \epsilon] \\
+  &(\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+          \sim [&&\abs{x - a} <  \delta \Rightarrow
+          \abs{f(x) - f(a)} < \epsilon] \\
+  &(\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+          \sim [(&&\abs{f(x) - f(a)} < \epsilon)
+          \lor \sim (\abs{x - a} < \delta)] \\
+  &(\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+          [\sim (&&\abs{f(x) - f(a)} < \epsilon)
+          \land \sim\sim(\abs{x - a} < \delta)] \\
+  &(\exists a)(\exists \epsilon)(\forall \delta)(\exists x)
+          \quad[(&&\abs{f(x) - f(a)} \ge \epsilon)
+          \land (\abs{x - a} < \delta)]
+\end{alignat*}
+To obtain the third line from the end use exercise~\ref{equiv_impl};  the penultimate line is
+a consequence of example \ref{exam_demorg1};  and the last line makes use of the obvious fact
+that a sentence $P$ is always logically equivalent to $\sim\sim P$.
+\end{exam}
+
+\begin{prob} Two students, Smith and Jones, are asked to prove a mathematical theorem of the form,
+``If $P$ then if $Q$ then~$R$.''  Smith assumes that $Q$ is a consequence of $P$ and tries to
+prove~$R$. Jones assumes both $P$ and $Q$ are true and tries to prove~$R$. Is either of these
+students doing the right thing? Explain carefully.
+\end{prob}
+
+\begin{prob} The
+ \index{contrapositive}%
+\df{contrapositive} of the implication $P \Rightarrow Q$ is the implication $(\sim
+Q)\Rightarrow(\sim P)$.  Without using truth tables or assigning truth values show that an
+implication is logically equivalent to its contrapositive.  (This is a very important fact. In
+many cases when you are asked to prove a theorem of the form $P \Rightarrow Q$, rather than
+assuming $P$ and proving $Q$ you will find it easier to assume that $Q$ is false and conclude
+that $P$ must also be false.) \emph{Hint.} Use \ref{equiv_impl}. You may also use the obvious
+facts that disjunction is a commutative operation ($P \lor Q$ is logically equivalent to $Q
+\lor P$) and that $P$ is logically equivalent to $\sim\sim P$.)
+\end{prob}
+
+\begin{prob}\label{prob_ord_restr_quan}  Use the formal definition of restricted quantifiers
+given in section~\ref{restr_quan} together with the fact mentioned in appendix \ref{quan}
+that the order of unrestricted universal quantifiers does not matter to show that the
+order of restricted universal quantifiers does not matter. That is, show that if $S$ and
+$T$ are sets and $P(x,y)$ is an open sentence, then $(\forall x \in S)(\forall y \in
+T)P(x,y)$ holds if and only if $(\forall y \in T)(\forall x \in S)P(x,y)$ does.
+\end{prob}
+
+
+\begin{prob}\label{prob_neg_restr_quan}  Let $S$ be a set and $P(x)$ be an open sentence. Show that
+ \begin{enumerate}
+   \item[(a)] $\sim(\forall x \in S)P(x)$ if and only if $(\exists x \in S) \sim P(x)$.
+   \item[(b)] $\sim(\exists x \in S)P(x)$ if and only if $(\forall x \in S) \sim
+P(x)$.
+ \end{enumerate}
+
+\noindent \emph{Hint.} Use the corresponding facts (given in the two paragraphs following
+exercise \ref{equiv_impl}) for unrestricted quantifiers.
+\end{prob}
+
+
+\endinput

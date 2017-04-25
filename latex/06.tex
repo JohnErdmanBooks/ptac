@@ -1,0 +1,371 @@
+\chapter{COMPACTNESS AND THE EXTREME VALUE THEOREM}\label{evt}
+
+One of the most important results in beginning calculus is the \emph{extreme value theorem}: a
+continuous function on a closed and bounded subset of the real line achieves both a maximum
+and a minimum value. In the present chapter we prove this result. Central to understanding the
+\emph{extreme value theorem} is a curious observation: while neither boundedness nor the
+property of being closed is preserved by continuity (see problems \ref{evt_pr1} and
+\ref{evt_pr2}), the property of being closed \emph{and} bounded is preserved.  Once we have
+proved this result it is easy to see that a continuous function defined on a closed and
+bounded set attains a maximum and minimum on the set.
+
+Nevertheless, there are some complications along the way.  To begin with, the proof that
+continuity preserves the property of being closed and bounded turns out to be awkward and
+unnatural.
+%%(You can find the argument on pages 99--102 of [AET].)%
+Furthermore, although this result can be generalized to $\R^n$, it does not hold in more
+general metric spaces.  This suggests---even if it is not conclusive evidence---that we are
+looking at the wrong concept.  One of the mathematical triumphs of the early twentieth century
+was the recognition that indeed the very concept of closed-and-bounded is a manifestation of
+the veil of \emph{m\={a}y\={a}}, a seductively simple vision which obscures the ``real''
+topological workings behind the scenes.  Enlightenment, at this level, consists in piercing
+this veil of illusion and seeing behind it the ``correct'' concept---compactness.  There is
+now overwhelming evidence that compactness \emph{is} the appropriate concept.  First and most
+rewarding is the observation that the proofs of the preservation of compactness by continuity
+and of the \emph{extreme value theorem} now become extremely natural.  Also, the same proofs
+work not only for $\R^n$ but for general metric spaces and even arbitrary topological spaces.
+Furthermore, the property of compactness is an intrinsic one---if $A \subseteq B \subseteq C$,
+then $A$ is compact in $B$ if and only if it is compact in $C$.  (The property of being closed
+is not intrinsic: the interval $(0,1]$ is closed in $(0,\infty)$ but not in $\R$.) Finally,
+there is the triumph of products.  In the early 1900's there were other contenders for the
+honored place ultimately held by compactness---sequential compactness and countable
+compactness. Around 1930 the great Russian mathematician Tychonov was able to show that
+arbitrary products of compact spaces are compact, a powerful and useful property not shared by
+the competitors.
+
+There is, however, a price to be paid for the wonders of compactness---a frustratingly
+unintuitive definition.  It is doubtless this lack of intuitive appeal which explains why it
+took workers in the field so long to come up with the optimal notion. Do not be discouraged if
+you feel you don't understand the definition.  I'm not sure anyone really ``understands'' it.
+What is important is to be able to \emph{use} it.  And that is quite possible---with a little
+practice. In this chapter we first define compactness (\ref{df_cpt}) and give two important
+examples of compact sets: finite sets (see \ref{cpt_exm1}) and the interval $[0,1]$ (see
+\ref{cpt_exm2}). Then we give a number of ways of creating new compact sets from old ones (see
+\ref{cpt_cnd1}, \ref{cpt_cnd2}, \ref{cpt_cnd3}(b), and~\ref{cpt_cnd4}).  In \ref{cpt_cnd4} we
+show that the continuous image of a compact set is compact and in \ref{evthm} we prove the
+\emph{extreme value theorem}.  Finally (in \ref{HBthm}) we prove the \emph{Heine-Borel
+theorem} for $\R$: the compact subsets of $\R$ are those which are both closed and bounded.
+
+
+
+
+
+\section{COMPACTNESS}
+\begin{prob}\label{evt_pr1} Give an example to show that if $f$ is a continuous real valued
+function of a real variable and $A$ is a closed subset of $\R$ which is contained in the
+domain of $f$, then it is not necessarily the case that $f^\sto(A)$ is a closed subset
+of~$\R$.
+\end{prob}
+
+\begin{prob}\label{evt_pr2} Give an example to show that if $f$ is a continuous real valued
+function of a real variable and $A$ is a bounded subset of the domain of $f$, then it is not
+necessarily the case that $f^\sto(A)$ is bounded.
+\end{prob}
+
+\begin{defn}\label{df_cpt} A family $\sfml U$ of sets is said to
+ \index{cover}%
+\df{cover} a set $A$ if $\bigcup\,\sfml U \supseteq A$.  The phrases ``$\sfml U$ covers
+$A$'', ``$\sfml U$ is a cover for $A$'',  ``$\sfml U$ is a covering of $A$'', and ``$A$
+is covered by $\sfml U$'' are used interchangeably.  If $A$ is a subset of $\R$ and
+$\sfml U$ is a cover for $A$ which consists entirely of open subsets of $\R$, then $\sfml
+U$ is an
+ \index{open!cover}%
+ \index{cover!open}%
+\df{open cover} for~$A$.  If $\sfml U$ is a family of sets which covers $A$ and $\sfml V$
+is a subfamily of $\sfml U$ which also covers $A$, then $\sfml V$ is a
+ \index{subcover}%
+\df{subcover} of $\sfml U$ for~$A$.  A subset $A$ of $\R$ is
+ \index{compact}%
+\df{compact} if \emph{every} open cover of $A$ has a finite subcover.
+\end{defn}
+
+\begin{exam} Let $A = [0,1]$, $U_1 = (-3,\frac23)$, $U_2 = (-1,\frac12)$, $U_3 = (0,\frac12)$,
+$U_4 = (\frac13,\frac23)$, $U_5 = (\frac12,1)$, $U_6 = (\frac9{10},2)$, and $U_7 =
+(\frac23,\frac32)$.  Then the family $\sfml U = \{U_k \colon 1 \le k \le 7\}$ is an open
+cover for $A$ (because each $U_k$ is open and $\bigcup_{k=1}^7U_k = (-3,2) \supseteq A$).
+The subfamily $\sfml V = \{U_1, U_5, U_6\}$ of $\sfml U$ is a subcover for $A$ (because
+$U_1 \cup U_5 \cup U_6 = (-3,2) \supseteq A$). The subfamily $\sfml W = \{U_1, U_2, U_3,
+U_7\}$ of $\sfml U$ is \emph{not} a subcover for $A$ (because $U_1 \cup U_2 \cup U_3 \cup
+U_7 = (-3,\frac23) \cup (\frac23,\frac32)$ does not contain $A$).
+\end{exam}
+
+\begin{prob} Let $J$ be the open unit interval $(0,1)$. For each $a$ let $U_a =
+\left(a,a + \frac14 \right)$, and let $\sfml U = \{U_a \colon 0 \le a \le \frac34\}$.
+Then certainly $\sfml U$ covers $J$.
+ \begin{enumerate}
+  \item[(a)] Find a finite subfamily of $\sfml U$ which covers $J$.
+  \item[(b)] Explain why a solution to (a) does not suffice to show that $J$ is compact.
+  \item[(c)] Show that $J$ is not compact.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+
+\section{EXAMPLES OF COMPACT SUBSETS OF $\R$}
+It is easy to give examples of sets that are \emph{not} compact. For example, $\R$ itself
+is not compact.  To see this consider the family $\sfml U$ of all open intervals of the
+form $(-n,n)$ where $n$ is a natural number.  Then $\sfml U$ covers $\R$ (what property
+of $\R$ guarantees this?); but certainly no finite subfamily of $\sfml U$ does.
+
+What is usually a lot trickier, because the definition is hard to apply directly, is proving
+that some particular compact set really is compact. The simplest examples of compact spaces
+are the finite ones.  (See example \ref{cpt_exm1}.)  Finding nontrivial examples is another
+matter.
+
+In this section we guarantee ourselves a generous supply of compact subsets of $\R$ by
+specifying some rather powerful methods for creating new compact sets from old ones. In
+particular, we will show that a set is compact if it is
+ \begin{enumerate}
+  \item a closed subset of a compact set (\ref{cpt_cnd1}),
+  \item a finite union of compact sets (\ref{cpt_cnd3}(b)), or
+  \item the continuous image of a compact set (\ref{cpt_cnd4}).
+ \end{enumerate}
+Nevertheless it is clear that we need something to start with.  In example \ref{cpt_exm2} we
+prove directly from the definition that the closed unit interval $[0,1]$ is compact.  It is
+fascinating to see how this single example together with conditions (1)--(3) above can be used
+to generate a great variety of compact sets in general metric spaces.  This will be done in
+chapter~\ref{cpt}.
+
+\begin{exam}\label{cpt_exm1} Every finite subset of $\R$ is compact.
+\end{exam}
+
+\begin{proof} Let $A = \{x_1,x_2, \dots, x_n\}$ be a finite subset of $\R$.  Let $\sfml U$ be a
+family of open sets which covers $A$. For each $k = 1,\dots,n$ there is at least one set
+$U_k$ in $\sfml U$ which contains $x_k$.  Then the family $\{U_1, \dots, U_n\}$ is a
+finite subcover of $\sfml U$ for $A$.
+\end{proof}
+
+\begin{prop}\label{cpt_cnd1} Every closed subset of a compact set is compact.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Let $A$ be a closed subset of a compact set $K$ and
+$\sfml U$ be a cover of $A$ by open sets. Consider $\sfml U \cup \{A^c\}$.   \ns
+\end{proof}
+
+\begin{prop}\label{cpt_cb} Every compact subset of $\R$ is closed and bounded.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  To show that a compact set $A$ is closed, show that
+its complement is open.  To this end let $y$ be an arbitrary point in~$A^c$.  For each $x$ in
+$A$ take disjoint open intervals about $x$ and~$y$. (Solution~\ref{sol_cpt_cb}.)  \ns
+\end{proof}
+
+As we will see later, the preceding result holds in arbitrary metric spaces.  In fact, it is
+true in very general topological spaces.  Its converse, the celebrated \emph{Heine-Borel
+theorem} (see \ref{HBthm}), although also true in $\R^n$, (see \ref{HBThm}) does \emph{not}
+hold in all metric spaces (see problems \ref{cpt_prb2}, \ref{cpt_prb3} and \ref{cpt_prb4}).
+Thus it is important at a conceptual level not to regard the property closed-and-bounded as
+being identical with compactness.
+
+Now, finally, we give a nontrivial example of a compact space.  The proof requires verifying
+some details, which at first glance may make it seem complicated.  The basic idea behind the
+proof, however, is quite straightforward.  It repays close study since it involves an
+important technique of proof that we will encounter again.  The first time you read the proof,
+try to see its structure, to understand its basic logic.  Postpone for a second reading the
+details which show that the conditions labelled (1) and (2) hold.  Try to understand instead
+why verification of these two conditions is really all we need in order to prove that $[0,1]$
+is compact.
+
+\begin{exam}\label{cpt_exm2} The closed unit interval $[0,1]$ is compact.
+\end{exam}
+
+\begin{proof} Let $\sfml U$ be a family of open subsets of $\R$ which covers $[0,1]$ and let
+$A$ be the set of all $x$ in $[0,1]$ such that the closed interval $[0,x]$ can be covered
+by finitely many members of $\sfml U$. It is clear that $A$ is nonempty (since it
+contains 0), and that if a number $y$ belongs to $A$ then so does any number in $[0,1]$
+less than $y$. We prove two more facts about $A$:
+ \begin{enumerate}
+  \item[(1)] If $x\in A$ and $x<1$, then there exists a number $y > x$ such that $y \in A$.
+  \item[(2)] If $y$ is a number in $[0,1]$ such that $x \in A$ for all $x < y$, then $y\in A$.
+ \end{enumerate}
+
+To prove (1) suppose that $x \in A$ and $x<1$. Since $x \in A$ there exists sets $U_1,
+\dots, U_n$ in $\sfml U$ which cover the interval $[0,x]$. The number $x$ belongs to at
+least one of these sets, say $U_1$. Since $U_1$ is an open subset of $\R$, there is an
+interval $(a,b)$ such that $x \in (a,b) \subseteq U_1$.  Since $x<1$ and $x<b$, there
+exists a number $y \in (0,1)$ such that $x < y < b$.  From $[0,x] \subseteq
+\bigcup_{k=1}^n U_k$ and $[x,y] \subseteq (a,b) \subseteq U_1$ it follows that $U_1,
+\dots, U_n$ cover the interval $[0,y]$. Thus $y > x$ and $y$ belongs to $A$.
+
+The proof of (2) is similar. Suppose that $y \in [0,1]$ and that $[0,y) \subseteq A$. The
+case $y=0$ is trivial so we suppose that $y>0$. Then $y$ belongs to at least one member
+of $\sfml U$, say $V$. Choose an open interval $(a,b)$ in $[0,1]$ such that $y \in (a,b)
+\subseteq V$. Since $a \in A$ there is a finite collection of sets $U_1, \dots, U_n$ in
+$\sfml U$ which covers $[0,a]$. Then clearly $\{U_1, \dots, U_n, V\}$ is a cover for
+$[0,y]$. This shows that $y$ belongs to $A$.
+
+Finally, let $u = \sup A$. We are done if we can show that $u = 1$. Suppose to the contrary
+that $u<1$. Then $[0,u) \subseteq A$. We conclude from (2) that $u \in A$ and then from (1)
+that there is a point greater than $u$ which belongs to $A$.  This contradicts the choice of
+$u$ as the supremum of $A$.
+\end{proof}
+
+\begin{prob} Let $A = \{0\} \cup \{1/n \colon n \in \N\}$ and $\sfml U$ be the family
+$\{U_n \colon n \ge 0\}$ where $U_0 = (-1,0.1)$ and $U_n = \left(\dfrac 5{6n},\dfrac
+7{6n}\right)$ for $n \ge 1$.
+ \begin{enumerate}
+  \item[(a)] Find a finite subfamily of $\sfml U$ which covers $A$.
+  \item[(b)] Explain why a solution to (a) does not suffice to show
+that $A$ is compact.
+  \item[(c)] Use the \empty{definition} of compactness to show that
+$A$ is compact.
+  \item[(d)] Use proposition \ref{cpt_cnd1} to show that $A$ is
+compact.
+ \end{enumerate}
+\end{prob}
+
+\begin{exam} Show that the set $A = \{1/n \colon n \in \N\}$ is not a compact subset of~$\R$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prob}  Give two proofs that the interval $[0,1)$ is not compact---one making use of
+proposition \ref{cpt_cb} and one not.
+\end{prob}
+
+\begin{prop}\label{cpt_cnd2} The intersection of a nonempty collection of compact subsets
+of $\R$ is itself compact.
+\end{prop}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prob}\label{cpt_cnd3} Let $\sfml K$ be the family of compact subsets of~$\R$.
+ \begin{enumerate}
+  \item[(a)] Show that $\bigcup\sfml K$ need not be compact.
+  \item[(b)] Show that if $\sfml K$ contains only finitely many sets, then
+$\bigcup\sfml K$ is compact.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+\section{THE EXTREME VALUE THEOREM}
+\begin{defn} A real-valued function $f$ on a set $A$ is said to have a
+ \index{maximum}%
+\df{maximum} at a point $a$ in $A$ if $f(a) \ge f(x)$ for every $x$ in~$A$; the number $f(a)$
+is the
+ \index{maximum!value}%
+\df{maximum value} of $f$. The function has a
+ \index{minimum}%
+\df{minimum} at $a$ if $f(a) \le f(x)$ for every $x$ in $A$; and in this case $f(a)$ is the
+ \index{minimum!value}%
+\df{minimum value} of $f$. A number is an
+ \index{extreme!value}%
+\df{extreme value} of $f$ if it is either a maximum or a minimum value. It is clear that a
+function may fail to have maximum or minimum values.  For example, on the open interval
+$(0,1)$ the function $f:x\mapsto x$ assumes neither a maximum nor a minimum.
+\end{defn}
+
+The concepts we have just defined are frequently called
+ \index{global!maximum}%
+ \index{absolute!maximum}%
+ \index{maximum!global}%
+ \index{maximum!absolute}%
+\df{global} (or \df{absolute}) \df{maximum} and
+ \index{global!minimum}%
+ \index{absolute!minimum}%
+ \index{minimum!global}%
+ \index{minimum!absolute}%
+\df{global} (or \df{absolute}) \df{minimum}.  This is to
+distinguish them from two different ideas
+ \index{local!maximum}%
+ \index{relative!maximum}%
+ \index{maximum!local}%
+ \index{maximum!relative}%
+\emph{local} (or \emph{relative}) \emph{maximum} and
+ \index{local!minimum}%
+ \index{relative!minimum}%
+ \index{minimum!local}%
+ \index{minimum!relative}%
+\emph{local} (or \emph{relative}) \emph{minimum}, which we will encounter later.   In this
+text, ``maximum'' and ``minimum'' without qualifiers will be the global concepts defined
+above.
+
+Our goal now is to show that every continuous function on a compact set attains both a maximum
+and a minimum.  This turns out to be an easy consequence of the fact, which we prove next,
+that the continuous image of a compact set is compact.
+
+\begin{thm}\label{cpt_cnd4} Let $A$ be a subset of $\R$.  If $A$ is compact and $f\colon A \sto \R$
+is continuous, then $f^{\sto}(A)$ is compact.
+\end{thm}
+
+\begin{proof} Exercise. (Solution~\ref{sol_cpt_cnd4}.)
+   \ns \end{proof}
+
+\begin{thm}[Extreme Value Theorem]\label{evthm} If $A$ is a compact subset of $\R$ and
+$f \colon A \sto \R$ is continuous, then $f$ assumes both a maximum and a minimum value
+on~$A$.
+\end{thm}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_evthm}.)
+  \ns \end{proof}
+
+\begin{exam}  The closed interval $[-3,7]$ is a compact subset of~$\R$.
+\end{exam}
+
+\begin{proof} Let $A = [0,1]$ and $f(x) = 10x-3$.  Since $A$ is compact and $f$ is continuous,
+theorem \ref{cpt_cnd4} tells us that the set $[-3,7] = f^\sto(A)$ is compact.
+\end{proof}
+
+\begin{exam}\label{cpt_exm3} If $a < b$, then the closed interval $[a,b]$ is a compact subset of~$\R$.
+\end{exam}
+
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{exam}[Heine-Borel Theorem for $\R$]\label{HBthm} Every closed and bounded subset of $\R$ is compact.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.}  Use \ref{cpt_exm3} and \ref{cpt_cnd1}. \ns
+\end{proof}
+
+\begin{exam} Define $f \colon [-1,1] \sto \R$ by
+   \[f(x) = \begin{cases}
+             x\sin\left(\dfrac1x\right), &\text{if $x \ne 0$}\\
+                                      0, &\text{if $x=0$}.
+            \end{cases}\]
+The set of all $x$ such that $f(x) = 0$ is a compact subset of~$[-1,1]$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prob} Let $f \colon A \sto B$ be a continuous bijection between subsets of~$\R$.
+ \begin{enumerate}
+  \item[(a)] Show by example that $f$ need not be a homeomorphism.
+  \item[(b)] Show that if $A$ is compact, then $f$ must be a homeomorphism.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{cpt_prb2} Find in $\Q$ a set which is both relatively closed and bounded
+but which is not compact.
+\end{prob}
+
+\begin{prob} Show that the interval $[0,\infty)$ is not compact using each of the following:
+ \begin{enumerate}
+  \item[(a)] the definition of compactness;
+  \item[(b)] proposition \ref{cpt_cb};
+  \item[(c)] the \emph{extreme value theorem}.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}Let $f$ and $g$ be two continuous functions mapping the interval $[0,1]$ into itself.
+Show that if $f \circ g = g \circ f$, then $f$ and $g$ agree at some point of $[0,1]$.
+\emph{Hint.} Argue by contradiction. Show that we may suppose, without loss of generality,
+that $f(x) - g(x) > 0$ for all $x$ in~$[0,1]$.  Now try to show that there is a number $a > 0$
+such that $f^n(x) \ge g^n(x) + na$ for every natural number $n$ and every $x$ in~$[0,1]$.
+(Here $f^n = f \circ f \circ \dots \circ f$ ($n$ copies of $f$); and $g^n$ is defined
+similarly.)
+\end{prob}
+
+
+
+\endinput

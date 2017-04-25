@@ -1,0 +1,758 @@
+\chapter{THE CAUCHY INTEGRAL}\label{C_int}
+
+In this chapter we develop a theory of integration for vector valued functions.  In one way
+our integral, the Cauchy integral, will be more general and in another way slightly less
+general than the classical Riemann integral, which is presented in beginning calculus.  The
+Riemann integral is problematic: the derivation of its properties is considerably more
+complicated than the corresponding  derivation for the Cauchy integral.  But very little added
+generality is obtained as a reward for the extra work.  On the other hand the Riemann integral
+is not nearly general enough for advanced work in analysis; there the full power of the
+Lebesgue integral is needed.  Before starting our discussion of integration we derive some
+standard facts concerning uniform continuity.
+
+\section{UNIFORM CONTINUITY}
+
+\begin{defn}  A function $f \colon M_1 \sto M_2$ between metric spaces is
+ \index{uniform!continuity}%
+ \index{continuous!uniformly}%
+\df{uniformly continuous} if for every $\epsilon > 0$ there exists $\delta > 0$ such that
+$d(f(x),f(y)) < \epsilon$ whenever $d(x,y) < \delta$.
+\end{defn}
+
+Compare the definitions of ``continuity'' and ``uniform continuity''.  A function $f\colon M_1
+\sto M_2$ is continuous if
+  \[ \forall a \in M_1\,   \forall \epsilon > 0\,
+             \exists \delta > 0 \, \forall x \in M_1 \,
+                     d(x,a) < \delta \implies d(f(x),f(a)) < \epsilon\,. \]
+We may just as well write this reversing the order of the first two (universal) quantifiers.
+  \[ \forall \epsilon > 0\, \forall a \in M_1\,
+             \exists \delta > 0 \,  \forall x \in M_1\,
+                     d(x,a) < \delta \implies d(f(x),f(a)) < \epsilon\,. \]
+The function $f$ is uniformly continuous if
+  \[ \forall \epsilon > 0\,  \exists \delta > 0 \,
+             \forall a \in M_1\,     \forall x \in M_1\,
+                     d(x,a) < \delta  \implies d(f(x),f(a)) < \epsilon\,. \]
+Thus the difference between continuity and uniform continuity is the order of two quantifiers.
+This makes the following result obvious.
+
+\begin{prop}\label{prop_uc_cont}  Every uniformly continuous function between metric spaces is
+continuous.
+\end{prop}
+
+\begin{exam}  The function $f \colon \R \sto \R \colon x \mapsto 3x - 4$ is uniformly continuous.
+\end{exam}
+
+\begin{proof}  Given $\epsilon > 0$, choose $\delta = \epsilon/3$. If $\abs{x-y} < \delta$, then
+$\abs{f(x) - f(y)} = \abs{(3x - 4) - (3y - 4)} = 3\abs{x - y} < 3\delta = \epsilon$.
+\end{proof}
+
+
+\begin{exam}\label{exam_ucont}  The function $f \colon [1,\infty) \sto \R \colon x \mapsto x^{-1}$
+is uniformly continuous.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_exam_ucont}.)   \ns  \end{proof}
+
+
+\begin{exam}\label{exam_not_ucont}  The function $g \colon (0,1] \sto \R \colon x \mapsto x^{-1}$
+is not uniformly continuous.
+\end{exam}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_exam_not_ucont}.)  \ns  \end{proof}
+
+\begin{prob}  Let  $M$  be an arbitrary positive number.  The function
+  \[ f\colon [0, M] \sto \R \colon x \mapsto x^2 \]
+is uniformly continuous.  Prove this assertion using only the definition of  ``uniform
+continuity''.
+\end{prob}
+
+\begin{prob}   The function
+  \[ g \colon [0,\infty) \sto \R \colon x \mapsto x^2 \]
+is \emph{not} uniformly continuous.
+\end{prob}
+
+\begin{prop} Norms on vector spaces are always uniformly continuous.
+\end{prop}
+
+\begin{proof}  Problem.   \ns  \end{proof}
+
+
+We have already seen in proposition~\ref{prop_uc_cont} that uniform continuity implies
+continuity.  Example~\ref{exam_not_ucont} shows that the converse is not true in general.
+There are however two special (and important!) cases where the concepts coincide.  One is
+linear maps between normed linear spaces, and the other is functions defined on compact metric
+spaces.
+
+\begin{prop}\label{prop_lin_ucont}  A linear transformation between normed linear spaces is
+continuous if and only if it is uniformly continuous.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+Of course, the preceding result does not hold in general metric spaces (where ``linearity''
+makes no sense).  The next proposition, for which we give a preparatory lemma, is a metric
+space result.
+
+\begin{lem}\label{lem_conv_subseq}  Let $(x_n)$ and $(y_n)$ be sequences in a compact metric
+space.  If $d(x_n,y_n) \sto 0$ as $n \sto \infty$, then there exist convergent subsequences of
+$(x_n)$ and $(y_n)$ which have the same limit.
+\end{lem}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_lem_conv_subseq}.) \ns  \end{proof}
+
+\begin{prop}\label{prop_cont_ucont}  Let $M_1$ be a compact metric space and $M_2$ be an arbitrary
+metric space.  Every continuous function $f \colon M_1 \sto M_2$ is uniformly continuous.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_cont_ucont}.) \ns   \end{proof}
+
+
+In section~\ref{Cauchy_int} of this chapter, where we define the Cauchy integral, an important
+step in the development is the extension of the integral from an exceedingly simple class of
+functions, the step functions, to a class of functions large enough to contain all the
+continuous functions.  The two basic ingredients of this extension are the density of the step
+functions in the large class and the uniform continuity of the integral.
+Theorem~\ref{thm_ext_uc} below is the crucial result which allows this extension.  First, two
+preliminary results.
+
+\begin{prop}\label{prop_ucont_Cauchy}  If $f \colon M_1 \sto M_2$ is a uniformly continuous map
+between two metric spaces and $(x_n)$ is a Cauchy sequence in $M_1$, then $\bigl(f(x_n)\bigr)$
+is a Cauchy sequence in~$M_2$.
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob}  Show by example that proposition~\ref{prop_ucont_Cauchy} is no longer true if
+the word ``uniformly'' is deleted .
+\end{prob}
+
+
+\begin{lem}\label{lem_ucont_lim}  Let $M_1$ and $M_2$ be metric spaces, $S \subseteq M_1$, and
+$f \colon S \sto M_2$ be uniformly continuous.  If two sequences $(x_n)$ and $(y_n)$ in $S$
+converge to the same limit in $M_1$ and if the sequence $\bigl(f(x_n)\bigr)$ converges, then
+the sequence $\bigl(f(y_n)\bigr)$ converges and $\lim f(x_n) = \lim f(y_n)$.
+\end{lem}
+
+\begin{proof}  Exercise.  \emph{Hint.}  Consider the ``interlaced'' sequence
+  \[ (x_1, y_1, x_2, y_2, x_3, y_3, \dots )\,. \]
+(Solution~\ref{sol_lem_ucont_lim}.) \ns
+\end{proof}
+
+We are now in a position to show that a uniformly continuous map $f$ from a subset of a metric
+space into a complete metric space can be extended in a unique fashion to a continuous
+function on the closure of the domain of~$f$.
+
+\begin{thm}\label{thm_ext_uc}  Let $M_1$ and $M_2$ be metric spaces, $S$ a subset of $M_1$, and
+$f \colon S \sto M_2$.  If $f$ is uniformly continuous and $M_2$ is complete, then there
+exists a unique continuous extension of $f$ to~$\clo S$. Furthermore, this extension is
+uniformly continuous.
+\end{thm}
+
+\begin{proof} Problem. \emph{Hint.} Define $g\colon \clo S \sto M_2$ by $g(a) = \lim f(x_n)$
+where $(x_n)$ is a sequence in  $S$ converging to~$a$.  First show that $g$ is well defined.
+To this end you must show that
+ \begin{enumerate}
+  \item [(i)] $\lim f(x_n)$ does exist, and
+  \item [(ii)] the value assigned to $g$ at $a$ does not depend on the particular sequence
+$(x_n)$ chosen.  That is, if $x_n \sto a$ and $y_n \sto a$, then $\lim f(x_n) = \lim f(y_n)$.
+ \end{enumerate}
+Next show that $g$ is an extension of~$f$.
+
+To establish the uniform continuity of $g$, let $a$ and $b$ be points in~$\clo S$.  If $(x_n)$
+is a sequence in $S$ converging to $a$, then $f(x_n) \sto g(a)$.  This implies that both
+$d(x_j,a)$ and $d\bigl(f(x_j),g(a)\bigr)$ can be made as small as we please by choosing $j$
+sufficiently large.  A similar remark holds for a sequence $(y_n)$ in $S$ which converges
+to~$b$.  From this show that $x_j$ is arbitrarily close to $y_k$ (for large $j$ and $k$)
+provided we assume that a is sufficiently close to~$b$.  Use this in turn to show that $g(a)$
+is arbitrarily close to~$g(b)$ when $a$ and $b$ are sufficiently close.
+
+The uniqueness argument is very easy.  \ns
+\end{proof}
+
+\begin{prop}  Let $f\colon M \sto N$ be a continuous bijection between metric spaces.  If $M$
+is complete and $f^{-1}$ is uniformly continuous, then $N$ is complete.
+\end{prop}
+
+\begin{proof}  Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+
+
+
+\section{THE INTEGRAL OF STEP FUNCTIONS}
+
+\vskip .1 in
+
+\begin{center}
+\fbox{\textbf{Throughout this section $E$ is a Banach space.}}
+\end{center}
+
+\vskip .2 in
+
+\begin{defn}   An $(n+1)$-tuple $(t_0,t_1, \dots, t_n)$ of real numbers is a
+ \index{<@$(t_0,t_1,\dots,t_n)$ (partition of an interval)}%
+ \index{partition}%
+\df{partition} of the interval $[a,b]$ in $\R$ provided that
+ \begin{enumerate}
+  \item[(i)] $t_0 = a$,
+  \item[(ii)] $t_n = b$, and
+  \item[(iii)] $t_{k-1} < t_k$ for $1 \le k \le n$.
+ \end{enumerate}
+If $P = (s_0, \dots, s_m)$ and $Q = (t_0, \dots, t_n)$ are
+partitions of the same interval $[a,b]$ and if
+  \[ \{s_0, \dots, s_m\} \subseteq \{t_0, \dots, t_n\} \]
+then we say that $Q$ is a
+ \index{refinement}%
+\df{refinement} of $P$ and we write $P \preceq Q$.
+
+Let $P = (s_0, \dots, s_m)$, $Q = (t_0, \dots, t_n)$, and $R = (u_0, \dots, u_p)$ be
+partitions of $[a,b] \subseteq \R$.  If
+  \[ \{u_0,\dots,u_p\} = \{s_0,\dots,s_m\} \cup \{t_0,\dots,t_n\} \]
+then $R$ is the
+ \index{refinement!smallest common}%
+ \index{smallest!common refinement}%
+ \index{<@$P \lor Q$ (smallest common refinement of partitions)}%
+\df{smallest common refinement} of $P$ and $Q$ and is denoted by $P \lor Q$.  It is clear that
+$P \lor Q$ is the partition with fewest points which is a refinement of both $P$ and~$Q$.
+\end{defn}
+
+
+\begin{exer}\label{exer_partition} Consider partitions $P = \bigl(0, \frac14, \frac13, \frac12,
+\frac23, \frac34, 1\bigr)$ and $Q = \bigl(0, \frac15, \frac13, \frac23, \frac56, 1\bigr)$
+of~$[0,1]$.  Find $P \lor Q$. (Solution~\ref{sol_exer_partition}.)
+\end{exer}
+
+\begin{defn} Let $S$ be a set and $A$ be a subset of~$S$.  We define
+$\chi_{{}_{\sst A}}\colon S \sto \R$, the
+ \index{<@$\chi_{{}_{\sst A}}$ (characteristic function of a set)}%
+ \index{characteristic function}%
+ \index{function!characteristic}%
+\df{characteristic function} of~$A$, by
+  \[ \chi_{{}_{\sst A}}(x) =
+      \begin{cases}
+                 1,  \qquad &\text{if $x \in A$} \\
+                 0,  \qquad &\text{if $x \in A^c$}.
+      \end{cases} \]
+If $E$ is a Banach space, then a function $\sigma\colon [a,b] \sto E$ is an
+ \index{e@$E$ valued step function}%
+ \index{step function}%
+ \index{function!$E$ valued step}%
+\df{$E$ valued step function} on the interval $[a,b]$ if
+ \begin{enumerate}
+  \item[(i)] $\ran \sigma$ is finite and
+  \item[(ii)] for every $x \in \ran\sigma$ the set $\sigma^\gets(\{x\})$ is the union of finitely
+many subintervals of~$[a,b]$.
+ \end{enumerate}
+We denote by $\fml S([a,b],E)$ the family of all $E$ valued step functions defined on~$[a,b]$.
+Notice that $\fml S([a,b],E)$ is a vector subspace of $\fml B([a,b],E)$.
+\end{defn}
+
+It is not difficult to see that $\sigma\colon [a,b] \sto E$ is a step function if and only if
+there exists a partition $(t_0, \dots, t_n)$ of $[a,b]$ such that $\sigma$ is constant on each
+of the open subintervals $(t_{k-1},t_k)$.  If, in addition, we insist that $\sigma$ be
+discontinuous at each of the points $t_1, \dots, t_{n-1}$, then this partition is unique.
+Thus we speak of the
+ \index{partition!associated with a step function}%
+\df{partition associated with} (or \df{induced by}) a step
+function~$\sigma$.
+
+\begin{notn} Let $\sigma$ be a step function on $[a,b]$ and $P = (t_0, \dots, t_n)$ be a partition
+of $[a,b]$ which is a refinement of the partition associated with~$\sigma$.  We define
+ \[ \sigma_P = (x_1, \dots, x_n) \]
+where $x_k$ is the value of $\sigma$ on the open interval $(t_{k-1},t_k)$ for $1 \le k \le n$.
+\end{notn}
+
+
+\begin{exer}\label{exer_int_stepf}  Define $\sigma\colon [0,5] \sto \R$ by
+  \[ \sigma = \chi_{{}_\sst{[1,4]}}
+            - \chi_{{}_\sst{(2,5]}}
+            - \chi_{{}_\sst{\{4\}}}
+           -2 \chi_{{}_\sst{[2,3)}}
+            - \chi_{{}_\sst{[1,2)}}
+            + \chi_{{}_\sst{[4,5)}}\,. \]
+ \begin{enumerate}
+  \item[(a)] Find the partition $P$ associated with~$\sigma$.
+  \item[(b)] Find $\sigma_Q$ where $Q = (0,1,2,3,4,5)$.
+ \end{enumerate}
+(Solution~\ref{sol_exer_int_stepf}.)
+\end{exer}
+
+
+\begin{defn}  Let $\sigma$ be an $E$ valued step function on $[a,b]$ and $(t_0, \dots, t_n)$
+be the partition associated with~$\sigma$.  For $1 \le k \le n$ let $\Delta t_k = t_k -
+t_{k- 1}$ and $x_k$ be the value of $\sigma$ on the subinterval $(t_{k-1},t_k)$.  Define
+ \[ \int \sigma := \sum_{k=1}^n (\Delta t_k) x_k\,. \]
+The vector $\int\sigma$ is the
+ \index{integral!of a step function}%
+ \index{step function!integral of}%
+\df{integral} of $\sigma$ over~$[a,b]$.  Other standard notations for $\int\sigma$ are
+ \index{<@$\int_a^b \sigma$ (integral of a step function)}%
+$\int_a^b \sigma$ and~$\int_a^b \sigma(t)\,dt$.
+\end{defn}
+
+\begin{exer}\label{exer_int_stepf2} Find $\int_0^5 \sigma$ where $\sigma$ is the step function
+given in exercise~\ref{exer_int_stepf}.  (Solution~\ref{sol_exer_int_stepf2}.)
+\end{exer}
+
+\begin{prob}  Let $\sigma\colon [0,10] \sto \R$  be defined by
+  \[ \sigma =  2\chi_{{}_\sst{[1,5)}}
+              -3\chi_{{}_\sst{[2,8)}}
+              -5\chi_{{}_\sst{\{6\}}}
+              + \chi_{{}_\sst{[4,10]}}
+             +4 \chi_{{}_\sst{[9,10]}}\,. \]
+ \begin{enumerate}
+  \item[(a)] Find the partition associated with $\sigma$.
+  \item[(b)] If $Q = (0,1,2,3,4,5,6,7,8,9,10)$, what is $\sigma_Q$?
+  \item[(c)] Find $\int \sigma$.
+ \end{enumerate}
+\end{prob}
+
+The next lemma is essentially obvious, but it is good practice to write out a proof anyway.
+It says that in computing the integral of a step function $\sigma$ it doesn't matter whether
+we work with the partition induced by $\sigma$ or with a refinement of that partition.
+
+\begin{lem}\label{lem_int_stepf}  Let $\sigma$ be an $E$ valued step function on $[a,b]$.
+If $Q = (u_0, \dots, u_m)$ is a refinement of the partition associated with $\sigma$ and if
+$\sigma_Q = (y_1, \dots, y_m)$, then
+  \[ \int\sigma = \sum_{k=1}^n(\Delta u_k)y_k\,. \]
+\end{lem}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_lem_int_stepf}.)  \ns  \end{proof}
+
+It follows easily from the preceding lemma that changing the value of a step function at a
+finite number of points does not affect the value of its integral.  Next we show that for a
+given interval the integral is a bounded linear transformation on the family of all $E$ valued
+step functions on the interval.
+
+\begin{prop}\label{prop_intsf_lin}  The map
+  \[ \int \colon \fml S([a,b],E) \sto E \]
+is bounded and linear with $\norm \int = b - a$.  Furthermore,
+  \[ \biggl\|\int\sigma(t)\,dt\biggr\| \le \int \norm{\sigma(t)}\,dt \]
+for every $E$ valued step function $\sigma$ on~$[a,b]$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} To show that $\int(\sigma + \tau) = \int\sigma + \int\tau$,
+let $P$ and $Q$ be the partitions associated with $\sigma$ and $\tau$, respectively.  Define
+the partition $R = (t_0, \dots, t_n)$ to be $P \lor Q$.  Clearly $R$ is a refinement of the
+partition associated with~$\sigma + \tau$. Suppose $\sigma_R = (x_1, \dots, x_n)$ and $\tau_R
+= (y_1, \dots, y_n)$.  Use lemma~\ref{lem_int_stepf} to compute $\int(\sigma + \tau)$.  To
+find $\norm\int$ use the definition of the norm of a linear map and
+lemma~\ref{lem_equiv_norm}.  \ns
+\end{proof}
+
+We now show that in the case of real valued step functions the integral is a positive linear
+functional; that is, it takes positive functions to positive numbers.
+
+\begin{prop}\label{prop_int_pos} If $\sigma$ is a real valued step function on $[a,b]$ and if
+$\sigma(t) \ge 0$ for all $t$ in $[a,b]$, then $\int\sigma \ge 0$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{cor}  If $\sigma$ and $\tau$ are real valued step functions on $[a,b]$ and if
+$\sigma(t) \le \tau(t)$ for all $t$ in~$[a,b]$, then $\int\sigma \le \int\tau$.
+\end{cor}
+
+\begin{proof}  Apply the preceding proposition to $\tau - \sigma$. Then (by~\ref{prop_intsf_lin})
+$\int\tau - \int\sigma = \int(\tau~-~\sigma)~\ge~0$.
+\end{proof}
+
+Finally we prepare the ground for piecing together and integrating two functions on adjoining
+intervals.
+
+\begin{prop}\label{prop_int_adj_int} Let $c$ be an interior point of the interval~$[a,b]$.  If
+$\tau$ and $\rho$ are $E$ valued step functions on the intervals $[a,c]$ and $[c,b]$,
+respectively, define a function $\sigma\colon [a,b] \sto E$ by
+  \[ \sigma(t) =
+        \begin{cases}
+             \tau(t),  \qquad &\text{if $a \le t \le c$} \\
+             \rho(t),  \qquad &\text{if $c < t \le b$}.
+        \end{cases}\]
+Then $\sigma$ is an $E$ valued step function on $[a,b]$ and
+  \[ \int_a^b\sigma = \int_a^c\tau + \int_c^b\rho\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_int_adj_int}.)
+ \ns  \end{proof}
+
+Notice that if $\sigma$ is a step function on $[a,b]$, then $\tau := \sigma|_{[a,c]}$ and
+$\rho := \sigma|_{[c,b]}$ are step functions and by the preceding proposition
+  \[ \label{sum_int_step} \int_a^b\sigma = \int_a^c\tau + \int_c^b\rho\,. \]
+In this context one seldom distinguishes notationally between a function on an interval and
+the restriction of that function to a subinterval.  Thus~\eqref{sum_int_step} is usually
+written
+  \[ \int_a^b\sigma = \int_a^c\sigma + \int_c^b\sigma. \]
+
+
+\begin{prob}\label{prob_int_compop}  Let $\sigma\colon [a,b] \sto E$ be a step function and
+$T\colon E \sto F$ be a bounded linear transformation from $E$ into another Banach space~$F$.
+Then $T \circ \sigma$ is an $F$-valued step function on $[a,b]$ and
+  \[ \int(T\circ \sigma) =  T\bigl(\int\sigma\bigr)\,. \]
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{THE CAUCHY INTEGRAL}\label{Cauchy_int}   We are now ready to extend the integral from
+the rather limited family of step functions to a class of functions large enough to contain
+all continuous functions (in fact, all piecewise continuous functions).
+
+Following Dieudonn\'e\cite{Dieudonne:1962} we will call members of this larger class
+\emph{regulated functions}.
+
+
+\vskip .1 in
+
+\begin{center}
+\fbox{\textbf{In this section $E$ will be a Banach space, and $a$ and $b$ real numbers with $a
+< b$.}}
+\end{center}
+
+\vskip .2 in
+
+\begin{defn}  Recall that the family $\fml S = \fml S([a,b],E)$ of $E$ valued step functions on
+$[a,b]$ is a subspace of the normed linear space $\fml B = \fml B([a,b],E)$ of bounded
+$E$-valued functions on $[a,b]$.  The closure $\clo{\fml S}$ of $\fml S$ in $\fml B$ is the
+family of
+ \index{regulated functions}%
+ \index{functions!regulated}%
+\df{regulated functions} on~$[a,b]$.
+\end{defn}
+
+It is an interesting fact that the regulated functions on an interval turn out to be exactly
+those functions which have one-sided limits at every point of the interval.  We will not need
+this fact, but a proof may be found in Dieudonn\'e\cite{Dieudonne:1962}.
+
+According to problem\ref{prob_clo_subsp}(b) the set $\clo{\fml S}$ is a vector subspace of the
+Banach space~$\fml B$.  Since it is closed in $\fml B$ it is itself a Banach space.  It is on
+this Banach space that we define the Cauchy integral.  The Cauchy integral is not as general
+as the Riemann integral because the set $\clo{\fml S}$ is not quite as large as the set of
+functions on which the Riemann integral is defined.  We do not prove this; nor do we prove the
+fact that when both integrals are defined, they agree. What we are interested in proving is
+that every continuous function is regulated; that is, every continuous function on $[a,b]$
+belongs to~$\fml S$.
+
+\begin{prop}\label{prop_cont_reg}  Every continuous $E$-valued function on $[a,b]$ is regulated.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Use proposition~\ref{prop_cont_ucont}.
+(Solution~\ref{sol_prop_cont_reg}.)   \ns
+\end{proof}
+
+It is not difficult to modify the preceding proof to show that every piecewise continuous
+function on $[a,b]$ is regulated. (Definition: A function $f\colon[a,b] \sto E$ is
+ \index{piecewise continuous}%
+ \index{continuous!piecewise}%
+\df{piecewise continuous} if there exists a partition $(t_0, \dots, t_n)$ of $[a,b]$ such that
+$f$ is continuous on each subinterval $(t_{k-1},t_k)$.)
+
+\begin{cor}  Every continuous $E$ valued function on $[a,b]$ is the uniform limit of a sequence
+of step functions.
+\end{cor}
+
+\begin{proof}  According to problem~\ref{prob_clo_seq} a function $f$ belongs to the
+closure of $S$ if and only if there is a sequence of step functions which converges
+(uniformly) to~$f$.
+\end{proof}
+
+Now we are ready to define the Cauchy integral of a regulated function.
+
+\begin{defn} Recall that $\fml S = \fml S([a,b],E)$ is a subset of the Banach space
+$\fml B([a,b],E)$. In the preceding section we defined the integral of a step function.
+The map
+ \[ \int \colon \fml S \sto E \]
+was shown to be bounded and linear [proposition~\ref{prop_intsf_lin}]; therefore it is
+uniformly continuous [proposition~\ref{prop_lin_ucont}].  Thus [theorem~\ref{thm_ext_uc}] it
+has a unique continuous extension to~$\clo{\fml S}$.  This extension, which we denote also by
+$\int$, and which is, in fact, uniformly continuous, is the
+ \index{<@$\int_a^b f$ (integral of a regulated function)}%
+ \index{Cauchy!integral}%
+ \index{integral!Cauchy}%
+\df{Cauchy} (or \df{Cauchy-Bochner}) \df{integral}.  For $f$ in $\clo{\fml S}$ we call $\int
+f$ the \df{integral of} $f$ (over $[a,b]$). As with step functions we may wish to emphasize
+the domain of $f$ or the role of a particular variable, in which case we may write $\int_a^bf$
+or $\int_a^bf(t)\,dt$ for $\int f$.
+\end{defn}
+
+\begin{prob}  Use the \emph{definition} of the Cauchy integral to show that
+$\int_0^1x^2\,dx = 1/3$. \emph{Hint.}  Start by finding a sequence of step functions
+which converges uniformly to the function $x \mapsto x^2$.  The \emph{proof} of
+proposition~\ref{prop_cont_reg} may help; so also may problem~\ref{prob_sum_sqrs}.
+\end{prob}
+
+
+Most of the properties of the Cauchy integral are derived from the corresponding
+properties of the integral of step functions by taking limits.  In the remainder of this
+section it is well to keep in mind one aspect of theorem~\ref{thm_ext_uc} (and its
+proof): When a uniformly continuous function $f$ is extended from a set $\fml S$ to a
+function $g$ on its closure $\clo{\fml S}$, the value of $g$ at a point $a$ in $\clo{\fml
+S}$ is the limit of the values $f(x_n)$ where $(x_n)$ is any sequence in $\fml S$ which
+converges to~$a$.  What does this say in the present context?  If $h$ is a regulated
+function, then there exists a sequence $(\sigma_n)$ of step functions converging
+uniformly to $h$ and furthermore
+  \[ \int h = \lim_{n\sto\infty} \int\sigma_n\,. \]
+We use this fact repeatedly without explicit reference.
+
+One more simple fact is worthy of notice.  Following lemma~\ref{lem_int_stepf} we remarked
+that changing the value of a step function at finitely many points does not affect the value
+of its integral.  The same is true of regulated functions. [Proof. Certainly it suffices to
+show that changing the value of a regulated function $f$ at a single point $c$ does not alter
+the value of~$\int f$.  Suppose $(\sigma_n)$ is a sequence of step functions converging
+uniformly to $f$.  Also suppose that $g$ differs from $f$ only at~$c$.  Replace each step
+function $\sigma_n$ by a function $\tau_n$ which is equal to $\sigma_n$ at each point other
+than $c$ and whose value at $c$ is~$g(c)$.  Then $\tau_n \sto g \text{\,(unif)}$ and (by the
+comment in the preceding paragraph) $\int g = \lim \int \tau_n = \lim \int \sigma_n = \int
+f.$]
+
+The following theorem (and proposition~\ref{prop_norm_Cint}) generalize
+proposition~\ref{prop_intsf_lin}.
+
+\begin{thm}\label{thm_Cint_blt}  The Cauchy integral is a bounded linear transformation which
+maps the space of $E$ valued regulated functions on $[a,b]$ into the space~$E$.
+\end{thm}
+
+\begin{proof} Exercise. (Solution~\ref{sol_thm_Cint_blt}.)  \ns   \end{proof}
+
+Next we show that for real valued functions the Cauchy integral is a positive linear
+functional.  This generalizes proposition~\ref{prop_int_pos}.
+
+\begin{prop}  Let $f$ be a regulated real valued function on~$[a,b]$.  If $f(t) \ge 0$ for all
+$t$ in $[a,b]$, then $\int f \ge 0$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Suppose that $f(t) \ge 0$ for all $t$ in $[a,b]$ and that
+$(\sigma_n)$ is a sequence of real valued step functions converging uniformly to~$f$.  For
+each $n \in N$ define
+  \[ \sigma_n^+\colon [a,b] \sto \R\colon t \mapsto \max\{\sigma_n(t),0\}\,. \]
+Show that $(\sigma_n^+)$ is a sequence of step functions converging uniformly to~$f$.  Then
+use proposition~\ref{prop_int_pos}.  \ns
+\end{proof}
+
+\begin{cor}  If $f$ and $g$ are regulated real valued functions on $[a,b]$ and if $f(t) \le g(t)$
+for all $t$ in $[a,b]$, then $\int f \le \int g$.
+\end{cor}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}  Let $f\colon [a,b] \sto E$ be a regulated function and $(\sigma_n)$ be a sequence of
+$E$-valued step functions converging uniformly to~$f$.  Then
+  \[ \bignorm{\int f} = \lim\bignorm{\int\sigma_n}\,. \]
+Furthermore, if $g(t) = \norm{f(t)}$ for all $t$ in $[a,b]$ and $\tau_n(t) =
+\norm{\sigma_n(t)}$ for all $n$ in $\N$ and $t$ in $[a,b]$, then $(\tau_n)$ is a sequence of
+real valued step functions which converges uniformly to~$g$ and $\int g = \lim\int\tau_n$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_norm_Cint} Let $f$ be a regulated $E$ valued function on~$[a,b]$.  Then
+  \[ \bignorm{\int f} \le \int\norm{f(t)}\,dt \]
+and therefore
+  \[ \bignorm{\int f} \le (b-a)\norm f_u\,. \]
+Thus
+  \[ \bignorm{\,\int\,} = b-a \]
+where $\int\colon \clo{\fml S} \sto E$ is the Cauchy integral and $\clo{\fml S}$ is the family
+of regulated $E$ valued functions on the interval~$[a,b]$.
+\end{prop}
+
+\begin{proof} Problem.   \ns   \end{proof}
+
+\begin{prob}  Explain in one or two brief sentences why the following is obvious: If $(f_n)$ is
+a sequence of $E$-valued regulated functions on $[a,b]$ which converges uniformly to~$g$, then
+$g$ is regulated and $\int g = \lim \int f_n$.
+\end{prob}
+
+\begin{prob} Let $\sigma, \tau\colon [0,3] \sto \R$ be the step functions defined by
+  \[ \sigma = \chi_{{}_\sst{[0,2]}} \qquad \text{ and }
+         \qquad  \tau = \chi_{{}_\sst{[0,2]}} + 2\chi_{{}_\sst{(2,3]}}\,. \]
+Recall from appendix~\ref{prods} that the function $(\sigma,\tau)\colon [0,3] \sto \R^2$ is
+defined by $(\sigma,\tau)(t) = \bigl(\sigma(t),\tau(t)\bigr)$ for $0 \le t \le 3$.  It is
+clear that $(\sigma,\tau)$ is a step function.
+ \begin{enumerate}
+  \item[(a)] Find the partition $R$ associated with~$(\sigma,\tau)$. Find $(\sigma,\tau)_R$.
+Make a careful sketch of~$(\sigma,\tau)$.
+  \item[(b)] Find $\int(\sigma,\tau)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Same as preceding problem except let $\sigma = \chi_{{}_\sst{[0,1]}}$.
+\end{prob}
+
+We now generalize proposition~\ref{prop_int_adj_int} to regulated functions on adjoining
+intervals.
+
+\begin{prop} Let $c$ be an interior point of the interval $[a,b]$.  If $g$ and $h$ are regulated
+$E$-valued functions on the intervals $[a,c]$ and $[c,b]$, respectively, define a function
+$f\colon [a,b] \sto E$ by
+  \[ f(t) =
+       \begin{cases}
+              g(t), \qquad &\text{if $a \le c \le c$} \\
+              h(t), \qquad &\text{if $c < t \le b.$}
+       \end{cases} \]
+Then $f$ is a regulated function on $[a,b]$ and
+  \[ \int_a^b f = \int_a^c g + \int_c^b h\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+As was remarked after proposition~\ref{prop_int_adj_int} it is the usual practice to use the
+same name for a function and for its restriction to subintervals. Thus the notation of the
+next corollary.
+
+\begin{cor}\label{cor_int_adj_int} If $f\colon [a,b] \sto E$ is a regulated function and $c$
+is an interior point of the interval $[a,b]$, then
+ \begin{equation}\label{eqn_adj_int}
+    \int_a^b f = \int_a^c f + \int_c^b f\,.
+ \end{equation}
+\end{cor}
+
+\begin{proof} Let $g = f|_{[a,c]}$ and $h = f|_{[c,b]}$.  Notice that $g$ and $h$ are regulated.
+[If, for example, $(\sigma_n)$ is a  sequence of step functions converging uniformly on
+$[a,b]$ to $f$, then the step functions $\sigma_n|_{[a,c]}$ converge uniformly on $[a,c]$
+to~$g$.]  Then apply the preceding proposition.
+\end{proof}
+
+It is convenient for formula~\eqref{eqn_adj_int} to be correct when $a$, $b$, and $c$ are not
+in increasing order or, for that matter, even necessarily distinct.  This can be achieved by
+means of a simple notational convention.
+
+\begin{defn} For a regulated function $f$ on $[a,b]$ (where $a < b$) define
+  \[ \int_b^a f := -\int_a^b f\,. \]
+Furthermore, if $g$ is any function whose domain contains the point $a$, then
+  \[ \int_a^a g := 0\,. \]
+\end{defn}
+
+\begin{cor}  If $f$ is an $E$ valued regulated function whose domain contains an interval to which
+the points $a$, $b$, and $c$ belong, then
+  \[ \int_a^b f = \int_a^c f + \int_c^b f\,. \]
+\end{cor}
+
+\begin{proof}  The result is obvious if any two of the points $a$, $b$, and $c$ coincide; so we
+suppose that they are distinct. There are six possible orderings.  We check one of these.
+Suppose $c < a < b$.  By corollary~\ref{cor_int_adj_int}
+  \[ \int_c^b f = \int_c^a f + \int_a^b f\,. \]
+Thus
+  \[ \int_a^b f = -\int_c^a f + \int_c^b f = \int_a^c f + \int_c^b f\,. \]
+The remaining five cases are similar.
+\end{proof}
+
+Suppose $f$ is an $E$-valued regulated function and $T$ is a bounded linear map from $E$ into
+another Banach space~$F$.  It is interesting and useful to know that integration of the
+composite function $T \circ f$ can be achieved simply by integrating $f$ and then
+applying~$T$.  This fact can be expressed by means of the following commutative diagram.
+Notation: $\clo{\fml S}_E$ and $\clo{\fml S}_F$ denote, respectively, the $E$ valued and $F$
+valued regulated functions on $[a,b]$; and $C_T$ is the bounded linear transformation
+discussed in problem~\ref{prob_comp_op}. ($C_T(f) = T \circ f$ for every~$f$.)
+  \[ \xy
+        \square[\clo{\fml S}_E`E`\clo{\fml S}_F`F;\int`C_T`T`\int]
+     \endxy \]
+
+Alternatively it may be expressed by a formula, as in the next proposition.
+
+\begin{prop}\label{prop_int_compop}  Let $T \colon E \sto F$ be a bounded linear map between Banach
+spaces and $f$ be a regulated $E$ valued function on the interval~$[a,b]$.  Then $T \circ f$
+is a regulated $F$ valued function on $[a,b]$ and
+  \[ \int(T \circ f) = T \biggl(\int f\biggr)\,. \]
+\end{prop}
+
+
+\begin{proof} Exercise.  \emph{Hint.}  Use problem~\ref{prob_int_compop}.
+(Solution~\ref{sol_prop_int_compop}.)  \ns
+\end{proof}
+
+\begin{cor}\label{cor_1param_fam}  If $E$ and $F$ are Banach spaces and
+  \[ T\colon [a,b] \sto \ofml B(E,F)\colon  t \mapsto T_t \]
+is continuous, then for every $x$ in $E$
+  \[ \int  T_t(x)\,dt = \biggl(\int T\biggr)(x)\,. \]
+\end{cor}
+
+\begin{proof} Problem.   \ns \emph{Hint.}  For $x$ in $E$ let $E_x\colon \ofml B(E,F) \sto F$
+be the map (evaluation at~$x$) defined in problem~\ref{prob_eval_op}.  Write $T_t(x)$ as $(E_x
+\circ T)(t)$ and apply proposition~\ref{prop_int_compop}.
+\end{proof}
+
+\begin{prop}\label{prop_int_const_vec}  Let $f\colon [a,b] \sto \R$ be a regulated function and
+$x \in E$.  For all $t$ in $[a,b]$ let $g(t) = f(t)\,x$.  Then $g$ is a regulated $E$-valued
+function and $\int g = \bigl(\int f\bigr)x$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Prove the result first for the case $f$ is a step function.
+Then take limits.
+\end{proof}
+
+\begin{prop}  If $f\colon [a,b] \sto E$ and $g\colon [a,b] \sto F$ are regulated functions whose
+ranges lie in Banach spaces, then the function
+  \[ (f,g)\colon [a,b] \sto E \times F\colon  t \mapsto \bigl(f(t),g(t)\bigr) \]
+is regulated and
+  \[ \int (f,g) = \biggl(\int f, \int g\biggr)\,. \]
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Write $\int f$ as $\int \bigl(\pi_1\circ(f,g)\bigr)$ where
+$\pi_1\colon E \times F \sto E$ is the usual coordinate projection.  Write $\int g$ in a
+similar fashion. Use proposition~\ref{prop_int_compop}.  Keep in mind that if $p$ is a point
+in the product $E \times F$, then $p = \bigl(\pi_1(p),\pi_2(p)\bigr)$.  \ns
+\end{proof}
+
+\begin{prop}  Suppose $h\colon [a,b] \sto E \times F$ is a regulated function from $[a,b]$ into the
+product of two Banach spaces.  Then the components $h^1$ and $h^2$ are regulated functions and
+  \[ \int h = \biggl(\int h_1, \int h_2\biggr)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+\begin{prob}\label{prob_int_Rnval}  Suppose $f \colon [a,b] \sto \R^n$ is a regulated function.
+Express the integral of $f$ in terms of the integrals of its components $f^1, \dots, f^n$.
+Justify your answer carefully.  \emph{Hint.}  When $\R^n$ appears (without further
+qualification) its norm is assumed to be the usual Euclidean norm.  This is not the product
+norm.  What needs to be done to ensure that the results of the preceding problem will continue
+to be true if the product norm on $E \times F$ is replaced by an equivalent norm?
+\end{prob}
+
+\begin{prob} Suppose $T \colon [0,1] \sto \ofml B(\R^2,\R^2)\colon  t \mapsto T_t)$ is continuous,
+and suppose that for each $t$ in $[0,1]$ the matrix representation of $T_t$  is given by
+  \[ \bigl[T_t\bigr] = \begin{bmatrix} 1 & t \\ t^2 & t^3 \end{bmatrix}\,. \]
+Find $\bigl[\int T\bigr]$ the matrix representation of~$\int T$. \emph{Hint.} Use
+\ref{cor_1param_fam}, \ref{prop_int_const_vec}, and~\ref{prob_int_Rnval}.
+\end{prob}
+
+\begin{prob}  For every $f$ in $\fml C([a,b],E)$ define
+  \[ \norm f_1 = \int_a^b \norm{f(t)}\,dt\,. \]
+ \begin{enumerate}
+  \item[(a)] Show that $\norm{\quad}_1$ is a norm on $\fml C([a,b],E)$. \emph{Hint.}  In showing
+that $\norm f_1 = 0$ implies $f = 0$, proposition~\ref{pos_at_pt} may help.
+  \item[(b)] Are the norms $\norm{\quad}_1$ and $\norm{\quad}_u$ on $\fml C([a,b],E)$ equivalent?
+  \item[(c)]  Let $\fml C_1$ be the vector space $\fml C([a,b],E)$ under the norm $\norm{\quad}_1$
+and $\fml C_u$ be the same vector space under its usual uniform norm.  Does convergence of a
+sequence in $\fml C_u$ imply convergence in~$C_1$?  What about the converse?
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Show that if $f \in \fml C([0,1],\R)$ and $\int_0^1 x^nf(x)\,dx = 0$ for
+$n = 0,1,2,\dots$, then $f = 0$.
+\end{prob}
+
+\begin{prob}  Find $\lim\frac{\int_0^1 x^nf(x)\,dx}{\int_0^1 x^n\,dx}$ when $f$ is a continuous
+real valued function on~$[0,1]$. \emph{Hint.}  For each $n$ in $\N$ let $L_n(f) =
+\frac{\int_0^1 x^nf(x)\,dx}{\int_0^1 x^n\,dx}$.  Show that $L_n$ is a continuous linear
+functional on the space $\fml C([0,1],\R)$ of continuous real valued functions
+on~$[0,1]$. What is $\lim_{n \sto \infty} L_n(p)$ when $p$ is a polynomial? Use the
+ \index{Weierstrass approximation theorem}%
+ \index{approximation theorem!Weierstrass}%
+\emph{Weierstrass approximation theorem}~\ref{Wat}.
+\end{prob}
+
+\endinput

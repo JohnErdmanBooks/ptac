@@ -1,0 +1,256 @@
+\chapter{COMPACT METRIC SPACES}\label{cpt}
+
+
+
+\section{DEFINITION AND ELEMENTARY PROPERTIES}
+\begin{defn} Recall that a family $\sfml U$ of sets is said to
+ \index{cover}%
+\df{cover} a set $S$ if $\bigcup \sfml U \supseteq S$.  The phrases ``$\sfml U$ covers
+$S$'', ``$\sfml U$ is a cover for $S$'', and ``$\sfml U$ is a covering of~$S$'' are used
+interchangeably.  If a cover $\sfml U$ for a metric space $M$ consists entirely of open
+subsets of $M$, then $\sfml U$ is an
+ \index{open!cover}%
+ \index{cover!open}%
+\df{open cover} for~$M$.  If $\sfml U$ is a family of sets which covers a set $S$ and
+$\sfml V$ is a subfamily of $\sfml U$ which also covers $S$, then $\sfml V$ is a
+ \index{subcover}%
+\df{subcover} of $\sfml U$ for~$S$.  A metric space $M$ is
+ \index{compact!metric space}%
+\df{compact} if \emph{every} open cover of $M$ has a finite subcover.
+
+We have just defined what we mean by a compact \emph{space}. It will be convenient also to
+speak of a compact \emph{subset} of a metric space~$M$.  If $A \subseteq M$, we say that $A$
+is a
+ \index{compact!subset}%
+\df{compact subset} of $M$ if, regarded as a subspace of $M$, it is a compact metric space.
+\end{defn}
+
+Notice that the definition of compactness is identical to the one given for subsets of the
+real line in definition \ref{df_cpt}. Recall also that we have proved that every closed
+bounded subset of $\R$ is compact (see example~\ref{HBthm}).
+
+\begin{rem}[A Matter of Technical Convenience] Suppose we wish to show that some particular
+subset $A$ of a metric space $M$ is compact. Is it really necessary that we work with
+coverings made up of open subsets of $A$ (as the definition demands) or can we just as well
+use coverings whose members are open subsets of~$M$?  Fortunately, either will do. This is an
+almost obvious consequence of proposition~\ref{open_in_subsp}.  Nevertheless, providing a
+careful verification takes a few lines, and it is good practice to attempt it.
+\end{rem}
+
+\begin{prop}\label{mtc} A subset $A$ of a metric space $M$ is compact if and only if every
+cover of $A$ by open subsets of $M$ has a finite subcover.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_mtc}.)
+  \ns \end{proof}
+
+An obvious corollary of the preceding proposition: If $M_1$ is a subspace of a metric space
+$M_2$ and $K \subseteq M_1$, then $K$ is a compact subset of $M_1$ if and only if it is a
+compact subset of $M_2$.
+
+\begin{prob}\label{CPT_cnd1} Generalize the result of proposition~\ref{cpt_cnd1} to metric
+spaces.  That is, show that every closed subset of a compact metric space is compact.
+\end{prob}
+
+\begin{defn} A subset of a metric space is
+ \index{bounded!subset of a metric space}%
+\df{bounded} if it is contained in some open ball.
+\end{defn}
+
+\begin{prob}\label{cpt_clbdd} Generalize the result of proposition \ref{cpt_cb} to metric
+spaces. That is, show that every compact subset of a metric space is closed and bounded.
+\end{prob}
+
+As we will see, the converse of the preceding theorem holds for subsets of $\R^n$ under its
+usual metric; this is the \emph{Heine-Borel theorem}. It is most important to know, however,
+that this converse is not true in arbitrary metric spaces, where sets which are closed and
+bounded may fail to be compact.
+
+\begin{exam} Consider an infinite set $M$ under the discrete metric.  Regarded as a subset
+of itself $M$ is clearly closed and bounded. But since the family $\sfml U = \bigl\{\{x\}
+\colon x \in M \bigr\}$ is a cover for $M$ which has no proper subcover, the space $M$ is
+certainly not compact.
+\end{exam}
+
+\begin{exam} With its usual metric $\R^2$ is not compact.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The open unit ball $\{(x,y,z) \colon x^2 + y^2 + z^2 < 1\}$
+in $\R^3$ is not compact.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The strip $\{(x,y) \colon 2 \le y \le 5\}$ in $\R^2$ is not
+compact.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The closed first quadrant $\{(x,y) \colon x \ge 0 \text{ and } y \ge 0\}$ in
+$\R^2$ is not compact.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob}  Show that the intersection of an arbitrary nonempty collection of compact subsets
+of a metric space is itself compact.
+\end{prob}
+
+\begin{prob}  Show that the union of a finite collection of compact subsets of a metric space is
+itself compact. \emph{Hint.}  What about \emph{two} compact sets?  Give an example to show
+that the union of an arbitrary collection of compact subsets of a metric space need not be
+compact.  \ns
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+\section{THE EXTREME VALUE THEOREM}
+\begin{defn} A real valued function $f$ on a metric space $M$ is said to have a
+ \index{maximum}%
+ \index{maximum!global}%
+ \index{global!maximum}%
+\df{(global) maximum} at a point $a$ in $M$ if $f(a) \ge f(x)$ for every $x$ in~$M$; the
+number $f(a)$ is the
+ \index{maximum!value}%
+\df{maximum value} of $f$. The function has a
+ \index{minimum}%
+ \index{minimum!global}%
+ \index{global!minimum}%
+\df{(global) minimum} at $a$ if $f(a) \le f(x)$ for every $x$ in~$M$; and in this case $f(a)$
+is the
+ \index{minimum!value}%
+\df{minimum value} of~$f$.  A number is an
+ \index{extreme!value}%
+\df{extreme value} of $f$ if it is either a maximum or a minimum value. It is clear that a
+function may fail to have maximum or minimum values.  For example, on the open interval
+$(0,1)$ the function $f \colon x \mapsto x$ assumes neither a maximum nor a minimum.
+\end{defn}
+
+Our next goal is to show that every continuous function on a compact metric space attains both
+a maximum and a minimum.  This turns out to be an easy consequence of the fact that the
+continuous image of a compact set is compact. All this works exactly as it did for~$\R$.
+
+\begin{prob} Generalize the result of theorem~\ref{cpt_cnd4} to metric spaces.  That is, show
+that if $M$ and $N$ are metric spaces, if $M$ is compact, and if $f \colon M \sto N$ is
+continuous, then $f^{\sto}(M)$ is compact.
+\end{prob}
+
+\index{extreme value theorem}%
+\begin{prob}[The Extreme Value Theorem.]\label{EVThm}  Generalize the result of theorem~\ref{evthm}
+to metric spaces.  That is, show that if $M$ is a compact metric space and $f \colon M \sto
+\R$ is continuous, then $f$ assumes both a maximum and a minimum value on~$M$.
+\end{prob}
+
+In chapter \ref{unif_conv} we defined the uniform metric on the family $\fml B(S,\R)$ of all
+bounded real valued functions on $S$ and agreed to call convergence of sequences in this space
+``uniform convergence''.  Since $S$ was an arbitrary set (not a metric space), the question of
+continuity of members of $\fml B(S,\R)$ is meaningless.  For the moment we restrict our
+attention to functions defined on a compact metric space, where the issue of continuity is
+both meaningful and interesting.
+
+A trivial, but crucial, observation is that if $M$ is a compact metric space, then the
+family
+ \index{continuous@$\fml C(M)$, $\fml C(M,\R)$ (continuous real valued function on $M$}%
+$\fml C(M) = \fml C(M,\R)$ of continuous real valued functions on $M$ is a subspace of
+the metric space $\fml B(M) = \fml B(M,\R)$.  This is an obvious consequence of the
+\emph{extreme value theorem}~(\ref{EVThm}) which says, in particular, that every
+continuous real valued function on $M$ is bounded.   Furthermore, since the uniform limit
+of continuous functions is continuous (see proposition~\ref{unif_lim_cont}), it is clear
+that $\fml C(M,\R)$ is a closed subset of $\fml B(M,\R)$ (see
+proposition~\ref{scm_closed} for the sequential characterization of closed sets).  For
+future reference we record this formally.
+
+\begin{prop} If $M$ is a compact metric space, then $\fml C(M)$ is a closed subset
+of~$\fml B(M)$.
+\end{prop}
+
+\begin{exam} The circle $x^2 + y^2 = 1$ is a compact subset of~$\R^2$.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.} Parametrize.  \ns \end{proof}
+
+\begin{exam}\label{exam_ellipse_cpt} The ellipse $\D\frac{x^2}{16} + \frac{y^2}9 = 1$ is a compact subset of~$\R^2$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} Regard $\R^2$ as a metric space under the uniform metric (see example~\ref{unif_rn}).
+Then the boundary of the unit ball in this space is compact.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Let $f \colon M \sto N$ be a continuous bijection between metric spaces.
+ \begin{enumerate}
+  \item[(a)] Show by example that $f$ need not be a homeomorphism.
+  \item[(b)] Show that if $M$ is compact, then $f$ must be a homeomorphism.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+\section{DINI'S THEOREM}
+\begin{defn} A family $\sfml F$ of sets is said to have the
+ \index{finite!intersection property}%
+\df{finite intersection property} if every finite subfamily of $\sfml F$ has nonempty
+intersection.
+\end{defn}
+
+\begin{prob}\label{fip} Show that a metric space $M$ is compact if and only if every family
+of closed subsets of $M$ having the finite intersection property has nonempty intersection.
+\end{prob}
+
+ \index{Dini's theorem}%
+\begin{prop}[Dini's Theorem]\label{Dini_thm} Let $M$ be a compact metric space and $(f_n)$ be
+a sequence of continuous real valued functions on $M$ such that $f_n(x) \ge f_{n+1}(x)$ for
+all $x$ in $M$ and all $n$ in $\N$. If the sequence $(f_n)$ converges pointwise on $M$ to a
+continuous function~$g$, then it converges uniformly to~$g$.
+\end{prop}
+
+\begin{proof}  Problem.   \emph{Hint.}  First establish the correctness of the assertion for
+the special case where $g = 0$. For $\epsilon > 0$ consider the sets $A_n =
+{f_n}^{\gets}([\epsilon, \infty))$. Argue by contradiction to show that
+$\cap_{n=1}^{\infty}A_n$ is empty. Then use problem~\ref{fip}. \ns
+\end{proof}
+
+\begin{exam} \emph{Dini's theorem} (problem~\ref{Dini_thm}) is no longer true if we remove
+the hypothesis that
+ \begin{enumerate}
+  \item[(a)] the sequence $(f_n)$ is decreasing;
+  \item[(b)] the function $g$ is continuous; or
+  \item[(c)] the space $M$ is compact.
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{exam}\label{exam_approx_sqrt} On the interval $[0,1]$ the square root function
+$x \mapsto \sqrt x$ is the uniform limit of a sequence of polynomials.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.}  Let $p_0$ be the zero function on $[0,1]$, and for
+$n \ge 0$ define $p_{n+1}$ on $[0,1]$ by
+   \[ p_{n+1}(t) = p_n(t) + \tfrac12\bigl(t - (p_n(t))^2\bigr)\,, \]
+and verify that
+   \[ 0 \le \sqrt t - p_n(t) \le \frac{2\sqrt t}{2 + n\sqrt t} \le \frac2n \]
+for $0 \le t \le 1$ and $n \in \N$.  \ns
+\end{proof}
+
+
+
+
+\endinput

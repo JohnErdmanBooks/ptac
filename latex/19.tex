@@ -1,0 +1,334 @@
+\chapter{APPLICATIONS OF A FIXED POINT THEOREM}\label{fpt}
+
+We now have enough information about metric spaces to consider some interesting applications.  We
+will first prove a result known as the \emph{contractive mapping theorem} and then use it to find
+solutions to systems of simultaneous linear equations and to certain integral equations.  Since
+this chapter contains mostly examples, we will make liberal use of computations from beginning
+calculus.  Although it would perhaps be more logical to defer these matters until we have developed
+the necessary facts concerning integrals, derivatives, and power series, there is nevertheless much
+to be said for presenting some nontrivial applications relatively early.
+
+
+
+\section{THE CONTRACTIVE MAPPING THEOREM}
+\begin{defn} A mapping $f \colon M \sto N$ between metric spaces is
+ \index{contraction mapping}%
+\df{contractive} if there exists a constant $c$ such that $0 < c < 1$ and
+  \[ d(f(x),f(y))  \le  c\, d(x,y) \]
+for all $x$, $y \in M$.  Such a number $c$ is a
+ \index{contraction!constant}%
+\df{contraction constant} for~$f$.  A contractive map is also
+called a
+ \index{contraction}%
+\df{contraction}.
+\end{defn}
+
+\begin{exer}\label{cntr_cnt} Show that every contractive map is continuous.
+(Solution~\ref{sol_cntr_cnt}.) \ns
+\end{exer}
+
+\begin{exam}\label{cntr_exm1} The map $f \colon \R^2 \sto \R^3$ defined by
+  \[ f(x,y) = \bigl(1 - \tfrac13x, 1 +\tfrac13y, 2 + \tfrac13x - \tfrac13y\bigr) \]
+is a contraction.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_cntr_exml}.)   \ns  \end{proof}
+
+\begin{exam} The map
+  \[ f \colon \R^2 \sto \R^2:(x,y) \mapsto \bigl(\tfrac12(1 + y), \tfrac12(3 - x)\bigr) \]
+is a contraction on $\R^2$, where $\R^2$ has its usual (Euclidean) metric.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+The next theorem is the basis for a number of interesting applications.  Also it will turn out to
+be a crucial ingredient of the extremely important \emph{inverse function theorem} (in chapter
+\ref{IFT}).  Although the statement of theorem \ref{cmthm} is important in applications, its proof
+is even more so.  The theorem guarantees the existence (and uniqueness) of solutions to certain
+kinds of equations; its proof allows us to approximate these solutions as closely as our
+computational machinery permits. Recall from chapter \ref{ivt} that a
+ \index{fixed point}%
+\df{fixed point} of a mapping $f$ from a set $S$ into itself is a point $p \in S$ such that $f(p) =
+p$.
+
+ \index{contractive mapping theorem}%
+\begin{thm}[Contractive Mapping Theorem]\label{cmthm} Every contraction from a complete metric
+space into itself has a unique fixed point.
+\end{thm}
+
+\begin{proof}  Exercise. \emph{Hint.} Let $M$ be a complete metric space and $f \colon M \sto M$
+be contractive.  Start with an arbitrary point $x_0$ in $M$.  Obtain a sequence
+$(x_n)_{n=0}^\infty$ of points in $M$ by letting $x_1 = f(x_0)$, $x_2 = f(x_1)$, and so on. Show
+that this sequence is Cauchy.  (Solution~\ref{sol_cmthm}.)
+\end{proof}
+
+\begin{exam}\label{fpt_exm1} We use the \emph{contractive mapping theorem} to solve the following
+system of equations
+  \begin{equation}\label{fpt_eq1}
+                 \left\{   \begin{aligned}  9x - 2y  &=  7 \\
+                                            3x + 8y  &=  11 \,.
+                           \end{aligned}
+                 \right.
+  \end{equation}
+Define
+  \[ S \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (9x - 2y, 3x + 8y)\,. \]
+The system \eqref{fpt_eq1} may be written as a single equation
+  \[ S(x,y) = (7, 11)\,, \]
+or equivalently as
+  \begin{equation}\label{fpt_eq2}
+                (x,y) - S(x,y) + (7, 11) = (x, y)\,.
+  \end{equation}
+[\emph{Definition.}  Addition and subtraction on $\R^2$ are defined coordinatewise.  That is, if
+$(x,y)$ and $(u,v)$ are points in $\R^2$, then $(x,y) + (u,v) := (x + u,y + v)$ and $(x,y) - (u,v)
+:= (x - u,y - v)$.  Similar definitions hold for $\R^n$ with $n > 2$.] Let $T(x,y)$ be the left
+hand side of \eqref{fpt_eq2}; that is, define
+  \[ T \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x,y) - S(x,y) + (7,11)\,. \]
+With this notation \eqref{fpt_eq2} becomes
+  \[ T(x,y) = (x,y)\,. \]
+Thus, and this is the crucial point, to solve \eqref{fpt_eq1} we need only find a fixed point of
+the mapping~$T$.  If $T$ is contractive, then the preceding theorem guarantees that $T$ has a
+unique fixed point and therefore that the system of equations \eqref{fpt_eq1} has a unique
+solution.
+
+Unfortunately, as things stand, $T$ is \emph{not} contractive with respect to the product metric on
+$\R^2$.  (It is for convenience that we use the product metric $d_1$ on $\R^2$ rather than the
+usual Euclidean metric.  Square roots are a nuisance.)  To see that $T$ is not contractive notice
+that $d_1\bigl((1,0),(0,0)\bigr) = 1$ whereas $d_1\bigl(T(1,0),T(0,0)\bigr) =
+d_1\bigl((-1,8),(7,11)\bigr) = 11$.  All is not lost however.  One simple-minded remedy is to
+divide everything in \eqref{fpt_eq1} by a large constant~$c$.  A little experimentation shows that
+$c = 10$ works.  Instead of working with the system \eqref{fpt_eq1} of equations, consider the
+system
+  \begin{equation}\label{fpt_eq4}
+           \left\{     \begin{aligned}    0.9 x - 0.2 y = 0.7 \\
+                                          0.3 x + 0.8 y = 1.1
+                       \end{aligned}
+           \right.
+  \end{equation}
+which obviously has the same solutions as~\eqref{fpt_eq1}. Redefine $S$ and $T$ in the obvious
+fashion. Let
+  \[ S \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (0.9x - 0.2y, 0.3x + 0.8y) \]
+and
+  \[ T \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x,y) - S(x,y) + (0.7,1.1)\,. \]
+Thus redefined, $T$ is contractive with respect to the product metric.  \emph{Proof:} Since
+  \begin{equation}\label{fpt_eq5}
+         T(x,y) = (0.1 x + 0.2 y + 0.7, -0.3 x + 0.2 y + 1.1)
+  \end{equation}
+for all $(x,y) \in \R^2$, we see that
+  \begin{align}
+    d_1\bigl(T(x,y),T(u,v)\bigr)
+        &= 10^{-1}\bigl(\abs{(x+2y)-(u+2v)} + \abs{(-3x+2y)-(-3u+2v)}\bigr) \notag \\
+        &\le 10^{-1}\bigl(\abs{x-u} + 2\abs{y-v} + 3\abs{x-u} + 2\abs{y-v}\bigr) \notag \\
+        &= 0.4\,(\abs{x-u} + \abs{y-v}) \notag \\
+        &= 0.4\,d_1\bigl((x,y),(u,v)\bigr) \label{fpt_eq6}
+  \end{align}
+for all points $(x,y)$ and $(u,v)$ in~$\R^2$.
+
+Now since $T$ is contractive and $\R^2$ is complete (with respect to the product metric---see
+\ref{prod_compl}), the \emph{contractive mapping theorem} (\ref{cmthm}) tells us that $T$ has a
+unique fixed point.  But a fixed point of $T$ is a solution for the system \eqref{fpt_eq4} and
+consequently for~\eqref{fpt_eq1}.
+
+The construction used in the proof of \ref{cmthm} allows us to approximate the fixed point of $T$
+to any desired degree of accuracy.  As in that proof choose $x_0$ to be any point whatever in
+$\R^2$.  Then the points $x_0,x_1,x_2,\dots$ (where $x_n = T\bigl(x_{n-1}\bigr)$ for each $n$)
+converge to the fixed point of~$T$.  This is a technique of
+ \index{successive approximation}%
+\df{successive approximation}.
+
+For the present example let $x_0 = (0,0)$.  (The origin is chosen just for convenience.)  Now use
+\eqref{fpt_eq5} and compute.
+  \begin{align*}
+           x_0 &= (0,0) \\
+           x_1 &= T(0,0) = (0.7,1.1) \\
+           x_2 &= T(x_1) = (1.021, 1.025) \\
+           x_3 &= T(x_2) = (1.0071, 0.9987) \\
+        \vdots &{}
+  \end{align*}
+
+It is reasonable to conjecture that the system \eqref{fpt_eq1} has a solution consisting of
+rational numbers and then to guess that the points $x_0,x_1,x_2,\dots$ as computed above are
+converging to the point $(1,1)$ in~$\R^2$.  Putting $x=1$ and $y=1$ in \eqref{fpt_eq5}, we see that
+the point $(1,1)$ is indeed the fixed point of $T$ and therefore the solution to~\eqref{fpt_eq1}.
+\end{exam}
+
+In the preceding example we discovered an exact solution to a system of equations.  In general, of
+course, we cannot hope that a successive approximation technique will yield exact answers.  In
+those cases in which it does not, it is most important to have some idea how accurate our
+approximations are.  After $n$ iterations, how close to the true solution are we?  How many
+iterations must be computed in order to achieve a desired degree of accuracy?  The answer to these
+questions in an easy consequence of the proof of theorem~\ref{cmthm}.
+
+\begin{cor}\label{error1} Let the space $M$, the mapping $f$, the sequence $(x_n)$, the constant $c$,
+and the point $p$ be as in theorem~\ref{cmthm} and its proof.  Then for every $m \ge 0$
+  \[ d(x_m,p) \le d(x_0,x_1)\frac{c^m}{(1 - c)}\,. \]
+\end{cor}
+
+\begin{proof} Inequality \eqref{fpt_eq9} in the proof of \ref{cmthm} says that for $m < n$
+  \[ d(x_m,x_n) \le d(x_0,x_1)c^m (1 - c)^{-1}\,. \]
+Take limits as $n \sto \infty$.
+\end{proof}
+
+\begin{defn} Notation as in the preceding corollary.  If we think of the point $x_n$ as being the
+$n^{\text{th}}$ approximation to~$p$, then the distance $d(x_n,p)$ between $x_n$ and $p$ is the
+ \index{error}%
+\df{error} associated with the $n^{\text{th}}$ approximation.
+\end{defn}
+
+Notice that because the product metric $d_1$ was chosen for $\R^2$ in example~\ref{fpt_exm1}, the
+word ``error'' there means the \emph{sum} of the errors in $x$ and~$y$.  Had we wished for
+``error'' to mean the \emph{maximum} of the errors in $x$ and $y$, we would have used the uniform
+metric $d_u$ on~$\R^2$.  Similarly, if \emph{root-mean-square} ``error'' were desired (that is, the
+square root of the sum of the squares of the errors in $x$ and $y$), then we would have used the
+usual Euclidean metric on~$\R^2$.
+
+\begin{exer}\label{fpt_exr1} Let $(x_n)$ be the sequence of points in $\R^2$ considered in
+example~\ref{fpt_exm1}.  We showed that $(x_n)$ converges to the point $p = (1,1)$.
+ \begin{enumerate}
+  \item[(a)] Use corollary~\ref{error1} to find an upper bound for the error associated with the
+approximation~$x_4$.
+  \item[(b)] What is the actual error associated with $x_4$?
+  \item[(c)] According to \ref{error1} how many terms of the sequence $(x_n)$ should we compute to
+be sure of obtaining an approximation which is correct to within~$10^{-4}$?
+ \end{enumerate}
+(Solution~\ref{sol_fpt_exr1}.)
+\end{exer}
+
+\begin{prob} Show by example that the conclusion of the \emph{contractive mapping theorem} fails if:
+ \begin{enumerate}
+  \item[(a)] the contraction constant is allowed to have the value 1; or
+  \item[(b)] the space is not complete.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Show that the map
+  \[ g \colon [0, \infty) \sto [0, \infty) \colon x \mapsto \frac 1{x+1} \]
+is not a contraction even though
+  \[ d\bigl(g(x),g(y)\bigr) < d(x,y) \]
+for all $x$, $y \ge 0$ with $x \ne y$.
+\end{prob}
+
+\begin{prob} Let $f(x) = (x/2) + (1/x)$ for $x \ge 1$.
+ \begin{enumerate}
+  \item[(a)] Show that $f$ maps the interval $[1,\infty)$ into itself.
+  \item[(b)] Show that f is contractive.
+  \item[(c)] Let $x_0 = 1$ and for $n \ge 0$ let
+   \[ x_{n+1} = \frac{x_n}2 + \frac1{x_n}\,. \]
+Show that the sequence $(x_n)$ converges.
+  \item[(d)] Find $\lim_{n \sto \infty}x_n$.
+  \item[(e)] Show that the distance between $x_n$ and the limit found in (d) is no greater
+than~$2^{-n}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Solve the system of equations
+  \begin{alignat*}{4}
+         9&x  &   -&y  &  + 2&z &&= 37 \\
+          &x  & +10&y  &  - 3&z &&= -69 \\
+        -2&x  &  +3&y  &  +11&z &&= 58
+  \end{alignat*}
+following the procedure of example~\ref{fpt_exm1}.  \emph{Hint.} As in \ref{fpt_exm1} divide by
+$10$ to obtain a contractive mapping. Before guessing at a rational solution, compute $10$ or $11$
+successive approximations.  Since this involves a lot of arithmetic, it will be helpful to have
+some computational assistance---a programmable calculator, for example.
+\end{prob}
+
+\begin{prob} Consider the following system of equations.
+  \begin{alignat*}{4}
+         75&x  & +16&y  &   -20&z &&= 40 \\
+         33&x  & +80&y  &   +30&z &&= -48 \\
+        -27&x  & +32&y  &   +80&z &&= 36
+  \end{alignat*}
+ \begin{enumerate}
+  \item[(a)] Solve the system following the method of example \ref{fpt_exm1}.  \emph{Hint.} Because
+the contraction constant is close to~1, the approximations converge slowly. It may take 20 or 30
+iterations before it is clear what the exact (rational) solutions should be.  So as in the
+preceding example, it will be desirable to use computational assistance.
+  \item[(b)] Let $(x_n)$ be the sequence of approximations in $\R^3$ converging to the solution of
+the system in~(a).  Use corollary \ref{error1} to find an upper bound for the error associated with
+the approximation~$x_{25}$.
+  \item[(c)] To 4 decimal places, what is the actual error associated with~$x_{25}$?
+  \item[(d)] According to \ref{error1}, how many terms must be computed to be sure that the error
+in our approximation is no greater than~$10^{-3}$?
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f:\R^2 \sto \R^2$ be the rotation of the plane about the point $(0,1)$ through an
+angle of $\pi$ radians.  Let $g \colon \R^2 \sto \R^2$ be the map which takes the point $(x,y)$ to
+the midpoint of the line segment connecting $(x,y)$ and~$(1,0)$.
+ \begin{enumerate}
+  \item[(a)] Prove that $g \circ f$ is a contraction on $\R^2$ (with its usual metric).
+  \item[(b)] Find the unique fixed point of $g \circ f$.
+  \item[(c)] Let $(x_0,y_0) = (0,1)$ and define (as in the proof of \ref{cmthm})
+   \[ \bigl(x_{n+1},y_{n+1}\bigr) = (g \circ f)\bigl(x_n,y_n\bigr) \]
+for all $n \ge 0$.  For each $n$ compute the exact Euclidean distance between $(x_n,y_n)$ and the
+fixed point of~$g \circ f$.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+\section{APPLICATION TO INTEGRAL EQUATIONS}
+\begin{exer}\label{fpt_inteq} Use theorem \ref{cmthm} to solve the integral equation
+  \begin{equation}\label{fpt_eq7}
+        f(x) = \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt\,.
+  \end{equation}
+\emph{Hint.} We wish to find a continuous function $f$ which satisfies \eqref{fpt_eq7} for all $x
+\in \R$.  Consider the mapping $T$ which takes each continuous function $f$ into the function $Tf$
+whose value at $x$ is given by
+  \[ Tf(x) = \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt\,. \]
+[It is important to keep in mind that $T$ acts on functions, not on numbers.  Thus $Tf(x)$ is to be
+interpreted as $(T(f))(x)$ and not $T(f(x))$.]  In order to make use of theorem \ref{cmthm}, the
+mapping $T$ must be contractive.  One way to achieve this is to restrict our attention to
+continuous functions on the interval $[0,1]$ and use the uniform metric on $\fml C([0,1],\R)$.
+Once a continuous function $f$ is found such that \eqref{fpt_eq7} is satisfied for all $x$ in
+$[0,1]$, it is a simple matter to check whether \eqref{fpt_eq7} holds for all $x$ in $\R$.
+Consider then the map
+  \[ T \colon \fml C([0,1],\R) \sto \fml C([0,1],\R) \colon f \mapsto Tf \]
+where
+  \[ Tf(x) := \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt \]
+for all $x \in [0,1]$.  The space $\fml C([0,1],\R)$ is complete. (Why?)  Show that $T$ is
+contractive by estimating $\abs{Tf(x) - Tg(x)}$, where $f$ and $g$ are continuous functions on
+$[0,1]$, and taking the supremum over all $x$ in $[0,1]$.  What can be concluded from theorem
+\ref{cmthm} about \eqref{fpt_eq7}?
+
+To actually find a solution to \eqref{fpt_eq7}, use the \emph{proof} of \ref{cmthm} (that
+is, successive approximations). For simplicity start with the zero function in $\fml
+C([0,1],\R)$: let $g_0(x) = 0$ for $0 \le x \le 1$.  For $n \ge 0$ let $g_{n+1}(x) =
+Tg_n(x)$ for $0 \le x \le 1$. Compute $g_1$, $g_2$, $g_3$, and~$g_4$.  You should be able
+to guess what $g_n$ will be. (It is easy to verify the correctness of your guess by
+induction, but it is not necessary to do this.) Next, let $f$ be the function which is
+the uniform limit of the sequence~$(g_n)$.  That is, $f$ is the function whose power
+series expansion has $g_n$ as its $n^{\text{th}}$ partial sum.  This power series
+expansion should be one with which you are familiar from beginning calculus; what
+elementary function does it represent?
+
+Finally, show by direct computation that this elementary function does in fact satisfy
+\eqref{fpt_eq7} for all $x$ in $\R$.   (Solution~\ref{sol_fpt_inteq}.)
+\end{exer}
+
+\begin{prob} Give a careful proof that there exists a unique continuous real valued
+function $f$ on $[0,1]$ which satisfies the integral equation
+  \[ f(x) =  x^2 + \int_0^x t^2 f(t)\,dt\,. \]
+(You are not asked to \emph{find} the solution.)
+\end{prob}
+
+\begin{prob} Use theorem \ref{cmthm} to solve the integral equation
+  \[ f(x) =  x + \int_0^x f(t)\,dt\,. \]
+\emph{Hint.} Follow the procedure of exercise~\ref{fpt_inteq}. Keep in mind that the only
+reason for choosing the particular interval $[0,1]$ in \ref{fpt_inteq} was to make the
+map $T$ contractive.
+\end{prob}
+
+\begin{prob} For every $f$ in $\fml C([0,\pi/4],\R)$  define
+  \[ Tf(x) =  x^2 - 2 - \int_0^x f(t)\,dt \]
+where $0 \le x \le \pi/4$.  Show that $T$ is a contraction. Find the fixed point of~$T$.
+What integral equation have you solved?
+\end{prob}
+
+
+
+
+\endinput

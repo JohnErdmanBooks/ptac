@@ -1,0 +1,211 @@
+\chapter{INTERVALS}\label{intervals}
+
+The three great realms of calculus are differential calculus, integral calculus, and the
+theory of infinite series.  Central to each of these is the notion of \emph{limit}:
+derivatives, integrals, and infinite series can be defined as limits of appropriate objects.
+Before entering these realms, however, one must have some background.  There are the basic
+facts about the algebra, the order properties, and the topology of the real line~$\R$.  One
+must know about functions and the various ways in which they can be combined (addition,
+composition, and so on). And, finally, one needs some basic facts about continuous functions,
+in particular the \emph{intermediate value theorem} and the \emph{extreme value theorem}.
+
+%As was mentioned in the section \emph{How to Use This Book}, much
+Much of this material appears in the appendices.  The remainder (the topology of $\R$,
+continuity, and the \emph{intermediate} and \emph{extreme value theorems}) occupies the first
+six chapters. After these have been completed we proceed with limits and the differential
+calculus of functions of a single variable.
+
+As you will recall from beginning calculus we are accustomed to calling certain intervals
+``open'' (for example, $(0,1)$ and $(-\infty, 3)$ are open intervals) and other intervals
+``closed'' (for example, $[0,1]$ and $[1,\infty)$ are closed intervals).  In this chapter and
+the next we investigate the meaning of the terms ``open'' and ``closed''.  These concepts turn
+out to be rather more important than one might at first expect.  It will become clear after
+our discussion in subsequent chapters of such matters as continuity, connectedness, and
+compactness just how important they really are.
+
+\section{DISTANCE AND NEIGHBORHOODS}
+\begin{defn} If $x$ and $a$ are real numbers, the
+ \index{distance!between real numbers}%
+\df{distance between} $x$ and $a$, which we denote by $d(x,a)$, is defined to be $\abs{x-a}$.
+\end{defn}
+
+\begin{exam} There are exactly two real numbers whose distance from the number $3$ is~$7$.
+\end{exam}
+
+\begin{proof} We are looking for all numbers $x \in \R$ such that $d(x,3)=7$. In other words
+we want solutions to the equation $\abs{x-3}=7$.  There are two such solutions.  If $x-3 \ge
+0$, then $\abs{x-3} = x-3$; so $x=10$ satisfies the equation.  On the other hand, if $x-3 <
+0$, then $\abs{x-3} = -(x-3) = 3-x$, in which case $x=-4$ is a solution.
+\end{proof}
+
+
+\begin{exer}\label{1exer1} Find the set of all points on the real line which are within $5$
+units of the number~$-2$. (Solution~\ref{sol_1exer1}.)
+\end{exer}
+
+\begin{prob} Find the set of all real numbers whose distance from $4$ is greater than~$15$.
+\end{prob}
+
+\begin{defn} Let $a$ be a point in $\R$ and $\epsilon > 0$.  The open interval
+$(a - \epsilon, a + \epsilon)$ centered at $a$ is called the
+ \index{epsilon@$\epsilon$-neighborhood}%
+ \index{neighborhood!of a point}%
+\df{$\epsilon$-neighborhood} of $a$ and is denoted
+ \index{<@$J_\epsilon(a)$ ($\epsilon$-neighborhood about~$a$)}%
+ \index{j@$J_\epsilon(a)$ ($\epsilon$-neighborhood about~$a$)}%
+by~$J_\epsilon(a)$.  Notice that this neighborhood consists of all
+numbers $x$ whose distance from $a$ is less than $\epsilon$; that
+is, such that $\abs{x-a}<\epsilon$.
+\end{defn}
+
+\begin{exam} The $\frac12$\,-\,neighborhood of $3$ is the open interval
+$\bigl(\frac52,\frac72\bigr)$.
+\end{exam}
+
+\begin{proof} We have $d(x,3) < \frac12$ only if $\abs{x-3} < \frac12$.  Solve this
+inequality to obtain $J_\frac12(3) = \bigl(\frac52,\frac72\bigr)$.
+\end{proof}
+
+\begin{exam} The open interval $(1,4)$ is an $\epsilon$-neighborhood of an appropriate point.
+\end{exam}
+
+\begin{proof} The midpoint of $(1,4)$ is the point $\frac52$.  The distance from this point to
+either end of the interval is $\frac32$. Thus $(1,4) = J_\frac32\bigl(\frac52\bigr)$.
+\end{proof}
+
+\begin{prob} Find, if possible, a number $\epsilon$ such that the $\epsilon$-neigh\-bor\-hood
+of $\frac13$ contains both $\frac14$ and $\frac12$ but does not contain $\frac{17}{30}$.
+If such a neighborhood does not exist, explain why.
+\end{prob}
+
+\begin{prob} Find, if possible, a number $\epsilon$ such that the $\epsilon$-neigh\-bor\-hood
+of $\frac13$ contains $\frac{11}{12}$ but does not contain either $\frac12$ or $\frac58$.  If
+such a neighborhood does not exist, explain why.
+\end{prob}
+
+\begin{prob} Let $U = \bigl(\frac14, \frac23\bigr)$ and $V = \bigl(\frac12,\frac65\bigr)$.
+Write $U$ and $V$ as $\epsilon$-neighborhoods of appropriate points. (That is, find
+numbers $a$ and $\epsilon$ such that $U = J_\epsilon(a)$ and find numbers $b$ and
+$\delta$ such that $V = J_\delta(b)$.\,)  Also write the sets $U \cup V$ and $U \cap V$
+as $\epsilon$-neighborhoods of appropriate points.
+\end{prob}
+
+\begin{prob} Generalize your solution to the preceding problem to show that the union and the
+intersection of any two $\epsilon$-neighborhoods which overlap is itself an
+$\epsilon$-neighborhood of some point.  \emph{Hint.} Since $\epsilon$-neighborhoods are open
+intervals of finite length, we can write the given neighborhoods as $(a,b)$ and $(c,d)$.
+There are really just two distinct cases.  One neighborhood may contain the other; say, $a \le
+c < d \le b$.  Or each may have points that are not in the other; say $a < c < b < d$.  Deal
+with the two cases separately.
+\end{prob}
+
+\begin{prop}\label{d_less_e} If $a \in \R$ and $0 < \delta \le \epsilon$, then $J_\delta(a)
+\subseteq J_\epsilon(a)$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_d_less_e}.)
+ \ns \end{proof}
+
+
+
+
+
+
+
+
+
+
+\section{INTERIOR OF A SET}
+\begin{defn} Let $A \subseteq \R$. A point $a$ is an
+ \index{interior!point}%
+\df{interior point} of $A$ if some $\epsilon$-neighborhood of $a$ lies entirely in~$A$.  That
+is, $a$ is an interior point of $A$ if and only if there exists $\epsilon > 0$ such that
+$J_\epsilon(a) \subseteq A$. The set of all interior points of $A$ is denoted by $A^\circ$ and
+is called the
+ \index{<@$A^\circ$ (interior of~$A$)}%
+ \index{interior}%
+\df{interior} of~$A$.
+\end{defn}
+
+\begin{exam} Every point of the interval $(0,1)$ is an interior point of that interval.  Thus
+$(0,1)^\circ = (0,1)$.
+\end{exam}
+
+\begin{proof} Let $a$ be an arbitrary point in $(0,1)$.  Choose $\epsilon$ to be the smaller of
+the two (positive) numbers $a$ and $1-a$.  Then $J_\epsilon(a) = (a - \epsilon, a + \epsilon)
+\subseteq (0,1)$ (because $\epsilon \le a$ implies $a-\epsilon \ge 0$, and $\epsilon \le 1-a$
+implies $a+\epsilon \le 1$).
+\end{proof}
+
+\begin{exam}\label{interior_open_int} If $a < b$, then every point of the interval $(a,b)$ is an
+interior point of the interval.  Thus $(a,b)^\circ = (a,b)$.
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{exam} The point $0$ is not an interior point of the interval~$[0,1)$.
+\end{exam}
+
+\begin{proof} Argue by contradiction.  Suppose $0$ belongs to the interior of~$[0,1)$.  Then for
+some $\epsilon > 0$ the interval $(-\epsilon,\epsilon) = J_\epsilon(0)$ is contained in
+$[0,1)$. But this is impossible since the number $-\frac12\epsilon$ belongs to
+$(-\epsilon,\epsilon)$ but not to $[0,1)$.
+\end{proof}
+
+\begin{exam} Let $A = [a,b]$ where $a < b$.  Then $A^\circ = (a,b)$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam}\label{1exer3} Let $A = \{x \in \R\colon x^2-x-6 \ge 0\}$.  Then $A^\circ \ne A$.
+\end{exam}
+
+\begin{proof} Exercise. (Solution~\ref{sol_1exer3}.)
+  \ns \end{proof}
+
+\begin{prob} Let $A = \{x \in \R\colon x^3 - 2x^2 - 11x + 12 \le 0\}$.  Find $A^\circ$.
+\end{prob}
+
+\begin{exam} The interior of the set $\Q$ of rational numbers is empty.
+\end{exam}
+
+\begin{proof} No open interval contains only rational numbers.
+\end{proof}
+
+\begin{prop}\label{intr_subsets} If $A$ and $B$ are sets of real numbers with $A \subseteq B$,
+then $\intr A \subseteq \intr B$.
+\end{prop}
+
+\begin{proof} Let $a \in \intr A$.  Then there is an $\epsilon > 0$ such that $J_\epsilon(a)
+\subseteq A \subseteq B$.  This shows that $a \in \intr B$.
+\end{proof}
+
+\begin{prop} If $A$ is a set of real numbers, then $A^{\circ\circ} = \intr A$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{intr_intersection} If $A$ and $B$ are sets of real numbers, then
+  \[\intr{(A \cap B)} = \intr A \cap \intr B.\]
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Show separately that $\intr{(A \cap B)} \subseteq
+\intr A \cap \intr B$ and that $\intr A \cap \intr B \subseteq \intr{(A \cap B)}$.
+(Solution~\ref{sol_intr_intersection}.) \ns
+\end{proof}
+
+\begin{prop}\label{intr_union} If $A$ and $B$ are sets of real numbers, then
+   \[ \intr{(A \cup B)} \supseteq \intr A \cup \intr B\,. \]
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_intr_union}.) \ns \end{proof}
+
+\begin{exam} Equality may fail in the preceding proposition.
+\end{exam}
+
+\begin{proof} Problem.  \emph{Hint.}  See if you can find sets $A$ and $B$ in $\R$ both of
+which have empty interior but whose union is all of~$\R$.  \ns
+\end{proof}
+
+
+\endinput

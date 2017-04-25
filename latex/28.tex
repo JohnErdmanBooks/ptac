@@ -1,0 +1,1070 @@
+\chapter{INFINITE SERIES}\label{inf_ser}
+
+It is perhaps tempting to think of an infinite series
+  \[ \sum_{k=1}^\infty a_k = a_1 + a_2 + a_3 + \dots \]
+as being nothing but ``addition performed infinitely often''.  This view of series is
+misleading, can lead to curious errors, and should not be taken seriously.  Consider the
+infinite series
+  \begin{equation}\label{nonsense_ser}
+      1 - 1 + 1 - 1 + 1 - 1 + ...   .
+  \end{equation}
+If we think of the ``+'' and ``-'' signs as functioning in essentially the same manner as the
+symbols we encounter in ordinary arithmetic, we might be led to the following ``discovery''.
+  \begin{align}\label{nonsense_ser2}
+           0 &=  (1 - 1) + (1 - 1) + (1 - 1) + \dots \\
+             &= 1 - 1 + 1 - 1 + 1 - 1 + \dots \\
+             &= 1 - (1 - 1) - (1 - 1) - \dots \\
+             &= 1 - 0 - 0 - \dots \\
+             &=1\,.
+  \end{align}
+One can be more inventive: If $S$ is the sum of the series~\eqref{nonsense_ser}, then
+  \[ 1 - S = 1 - (1 - 1 + 1 - 1 + \dots) = 1 - 1 + 1 - 1 + 1 - 1 + \dots = S \]
+from which it follows that $S = \frac12$.  This last result, incidentally, was believed (for
+quite different reasons) by both Leibniz and Euler.  See~\cite{Moore:1932}. The point here is
+that if an intuitive notion of infinite sums and plausible arguments lead us to conclude that
+$1 = 0 = \frac12$, then it is surely crucial for us to exercise great care in defining and
+working with convergence of infinite series.
+
+In the first section of this chapter we discuss convergence of series in arbitrary normed
+linear spaces.  One reason for giving the definitions in this generality is that doing so is
+no more complicated than discussing convergence of series in $\R$.  A second reason is that it
+displays with much greater clarity the role of completeness of the underlying space in
+questions of convergence.  (See, in particular, propositions \ref{prop_Cauchy_crit} and
+~\ref{prop_compl_abssum}.)  A final reason is that this generality is actually needed.  We use
+it, for example, in the proofs of the \emph{inverse and implicit function theorems} in the
+next chapter.
+
+
+
+
+
+
+\section{CONVERGENCE OF SERIES}
+\begin{defn}  Let $(a_k)$ be a sequence in a normed linear space. For each $n$ in $\N$ let
+$s_n = \sum_{k=1}^n a_k$.  The vector $s_n$ is the
+ \index{partial!sum}%
+ \index{sum!partial}%
+\df{$n^{\text{th}}$ partial sum} of the sequence~$(a_k)$.  As is true of sequences, we permit
+variations of this definition.  For example, in section~\ref{pow_ser} on power series we
+consider sequences $\bigl(a_k\bigr)_{k=0}^n$ whose first term has index zero.  In this case,
+of course, the proper definition of $s_n$ is $\sum_{k=0}^n a_k$.
+\end{defn}
+
+\begin{exer}\label{exer_par_sum1}  Let $a_k = (-1)^{k+1}$ for each $k$ in $\N$.  For $n \in \N$
+compute the $n^{\text{th}}$ partial sum of the sequence~$(a_k)$.
+(Solution~\ref{sol_exer_par_sum1}.)
+\end{exer}
+
+\begin{exer}\label{exer_par_sum2}  Let $a_k = 2^{-k}$ for each $k$ in $\N$.  For $n \in \N$ show
+that the $n^{\text{th}}$ partial sum of the sequence $(a_k)$ is $1 - 2^{-n}$.
+(Solution~\ref{sol_exer_par_sum2}.)
+\end{exer}
+
+\begin{defn}  Let $(a_k)$ be a sequence in a normed linear space.  The
+ \index{infinite!series}%
+ \index{series!infinite}%
+ \index{<@$\sum_{k=1}^\infty a_k$ (infinite series)}%
+\df{infinite series} $\sum_{k=1}^\infty a_k$ is defined to be the sequence $(s_n)$ of partial
+sums of the sequence $(a_k)$.  We may also write $a_1 + a_2 + a_3 + \dots$ for
+$\sum_{k=1}^\infty a_k$. Again we permit variants of this definition.  For example, the
+infinite series associated with the sequence $\bigl(a_k\bigr)_{k=0}^\infty$ is denoted by
+$\sum_{k=0}^\infty a_k$.   Whenever the range of the summation index $k$ is understood from
+context or is unimportant we may denote a series simply by $\sum a_k$.
+\end{defn}
+
+\begin{exer}\label{exer_inf_ser1}  What are the infinite series associated with the sequences
+given in exercises \ref{exer_par_sum1} and~\ref{exer_par_sum2}?
+(Solution~\ref{sol_exer_inf_ser1}.)
+\end{exer}
+
+\begin{defn}  Let $(a_k)$ be a sequence in a normed linear space~$V$.  If the infinite series
+$\sum_{k=1}^\infty a_k$ (that is, the sequence of partial sums of $(a_k)$) converges to a
+vector $b$ in $V$, then we say that the sequence $(a_k)$ is
+ \index{summable!sequence}%
+ \index{sequence!summable}%
+\df{summable} or, equivalently, that the series $\sum_{k=1}^\infty a_k$ is a
+ \index{convergence!of a series}%
+ \index{series!convergent}%
+\df{convergent series}.  The vector $b$ is called the
+ \index{sum!of an infinite series}%
+ \index{series!sum of a}%
+\df{sum} of the series $\sum_{k=1}^\infty a_k$ and we write
+  \[ \sum_{k=1}^\infty a_k = b\,. \]
+It is clear that a necessary and sufficient condition for a series $\sum_{k=1}^\infty a_k$ to
+be convergent or, equivalently, for the sequence $(a_k)$ to be summable, is that there exist a
+vector $b$ in $V$ such that
+  \begin{equation}\label{cond_ser_conv}
+     \bignorm{b - \sum_{k=1}^n a_k} \sto 0 \qquad \text{as} \qquad n \sto \infty.
+  \end{equation}
+If a series does not converge we say that it is a
+ \index{divergence!of a series}%
+ \index{series!divergent}%
+\df{divergent series} (or that it \df{diverges}).
+\end{defn}
+
+\begin{cau}  It is an old, if illogical, practice to use the same notation $\sum_{k=1}^\infty a_k$
+for both the sum of a convergent series and the series itself.  As a result of this
+convention, the statements ``$\sum_{k=1}^\infty a_k$ converges to $b$'' and
+``$\sum_{k=1}^\infty a_k = b$'' are interchangeable.  It is possible for this to cause
+confusion, although in practice it is usually clear from the context which use of the symbol
+$\sum_{k=1}^\infty a_k$ is intended.  Notice however that since a divergent series has no sum,
+the symbol $\sum_{k=1}^\infty a_k$ for such a series is unambiguous; it can refer only to the
+series itself.
+\end{cau}
+
+\begin{exer}\label{exer_inf_ser2}  Are the sequences $(a_k)$ given in exercises
+\ref{exer_par_sum1} and~\ref{exer_par_sum2} summable? If $(a_k)$ is summable, what is the sum
+of the corresponding series $\sum_{k=1}^\infty a_k$?  (Solution~\ref{sol_exer_inf_ser2}.)
+\end{exer}
+
+\begin{prob}[Geometric Series]\label{prob_geomser2}
+ \index{geometric!series}%
+ \index{series!geometric}%
+Let $a$ and $r$ be real numbers.
+ \begin{enumerate}
+  \item[(a)] Show that if $\abs r < 1$, then $\sum_{k=0}^\infty ar^k$ converges and
+    \[ \sum_{k=0}^\infty ar^k = \frac a{1-r}\,. \]
+\emph{Hint.}  To compute the $n^{\text{th}}$ partial sum $s_n$, use a technique similar
+to the one used in exercise~\ref{exer_par_sum2}. See also problem~\ref{prob_geomser1}.
+  \item[(b)] Show that if $\abs r \ge 1$ and $a \ne 0$, then $\sum_{k=0}^\infty ar^k$
+diverges. \emph{Hint.} Look at the cases $r \ge 1$ and $r \le -1$ separately.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $\sum a_k$ and $\sum b_k$ be convergent series in a normed linear space.
+ \begin{enumerate}
+  \item[(a)] Show that the series $\sum(a_k + b_k)$ also converges and that
+    \[ \sum(a_k + b_k) = \sum a_k + \sum b_k\,. \]
+\emph{Hint.} Problem~\ref{prob_clo_subsp}(a).
+  \item[(b)] Show that for every $\alpha \in \R$ the series $\sum (\alpha a_k)$ converges
+and that
+    \[ \sum (\alpha a_k) = \alpha \sum a_k\,. \]
+ \end{enumerate}
+\end{prob}
+
+One very easy way of seeing that certain series do not converge is to observe that its terms
+do not approach~$0$.  (The proof is given in the next proposition.)  It is important not to
+confuse this assertion with its converse.  \emph{The condition $a_k \sto 0$ does not guarantee
+that $\sum_{k=1}^\infty a_k$ converges.}  (An example is given in example~\ref{exam_harm_ser}.
+
+\begin{prop}\label{prop_terms_zero}  If $\sum_{k=1}^\infty a_k$ is a convergent series in a
+normed linear space, then $a_k \sto 0$ as $k \sto \infty$.
+\end{prop}
+
+\begin{proof}  Exercise. \emph{Hint.}  Write $a_n$ in terms of the partial sums $s_n$ and
+$s_{n-1}$.   (Solution~\ref{sol_prop_terms_zero}.) \ns
+\end{proof}
+
+\begin{exam}\label{exam_harm_ser}  It is possible for a series to diverge even though the
+terms $a_k$ approach~$0$.  A standard example of this situation in $\R$ is the harmonic series
+$\sum_{k=1}^\infty 1/k$.  The harmonic series diverges.
+\end{exam}
+
+\begin{proof}  Exercise. \emph{Hint.}  Show that the difference of the partial sums $s_{2p}$
+and $s_p$ is at least~$1/2$.  Assume that $(s_n)$ converges. Use proposition~\ref{conv_cau}.
+ (Solution~\ref{sol_exam_harm_ser}.)  \ns
+\end{proof}
+
+\begin{prob} Show that if $0 < p \le 1$, then the series $\sum_{k=1}^\infty k^{-p}$ diverges.
+\emph{Hint.}  Modify the argument used in~\ref{exam_harm_ser}.
+\end{prob}
+
+\begin{prob}  Show that the series $\sum_{k=1}^\infty \frac1{k^2+k}$ converges and find its sum.
+\emph{Hint.} $\frac1{k^2 + k} = \frac1k - \frac1{k + 1}$.
+\end{prob}
+
+\begin{prob} Use the preceding problem to show that the series $\sum_{k=1}^\infty \frac1{k^2}$
+converges and that its sum is no greater than $2$.
+\end{prob}
+
+\begin{prob} Show that the series $\sum_{k=4}^\infty\frac1{k^2-1}$ converges and find its sum.
+\end{prob}
+
+\begin{prob} Let $p \in \N$.  Find the sum of the series $\sum_{k=1}^\infty\frac{(k-1)!}{(k+p)!}$.
+\emph{Hint.}  If $a_k = \frac{k!}{(k+p)!}$, what can you say about $\sum_{k=1}^n(a_{k-1} -
+a_k)$?
+\end{prob}
+
+In \emph{complete} normed linear spaces the elementary fact that a sequence is Cauchy if and
+only if it converges may be rephrased to give a simple necessary and sufficient condition for
+the convergence of series in the space.
+
+\begin{prop}[The Cauchy Criterion]\label{prop_Cauchy_crit}
+ \index{Cauchy!criterion}%
+ \index{criterion!Cauchy}%
+Let $V$ be a normed linear space.  If the series $\sum a_k$ converges in $V$, then for every
+$\epsilon > 0$ there exists $n_0 \in \N$ such that $\bignorm{\sum_{k=m+1}^n a_k} < \epsilon$
+whenever $n > m \ge n_0$.  If $V$ is a Banach space, then the converse of this implication
+also holds.
+\end{prop}
+
+\begin{proof} Exercise   (Solution~\ref{sol_prop_Cauchy_crit}.)  \ns  \end{proof}
+
+The principal use of the preceding proposition is to shorten proofs.  By invoking the
+\emph{Cauchy criterion} one frequently can avoid explicit reference to the partial sums of the
+series involved. See, for example, proposition~\ref{prop_abssum_x_bdd}.
+
+One obvious consequence of the \emph{Cauchy criterion} is that the convergence of an infinite
+series is unaffected by changing any finite number of its terms.  If $a_n = b_n$ for all $n$
+greater than some fixed integer $n_0$, then the series $\sum a_n$ converges if and only if the
+series $\sum b_n$ does.
+
+The examples of infinite series we have looked at thus far are all series of real numbers.  We
+now turn to series in the Banach space $\fml B(S,E)$ of bounded $E$ valued functions on a set
+$S$ (where $E$ is a Banach space).  Most of the examples we consider will be real valued
+functions on subsets of the real line.
+
+First a word of caution: the notations $\sum_{k=1}^\infty f_k$ and $\sum_{k=1}^\infty f_k(x)$
+can, depending on context, mean many different things.  There are many ways in which sequences
+(and therefore series) of functions can converge.  There are, among a host of others, uniform
+convergence, pointwise convergence, convergence in mean, and convergence in measure.  Only the
+first two of these appear in this text.  Since we regard $\fml B(S,E)$ as a Banach space under
+the uniform norm $\norm{\hphantom{A}}_u$, it is not, strictly speaking, necessary for us to
+write ``$f_n \sto g \text{\,(unif)}$'' when we wish to indicate that the sequence $(f_n)$
+converges to $g$ in the space $\fml B(S,E)$; writing ``$f_n \sto g$'' is enough, because
+unless the contrary is explicitly stated uniform convergence is understood.  Nevertheless, in
+the sequel we will frequently add the redundant ``(unif)'' just as a reminder that in the
+space $\fml B(S,E)$ we are dealing with uniform, and not some other type of, convergence of
+sequences and series.
+
+
+It is important to keep in mind that in the space $\fml B(S,E)$ the following assertions are
+equivalent:
+ \begin{enumerate}
+   \item[(a)] $\sum_{k=1}^\infty f_k$ converges uniformly to $g$;
+   \item[(b)] $g = \sum_{k=1}^\infty f_k$; and
+   \item[(c)] $\norm{g - \sum_{k=1}^n f_k}_u \sto 0$ as $n \sto
+\infty$.
+ \end{enumerate}
+Since uniform convergence implies pointwise convergence, but not conversely, each of the
+preceding three conditions implies---\emph{but is not implied by}---the following three (which
+are also equivalent):
+ \begin{enumerate}
+   \item[(a${}'$)] $\sum_{k=1}^\infty f_k(x)$ converges to $g(x)$ for every $x$ in~$S$;
+   \item[(b${}'$)] $g(x) = \sum_{k=1}^\infty f_k(x)$ for every $x$ in~$S$; and
+   \item[(c${}'$)] For every $x$ in $S$
+       \[ \bignorm{g(x) - \sum_{k=1}^n f_k(x)} \sto 0 \quad \text{ as } \quad  n \sto \infty\,. \]
+ \end{enumerate}
+
+
+One easy consequence of the \emph{Cauchy criterion} (proposition~\ref{prop_Cauchy_crit}) is
+called the \emph{Weierstrass M-test}.  The rather silly name which is attached to this result
+derives from the fact that in the statement of the proposition, the constants which appear are
+usually named~$M_n$.
+
+
+\begin{prop}[Weierstrass M-test]\label{M_test}
+ \index{Weierstrass M-test}%
+ \index{M-test}%
+Let $(f_n)$ be a sequence of functions in $\fml B(S,E)$ where $S$ is a nonempty set and $E$ is
+a Banach space.  If there is a summable sequence of positive constants $M_n$ such that
+$\bignorm{f_n}_u \le M_n$ for every $n$ in $\N$, then the series $\sum f_k$ converges
+uniformly on~$S$.  Furthermore, if the underlying set $S$ is a metric space and each $f_n$ is
+continuous, then $\sum f_k$ is continuous.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exer}\label{exer_M_test}  Let $0 < \delta < 1$.  Show that the series
+$\sum_{k=1}^\infty \frac{x^k}{1+x^k}$ converges uniformly on the interval $[-\delta,\delta]$.
+\emph{Hint.}  Use problem~\ref{prob_geomser2}.  (Solution~\ref{sol_exer_M_test}.)
+\end{exer}
+
+\begin{prob} Show that $\sum_{n=1}^\infty\frac1{1 + n^2x}$ converges uniformly on
+$[\delta,\infty)$ for any $\delta$ such that $0 < \delta < 1$.
+\end{prob}
+
+\begin{prob} Let $M > 0$.  Show that $\sum_{n=1}^\infty\frac{n^2x^3}{n^4+x^4}$ converges
+uniformly on~$[-M,M]$.
+\end{prob}
+
+\begin{prob} Show that $\sum_{n=1}^\infty\frac{nx}{n^4 + x^4}$ converges uniformly on~$\R$.
+\end{prob}
+
+We conclude this section with a generalization of the alternating series test, familiar from
+beginning calculus.  Recall that an
+ \index{alternating series}%
+ \index{series!alternating}%
+\df{alternating series} in $\R$ is a series of the form $\sum_{k=1}^\infty (-1)^{k+1}
+\alpha_k$ where each $\alpha_k > 0$. The generalization here will not require that the
+multipliers of the $\alpha_k$'s be $+1$ and $-1$ in strict alternation.  Indeed they need not
+even be real numbers; they may be the terms of any sequence of vectors in a Banach space for
+which the corresponding sequence of partial sums is bounded.  You are asked in
+problem~\ref{prob_ast} to show that the \emph{alternating series test} actually follows from
+the next proposition.
+
+
+ \index{alternating series test!generalized}%
+\begin{prop}\label{prop_genl_ast} Let $(\alpha_k)$ be a decreasing sequence of real numbers,
+each greater than or equal to zero, which converges to zero.  Let $(x_k)$ be a sequence of
+vectors in a Banach space for which there exists $M>O$ such that $\bignorm{\sum_{k=1}^n x_k}
+\le M$ for all $n$ in $\N$.  Then $\sum_{k=1}^\infty \alpha_k x_k$ converges and
+$\bignorm{\sum_{k=1}^\infty \alpha_k x_k} \le M\alpha_1$.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  This is a bit complicated.  Start by proving the
+following very simple geometrical fact about a normed linear space $V$: if $[x,y]$ is a closed
+segment in $V$, then one of its endpoints is at least as far from the origin as every other
+point in the segment.  Use this to derive the fact that if $x$ and $y$ are vectors in $V$ and
+$0 \le t \le 1$, then
+  \[ \norm{x + ty} \le \max\{\norm x,\norm{x + y}\,. \]
+Next prove the following result.
+
+\begin{lem}  Let $(\alpha_k)$ be a decreasing sequence of real numbers with $\alpha_k \ge 0$
+for every $k$, let $M > 0$, and let $V$ be a normed linear space.  If $x_1,\dots,x_n \in
+V$ satisfy
+  \begin{equation}\label{eqn_ast}
+                  \bignorm{\sum_{k=1}^m x_k} \le M
+  \end{equation}
+for all $m \le n$, then
+  \[ \bignorm{\sum_{k=1}^n \alpha_k x_k} \le M\alpha_1\,. \]
+\end{lem}
+
+To prove this result use mathematical induction.  Supposing the lemma to be true for $n = p$,
+let $y_1,\dots,y_{p+1}$ be vectors in $V$ such that $\bignorm{\sum_{k=1}^m y_k} \le M$ for all
+$m \le p+1$.  Let $x_k = y_k$ for $k = 1,\dots,p-1$ and let $x_p = y_p +
+(\alpha_{p+1}/\alpha_p)y_{p+1}$.  Show that the vectors $x_1,\dots,x_p$
+satisfy~\eqref{eqn_ast} for all $m \le p$ and invoke the inductive hypothesis.
+
+Once the lemma is in hand, apply it to the sequence $\bigl(x_k\bigr)_{k=1}^\infty$ to obtain
+$\bignorm{\sum_{k=1}^n \alpha_k x_k} \le M\alpha_1$ for all $n \in \N$, and apply it to the
+sequence $\bigl(x_k\bigr)_{k=m+1}^\infty$ to obtain $\bignorm{\sum_{k = m+1}^n\alpha_kx_k} \le
+2M\alpha_{m+1}$ for $0 < m < n$.  Use this last result to prove that the sequence of partial
+sums of the series $\sum\alpha_k x_k$ is Cauchy. \ns
+\end{proof}
+
+ \index{alternating series test}%
+\begin{prob}\label{prob_ast} Use proposition~\ref{prop_genl_ast} to derive the \emph{alternating
+series test}: If $(\alpha_k)$ is a decreasing sequence of real numbers with $\alpha_k \ge 0$
+for all $k$ and if $\alpha_k \sto 0$ as $k \sto \infty$, then the alternating series
+$\sum_{k=1}^\infty (-1)^{k+1}\alpha_k$ converges. Furthermore, the absolute value of the
+difference between the sum of the series and its $n^{\text{th}}$ partial sum is no greater
+than $\alpha_{n+1}$.
+\end{prob}
+
+\begin{prob} Show that the series $\sum_{k=1}^\infty k^{-1}\sin(k\pi/4)$ converges.
+\end{prob}
+
+An important and interesting result in analysis is the \emph{Tietze extension theorem}.  For
+compact metric spaces it says that any continuous real valued function defined on a closed
+subset of the space can be extended to a continuous function on the whole space and that this
+process can be carried out in such a way that the (uniform) norm of the extension does not
+exceed the norm of the original function.  One proof of this uses both the M-\emph{test} and
+the \emph{approximation theorem} of Weierstrass.
+
+\begin{thm}[Tietze Extension Theorem]\label{Tet}
+ \index{Tietze extension theorem}%
+ \index{extension!from closed sets}%
+Let $M$ be a compact metric space, $A$ be a closed subset of $M$, and $g\colon A \sto \R$ be
+continuous.  Then there exists a continuous function $w\colon M \sto \R$ such that $w\big|_A =
+g$ and $\norm w_u = \norm g_u$.
+\end{thm}
+
+\begin{proof} Problem.   \emph{Hint.}  First of all demonstrate that a continuous function can
+be truncated without disturbing its continuity.  (Precisely: if $f \colon M \sto \R$ is a
+continuous function on a metric space, if $A \subseteq M$, and if $f^{\sto}(A) \subseteq
+[a,b]$, then there exists a continuous function $g \colon M \sto \R$ which agrees with $f$ on
+$A$ and whose range is contained in $[a,b]$.) Let $\fml F = \{u\big|_A \colon  u \in \fml
+C(M,\R)\}$. Notice that the preceding comment reduces the proof of~\ref{Tet} to showing that
+$\fml F = \fml C(A,\R)$.  Use the \emph{Stone-Weierstrass theorem}~\ref{SW_thm} to prove that
+$\fml F$ is dense in $\fml C(A,\R)$.  Next find a sequence $(f_n)$ of functions in $\fml F$
+such that
+  \[ \bignorm{g - \sum_{k=1}^n f_k}_u < \frac1{2^n} \]
+for every $n$.  Then for each $k$ find a function $u_k$ in $\fml C(M,\R)$ whose restriction to
+$A$ is $f_k$.  Truncate each $u_k$ (as above) to form a new function $v_k$ which agrees with
+$u_k$ (and therefore $f_k$) on $A$ and which satisfies $\norm{v_k}_u = \norm{f_k}_u$.  Use the
+\emph{Weierstrass M-test}~\ref{M_test} to show that $\sum_1^{\infty}v_k$ converges uniformly
+on $M$. Show that $w = \sum_1^{\infty}v_k$ is the desired extension.   \ns
+\end{proof}
+
+Recall that in problem~\ref{prob_c_functor} we showed that if $\phi\colon M \sto N$ is a
+continuous map between compact metric spaces, then the induced map $T_{\phi}\colon \fml
+C(N,\R) \sto \fml C(M,\R)$ is injective if and only if $\phi$ is surjective, and $\phi$ is
+injective if $T_{\phi}$ is surjective.  The ``missing part'' of this result ($T_{\phi}$ is
+surjective if $\phi$ is injective) happens also to be true but requires the \emph{Tietze
+extension theorem} for its proof.
+
+\begin{prob} Let $\phi$ and $T_{\phi}$ be as in problem~\ref{prob_c_functor}.  Show that if
+$\phi$ is injective, then $T_{\phi}$ is surjective.
+\end{prob}
+
+%This problem requires quotients.
+%\begin{prob}  Let $M$ be a compact metric space
+%and $A$ be a closed subset of~$M$.  Let $K =
+%\{f \in \fml C(M,\R)\colon  f^{\sto}(A) = \{0\}\,\}$.
+%Show that $\fml C(M,\R)/K$ is isometrically
+%isomorphic to $\Cal C(A,\Bbb R)$.
+%\end{prob}
+
+
+
+
+
+
+
+
+
+
+\section{SERIES OF POSITIVE SCALARS}
+In this brief section we derive some of the standard tests of beginning calculus for
+convergence of series of positive numbers.
+
+\begin{defn}  Let $S(n)$ be a statement in which the natural number $n$ is a variable.  We say
+that $S(n)$ holds for $n$
+ \index{sufficiently large}%
+\df{sufficiently large} if there exists $N$ in $\N$ such that $S(n)$ is true whenever $n \ge
+N$.
+\end{defn}
+
+\begin{prop}[Comparison Test]\label{comp_test}
+ \index{comparison test}%
+Let $(a_k)$ and $(b_k)$ be sequences in $[0, \infty)$ and suppose that there exists $M > 0$
+such that $a_k \le Mb_k$ for sufficiently large $k \in \N$.  If $\sum b_k$ converges, then
+$\sum a_k$ converges.  If $\sum a_k$ diverges, so does $\sum b_k$.
+\end{prop}
+
+\begin{proof} Problem.    \ns  \end{proof}
+
+\begin{prop}[Ratio Test]\label{ratio_test}
+ \index{ratio test}%
+Let $(a_k)$ be a sequence in $(0,\infty)$.  If there exists $\delta \in (0,1)$ such that
+$a_{k+1} \le \delta a_k$ for $k$ sufficiently large, then $\sum a_k$ converges.  If there
+exists $M>1$ such that $a_{k+1} \ge Ma_k$ for $k$ sufficiently large, then $\sum a_k$
+diverges.
+\end{prop}
+
+\begin{proof}  Exercise. (Solution~\ref{sol_ratio_test}.)
+   \ns  \end{proof}
+
+\begin{prop}[Integral Test]
+ \index{integral test}%
+Let  $f\colon [1,\infty) \sto [0,\infty)$ be decreasing; that is, $f(x) \ge f(y)$ whenever $x<
+y$.  If $\lim_{M \sto \infty}\int_1^M f$ exists, then $\sum_1^\infty f(k)$ converges. If
+$\lim_{M\sto\infty}\int_1^M f$ does not exist, then $\sum_1^\infty f(k)$ diverges.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.}  Show that $\int_k^{k+1}f \le f(k) \le \int_{k-1}^kf$ for
+$k \ge 2$.    \ns
+\end{proof}
+
+\begin{prop}[The Root Test]
+ \index{root test}%
+Let $\sum a_k$ be a series of numbers in $[0,\infty)$.  Suppose that the limit $L =
+\lim_{k\sto\infty}(a_k)^{1/k}$ exists.
+ \begin{enumerate}
+  \item[(a)] If $L < 1$, then $\sum a_k$ converges.
+  \item[(b)] If $L > 1$, then $\sum a_k$ diverges.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob} Let $(a_k)$ and $(b_k)$ be decreasing sequences in $(0,\infty)$ and let $c_k =
+\min\{a_k,b_k\}$ for each $k$.  If $\sum a_k$ and $\sum b_k$ both diverge, must $\sum c_k$
+also diverge?
+\end{prob}
+
+
+
+
+
+
+
+\section{ABSOLUTE CONVERGENCE}  It is a familiar fact from beginning calculus that absolute
+convergence of a series of real numbers implies convergence of the series.  The proof of this
+depends in a crucial way on the completeness of~$\R$.  We show in the first proposition of
+this section that for series in a normed linear space $V$ absolute convergence implies
+convergence if \emph{and only if} $V$ is complete.
+
+\begin{defn}  Let $(a_k)$ be a sequence in a normed linear space~$V$.  We say that $(a_k)$ is
+ \index{absolute!summability}%
+ \index{summable!absolutely}%
+\df{absolutely summable} or, equivalently, that the series $\sum a_k$
+ \index{convergence!absolute}%
+ \index{absolute!convergence}%
+\df{converges absolutely} if the series $\sum\norm{a_k}$ converges in~$\R$.
+\end{defn}
+
+\begin{prop}\label{prop_compl_abssum}  A normed linear space $V$ is complete if and only if
+every absolutely summable sequence in $V$ is summable.
+\end{prop}
+
+
+\begin{proof}  Exercise. \emph{Hint.}  If $V$ is complete, the \emph{Cauchy
+criterion}~\ref{prop_Cauchy_crit} may be used.  For the converse, suppose that every
+absolutely summable sequence is summable.  Let $(a_k)$ be a Cauchy sequence in $V$.  Find a
+subsequence $\bigl(a_{n_k}\bigr)$ such that $\bignorm{a_{n_{k+1}} - a_{n_k}} < 2^{-k}$ for
+each $k$.  Consider the sequence $(y_k)$ where $y_k := a_{n_{k+1}} - a_{n_k}$ for all $k$.
+(Solution~\ref{sol_prop_compl_abssum}.)  \ns
+\end{proof}
+
+
+% QUO
+%The first use to which we put the preceding result
+%is to fulfill the promise made in section 12.6 to
+%prove that the quotient of a Banach space by a closed
+%linear subspace is itself a Banach space.
+%
+%\proclaim{17.3.2 Proposition} Let $W$ be a closed
+%linear subspace of a normed linear space $V$.
+%If $V$ is complete, so is $V/W$.  \endproclaim
+%
+%\demo{Proof} Exercise. (Hint. Use 17.3.1.
+%Let $([a_k])$ be an absolutely summable
+%sequence in $V/W$.  Show that it is possible to choose,
+%for each $k$ in $\N$, a vector $y_k$ in $[a_k]$ whose
+%length differs from the length of $[a_k]$ by less
+%than $2^{-k}$.) \enddemo
+
+
+
+One of the most useful consequences of absolute convergence of a series is that the terms of
+the series may be rearranged without affecting the sum of the series.  This is not true of
+ \index{conditionally convergent}%
+ \index{convergence!conditional}%
+\df{conditionally convergent} series (that is, series which converge but do not converge
+absolutely).  One can show, in fact, that a conditionally convergent series of real numbers
+can, by rearrangement, be made to converge to any real number whatever, or, for that matter,
+to diverge. We will not demonstrate this here, but a nice proof can be found
+in~\cite{Apostol:1974}.
+
+\begin{defn}  A series $\sum_{k=1}^\infty b_k$ is said to be a
+ \index{rearrangement of a series}%
+ \index{series!rearrangement of a}%
+ \index{<@$\sum_{k=1}^\infty a_{\phi(k)}$ (rearrangement of a series)}%
+\df{rearrangement} of the series $\sum_{k=1}^\infty a_k$ if there exists a bijection
+$\phi\colon \N \sto \N$ such that $b_k = a_{\phi(k)}$ for all $k$ in~$\N$.
+\end{defn}
+
+\begin{prop}  If $\sum b_k$ is a rearrangement of an absolutely convergent series $\sum a_k$
+in a Banach space, then $\sum b_k$ is itself absolutely convergent and it converges to the
+same sum as $\sum a_k$.
+\end{prop}
+
+\begin{proof}  Problem    \emph{Hint.}   Let $\beta_n := \sum_{k=1}^n \|b_k\|$.  Show that the
+sequence $(\beta_n)$ is increasing and bounded.  Conclude that $\sum b_k$ is absolutely
+convergent.  The hard part of the proof is showing that if $\sum_1^\infty a_k$ converges to a
+vector $A$, then so does $\sum_1^\infty b_k$.  Define partial sums as usual: $s_n := \sum_1^n
+a_k$ and $t_n := \sum_1^n b_k$.  Given $\epsilon > 0$, you want to show that $\norm{t_n - A} <
+\epsilon$ for sufficiently large~$n$.  Prove that there exists a positive $N$ such that
+$\norm{s_n - A} < \frac12\epsilon$  and $\sum_n^\infty \norm{a_k} \le \frac12\epsilon$
+whenever $n \ge N$.  Write
+  \[ \norm{t_n - A} \le \norm{t_n - s_N} + \norm{s_N - A}\,. \]
+Showing that $\norm{t_n - s_N} \le \frac12 \epsilon$ for $n$ sufficiently large takes a little
+thought.  For an appropriate function $\phi$ write $b_k = a_{\phi(k)}$.  Notice that
+  \[ \norm{t_n - s_N} = \bignorm{\sum_1^n a_{\phi(k)} - \sum_1^N a_k}\,. \]
+The idea of the proof is to choose $n$ so large that there are enough terms $a_{\phi(j)}$ to
+cancel \emph{all} the terms $a_k$ ($1 \le k \le N$).
+
+If you have difficulty in dealing with sums like $\sum_{k=1}^n a_{\phi(k)}$ whose terms are
+not consecutive ($a_1,a_2,\dots$ are consecutive terms of the sequence $(a_k)$;
+$a_{\phi(1)},a_{\phi(2)},\dots$ in general are not), a notational trick may prove useful.  For
+$P$ a \emph{finite} subset of $\N$, write $\underset P{\sum} a_k$ for the sum of all the terms
+$a_k$ such that $k$ belongs to $P$.  This notation is easy to work with. It should be easy to
+convince yourself that, for example, if $P$ and $Q$ are finite subsets of $\N$ and if they are
+disjoint, then $\underset{P \cup Q}{\sum} a_k = \underset P{\sum}a_k + \underset Q{\sum} a_k$.
+(What happens if $P \cap Q \ne \emptyset$?)  In the present problem, let $C := \{1,\dots,N\}$
+(where $N$ is the integer chosen above).  Give a careful proof that there exists an integer
+$p$ such that the set $\{\phi(1),\dots,\phi(p)\}$ contains $C$. Now suppose $n$ is any integer
+greater than~$p$. Let $F := \{\phi(1),\dots,\phi(n)\}$ and show that
+ \[\norm{t_n - s_N} \le \underset G{\sum} \norm{a_k}\]
+where $G := F\setminus C$.  \ns
+\end{proof}
+
+\begin{prop}\label{prop_abssum_x_bdd}  If $(\alpha_n)$ is an absolutely summable sequence in $\R$
+and $(x_n)$ is a bounded sequence in a Banach space $E$, then the sequence $(\alpha_n x_n)$ is
+summable in $E$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use the Cauchy criterion~\ref{prop_Cauchy_crit}.     \ns
+\end{proof}
+
+\begin{prob}  What happens in the previous proposition if the sequence $(\alpha_n)$ is assumed
+only to be bounded and the sequence $(x_n)$ is absolutely summable?
+\end{prob}
+
+\begin{prob} Show that if the sequence $(a_n)$ of real numbers is
+ \index{square summable}%
+ \index{summable!square}%
+\df{square summable} (that is, if the sequence $({a_n}^2)$ is summable), then the series $\sum
+n^{-1} a_n$ converges absolutely. \emph{Hint.}  Use the \emph{Schwarz
+inequality}~\ref{Schwarz_ineq}.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+\section{POWER SERIES}\label{pow_ser}
+According to problem~\ref{prob_geomser2} we may express the reciprocal of the real number $1 -
+r$ as the sum of a power series $\sum_0^\infty r^k$ provided that $\abs r < 1$.  One may
+reasonably ask if anything like this is true in Banach spaces other than $\R$, in the space of
+bounded linear maps from some Banach space into itself, for example.  If $T$ is such a map and
+if $\norm T < 1$, is it necessarily true that $I- T$ is invertible?  And if it is, can the
+inverse of $I- T$ be expressed as the sum of the power series $\sum_0^\infty T^k$?  It turns
+out that the answer to both questions is \emph{yes}.  Our interest in pursuing this matter is
+not limited to the fact that it provides an interesting generalization of facts concerning
+$\R$ to spaces with richer structure.  In the next chapter we will need exactly this result
+for the proof we give of the \emph{inverse function theorem}.
+
+Of course it is not possible to study power series in arbitrary Banach spaces; there are, in
+general, no powers of vectors because there is no multiplication.  Thus we restrict our
+attention to those Banach spaces which (like the space of bounded linear maps) are equipped
+with an additional operation $(x,y) \mapsto xy$ (we call it \emph{multiplication}) under which
+they become linear associative algebras (see~\ref{def_alg} for the definition) and on which
+the norm is
+ \index{submultiplicative}%
+\df{submultiplicative} (that is, $\norm{xy} \le \norm x\,\norm y$ for all $x$ and~$y$).  We
+will, for simplicity, insist further that these algebras be unital and that the multiplicative
+identity $\boldsymbol 1$ have norm one.  Any Banach space thus endowed is a \df{(unital)
+Banach algebra}.  It is clear that Banach algebras have many properties in common with~$\R$.
+It is important, however, to keep firmly in mind those properties \emph{not} shared with~$\R$.
+Certainly there is, in general, no linear ordering $<$ of the elements of a Banach algebra (or
+for that matter of a Banach space).  Another crucial difference is that in $\R$ every nonzero
+element has a multiplicative inverse (its reciprocal); this is not true in general Banach
+algebras (see, for example, proposition\ref{prop_matr_inv}).  Furthermore, Banach algebras may
+have nonzero
+ \index{nilpotent}%
+\df{nilpotent} elements (that is, elements $x \ne 0$ such that $x^n = 0$ for some natural
+number~$n$).  (Example: the $2 \times 2$ matrix
+         $a = \begin{bmatrix} 0  &  1 \\
+                               0  &  0
+              \end{bmatrix}$ is not zero, but $a^2 = 0$.)  This,of course, prevents us from requiring
+that the norm be multiplicative: while $\abs{xy} = \abs x\,\abs y$ holds in~$\R$, all that is
+true in general Banach algebras is $\norm{xy} \le \norm x\,\norm y$.  Finally, multiplication
+in Banach algebras need not be commutative.
+
+\begin{defn} Let $A$ be a normed linear space.  Suppose there is an operation $(x,y) \mapsto xy$
+from $A \times A$ into $A$ satisfying the following: for all $x$, $y$, $z \in A$ and $\alpha
+\in \R$
+ \begin{enumerate}
+  \item[(a)] $(xy)z = x(yz)$,
+  \item[(b)] $(x+y)z = xz+yz$,
+  \item[(c)] $x(y+z) = xy+xz$,
+  \item[(d)] $\alpha(xy) = (\alpha x)y = x(\alpha y)$, and
+  \item[(e)] $\norm{xy} \le \norm x\,\norm y$.
+ \end{enumerate}
+Suppose additionally that there exists a vector $\vc 1$ in $A$ such that
+ \begin{enumerate}
+  \item[(f)] $x\,\vc 1 = \vc 1\,x = x$ for all $x \in A$, and
+  \item[(g)] $\norm{\vc 1} = 1$.
+ \end{enumerate}
+Then $A$ is a
+ \index{normed!algebra}%
+ \index{algebra!normed}%
+ \index{identity@$\vc 1$ (multiplicative identity in an algebra)}%
+ \index{unital!normed algebra}%
+\df{(unital) normed algebra}.  If $A$ is complete it is a
+ \index{Banach!algebra}%
+ \index{algebra!Banach}%
+ \index{unital!Banach algebra}%
+\df{(unital) Banach algebra}.  If all elements $x$ and $y$ in a normed (or Banach) algebra
+satisfy $xy = yx$, then the algebra $A$ is
+ \index{commutative!normed algebra}%
+ \index{commutative!Banach algebra}%
+\df{commutative}.
+\end{defn}
+
+\begin{exam}  The set $\R$ of real numbers is a commutative Banach algebra.  The number $1$
+is the multiplicative identity.
+\end{exam}
+
+\begin{exam}  If $S$ is a nonempty set, then with pointwise multiplication
+  \[ (fg)(x) :=  f(x)g(x) \qquad \text{for all $x \in S$} \]
+the Banach space $\fml B(S,\R)$ becomes a commutative Banach algebra.  The constant function
+$\vc 1 \colon x \mapsto 1$ is the multiplicative identity.
+\end{exam}
+
+\begin{exer}\label{exer_bddfn_ba}  Show that if $f$ and $g$ belong to $\fml B(S,\R)$, then
+$\norm{fg}_u \le \norm f_u\norm g_u$.  Show by example that equality need not hold.
+(Solution~\ref{sol_exer_bddfn_ba}.)
+\end{exer}
+
+\begin{exam} If $M$ is a compact metric space then (again with pointwise multiplication)
+$\fml C(M,\R)$ is a commutative Banach algebra.  It is a
+ \index{subalgebra}%
+\df{subalgebra} of $\fml B(M,\R)$ (that is, a subset of $\fml B(M,\R)$ containing the
+multiplicative identity which is a Banach algebra under the induced operations).
+\end{exam}
+
+\begin{exam} If $E$ is a Banach space, then $\ofml B(E,E)$ is a Banach algebra (with
+composition as ``multiplication'').  We have proved in problem~\ref{prob_lt_alg} that the
+space of linear maps from $E$ into $E$ is a unital algebra.  The same is easily seen to be
+true of $\ofml B(E,E)$ the corresponding space of bounded linear maps.  The identity
+transformation $I_E$ is the multiplicative identity.  Its norm is $1$
+by~\ref{exer_exam_norm}(a).  In proposition~\ref{prop_opnorm} it was shown that $\ofml B(E,E)$
+is a normed linear space; the submultiplicative property of the norm on this space was proved
+in proposition~\ref{prop_comp_op}. Completeness was proved in
+proposition~\ref{prop_BVW_compl}.
+\end{exam}
+
+\begin{prop}  If $A$ is a normed algebra, then the operation of multiplication
+  \[ M \colon A \times A \sto A\colon  (x,y) \mapsto xy \]
+is continuous.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Try to adapt the proof of example~\ref{cont_mult}.  \ns
+\end{proof}
+
+\begin{cor}  If $x_n \sto a$ and $y_n \sto b$ in a normed algebra, then $x_ny_n \sto ab$.
+\end{cor}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{defn}  An element $x$ of a unital algebra $A$ (with or without norm) is
+ \index{invertible!element of an algebra}%
+\df{invertible} if there exists an element
+ \index{inverse!of an element of an algebra}%
+ \index{<@$x^{-1}$ (inverse of an element of an algebra}%
+$x^{-1}$ (called the
+ \index{inverse!multiplicative}%
+ \index{multiplicative inverse}%
+\df{multiplicative inverse} of $x$) such that $xx^{-1} = x^{-1}x = \vc 1$.  The set of all
+invertible elements of A is denoted
+ \index{invertible@$\inv A$ (invertible elements of an algebra)}%
+by~$\inv A$. We list several almost obvious properties of inverses.
+\end{defn}
+
+\begin{prop}\label{prop_prop_inv}  If $A$ is a unital algebra, then
+ \begin{enumerate}
+   \item[(a)]  Each element of $A$ has at most one multiplicative inverse.
+   \item[(b)]  The multiplicative identity $\boldsymbol 1$ of $A$ is invertible and $\vc 1^{-1}
+= \vc 1$.
+   \item[(c)]  If $x$ is invertible, then so is $x^{-1}$ and $\bigl(x^{-1}\bigr)^{-1} = x$.
+   \item[(d)]  If $x$ and $y$ are invertible, then so is $xy$ and $(xy)^{-1} = y^{-1}x^{-1}$.
+   \item[(e)]  If $x$ and $y$ are invertible, then $x^{-1} - y^{-1} = x^{-1}(y - x)y^{-1}$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof}  Let $\vc 1$ be the multiplicative identity of~$A$.
+ \begin{enumerate}
+   \item[(a)] If $y$ and $z$ are multiplicative inverses of $x$, then $y = y\,\vc 1 = y(xz)
+= (yx)z = \vc 1\,z = z$.
+   \item[(b)] $\vc 1 \cdot \vc 1 = \vc 1$ implies $\vc 1^{-1} = \vc 1$ by~(a).
+   \item[(c)] $x^{-1}x = xx^{-1} = 1$ implies $x$ is the inverse of~$x^{-1}$ by~(a).
+   \item[(d)] $(xy)(y^{-1}x^{-1}) = xx^{-1} = \vc 1$ and $(y^{-1}x^{-1})(xy) = y^{-1}y =
+\vc 1$ imply $y^{-1}x^{-1}$ is the inverse of $xy$ (again by~(a)).
+   \item[(e)] $x^{-1}(y - x)y^{-1} = (x^{-1}y - 1)y^{-1} = x^{-1} - y^{-1}$.
+ \end{enumerate}
+\end{proof}
+
+\begin{prop}\label{prop_inv_ps} If $x$ is an element of a unital Banach algebra and $\norm x < 1$,
+then $\vc 1 - x$ is invertible and $(\vc 1 - x)^{-1} = \sum_{k=0}^\infty x^k$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  First show that the geometric series $\sum_{k=0}^\infty x^k$
+converges absolutely.  Next evaluate $(\vc 1 - x)s_n$ and $s_n(\vc 1 - x)$ where $s_n =
+\sum_{k=0}^n x^k$.  Then take limits as $n \sto \infty$.  (Solution~\ref{sol_prop_inv_ps}.)
+\end{proof}
+
+\begin{cor}\label{cor_inv_ps}  If $x$ is an element of a unital Banach algebra and
+$\norm x < 1$, then
+  \[ \norm{(\boldsymbol 1-x)^{-1} - \boldsymbol 1} \le \frac{\norm x}{1 - \norm x}\,. \]
+\end{cor}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+Proposition~\ref{prop_inv_ps} says that anything close to $\vc 1$ in a Banach algebra $A$ is
+invertible.  In other words $\vc 1$ is an interior point of~$\inv A$.
+Corollary~\ref{cor_inv_ps} says that if $\norm x$ is small, that is, if $\vc 1 - x$ is close
+to $\vc 1$, then $(\vc 1 - x)^{-1}$ is close to $\vc 1^{-1}$ ($= \vc 1$). In other words, the
+operation of inversion $x \mapsto x^{-1}$ is continuous at~$\vc 1$. These results are actually
+special cases of much more satisfying results: every point of $\inv A$ is an interior point of
+that set (that is, $\inv A$ is open); and the operation of inversion is continuous at every
+point of $\inv A$.  We use the special cases above to prove the more general results.
+
+\begin{prop}  If $A$ is a Banach algebra, then $\open{\inv A}A$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Let $a \in \inv A$, $r = \norm{a^{-1}}^{-1}$, $y \in
+B_r(a)$, and $x = a^{-1}(a - y)$.  What can you say about~$a(\boldsymbol 1 - x)$?  \ns
+\end{proof}
+
+\begin{prop}\label{prop_inv_cont} If $A$ is a Banach algebra, then the operation of inversion
+  \[ r \colon \inv A \sto \inv A \colon  x \mapsto x^{-1} \]
+is continuous.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Show that $r$ is continuous at an arbitrary point $a$ in
+$\inv A$.  Given $\epsilon > 0$ find $\delta > 0$ sufficiently small that if $y$ belongs to
+$B_{\delta}(a)$ and $x = \boldsymbol 1 - a^{-1}y$, then
+  \[ \norm x < \norm{a^{-1}}\delta < \tfrac12 \]
+and
+  \begin{equation}\label{eqn_inv_cont1}
+     \norm{r(y) - r(a)} \le \frac{\norm x \norm{a^{-1}}}{1 - \norm x} < \epsilon
+  \end{equation}
+For \eqref{eqn_inv_cont1} use \ref{prop_prop_inv}(e), the fact that $y^{-1}a =
+\bigl(a^{-1}y\bigr)^{-1}$, and~\ref{cor_inv_ps}.  (Solution~\ref{sol_prop_inv_cont}.) \ns
+\end{proof}
+
+There are a number of ways of multiplying infinite series.  The most common is the
+\emph{Cauchy product}.  And it is the only one we will consider.
+
+\begin{defn}  If $\sum_{n=0}^\infty a_n$ and $\sum_{n=0}^\infty b_n$ are infinite series in a
+Banach algebra, then their
+ \index{Cauchy!product}%
+ \index{product!Cauchy}%
+\df{Cauchy product} is the series $\sum_{n=0}^\infty c_n$ where $c_n = \sum_{k=0}^n a_k
+b_{n-k}$.  To see why this definition is rather natural, imagine trying to multiply two power
+series $\sum_0^\infty a_kx^k$ and $\sum_0^\infty b_kx^k$ just as if they were infinitely long
+polynomials.  The result would be another power series.  The coefficient of $x^n$ in the
+resulting series would be the sum of all the products $a_ib_j$ where $i+j = n$. There are
+several ways of writing this sum
+  \[ \sum_{i+j = n}a_ib_j = \sum_{k=0}^n a_kb_{n-k} = \sum_{k=0}^n a_{n-k}b_k\,. \]
+If we just forget about the variable $x$, we have the preceding definition of the Cauchy
+product.
+\end{defn}
+
+The first thing we observe about these products is that convergence of both the series $\sum
+a_k$ and $\sum b_k$ does \emph{not} imply convergence of their Cauchy product.
+
+\begin{exam}  Let $a_k = b_k = (-1)^k(k+1)^{-1/2}$ for all $k \ge 0$.  Then $\sum_0^\infty a_k$
+and $\sum_0^\infty b_k$ converge by the alternating series test (problem~\ref{prob_ast}).  The
+$n^{\text{th}}$ term of their Cauchy product is
+  \[ c_n = \sum_{k=0}^na_kb_{n-k} = (-1)^n\sum_{k=0}^n\frac1{\sqrt{k+1}\sqrt{n-k+1}}\,. \]
+Since for $0 \le k \le n$
+  \begin{align*}
+      (k + 1)(n - k + 1) &= k(n - k) + n + 1 \\
+                         &\le n^2 + 2n + 1 \\
+                         &= (n + 1)^2
+  \end{align*}
+we see that
+  \[ \abs{c_n} = \sum_{k=0}^n\frac1{\sqrt{k + 1}\sqrt{n - k + 1}}
+                                        \ge \sum_{k=0}^n\frac1{n + 1} = 1\,. \]
+Since $c_n \nrightarrow 0$, the series $\sum_0^\infty c_k$ does not converge (see
+proposition~\ref{prop_terms_zero}).
+\end{exam}
+
+Fortunately quite modest additional hypotheses do guarantee convergence of the Cauchy product.
+One very useful sufficient condition is that at least one of the series $\sum a_k$ or $\sum
+b_k$ converge absolutely.
+
+\index{Mertens' theorem}%
+\begin{thm}[Mertens' Theorem]\label{thm_Mertens} If in a Banach algebra $\sum_0^\infty a_k$ is
+absolutely convergent and has sum $a$ and the series $\sum_0^\infty b_k$ is convergent with
+sum~$b$, then the Cauchy product of these series converges and has sum~$ab$.
+\end{thm}
+
+\begin{proof}  Exercise \emph{Hint.}  Although this exercise is slightly tricky, the difficulty
+has nothing whatever to do with Banach algebras.  Anyone who can prove \emph{Mertens' theorem}
+for series of real numbers can prove it for arbitrary Banach algebras.
+
+For each $k \in \N$ let $c_k = \sum_{j=0}^k a_j b_{k-j}$.  Let $s_n$, $t_n$, and $u_n$ be the
+$n^{\text{th}}$ partial sums of the sequences $(a_k)$, $(b_k)$, and $(c_k)$, respectively.
+First verify that for every $n$ in $\N$
+  \begin{equation}\label{eqn_Mertens1}
+        u_n =  \sum_{k=0}^n a_{n-k}t_k
+  \end{equation}
+To this end define, for $0 \le j,k \le n$, the vector $d_{jk}$ by
+  \[ d_{jk} =
+        \begin{cases}  a_jb_{k-j},   &\text{if $j \le k$} \\
+                            0,       &\text{if $j > k$.}
+        \end{cases}\]
+Notice that both the expression which defines $u_n$ and the expression on the right side of
+equation~\eqref{eqn_Mertens1} involve only finding the sum of the elements of the matrix
+$[d_{jk}]$ but in different orders.
+
+From \eqref{eqn_Mertens1} it is easy to see that for every $n$
+  \[ u_n = s_nb + \sum_{k=0}^n a_{n-k}(t_k - b). \]
+Since $s_n b \sto ab$ as $n \sto \infty$, the proof of the theorem is reduced to showing that
+  \[ \norm{\sum_{k=0}^n a_{n-k}(t_k - b)} \sto 0 \qquad \text{as $n \sto \infty$.} \]
+Let $\alpha_k = \norm{a_k}$ and $\beta_k = \norm{t_k - b}$ for all~$k$.  Why does it suffice
+to prove that $\sum_{k=0}^n \alpha_{n-k}\beta_k \sto 0$ as $n \sto \infty$? In the finite sum
+ \begin{equation}\label{eqn_Mertens2}
+     \alpha_n\beta_0 + \alpha_{n-1}\beta_1 + \dots + \alpha_0\beta_n
+ \end{equation}
+the $\alpha_k$'s towards the left are small (for large~$n$) and the $\beta_k$'s towards the
+right are small (for large~$n$).  This suggests breaking the sum~\eqref{eqn_Mertens2} into two
+pieces
+  \[ p = \sum_{k=0}^{n_1} \alpha_{n-k}\beta_k \qquad \text{and}
+                                 \qquad q = \sum_{k=n_1+1}^n \alpha_{n - k}\beta_k \]
+and trying to make each piece small (smaller, say, than $\frac12\epsilon$ for a
+preassigned~$\epsilon$).
+
+For any positive number $\epsilon_1$ it is possible (since $\beta_k \sto 0$) to choose $n_1$
+in $\N$ so that $\beta_k < \epsilon_1$ whenever $k \ge n_1$.  What choice of $\epsilon_1$ will
+ensure that $q < \frac12\epsilon$?
+
+For any $\epsilon_2 > 0$ it is possible (since $\alpha_k \sto 0$) to choose $n_2$ in $\N$ so
+that $\alpha_k < \epsilon_2$ whenever $k \ge n_2$.  Notice that $n-k \ge n_2$ for all $k \le
+n_1$ provided that $n \ge n_1 + n_2$.  What choice of $\epsilon_2$ will guarantee that $p <
+\frac12\epsilon$?  (Solution~\ref{sol_thm_Mertens}.) \ns
+\end{proof}
+
+\begin{prop}\label{prop_bamult_diff}  On a Banach algebra $A$ the operation of multiplication
+  \[ M\colon  A \times A \sto A\colon  (x,y) \mapsto xy \]
+is differentiable.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}   Fix $(a,b)$ in $A \times A$.  Compute the value of the
+function $\Delta M_{(a,b)}$ at the point $(h,j)$ in $A \times A$.  Show that
+$\norm{(h,j)}^{-1}hj \sto 0$ in A as $(h,j) \sto 0$ in $A \times A$.  How should $dM_{(a,b)}$
+be chosen so that the Newton quotient
+  \[ \frac{\Delta M_{(a,b)}(h,j) - dM_{(a,b)}(h,j)}{\norm{(h,j)}} \]
+approaches zero (in $A$) as $(h,j) \sto 0$ (in $A \times A$)?  Don't forget to show that your
+choice for $dM_{(a,b)}$ is a bounded linear map.     \ns
+\end{proof}
+
+\begin{prop}  Let $c \in V$ where $V$ is a normed linear space and let $A$ be a Banach algebra.
+If $f$, $g \in \fml D_c(V,A)$, then their product $fg$ defined by
+  \[ (fg)(x) := f(x)\, g(x) \]
+(for all $x$ in some neighborhood of~$c$) is differentiable at $c$ and
+  \[ d(fg)_c = f(c)dg_c + df_c \cdot g(c)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use proposition~\ref{prop_bamult_diff}.  \ns
+\end{proof}
+
+\begin{prop}\label{prop_bapower_diff}  If $A$ is a commutative Banach algebra and $n \in \N$,
+then the function $f \colon x \mapsto x^n$ is differentiable and $df_a(h) = na^{n-1}h$ for all
+$a$, $h \in A$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  A simple induction proof works.  Alternatively, you may
+choose to convince yourself that the usual form of the \emph{binomial theorem}
+(see~\ref{binom_thm}) holds in every commutative Banach algebra.   \ns
+\end{proof}
+
+\begin{prob}  What happens in \ref{prop_bapower_diff} if we do not assume that the Banach algebra
+is commutative?  Is $f$ differentiable? \emph{Hint.}  Try the cases $n = 2$, $3$, and~$4$.
+Then generalize.
+\end{prob}
+
+\begin{prob}  Generalize proposition~\ref{prop_abssum_x_bdd} to produce a theorem concerning the
+convergence of a series $\sum a_kb_k$ in a Banach algebra.
+\end{prob}
+
+
+\begin{defn} If $(a_k)$ is a sequence in a Banach algebra $A$ and $x \in A$, then a series of the
+form $\sum_{k=0}^\infty a_kx^k$ is a
+ \index{power series}%
+ \index{series!power}%
+\df{power series} in~$x$.
+\end{defn}
+
+\begin{notn} It is a bad (but very common) habit to use the same notation for a polynomial function
+and for its value at a point~$x$.  One often encounters an expression such as ``the function
+$x^2 - x + 5$'' when clearly what is meant is ``the function $x \mapsto x^2 - x + 5$.''  This
+abuse of language is carried over to power series. If $(a_k)$ is a sequence in a Banach
+algebra $A$ and $D = \{x \in A\colon \sum_{k=0}^\infty a_kx^k \text{ converges}\}$, then the
+function $x \mapsto \sum_{k=0}^\infty a_kx^k$ from $D$ into $A$ is usually denoted by
+$\sum_{k=0}^\infty a_kx^k$.  Thus for example one may find the expression,
+``$\sum_{k=0}^\infty a_kx^k$ converges uniformly on the set~$U$.''  What does this mean?
+Answer: if $s_n(x) = \sum_{k=0}^n a_kx^k$ for all $n \in \N$ and $f(x) = \sum_{k=0}^\infty
+a_kx^k$, then $s_n \sto f\text{\,(unif)}$.
+\end{notn}
+
+\begin{prop}\label{prop_pser_unif_conv}  Let $(a_k)$ be a sequence in a Banach algebra and
+$r > 0$.  If the sequence $(\norm{a_k}r^k)$ is bounded, then the power series
+$\sum_{k=0}^\infty a_kx^k$ converges uniformly on every open ball $B_s(0)$ such that $0 < s <
+r$.  (And therefore it converges on the ball~$B_r(0)$. )
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Let $p = s/r$ where $0 < s < r$.  Let $f_k(x) = a_kx^k$.
+Use the \emph{Weierstrass M-test}~\ref{M_test}.  (Solution~\ref{sol_prop_pser_unif_conv}.) \ns
+\end{proof}
+
+Since the uniform limit of a sequence of continuous functions is continuous
+(see~\ref{unif_lim_cont}), it follows easily from preceding proposition that (under the
+hypotheses given) the function $f\colon x \mapsto \sum_0^\infty a_kx^k$ is continuous on
+$B_r(0)$.  We will prove considerably more than this: the function is actually differentiable
+on $B_r(0)$, and furthermore, the correct formula for its differential is found by
+differentiating the power series term-by-term.  That is, $f$ behaves on $B_r(0)$ just like a
+``polynomial'' with infinitely many terms.  This is proved in~\ref{term_by_term_diff}.  We
+need however a preliminary result.
+
+\begin{prop}\label{unif_lim_dffrntls}  Let $V$ and $W$ be normed linear spaces, $U$ be an open
+convex subset of~$V$, and $(f_n)$ be a sequence of functions in $\fml C^1(U,W)$.  If the
+sequence $(f_n)$ converges pointwise to a function $F\colon U \sto W$ and if the sequence
+$\bigl(d(f_n)\bigr)$ converges uniformly on $U$, then $F$ is differentiable at each point $a$
+of $U$ and
+  \[ dF_a = \lim_{n \sto \infty} d\bigl(f_n\bigr)_a\,. \]
+\end{prop}
+
+\begin{proof}  Exercise. \emph{Hint.} Fix $a \in U$.  Let
+$\phi\colon U \sto \ofml B(V,W)$ be the function to which the sequence $\bigl(d(f_n)\bigr)$
+converges uniformly. Given $\epsilon
+> 0$ show that there exists $N \in \N$ such that
+$\bignorm{d\bigl(f_n - f_N\bigr)_x} < \epsilon/4$ for all $x \in
+U$ and $n \in \N$.  Let $g_n = f_n - f_N$ for each~$n$.  Use one
+version of the \emph{mean value theorem} to show that
+\begin{equation}\label{eqn_uld}
+   \norm{\Delta\bigl(g_n\bigr)_a(h) - d\bigl(g_n\bigr)_a(h)}
+                \le \textstyle{\frac12}\epsilon\norm h
+\end{equation}
+whenever $n \ge N$ and $h$ is a vector such that $a + h \in U$. In~\eqref{eqn_uld} take the
+limit as $n \sto \infty$.  Use the result of this together with the fact that
+$\Delta\bigl(f_N\bigr)_a \simeq d\bigl(f_N\bigr)_a$ to show that $\Delta F_a \simeq T$ when $T
+= \phi(a)$.  (Solution~\ref{sol_unif_lim_dffrntls}.)   \ns
+\end{proof}
+
+\begin{thm}[Term-by-Term Differentiation of Power Series]\label{term_by_term_diff} Suppose that
+$(a_n)$ is a sequence in a commutative Banach algebra $A$ and that $r > 0$. If the sequence
+$(\norm{a_k}r^k)$ is bounded, then the function $F\colon B_r(0) \sto A$ defined by
+  \[ F(x) = \sum_{k=0}^\infty a_kx^k \]
+is differentiable and
+  \[ dF_x(h) = \sum_{k=1}^\infty k a_k x^{k-1}h \]
+for every $x \in B_r(0)$ and $h \in A$.
+\end{thm}
+
+\begin{proof} Problem.  \emph{Hint.}  Let $f_n(x) = \sum_0^n a_kx^k$. Fix $x$ in $B_r(0)$ and
+choose a number $s$ satisfying $\norm x < s < r$. Use propositions \ref{prop_bapower_diff}
+and~\ref{unif_lim_dffrntls} to show that $F$ is differentiable at $x$ and to compute its
+differential there. In the process you will need to show that the sequence
+$\bigl(d(f_n)\bigr)$ converges uniformly on $B_s(0)$. Use propositions
+\ref{prop_pser_unif_conv} and~\ref{4exam2}.  If $s < t < r$, then there exists $N \in \N$ such
+that $k^{1/k} < r/t$ for all $k \ge N$. (Why ?) \ns
+\end{proof}
+
+\begin{prob} Give a definition of and develop the properties of the \emph{exponential function}
+on a commutative Banach algebra~$A$.  Include at least the following:
+\begin{enumerate}
+  \item[(a)] The series $\sum_{k=0}^\infty \frac1{k!}x^k$ converges absolutely for all $x$
+in~$A$ and uniformly on $B_r(0)$ for every $r > 0$.
+  \item[(b)] If $\exp(x) := \sum_{k=0}^\infty \frac1{k!}x^k$, then $\exp\colon A \sto A$ is
+differentiable and
+    \[ d\exp_x(h) = \exp(x) \cdot h\,. \]
+  This is the
+ \index{exponential function}%
+ \index{function!exponential}%
+\df{exponential function} on~$A$.
+  \item[(c)] If $x$, $y \in A$, then
+    \[ \exp(x)\cdot\exp(y) = \exp(x + y)\,. \]
+  \item[(d)] If $x \in A$, then $x$ is invertible and
+    \[ \bigl(\exp(x)\bigr)^{-1} = \exp(-x)\,. \]
+\end{enumerate}
+\end{prob}
+
+
+
+\begin{prob} Develop some trigonometry on a commutative Banach algebra~$A$.  (It will be convenient
+to be able to take the
+ \index{derivative!in Banach algebras}%
+\df{derivative} of a Banach algebra valued function.  If $G \colon A \sto A$ is a
+differentiable function, define $DG(a) := dG_a(1)$ for every $a \in A$.)  Include at least the
+following:
+\begin{enumerate}
+  \item[(a)] The series $\sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^k$ converges absolutely for all
+$x$ in~$A$ and uniformly on every open ball centered at the origin.
+  \item[(b)] The function $F\colon x \mapsto \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^k$ is
+differentiable at every $x \in A$.   Find $dF_x(h)$.
+  \item[(c)] For every $x\in A$, let $\cos x := F(x^2)$.  Let $\sin x := D\cos x$ for every~$x$.
+Show that
+    \[ \sin x = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1} \]
+for every $x \in A$.
+  \item[(d)] Show that $D\sin x = \cos x$ for every $x \in A$.
+  \item[(e)] Show that $\sin^2 x + \cos^2 x = 1$ for every $x \in
+  A$.
+\end{enumerate}
+\end{prob}
+
+
+
+
+\endinput

@@ -1,0 +1,254 @@
+\documentclass[11pt,reqno]{amsbook}
+
+ %\usepackage{makeidx}
+ \usepackage{amssymb}
+ \usepackage{amscd}
+ %\usepackage{amsthm}
+ \usepackage{graphics}
+ \usepackage[all]{xy}
+ %\usepackage{showkeys}
+ \usepackage[plainpages=false,pagebackref=true,hypertex]{hyperref}
+     %plainpages=false corrects page numbers in index
+     %pagebackref=true [provides back references from bibliography]
+
+
+
+
+\makeindex
+
+ \setlength{\textwidth}{6.5in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0in}
+ \setlength{\textheight}{9.25in}
+ \setlength{\topmargin}{-0.35in}
+
+
+
+\input diagxy
+
+
+\allowdisplaybreaks[1]
+
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{ax}[thm]{Axiom}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{conv}[thm]{Convention}
+
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{cau}{CAUTION}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{exam}[thm]{Example}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{prob}[thm]{Problem}
+%\newtheorem{proj}[thm]{Project}
+\newtheorem{prf}[thm]{}
+
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+
+\numberwithin{equation}{chapter}
+
+ \newcommand{\field}[1]{\mathbb{#1}}
+ \newcommand{\C}{\field{C}}
+ \newcommand{\E}{\field{E}}
+ \newcommand{\N}{\field{N}}
+ \newcommand{\Po}{\field{P}}
+ \newcommand{\Q}{\field{Q}}
+ \newcommand{\R}{\field{R}}
+ \newcommand{\Sp}{\field{S}}
+ \newcommand{\Z}{\field{Z}}
+
+
+
+ \newcommand{\sto}{\rightarrow}
+      %Diagxy redefined \to . This shortens the arrow.
+ \newcommand{\ofml}[1]{\mathfrak{#1}}
+      % for families of operators
+ \newcommand{\fml}[1]{\mathcal{#1}}
+      % for families of functions
+ \newcommand{\sfml}[1]{\mathfrak{#1}}
+      % for families of sets
+ \newcommand{\df}[1]{\textsc{#1}}
+      % for terms being defined
+ \newcommand{\lobo}[1]{\mathfrak{#1}}
+      % big oh and little oh functions
+ \newcommand{\D}{\displaystyle}
+ \newcommand{\ns}{\renewcommand{\qed}{}}
+       % deletes end-of-proof sign
+ \newcommand{\abs}[1]{\lvert#1\rvert}
+       % absolute value
+ \newcommand{\bigabs}[1]{\left\lvert#1\right\rvert}
+       % large absolute value
+ \newcommand{\norm}[1]{\lVert#1\rVert}
+       % norm
+ \newcommand{\bignorm}[1]{\left\lVert#1\right\rVert}
+       % large norm
+ \newcommand{\trinorm}[1]{\vert\mspace{-2mu}\vert
+     \mspace{-2mu}\vert#1\vert\mspace{-2mu}\vert
+     \mspace{-2mu}\vert}
+       % 3-bar norm
+ \newcommand{\id}[1]{\operatorname{id_{#1}}}
+       % Identity on #1
+ \newcommand{\intr}[1]{#1^{\circ}}
+       % interior
+ \newcommand{\clo}[1]{\overline{#1}}
+       % closure
+ \newcommand{\conj}[1]{\overline{#1}}
+       % complex conjugate
+ \newcommand{\open}[2]{#1\overset{\thickspace{}_\circ}{\subseteq}#2}
+       % #1 is an open subset of #2
+ \newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+       % partial derivative of #1 wrt #2
+ \newcommand{\cpd}[3]{\left(\frac{\partial#1}{\partial#2}\right)_{#3}}
+       % partial derivative of #1 wrt #2 with #3 held constant
+ \newcommand{\dt}[2]{d^{\,2}\!#1_{#2}}
+       % 2nd differential of #1 at #2
+ \newcommand{\delt}[2]{\Delta^2\!#1_{#2}}
+       % 2nd difference of #1 at #2
+ \newcommand{\simt}[2]{#1\overset{\scriptscriptstyle2}{\simeq}#2}
+       % 2nd order tangency
+ \newcommand{\locinv}[1]{#1_{\mathstrut\text{loc}}^{\mathstrut{-1}}}
+       % local inverse
+ \newcommand{\sbsb}[2]{#1_{{}_\sst{#2}}}
+      % makes smaller, lower subscript
+ \newcommand{\sst}[1]{{\scriptstyle{#1}}}
+       % sub- and superscript size type
+ \newcommand{\ssst}[1]{{\scriptscriptstyle{#1}}}
+       % second level sub- and superscripts
+ \newcommand{\symdif}[2]{#1 \bigtriangleup #2}
+       % symmetric difference
+ \newcommand{\vc}[1]{\mathbf{#1}}
+      % for vectors
+ \newcommand{\wh}[1]{\widehat{#1}}
+ \newcommand{\wt}[1]{\widetilde{#1}}
+
+
+
+ \DeclareMathOperator{\card}{card}
+ \DeclareMathOperator{\diam}{diam}
+ \DeclareMathOperator{\dom}{dom}
+ \DeclareMathOperator{\inv}{Inv}
+ \DeclareMathOperator{\ran}{ran}
+
+
+\font\fiverm=cmr5
+
+
+
+\begin{document}
+\frontmatter
+\title{A ProblemText in Advanced Calculus}
+\author{John M. Erdman\\
+     Portland State University \\
+     \mbox{\hphantom{P}} \\
+     Version July 1, 2014}
+\date{2014}
+
+
+
+\maketitle
+
+\tableofcontents
+
+\include{preface}
+
+ \cleardoublepage
+ \phantomsection
+        %allows TOC links to find preface correctly
+
+
+\include{htu}
+
+
+\mainmatter
+
+ \include{01}
+ \include{02}
+ \include{03}
+ \include{04}
+ \include{05}
+ \include{06}
+ \include{07}
+ \include{08}
+ \include{09}
+ \include{10}
+ \include{11}
+ \include{12}
+ \include{13}
+ \include{14}
+ \include{15}
+ \include{16}
+ \include{17}
+ \include{18}
+ \include{19}
+ \include{20}
+ \include{21}
+ \include{22}
+ \include{23}
+ \include{24}
+ \include{25}
+ \include{26}
+ \include{27}
+ \include{28}
+ \include{29}
+ \include{30}
+
+
+\appendix
+
+ \include{a}
+ \include{b}
+ \include{c}
+ \include{d}
+ \include{e}
+ \include{f}
+ \include{g}
+ \include{h}
+ \include{i}
+ \include{j}
+ \include{k}
+ \include{l}
+ \include{m}
+ \include{n}
+ \include{o}
+ \include{p}
+ \include{solutions}
+ \include{solutions2}
+
+\backmatter
+
+
+ \cleardoublepage
+ \phantomsection
+        %allows TOC links to find bibliography correctly
+ \bibliographystyle{plain}
+ \bibliography{probtextbib}
+ %\addcontentsline{toc}{chapter}{Bibliography}
+
+
+ \cleardoublepage
+ \phantomsection
+         %allows TOC links to find index correctly
+ \printindex
+ \addcontentsline{toc}{chapter}{Index}
+
+
+
+\end{document}

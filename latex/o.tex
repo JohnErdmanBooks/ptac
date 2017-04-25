@@ -1,0 +1,184 @@
+\chapter{FINITE AND INFINITE SETS}
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+There are a number of ways of comparing the ``sizes'' of sets. In this chapter and the next we
+examine perhaps the simplest of these, cardinality.  Roughly speaking, we say that two sets
+have the ``same number of elements'' if there is a one-to-one correspondence between the
+elements of the sets. In this sense the open intervals $(0,1)$ and $(0,2)$ have the same
+number of elements. (The map $x \mapsto 2x$ is a bijection.) Clearly this is only one sense of
+the idea of ``size''. It is certainly also reasonable to regard $(0,2)$ as being bigger than
+$(0,1)$ because it is twice as long.
+
+We derive only the most basic facts concerning cardinality. In this appendix we discuss some
+elementary properties of finite and infinite sets, and in the next we distinguish between
+countable and uncountable sets. This is all we will need.
+
+\begin{defn} Two sets $S$ and $T$ are
+ \index{<@$\sim$ (cardinal equivalence)}%
+ \index{equivalent!cardinally}%
+\df{cardinally equivalent} if there exists a bijection from $S$ onto $T$, in which case we
+write $S \sim T$. It is easy to see that cardinal equivalence is indeed an equivalence
+relation; that is, it is reflexive, symmetric, and transitive.
+\end{defn}
+
+\begin{prop}\label{prop_ce_er} Cardinal equivalence is an equivalence relation.  Let $S$, $T$,
+and $U$ be sets.  Then
+ \begin{enumerate}
+  \item[(a)] $S \sim S$;
+  \item[(b)] if $S \sim T$, then $T \sim S$; and
+  \item[(c)] if $S \sim T$ and $T \sim U$, then $S \sim U$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{defn} A set $S$ is
+ \index{finite}%
+\df{finite} if it is empty or if there exists $n \in \N$ such that $S \sim \{1,\dots,n\}$. A
+set is
+ \index{infinite}%
+\df{infinite} if it is not finite. The next few facts concerning finite and infinite sets
+probably appear obvious, but writing down the proofs may in several instances require a bit of
+thought.  Here is a question which merits some reflection: if one is unable to explain exactly
+why a result is obvious, is it really obvious?
+\end{defn}
+
+One ``obvious'' result is that if two initial segments $\{1,\dots,m\}$ and $\{1,\dots,n\}$ of
+the set of natural numbers are cardinally equivalent, then $m = n$. We prove this next.
+
+\begin{prop}\label{prop_card_n}  Let $n \in \N$. If $m \in \N$ and $\{1,\dots,m\} \sim
+\{1,\dots,n\}$, then $m = n$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Use induction on $n$.
+(Solution~\ref{sol_prop_card_n}.)  \ns
+\end{proof}
+
+\begin{defn} We define
+ \index{cardinalnumber@$\card S$ (cardinal number of $S$)}%
+$\card \emptyset$, the cardinal number of the empty set, to be $0$. If $S$ is a nonempty
+finite set, then by the preceding proposition there exists only one positive integer $n$ such
+that $S \sim \{1,\dots,n\}$.  This integer, $\card S$, is the
+ \index{cardinal number}%
+\df{cardinal number} of the set $S$, or the \df{number of elements} in $S$.  Notice that if
+$S$ is finite with cardinal number $n$ and $T \sim S$, then $T$ is also finite and has
+cardinal number~$n$. Thus for finite sets the expressions ``cardinally equivalent'' and ``have
+the same cardinal number'' are interchangeable.
+\end{defn}
+
+\begin{exam} Let $S = \{a,b,c,d\}$. Then $\card S = 4$, since $\{a,b,c,d\} \sim \{1,2,3,4\}$.
+\end{exam}
+
+One simple fact about cardinal numbers is that the number of elements in the union of two
+disjoint finite sets is the sum of the numbers of elements in each.
+
+\begin{prop}\label{prop_card_union}  If $S$ and $T$ are disjoint finite sets, then $S \cup T$
+is finite and
+  \[ \card (S \cup T) = \card S + \card T\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_card_union}.)  \ns  \end{proof}
+
+A variant of the preceding result is given in problem \ref{prob_card_diff}.  We now take a
+preliminary step toward proving that subsets of finite sets are themselves finite
+(proposition~\ref{prop_card_sub}).
+
+\begin{lem}\label{lem_card_sub} If $C \subseteq \{1,\dots,n\}$, then $C$ is finite and
+$\card C \le n$.
+\end{lem}
+
+\begin{proof} Exercise. \emph{Hint.}  Use mathematical induction.  If $C \subseteq
+\{1,\dots,k + 1\}$, then $C \setminus \{k + 1\} \subseteq \{1,\dots,k\}$.  Examine the cases
+$k + 1 \notin C$ and $k + 1 \in C$ separately.  (Solution~\ref{sol_lem_card_sub}.)  \ns
+\end{proof}
+
+\begin{prop}\label{prop_card_sub}  Let $S \subseteq T$.  If $T$ is finite, then $S$ is finite
+and $\card S \le \card T$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}   The case $T = \emptyset$ is trivial. Suppose $T \ne
+\emptyset$.  Let $\iota:S \sto T$ be the inclusion map of $S$ into $T$ (see
+chapter~\ref{images}). There exist $n \in \N$ and a bijection $f \colon T \sto \{1,\dots,n\}$.
+Let $C = \ran(f \circ\iota)$. The map from $S$ to $C$ defined by $x \mapsto f(x)$ is a
+bijection. Use lemma~\ref{lem_card_sub}.) \ns
+\end{proof}
+
+The preceding proposition ``subsets of finite sets are finite'' has a useful contrapositive:
+``sets which contain infinite sets are themselves infinite.''
+
+\begin{prob}\label{prob_card_diff}  Let $S$ be a set and $T$ be a finite set. Prove that
+  \[ \card (T \setminus S) = \card T - \card (T \cap S)\,. \]
+\emph{Hint.}  Use problem \ref{prob_sdiff1} and proposition~\ref{prop_card_union}.
+\end{prob}
+
+Notice that it is a consequence of the preceding result~\ref{prob_card_diff} that if $S
+\subseteq T$ (where $T$ is finite), then
+\[\card (T \setminus S)  = \card T - \card S.\]
+
+How do we show that a set $S$ is infinite?  If our only tool were the definition, we would
+face the prospect of proving that there does \emph{not} exist a bijection from $S$ onto an
+initial segment of the natural numbers.  It would be pleasant to have a more direct approach
+than establishing the nonexistence of maps.  This is the point of our next proposition.
+
+\begin{prop}\label{prop_ce_sub}  A set is infinite if and only if it is cardinally equivalent
+to a proper subset of itself.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Suppose a set $S$ is infinite. Show that it is possible to
+choose inductively a sequence of distinct elements $a_1, a_2, a_3,\dots$ in $S$. (Suppose
+$a_1,\dots,a_n$ have already been chosen. Can $S \setminus \{a_1,\dots,a_n\}$ be empty?)  Map
+each $a_k$ to $a_{k+1}$ and map each member of $S$ which is not an $a_k$ to itself.
+
+For the converse argue by contradiction.  Suppose that $T \sim S$ where $T$ is a proper subset
+of $S$, and assume that $S \sim \{1,\dots,n\}$.  Prove that $S \setminus T \sim \{1,\dots,p\}$
+for some $p \in \N$. Write $T$ as $S \setminus (S \setminus T)$ and obtain $n = n - p$ by
+computing the cardinality of $T$ in two ways. (Make use of problem~\ref{prob_card_diff}.) What
+does $n = n - p$ contradict?  (Solution~\ref{sol_prop_ce_sub}.)  \ns
+\end{proof}
+
+\begin{exam} The set $\N$ of natural numbers is infinite.
+\end{exam}
+
+\begin{proof}  The map $n \mapsto n + 1$ is a bijection from $\N$ onto $\N \setminus \{1\}$,
+which is a proper subset of~$\N$.
+\end{proof}
+
+\begin{exer}\label{exer_int_inf}  The interval $(0,1)$ is infinite.
+(Solution~\ref{sol_exer_int_inf}.)
+\end{exer}
+
+\begin{exam}  The set $\R$ of real numbers is infinite.
+\end{exam}
+
+The next two results tell us that functions take finite sets to finite sets and that for
+injective functions finite sets come from finite sets.
+
+\begin{prop}\label{prop_ran_fin}  If $T$ is a set, $S$ is a finite set, and $f:S \sto T$ is
+surjective, then $T$ is finite.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Use propositions~\ref{prop_rinv_surj} and
+\ref{prop_linv_inj}.  (Solution~\ref{sol_prop_ran_fin}.) \ns
+\end{proof}
+
+\begin{prop}\label{prop_preimg_fin} If $S$ is a set, $T$ is a finite set, and $f \colon S \sto T$
+is injective, then $S$ is finite.
+\end{prop}
+
+\begin{proof}  Exercise.  (Solution~\ref{sol_prop_preimg_fin}.)  \ns  \end{proof}
+
+\begin{prob}\label{prob_union_fin} Let $S$ and $T$ be finite sets.  Prove that $S \cup T$ is
+finite and that
+  \[ \card (S \cup T)  = \card S + \card T - \card (S \cap T)\,. \]
+\emph{Hint.}  Use problem \ref{prob_card_diff}.
+\end{prob}
+
+\begin{prob}  If $S$ is a finite set with cardinal number $n$, what is the cardinal number
+of~$\sfml P(S)$?
+\end{prob}
+
+
+
+\endinput

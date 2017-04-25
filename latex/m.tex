@@ -1,0 +1,289 @@
+\chapter{FUNCTIONS WHICH HAVE INVERSES}\label{inverses}
+
+\section{INJECTIONS, SURJECTIONS, AND BIJECTIONS}
+A function $f$ is
+ \index{injective}%
+\df{injective} (or
+ \index{one-to-one}%
+\df{one-to-one}) if $x = y$ whenever $f(x) = f(y)$.  That is, $f$ is injective if no two
+distinct elements in its domain have the same image.  For a real valued function of a real
+variable this condition may be interpreted graphically: A function is one-to-one if and only
+if each horizontal line intersects the graph of the function at most once. An injective map is
+called an
+ \index{injection}%
+\df{injection}.
+
+\begin{exam}  The sine function is not injective (since, for example, $\sin 0 = \sin \pi$).
+\end{exam}
+
+\begin{exam}\label{exam_inj_fcn} Let $f(x) = \dfrac{x+2}{3x-5}$.  The function $f$ is injective.
+\end{exam}
+
+\begin{proof} Exercise.  (See~\ref{sol_exam_inj_fcn}.)  \ns  \end{proof}
+
+\begin{exer}\label{exer_inj_q}  Find an injective mapping from $\{x \in \Q\colon  x > 0\}$
+into~$\N$. (Solution~\ref{sol_exer_inj_q}.)
+\end{exer}
+
+\begin{prob} Let $f(x) = \dfrac{2x-5}{3x+4}$. Show that $f$ is injective.
+\end{prob}
+
+\begin{prob}  Let $f(x) = 2x^2 - x - 15$. Show that $f$ is \emph{not} injective.
+\end{prob}
+
+\begin{prob} Let $f(x) = x^3 - 2x^2 + x - 3$. Is $f$ injective?
+\end{prob}
+
+\begin{prob} Let $f(x) = x^3 - x^2 + x - 3$. Is $f$ injective?
+\end{prob}
+
+\begin{defn}  A function is
+ \index{surjective}%
+\df{surjective} (or
+ \index{onto}%
+\df{onto}) if its range is equal to its codomain.
+\end{defn}
+
+\begin{exam}  Define $f\colon \R \sto \R$ by $f(x) = x^2$ and $g\colon \R \sto [0, \infty)$
+by $g(x) = x^2$.  Then the function $g$ is surjective while $f$ is not (even though the two
+functions have the same graph!).
+\end{exam}
+
+\begin{exer}\label{exer_surj}  Find a surjection (that is, a surjective map) from $[0,1]$
+onto $[0, \infty)$.
+(Solution~\ref{sol_exer_surj}.)
+\end{exer}
+
+\begin{defn}  A function is
+ \index{bijective}%
+\df{bijective} if it is both injective and surjective. A bijective
+map is called a
+ \index{bijection}%
+\df{bijection} or a
+ \index{one-to-one correspondence}%
+\df{one-to-one correspondence}.
+\end{defn}
+
+\begin{exer}\label{exer_bij1}  Give an explicit formula for a bijection between $\Z$ and~$\N$.
+(Solution~\ref{sol_exer_bij1}.)
+\end{exer}
+
+\begin{exer}\label{exer_bij2} Give an explicit formula for a bijection between $\R$ and the open
+interval~$(0,1)$.
+(Solution~\ref{sol_exer_bij2}.)
+\end{exer}
+
+\begin{exer}\label{exer_bij3}  Give a formula for a bijection between the interval $[0,1)$ and the
+unit circle $x^2 + y^2 = 1$ in the plane.
+(Solution~\ref{sol_exer_bij3}.)
+\end{exer}
+
+\begin{exer}\label{exer_bij4} Let $f\colon [1,2] \sto [0,3]$ be defined by $f(x) = 1/x$. Find an
+extension $g$ of $f$ to the interval $[0,3]$ such that $g\colon [0, 3] \sto [0,3]$ is a
+bijection. (Solution~\ref{sol_exer_bij4}.)
+\end{exer}
+
+\begin{exer}\label{exer_bij5}  Let $f\colon R \sto [-1,1]$ be defined by $f(x) = \sin x$. Find a set
+$A \subseteq R$ such that the restriction of $f$ to $A$ is a bijection from $A$ onto $[-1,1]$.
+(Solution~\ref{sol_exer_bij5}.)
+\end{exer}
+
+\begin{prob}  Let $f\colon S \sto T$ and $g\colon T \sto U$.  Prove the following.
+ \begin{enumerate}
+  \item[(a)] If $f$ and $g$ are injective, so is $g \circ f$.
+  \item[(b)] If $f$ and $g$ are surjective, so is $g \circ f$.
+  \item[(c)] If $f$ and $g$ are bijective, so is $g \circ f$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Find a bijection between the open intervals $(0,1)$ and $(-8,5)$. Prove that the
+function you use really \emph{is} a bijection between the two intervals.
+\end{prob}
+
+\begin{prob}  Find a bijection between the open intervals $(0,1)$ and $(3,\infty)$. (Proof not
+required.)
+\end{prob}
+
+\begin{prob}   Find a bijection between the interval $(0,1)$ and the parabola $y = x^2$ in the
+plane. (Proof not required.)
+\end{prob}
+
+\begin{prob}  Let $f\colon [1,2] \sto [0,11]$ be defined by $f(x) = 3x^2 - 1$. Find an extension
+$g$ of $f$ to $[0,3]$ which is a bijection from $[0,3]$ onto~$[0,11]$. (Proof not required.)
+\end{prob}
+
+It is important for us to know how the image $f^{\sto}$ and the inverse image $f^\gets$ of a
+function $f$ behave with respect to unions, intersections, and complements of sets. The basic
+facts are given in the next 10 propositions. Although these results are quite elementary, we
+make extensive use of them in studying continuity.
+
+\begin{prop}\label{prop_f_finv} Let $f\colon S \sto T$ and $B \subseteq T$.
+ \begin{enumerate}
+   \item[(a)] $f^{\sto}(f^{\gets}(B)) \subseteq B$.
+   \item[(b)] Equality need not hold in (a).
+   \item[(c)] Equality does hold in (a) if $f$ is surjective.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_f_finv}.) \ns   \end{proof}
+
+\begin{prop}\label{prop_finv_f}  Let $f\colon S \sto T$ and $A \subseteq
+S$.
+\begin{enumerate}
+\item[(a)] $A \subseteq f^{\gets}(f^{\sto}(A))$.
+\item[(b)] Equality need not hold in (a).
+\item[(c)] Equality does hold in (a) if $f$ is injective.
+\end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Prove the converse of proposition~\ref{prop_finv_f}.  That is, show that if
+$f \colon S \sto T$ and $f^{\gets}(f^{\sto}(A)) = A$ for all $A \subseteq S$, then $f$ is
+injective. \emph{Hint.}  Suppose $f(x) = f(y)$. Let $A = \{x\}$. Show that $y \in
+f^\gets(f^{\sto}(A))$. \ns
+\end{prob}
+
+\begin{prop}\label{prop_f_union}  Let $f\colon S \sto T$ and $A,B \subseteq S$. Then
+   \[f^{\sto}(A \cup B) = f^{\sto}(A) \cup f^{\sto}(B).\]
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_f_union}.) \ns  \end{proof}
+
+\begin{prop}\label{prop_finv_union}  Let $f\colon S \sto T$ and $C$, $D \subseteq T$. Then
+   \[ f^{\gets}(C \cup D) = f^{\gets}(C) \cup f^{\gets}(D)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_finv_intrs}  Let $f\colon S \sto T$ and $C $, $D \subseteq T$. Then
+   \[ f^\gets(C \cap D) = f^\gets(C) \cap f^\gets(D)\,. \]
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_finv_intrs}.) \ns  \end{proof}
+
+\begin{prop}  Let $f\colon S \sto T$ and $A$, $B \subseteq S$.
+ \begin{enumerate}
+   \item[(a)] $f^{\sto}(A \cap B) \subseteq f^{\sto}(A) \cap f^{\sto}(B)$.
+   \item[(b)] Equality need not hold in (a).
+   \item[(c)] Equality does hold in (a) if $f$ is injective.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_finv_comp}  Let $f\colon S \sto T$ and $D \subseteq T$. Then
+   \[ f^\gets(D^c) = \bigl(f^\gets(D)\bigr)^c\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_f_comp}  Let $f\colon S \sto T$ and $A \subseteq S$.
+ \begin{enumerate}
+   \item[(a)] If $f$ is injective, then $f^{\sto}(A^c) \subseteq \bigl(f^{\sto}(A)\bigr)^c$.
+   \item[(b)] If $f$ is surjective, then $f^{\sto}(A^c) \supseteq \bigl(f^{\sto}(A)\bigr)^c$.
+   \item[(c)] If $f$ is bijective, then $f^{\sto}(A^c) = \bigl(f^{\sto}(A)\bigr)^c$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hints.}  For part (a), let $y \in f^{\sto}(A^c)$. To prove that
+$y \in \bigl(f^{\sto}(A)\bigr)^c$, assume to the contrary that $y \in f^{\sto}(A)$ and derive
+a contradiction. For part (b), let $y \in \bigl(f^{\sto}(A)\bigr)^c$. Since $f$ is surjective,
+there exists $x \in S$ such that $y = f(x)$. Can $x$ belong to~$A$?.  \ns
+\end{proof}
+
+\begin{prop}\label{prop_f_fam}  Let $f\colon S \sto T$ and $\sfml A \subseteq \sfml P(S)$.
+ \begin{enumerate}
+   \item[(a)] $f^{\sto}(\bigcap\sfml A) \subseteq \bigcap\{f^{\sto}(A) \colon A \in \sfml A\}$.
+   \item[(b)] If $f$ is injective, equality holds in (a).
+   \item[(c)] $f^{\sto}(\bigcup\sfml A) = \bigcup\{f^{\sto}(A) \colon A \in \sfml A\}$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_f_fam}.)  \ns  \end{proof}
+
+\begin{prop}\label{prop_finv_fam}  Let $f\colon S \sto T$ and $\sfml B \subseteq \sfml P(T)$.
+ \begin{enumerate}
+   \item[(a)] $f^\gets(\bigcap \sfml B) = \bigcap\{f^\gets(B)\colon B \in \sfml B\}$.
+   \item[(b)] $f^\gets(\bigcup \sfml B) = \bigcup\{f^\gets(B)\colon B \in \sfml B\}$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+
+\section{INVERSE FUNCTIONS}\label{sec_inv_fcns}   Let $f\colon S \sto T$
+and $g\colon T \sto S$.  If $g\circ f = I_S$, then $g$ is a
+ \index{left inverse}%
+ \index{inverse!left}%
+\df{left inverse} of $f$ and, equivalently, $f$ is a
+ \index{right inverse}%
+ \index{inverse!right}%
+\df{right inverse} of $g$. We say that  $f$ is
+ \index{invertible}%
+\df{invertible} if there exists a function from $T$ into  $S$ which is both a left and a right
+inverse for~$f$.  Such a function is denoted by $f^{-1}$ and is called the
+ \index{<@$f^{-1}$ (inverse of a function $f$)}%
+\df{inverse} of~$f$.  (Notice that the last ``the'' in the preceding sentence requires
+justification.  See proposition~\ref{prop_finv_unique} below.) A function is
+ \index{invertible}%
+\df{invertible} if it has an inverse. According to the definition just given, the inverse
+$f^{-1}$ of a function $f$ must satisfy
+  \[ f \circ f^{-1} = I_T \qquad\text{and}\qquad f^{-1}\circ f = I_S\,. \]
+A simple, but important, consequence of this is that for an invertible function, $y = f(x)$ if
+and only if $x = f^{-1}(y)$. [Proof: if $y = f(x)$, then $f^{-1}(y) = f^{-1}(f(x)) = I_S(x) =
+x$. Conversely, if $x = f^{-1}(y)$, then $f(x) = f(f^{-1}(y)) = I_T(y) = y$.]
+
+\begin{prop}\label{prop_finv_unique}  A function can have at most one inverse.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_finv_unique}.)  \ns  \end{proof}
+
+\begin{prop}  If a function has both a left inverse and a right inverse, then the left and right
+inverses are equal (and therefore the function is invertible).
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exer}\label{exer_inv_trig}  The \emph{arcsine} function is defined to be the inverse
+of what function? (\emph{Hint.}  The answer is not \emph{sine}.) What about \emph{arccosine}?
+\emph{arctangent}? (Solution~\ref{sol_exer_inv_trig}.)
+\end{exer}
+
+The next two propositions tell us that a necessary and sufficient condition for a function to
+have right inverse is that it be surjective and that a necessary and sufficient condition for
+a function to have a left inverse is that it be injective. Thus, in particular, a function is
+invertible if and only if it is bijective. In other words, the invertible members of $\fml
+F(S,T)$ are the bijections.
+
+\begin{prop}\label{prop_rinv_surj}  Let $S \ne \emptyset$. A function $f\colon S \sto T$ has a
+right inverse if and only if it is surjective.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_prop_rinv_surj}.)  \ns  \end{proof}
+
+\begin{prop}\label{prop_linv_inj}  Let $S \ne \emptyset$. A function $f\colon S \sto T$ has a left
+inverse if and only if it is injective.
+\end{prop}
+
+\begin{proof}  Problem.  \ns   \end{proof}
+
+\begin{prob} Prove: if a function $f$ is bijective, then $\bigl(f^{-1}\bigr)^\gets = f^{\sto}$.
+\end{prob}
+
+\begin{prob}  Let $ f(x) = \dfrac{ax + b}{cx + d}$ where $a$, $b$, $c$, $d \in \R$ and not both
+$c$ and $d$ are zero.
+ \begin{enumerate}
+   \item[(a)] Under what conditions on the constants $a, b, c, \text{ and } d$ is $f$ injective?
+   \item[(b)] Under what conditions on the constants $a, b, c, \text{ and } d$ is $f$ its own inverse?
+ \end{enumerate}
+\end{prob}
+
+
+\endinput

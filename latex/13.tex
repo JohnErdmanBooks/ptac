@@ -1,0 +1,214 @@
+\chapter{UNIFORM CONVERGENCE}\label{unif_conv}
+
+
+
+\section{THE UNIFORM METRIC ON THE SPACE OF BOUNDED FUNCTIONS}
+\begin{defn} Let $S$ be a nonempty set. A function $f \colon S \sto \R$ is
+ \index{bounded!function}%
+ \index{function!bounded}%
+\df{bounded} if there exists a number $M \ge 0$ such that
+  \[ \abs{f(x)} \le M \qquad \text{for all $x \in S$}\,. \]
+We denote by
+ \index{bounded@$\fml B(S)$, $\fml B(S,\R)$ (bounded real valued functions on a set)}%
+$\fml B(S,\R)$ (or just by $\fml B(S)$) the set of all bounded real valued functions on~$S$.
+\end{defn}
+
+\begin{prop}\label{uc_prop1} If $f$ and $g$ are bounded real valued functions on a nonempty set
+$S$ and $\alpha$ is a real number, then the functions $f + g$, $\alpha f$, and $fg$ are all
+bounded.
+\end{prop}
+
+\begin{proof} There exist numbers $M$, $N \ge 0$ such that $\abs{f(x)} \le M$ and $\abs{g(x)}
+\le N$ for all $x \in S$. Then, for all $x \in S$
+ \begin{align*}
+         \abs{(f + g)(x)} &\le \abs{f(x)} + \abs{g(x)} \le M + N, \\
+     \abs{(\alpha f)(x)}  &= \abs{\alpha}\,\abs{f(x)} \le \abs{\alpha}\,M, \text{ and}\\
+            \abs{(fg)(x)} &= \abs{f(x)}\,\abs{g(x)} \le MN.  \qedhere
+ \end{align*}
+\end{proof}
+
+\begin{defn}\label{unif_met} Let $S$ be a nonempty set. We define a metric $d_u$ on the set
+$\fml B(S,\R)$ by
+  \[ d_u(f,g) \equiv \sup\{\abs{f(x) - g(x)} \colon x \in S\} \]
+whenever $f$, $g \in \fml B(S,\R)$. The metric $d_u$ is the
+ \index{du@$d_u$ (uniform metric)}%
+ \index{uniform!metric}%
+ \index{metric!uniform}%
+\df{uniform metric} on~$\fml B(S,\R)$.
+\end{defn}
+
+\begin{exam} Let $S = [-1,1]$ and for all $x \in S$ let $f(x) = \abs{x}$ and $g(x) = \frac12(x-1)$.
+Then $d_u(f,g) = 2$.
+\end{exam}
+
+\begin{proof} It is clear from the graphs of $f$ and $g$ that the functions are farthest apart at
+$x = -1$. Thus
+  \begin{align*}
+    d_u(f,g) &= \sup\{\abs{f(x) - g(x)} \colon -1 \le x \le 1\} \\
+             &= \abs{f(-1) - g(-1)} = 2.   \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{exam} Let $f(x) = x^2$ and $g(x) = x^3$ for $0 \le x \le 1$.  Then $d_u(f,g) = 4/27$.
+\end{exam}
+
+\begin{proof} Let $h(x) = \abs{f(x) - g(x)} = f(x) - g(x)$ for $0 \le x \le 1$.  To maximize $h$
+on $[0,1]$ use elementary calculus to find critical points.  Since $h'(x) = 2x - 3x^2 = 0$
+only if $x=0$ or $x=\frac23$, it is clear that the maximum value of $h$ occurs at $x =
+\frac23$. Thus
+  \[ d_u(f,g) = \sup\{h(x) \colon 0 \le x \le 1\}
+              = h\biggl(\frac23\biggr) = \frac4{27}\,.  \qedhere \]
+\end{proof}
+
+\begin{exer}\label{uc_exer1} Suppose $f$ is the constant function defined on $[0,1]$ whose
+value is~$1$.  Asked to describe those functions in $\fml B([0,1])$ which lie in the open ball
+about $f$ of radius $1$, a student replies (somewhat incautiously) that $B_1(f)$ is the set of
+all real-valued functions $g$ on $[0,1]$ satisfying $0 < g(x) < 2$ for all $x \in [0,1]$. Why
+is this response wrong?  (Solution~\ref{sol_uc_exer1}.)
+\end{exer}
+
+\begin{prob} Let $f(x) = \sin x$ and $g(x) = \cos x$ for $0 \le x \le \pi$. Find $d_u(f,g)$
+in the set of functions $\fml B([0,\pi])$.
+\end{prob}
+
+\begin{prob} Let $f(x) = 3x - 3x^3$ and $g(x) = 3x - 3x^2$ for $0 \le x \le 2$. Find $d_u(f,g)$
+in the set of functions $\fml B([0,2])$.
+\end{prob}
+
+\begin{prob} Explain why it is reasonable to use the same notation $d_u$ (and the same name)
+for both the metric in example~\ref{unif_rn} and the one defined in~\ref{unif_met}.
+\end{prob}
+
+The terminology in \ref{unif_met} is somewhat optimistic. We have not yet verified that the
+``uniform metric'' is indeed a metric on $\fml B(S,\R)$. We now remedy this.
+
+\begin{prop}\label{uc_exer2} Let $S$ be a nonempty set. The function $d_u$ defined
+in~\ref{unif_met} is a metric on the set of functions $\fml B(S,\R)$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_uc_exer2}.)   \ns \end{proof}
+
+\begin{prob} Let $f(x) = x$ and $g(x) = 0$ for all $x \in [0,1]$.  Find a function $h$ in
+$\fml B([0,1])$ such that
+  \[ d_u(f,h) = d_u(f,g) = d_u(g,h)\,. \]
+\end{prob}
+
+\begin{defn}\label{def_uc_R} Let $(f_n)$ be a sequence of real valued functions on a nonempty
+set~$S$.  If there is a function $g$ in $\fml F(S,\R)$ such that
+  \[ \sup\{\abs{f_n(x) - g(x)} \colon x \in S\} \sto 0 \qquad \text{ as $n \sto \infty$}\]
+we say that the sequence $(f_n)$
+ \index{convergence!uniform}%
+ \index{uniform!convergence}%
+\df{converges uniformly} to $g$ and we write
+ \index{<@$f_n \sto g \text{\,(unif)}$ (uniform convergence)}%
+   \[ f_n \sto g \text{\,(unif)}\,. \]
+The function $g$ is the
+ \index{uniform!limit}%
+ \index{limit!uniform}%
+\df{uniform limit} of the sequence $(f_n)$. Notice that if $g$ and all the $f_n$'s belong to
+$\fml B(S,\R)$, then uniform convergence of $(f_n)$ to $g$ is the same thing as convergence of
+$f_n$ to $g$ in the uniform metric.
+\end{defn}
+
+\begin{exam} For each $n \in \N$ and $x \in \R$ let
+  \[ f_n(x) = \frac1n\,\sin(nx)\,. \]
+Then $f_n \sto \vc 0 \text{\,(unif)}$. (Here $\vc 0$ is the constant function zero.)
+\end{exam}
+
+\begin{proof}
+  \begin{align*}
+     d_u(f_n,0) &= \sup\bigl\{\tfrac1n \abs{\sin nx} \colon x\in \R\bigr\} \\
+                &= \frac1n \sto 0 \qquad\text{as $n \sto \infty$}\,.   \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{exam} Let $g(x) = x$ and $f_n(x) = x + \frac1n$ for all $x \in \R$ and $n \in \N$.
+Then $f_n \sto g \text{\,(unif)}$ since
+   \[ \sup\{\abs{f_n(x) - g(x)}\colon  x \in \R\} = \frac1n \sto 0
+                      \qquad\text{as $n \sto \infty$}.\]
+It is not correct (although perhaps tempting) to write $d_u(f_n,g) \sto 0$.  This expression
+is meaningless since the functions $f_n$ and $g$ do not belong to the metric space $\fml
+B(\R)$ on which $d_u$ is defined.
+\end{exam}
+
+
+
+
+
+\section{POINTWISE CONVERGENCE}
+Sequences of functions may converge in many different and interesting ways.  Another mode of
+convergence that is frequently encountered is ``pointwise convergence''.
+
+
+\begin{defn}\label{def_pc_R}  Let $(f_n)$ be a sequence of real valued functions on a nonempty
+set~$S$.  If there is a function $g$ such that
+   \[ f_n(x) \sto g(x) \qquad\text{for all $x \in S$} \]
+then $(f_n)$
+ \index{pointwise!convergence}%
+ \index{convergence!pointwise}%
+\df{converges pointwise} to~$g$. In this case we write
+ \index{<@$f_n \sto g \text{\,(ptws)}$ (pointwise convergence)}%
+   \[ f_n \sto g \text{\,(ptws)} \,. \]
+The function $g$ is the
+ \index{pointwise!limit}%
+ \index{limit!pointwise}%
+\df{pointwise limit} of the sequence~$f_n$.
+\end{defn}
+
+In the following proposition we make the important, if elementary, observation that uniform
+convergence is stronger than pointwise convergence.
+
+\begin{prop}\label{uc_vs_pwc} Uniform convergence implies pointwise convergence, but not conversely.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_uc_vs_pwc}.)   \ns \end{proof}
+
+\begin{prob} Find an example of a sequence $(f_n)$ of functions in $\fml B([0,1])$ which
+converges pointwise to the zero function $\vc 0$ but satisfies
+  \[ d_u(f_n,\vc 0) \sto \infty \qquad \text{as $n \sto \infty$}\,. \]
+\end{prob}
+
+Next we show that the uniform limit of a sequence of bounded functions is itself bounded.
+
+\begin{prop}\label{unif_lim_bdd} Let $(f_n)$ be a sequence in $\fml B(S)$ and $g$ be a
+real valued function on~$S$.
+ \begin{enumerate}
+  \item[(a)] If $f_n \sto g \text{\,(unif)}$, then $g \in \fml B(S)$.
+  \item[(b)] The assertion in (a) does not hold if uniform convergence is replaced by
+pointwise convergence.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_unif_lim_bdd}.) \ns \end{proof}
+
+\begin{exer}\label{uc_exer3} Let $f_n(x) = x^n - x^{2n}$ for $0 \le x \le 1$ and $n \in \N$.
+Does the sequence $(f_n)$ converge pointwise on $[0,1]$? Is the convergence uniform?
+(Solution~\ref{sol_uc_exer3}.)
+\end{exer}
+
+\begin{prob} Given in each of the following is the $n^{\text{th}}$ term of a sequence of
+real valued functions defined on~$[0,1]$. Which of these converge pointwise on~$[0,1]$?  For
+which is the convergence uniform?
+ \begin{enumerate}
+  \item[(a)] $x \mapsto x^n$.
+  \item[(b)] $x \mapsto nx$.
+  \item[(c)] $x \mapsto xe^{-nx}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Given in each of the following is the $n^{\text{th}}$ term of a sequence of real
+valued functions defined on $[0,1]$.  Which of these converge pointwise on $[0,1]$? For which
+is the convergence uniform?
+ \begin{enumerate}
+  \item[(a)] $x \mapsto \dfrac1{\mathstrut nx+1}$.
+\vskip 2 pt
+  \item[(b)] $x \mapsto \dfrac{\mathstrut x}{\mathstrut nx+1}$.
+\vskip 2 pt
+  \item[(c)] $x \mapsto \dfrac{\mathstrut x^2}n - \dfrac{\mathstrut x}{n^2}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f_n(x) = \dfrac{(n-1)x + x^2}{\mathstrut n + x}$ for all $x \ge 1$ and
+$n \in \N$. Does the sequence $(f_n)$ have a pointwise limit on $\mathstrut [1,\infty)$?  A
+uniform limit?
+\end{prob}

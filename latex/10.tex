@@ -1,0 +1,262 @@
+\chapter{INTERIORS, CLOSURES, AND BOUNDARIES}
+
+
+\section{DEFINITIONS AND EXAMPLES}
+\begin{defn} Let $(M,d)$ be a metric space and $M_0$ be a nonempty subset of~$M$.  If $d_0$
+is the restriction of $d$ to $M_0 \times M_0$, then, clearly, $(M_0,d_0)$ is a metric space.
+It is a
+ \index{subspace!of a metric space}%
+\df{metric subspace} of~$(M,d)$. In practice the restricted function (often called the
+ \index{induced metric}%
+ \index{metric!induced}%
+\df{induced metric}) is seldom given a name of its own; one usually writes, ``$(M_0,d)$ is a
+(metric) subspace of $(M,d)$''. When the metric on $M$ is understood, this is further
+shortened to, ``$M_0$ is a subspace of~$M$''.
+\end{defn}
+
+\begin{exam} Let $M$ be $\R^2$ equipped with the usual Euclidean metric $d$ and $M_0 =~\Q^2$.
+The induced metric $d_0$ agrees with $d$ where they are both defined:
+   \[ d(x,y) = d_0(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2} \]
+where $x = (x_1,x_2)$ and $y = (y_1,y_2)$.  The only difference is that $d_0(x,y)$ is defined
+only when both $x$ and $y$ have rational coordinates.
+\end{exam}
+
+\begin{exer}\label{icb1ex} Regard $M_0 = \{-1\} \cup [0,4)$ as a subspace of $\R$ under its
+usual metric. In this subspace find the open balls $B_1(-1)$, $B_1(0)$, and~$B_2(0)$.
+(Solution~\ref{sol_icb1ex}.)
+\end{exer}
+
+\begin{defn} Let $A$ be a subset of a metric space $M$. A point $a$ is an
+ \index{interior!point}%
+ \index{point!interior}%
+\df{interior point} of $A$ if some open ball about $a$ lies entirely in~$A$.  The
+ \index{interior}%
+\df{interior} of $A$, denoted
+ \index{<@$A^\circ$ (interior of~$A$)}%
+by~$\intr A$, is the set of all interior points of~$A$. That is,
+  \[ \intr A := \{x \in M: B_r(x) \subseteq A \text{ for some } r > 0\}\,. \]
+\end{defn}
+
+\begin{exam} Let $M$ be $\R$ with its usual metric and $A$ be the closed interval $[0,1]$.
+Then $\intr A = (0,1)$.
+\end{exam}
+
+\begin{exam} Let $M$ be $\R^2$ with its usual metric and $A$ be the unit disk $\{(x,y) \colon x^2 + y^2 \le 1\}$.
+Then the interior of $A$ is the open disk $\{(x,y) \colon x^2 + y^2 < 1\}$.
+\end{exam}
+
+\begin{exam} Let $M = \R^2$ with its usual metric and $A = \Q^2$.  Then $\intr A = \emptyset$.
+\end{exam}
+
+\begin{proof} No open ball in $\R^2$ contains only points both of whose coordinates are rational.
+\end{proof}
+
+\begin{exam} Consider the metrics $d$, $d_1$, and $d_u$ on $\R^2$. Let $A = \{x \in \R^2
+\colon d(x,0) \le~1\}$, $A_1 = \{x \in \R^2 \colon d_1(x,0) \le 1\}$, and $A_u = \{x \in \R^2
+\colon d_u(x,0) \le 1\}$.  The point $\bigl(\frac23,\frac38\bigr)$ belongs to $\intr A$ and
+$\intr{A_u}$, but not to $\intr{A_1}$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{defn} A point $x$ in a metric space $M$ is an
+ \index{accumulation point}%
+ \index{point!accumulation}%
+\df{accumulation point} of a set $A \subseteq M$ if every open ball about $x$ contains a point
+of $A$ distinct from~$x$. (We do \emph{not} require that $x$ belong to $A$.) We denote the set
+of all accumulation points of $A$
+ \index{<@$A'$ (derived set of $A$, set of accumulation points)}%
+by~$A'$. This is sometimes called
+the
+ \index{derived set}%
+\df{derived set} of $A$. The
+ \index{closure}%
+\df{closure} of the set $A$, denoted
+ \index{<@$\overline A$ (closure of $A$)}%
+by~$\clo A$, is $A \cup A'$.
+\end{defn}
+
+\begin{exam} Let $\R^2$ have its usual metric and $A$ be $\bigl[(0,1) \times (0,1)\bigr] \cup
+\{(2,3)\} \subseteq \R^2$.  Then $A' = [0,1] \times [0,1]$ and $\clo A =\bigl([0,1] \times
+[0,1]\bigr) \cup \{(2,3)\}$.
+\end{exam}
+
+\begin{exam} The set $\Q^2$ is a subset of the metric space $\R^2$.  Every ordered pair of real
+numbers is an accumulation point of $\Q^2$ since every open ball in $\R^2$ contains
+(infinitely many) points with both coordinates rational.  So the closure of $\Q^2$ is all
+of~$\R^2$.
+\end{exam}
+
+\begin{defn} The
+ \index{boundary}%
+\df{boundary} of a set $A$ in a metric space is the intersection of the closures of $A$ and
+its complement. We denote it
+ \index{<@$\partial A$ (boundary of $A$)}%
+by~$\partial A$. In symbols,
+  \[ \partial A := \clo A \cap \clo{A^c}\,. \]
+\end{defn}
+
+\begin{exam} Take $M$ to be $\R$ with its usual metric. If $A = (0,1)$, then $\clo A = A' =
+[0,1]$ and $\clo{A^c} = A^c = (-\infty,0] \cup [1,\infty)$; so $\partial A = \{0,1\}$.
+\end{exam}
+
+\begin{exer}\label{icb2ex} In each of the following find $\intr A$, $A'$, $\clo A$, and~$\partial A$.
+ \begin{enumerate}
+  \item[(a)] Let $A = \{\frac1n: n \in \N\}$. Regard $A$ as a subset of the metric space~$\R$.
+  \item[(b)] Let $A = \Q \cap (0,\infty)$. Regard $A$ as a subset of the metric space~$\R$.
+  \item[(c)] Let $A = \Q \cap (0,\infty)$. Regard $A$ as a subset of the metric space~$\Q$
+(where $\Q$ is a subspace of $\R$).
+ \end{enumerate}
+(Solution~\ref{sol_icb2ex}.)
+\end{exer}
+
+
+
+
+
+
+
+
+\section{INTERIOR POINTS}
+\begin{lem}\label{sm_in_lar} Let $M$ be a metric space, $a \in M$, and $r > 0$. If $c \in B_r(a)$,
+then there is a number $t > 0$ such that
+  \[ B_t(c) \subseteq B_r(a)\,. \]
+\end{lem}
+
+\begin{proof} Exercise. (Solution~\ref{sol_sm_in_lar}.)  \ns  \end{proof}
+
+\begin{prop}\label{prop_int} Let $A$ and $B$ be subsets of a metric space.
+ \begin{enumerate}
+  \item[(a)] If $A \subseteq B$, then $\intr A \subseteq \intr B$.
+  \item[(b)] $A^{\circ\circ} = \intr A$. \textup{($A^{\circ\circ}$ means
+$\intr{\bigl(\intr A\bigr)}$.)}
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_int}.) \ns  \end{proof}
+
+\begin{prop}\label{in_in} If $A$ and $B$ are subsets of a metric space, then
+  \[ \intr{(A \cap B)} = \intr A \cap \intr B\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{un_int} Let $\sfml A$ be a family of subsets of a metric space.  Then
+ \begin{enumerate}
+  \item[(a)] $\bigcup\{\intr A \colon A \in \sfml A\} \subseteq \intr{\bigl(\bigcup \sfml A\bigr)}\,.$
+  \item[(b)] Equality need not hold in \textup{(a)}.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_un_int}.) \ns  \end{proof}
+
+\begin{prop}\label{in_int} Let $\sfml A$ be a family of subsets of a metric space.  Then
+ \begin{enumerate}
+  \item[(a)]  $\intr{\bigl(\bigcap \sfml A \bigr)} \subseteq \bigcap\{\intr A \colon A
+\in \sfml A\}\,.$
+  \item[(b)] Equality need not hold in \textup{(a)}.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+\section{ACCUMULATION POINTS AND CLOSURES}
+In \ref{sm_in_lar}--\ref{in_int} some of the fundamental properties of the interior operator
+$A \mapsto \intr A$ were developed. In the next proposition we study accumulation points. Once
+their properties are understood it is quite easy to derive the basic facts about the closure
+operator $A \mapsto \clo A$.
+
+\begin{prop}\label{prop_accpt} Let $A$ and $B$ be subsets of a metric space.
+ \begin{enumerate}
+  \item[(a)] If $A \subseteq B$, then $A' \subseteq B'$.
+  \item[(b)]  $A'' \subseteq A'$.
+  \item[(c)] Equality need not hold in \textup{(b)}.
+  \item[(d)] $(A \cup B)' = A' \cup B'$.
+  \item[(e)] $(A \cap B)' \subseteq A' \cap B'$.
+  \item[(f)] Equality need not hold in \textup{(e)}.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} (a) Let $x \in A'$. Then each open ball about $x$ contains a point of $A$, hence
+of $B$, distinct from $x$. Thus $x \in B'$.
+
+(b) Let $a \in A''$. If $r>0$ then $B_r(a)$ contains a point, say $b$, of $A'$ distinct from
+$a$. By lemma \ref{sm_in_lar} there exists $s > 0$ such that $B_s(b) \subseteq B_r(a)$. Let $t
+= \min\{s,d(a,b)\}$. Note that $t > 0$. Since $b \in A'$, there is a point $c \in B_t(b)
+\subseteq B_r(a)$ such that $c \in A$. Since $t \le d(a,b)$, it is clear that $c \ne a$. Thus
+every open ball $B_r(a)$ contains a point $c$ of $A$ distinct from $a$. This establishes that
+$a \in A'$.
+
+(c) Problem.
+
+(d) Problem.
+
+(e) Since $A \cap B \subseteq A$, part (a) implies that $(A \cap B)' \subseteq A'$. Similarly,
+$(A \cap B)' \subseteq B'$. Conclusion: $(A \cap B)' \subseteq A' \cap B'$.
+
+(f) In the metric space $\R$ let $A = \Q$ and $B = \Q^c$. Then $(A \cap B)' = \emptyset' =
+\emptyset$ while $A' \cap B' = \R \cap \R = \R$.
+\end{proof}
+
+\begin{prop}\label{prop_clo} Let $A$ and $B$ be subsets of a metric space with $A \subseteq B$.
+Then
+ \begin{enumerate}
+  \item[(a)] $\clo A \subseteq \clo B$.
+  \item[(b)] $\clo{\clo A} = \clo A$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prop}\label{un_clo} If $A$ and $B$ are subsets of a metric space, then
+  \[ \clo{A \cup B} = \clo A \cup \clo B\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $\sfml A$ be a family of subsets of a metric space.  Then
+ \begin{enumerate}
+  \item[(a)] $\bigcup\{\clo A: A \in \sfml A\} \subseteq \clo{\bigcup \sfml A}.$
+  \item[(b)] Equality need not hold in \textup{(a)}.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{intr_cl} Let $\sfml A$ be a family of subsets of a metric space.
+Then
+ \begin{enumerate}
+  \item[(a)] $\clo{\bigcap \sfml A} \subseteq \bigcap \{\clo A \colon A \in \sfml A\}$.
+  \item[(b)] Equality need not hold in \textup{(a)}.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{int_vs_cl} Let $A$ be a subset of a metric space.  Then
+ \begin{enumerate}
+  \item[(a)]  $\bigl(\intr A \bigr)^c = \clo{A^c}$.
+  \item[(b)]  $\intr{\bigl(A^c\bigr)} = \bigl(\,\clo A \,\bigr)^c$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Use proposition \ref{int_vs_cl} and proposition~\ref{prop_int} (but not
+proposition~\ref{prop_accpt}) to give another proof of proposition~\ref{prop_clo}.
+\end{prob}
+
+\begin{prob} Use proposition \ref{int_vs_cl} and proposition \ref{in_in} (but not
+proposition \ref{prop_accpt}) to give another proof of proposition~\ref{un_clo}.
+\end{prob}
+
+
+
+
+\endinput

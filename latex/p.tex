@@ -1,0 +1,209 @@
+\chapter{COUNTABLE AND UNCOUNTABLE SETS}
+
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+
+There are many sizes of infinite sets---infinitely many in fact. In our subsequent work we
+need only distinguish between countably infinite and uncountable sets. A set is countably
+infinite if it is in one-to-one correspondence with the set of positive integers; if it is
+neither finite nor countably infinite, it is uncountable. In this section we present some
+basic facts about and examples of both countable and uncountable sets. This is all we will
+need. Except for problem~\ref{prob_unc_notr}, which is presented for general interest, we
+ignore the many intriguing questions which arise concerning various sizes of uncountable sets.
+For a very readable introduction to such matters see \cite{Kaplansky:1977}, chapter~2.
+
+\begin{defn}  A set is
+ \index{countably infinite}%
+ \index{infinite!countably}%
+\df{countably infinite} (or
+\index{denumerable}%
+\df{denumerable}) if it is cardinally equivalent to the set $\N$ of natural numbers. A
+bijection from $\N$ onto a countably infinite set $S$ is an
+ \index{enumeration}%
+\df{enumeration} of the elements of~$S$. A set is
+ \index{countable}%
+\df{countable} if it is either finite or countably infinite.  If a
+set is not countable it is
+ \index{uncountable}%
+\df{uncountable}.
+\end{defn}
+
+\begin{exam} The set $\E$ of even integers in $\N$  is countable.
+\end{exam}
+
+\begin{proof}  The map $n \mapsto 2n$ is a bijection from $\N$ onto~$\E$.
+\end{proof}
+
+The first proposition of this section establishes the fact that the ``smallest'' infinite sets
+are the countable ones.
+
+\begin{prop}  Every infinite set contains a countably infinite subset.
+\end{prop}
+
+
+\begin{proof} Problem. \emph{Hint.}  Review the proof of proposition~\ref{prop_ce_sub}. \ns
+\end{proof}
+
+If we are given a set $S$ which we believe to be countable, it may be extremely difficult to
+prove this by exhibiting an explicit bijection between $\N$ and~$S$.  Thus it is of great
+value to know that certain constructions performed with countable sets result in countable
+sets.  The next five propositions provide us with ways of generating new countable sets from
+old ones.  In particular, we show that each of the following is countable.
+ \begin{enumerate}
+  \item Any subset of a countable set.
+  \item The range of a surjection with countable domain.
+  \item The domain of an injection with countable codomain.
+  \item The product of any finite collection of countable sets.
+  \item The union of a countable family of countable sets.
+ \end{enumerate}
+
+\begin{prop}\label{prop_sub_cntbl}  If $S \subseteq T$ where $T$ is countable, then $S$ is countable.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Show first that every subset of $\N$ is countable.
+(Solution~\ref{sol_prop_sub_cntbl}.)   \ns
+\end{proof}
+
+The preceding has an obvious corollary: if $S \subseteq T$ and $S$ is uncountable, then so
+is~$T$.
+
+\begin{prop}\label{prop_preimg_cntbl} If $f \colon S \sto T$ is injective and $T$ is countable,
+then $S$ is countable.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Adapt the proof of proposition~\ref{prop_preimg_fin}.  \ns
+\end{proof}
+
+\begin{prop}\label{prop_ran_cntbl}  If $f \colon S \sto T$ is surjective and $S$ is countable,
+then $T$ is countable.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Adapt the proof of proposition~\ref{prop_ran_fin}.  \ns
+\end{proof}
+
+\begin{lem}\label{lem_nxn_cntbl}  The set $\N \times \N$ is countable.
+\end{lem}
+
+\begin{proof} Exercise. \emph{Hint.}   Consider the map $(m,n) \mapsto 2^{m-1}(2n - 1)$.
+(Solution~\ref{sol_lem_nxn_cntbl}.) \ns
+\end{proof}
+
+\begin{exam}\label{exam_qplus_cntbl} The set $\Q^+ \setminus \{0\} = \{x \in \Q \colon x > 0\}$
+is countable.
+\end{exam}
+
+\begin{proof} Suppose that the rational number $m/n$ is written in lowest terms. (That is, $m$
+and $n$ have no common factors greater than~1.) Define $f(m/n) = (m,n)$. It is easy to see
+that the map $f \colon \Q^+\setminus\{0\} \sto \N \times \N$ is injective. By proposition
+\ref{prop_preimg_cntbl} and the preceding lemma, $Q^+$ is countable.
+\end{proof}
+
+\begin{prop}\label{prop_prod_cntbl} If $S$ and $T$ are countable sets, then so is $S \times T$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Either $S \sim \{1,\dots,n\}$ or else $S \sim \N$. In
+either case there exists an injective map $f \colon S \sto \N$. Similarly there exists an
+injection $g \colon T \sto \N$. Define the function $f \times g \colon S \times T \sto \N
+\times \N$ by $(f \times g)(x,y) = (f(x),g(y))$.   \ns
+\end{proof}
+
+\begin{cor}  If $S_1, \dots, S_n$ are countable sets, then $S_1 \times\dots\times S_n$ is
+countable.
+\end{cor}
+
+\begin{proof} Proposition \ref{prop_prod_cntbl} and induction.
+\end{proof}
+
+Finally we show that a countable union of countable sets is countable.
+
+\begin{prop}\label{prop_union_cntbl}  Suppose that $\sfml A$ is a countable family of sets and
+that each member of $\sfml A$ is itself countable. Then $\bigcup\sfml A$ is countable.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Use lemma \ref{lem_nxn_cntbl} and
+proposition~\ref{prop_ran_cntbl}.   (Solution~\ref{sol_prop_union_cntbl}.) \ns
+\end{proof}
+
+\begin{exam}  The set $\Q$ of rational numbers is countable.
+\end{exam}
+
+\begin{proof} Let $A = \Q^+\setminus\{0\}$ and $B = -A = \{x \in \Q \colon x < 0\}$. Then $\Q
+= A \cup B \cup \{0\}$.  The set $A$ is countable by example~\ref{exam_qplus_cntbl}.  Clearly
+$A \sim B$  (the map $x \mapsto -x$ is a bijection); so $B$ is countable. Since $Q$ is the
+union of three countable sets, it is itself countable by the preceding proposition.
+\end{proof}
+
+By virtue of \ref{prop_sub_cntbl}--\ref{prop_union_cntbl} we have a plentiful supply of
+countable sets. We now look at an important example of a set which is not countable.
+
+\begin{exam}\label{exam_r_uncntbl}  The set $\R$ of real numbers is uncountable.
+\end{exam}
+
+\begin{proof} We take it to be known that if we exclude decimal expansions which end in an
+infinite string of 9's, then every real number has a unique decimal expansion. (For an
+excellent and thorough discussion of this matter see Stromberg's beautiful text on
+\emph{classical real analysis}~\cite{Stromberg:1981}, especially Theorem~2.57.)  By (the
+corollary to) proposition~\ref{prop_sub_cntbl} it will suffice to show that the open unit
+interval $(0,1)$ is uncountable. Argue by contradiction: assume that $(0,1)$ is countably
+infinite. (We know, of course, from exercise~\ref{exer_int_inf} that it is not finite.) Let
+$r_1, r_2, r_3, \dots$ be an enumeration of $(0,1)$. For each $j \in \N$ the number $r_j$ has
+a unique decimal expansion
+  \[ 0.r_{j1}\,r_{j2}\,r_{j3}\,\dots\,. \]
+Construct another number $x = 0.x_1\,x_2\,x_3\,\dots$ as follows. For each $k$ choose $x_k= 1$
+if $r_{kk} \ne 1$ and $x_k = 2$ if $r_{kk} = 1$. Then $x$ is a real number between $0$ and
+$1$, and it cannot be any of the numbers $r_k$ in our enumeration (since it differs from $r_k$
+at the $k^{\text{th}}$ decimal place). But this contradicts the assertion that $r_1, r_2, r_3,
+\dots$ is an enumeration of $(0,1)$.
+\end{proof}
+
+\begin{prob} Prove that the set of irrational numbers is uncountable.
+\end{prob}
+
+\begin{prob} Show that if $S$ is countable and $T$ is uncountable, then $T \setminus S  \sim T$.
+\end{prob}
+
+\begin{prob}  Let $\epsilon$ be an arbitrary number greater than zero. Show that the rationals
+in $[0,1]$ can be covered by a countable family of open intervals the sum of whose
+lengths is no greater than $\epsilon$. (Recall that a family $\sfml U$ of sets is said to
+\df{cover} a set $A$ if $A \subseteq \bigcup \sfml U$.) Is it possible to cover the set
+$\Q$ of all rationals in $\R$ by such a family?  \emph{Hint.}  $\sum_{k=1}^\infty
+2^{-k}~=~1$.
+\end{prob}
+
+\begin{prob} (Definition: The \df{open disk} in $\R^2$ with radius $r > 0$ and center $(p,q)$ is
+defined to be the set of all points $(x,y)$ in $\R^2$ such that $(x - p)^2 + (y - q)^2 <
+r^2$.)  Prove that the family of all open disks in the plane whose centers have rational
+coordinates and whose radii are rational is countable.
+\end{prob}
+
+\begin{prob} (Definition: A real number is
+ \index{algebraic number}%
+\df{algebraic} if it is a root of some polynomial of degree greater than $0$ with integer
+coefficients. A real number which is not algebraic is \df{transcendental}.  It can be shown
+that the numbers $\pi$ and $e$, for example, are transcendental.) Show that the set of all
+transcendental numbers in $\R$ is uncountable.  \emph{Hint.}  Start by showing that the set of
+polynomials with integer coefficients is countable.
+\end{prob}
+
+\begin{prob} Prove that the set of all sequences whose terms consist of only 0's  and 1's is
+uncountable.  \emph{Hint.} Something like the argument in example~\ref{exam_r_uncntbl} works.
+\end{prob}
+
+\begin{prob} Let $\sfml J$ be a disjoint family of intervals in $\R$ each with length greater
+than~0.  Show that $\sfml J$ is countable.
+\end{prob}
+
+\begin{prob}\label{prob_unc_notr} Find an uncountable set which is not cardinally equivalent
+to~$\R$. \emph{Hint.}  Let $\fml F = \fml F(\R,\R)$. Assume there exists a bijection $\phi
+\colon \R \sto \fml F$. What about the function $f$ defined by
+  \[ f(x) = 1 + \bigl(\phi(x)\bigr)(x) \]
+for all $x \in \R$?
+\end{prob}
+
+
+
+
+
+\endinput

@@ -1,0 +1,624 @@
+\chapter{DIFFERENTIATION OF REAL VALUED FUNCTIONS}\label{dorf}
+
+Differential calculus is a highly geometric subject---a fact which is not always made entirely
+clear in elementary texts, where the study of derivatives as numbers often usurps the place of
+the fundamental notion of linear approximation. The contemporary French mathematician Jean
+Dieudonn\'e comments on the problem in chapter~8 of his magisterial multivolume treatise on
+the \emph{Foundations of Modern Analysis}\cite{Dieudonne:1962}
+ \begin{quote}
+\ldots\ the fundamental idea of calculus [is] the ``local'' approximation of functions by
+\emph{linear} functions. In the classical teaching of Calculus, this idea is immediately
+obscured by the accidental fact that, on a one-dimensional vector space, there is a one-to-one
+correspondence between linear forms and numbers, and therefore the derivative at a point is
+defined as a \emph{number} instead of a \emph{linear form}.  This slavish subservience to the
+shibboleth of numerical interpretation at any cost becomes much worse when dealing with
+functions of several variables \ldots
+ \end{quote}
+The goal of this chapter is to display as vividly as possible the geometric underpinnings of
+the differential calculus. The emphasis is on ``tangency'' and ``linear approximation'', not
+on number.
+
+
+
+
+
+
+\section{THE FAMILIES $\lobo O$ AND $\lobo o$}
+\begin{notn}  Let $a \in \R$. We denote
+ \index{f@$\fml F_a$ (functions defined in a neighborhood of~$a$)}%
+by~$\fml F_a$ the family of all real valued functions defined on a neighborhood of~$a$.  That
+is, $f$ belongs to $\fml F_a$ if there exists an open set $U$ such that $a \in U \subseteq
+\dom f$.
+\end{notn}
+
+Notice that for each $a \in \R$, the set $\fml F_a$ is closed under addition and
+multiplication. (We define the sum of two functions $f$ and $g$ in $\fml F_a$ to be the
+function $f + g$ whose value at $x$ is $f(x) + g(x)$ whenever $x$ belongs to $\dom f \,\cap\,
+\dom g$.  A similar convention holds for multiplication.)
+
+Among the functions defined on a neighborhood of zero are two subfamilies of crucial
+importance; they are $\lobo O$ (the family of ``\emph{big-oh}'' functions) and $\lobo o$ (the
+family of ``\emph{little-oh}'' functions).
+
+\begin{defn} A function $f$ in $\fml F_0$ belongs to
+ \index{ohbig@$\lobo O$ functions}%
+$\lobo O$ if there exist numbers $c > 0$ and $\delta > 0$ such that
+   \[ \abs{f(x)} \le c\,\abs{x} \]
+whenever $\abs{x} < \delta$.
+
+A function $f$ in $\fml F_0$ belongs to
+ \index{ohlittle@$\lobo o$ functions}%
+$\lobo o$ if for every $c > 0$ there exists $\delta > 0$ such that
+   \[ \abs{f(x)} \le c\,\abs{x} \]
+whenever $\abs{x} < \delta$. Notice that $f$ belongs to $\lobo o$ if and only if $f(0) = 0$
+and
+   \[ \lim_{h \sto 0}\frac{\abs{f(h)}}{\abs{h}} = 0\,. \]
+\end{defn}
+
+\begin{exam}  Let $f(x) = \sqrt{\abs{x}}$. Then $f$ belongs to neither $\lobo O$ nor $\lobo o$.
+(A function belongs to $\lobo O$ only if in some neighborhood of the origin its graph lies
+between two lines of the form $y = cx$ and $y = -cx$.)
+\end{exam}
+
+\begin{exam}  Let $g(x) = \abs{x}$. Then $g$ belongs to $\lobo O$ but not to $\lobo o$.
+\end{exam}
+
+\begin{exam}  Let $h(x) = x^2$. Then $h$ is a member of both $\lobo O$ and $\lobo o$.
+\end{exam}
+
+Much of the elementary theory of differential calculus rests on a few simple properties of the
+families $\lobo O$ and $\lobo o$. These are given in propositions \ref{o_in_O}--\ref{mult_o}.
+
+\begin{defn} A function $L \colon \R \sto \R$ is
+ \index{linear}%
+\df{linear} if
+   \[ L(x + y) = L(x) + L(y) \]
+and
+   \[ L(cx) = cL(x) \]
+for all $x$, $y$, $c \in \R$.  The family of all linear functions from $\R$ into $\R$ will be
+denoted
+ \index{linear@$\ofml L$ (linear functions from $\R$ into $\R$)}%
+by~$\ofml L$.
+\end{defn}
+
+The collection of linear functions from $\R$ into $\R$ is not very impressive, as the next
+problem shows.  When we get to spaces of higher dimension the situation will become more
+interesting.
+
+\begin{exam}\label{lin_R} A function $f \colon \R \sto \R$ is linear if and only if its graph is a
+(nonvertical) line through the origin.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{cau} Since linear functions must pass through the origin, straight lines are not in
+general graphs of linear functions.
+\end{cau}
+
+\begin{prop}\label{o_in_O} Every member of $\lobo o$ belongs to $\lobo O$; so does every member
+of $\ofml L$. Every member of $\lobo O$ is continuous at 0.
+\end{prop}
+
+\begin{proof} Obvious from the definitions.
+\end{proof}
+
+\begin{prop}\label{lin_vs_o} Other than the constant function zero, no linear function belongs to~$\lobo o$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_lin_vs_o}.)   \ns \end{proof}
+
+\begin{prop}\label{O_closed} The family $\lobo O$ is closed under addition and multiplication
+by constants.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_O_closed}.)  \ns \end{proof}
+
+\begin{prop}\label{o_closed} The family $\lobo o$ is closed under addition and multiplication
+by constants.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+The next two propositions say that the composite of a function in $\lobo O$ with one in $\lobo
+o$ (in either order) ends up in $\lobo o$.
+
+\begin{prop} If $g \in \lobo O$ and $f \in \lobo o$, then $f \circ g \in \lobo o$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prop}\label{O_comp_o} If $g \in \lobo o$ and $f \in \lobo O$, then $f \circ g \in \lobo o$.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_O_comp_o}.)   \ns \end{proof}
+
+\begin{prop}\label{mult_o} If $\phi,f \in \lobo O$, then $\phi f \in \lobo o$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_mult_o}.)   \ns \end{proof}
+
+\begin{rem}\label{rem_oO_R} The preceding facts can be summarized rather concisely. (Notation:
+ \index{continuous@$\fml C_0$ (functions continuous at~$0$)}%
+$\fml C_0$ is the set of all functions in $\fml F_0$ which are continuous at 0.)
+ \begin{align*}
+   &(1)\qquad \ofml L \cup \lobo o \subseteq \lobo O \subseteq
+                   \fml C_0 \, .\\
+   &(2)\qquad \ofml L \cap \lobo o = {0}\,. \\
+   &(3)\qquad \lobo O + \lobo O \subseteq \lobo O\,; \qquad
+                    \alpha\,\lobo O \subseteq \lobo O\,. \\
+   &(4)\qquad \lobo o + \lobo o \subseteq \lobo o\,; \qquad
+                    \alpha\,\lobo o \subseteq \lobo o\,. \\
+   &(5)\qquad \lobo o \circ \lobo O \subseteq \lobo o\,. \\
+   &(6)\qquad \lobo O \circ \lobo o \subseteq \lobo o\,. \\
+   &(7)\qquad \lobo O \cdot \lobo O \subseteq \lobo o\,.
+ \end{align*}
+\end{rem}
+
+\begin{prob}\label{O_comp_O} Show that $\lobo O\circ\lobo O\subseteq\lobo O$.  That is, if
+$g \in \lobo O$ and $f \in \lobo O$, then $f\circ g \in \lobo O$. (As usual, the domain of $f
+\circ g$ is taken to be $\{x \colon g(x) \in \dom f\}$.)
+\end{prob}
+
+
+
+
+
+
+\section{TANGENCY}
+The fundamental idea of differential calculus is the local approximation of a ``smooth''
+function by a translate of a linear one. Certainly the expression ``local approximation''
+could be taken to mean many different things. One sense of this expression which has stood the
+test of usefulness over time is ``tangency''. Two functions are said to be tangent at zero if
+their difference lies in the family $\lobo o$. We can of course define tangency of functions
+at an arbitrary  point (see project \ref{tan_at_a} below); but for our purposes, ``tangency at
+0'' will suffice. All the facts we need to know concerning this relation turn out to be
+trivial consequences of the results we have just proved.
+
+\begin{defn} Two functions $f$ and $g$ in $\fml F_0$ are
+ \index{tangent!at $0$}%
+\df{tangent at zero}, in which case we write
+ \index{<@$\simeq$ (tangency)}%
+$f \simeq g$, if $f - g \in \lobo o$.
+\end{defn}
+
+\begin{exam} Let $f(x) = x$ and $g(x) = \sin x$. Then $f \simeq g$ since $f(0) = g(0) = 0$ and
+$\lim\limits_{x \sto 0} \dfrac{x - \sin x}x = \lim\limits_{x \sto 0}\biggl(1 - \dfrac{\sin
+x}x\biggr) = 0$.
+\end{exam}
+
+\begin{exam}\label{8exer1} If $f(x) = x^2 - 4x - 1$ and $g(x) = \bigl(3x^2 + 4x - 1\bigr)^{-1}$,
+then~$f \simeq g$.
+\end{exam}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_8exer1}.)
+  \ns \end{proof}
+
+\begin{prop}\label{tan_er} The relation ``tangency at zero'' is an equivalence relation
+on~$\fml F_0$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_tan_er}.)   \ns \end{proof}
+
+The next result shows that at most one linear function can be tangent at zero to a given
+function.
+
+\begin{prop}\label{tan_uniq} Let $S$, $T \in \ofml L$ and $f \in \fml F_0$. If $S \simeq f$
+and $T \simeq f$, then $S = T$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_tan_uniq}.)   \ns \end{proof}
+
+\begin{prop}\label{tan_alg} If $f \simeq g$ and $j \simeq k$, then $f + j \simeq g + k$,
+and furthermore, $\alpha f \simeq \alpha g$ for all $\alpha \in \R$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+Suppose that $f$ and $g$ are tangent at zero. Under what circumstances are $h \circ f$ and $h
+\circ g$ tangent at zero? And when are $f \circ j$ and $g \circ j$ tangent at zero? We prove
+next that sufficient conditions are: $h$ is linear and $j$ belongs to $\lobo O$.
+
+\begin{prop}\label{L_tan} Let $f,g \in \fml F_0$ and $T \in \ofml L$. If $f \simeq g$, then
+$T \circ f \simeq T \circ g$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prop}\label{tan_O} Let $h \in \lobo O$ and $f,g \in \fml F_0$. If $f \simeq g$, then
+$f \circ h \simeq g \circ h$.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam} Let $f(x) = 3x^2 - 2x + 3$ and $g(x) = \sqrt{-20x + 25} - 2$ for $x \le 1$.
+Then $f \simeq g$.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prob} Let $f(x) = x^3 - 6x^2 + 7x$. Find a linear function $T \colon \R \sto \R$
+which is tangent to $f$ at~0.
+\end{prob}
+
+\begin{prob} Let $f(x) = \abs x$. Show that there is no linear function $T \colon \R \sto \R$
+which is tangent to $f$ at~$0$.
+\end{prob}
+
+\begin{prob}\label{tan_at_a} Let $T_a \colon x \mapsto x + a$. The mapping $T_a$ is called
+ \index{translation}%
+\df{translation by}~$a$. Note that it is \emph{not} linear (unless, of course, $a = 0$). We
+say that functions $f$ and $g$ in $\fml F_a$ are
+ \index{tangent!at points other than $0$}%
+\df{tangent at} $a$ if the functions $f \circ T_a$ and $g \circ T_a$ are tangent at zero.
+ \begin{enumerate}
+  \item[(a)] Let $f(x) = 3x^2 + 10x + 13$ and $g(x) = \sqrt{-20x -15}$. Show that $f$ and
+$g$ are tangent at~$-2$.
+  \item[(b)] Develop a theory  for the relationship ``tangency at $a$'' which generalizes
+our work on ``tangency at~$0$''.
+ \end{enumerate}
+\end{prob}
+
+
+\begin{prob} Each of the following is an abbreviated version of a proposition.  Formulate
+precisely and prove.
+ \begin{enumerate}
+  \item[(a)] $\fml C_0 + \lobo O \subseteq \fml C_0$.
+  \item[(b)] $\fml C_0 + \lobo o \subseteq \fml C_0$.
+  \item[(c)] $\lobo O + \lobo o \subseteq \lobo O$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Suppose that $f \simeq g$. Then the following hold.
+ \begin{enumerate}
+  \item[(a)] If $g$ is continuous at 0, so is $f$.
+  \item[(b)] If $g$ belongs to $\lobo O$, so does $f$.
+  \item[(c)] If $g$ belongs to $\lobo o$, so does $f$.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+\section{LINEAR APPROXIMATION}
+One often hears that differentiation of a smooth function $f$ at a point $a$ in its domain is
+the process of finding the best ``linear approximation'' to $f$ at~$a$. This informal
+assertion is not quite correct. For example, as we know from beginning calculus, the tangent
+line at $x=1$ to the curve $y = 4 + x^2$ is the line $y = 2x + 3$, which is not a linear
+function since it does not pass through the origin. To rectify this rather minor shortcoming
+we first translate the graph of the function $f$ so that the point $(a,f(a))$ goes to the
+origin, and \emph{then} find the best linear approximation at the origin. The operation of
+translation is carried out by a somewhat notorious acquaintance from beginning calculus
+$\Delta y$. The source of its notoriety is two-fold: first, in many texts it is inadequately
+defined; and second, the notation $\Delta y$ fails to alert the reader to the fact that under
+consideration is a function of \emph{two} variables. We will be careful on both counts.
+
+\begin{defn}\label{Delta} Let $f \in \fml F_a$. Define the function
+ \index{<@$\Delta F_a$}%
+ \index{delta@$\Delta F_a$}%
+$\Delta f_a$ by
+  \[ \Delta f_a(h) := f(a + h) - f(a) \]
+for all $h$ such that $a + h$ is in the domain of $f$. Notice that since $f$ is defined in a
+neighborhood of $a$, the function $\Delta f_a$ is defined in a neighborhood of 0; that is,
+$\Delta f_a$ belongs to $\fml F_0$. Notice also that $\Delta f_a(0) = 0$.
+\end{defn}
+
+\begin{prob} Let $f(x) = \cos x$ for $0 \le x \le 2\pi$.
+ \begin{enumerate}
+  \item[(a)] Sketch the graph of the function $f$.
+  \item[(b)] Sketch the graph of the function $\Delta f_{\pi}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop}\label{del_sm} If $f \in \fml F_a$ and $\alpha \in \R$, then
+   \[ \Delta(\alpha f)_a = \alpha\,\Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} To show that two functions are equal show that they agree at each point in their
+domain.  Here
+ \begin{align*}
+     \Delta(\alpha f)_a(h) &= (\alpha f)(a + h) - (\alpha f)(a) \\
+                           &= \alpha f(a + h) - \alpha f(a) \\
+                           &= \alpha(f(a + h) - f(a)) \\
+                           &= \alpha\,\Delta f_a(h)
+ \end{align*}
+for every $h$ in the domain of~$\Delta f_a$.
+\end{proof}
+
+\begin{prop}\label{del_sum} If $f,g \in \fml F_a$, then
+   \[ \Delta(f+g)_a = \Delta f_a + \Delta g_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_del_sum}.)  \ns \end{proof}
+
+The last two propositions prefigure the fact that differentiation is a linear operator; the
+next result will lead to \emph{Leibniz's rule} for differentiating products.
+
+\begin{prop}\label{del_mult} If $\phi, f \in \fml F_a$, then
+  \[\Delta(\phi f)_a = \phi(a)\cdot\Delta f_a \,+\, \Delta\phi_a\cdot f(a)
+                        \,+\, \Delta\phi_a\cdot\Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+Finally, we present a result which prepares the way for the \emph{chain rule}.
+
+\begin{prop}\label{del_comp} If $f \in \fml F_a$, $g \in \fml F_{f(a)}$, and
+$g \circ f \in \fml F_a$, then
+   \[ \Delta(g \circ f)_a = \Delta g_{{}_{\scriptstyle{f(a)}}} \circ \Delta f_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_del_comp}.)   \ns \end{proof}
+
+\begin{prop} Let $A \subseteq \R$.  A function $f \colon A \sto \R$ is continuous at the
+point $a$ in $A$ if and only if $\Delta f_a$ is continuous at~$0$.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prop} If $f \colon U \sto U_1$ is a bijection between subsets of $\R$, then for each
+$a$ in $U$ the function $\Delta f_a \colon  U - a \sto U_1 - f(a)$ is invertible and
+   \[ \bigl(\Delta f_a\bigr)^{-1}=\Delta\bigl(f^{-1}\bigr)_{f(a)}\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+\section{DIFFERENTIABILITY}
+We now have developed enough machinery to talk sensibly about \emph{differentiating} real
+valued functions.
+
+\begin{defn}\label{df_diff} Let $f \in \fml F_a$.  We say that $f$ is
+ \index{differentiable!at a point}%
+\df{differentiable at}~$a$ if there exists a linear function which is tangent at $0$
+to~$\Delta f_a$.  If such a function exists, it is called the
+ \index{differential}%
+\df{differential} of $f$ at $a$ and is denoted
+ \index{dfa@$df_a$ (differential of $f$ at~$a$)}%
+by~$df_a$. (Don't be put off by the slightly complicated notation; $df_a$ is just a
+member of $\ofml L$ satisfying $df_a \simeq \Delta f_a$.)  We denote by $\fml D_a$ the
+family of all functions in $\fml F_a$ which are differentiable at~$a$.
+\end{defn}
+
+The next proposition justifies the use of the definite article which modifies ``differential''
+in the preceding paragraph.
+
+\begin{prop}\label{diff_uniq} Let $f \in \fml F_a$. If $f$ is differentiable at $a$, then its
+differential is unique. (That is, there is at most one linear map tangent at $0$ to $\Delta
+f_a$.)
+\end{prop}
+
+\begin{proof} Proposition \ref{tan_uniq}.  \end{proof}
+
+\begin{exam}\label{deriv} It is instructive to examine the relationship between the differential
+of $f$ at $a$, which we defined in \ref{df_diff}, and the derivative of $f$ at $a$ as defined
+in beginning calculus.  For $f \in \fml F_a$ to be differentiable at $a$ it is necessary that
+there be a linear function $T \colon \R \sto \R$ which is tangent at $0$ to $\Delta f_a$.
+According to \ref{lin_R} there must exist a constant $c$ such that $Tx = cx$ for all $x$
+in~$\R$.  For $T$ to be tangent to $\Delta f_a$, it must be the case that
+  \[ \Delta f_a - T \in \lobo o\,; \]
+that is,
+  \[ \lim_{h \sto 0}\frac{\Delta f_a(h) - ch}h = 0\,. \]
+Equivalently,
+   \[ \lim_{h \sto 0}\frac{f(a+h) - f(a)}h
+              = \lim_{h \sto 0}\frac{\Delta f_a(h)}h = c\,. \]
+In other words, the function $T$, which is tangent to $\Delta f_a$ at $0$, must be a line
+through the origin whose slope is
+   \[ \lim_{h \sto 0}\frac{f(a + h) - f(a)}h\,. \]
+This is, of course, the familiar ``derivative of $f$ at $a$'' from beginning calculus.  Thus
+for any real valued function $f$ which is differentiable at $a$ in~$\R$
+ \index{<@$f'$ (derivative of $f$)}%
+   \[ df_a(h) = f'(a)\cdot h \]
+for all $h \in \R$.
+\end{exam}
+
+\begin{prob} Explain carefully the quotation from Dieudonn\'e given at the beginning of the chapter.
+\end{prob}
+
+\begin{exam} Let $f(x) =3x^2 - 7x + 5$ and $a=2$. Then $f$ is differentiable at~$a$.  (Sketch the
+graph of the differential~$df_a$.)
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} Let $f(x) = \sin x$ and $a = \pi/3$.  Then $f$ is differentiable at~$a$.  (Sketch the
+graph of the differential~$df_a$.)
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} Let $T \in \ofml L$ and $a \in \R$. Then $dT_a = T$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{del_in_O} If $f \in \fml D_a$, then $\Delta f_a \in \lobo O$.
+\end{prop}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_del_in_O}.) \ns \end{proof}
+
+\begin{cor}\label{diff_cont} Every function which is differentiable at a point is continuous there.
+\end{cor}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_diff_cont}.)    \ns \end{proof}
+
+\begin{prop}\label{diff_sm} If $f$ is differentiable at $a$ and $\alpha \in \R$, then $\alpha f$
+is differentiable at $a$ and
+   \[ d(\alpha f)_a = \alpha\,df_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_diff_sm}.)   \ns \end{proof}
+
+\begin{prop}\label{diff_sum} If $f$ and $g$ are differentiable at $a$, then $f + g$ is
+differentiable at $a$ and
+   \[ d(f+g)_a = df_a + dg_a\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+\begin{prop}[Leibniz's Rule.]\label{diff_mult} If $\phi, f \in \fml D_a$,
+ \index{Leibniz's rule}%
+then $\phi f \in \fml D_a$ and
+   \[ d(\phi f)_a = d\phi_a \cdot f(a) \,+\, \phi(a)\,df_a\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_diff_mult}.) \ns \end{proof}
+
+ \index{chain rule}%
+\begin{thm}[The Chain Rule]\label{ch_rul} If $f \in \fml D_a$ and $g \in \fml D_{f(a)}$, then
+$g \circ f \in \fml D_a$ and
+   \[ d(g \circ f)_a = dg_{{}_{\scriptstyle{f(a)}}} \circ df_a\,. \]
+\end{thm}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_ch_rul}.) \ns \end{proof}
+
+\begin{prob}[A Problem Set on Functions from $\R$ into $\R$] We are
+now in a position to derive the standard results, usually contained
+in the first term of a beginning calculus course, concerning the
+differentiation of real valued functions of a single real variable.
+Having at our disposal the machinery developed earlier in this
+chapter, we may derive these results quite easily; and so the proof
+of each is a problem.
+
+\begin{defn} If $f \in \fml D_a$, the
+ \index{derivative!of a function from $\R$ into $\R$}%
+\df{derivative of $f$ at} $a$, denoted by $f'(a)$ or $Df(a)$, is defined to be ${\D\lim_{h
+\sto 0}\frac{f(a + h) - f(a)}h}$. By \ref{trnsl_lim} this is the same as ${\D\lim_{x \sto
+a}\frac{f(x) - f(a)}{x - a}}$.
+\end{defn}
+
+\begin{prop}\label{diff_deriv} If $f \in \fml D_a$, then $Df(a) = df_a(1)$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} If $f$, $g \in \fml D_a$, then
+   \[ D(fg)(a) = Df(a) \cdot g(a) + f(a) \cdot Dg(a)\,. \]
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Use \emph{Leibniz's rule} (\ref{diff_mult}) and
+proposition~\ref{diff_deriv}.  \ns
+\end{proof}
+
+\begin{exam}\label{8exam1} Let $r(t) = \dfrac1t$ for all $t \ne 0$. Then $r$ is differentiable
+and $Dr(t) = -\dfrac1{t^2}$ for all $t \ne 0$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+ \index{chain rule}%
+\begin{prop}\label{c_ru}  If $f \in \fml D_a$ and $g \in \fml D_{f(a)}$, then $g \circ f \in
+\fml D_a$
+and
+  \[ D(g \circ f)(a) = (Dg)(f(a)) \cdot Df(a)\,. \]
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prop} If $f$, $g \in \fml D_a$ and $g(a) \ne 0$, then
+  \[ D\biggl(\frac fg\biggr)(a) = \frac{g(a)\,Df(a) - f(a)\,Dg(a)}{(g(a))^2}\;. \]
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Write $\dfrac fg$ as $f \cdot (r \circ g)$ and use
+\ref{diff_deriv}, \ref{c_ru}, and~\ref{8exam1}. \ns
+\end{proof}
+
+\begin{prop}\label{pos_deriv} If $f \in \fml D_a$ and $Df(a) > 0$, then there exists $r > 0$
+such that
+ \begin{enumerate}
+  \item[(i)] $f(x) > f(a)$ whenever $a < x < a+r$, and
+  \item[(ii)] $f(x) < f(a)$ whenever $a-r <x < a$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.} Define $g(h) = h^{-1}\,\Delta f_a(h)$ if $h \ne 0$ and
+$g(0) = Df(a)$. Use proposition~\ref{cnt_vs_lim} to show that $g$ is continuous at $0$. Then
+apply proposition~\ref{pos_at_pt}.  \ns
+\end{proof}
+
+\begin{prop}\label{neg_deriv}  If $f \in \fml D_a$ and $Df(a) < 0$, then there exists $r > 0$
+such that
+ \begin{enumerate}
+  \item[(i)] $f(x) < f(a)$ whenever $a < x < a+r$, and
+  \item[(ii)] $f(x) > f(a)$ whenever $a-r < x < a$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Of course it is possible to obtain this result by doing
+\ref{pos_deriv} again with some inequalities reversed. That is the hard way.   \ns
+\end{proof}
+
+\begin{defn}  Let $f \colon A \sto \R$ where $A \subseteq \R$. The function $f$ has a
+ \index{local!maximum}%
+ \index{maximum!local}%
+\df{local} (or
+ \index{relative!maximum}%
+ \index{maximum!relative}%
+\df{relative}) \df{maximum} at a point $a \in A$ if there exists $r > 0$ such that $f(a) \ge
+f(x)$ whenever $\abs{x - a} < r$ and $x \in \dom f$. It has a
+ \index{local!minimum}%
+ \index{minimum!local}%
+\df{local} (or
+ \index{relative!minimum}%
+ \index{minimum!relative}%
+\df{relative}) \df{minimum} at a point $a \in A$ if there exists $r > 0$ such that $f(a) \le
+f(x)$ whenever $\abs{x - a} < r$ and $x \in \dom f$.
+
+Recall from chapter \ref{evt} that $f \colon A \sto \R$ is said to attain a
+ \index{maximum}%
+\df{maximum} at $a$ if $f(a) \ge f(x)$ for all $x \in \dom f$.
+This is often called a
+ \index{global!maximum}%
+ \index{maximum!global}%
+\df{global} (or
+ \index{absolute!maximum}%
+ \index{maximum!absolute}%
+\df{absolute}) \df{maximum} to help distinguish it from the local version just defined. It is
+clear that every global maximum is also a local maximum but not \emph{vice versa}. (Of course
+a similar remark holds for minima.)
+\end{defn}
+
+\begin{prop}\label{extr_crit}  If $f \in \fml D_a$ and $f$ has either a local maximum or a
+local minimum at $a$, then $Df(a) = 0$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Use propositions \ref{pos_deriv} and \ref{neg_deriv}.)
+\ns  \end{proof}
+
+\index{Rolle's theorem}%
+\begin{prop}[Rolle's Theorem]\label{Rthm} Let $a<b$. If $f \colon [a,b] \sto \R$ is continuous,
+if it is differentiable on $(a,b)$, and if $f(a) = f(b)$, then there exists a point $c$ in
+$(a,b)$ such that $Df(c) = 0$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Argue by contradiction. Use the \emph{extreme value
+theorem}~\ref{evthm} and proposition~\ref{extr_crit}.  \ns
+\end{proof}
+
+ \index{mean value theorem}%
+\begin{thm}[Mean Value Theorem]\label{mvthm} Let $a < b$. If $f \colon [a,b] \sto \R$ is continuous
+and if it is differentiable on $(a,b)$, then there exists a point $c$ in $(a,b)$ such that
+   \[ Df(c) = \frac{f(b) - f(a)}{b - a}\,. \]
+\end{thm}
+
+\begin{proof} Problem. \emph{Hint.} Let $y = g(x)$ be the equation of the line which passes through
+the points $(a,f(a))$ and $(b,f(b))$. Show that the function $f - g$ satisfies the hypotheses
+of \emph{Rolle's theorem}~(\ref{Rthm})  \ns
+\end{proof}
+
+\begin{prop} Let $J$ be an open interval in $\R$. If $f \colon J \sto \R$ is differentiable and
+$Df(x) = 0$ for every $x \in J$, then $f$ is constant on $J$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Use the \emph{mean value theorem}~(\ref{mvthm}). \ns
+\end{proof}
+\end{prob}
+
+
+
+\endinput

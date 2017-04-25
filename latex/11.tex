@@ -1,0 +1,307 @@
+\chapter{THE TOPOLOGY OF METRIC SPACES}
+
+\section{OPEN AND CLOSED SETS}
+\begin{defn} A subset $A$ of a metric space $M$ is
+ \index{open!subset of a metric space}%
+\df{open} in $M$ if $\intr A = A$. That is, a set is open if it contains an open ball about
+each of its points. To indicate that $A$ is open in $M$ we
+ \index{<@$\open{}{}$ (open subset of)}%
+write~$\open{A}{M}$.
+\end{defn}
+
+\begin{exam}\label{subsp_vs_sp} Care must be taken to claim that a particular set is open
+(or not open) \emph{only} when the metric space in which the set ``lives'' is clearly
+understood. For example, the assertion ``the set $[0,1)$ is open'' is false if the metric
+space in question is $\R$. It is true, however, if the metric space being considered is
+$[0,\infty)$ (regarded as a subspace of $\R$). The reason: In the space $[0,\infty)$ the point
+0 is an interior point of $[0,1)$; in $\R$ it is not.
+\end{exam}
+
+\begin{exam} In a metric space every open ball is an open set.  Notice that this is exactly what
+lemma \ref{sm_in_lar} says:  each point of an open ball is an interior point of that ball.
+\end{exam}
+
+The fundamental properties of open sets may be deduced easily from information we already
+possess concerning interiors of sets. Three facts about open sets are given in
+\ref{op_un_bl}--\ref{in_lar}. The first of these is very simple.
+
+\begin{prop}\label{op_un_bl} Every nonempty open set is a union of open balls.
+\end{prop}
+
+\begin{proof} Let $U$ be an open set. For each $a$ in $U$ there is an open ball $B(a)$ about
+$a$ contained in~$U$. Then clearly
+  \[ U = \textstyle\bigcup\{B_a\colon  a \in U\}\,. \]
+\end{proof}
+
+\begin{prop}\label{op_in_ms} Let $M$ be a metric space.
+ \begin{enumerate}
+  \item[(a)] The union of any family of open subsets of $M$ is open.
+  \item[(b)] The intersection of any \emph{finite} family of open subsets of $M$ is open.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof}
+(a)\quad Let $\sfml U$ be a family of open subsets of $M$.  Since the interior of a set
+is always contained in the set, we need only show that $\bigcup \sfml U \subseteq
+\intr{\bigl(\bigcup \sfml U\bigr)}$. By \ref{un_int}
+ \begin{align*}
+   \textstyle\bigcup \sfml U
+              &= \textstyle\bigcup\{U\colon U \in \sfml U\} \\
+              &= \textstyle\bigcup\{\intr U\colon U \in \sfml U\} \\
+              &\subseteq \intr{\bigl(\textstyle\bigcup \sfml U\bigr)}.
+ \end{align*}
+
+(b)\quad It is enough to show that the intersection of \emph{two} open sets is open.  Let
+$\open{U,V}M$. Then by \ref{in_in}
+  \[ \intr{(U \cap V)} = \intr U \cap \intr V = U \cap V\,. \]
+\end{proof}
+
+\begin{prop}\label{in_lar} The interior of a set $A$ is the largest open set contained in~$A$.
+\textup{( Precisely:} $\intr A$ is the union of all the open sets contained in $A$.\textup{)}
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_in_lar}.)
+  \ns \end{proof}
+
+\begin{defn} A subset $A$ of a metric space is
+ \index{closed}%
+\df{closed} if $\clo A = A$. That is, a set is closed if it contains all its accumulation
+points.
+\end{defn}
+
+\begin{exam} As is the case with open sets, care must be taken when affirming or denying that
+a particular set is closed. It must be clearly understood in which metric space the set
+``lives''. For example the interval $(0,1]$ is not closed in the metric space $\R$, but it is
+a closed subset of the metric space $(0,\infty)$ (regarded as a subspace of $\R$).
+\end{exam}
+
+
+\textbf{REMINDER.}  Recall the remarks made after example~\ref{cl_int_cl}: \emph{sets are not
+like doors or windows; they are not necessarily either open or closed.}  One can not show that
+a set is closed, for example, by showing that it fails to be open.
+
+\begin{prop}\label{op_vs_cl} A subset of a metric space is open if and only if its complement
+is closed.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Use problem \ref{int_vs_cl}. (Solution~\ref{sol_op_vs_cl}.) \ns
+\end{proof}
+
+Facts already proved concerning closures of sets give us one way of dealing with closed sets;
+the preceding proposition gives us another. To illustrate this, we give two proofs of the next
+proposition.
+
+\begin{prop} The intersection of an arbitrary family of closed subsets of a metric space is closed.
+\end{prop}
+
+\begin{proof}[First proof] Let $\sfml A$ be a family of closed subsets of a metric space.  Then
+$\bigcap \sfml A$ is the complement of $\bigcup \{A^c\colon A \in \sfml A\}$.  Since each
+set $A^c$ is open (by \ref{op_vs_cl}), the union of $\{A^c \colon A \in \sfml A\}$ is
+open (by \ref{op_in_ms}(a)); and its complement $\bigcap \sfml A$ is closed
+(\ref{op_vs_cl} again).
+\end{proof}
+
+\begin{proof}[Second proof] Let $\sfml A$ be a family of closed subsets of a metric space. Since a
+set is always contained in its closure, we need only show that $\clo{\bigcap \sfml A}
+\subseteq \bigcap \sfml A$. Use problem~\ref{intr_cl}(a):
+ \begin{align*}
+    \clo{\textstyle\bigcap \sfml A}
+                   &\subseteq \textstyle\bigcap\{\,\clo A \colon A \in \sfml A\,\} \\
+                   &= \textstyle\bigcap\{\,A \colon A \in \sfml A\,\} \\
+                   &= \textstyle\bigcap \sfml A\,.   \qedhere
+ \end{align*}
+\end{proof}
+
+\begin{prob} The union of a finite family of closed subsets of a metric space is closed.
+ \begin{enumerate}
+  \item[(a)] Prove this assertion using propositions \ref{op_in_ms}(b) and~\ref{op_vs_cl}.
+  \item[(b)] Prove this assertion using problem \ref{un_clo}.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Give an example to show that the intersection of an arbitrary family of open subsets
+of a metric space need not be open.
+\end{prob}
+
+\begin{prob} Give an example to show that the union of an arbitrary family of closed subsets of a
+metric space need not be closed.
+\end{prob}
+
+\begin{defn} Let $M$ be a metric space, $a \in M$, and $r > 0$.  The
+ \index{cra@$C_r(a)$ (closed ball of radius $r$ about~$a$)}%
+ \index{closed!ball}%
+ \index{ball!closed}%
+\df{closed ball} $C_r(a)$ about $a$ of radius $r$ is $\{x \in M \colon d(a,x) \le r\}$. The
+ \index{sra@$S_r(a)$ (sphere or radius $r$ about~$a$)}%
+ \index{sphere}%
+\df{sphere} $S_r(a)$ about $a$ of radius $r$ is $\{x \in M \colon d(a,x) = r\}$.
+\end{defn}
+
+\begin{prob} Let $M$ be a metric space, $a \in M$, and $r > 0$.
+ \begin{enumerate}
+  \item[(a)] Give an example to show that the closed ball about $a$ of radius $r$ need not be the
+same as the closure of the open ball about $a$ of radius $r$.  That is, the sets $C_r(a)$ and
+$\clo{B_r(a)}$ may differ.
+  \item[(b)] Show that every closed ball in $M$ is a closed subset of~$M$.
+  \item[(c)] Show that every sphere in $M$ is a closed subset of~$M$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop} In a metric space the closure of a set $A$ is the smallest closed set
+containing $A$.  \textup{(Precisely:} $\clo A$ is the intersection of the family of all closed
+sets which contain $A$.\textup{)}
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} If $A$ is a subset of a metric space, then its boundary $\partial A$ is equal
+to~$\clo A \setminus \intr A$. Thus $\partial A$ is closed.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prop}  Let $A$ be a subset of a metric space $M$. If $A$ is closed in $M$ or if it is
+open in $M$, then $\intr{(\partial A)} = \emptyset$.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prob} Give an example of a subset $A$ of the metric space $\R$ the interior of whose
+boundary is all of~$\R$.
+\end{prob}
+
+\begin{defn} Let $A \subseteq B \subseteq M$ where $M$ is a metric space. We say that $A$ is
+ \index{dense}%
+\df{dense} in $B$ if $\clo A \supseteq B$.  Thus, in particular, $A$ is dense in the space $M$
+if~$\clo A = M$.
+\end{defn}
+
+\begin{exam} The rational numbers are dense in the reals; so are the irrationals.
+\end{exam}
+
+\begin{proof} That $\clo Q = \R$ was proved in \ref{q_dense}.  The proof that $\clo{Q^c} = \R$
+is similar.
+\end{proof}
+
+The following proposition gives a useful and easily applied criterion for determining when a
+set is dense in a metric space.
+
+\begin{prop}\label{cnd_dns} A subset $D$ of a metric space $M$ is dense in $M$ if and only if
+every open ball contains a point of~$D$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_cnd_dns}.)
+  \ns \end{proof}
+
+\begin{prob}  Let $M$ be a metric space.  Prove the following.
+ \begin{enumerate}
+  \item[(a)] If $A \subseteq M$ and $\open UM$, then $U \cap \clo A \subseteq \clo{U \cap A}$.
+  \item[(b)] If $D$ is dense in $M$ and $\open UM$, then $U \subseteq \clo{U \cap D}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop} Let $A \subseteq B \subseteq C \subseteq M$ where $M$ is a metric space. If $A$
+is dense in $B$ and $B$ is dense in $C$, then $A$ is dense in~$C$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+\section{THE RELATIVE TOPOLOGY}
+In example \ref{subsp_vs_sp} we considered the set $A = [0,1)$ which is contained in both the
+metric spaces  $M = [0,\infty)$ and $N = \R$.  We observed that the question ``Is $A$ open?''
+is ambiguous; it depends on whether we mean ``open in $M$'' or ``open in $N$''. Similarly, the
+notation $B_r(a)$ is equivocal.  In $M$ the open ball $B_\frac12(0)$ is the interval
+$[0,\frac12)$ while in $N$ it is the interval $(-\frac12,\frac12)$.  When working with sets
+which are contained in two different spaces, considerable confusion can be created by
+ambiguous choices of notation or terminology.  In the next proposition, where we examine the
+relationship between open subsets of a metric space $N$ and open subsets of a subspace~$M$, it
+is necessary, in the proof, to consider open balls in both $M$ and~$N$.  To avoid confusion we
+use the usual notation $B_r(a)$ for open balls in $M$ and a different one $D_r(a)$ for those
+in~$N$.
+
+The point of the following proposition is that even if we are dealing with a complicated or
+badly scattered subspace of a metric space, its open sets are easily identified. When an open
+set in the larger space is intersected with the subspace $M$ what results is an open set in
+$M$; and, less obviously, \emph{every} open set in $M$ can be produced in this fashion.
+
+\begin{prop}\label{open_in_subsp} Let $M$ be a subspace of a metric space $N$.  A set
+$U \subseteq M$ is open in $M$ if and only if there exists a set $V$ open in $N$ such that $U
+= V \cap M$.
+\end{prop}
+
+\begin{proof} Let us establish some notation. If $a \in M$ and $r > 0$ we write $B_r(a)$ for
+the open ball about $a$ of radius $r$ in the space~$M$. If $a \in N$ and $r>0$ we write
+$D_r(a)$ for the corresponding open ball in the space~$N$.  Notice that $B_r(a) = D_r(a) \cap
+M$. Define a mapping $f$ from the set of all open balls in $M$ into the set of open balls in
+$N$ by
+  \[ f(B_r(a)) = D_r(a)\,. \]
+Thus $f$ is just the function which associates with each open ball in the space $M$ the
+corresponding open ball (same center, same radius) in $N$; so $f(B) \cap M = B$ for each open
+ball $B$ in $M$.
+
+Now suppose $U$ is open in $M$. By proposition \ref{op_un_bl} there exists a family
+$\sfml B$ of open balls in $M$ such that $U = \bigcup\sfml B$.  Let $\sfml D = \{f(B)
+\colon B \in \sfml B\}$ and $V = \bigcup\sfml D$. Then $V$, being a union of open balls
+in $N$, is an open subset of $N$ and
+ \begin{align*}
+   V \cap M
+        &= \bigl(\textstyle\bigcup \sfml D\bigr) \cap M \\
+        &= \bigl(\textstyle\bigcup\{f(B):B \in \sfml B\}\bigr)\cap M\\
+        &= \textstyle\bigcup\{f(B) \cap M: B \in \sfml B\} \\
+        &= \textstyle\bigcup \sfml B \\
+        &= U\,.
+ \end{align*}
+(For the third equality in the preceding string, see proposition~\ref{ioveru_inf}.)
+
+The converse is even easier. Let $V$ be an open subset of $N$ and $a \in V \cap M$. In order
+to show that $V \cap M$ is open in $M$, it suffices to show that, in the space $M$, the point
+$a$ is an interior point of the set $V \cap M$. Since $V$ is open in $N$, there exists $r>0$
+such that $D_r(a) \subseteq V$. But then
+  \[ B_r(a) \subseteq D_r(a) \cap M \subseteq V \cap M\,.   \qedhere \]
+\end{proof}
+
+The family of all open subsets of a metric space is called the
+ \index{topology}%
+\df{topology} on the space. As was the case for the real numbers, the concepts of
+continuity, compactness, and connectedness can be characterized entirely in terms of the
+open subsets of the metric spaces involved and without any reference to the specific
+metrics which lead to these open sets. Thus we say that continuity, compactness, and
+connectedness are topological concepts.  The next proposition~\ref{mtr_vs_top} tells us
+that strongly equivalent metrics on a set produce identical topologies. Clearly, no
+topological property of a metric space is affected when we replace the given metric with
+another metric which generates the same topology.
+
+\begin{defn}\label{def_equiv_metrics} Two metrics $d_1$ and $d_2$ on a set $M$ are
+ \index{equivalent!metrics}%
+ \index{metrics!equivalent}%
+\df{equivalent} if they induce the same topology on~$M$.
+\end{defn}
+
+We now prove that strongly equivalent metrics are equivalent.
+
+\begin{prop}\label{mtr_vs_top} Let $d_1$ and $d_2$ be metrics on a set $M$ and $\sfml T_1$ and
+$\sfml T_2$ be the topologies on $(M,d_1)$ and $(M,d_2)$, respectively. If $d_1$ and
+$d_2$ are strongly equivalent, then $\sfml T_1 = \sfml T_2$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_mtr_vs_top}.)
+  \ns \end{proof}
+
+
+
+\begin{prob} Give an example to show that equivalent metrics need not be strongly
+equivalent.
+\end{prob}
+
+\begin{defn} If $M$ is a subspace of the metric space $(N,d)$, the family of open subsets of $M$
+induced by the metric $d$ is called the
+\index{relative!topology}%
+\index{topology!relative}%
+\df{relative topology} on~$M$.  According to proposition~\ref{open_in_subsp}, the relative
+topology on $M$ is~$\{V \cap M \colon \open VN\}$.
+\end{defn}

@@ -1,0 +1,731 @@
+\chapter{THE IMPLICIT FUNCTION THEOREM}\label{IFT}
+
+This chapter deals with the problem of solving equations and systems of equations for some of
+the variables which appear in terms of the others.  In a few very simple cases this can be
+done explicitly.  As an example, consider the equation
+  \begin{equation}\label{eqn_circ5}
+      x^2 + y^2 = 25
+  \end{equation}
+for the circle of radius $5$ centered at the origin in~$\R^2$.  Although~\eqref{eqn_circ5} can
+\emph{not} be solved \emph{globally} for $y$ in terms of $x$ (that is, there is no function
+$f$ such that $y = f(x)$ for all points $(x,y)$ satisfying~\eqref{eqn_circ5}),  it
+nevertheless \emph{is} possible at most points on the circle to solve \emph{locally} for $y$
+in terms of~$x$.  For example, if $(a,b)$ lies on the circle and $b > 0$, then there exist
+open intervals $J_1$ and $J_2$ containing $a$ and $b$, respectively, and a function $f \colon
+J_1 \sto J_2$ such that every point $(x,y)$ in the rectangular region $J_1 \times J_2$ will
+satisfy $y = f(x)$ if and only if it satisfies equation~\eqref{eqn_circ5}.  In particular, we
+could choose $J_1 = (-5,5)$, $J_2 = (0,6)$, and $f \colon x \mapsto \sqrt{25 - x^2}$. In case
+$b < 0$ the function $f$ would be replaced by  $f:x \mapsto - \sqrt{25 - x^2}$.  If $b = 0$
+then there is \emph{no} local solution for $y$ in terms of~$x$: each rectangular region about
+either of the points $(5,0)$ or $(-5,0)$ will contain pairs of points symmetrically located
+with respect to the  $x$-axis which satisfy~\eqref{eqn_circ5}; and it is not possible for the
+graph of a function to contain such a pair.
+
+Our attention in this chapter is focused not on the relatively rare cases where it is possible
+to compute explicit (local) solutions for some of the variables in terms of the remaining ones
+but on the more typical situation where no such computation is possible.  In this latter
+circumstance it is valuable to have information concerning the \emph{existence} of (local)
+solutions and the differentiability of such solutions.
+
+The simplest special case is a single equation of the form $y = f(x)$ where $f$ is a
+continuously differentiable function.  The \emph{inverse function theorem}, derived in the
+first section of this chapter, provides conditions under which this equation can be solved
+locally for $x$ in terms of~$y$, say $x = g(y)$, and gives us a formula allowing us to compute
+the differential of $g$. More complicated equations and systems of equations require the
+\emph{implicit function theorem}, which is the subject of the second section of the chapter.
+
+
+
+
+
+
+\section{THE INVERSE FUNCTION THEOREM} Recall that in chapter~\ref{diff_calc} formulas concerning
+the function $f \mapsto \Delta f$ lead to corresponding formulas involving differentials. For
+example, $d(f+g)_a = df_a + dg_a$ followed from $\Delta (f+g)_a = \Delta f_a + \Delta g_a$
+(see~\ref{prop_diff_sum}).  It is natural to ask whether the formula
+  \[ \Delta \bigl(f^{-1}\bigr)_{f(x)} = (\Delta f_x)^{-1} \]
+derived for bijective functions $f$ in proposition~\ref{prop_del_inv} leads to a corresponding
+formula
+ \begin{equation}\label{eqn_diff_inv}
+     d\bigl(f^{-1}\bigr)_{f(x)} = (df_x)^{-1}
+ \end{equation}
+for differentials.  Obviously, a necessary condition for~\eqref{eqn_diff_inv} to hold for all
+$x$ in some neighborhood of a point $a$ is that the linear map $df_a$ be invertible.  The
+ \index{inverse!function theorem}%
+\emph{inverse function theorem} states that for continuously differentiable (but not
+necessarily bijective) functions this is all that is required.  The proof of the \emph{inverse
+function theorem} is a fascinating application of the \emph{contractive mapping theorem}
+(theorem~\ref{cmthm}).  First some terminology.
+
+\begin{defn}  Let $E$ and $F$ be Banach spaces and $\emptyset \ne \open UE$.  A function $f$
+belonging to  $\fml C^1(U,F)$  is
+ \index{c@$\fml C^1$-invertible}%
+ \index{invertible!$\fml C^1$-}%
+$\fml C^1$-\df{invertible} if $f$ is a bijection between $U$ and an open subset $V$ of $F$ and
+if $f^{-1}$ belongs to $\fml C^1(V,E)$.  Such a function is also called a
+ \index{c@$\fml C^1$-isomorphism}%
+ \index{isomorphism!$\fml C^1$-}%
+$\fml C^1$-\df{isomorphism} between $U$ and~$V$.
+\end{defn}
+
+\begin{exer}\label{exer_not_c1}  Find nonempty open subsets $U$ and $V$ of $\R$ and a
+continuously differentiable bijection $f \colon U \sto V$ which is \emph{not} a $\fml
+C^1$-isomorphism between $U$ and~$V$. (Solution~\ref{sol_exer_not_c1}.)
+\end{exer}
+
+\begin{defn}  Let $E$ and $F$ be Banach spaces.  A function $f$ in $\fml F_a(E,F)$ is
+ \index{locally $\fml C^1$-invertible}%
+ \index{c@$\fml C^1$-invertible!locally}%
+ \index{invertible!locally $\fml C^1$-}%
+\df{locally $\fml C^1$-invertible} (or a
+ \index{local!$\fml C^1$-isomorphism}%
+ \index{c@$\fml C^1$-isomorphism!local}%
+ \index{isomorphism!local $\fml C^1$-}%
+\df{local $\fml C^1$-isomorphism}) at a point $a$ in $E$ if there exists a neighborhood of $a$
+on which the restriction of $f$ is $\fml C^1$-invertible.  The inverse of this restriction is
+a
+ \index{local!$\fml C^1$-inverse}%
+ \index{c@$\fml C^1$-inverse!local}%
+ \index{inverse!local $\fml C^1$-}%
+\df{local $\fml C^1$-inverse} of $f$ at $a$ and is denoted
+ \index{<@$f_{\text{loc}}^{-1}$ (local $\fml C^1$-inverse of~$f$)}%
+by~$f_{\text{loc}}^{-1}$.
+\end{defn}
+
+\begin{exer}\label{exer_c1_inv}  Let $f(x) = x^2 - 6x + 5$  for all $x$ in~$\R$.  Find a local
+$\fml C^1$-inverse of $f$ at $x = 1$. (Solution~\ref{sol_exer_c1_inv}.)
+\end{exer}
+
+\begin{prob}  Let $f(x) = x^6 - 2x^3 -7$ for all $x$ in~$\R$.  Find local $\fml C^1$-inverses
+for $f$ at $0$ and at~$10$.
+\end{prob}
+
+\begin{prob}  Find a nonempty open subset $U$ of $\R$ and a function $f$ in $\fml C^1(U,\R)$
+which is \emph{not} $\fml C^1$-invertible but is locally $\fml C^1$-invertible at every point
+in~$U$.
+\end{prob}
+
+Before embarking on a proof of the \emph{inverse function theorem} it is worthwhile seeing why
+a naive ``proof'' of this result using the chain rule fails---even in the simple case of a
+real valued function of a real variable.
+
+\begin{exer}\label{exer_der_finv}  If $f \in \fml F_a(\R,\R)$ and if $Df(a) \ne 0$, then $f$
+is locally $\fml C^1$-invertible at $a$ and
+  \begin{equation}\label{eqn_der_finv}
+      Df^{-1}_{\text{loc}}(b) = \frac1{Df(a)}
+  \end{equation}
+where $\locinv f$ is a local $\fml C^1$-inverse of $f$ at $a$ and $b = f(a)$.
+
+This assertion is correct.  Criticize the following ``proof'' of the result:  Since $\locinv
+f$ is a local $\fml C^1$-inverse of $f$ at $a$
+  \[ \locinv f(f(x)) = x \]
+for all $x$ in some neighborhood $U$ of~$a$.  Applying the chain rule (proposition~\ref{c_ru})
+we obtain
+  \[ (D\locinv f)(f(x)) \cdot Df(x)  =  1 \]
+for all $x$ in~$U$.  Letting $x = a$ we have
+  \[ (D\locinv f)(b)\,Df(a)  =  1 \]
+and since $Df(a) \ne 0$  equation~\eqref{eqn_der_finv} follows.
+(Solution~\ref{sol_exer_der_finv}.)
+\end{exer}
+
+The \emph{inverse function theorem} (\ref{thm_inft3}) deals with a continuously differentiable
+function $f$ which is defined on a neighborhood of a point $a$ in a Banach space $E$ and which
+maps into a second Banach space $F$.  We assume that the differential of $f$ at $a$ is
+invertible.  Under these hypotheses we prove that $f$ is locally $\fml C^1$-invertible at $a$
+and in some neighborhood of $a$ equation~\eqref{eqn_diff_inv} holds.  To simplify the proof we
+temporarily make some additional assumptions: we suppose that $H$ is a continuously
+differentiable function which is defined on a neighborhood of $0$ in a Banach space $E$ and
+which maps into this same space $E$, that $H(\vc 0) = \vc 0$, and that the differential of $H$
+at $0$ is the identity map on $E$.  Once the conclusion of the \emph{inverse function theorem}
+has been established in this restricted case the more general version follows easily. The
+strategy we employ to attack the special case is straightforward, but there are numerous
+details which must be checked along the way.  Recall that in chapter~\ref{fpt} we were able to
+solve certain systems of simultaneous linear equations by putting them in the form $Ax = b$
+where $A$ is a square matrix and $x$ and $b$ are vectors in the Euclidean space of appropriate
+dimension. This equation was rewritten in the form $Tx = x$ where $Tx := x - b + Ax$, thereby
+reducing the problem to one of finding a fixed point of the mapping $T$. When $T$ is
+contractive a simple application of the \emph{contractive mapping theorem} (\ref{cmthm}) is
+all that is required. We make use of exactly the same idea here.  We want a local inverse of
+$H$.  That is, we wish to solve the equation $H(x) = y$ for $x$ in terms of $y$ in some
+neighborhood of~$\vc 0$. Rewrite the equation $H(x) = y$ in the form $\phi_y(x) = x$ where for
+each $y$ near $\vc 0$ the function $\phi_y$ is defined by $\phi_y(x) := x - H(x) + y$.  Thus,
+as before, the problem is to find for each $y$ a unique fixed point of $\phi_y$. In order to
+apply the \emph{contractive mapping theorem} to $\phi_y$, the domain of this function must be
+a \emph{complete} metric space. For this reason we choose temporarily to take the domain of
+$\phi_y$ to be a \emph{closed} ball about the origin in~$E$.
+
+In lemma~\ref{lem_inft1} we find such a closed ball~$C$.  It must satisfy two conditions:
+first, $C$ must lie in the domain of $H$; and second, if $u$ belongs to $C$, then $dH_u$ must
+be close to the identity map on $E$, say, $\norm{dH_u - I} < \frac12$.  (This latter condition
+turns out to be a crucial ingredient in proving that $\phi_y$ is contractive.)  In
+lemma~\ref{lem_inft2} we show that (for $y$ sufficiently small) $\phi_y$ maps the closed ball
+$C$ into itself; and in~\ref{lem_inft3} the basic task is to show that $\phi_y$ is contractive
+and therefore has a unique fixed point. The result of all this is that there exists a number
+$r > 0$ such that for every $y$ in $B = B_r(0)$ there exists a unique $x$ in the closed ball
+$C = C_{2r}(\vc 0)$ such that $y = H(x)$. Now this is not quite the end of the story.  First
+of all we do \emph{not} know that $H$ restricted to $C$ is injective: some points in $C$ may
+be mapped to the region outside $B$, about which the preceding says nothing. Furthermore, the
+definition of local $\fml C^1$-invertibility requires a homeomorphism between \emph{open}
+sets, and $C$ is not open.  This suggests we restrict our attention to points lying in the
+interior of $C$ which map into~$B$.  So let $V = \intr C \cap H^{\gets}(B)$ and consider the
+restriction of $H$ to $V$, which we denote by $H_{\text{loc}}$.  In lemma~\ref{lem_inft4} we
+show that $V$ is a neighborhood of $0$ and that $H_{\text{loc}}$ is injective.  Thus the
+inverse function $\locinv H: H^{\sto}(V) \sto V$ exists.  The succeeding lemma is devoted to
+showing that this inverse is continuous.
+
+In order to conclude that $H$ is locally $C^1$-invertible we still need two things: we must
+know that $H_{\text{loc}}$ is a homeomorphism between \emph{open} sets and that $\locinv H$ is
+continuously differentiable.  Lemma~\ref{lem_inft6} shows that $H^{\sto}(V)$ is open in $E$.
+And in lemma~\ref{lem_inft7} we complete the proof of this special case of the \emph{inverse
+function theorem} by showing that $\locinv H$ is continuously differentiable and that in the
+open set $V$ its differential is given by~\eqref{eqn_diff_inv}.
+
+Corollary~\ref{cor_inft} shows that the conclusions of the preceding result remain true even
+when one of the hypotheses is eliminated and another weakened.  Here we prove the
+\emph{inverse function theorem} for a function $G$ whose domain $E$ and codomain $F$ are
+\emph{not} required to be identical.  Of course, if $E \ne F$ we cannot assume that the
+differential of $G$ at $\vc 0$ is the identity map; we assume only that it is invertible.
+
+Finally, in theorem~\ref{thm_inft3} we prove our final version of
+the \emph{inverse function theorem}.  Here we drop the requirement
+that the domain of the function in question be a neighborhood of
+the origin.
+
+In \ref{lem_inft1}--\ref{lem_inft7} the following hypotheses are in
+force:
+ \begin{enumerate}
+  \item[(1')] $\vc 0 \in \open{U_1}E$ (where $E$ is a Banach space);
+  \item[(2')] $H \in \fml C^1(U_1,E)$;
+  \item[(3')] $H(\vc 0) = \vc 0$; and
+  \item[(4')] $dH_{\vc 0} = I$.
+ \end{enumerate}
+
+\begin{lem}\label{lem_inft1}  There exists $r > 0$ such that $B_{3r}(\vc 0) \subseteq U_1$ and
+$\norm{dH_u - I} < \frac12$ whenever $\norm u \le 2r$.
+\end{lem}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{lem}\label{lem_inft2}  For $\norm y < r$ define a function $\phi_y$ by
+  \[ \phi_y(x) := x - H(x) + y \]
+for all $x$ such that $\norm x \le 2r$.  Show that $\phi_y$ maps $C_{2r}(\vc 0)$ into itself.
+\end{lem}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{lem}\label{lem_inft3} For every $y$ in $B_r(\vc 0)$ there exists a unique $x$ in
+$C_{2r}(\vc 0)$ such that $y = H(x)$.
+\end{lem}
+
+\begin{proof} Problem.  \emph{Hint.}  Show that the function $\phi_y$ defined in
+lemma~\ref{lem_inft2} is contractive on the metric space $C_{2r}(\vc 0)$ and has $\frac12$ as
+a contraction constant.  To find an appropriate inequality involving $\norm{\phi_y(u) -
+\phi_y(v)}$ apply corollary~\ref{cor_mvt_nls} to $\norm{H(v) - H(u) - dH_{\vc 0}(v - u)}$.
+\ns
+\end{proof}
+
+\begin{lem}\label{lem_inft4} Show that if $V := \{x \in B_{2r}(\vc 0) \colon \norm{H(x)} < r\}$,
+then $\vc 0 \in \open VE$.  Let $H_{\text{loc}}$ be the restriction of $H$ to~$V$.  Show that
+$H_{\text{loc}}$ is a bijection between $V$ and $H^{\sto}(V)$.
+\end{lem}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{lem}\label{lem_inft5} The function $\locinv H \colon H^{\sto}(V) \sto V$ is continuous.
+\end{lem}
+
+\begin{proof} Problem.  \emph{Hint.}  Prove first that if $u$, $v \in C_{2r}(\vc 0)$, then
+$\norm{u - v} \le 2\norm{H(u) - H(v)}$.  In order to do this, look at
+  \[ 2\norm{\phi_{\vc 0}(u) + H(u) - \phi_{\vc 0}(v) - H(v)} - \norm{u - v} \]
+and recall (from the proof of \ref{lem_inft3}) that $\phi_{\vc 0}$ has contraction constant
+$\frac12$.  Use this to conclude that if $w$, $z \in H^{\sto}(V)$,  then
+  \[ \norm{\locinv H(w) - \locinv H(z)} \le 2\,\norm{w - z} \]
+where $H_{\text{loc}}$ is the restriction of $H$ to $V$ (see lemma~\ref{lem_inft3}.  \ns
+\end{proof}
+
+\begin{lem}\label{lem_inft6} Show that $\open{H^{\sto}(V)}E$.
+\end{lem}
+
+\begin{proof} Problem.  \emph{Hint.}  Show that if a point $b$ belongs to $H^{\sto}(V)$, then
+so does the open ball $B_{r - \norm b}(b)$.  Proceed as follows: Show that if a point $y$ lies
+in this open ball, then $\norm y < r$ and therefore $y = H(x)$ for some (unique) $x$ in
+$C_{2r}(\vc 0)$.  Prove that $y \in H^{\sto}(V)$ by verifying $\norm x < 2r$.  To do this look
+at
+  \[ \norm{x - \locinv H(b)} + \norm{\locinv H(b) - \locinv H(\vc 0)} \]
+and use the first inequality given in the hint to the preceding problem.    \ns
+\end{proof}
+
+\begin{lem}\label{lem_inft7}  The function $H$ is locally $\fml C^1-invertible$ at~$0$.  Furthermore,
+  \[ d\bigl(\locinv H\bigr)_{H(x)} = (dH_x)^{-1} \]
+for every $x$ in~$V$.
+\end{lem}
+
+\begin{proof} Problem.   \emph{Hint.}  First prove the differentiability of $\locinv H$ on
+$H^{\sto}(V)$.  If $y \in H^{\sto}(V)$, then there exists a unique $x$ in $V$ such that $y =
+H(x)$.  By hypothesis $\Delta H_x \sim dH_x$. Show that multiplication on the right by $\Delta
+\bigl(\locinv H\bigr)_y$ preserves tangency.  (For this it must be established that $\Delta
+\bigl(\locinv H\bigr)_y$ belongs to $\ofml O(E,E)$.) Then show that multiplication on the left
+by $(dH_x)^{-1}$ preserves tangency. (How do we know that this inverse exists for all $x$ in
+$V$?) Finally show that the map $y \mapsto d\bigl(\locinv H\bigr)_y$ is continuous on
+$H^{\sto}(V)$ by using \eqref{eqn_diff_inv} to write it as the composite of $\locinv H$, $dH$,
+and the map $T \mapsto T^{-1}$ on $\inv\,\ofml B(E,E)$ (see proposition~\ref{prop_inv_cont}).
+\ns \end{proof}
+
+\begin{cor}[A second, more general, version of the inverse function theorem]\label{cor_inft}
+Let $E$ and $F$ be Banach spaces. If
+ \begin{enumerate}
+  \item[(1'')] $\vc 0 \in \open{U_1}E$,
+  \item[(2'')] $G \in \fml C^1(U_1,F)$,
+  \item[(3'')] $G(\vc 0) = \vc 0$, and
+  \item[(4'')] $dG_{\vc 0} \in \inv\,\ofml B(E,F)$,
+ \end{enumerate}
+then $G$ is locally $\fml C^1$-invertible at~$\vc 0$.  Furthermore,
+  \[ d\bigl(\locinv G\bigr)_{G(x)} = (dG_x)^{-1} \]
+for all $x$ in some neighborhood of $\vc 0$, where $\locinv G$ is a local $\fml C^1$-inverse
+of $G$ at~$\vc 0$.
+\end{cor}
+
+\begin{proof} Problem. \emph{Hint.}  Let $H = (dG_{\vc 0})^{-1} \circ G$. Apply lemma~\ref{lem_inft7}.
+\ns
+\end{proof}
+
+ \index{inverse function theorem}%
+\begin{thm}[Inverse Function Theorem (third, and final, version)]\label{thm_inft3} Let $E$ and
+$F$ be Banach spaces.  If
+ \begin{enumerate}
+  \item[(1)] $a \in \open UE$,
+  \item[(2)] $f \in \fml C^1(U,F)$, and
+  \item[(3)] $df_a \in \inv\,\ofml B(E,F)$,
+ \end{enumerate}
+then $f$ is locally $\fml C^1$-invertible at $a$.  Furthermore,
+  \[ d\bigl(\locinv f\bigr)_{f(x)} = (df_x)^{-1} \]
+for all $x$ in some neighborhood of~$a$.
+\end{thm}
+
+\begin{proof}  Problem.    \emph{Hint.}   Let $U_1 = U - a$ and $G = \Delta f_a$.  Write $G$ as a
+composite of $f$ with translation maps.  Apply corollary~\ref{cor_inft}.   \ns
+\end{proof}
+
+\begin{prob} Let $P \colon \R^2 \sto \R^2 \colon (r,\theta) \mapsto (r\cos\theta, r\sin\theta)$
+and $a$ be a point in $\R^2$ such that $P(a) = (1, \sqrt 3)$.
+ \begin{enumerate}
+  \item[(a)] Show that $P$ is locally $\fml C^1$-invertible at $a$ by finding a local $\fml
+C^1$-inverse $\locinv P$ of $P$ at~$a$.  For the inverse you have found, compute
+$d\bigl(\locinv P\bigr)_{(1,\sqrt 3)}$.
+  \item[(b)] Use the \emph{inverse function theorem}~\ref{thm_inft3} to show that $P$ is locally
+$\fml C^1$-invertible at $a$.  Then use the formula given in that theorem to compute
+$d\bigl(\locinv P\bigr)_{(1,\sqrt 3)}$ (where $\locinv P$ is a local $\fml C^1$-inverse of $P$
+at~$a$).  \emph{Hint.}  Use proposition~\ref{prop_matr_inv}.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $U = \{(x,y,z) \in \R^3 \colon  x,y,z > 0\}$ and let $g \colon U \sto \R^3$ be
+defined by
+  \[ g(x,y,z) =\biggl(\frac x{y^2z^2}\,,\,yz\,,\, \ln y\biggr)\,. \]
+Calculate separately $\bigl[dg_{(x,y,z)}\bigr]^{-1}$ and $\bigl[d(g^{-1})_{g(x,y,z)}\bigr]$.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{THE IMPLICIT FUNCTION THEOREM}
+In the preceding section we derived the \emph{inverse function theorem}, which gives
+conditions under which an equation of the form $y = f(x)$ can be solved locally for $x$ in
+terms of $y$. The \emph{implicit function theorem} deals with the local solvability of
+equations that are not necessarily in the form $y = f(x)$ and of systems of equations. The
+\emph{inverse function theorem} is actually a special case of the \emph{implicit function
+theorem}. Interestingly, the special case can be used to prove the more general one.
+
+This section consists principally of exercises and problems which illustrate how the
+\emph{inverse function theorem} can be adapted to guarantee the existence of local solutions
+for various examples of equations and systems of equations. Once the computational procedure
+is well understood for these examples it is a simple matter to explain how it works in
+general; that is, to prove the \emph{implicit function theorem}.
+
+Suppose, given an equation of the form $y = f(x)$ and a point $a$ in the domain of~$f$, we are
+asked to show that \emph{the equation can be solved for $x$ in terms of $y$ near $a$}. It is
+clear what we are being asked: to show that $f$ is locally invertible at $a$. (Since the
+function $f$ will usually satisfy some differentiability condition---continuous
+differentiability, for example---it is natural to ask for the local inverse to satisfy the
+same condition.)
+
+As we have seen, local invertibility can be established by explicitly computing a local
+inverse, which can be done only rarely, or by invoking the \emph{inverse function theorem}.
+Let us suppose we are given an equation of the form
+  \begin{equation}\label{ift_eq1}
+     f(x,y) = 0
+  \end{equation}
+and a point $(a,b)$ in $\R^2$ which satisfies~\eqref{ift_eq1}.
+
+\noindent\emph{Question.} What does it mean to say that \eqref{ift_eq1} can be solved for $y$
+near $b$ in terms of $x$ near~$a$?  (Alternative wording: What does it mean to say that
+\eqref{ift_eq1} can be solved for $y$ in terms of $x$ near the point~$(a,b)$?)
+
+\noindent\emph{Answer.} There exist a neighborhood $V$ of $a$ and a function  $h \colon V \sto
+\ R$ which satisfy
+  \begin{alignat*}{2}
+    &\text{(i)}  &&\quad h(a) = b\\
+    &\text{(ii)} &&\quad f(x,h(x)) = 0
+  \end{alignat*}
+for all $x$ in~$V$.
+
+\begin{exam} In the introduction to this chapter we discussed the problem of solving the equation
+  \[ x^2 + y^2 = 25 \]
+for $y$ in terms of~$x$.  This equation can be put in the form \eqref{ift_eq1} by setting
+$f(x,y) = x^2 + y^2 - 25$.  Suppose we are asked to show that \eqref{ift_eq1} can be solved
+for $y$ near $4$ in terms of $x$ near~$3$.  As in the introduction, take $V = (- 5,5)$ and
+$h(x) = \sqrt{25 - x^2}$ for all $x$ in~$V$.  Then $h(3) = 4$ and $f(x,h(x)) = x^2 +
+\bigl(\sqrt{25 - x^2}\bigr)^2 -25 = 0$; so $h$ is the desired local solution
+to~\eqref{ift_eq1}. If we are asked to show that \eqref{ift_eq1} can be solved for $y$ near
+$-4$ in terms of $x$ near 3, what changes? We choose $h(x) = -\sqrt{25 - x^2}$.  Notice that
+condition (i) above dictates the choice of $h$. (Either choice will satisfy~(ii).)
+\end{exam}
+
+As was pointed out in the introduction, the preceding example is atypical in that it is
+possible to \emph{specify} the solution. We can actually \emph{solve} for $y$ in terms of~$x$.
+\emph{Much} more common is the situation in which an explicit solution is not possible.  What
+do we do then?
+
+To see how this more complicated situation can be dealt with, let us pretend just for a moment
+that our computational skills have so totally deserted us that in the preceding example we are
+unable to specify the neighborhood $V$ and the function $h$ required to solve~\eqref{ift_eq1}.
+The problem is still the same: show that the equation
+  \begin{equation}\label{ift_eq2}
+     x^2 + y^2 - 25 = 0
+  \end{equation}
+can be solved for $y$ near $4$ in terms of $x$ near~$3$.  A good start is to define a function
+$G \colon \R^2 \sto \R^2$ by
+   \begin{equation}\label{ift_eq3}
+      G(x,y) = (x,f(x,y))
+   \end{equation}
+where as above $f(x,y) = x^2 + y^2 - 25$, and apply the \emph{inverse function theorem}
+to~$G$.  It is helpful to make a sketch here.  Take the $xy$-plane to be the domain of $G$ and
+in this plane sketch the circle $x^2 + y^2 = 25$.  For the codomain of $G$ take another plane,
+letting the horizontal axis be called ``$x$'' and the vertical axis be called~``$z$''.  Notice
+that in this second plane the image under $G$ of the circle drawn in the $xy$-plane is the
+line segment $[- 5,5]$ along the $x$-axis and that the image of the $x$-axis is the parabola
+$z = x^2 - 25$. Where do points in the interior of the circle go?  What about points outside
+the circle? If you think of the action of $G$ as starting with a folding of the $xy$-plane
+along the $x$-axis, you should be able to guess the identity of those points where $G$ is not
+locally invertible.  In any case we will find these points using the \emph{inverse function
+theorem}.
+
+The function $G$ is continuously differentiable on $\R^2$ and (the matrix representation of)
+its differential at a point $(x,y)$ in $\R^2$ is given by
+  \[ \bigl[dG_{(x,y)}\bigr] = \bmatrix 1  & 0 \\ 2x & 2y \endbmatrix\,. \]
+Thus according to the \emph{inverse function theorem} $G$ is locally $\fml C^1$-invertible at
+every point $(x,y)$ where this matrix is invertible, that is, everywhere except on the
+$x$-axis. In particular, at the point $(3,4)$ the function $G$ is locally $\fml
+C^1$-invertible. Thus there exist a neighborhood $W$ of $G(3,4) = (3,0)$ in $\ R^2$ and a
+local $\fml C^1$-inverse $H \colon W \sto \R^2$ of $G$.  Write $H$ in terms of its component
+functions $H = \bigl(H^1,H^2\bigr)$ and set $h(x) = H^2(x,0)$ for all $x$ in $V := \{x:(x,0)
+\in W\}$.  Then $V$ is a neighborhood of $3$ in $\R$ and the function $h$ is continuously
+differentiable (because $H$ is). To show that $h$ is a solution of the equation
+\eqref{ift_eq2} for $y$ in terms of $x$ we must show that
+  \begin{alignat*}{2}
+     &\text{(i)}  &&\quad h(3) = 4; \quad \text{ and} \\
+     &\text{(ii)} &&\quad f(x,h(x)) = 0
+  \end{alignat*}
+for all $x$ in $V$.
+
+To obtain (i) equate the second components of the first and last terms of the following
+computation.
+  \begin{align*}
+     (3,4) &= H(G(3,4)) \\
+           &= H(3, f(3,4)) \\
+           &= H(3,0) \\
+           &= (H^1(3,0)\,,\,H^2(3,0)) \\
+           &= (H^1(3,0)\,,\,h(3)) .
+  \end{align*}
+To obtain (ii) notice that for all $x$ in $V$
+  \begin{align*}
+    (x,0) &= G(H(x,0)) \\
+          &= G(H^1(x,0)\,,\,H^2(x,0)) \\
+          &= G(H^1(x,0)\,,\,h(x)) \\
+          &= (H^1(x,0)\,,\,f(H^1(x,0),h(x)))\,.
+  \end{align*}
+Equating first components we see that $H^1(x,0) = x$. So the
+preceding can be written
+  \[ (x,0) = (x,f(x,h(x))) \]
+from which (ii) follows by equating second components.
+
+Although the preceding computations demonstrate the existence of a local solution $y = h(x)$
+without specifying it, it is nevertheless possible to calculate the value of its derivative
+$\dfrac{dy}{dx}$ at the point $(3,4)$, that is, to find $h'(3)$. Since $h'(3) = \bigl(H^2
+\circ j_{{}_{\sst 1}}\bigr)'(3) = d\bigl(H^2 \circ j_{{}_{\sst 1}}\bigr)_3(1) =
+\bigl(dH^2{}_{(3,0)} \circ j_{{}_{\sst 1}}\bigr)(1) = dH^2{}_{(3,0)}(1,0) = \pd {H^2}x(3,0)$
+(where $j_{{}_{\sst 1}}$ is the inclusion map $x \mapsto (x,0)$ ) and since $H$ is a local
+inverse of $G$, the \emph{inverse function theorem} tells us that
+  \begin{align*}
+     \bigl[dH_{(3,0)}\bigr] &= \bigl[dH_{G(3,4)}\bigr] \\
+                            &= \bigl[dG_{(3,4)}\bigr]^{-1} \\
+                            &= {\begin{bmatrix}
+                                   1         &      0   \\
+                                   f_1(3,4)  &  f_2(3,4)
+                                 \end{bmatrix}}^{-1} \\
+                            &= {\begin{bmatrix}
+                                   1  &  0 \\
+                                   6  &  8
+                                \end{bmatrix}}^{-1} \\
+                            &= \begin{bmatrix}
+                                   1         &     0 \\
+                                   -\frac34  &  \frac18
+                               \end{bmatrix} \,.
+  \end{align*}
+But the entry in the lower left corner is $\pd{H^2}x(3,0)$.  Therefore, $h'(3) = - \frac34$.
+
+In the next exercise we consider an equation whose solution cannot be easily calculated.
+
+\begin{exer}\label{xmpl_ift_12} Consider the equation
+  \begin{equation}\label{ift_12_eq1}
+        x^2y + \sin\left(\frac{\pi}2 xy^2\right) = 2
+  \end{equation}
+where $x$, $y \in \ R$
+ \begin{enumerate}
+  \item[(a)] What does it mean to say that equation~\eqref{ift_12_eq1} can be solved for $y$ in
+terms of $x$ near the point~$(1,2)$?
+  \item[(b)]  Show that it is possible to solve~\eqref{ift_12_eq1} as described in (a).
+\emph{Hint.}  Proceed as in the second solution to the preceding example.
+  \item[(c)] Use the \emph{inverse function theorem} to find the value of $\frac{dy}{dx}$
+at the point~$(1,2)$.
+ \end{enumerate}
+(Solution~\ref{sol_xmpl_ift_12}.)
+\end{exer}
+
+\begin{prob}  Consider the equation
+  \begin{equation}\label{ift_12_eq2}
+       e^{xy^2} - x^2y + 3x = 4
+  \end{equation}
+where $x$, $y \in \R$.
+ \begin{enumerate}
+  \item[(a)] What does it mean to say that equation~\eqref{ift_12_eq2} can be solved for $y$
+near 0 in terms of $x$ near~$1$?
+  \item[(b)] Show that such a solution does exist.
+  \item[(c)] Use the \emph{inverse function theorem} to compute the value of $\frac{dy}{dx}$ at
+the point~$(1,0)$.
+ \end{enumerate}
+\end{prob}
+
+The preceding examples have all been equations involving only two variables.  The technique
+used in dealing with these examples works just as well in cases where we are given an equation
+in an arbitrary number of variables and wish to demonstrate the existence of local solutions
+for one of the variables in terms of the remaining ones.
+
+\begin{exer}\label{xmpl_ift_13} Consider the equation
+  \begin{equation}\label{ift_13_eq1}
+        x^2z + yz^2 - 3z^3 = 8
+  \end{equation}
+for $x$, $y$, $z \in \R$.
+ \begin{enumerate}
+  \item[(a)] What does it mean to say that equation~\eqref{ift_13_eq1} can be solved for $z$
+near $1$ in terms of $x$ and $y$ near~$(3,2)$?  (Alternatively: that~\eqref{ift_13_eq1} can be
+solved for $z$ in terms of $x$ and $y$ near the point $(x,y,z) = (3,2,1)$?)
+  \item[(b)] Show that such a solution does exist. \emph{Hint.} Follow the preceding technique,
+but instead of using~\eqref{ift_eq3}, define $G(x,y,z) := (x,y,f(x,y,z))$ for an appropriate
+function~$f$.
+  \item[(c)] Use the \emph{inverse function theorem} to find the values of $\left(\pd zx \right)_y$
+and $\left(\pd zy \right)_x$ at the point~$(3,2,1)$.
+ \end{enumerate}
+ (Solution~\ref{sol_xmpl_ift_13}.)
+\end{exer}
+
+\begin{prob}\label{ift_prob2} Let $f(x,y,z) = xz + xy + yz - 3$. By explicit computation find a
+neighborhood $V$ of $(1,1)$ in $\R^2$ and a function $h \colon V \sto \R$ such that $h(1,1) =
+1$ and $f(x,y,h(x,y)) = 0$ for all $x$ and $y$ in~$V$.  Find $h_1(1,1)$ and $h_2(1,1)$.
+\end{prob}
+
+\begin{prob}  Use the \emph{inverse function theorem}, not direct calculation, to show that the equation
+  \[ xz + xy + yz = 3 \]
+has a solution for $z$ near $1$ in terms of $x$ and $y$ near $(1,1)$ and to find $\left(\pd zx
+\right)_y$ and $\left(\pd zy \right)_x$ at the point $(1,1,1)$.
+\end{prob}
+
+\begin{prob}(a) What does it mean to say that the equation
+  \[ wx^2y + \sqrt wy^2z^4 = 3xz + 6x^3z^2 + 7 \]
+can be solved for $z$ in terms of $w$, $x$, and $y$ near the point $(w,x,y,z) = (4,1,2,1)$?
+ \begin{enumerate}
+  \item[(b)] Show that such a solution exists.
+  \item[(c)] Use the \emph{inverse function theorem} to find $\left(\pd zw \right)_{x,y}$,
+$\left(\pd zx \right)_{w,y}$, and $\left(\pd zy \right)_{w,x}$ at the point $(4,1,2,1)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{ift_prob5} Let $\open U{\R^{n-1} \times \R}$ and $f \in \fml C^1(U,\R)$.
+Suppose that the point $(a,b) = (a_1, \dots ,a_{n-1};b)$ belongs to $U$, that  $f(a,b) = 0$,
+and that $f_n(a,b) \ne 0$.  Show that there exists a neighborhood $V$ of $a$ in $\R^{n-1}$ and
+a function $h$ in  $\fml C^1(V,\R)$ such that $h(a) = b$ and $f(x,h(x)) = 0$ for all $x$
+in~$V$. \emph{Hint.} Show that the function
+ \[G \colon U \sto \ R^{n-1} \times \R \colon (x,y)
+                    = (x_1, \dots ,x_{n-1};y) \mapsto (x,f(x,y)) \]
+has a local $\fml C^1$-inverse, say $H$, at~$(a,b)$.
+\end{prob}
+
+\begin{prob} Show that the equation
+  \[ uvy^2z + w\sqrt xz^{10} + v^2e^yz^4 = 5 + uw^2\cos\bigl(x^3y^5\bigr) \]
+can be solved for $x$ near 4 in terms of  $u$, $v$, $w$, $y$, and $z$ near $-3$, $2$, $-1$,
+$0$, and  $1$, respectively. \emph{Hint.} Use the preceding problem.
+\end{prob}
+
+\begin{prob}(a) Use problem~\ref{ift_prob5} to make sense of the following ``theorem'':
+If $f(x,y,z) = 0$, then
+  \[ \cpd zxy = -\frac{\cpd fx{y,z}}{\cpd fz{x,y}}\,. \]
+\emph{Hint.} After determining that there exists a function $h$ which satisfies the equation
+$f(x,y,h(x,y)) = 0$ on an appropriate neighborhood of a point, use the chain rule to
+differentiate both sides of the equation with respect to $x$.)
+ \begin{enumerate}
+   \item[(b)] Verify part (a) directly for the function $f$ given in problem~\ref{ift_prob2}
+by computing each side independently.
+   \item[(c)] Restate and prove the following ``theorem'': If $f(x,y,z) = 0$, then
+     \[ \cpd zxy \cpd xyz \cpd yzx = -1\,. \]
+ \end{enumerate}
+\end{prob}
+
+
+%\begin{prob} Here is a problem taken from a thermodynamics text:
+%
+%\vskip 10 pt
+% {\narrower\narrower Show that if $f(x,y,z)=0$, then
+% \[\left(\frac{\partial x}{\partial y}\right)_z
+%     \left(\frac{\partial y}{\partial z}\right)_x
+%     \left(\frac{\partial z}{\partial x}\right)_y = -1\,.\]
+%\par}
+%
+%\vskip 10 pt
+%
+%Your old pal, Fred Dimm, is taking a class in thermodynamics and
+%is baffled by the statement of the problem.  Among other things he
+%notices that there is a mysterious $f$ in the hypothesis that does
+%not appear in the conclusion.  He wonders, not unreasonably, how
+%assuming something about $f$ is going to help him prove something
+%that makes no reference whatever to that quantity.  He is also
+%convinced that the answer is wrong: he thinks that the product of
+%the partial derivatives should be $+1$.  He claims it should be
+%just like the single variable case: the chain rule says
+%$\dfrac{dy}{dt} = \dfrac{dy}{dx}\dfrac{dx}{dt}$ because we can
+%cancel the $dx$'s.
+%
+%Help Fred by explaining the exercise to him.  And comment on his
+%``correction'' of the problem.
+%
+%Unfortunately, once you have explained it all him, he still can't
+%do the problem.  So also show him how to solve it.
+%\end{prob}
+
+\begin{prob} A commonly used formula in scientific work is
+  \[ \cpd xyz = \frac 1{\cpd yxz}\,. \]
+Recast this as a carefully stated theorem.  Then prove the theorem.  \emph{Hint.} Use
+problem~\ref{ift_prob5} twice to obtain appropriate functions $h$ and $j$ satisfying
+$f(h(y,z),y,z) = 0$ and $f(x,j(x,z),z) = 0$ on appropriate neighborhoods. Differentiate these
+equations using the chain rule. Evaluate at a particular point. Solve.
+\end{prob}
+
+
+\begin{prob}(a) Make sense of the formula
+  \[ \cpd xzy = -\frac{\cpd yzx}{\cpd yxz} \]
+and prove it.
+ \begin{enumerate}
+   \item[(b)] Illustrate the result in part (a) by computing separately $\cpd PVT$ and
+$-\dfrac{\cpd TVP}{\cpd TPV}$ from the equation of state $PV = RT$ for an ideal gas. (Here $R$
+is a constant.)
+ \end{enumerate}
+\end{prob}
+
+We have dealt at some length with the problem of solving a single equation for one variable in
+terms of the remaining ones.  It is pleasant to discover that the techniques used there can be
+adapted with only the most minor modifications to give local solutions for systems of $n$
+equations in $p$ variables (where $p > n$) for $n$ of the variables in terms of the remaining
+$p-n$ variables. We begin with some examples.
+
+\begin{exer}\label{xmpl_ift_24} Consider the following system of equations:
+  \begin{equation}\label{ift_24_eq1}
+    \begin{cases}
+            2u^3vx^2 + v^2x^3y^2 - 3u^2y^4 = 0 \\
+            2uv^2y^2 - uvx^2 + u^3xy = 2 \,.
+    \end{cases}
+  \end{equation}
+ \begin{enumerate}
+   \item[(a)]  What does it mean to say that the system~\eqref{ift_24_eq1} can be solved for $x$
+and $y$ near $(c,d)$ in terms of $u$ and $v$ near~$(a,b)$?
+   \item[(b)]  Show that the system~\eqref{ift_24_eq1} can be solved for $x$ and $y$ near $(1,1)$
+in terms of $u$ and $v$ near~$(1,1)$. \emph{Hint.} Try to imitate the technique of
+problem~\ref{ift_prob5}, except in this case define $G$ on an appropriate subset of $\R^2
+\times \R^2$.
+ \end{enumerate}
+ (Solution~\ref{sol_xmpl_ift_24}.)
+\end{exer}
+
+\begin{prob}\label{ift_prob10}  Consider the following system of equations
+   \begin{equation}\label{ift_23_eq1}
+     \begin{cases}
+            4x^2 + 4y^2 &= z \\
+             x^2 + y^2 &= 5 - z \,.
+     \end{cases}
+   \end{equation}
+ \begin{enumerate}
+  \item[(a)] What does it mean to say that \eqref{ift_23_eq1} can be solved for  $y$ and $z$ near
+$(1,4)$ in terms of $x$ near~0?
+  \item[(b)] Show that such a solution exists by direct computation.
+  \item[(c)] Compute $\cpd yxz$ and $\cpd zxy$ at the point $x = 0$, $y = 1$, $z = 4$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{ift_prob11}(a) Repeat problem~\ref{ift_prob10}(b), this time using the
+\emph{inverse function theorem} instead of direct computation.
+  \begin{enumerate}
+   \item[(b)] Use the \emph{inverse function theorem} to find $\cpd yxz$ and $\cpd zxy$ at the
+point $x = 0$, $y = 1$, $z = 4$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{ift_prob12} Discuss the problem of solving the system of equations
+  \begin{equation}
+     \begin{cases}
+          ux^2 + vwy + u^2w &= 4 \\
+         uvy^3 + 2wx - x^2y^2 &= 3
+     \end{cases}
+  \end{equation}
+for $x$ and $y$ near $(1,1)$ in terms of $u$, $v$, and $w$ near~$(1,2,1)$.
+\end{prob}
+
+As the preceding examples indicate, the first step in solving a system of $n$ equations in
+$n+k$ unknowns (where $k>0$) for $n$ of the variables in terms of the remaining $k$ variables
+is to replace the system of equations by a function $f:U \sto \R^n$ where $\open U{\R^k \times
+\R^n}$. If the finite dimensional spaces $\R^k$ and $\R^n$ are replaced by arbitrary Banach
+spaces, the subsequent calculations can be carried out in exactly the same fashion as in the
+examples we have just considered.  The result of this computation is the \emph{implicit
+function theorem}.
+
+\begin{thm}[The Implicit Function Theorem]\label{thm_impft}  Let $E_1$, $E_2$, and $F$ be Banach
+spaces, $(a,b) \in \open U{E_1 \times E_2}$, and $f \in \fml C^1(U,F)$. If $f(a,b) = \vc 0$
+and $d_2f_{(a,b)}$ is invertible in $\ofml B(E_2,F)$, then there exist a neighborhood $V$ of
+$a$ in $E_1$ and a continuously differentiable function $h \colon V \sto E_2$ such that $h(a)
+= b$ and $f(x,h(x)) = \vc 0$ for all $x \in V$.
+\end{thm}
+
+\begin{proof} Problem.  \emph{Hint.} Let $G(x,y) = (x,f(x,y))$ for all $(x,y) \in U$. Show that
+$dG_{(a,b)} = (x, Sx + Ty)$ where $S = d_1f_{(a,b)}$ and $T = d_2f_{(a,b)}$.  Show that the
+map $(x,z) \mapsto (x,T^{-1}(z-Sx))$ from $E_1 \times F$ to $E_1 \times E_2$ is the inverse of
+$dG_{(a,b)}$.  (One can guess what the inverse of $dG_{(a,b)}$ should be by regarding
+$dG_{(a,b)}$ as the matrix $\begin{bmatrix}
+                                 I_{E_1} & 0 \\
+                                    S    & T
+                            \end{bmatrix}$ acting on $E_1 \times E_2$.) Apply the \emph{inverse
+function theorem}~\ref{thm_inft3} and proceed as in exercise~\ref{xmpl_ift_24} and
+problems~\ref{ift_prob11} and~\ref{ift_prob12}.    \ns
+\end{proof}
+
+\begin{prob} Suppose we are given a system of $n$ equations in $p$ variables where $p > n$. What
+does the \emph{implicit function theorem}~\ref{thm_impft} say about the possibility of solving
+this system locally for $n$ of the variables in terms of the remaining $p - n$ variables?
+\end{prob}
+
+
+\endinput

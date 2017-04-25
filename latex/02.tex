@@ -1,0 +1,310 @@
+\chapter{TOPOLOGY OF THE REAL LINE}\label{nbhds_in_r}
+
+It is clear from the definition of ``interior'' that the interior of a set is always contained
+in the set.  Those sets for which the reverse inclusion also holds are called \emph{open
+sets}.
+
+\section{OPEN SUBSETS OF $\R$}
+\begin{defn} A subset $U$ of $\R$ is
+ \index{open}%
+\df{open} if $U^\circ = U$.  That is, a set is open if and only if every point of the set is
+an interior point of the set.  If $U$ is an open subset of $\R$ we
+ \index{<@$\open{}{}$ (open subset of)}%
+write~$\open{U}{\R}$.
+
+Notice, in particular, that the empty set is open.  This is a consequence of the way
+implication is defined in section~\ref{implication}: the condition that each point of
+$\emptyset$ be an interior point is \emph{vacuously satisfied} because there \emph{are no
+points} in $\emptyset$. (One argues that \emph{if} an element $x$ belongs to the empty
+set, \emph{then} it is an interior point of the set.  The hypothesis is false; so the
+implication is true.)  Also notice that $\R$ itself is an open subset of~$\R$.
+\end{defn}
+
+\begin{exam}\label{open_int_open} Bounded open intervals are open sets.  That is, if $a < b$,
+then the open interval $(a,b)$ is an open set.
+\end{exam}
+
+\begin{proof} Example \ref{interior_open_int}. \end{proof}
+
+\begin{exam} The interval $(0,\infty)$ is an open set.
+\end{exam}
+
+\begin{proof} Problem.  \ns \end{proof}
+
+One way of seeing that a set is open is to verify that each of its points is an interior point
+of the set.  That is what the definition says.  Often it is easier to observe that the set can
+be written as a union of bounded open intervals.  That this happens exactly when a set is open
+is the point of the next proposition.
+
+\begin{prop}\label{union_open_intervals} A nonempty subset of $\R$ is open if and only if it is
+a union of bounded open intervals.
+\end{prop}
+
+\begin{proof} Let $U \subseteq \R$. First, let us suppose $U$ is a nonempty open subset of~$\R$.
+Each point of $U$ is then an interior point of $U$. So for each $x \in U$ we may choose a
+bounded open interval $J(x)$ centered at $x$ which is entirely contained in $U$.  Since $x \in
+J(x)$ for each $x \in U$, we see that
+  \begin{equation}\label{2eqn1} U = \bigcup_{x \in U}\{x\} \subseteq
+                \bigcup_{x \in U}J(x).
+  \end{equation}
+On the other hand, since $J(x) \subseteq U$ for each $x \in U$, we have (see
+proposition~\ref{union_of_fam1})
+  \begin{equation}\label{2eqn2} \bigcup_{x \in U} J(x) \subseteq U.
+  \end{equation}
+Together \eqref{2eqn1} and \eqref{2eqn2} show that $U$ is a union of bounded open intervals.
+
+For the converse suppose $U = \bigcup \sfml{J}$ where $\sfml{J}$ is a family of open
+bounded intervals.  Let $x$ be an arbitrary point of $U$.  We need only show that $x$ is
+an interior point of~$U$. To this end choose an interval $J \in \sfml{J}$ which
+contains~$x$. Since $J$ is a bounded open interval we may write $J = (a,b)$ where~$a <
+b$.  Choose $\epsilon$ to be the smaller of the numbers $x - a$ and $b - x$.  Then it is
+easy to see that $\epsilon > 0$ and that $x \in J_\epsilon(x) = (x - \epsilon, x +
+\epsilon) \subseteq (a,b)$. Thus $x$ is an interior point of~$U$.
+\end{proof}
+
+\begin{exam}Every interval of the form $(-\infty,a)$ is an open set. So is every interval of
+the form $(a,\infty)$. (Notice that this and example \ref{open_int_open} give us the very
+comforting result that the things we are accustomed to calling open intervals are indeed open
+sets.)
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+The study of calculus has two main ingredients: algebra and topology.  Algebra deals with
+operations and their properties, and with the resulting structure of groups, fields, vector
+spaces, algebras, and the like.  Topology, on the other hand, is concerned with closeness,
+$\epsilon$-neighborhoods, open sets, and with the associated structure of metric spaces and
+various kinds of topological spaces.  Almost everything in calculus results from the interplay
+between algebra and topology.
+
+\begin{defn} The word ``topology'' has a technical meaning.  A family $\sfml{T}$ of subsets
+of a set $X$ is a
+ \index{topology}%
+\df{topology} on $X$ if
+ \begin{enumerate}
+   \item $\emptyset$ and $X$ belong to $\sfml{T}$;
+   \item if $\sfml{S} \subseteq \sfml{T}$ (that is, if $\sfml S$ is a
+subfamily of~$\sfml T$), then $\bigcup\sfml{S} \in \sfml{T}$; and
+   \item if $\sfml{S}$ is a \emph{finite} subfamily of $\sfml{T}$, then
+$\bigcap\sfml{S} \in \sfml{T}$.
+ \end{enumerate}
+\end{defn}
+
+We can paraphrase this definition by saying that a family of subsets of $X$, which contains
+both $\emptyset$ and $X$, is a topology on $X$ if it is closed under arbitrary unions and
+finite intersections.  If this definition doesn't make any sense to you at first reading,
+don't fret.  This kind of abstract definition, although easy enough to remember, is
+irritatingly difficult to understand.  Staring at it doesn't help. It appears that a
+bewildering array of entirely different things might turn out to be topologies.  And this is
+indeed the case.  An understanding and appreciation of the definition come only gradually.
+You will notice as you advance through this material that many important concepts such as
+continuity, compactness, and connectedness are defined by (or characterized by) open sets.
+Thus theorems which involve these ideas will rely on properties of open sets for their proofs.
+This is true not only in the present realm of the real line but in the much wider world of
+metric spaces, which we will shortly encounter in all their fascinating variety. You will
+notice that two properties of open sets are used over and over: that unions of open sets are
+open and that finite intersections of open sets are open.  Nothing else about open sets turns
+out to be of much importance.  Gradually one comes to see that these two facts completely
+dominate the discussion of continuity, compactness, and so on.  Ultimately it becomes clear
+that nearly everything in the proofs goes through in situations where \emph{only} these
+properties are available---that is, in topological spaces.
+
+Our goal at the moment is quite modest: we show that the family of all open subsets of $\R$ is
+indeed a topology on $\R$.
+
+\begin{prop}\label{union_intersection_open} Let $\sfml S$ be a family of open sets in $\R$.
+Then
+ \begin{enumerate}
+   \item[(a)] the union of $\sfml S$ is an open subset of~$\R$; and
+   \item[(b)] if $\sfml S$ is finite, the intersection of $\sfml S$ is
+an open subset of~$\R$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_union_intersection_open}.)  \ns \end{proof}
+
+\begin{exam} The set $U = \{x \in \R\colon  x < -2\} \cup \{x > 0\colon x^2-x-6 < 0\}$ is an
+open subset of~$\R$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam} The set $\R \setminus \N$ is an open subset of $\R$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam} The family $\sfml{T}$ of open subsets of $\R$ is not closed under arbitrary
+intersections.s (That is, there exists a family $\sfml{S}$ of open subsets of $\R$ such
+that $\bigcap \sfml{S}$ is \emph{not} open.)
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+
+
+
+
+
+
+\section{CLOSED SUBSETS OF $\R$}
+Next we will investigate the closed subsets of $\R$.  These will turn out to be the
+complements of open sets.  But initially we will approach them from a different perspective.
+
+\begin{defn}A point $b$ in $\R$ is an
+ \index{accumulation point}%
+\df{accumulation point} of a set $A \subseteq \R$ if every $\epsilon$-neighborhood of $b$
+contains at least one point of $A$ distinct from $b$.  (We do \emph{not} require that $b$
+belong to~$A$, although, of course, it may.)  The set of all accumulation points of $A$ is
+called the
+ \index{derived set}%
+\df{derived set} of $A$ and is denoted
+ \index{<@$A'$ (derived set of $A$, set of accumulation points)}%
+by~$A'$.  The
+ \index{closure}%
+\df{closure} of~$A$, denoted
+ \index{<@$\clo A$ (closure of $A$)}%
+by~$\overline A$, is~$A \cup A'$.
+\end{defn}
+
+\begin{exam} Let $A = \{1/n\colon n \in \N\}$.  Then $0$ is an accumulation point of $A$.
+Furthermore, $\clo A = \{0\} \cup A$.
+\end{exam}
+
+\begin{proof} Problem.
+%\emph{Hint.} See problem \ref{}  J.OOO
+\ns  \end{proof}
+
+\begin{exam} Let $A$ be $(0,1) \cup \{2\} \subseteq \R$. Then $A' = [0,1]$ and $\clo A =
+[0,1] \cup \{2\}$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{exam}\label{q_dense} Every real number is an accumulation point of the set $\Q$ of
+rational numbers (since every open interval in $\R$ contains infinitely many rationals); so
+$\overline{\Q}$ is all of~$\R$.
+\end{exam}
+
+\begin{exer}\label{exam_clo_rats} Let $A = \Q \cap (0,\infty)$.  Find $A^\circ$, $A'$, and
+$\clo A$. (Solution~\ref{sol_exam_clo_rats}.)
+\end{exer}
+
+\begin{prob} Let $A = (0,1] \cup \bigl([2,3] \cap \Q \bigr)$. Find:
+ \begin{enumerate}
+   \item[(a)] $\intr A$;
+\vskip 3 true pt
+   \item[(b)] $\clo A$;
+\vskip 3 true pt
+   \item[(c)] $\clo{\intr A}$;
+\vskip 3 true pt
+   \item[(d)] $\intr{\bigl(\,\clo A\,\bigr)}$;
+\vskip 3 true pt
+   \item[(e)] $\clo{A^c}$;
+\vskip 3 true pt
+   \item[(f)] $\intr{\left(\,\clo{A^c}\,\right)}$;
+\vskip 3 true pt
+   \item[(g)] $\intr{\bigl(A^c\bigr)}$; and
+\vskip 3 true pt
+   \item[(h)] $\clo{\intr{\bigl(A^c\bigr)}}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{exam}\label{sup_in_clo} Let $A$ be a nonempty subset of $\R$. If $A$ is bounded above,
+then $\sup A$ belongs to the closure of $A$.  Similarly, if $A$ is bounded below, then $\inf
+A$ belongs to~$\clo A$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prob} Starting with a set $A$, what is the greatest number of \emph{different} sets you
+can get by applying successively the operations of closure, interior, and complement?  Apply
+them as many times as you wish and in any order.  For example, starting with the empty set
+doesn't produce much.  We get only $\emptyset$ and $\R$.  If we start with the closed interval
+$[0,1]$, we get four sets: $[0,1]$, $(0,1)$, $(-\infty,0] \cup [1, \infty)$, and $(-\infty,0)
+\cup (1, \infty)$.  By making a more cunning choice of $A$, how many different sets can you
+get?
+\end{prob}
+
+\begin{prop}\label{intr_vs_clo} Let $A \subseteq \R$.  Then
+ \begin{enumerate}
+   \item[(a)] $\bigl(\intr A \bigr)^c = \clo{A^c}$; and
+   \item[(b)] $\intr{\bigl(A^c\bigr)} = \bigl(\,\clo A\,\bigr)^c$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Part (b) is a very easy consequence of~(a).
+(Solution~\ref{sol_intr_vs_clo}.) \ns \end{proof}
+
+\begin{defn} A subset $A$ of $\R$ is
+ \index{closed}%
+\df{closed} if $\clo A = A$.
+\end{defn}
+
+\begin{exam}\label{cl_int_cl} Every closed interval $\bigl($that is, intervals of the form
+$[a,b]$ or $(-\infty,a]$ or~$[a,\infty)$ or~$(-\infty,\infty)$ $\bigr)$ are closed.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{cau} It is a common mistake to treat subsets of $\R$ as if they were doors or windows,
+and to conclude, for example, that a set is closed because it is not open, or that it cannot
+be closed because it is open. These ``conclusions'' are wrong! A subset of $\R$ may be open
+and not closed, or closed and not open, or both open and closed, or neither. For example,
+in~$\R$:
+ \begin{enumerate}
+  \item $(0,1)$ is open but not closed;
+  \item $[0,1]$ is closed but not open;
+  \item $\R$ is both open and closed; and
+  \item $[0,1)$ is neither open nor closed.
+ \end{enumerate}
+This is not to say, however, that there is no relationship between these properties.  In the
+next proposition we discover that the correct relation has to do with complements.
+\end{cau}
+
+\begin{prop}\label{open_vs_closed} A subset of $\R$ is open if and only if its complement is
+closed.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use proposition \ref{intr_vs_clo}. \ns \end{proof}
+
+
+\begin{prop} The intersection of an arbitrary family of closed subsets of $\R$ is closed.
+\end{prop}
+
+\begin{proof} Let $\sfml A$ be a family of closed subsets of $\R$. By \emph{De Morgan's law}
+(see proposition~\ref{comp_of_union}) $\bigcap \sfml{A}$ is the complement of $\bigcup
+\{A^c\colon A \in \sfml A\}$. Since each set $A^c$ is open (by \ref{open_vs_closed}), the
+union of $\{A^c\colon A \in \sfml A\}$ is open (by \ref{union_intersection_open}(a)); and
+its complement $\bigcap \sfml A$ is closed (\ref{open_vs_closed} again).
+\end{proof}
+
+\begin{prop} The union of a finite family of closed subsets of $\R$ is closed.
+\end{prop}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{prob} Give an example to show that the union of an arbitrary family of closed subsets
+of $\R$ need not be closed.
+\end{prob}
+
+\begin{defn} Let $a$ be a real number.  Any open subset of $\R$ which contains $a$ is a
+ \index{neighborhood!of a point}%
+\df{neighborhood} of $a$.  Notice that an $\epsilon$-neighborhood of $a$ is a very special
+type of neighborhood: it is an interval and it is symmetric about~$a$.  For most purposes the
+extra internal structure possessed by $\epsilon$-neighborhoods is irrelevant to the matter at
+hand.  To see that we can operate as easily with general neighborhoods as with
+$\epsilon$-neighborhoods do the next problem.
+\end{defn}
+
+\begin{prob} Let $A$ be a subset of $\R$.  Prove the following.
+ \begin{enumerate}
+  \item[(a)] A point $a$ is an interior point of $A$ if and only if some
+neighborhood of $a$ lies entirely in~$A$.
+  \item[(b)] A point $b$ is an accumulation point of $A$ if and only if every
+neighborhood of $b$ contains at least one point of $A$ distinct
+from~$b$.
+ \end{enumerate}
+\end{prob}
+
+\endinput

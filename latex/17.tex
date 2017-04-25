@@ -1,0 +1,260 @@
+\chapter{CONNECTEDNESS}\label{conn}
+In chapter~\ref{ivt} we discussed connected subsets of the real line.  Although they are
+easily characterized (they are just the intervals), they possess important properties, most
+notably the \emph{intermediate value property}.  Connected subsets of arbitrary metric spaces
+can be somewhat more complicated, but they are no less important.
+
+
+
+
+
+
+\section{CONNECTED SPACES}
+\begin{defn}\label{def_conn} A metric space $M$ is
+ \index{disconnected!metric space}%
+\df{disconnected} if there exist disjoint nonempty open sets $U$ and $V$ whose union is~$M$.
+In this case we say that the sets $U$ and $V$ \df{disconnect}~$M$.  A metric space is
+ \index{connected!metric space}%
+\df{connected} if it is not disconnected.  A subset of a metric space M is
+ \index{connected!subset}%
+\df{connected} (respectively,
+ \index{disconnected!subset}%
+\df{disconnected}) if it is connected (respectively, disconnected) as a subspace of~$M$.  Thus
+a subset $N$ of $M$ is disconnected if there exist nonempty disjoint sets $U$ and $V$ open in
+the \emph{relative} topology on $N$ whose union is~$N$.
+\end{defn}
+
+\begin{exam}  Every discrete metric space with more than one point is disconnected.
+\end{exam}
+
+\begin{exam} The set $\Q^2$ of points in $\R^2$ both of whose coordinates are rational is a
+disconnected subset of~$\R^2$.
+\end{exam}
+
+\begin{proof}  The subspace $\Q^2$ is disconnected by the sets $\{(x,y) \in \Q^2 \colon x < \pi\}$
+and $\{(x,y) \in \Q^2 \colon x > \pi\}$.  (Why are these sets open in the relative topology
+on~$\Q^2$?)
+\end{proof}
+
+\begin{exam} The following subset of $\R^2$ is not connected.
+  \[ \{(x,x^{-1}) \colon x > 0\} \cup \{(0,y) \colon y \in \R\} \]
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{prop_dconn_2ptimg} A metric space $M$ is disconnected if and only if there
+exists a continuous surjection from $M$ onto a two element discrete space, say $\{0,1\}$.  A
+metric space $M$ is connected if and only if every continuous function $f$ from $M$ into a two
+element discrete space is constant.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+Proposition~\ref{prop_nasc_conn} remains true for arbitrary metric spaces; and the same proof
+works.
+
+\begin{prop}\label{prop_conn_oc} A metric space $M$ is connected
+if and only if the only subsets of $M$ which are both open and
+closed are the null set and $M$ itself.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_prop_conn_oc}.)    \ns  \end{proof}
+
+Just as in chapter~\ref{ivt}, dealing with the relative topology on a subset of a metric space
+can sometimes be a nuisance.  The remedy used there is available here: work with mutually
+separated sets.
+
+\begin{defn} Two nonempty subsets $C$ and $D$ of a metric space $M$ are said to be
+ \index{mutually separated}%
+ \index{separated!mutually}%
+\df{mutually separated} if
+  \[ C \cap \clo D = \clo C \cap D = \emptyset\,. \]
+\end{defn}
+
+\begin{prop}\label{prop_mut_sep2} A subset $N$ of a metric space $M$ is disconnected if and
+only if it is the union of two nonempty sets mutually separated in~$M$.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  Make a few changes in the
+proof of proposition~\ref{prop_mut_sep}.    (Solution~\ref{sol_prop_mut_sep2}.)  \ns
+\end{proof}
+
+\begin{prop}\label{prop_clconn_conn} If $A$ is a connected subset of a metric space, then any
+set $B$ satisfying $A \subseteq B \subseteq \clo A$ is also connected.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.} Use proposition~\ref{prop_mut_sep2}  \ns   \end{proof}
+
+If a metric space is disconnected, it is often a rather simple job to demonstrate this fact.
+All one has to do is track down two subsets which disconnect the space.  If the space is
+connected, however, one is confronted with the unenviable task of showing that \emph{every}
+pair of subsets fails for some reason to disconnect the space.  How, for example, does one go
+about showing that the unit square $[0,1] \times [0,1]$ is connected?  Or the unit circle? Or
+the curve $y = \sin x$?  In~\ref{thm_contimg_conn2}, \ref{prop_un_conn},
+and~\ref{prop_arcw_conn} we give sufficient conditions for a metric space to be connected.
+The first of these is that the space be the continuous image of a connected space .
+
+\begin{thm}\label{thm_contimg_conn2} A metric space $N$ is connected if there exist a connected
+metric space $M$ and a continuous surjection from $M$ onto~$N$.
+\end{thm}
+
+\begin{proof} Change ``$\R$'' to ``$M$'' in the proof of theorem~\ref{thm_contimg_conn}.
+\end{proof}
+
+\begin{exam}\label{exam_sin_conn} The graph of the curve $y = \sin x$ is a connected subset
+of~$\R^2$.
+\end{exam}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_exam_sin_conn}.) \ns  \end{proof}
+
+\begin{exam} The unit circle $\{(x,y) \in \R^2 \colon x^2 + y^2 = 1\}$ is a connected subset of
+the plane.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prop}\label{prop_un_conn} A metric space is connected if it is the union of a family of
+connected subsets with nonempty intersection.
+\end{prop}
+
+\begin{proof} Exercise.  (Argue by contradiction.  Use definition~\ref{def_conn}.)
+(Solution~\ref{sol_prop_un_conn}.) \ns
+\end{proof}
+
+\begin{prob} Use proposition~\ref{prop_dconn_2ptimg} to give a second proof of
+proposition~\ref{prop_un_conn}.
+\end{prob}
+
+\begin{exam}\label{exam_sqr_conn} The closed unit square $[0,1] \times [0,1]$ in $\R^2$ is connected.
+\end{exam}
+
+\begin{proof} Exercise.   (Solution~\ref{sol_exam_sqr_conn}.)  \ns   \end{proof}
+
+
+
+
+
+
+
+
+\section{ARCWISE CONNECTED SPACES}
+A concept closely related to (but stronger than) connectedness is \emph{arcwise
+connectedness}.
+
+\begin{defn}  A metric space is
+ \index{arcwise connected}%
+ \index{connected!arcwise}%
+\df{arcwise connected} (or
+ \index{path connected}%
+ \index{connected!path}%
+\df{path connected}) if for every $x$, $y \in M$ there exists a continuous map $f \colon [0,1]
+\sto M$ such that $f(0) = x$ and $f(1) = y$. Such a function $f$ is an
+ \index{arc}%
+\df{arc} (or
+ \index{path}%
+\df{path} , or
+ \index{curve}%
+\df{curve}) connecting $x$ to~$y$. It is very easy to prove that arcwise connected spaces are
+connected (proposition~\ref{prop_arcw_conn}).  The converse is false
+(example~\ref{exam_conn_notarcw}).  If, however, we restrict our attention to open subsets of
+$\R^n$, then the converse does hold (proposition~\ref{prop_opconn_arcw}).
+\end{defn}
+
+\begin{prop}\label{prop_arcw_conn}  If a metric space is arcwise connected, then it is connected.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The following subset of $\R^2$ is not connected.
+\[ \begin{split}
+     \{(x,y) \colon (x-1)^2 + (y-1)^2 &< 4\} \cup \{(x,y) \colon x < 0\} \\
+                     &\cup  \{(x,y) \colon (x-10)^2 + (y-1)^2 < 49\}
+   \end{split}\]
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The following subset of $\R^2$ is connected.
+ \[ \begin{split}
+       \{(x,y) \colon (x-1)^2 + (y-1)^2 &< 4\} \cup \{(x,y) \colon y < 0\} \\
+         &\cup  \{(x,y) \colon (x-10)^2 + (y-1)^2 < 49\}
+    \end{split}\]
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The following subset of $\R^2$ is connected.
+  \[ \{(x,x^3 + 2x) \colon x \in \R\} \cup \{(x,x^2+56) \colon x \in \R\} \]
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} Every open ball in $\R^n$ is connected.  So is every closed ball.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{exam}\label{exam_conn_notarcw} Let $B = \{(x,\sin x^{-1}) \colon 0 < x \le 1\}$.  Then
+$\clo B$ is a connected subset of $\R^2$ but is not arcwise connected.
+\end{exam}
+
+\begin{proof} Exercise. \emph{Hint.}  Let $M = \clo B$.  To show that $M$ is not arcwise
+connected argue by contradiction.  Assume there exists a continuous function $f \colon [0,1]
+\sto M$ such that $f(1) \in B$ and $f(0) \notin B$.  Prove that $f^2 = \pi_2 \circ f$ is
+discontinuous at the point $t_0 = \sup f^\gets(M \setminus B)$.  To this end show that $t_0
+\in f^\gets(M \setminus B)$.  Then, given $\delta > 0$, choose $t_1$ in $[0,1]$ so that $t_0 <
+t_1 < t_0 + \delta$.  Without loss of generality one may suppose that $f^2(t_0) \le 0$.  Show
+that $\bigl(f^1\bigr)^\sto[t_0,t_1]$ is an interval containing $0$ and $f^1(t_1)$ (where $f^1
+= \pi_1 \circ f$).  Find a point $t$ in $[t_0,t_1]$ such that $0 < f^1(t) < f^1(t_1)$ and
+$f^2(t) = 1$. (Solution~\ref{sol_exam_conn_notarcw}.) \ns
+\end{proof}
+
+\begin{prop}\label{prop_opconn_arcw} Every connected open subset of $\R^n$ is arcwise connected.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Let $A$ be a connected open subset of $\R^n$ and
+$a \in A$.  Let $U$ be the set of all points in $A$ which can be joined to $a$ by an arc
+in~$A$.  Show that $A \setminus U$ is empty by showing that $U$ and $A \setminus U$
+disconnect~$A$.   (Solution~\ref{sol_prop_opconn_arcw}.) \ns
+\end{proof}
+
+\begin{prob} Does there exist a continuous bijection from a closed disk in $\R^2$ to its
+circumference?  Does there exist a continuous bijection from the interval $[0,1]$ to the
+circumference of a disk in $\R^2$?
+\end{prob}
+
+\begin{prob}  Let $x$ be a point in a metric space~$M$.  Define the
+ \index{components!of a metric space}%
+\df{component} of $M$ containing $x$ to be the largest connected subset of $M$ which
+contains~$x$.  Discover as much about components of metric spaces as you can.  First, of
+course, you must make sure that the definition just given makes sense.  (How do we know that
+there really \emph{is} a ``largest'' connected set containing~$x$?)
+
+Here are some more things to think about.
+ \begin{enumerate}
+  \item The components of a metric space are a disjoint family whose union is the whole space.
+  \item It is fairly clear that the components of a discrete metric space are the points of
+the space.  If the components are points must the space be discrete?
+  \item Components of a metric space are closed sets;  must they be open?
+  \item Distinct components of a metric space are mutually separated.
+  \item If a metric space $M$ is the union of two mutually separated sets $C$ and $D$ and if
+points $x$ and $y$ belong to the same component of $M$, then both points are in $C$ or both
+are in~$D$. What about the converse?  Suppose $x$ and $y$ are points in $M$ such that whenever
+$M$ is written as the union of two mutually separated sets $C$ and $D$, both points lie in $C$
+or both lie in~$D$.  Must $x$ and $y$ lie in the same component?
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} A function $f$ in $\fml C(M,\R)$, where $M$ is a metric space, is
+ \index{idempotent}%
+\df{idempotent} if $(f(x))^2 = f(x)$ for all $x \in M$.  The constant functions $0$ and $1$
+are the \df{trivial} idempotents of $\fml C(M,\R)$.  Show that $\fml C(M,\R)$ possesses a
+nontrivial idempotent if and only if the underlying metric space is disconnected. (This is one
+of a large number of results which link algebraic properties of $\fml C(M,\R)$ to topological
+properties of the underlying space~$M$.)
+\end{prob}
+
+
+
+
+\endinput

@@ -1,0 +1,797 @@
+\chapter{PARTIAL DERIVATIVES AND ITERATED INTEGRALS}
+
+In this chapter we consider questions which arise concerning a function $f$ whose domain is
+the product $V_1 \times V_2$ of normed linear spaces.  What relationship (if any) exists
+between the differentiability of $f$ and the differentiability of the functions $x \mapsto
+f(x,b)$ and $y \mapsto f(a,y)$, where $a$ and $b$ are fixed points in $V_1$ and $V_2$,
+respectively? What happens in the special case $V_1 = V_2 = \R$ if we integrate $f$ first with
+respect to $y$ (that is, integrate, for arbitrary $x$, the function $y \mapsto f(x,y)$ over
+the interval $[c,d]$) and then integrate with respect to $x$ (that is, integrate the function
+$x \mapsto \int_c^d f(x,y)\,dy$)?  Does this produce the same result as integrating first with
+respect to $x$ and then with respect to $y$?  Before we can answer these and similar questions
+we must develop a fundamental tool of analysis: the \emph{mean value theorem}.
+
+
+
+
+\section{THE MEAN VALUE THEOREM(S)}
+Heretofore we have discussed differentiability only of functions defined on \emph{open}
+subsets of normed linear spaces.  It is occasionally useful to consider differentiability of
+functions defined on other types of subsets.  The business from beginning calculus of right
+and left differentiability at endpoints of intervals does not extend in any very natural
+fashion to functions with more complicated domains in higher dimensional spaces.  Recall that
+according to definition~\ref{defn_nbhd_pt} a \emph{neighborhood} of a point in a metric space
+is an open set containing that point. It will be convenient to expand slightly our use of this
+word.
+
+\begin{defn} A
+ \index{neighborhood!of a set}%
+\df{neighborhood} of a subset $A$ of a metric space is any open set which contains~$A$.
+\end{defn}
+
+\begin{defn} Let $V$ and $W$ be normed linear spaces and $A \subseteq V$.  A $W$ valued function
+$f$ is said to be
+ \index{differentiable!on a set}%
+\df{differentiable on} $A$ if it is (defined and) differentiable on some neighborhood of~$A$.
+The function $f$ is
+ \index{continuously differentiable}%
+ \index{differentiable!continuously}%
+\df{continuously differentiable on} $A$ if it is differentiable on (a neighborhood of) $A$ and
+if its differential $df\colon x \mapsto df_x$ is continuous at each point of~$A$.  The family
+of all $W$ valued continuously differentiable functions on $A$ is denoted
+ \index{c@$\fml C^1(A,W)$ (continuously differentiable functions)}%
+by~$\fml C^1(A,W)$.  (Keep in mind that in order for a function $f$ to belong to $\fml
+C^1(A,W)$ its domain must contain a \emph{neighborhood} of~$A$.)
+\end{defn}
+
+Given a function $f$ for which both ``differential'' and ``derivative'' make sense it is
+natural to ask if there is any difference between requiring $df$ to be continuous and
+requiring $Df$ to be.  It is the point of the next problem to show that there is not.
+
+\begin{prob} Let $A$ be a subset of $\R$ with nonempty interior and $W$ be a normed linear space.
+A function $f$ mapping a neighborhood of $A$ into $W$ belongs to $\fml C^1(A,W)$ if and only
+if its derivative $Df$ (exists and) is continuous on some neighborhood of~$A$.
+\end{prob}
+
+Not every function that is differentiable is continuously differentiable.
+
+\begin{exam} Let $f(x) = x^2 \sin 1/x$ for $x \ne 0$ and $f(0) = 0$.  Then $f$ is differentiable
+on $\R$ but does not belong to $\fml C^1(\R,\R)$.
+\end{exam}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+We have already encountered one version of the \emph{mean value theorem} (see
+theorem~\ref{mvthm}): if $a < b$ and $f$ is a real valued function continuous on the interval
+$[a,b]$ and differentiable on the interior of that interval, then
+ \begin{equation}\label{eqn_mvt1}
+     \frac{f(b) - f(a)}{b - a} = Df(c)
+ \end{equation}
+for at least one number $c$ between $a$ and~$b$.
+
+We consider the problem of generalizing this formula to
+ \index{scalar!field}%
+ \index{field!vector}%
+\emph{scalar fields} (that is, real valued functions of a vector
+variable), to
+ \index{curve}%
+\emph{curves} (vector valued functions of a real variable), and to
+ \index{vector!field}%
+ \index{field!vector}%
+\emph{vector fields} (vector valued functions of a vector variable).  There is no difficulty
+in finding an entirely satisfactory variant of~\eqref{eqn_mvt1} which holds for scalar fields
+whose domain lies in $\R^n$.  This is done in chapter~\ref{comp_Rn} once we have the notion of
+\emph{gradient} (see proposition~\ref{prop_mvt_sf}).  On the other hand we show in
+exercise~\ref{exer_no_mvt} that for curves (\emph{a fortiori}, vector fields)
+formula~\eqref{eqn_mvt1} does \emph{not} hold. Nevertheless, the most useful aspect of the
+\emph{mean value theorem}, that changes in $f$ over the interval $[a,b]$ cannot exceed the
+maximum value of $\abs{Df}$ multiplied by the length of the interval does have a direct
+generalization to vector fields (see proposition~\ref{thm_mvt_curv}).  A somewhat different
+generalization can be produced by considering the version of the \emph{fundamental theorem of
+calculus} most used in beginning calculus: if $f$ is a function whose derivative exists and is
+continuous on $[a,b]$, then
+ \begin{equation}\label{eqn_mvt2}
+     f(b) - f(a) = \int_a^bDft\,dt.
+ \end{equation}
+(We have yet to prove this result.  In fact we need the \emph{mean value theorem} to do so.
+See theorem~\ref{thm_ftc_II}.)  It is conventional to define $(b - a)^{-1}\int_a^bg$ to be the
+ \index{mean!value}%
+ \index{value!mean}%
+\df{mean value} (or
+ \index{average value}%
+ \index{value!average}%
+\df{average value}) of a function $g$ over the interval $[a,b]$. Thus~\eqref{eqn_mvt2} may be
+regarded as a ``mean value theorem'' saying that the Newton quotient $(b-a)^{-1}(f(b)-f(a))$
+is just the mean value of the \emph{derivative} of~$f$.  Since functions between Banach spaces
+do not in general have ``derivatives'' it is better for purposes of generalization to rewrite
+\eqref{eqn_mvt2} in terms of differentials.  For a curve $f$ with continuous derivative
+  \[ \int_a^bDf(t)\,dt = \int_a^bdf_t(1)\,dt
+                       \quad\text{(by~\ref{prop_diff_der})} \]
+so~\eqref{eqn_mvt2} becomes
+ \begin{equation}\label{eqn_mvt3}
+          f(b) - f(a) = \int_a^bdf_t(1)\,dt.
+ \end{equation}
+If we divide both sides by $b - a$ this result says, briefly, that the Newton quotient of $f$
+is the mean value of the \emph{differential} of $f$ over~$[a,b]$.
+
+There is one more thing to consider in seeking to generalize~\eqref{eqn_mvt1}.  In
+chapter~\ref{C_int} we defined the integral only for vector valued functions of a \emph{real}
+variable.  So if $a$ and $b$ are points in a general Banach space, the expression $\int_a^b
+df_t(1)\,dt$ in~\eqref{eqn_mvt3} is meaningless (and so, of course, is the Newton quotient
+$(f(b)-f(a))/(b-a)$).  This is easily dealt with.  In order to integrate over a closed segment
+$[a,b]$ in a Banach space, parametrize it: let $l(t) = (1 - t)a + tb$ for $0 \leq t \leq 1$
+and let $g = f\circ l$. Then
+ \begin{equation}\label{eqn_mvt4}
+     \begin{aligned}
+                dg_t(1) &= df_{l(t)}(dl_t(1)) \\
+                        &= df_{l(t)}(b - a)\,.
+     \end{aligned}
+ \end{equation}
+Apply~\eqref{eqn_mvt3} to the function $g$ over the interval $[0,1]$ to obtain
+ \begin{equation}\label{eqn_mvt5}
+                g(1) - g(0) = \int_0^1dg_t(1)\,dt\,.
+ \end{equation}
+Substituting \eqref{eqn_mvt4} in \eqref{eqn_mvt5} leads to
+ \begin{equation}\label{eqn_mvt6}
+     \begin{aligned}
+           f(b) - f(a) &= g(1) - g(0)  \\
+                       &= \int_0^1df_{l(t)}(b - a)\,dt.
+     \end{aligned}
+ \end{equation}
+Notice that if we let $h = b - a$, then~\eqref{eqn_mvt6} may be
+written
+ \begin{equation}\label{eqn_mvt7}
+     \begin{aligned}
+          \Delta f_a(h) &= \int_0^1df_{l(t)}(h)\,dt\\
+                        &= \left(\int_0^1df_{l(t)}\,dt\right)(h)
+     \end{aligned}
+ \end{equation}
+by corollary~\ref{cor_1param_fam}.  It is in this form (either~\eqref{eqn_mvt6}
+or~\eqref{eqn_mvt7}) that the \emph{mean value theorem} holds for a function $f$ between
+Banach spaces which is continuously differentiable on a segment~$[a,b]$. It is worth noticing
+that this generalization is weaker in three respects than the classical \emph{mean value
+theorem}: we are not able to conclude that there exists a particular point where the
+differential of $f$ is equal to $f(b)-f(a)$; we assume differentiability at $a$ and $b$; and
+we assume continuity of the differential.  Nonetheless, this will be adequate for our
+purposes.
+
+ \index{mean value theorem}%
+\begin{exer}\label{exer_no_mvt}  Show that the classical \emph{mean value theorem}
+(theorem~\ref{mvthm}) fails for vector valued functions.  That is, find an interval $[a,b]$, a
+Banach space $E$, and a continuous function $f\colon [a,b] \sto E$ differentiable on $(a,b)$
+such that the equation $(b - a)Df(c) = f(b) - f(a)$ holds for \emph{no} point $c$ in~$(a,b)$.
+\emph{Hint.} Consider a parametrization of the unit circle. (Solution~\ref{sol_exer_no_mvt}.)
+\end{exer}
+
+Here is our first generalization of the \emph{mean value theorem}.  Others will occur
+in~\ref{prop_mvt_nls}, \ref{cor_mvt_nls}, and~\ref{prop_mvt_Bs}.
+
+ \index{mean value theorem!for curves}%
+\begin{thm}[Mean Value Theorem for Curves]\label{thm_mvt_curv}  Let $a < b$ and $W$ be a normed
+linear space.  If a continuous function $f \colon [a,b] \sto W$ has a derivative at each point
+of $(a,b)$ and if there is a constant $M$ such that $\norm{Df(t)} \le M$ for all $t \in
+(a,b)$, then
+  \[ \norm{f(b) - f(a)} \le M(b - a)\,. \]
+\end{thm}
+
+\begin{proof} Exercise.  \emph{Hint.}  Given $\epsilon > 0$ define $h(t) =
+\norm{f(t) - f(a)} - (t - a)(M + \epsilon)$ for $a \le t \le b$.  Let $A =
+h^{\gets}(-\infty,\epsilon]$.  Show that:
+ \begin{enumerate}
+  \item[(i)] $A$ has a least upper bound, say $l$;
+  \item[(ii)] $l > a$;
+  \item[(iii)] $l \in A$; and
+  \item[(iv)] $l = b$.
+ \end{enumerate}
+To prove (iv) argue by contradiction. Assume $l < b$.  Show that $\norm{(t - l)^{-1}(f(t) -
+f(l))} < M + \epsilon$ for $t$ sufficiently close to and greater than~$l$.  For such $t$ show
+that $t \in A$ by considering the expression
+  \[ \norm{f(t)-f(l)} + \norm{f(l)-f(a)} - (t - l)(M + \epsilon)\, . \]
+Finally, show that the desired conclusion follows from (iii) and~(iv).
+(Solution~\ref{sol_thm_mvt_curv}.)   \ns
+\end{proof}
+
+Next we extend the \emph{mean value theorem} from curves to vector fields.
+
+ \index{mean value theorem!for vector fields}%
+\begin{prop}\label{prop_mvt_nls} Let $V$ and $W$ be normed linear spaces and $a$ and $h$ be points
+in $V$.  If a $W$ valued function $f$ is continuously differentiable on the segment $[a,a +
+h]$ , then
+  \[ \norm{\Delta f_a(h)} \le M\norm h\,. \]
+whenever $M$ is a number such that $\norm{df_z} \le M$ for all $z$ in~$[a,a + h]$.
+\end{prop}
+
+
+\begin{proof} Problem.   \emph{Hint.}   Use $l\colon t \mapsto a + th$ (where $0 \le t \le 1$)
+to parametrize the segment~$[a,a + h]$. Apply~\ref{thm_mvt_curv} to the function $g = f \circ
+l$.  \ns
+\end{proof}
+
+ \index{mean value theorem}%
+\begin{cor}\label{cor_mvt_nls}  Let $V$ and $W$ be normed linear
+spaces, $a$ and $h$ be points of $V$, the operator $T$ belong to $\ofml B(V,W)$, and $g$ be a
+$W$ valued function continuously differentiable on the segment~$[a,a+h]$.  If $M$ is any
+number such that $\norm{dg_z - T} \le M$ for all $z$ in $[a,a + h]$, then
+  \[ \norm{\Delta g_a(h) - Th} \le M\norm h\,. \]
+\end{cor}
+
+\begin{proof} Problem.  \emph{Hint.}  Apply~\ref{prop_mvt_nls} to the function $g - T$.    \ns
+\end{proof}
+
+The next proposition is an important application of the \emph{mean value theorem}.
+
+\begin{prop}\label{prop_sc_const} Let $V$ and $W$ be normed linear spaces, $U$ be a nonempty
+connected open subset of $V$, and $f\colon U \sto W$ be differentiable.  If $df_x = \vc 0$ for
+every $x \in U$, then $f$ is constant.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Choose $a \in U$ and set $G = f^\gets \{f(a)\}$.  Show
+that $G$ is both an open and closed subset of~$U$.  Then use~\ref{prop_conn_oc} to conclude
+that $U=G$.
+
+To prove that $G$ is open in $U$, take an arbitrary point $y$ in $G$, find an open ball $B$
+about $y$ which is contained in $U$, and use~\ref{prop_mvt_nls} to show that $\Delta f_y(w -
+y) = 0$ for every $w$ in~$B$.   \ns
+\end{proof}
+
+\begin{cor}\label{cor_const_diff}  Let $V$, $W$, and $U$ be as in the preceding proposition.
+If $f$, $g \colon U \sto W$ are differentiable on $U$ and have the same differentials at each
+point of $U$, then $f$ and $g$ differ by a constant.
+\end{cor}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prob}  Show that the hypothesis that $U$ be connected cannot be deleted in
+proposition~\ref{prop_sc_const}.
+\end{prob}
+
+Corollary~\ref{cor_const_diff} makes possible a proof of the version of the \emph{fundamental
+theorem of calculus} which is the basis for the procedures of ``formal integration'' taught in
+beginning calculus.
+
+\begin{defn}  A differentiable curve $f$ in a Banach space whose domain is an open interval in
+$\R$ is an
+ \index{antiderivative}%
+\df{antiderivative} of a function $g$ if $Df = g$.
+\end{defn}
+
+ \index{fundamental theorem of calculus}%
+\begin{thm}[Fundamental Theorem of Calculus - Version II]
+\label{thm_ftc_II}  Let $a$ and $b$ be points in an open interval $J  \subseteq \R$ with $a <
+b$.  If $g\colon J \sto E$ is a continuous map into a Banach space and $f$ is an
+antiderivative of $g$ on $J$, then
+  \[ \int_a^b g = f(b) - f(a)\,. \]
+\end{thm}
+
+\begin{proof} Problem.   \emph{Hint.}  Let $h(x) = \int_a^xg$ for $x$ in~$J$.  Use
+corollary~\ref{cor_const_diff} to show that $h$ and $f$ differ by a constant.  Find the value
+of this constant by setting $x = a$.   \ns
+\end{proof}
+
+With this second version of the \emph{fundamental theorem of calculus} in hand, we are in a
+position to prove the version of the \emph{mean value theorem} discussed in the introduction
+to this section.
+
+ \index{mean value theorem!for vector fields}%
+\begin{prop}\label{prop_mvt_Bs}  Suppose that $E$ and $F$ are Banach spaces, and $a$, $h \in E$.
+If an $F$ valued function $f$ is continuously differentiable on the segment $[a,a + h]$, then
+ \begin{equation}\label{eqn_mvt_Bs}
+    \Delta f_a(h) = \left( \int_0^1 df_{l(t)}\,dt\right)(h)
+ \end{equation}
+where $l(t) = a + th$  for $0 \leq t \leq 1$.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Let $g = f\circ l$.  Show that $Dg(t)=df_{l(t)}(h)$.
+Apply~\ref{cor_1param_fam} to the right side of equation~\eqref{eqn_mvt_Bs}.
+Use~\ref{thm_ftc_II}.  \ns
+\end{proof}
+
+
+It is conventional when we invoke any of the results \ref{thm_mvt_curv}, \ref{prop_mvt_nls},
+\ref{cor_mvt_nls}, or~\ref{prop_mvt_Bs} to say that we have used ``the''
+ \index{mean value theorem}%
+\emph{mean value theorem}.
+
+\begin{prob} Verify proposition~\ref{prop_mvt_Bs} directly for the function $f(x,y) = x^2 + 6xy
+- 2y^2$ by computing both sides of equation~\eqref{eqn_mvt_Bs}.
+\end{prob}
+
+\begin{prob}  Let $W$ be a normed linear space and $a < b$. For each $f$ in $\fml C^1([a,b],W)$
+define
+  \[ \trinorm f = \sup\{\norm{f(x)}
+                   + \norm{Df(x)}\colon  a \leq x \leq b\}\,. \]
+ \begin{enumerate}
+  \item[(a)] Show that $\fml C^1([a,b],W)$ is a vector space and that the map $f \mapsto \trinorm f$
+is a norm on this space.
+  \item[(b)] Let $j(x) = \sqrt{1 + x^2}$ for all $x$ in~$\R$.  Use the \emph{mean value theorem}
+to show that $\abs{\Delta j_x(y)} \leq \abs y$ for all $x$, $y \in \R$.
+  \item[(c)]  Let $k$ be a continuous real valued function on the interval~$[a,b]$.  For each $f$
+in $\fml C^1([a,b],\R)$ define
+     \[ \Phi (f) = \int_a^bk(x)\sqrt {1 + (f'(x))^2}\,dx\,. \]
+Show that the function $\Phi \colon  \fml C^1([a,b],\R) \sto \R$ is uniformly continuous.
+ \end{enumerate}
+\end{prob}
+
+ \index{change of variables}%
+\begin{prop}[Change of Variables]\label{prop_changvar}  If $f \in \fml C(J_2,E)$ and $g \in
+\fml C^1(J_1,J_2)$ where $J_1$ and $J_2$ are open intervals in $\R$ and $E$ is a Banach space,
+and if $a$, $b \in J_1$ with $a < b$, then
+  \[ \int_a^b g'(f \circ g) = \int_{g(a)}^{g(b)}f\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use~\ref{thm_ftc_II}.  Let $F(x) = \int_{g(a)}^x f$ for all
+$x$ in $J_2$.  Compute $(F \circ g)'(t)$.  \ns
+\end{proof}
+
+ \index{integration by parts}%
+\begin{prop}[Integration by Parts] If $f \in \fml C^1(J,\R)$ and $g \in \fml C^1(J,E)$ where
+$J$ is an open interval in $\R$ and $E$ is a Banach space, and if $a$ and $b$ are points in
+$J$ with $a < b$, then
+  \[ \int_a^b fg' = f(b)g(b) - f(a)g(a) - \int_a^b f'g\,. \]
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Differentiate the function $t \mapsto f(t)g(t)$.   \ns
+\end{proof}
+
+\begin{prop}  If $f \in \fml C(J,\R)$ where $J$ is an interval, and if $a$, $b \in J$ with
+$a < b$, then there exists $c \in (a,b)$ such that
+  \[ \int_a^b f = f(c)(b - a)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Show by example that the preceding proposition is no longer true if it is assumed
+that $f$ is a continuous function from $J$ into~$\R^2$.
+\end{prob}
+
+
+
+
+
+
+
+
+\section{PARTIAL DERIVATIVES} Suppose that $V_1, V_2, \dots, V_n$, and $W$ are normed linear spaces.
+Let $V = V_1\times \dots \times V_n$.  In the following discussion we will need the
+ \index{canonical injection maps}%
+ \index{injection maps!canonical}%
+ \index{<@$j_{{}_{\sst k}}$ ($k^{\text{th}}$ canonical injection)}%
+ \index{j@$j_{{}_{\sst k}}$ ($k^{\text{th}}$ canonical injection)}%
+\df{canonical injection maps} $j_{{}_{\sst 1}}, \dots, j_{{}_{\sst n}}$ which map the
+coordinate spaces $V_1, \dots, V_n $ into the product space~$V$.  For $1\le k \le n $ the map
+$j_{{}_{\sst k}}\colon V_k \sto V$ is defined by $j_{{}_{\sst k}}(x) = (0, \dots, 0, x, 0,
+\dots, 0)$ (where $x$ appears in the $k^{\text {th}}$ coordinate). It is an easy exercise to
+verify that each $j_{{}_{\sst k}}$ is a bounded linear transformation and that if $V_k$ does
+not consist solely of the zero vector then $\norm{j_{{}_{\sst k}}} = 1$.  Also worth noting is
+the relationship given in the following exercise between the injections $j_{{}_{\sst k}}$ and
+the projections~$\pi_k$.
+
+\begin{exer}\label{exer_inj_proj}  Let $V_1, \dots, V_n$ be normed linear spaces and $V =
+V_1 \times \dots \times V_n$.  Then
+ \begin{enumerate}
+  \item[(a)] For $k = 1, \dots, n$ the injection $j_{{}_{\sst k}}$ is a right inverse of the
+projection~$\pi_k$.
+  \item[(b)] $\sum\limits_{k=1}^n (j_{{}_{\sst k}} \circ \pi_k) = I_V$.
+ \end{enumerate}
+(Solution~\ref{sol_exer_inj_proj}.)
+\end{exer}
+
+\begin{prob}\label{prob_proj_ball} Let $V = V_1 \times \dots \times V_n$ where $V_1, \dots, V_n$
+are normed linear spaces.  Also let $a \in V$, $r > 0$, and $1 \le k \le n$.  Then the image
+under the projection map $\pi_k$ of the open ball in $V$ about $a$ of radius $r$ is the open
+ball in $V_k$ about $a_k$ of radius $r$.
+\end{prob}
+
+\begin{defn} A mapping $f \colon M_1 \sto M_2$ between metric spaces is
+ \index{open!mapping}%
+\df{open}
+ \index{closed!mapping}%
+[resp., \df{closed}] if $f^\sto(U)$ is an open [resp., closed] subset of $M_2$ whenever
+$U$ is an open [resp., closed] subset of~$M_1$.
+\end{defn}
+
+\begin{prob} Show that each projection mapping $\pi_k\colon  V_1 \times \dots \times V_n \sto V_k$
+on the product of normed linear spaces is an open mapping.  Construct an example to show that
+projection mappings need not be closed.
+\end{prob}
+
+Now suppose that $f$ belongs to $\fml F_a(V,W)$ and that $1 \le k \le n$.  Let $B$ be an open
+ball about $a$ which is contained in the domain of $f$ and $B_k = \left(\pi_k^{\sto}(B)\right)
+- a_k$. From problem~\ref{prob_proj_ball} and the fact that translation by $a_k$ is an
+isometry (see problem~\ref{prob_transl}) we see that $B_k$ is an open ball in $V_k$ about the
+origin (whose radius is the same as the radius of $B$).  Define
+  \[ g \colon B_k \sto W \colon x \mapsto f(a + j_{{}_{\sst k}}(x))\,. \]
+Notice that as $x$ changes, only the $k^{\text {th}}$ variable of the domain of $f$ is
+changing; the other $k - 1$ variables are fixed. Also notice that we can write $g = f \circ
+T_a \circ j_{{}_{\sst k}}$, where $T_a$ is translation by $a$ (that is, $T_a \colon x \mapsto
+x + a$).
+
+\begin{exer}\label{exer_Del_inj}  With notation as above show that
+  \[ \Delta g_{\vc 0} = \Delta f_a \circ j_{{}_{\sst k}}\,. \]
+in some neighborhood of the origin in~$V_k$.  (Solution~\ref{sol_exer_Del_inj}.)
+\end{exer}
+
+
+\begin{prop}   Let $f$, $g$, and $a$ be as above.  If $f$ is differentiable at $a$, then $g$ is
+differentiable at $\vc 0$ and
+  \[ dg_{\vc 0} = df_a \circ j_{{}_{\sst k}}\,. \]
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Use exercise~\ref{exer_Del_inj} and
+proposition~\ref{prop_tan_comp_O}.
+\ns  \end{proof}
+
+\begin{notn}  Suppose that the function $g\colon  B_k \sto W\colon x \mapsto f(a +
+j_{{}_{\sst k}}(x))$ is differentiable at $\vc 0$.  Since $g$ depends only on the function
+$f$, the point $a$, and the index $k$, it is desirable to have a notation for $dg_{\vc 0}$
+which does not require the use of the extraneous letter ``$g$''.  A fairly common convention
+is to write $d_kf_a$ for $dg_{\vc 0}$; this bounded linear map is the $k^{\text {th}}$
+ \index{partial!differential}%
+ \index{differential!partial}%
+ \index{<@$d_kf_a$ ($k^{\text{th}}$ partial differential)}%
+ \index{d@$d_kf_a$ ($k^{\text{th}}$ partial differential)}%
+\df{partial differential} of $f$ at~$a$.  Thus $d_kf_a$ is the unique bounded linear map which
+is tangent to $\Delta f_a \circ j_{{}_{\sst k}}$.  We restate the preceding proposition using
+this notation.
+\end{notn}
+
+\begin{cor}\label{cor_dffntl_inj}  Let $V_1, V_2, \dots ,V_n$, and $W$ be normed linear spaces.
+If the function $f$ belongs to $ \fml D_a(V_1 \times \dots \times V_n, W)$, then for each $k =
+1,\dots ,n$ the $k^{\text{th}}$ partial differential of $f$ at $a$ exists and
+  \[ d_kf_a = df_a \circ j_{{}_{\sst k}}\;. \]
+\end{cor}
+
+\begin{cor}   Let $V_1, V_2, \dots ,V_n$, and $W$ be normed linear spaces.  If the function $f$
+belongs to $ \fml D_a(V_1 \times \dots \times V_n, W)$, then
+  \[ df_a(x) = \sum\limits_{k=1}^n d_kf_a(x_k) \]
+for each $x$ in $V_1\times \dots\times V_n$.
+\end{cor}
+
+
+\begin{proof} Problem.    \emph{Hint.}  Write $df_a$ as $df_a \circ I$ (where $I$ is the identity
+map on $V_1 \times \dots \times V_n$) and use exercise~\ref{exer_inj_proj}(b).    \ns
+\end{proof}
+
+The preceding corollaries assure us that if $f$ is differentiable at a point, then it has
+partial differentials at that point.  The converse is not true.  (Consider the function
+defined on $\R^2$ whose value is $1$ everywhere except on the coordinate axes, where its value
+is $0$.  This function has partial differentials at the origin, but is certainly not
+differentiable---or even continuous---there.)  The following proposition shows that if we
+assume continuity (as well as the existence) of the partial differentials of a function in an
+open set, then the function is differentiable (in fact, continuously differentiable) on that
+set. To avoid complicated notation we prove this only for the product of two spaces.
+
+\begin{prop}\label{prop_par_dffntl}  Let $V_1$, $V_2$, and $W$ be normed linear spaces, and let
+$f\colon U \sto W$ where $\open U{V_1 \times V_2}$.  If the partial differentials $d_1f$ and
+$d_2f$ exist and are continuous on $U$, then $f$ is continuously differentiable on $U$ and
+ \begin{equation}\label{eqn_par_dffntl1}
+   df_{(a,b)} = d_1f_{(a,b)} \circ \pi_1 + d_2f_{(a,b)} \circ \pi_2
+ \end{equation}
+at each point $(a,b)$ in~$U$.
+\end{prop}
+
+\begin{proof}  Exercise.  \emph{Hint.}   To show that $f$ is differentiable at a point $(a,b)$
+in $U$ and that its differential there is the expression on the right side
+of~\eqref{eqn_par_dffntl1}, we must establish that $\Delta f_{(a,b)}$ is tangent to $R = S
+\circ \pi_1 + T \circ \pi_2$ where $S = d_1f_{(a,b)}$ and $T = d_2f_{(a,b)}$.  Let $g \colon t
+\mapsto f(a,b + t)$ for all $t$ such that $(a,b + t) \in U$ and $h^t \colon s \mapsto f(a + s,
+b + t)$ for all $s$ and $t$ such that $(a + s, b + t) \in U$. Show that $\Delta f_{(a,b)}
+(s,t)$ is the sum of $\Delta \left(h^t \right)_{\vc 0}(s)$ and $\Delta g_{\vc 0}(t)$. Conclude
+from this that it suffices to show that: given $\epsilon > 0$ there exists $\delta > 0$ such
+that if $\norm{(u,v)}_1 < \delta$ , then
+ \begin{equation}\label{eqn_par_dffntl2}
+   \norm{\Delta\left(h^v\right)_{\vc 0}(u) - Su} \leq \epsilon\,\norm u
+ \end{equation}
+and
+ \begin{equation}\label{eqn_par_dffntl3}
+    \norm{\Delta g_{\vc 0}(v) - Tv} \leq \epsilon\,\norm v\,.
+ \end{equation}
+Find $\delta_1 > 0$ so that~\eqref{eqn_par_dffntl3} holds whenever $\norm v < \delta_1$.
+(This is easy.) Then find $\delta_2 > 0$ so that~\eqref{eqn_par_dffntl2} holds whenever
+$\norm{(u,v)}_1 < \delta_2$.  This requires a little thought.  Notice
+that~\eqref{eqn_par_dffntl2} follows from the \emph{mean value theorem}
+(corollary~\ref{cor_mvt_nls}) provided that we can verify that
+  \[ \norm{d\left(h^v\right)_z - S} \leq \epsilon \]
+for all $z$ in the segment~$[\vc 0,u]$.  To this end show that $d\left(h^v\right)_z = d_1f_{(a
++ z, b + v)}$ and use the fact that $d_1f$ is assumed to be continuous.
+(Solution~\ref{sol_prop_par_dffntl}.)    \ns
+\end{proof}
+
+\begin{notn}  Up to this point we have had no occasion to consider the problem of the various ways
+in which a Euclidean space $\R^n$ may be regarded as a product.  Take $\R^5$ for example.  If
+nothing to the contrary is specified it is natural to think of $\R^5$ as being the product of
+5 copies of $\R$; that is, points of $\R^5$ are 5-tuples $x = (x_1, \dots, x_5)$ of real
+numbers.  If, however we wish to regard $\R^5$ as the product of $\R^2$ and $\R^3$, then a
+point in $\R^5$ is an ordered pair $(x,y)$ with $x \in \R^2$ and $y \in \R^3$.  One good way
+of informing a reader that you wish $\R^5$ considered as a product in this particular fashion
+is to write $\R^2 \times \R^3$; another is to
+ \index{<@$\R^{m+n}$ ($\R^m \times \R^n$)}%
+ \index{realnumbersss@$\R^{m+n}$ ($\R^m \times \R^n$)}%
+write~$\R^{2+3}$.  (Note the distinction between $\R^{2+3}$  and $\R^{3+2}$.)  In many
+concrete problems the names of variables are given in the statement of the problem: for
+example, suppose we encounter several equations involving the variables $u$, $v$, $w$, $x$,
+and $y$ and wish to solve for the last three variables in terms of the first two.  We are then
+thinking of $\R^5$ as the product of $\R^2$ (the space of independent variables) and $\R^3$
+(the space of dependent variables).  This particular factorization may be emphasized by
+writing a point $(u,v,w,x,y)$ of the product as $((u,v),(w,x,y))$.  And if you wish to avoid
+such an abundance of parentheses you may choose to write $(u,v;w,x,y)$ instead. Ordinarily
+when $\R^n$ appears, it is clear from context what factorization (if any) is intended.  The
+preceding notational devices are merely reminders designed to ease the burden on the reader.
+In the next exercise a function $f$ of 4 variables is given and you are asked to compute
+$d_1f_a$ in  several different circumstances; it is important to realize that the value of
+$d_1f_a$ \emph{depends on the factorization of}~$\R^4$ \emph{that is assumed}.
+\end{notn}
+
+\begin{exer}\label{exer_pd_R4}   Let
+ \begin{equation}\label{eqn_pd_R4}
+        f(t,u,v,w) = tu^2 + 3\,vw
+ \end{equation}
+for all $t$, $u$, $v$, $w \in \R$, and let $a = (1,1,2,-1)$.  Find $d_1f_a$ assuming that the
+domain of $f$ is:
+ \begin{enumerate}
+  \item[(a)] $\R^4$.
+  \item[(b)] $\R \times \R^3$.
+  \item[(c)] $\R^2 \times \R^2$.
+  \item[(d)] $\R^2 \times \R \times \R$.
+  \item[(e)] $\R^3 \times \R$.
+ \end{enumerate}
+\emph{Hint.}  First compute $df_a$.  Then use~\ref{cor_dffntl_inj}.  \textbf{Note.}  The
+default case is (a); that is, if we were given only equation~\eqref{eqn_pd_R4} we would assume
+that the domain of $f$ is $\R \times \R \times \R \times \R$.  In this case it is possible to
+compute $d_kf_a$ for $k = 1,2,3, 4$.  In cases (b), (c), and (e) only $d_1f_a$ and $d_2f_a$
+make sense; and in (d) we can compute $d_kf_a$ for $k = 1$, $2$, $3$.
+(Solution~\ref{sol_exer_pd_R4}.)
+\end{exer}
+
+\begin{prob}  Let
+  \[ f(t,u,v,w) = tuv - 4\,u^2w \]
+for all $t$, $u$, $v$, $w \in \R$ and let $a = (1,2,-1,3)$.  Compute $d_kf_a$ for all $k$ for
+which this expression makes sense, assuming that the domain of $f$ is:
+ \begin{enumerate}
+  \item[(a)] $\R^4$.
+  \item[(b)] $\R \times \R^3$.
+  \item[(c)] $\R^2 \times \R^2$.
+  \item[(d)] $\R \times \R^2 \times \R$.
+  \item[(e)] $\R^3 \times \R$.
+ \end{enumerate}
+\end{prob}
+
+\begin{defn}  We now consider the special case of a function $f$ which maps an open subset of
+$\R^n$ into a normed linear space. For $1 \le k \le n$ the injection $j_{{}_{\sst k}}\colon \R
+\sto \R^n$ takes the real number $t$ to the vector $t\,e^k$.  Thus the function $g \equiv f
+\circ T_a \circ j_{{}_{\sst k}}$ is just $f \circ l$ where as usual $l$ is the parametrized
+line through $a$ in the direction of $e^k$.  [Proof: $g(t) = f\left(a + j_{{}_{\sst
+k}}(t)\right) = f(a + t\,e^k) = (f \circ l)(t)$.]  We define
+ \index{<@$f_k$ ($k^{\text{th}}$ partial derivative of~$f$)}%
+ \index{<@$\pd f{x_k}$ ($k^{\text{th}}$ partial derivative of~$f$)}%
+ \index{<@$D_kf$ ($k^{\text{th}}$ partial derivative of~$f$)}%
+$f_k(a)$ (or $\pd f{x_k}(a)$, or $D_kf(a))$, the $k^{\text {th}}$
+ \index{partial!derivative}%
+ \index{derivative!partial}%
+\df{partial derivative} of $f$ at $a$, to be $d_kf_a(1)$.  Using
+propositions~\ref{prop_diff_der} and~\ref{prop_diff_dd} we see that
+  \begin{align*}
+            f_k(a) &= d_kf_a(1)        \\
+                   &= dg_0(1)          \\
+                   &= Dg(0)            \\
+                   &= D(f \circ l)(0)  \\
+                   &= D_{e^k}f(a).
+  \end{align*}
+That is, the $k^{\text {th}}$ partial derivative of $f$ is the directional derivative of $f$
+in the direction of the $k^{\text {th}}$ coordinate axis of~$\R^n$.  Thus the notation $D_kf$
+for the $k^{\text {th}}$ partial derivative can be regarded as a slight abbreviation of the
+usual notation $D_{e^k}f$ used for directional derivatives of functions on~$\R^n$.
+\end{defn}
+
+It is also useful to note that
+ \begin{equation}\label{eqn_def_pd}
+   \begin{aligned}
+        f_k(a) &= Dg(0)        \\
+               &= \lim_{t \sto 0} \frac {g(t) - g(0)}t  \\
+               &= \lim_{t \sto 0} \frac {f(a + t\,e^k) - f(a)}t.
+   \end{aligned}
+ \end{equation}
+This is the usual definition given for partial derivatives in beginning calculus.  The
+mechanics of computing partial derivatives is familiar and is justified by~\eqref{eqn_def_pd}:
+pretend that a function of $n$ variables is a function only of its $k^{\text {th}}$ variable,
+then take the ordinary derivative.
+
+One more observation: if $f$ is differentiable at $a$ in $\R^n$, then by
+proposition~\ref{prop_dd_diff}
+  \[ f_k(a) = D_{e^k}f(a) = df_a(e^k)\,. \]
+
+Let $f \in \fml D_a(\R^n,W)$ where $W = W_1 \times \dots \times W_m$ is the product of $m$
+normed linear spaces.  From proposition~\ref{prop_diff_coord} (and induction) we know that
+  \[ df_a = \left(d(f^1)_a, \dots ,d(f^m)_a\right)\,. \]
+From this it is an easy step to the next proposition.
+
+\begin{prop}\label{prop_pd_vvf}  If $f \in \fml D_a(\R^n,W)$ where $W = W_1 \times \dots \times
+W_m$ is the product of $m$ normed linear spaces, then
+  \[ \left(f^j\right)_k = \left(f_k\right)^j \]
+for $1 \le j \le m$ and $1 \le k \le n$.
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+The point of the preceding proposition is that no ambiguity arises if we write the
+ \index{<@$f^j_k$ ($k^{\text{th}}$ partial derivative of
+$j^{\text{th}}$ component)}%
+expression~$f^j_k$.  It may correctly be interpreted either as the $k^{\text {th}}$ partial
+derivative of the $j^{\text {th}}$ component function $f^j$ or as the $j^{\text {th}}$
+component of the $k^{\text {th}}$ partial derivative $f_k$.
+
+\begin{exam}  Let $f(x,y) = (x^5y^2,x^3 - y^3)$.  To find $f_1(x,y)$ hold $y$ fixed and
+differentiate with respect to $x$ using corollary~\ref{cor_diff_prodcurv}.  Then
+  \[ f_1(x,y) = (5\,x^4y^2,3\,x^2)\,. \]
+Similarly,
+  \[ f_2(x,y) = (2\,x^5y,-3\,y^2)\,. \]
+\end{exam}
+
+\begin{exer}\label{exer_pd_R3} Let $f(x,y,z) = (x^3y^2\sin z, x^2 + y\cos z)$ and $a =
+(1,-2,\frac\pi2)$.  Find $f_1(a)$, $f_2(a)$, and $f_3(a)$. (Solution~\ref{sol_exer_pd_R3}.)
+\end{exer}
+
+\begin{prob} Let $f(w,x,y,z) = (wxy^2z^3, w^2 + x^2 + y^2, wx + xy + yz)$ and $a = (-3,1,-2,1)$.
+Find $f_k(a)$ for all appropriate~$k$.
+\end{prob}
+
+\begin{prob}\label{prob_dk}  Let $V_1,\dots,V_n,W$ be normed linear spaces, $\open UV = V_1 \times
+\dots \times V_n$, $\alpha \in \R$, and $f$, $g\colon U \sto W$. If the $k^{\text {th}}$
+partial derivatives of $f$ and $g$ exist at a point $a$ in $U$, then so do the $k^{\text
+{th}}$ partial differentials of $f+g$ and $\alpha f$, and
+ \begin{enumerate}
+  \item[(a)] $d_k(f + g)_a = d_kf_a + d_kg_a$;
+  \item[(b)] $d_k(\alpha f)_a = \alpha d_kf_a$;
+  \item[(c)] $(f + g)_k(a) = f_k(a) + g_k(a)$; and
+  \item[(d)] $(\alpha f)_k(a) = \alpha f_k(a)$.
+ \end{enumerate}
+\emph{Hint.}  In (a), consider the function $(f + g) \circ T_a \circ j_{{}_{\sst k}}$.
+\end{prob}
+
+\begin{prob} Let $f$, $g \in \fml F_a(V,W)$, $\alpha \in \R$, and $\vc 0 \ne v \in V$.  Suppose
+that $D_vf(a)$ and $D_vg(a)$ exist.
+ \begin{enumerate}
+  \item[(a)] Show that $D_v(f + g)(a)$ exists and is the sum of $D_vf(a)$ and $D_vg(a)$.
+\emph{Hint.}  Use the definition of directional derivative and proposition~\ref{prop_del_sum}.
+We can \emph{not} use either~\ref{prop_diff_dd} or~\ref{prop_dd_diff} here because we are
+\emph{not} assuming that $f$ and $g$ are differentiable at~$a$.
+  \item[(b)] Show that $D_v(\alpha f)(a)$ exists and is equal to $\alpha D_vf(a)$.
+  \item[(c)] Use (a) and (b) to prove parts (c) and (d) of problem~\ref{prob_dk}.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+
+\section{ITERATED INTEGRALS}
+In the preceding section we considered partial differentiation of functions defined on the
+product of two or more spaces.  In this section we consider the integration of such functions.
+To take the partial derivative of a function $f\colon (x,y) \mapsto f(x,y)$ with respect to
+$x$ we hold $y$ fixed and differentiate the function $x \mapsto f(x,y)$.  Partial integration
+works in very much the same way.  If $f$ is a continuous function mapping a rectangular subset
+$[a,b]\times [c,d]$ of $\R^2$ into a Banach space $E$, we may, for each fixed $y$ in $[c,d]$,
+integrate the function $x \mapsto f(x,y)$ over the interval $[a,b]$. (This function is
+continuous since it is the composite of the continuous functions $x \mapsto (x,y)$ and~$f$.)
+The integration will result in a vector which depends on $y$, call it~$h(y)$.  We will show
+shortly that the function $y \mapsto h(y)$ is also continuous and so may be integrated
+over~$[c,d]$.  The resulting vector in $E$ is denoted by $\int_c^d\left(\int_a^b
+f(x,y)\,dx\right)\,dy$ or just $\int_c^d\int_a^b f(x,y)\,dx\,dy$.  The two integrals operating
+successively are called
+ \index{<@$\int_c^d\left(\int_a^b f(x,y)\,dx\right)\,dy$ (iterated integrals)}%
+ \index{iterated integrals}%
+ \index{integral!iterated}%
+\df{iterated integrals}.
+
+
+\begin{notn} Let $f \colon (x,y) \mapsto f(x,y)$ be a continuous function defined on a subset
+of $\R^2$ containing the rectangle $[a,b] \times [c,d]$.  Throughout this section we denote by
+ \index{<@$f\,^y$, ${}^xf$}%
+$f\,^y$ the function of $x$ which results from holding $y$ fixed and by ${}^xf$ the function
+of $y$ resulting from fixing~$x$.  That is, for each $y$
+  \[ f\,^y \colon x \mapsto f(x,y) \]
+and for each $x$
+  \[ {}^xf\colon y\mapsto f(x,y)\,. \]
+For each $y$ we interpret  $\int_a^b f(x,y)\,dx$ to mean $\int_a^b f\,^y$, and for each $x$ we
+take $\int_c^d f(x,y)\,dy$ to be $\int_c^d\, {}^xf$.  Thus
+  \[ \int_c^d\int_a^b f(x,y)\,dx\,dy = \int_c^d g \]
+where $g(y) = \int_a^b f\,^y$ for all $y \in [c,d]$.  In order for $\int_c^d g$ to make sense
+we must know that $g$ is a regulated function.  It will suffice for our needs to show that if
+$f$ is continuous, then so is~$g$.
+\end{notn}
+
+\begin{lem}\label{lem_int_2cont}  Let $f \colon [a,b] \times [c,d] \sto E$ be a continuous
+function into a Banach space.  For each $y \in [c,d]$ let
+  \[ g(y) = \int_a^b f\,^y\,. \]
+Then $g$ is uniformly continuous on~$[c,d]$.
+\end{lem}
+
+\begin{proof} Exercise.   \emph{Hint.}  Use proposition~\ref{prop_cont_ucont}.
+(Solution~\ref{sol_lem_int_2cont}.) \ns
+\end{proof}
+
+Perhaps the most frequently used result concerning iterated integrals is that if $f$ is
+continuous, then the order of integration does not matter.
+
+\begin{prop}\label{prop_chord_int}  If $E$ is a Banach space, if $a < b$ and $c < d$, and if \linebreak
+$f\colon [a,b]\times [c,d] \sto E$ is continuous, then
+  \[ \int_a^b \int_c^d f(x,y)\,dy\,dx = \int_c^d \int_a^b f(x,y)\,dx\,dy\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}    Define functions $j$ and $k$ for all $z$ in $[c,d]$ by
+the formulas
+  \begin{align*}
+               j(z) &= \int_a^b \int_c^z f(x,y)\,dy\,dx \\
+   \intertext{and}
+               k(z) &= \int_c^z \int_a^b f(x,y)\,dx\,dy\,.
+  \end{align*}
+It suffices to show that $j = k$.  (Why?)  One may accomplish this by showing that $j\,'(z) =
+k'(z)$ for all $z$ and that $j(c) = k(c)$ (see corollary~\ref{cor_const_diff}).  Finding
+$k'(z)$ is easy.  To find $j\,'(z)$ derive the formulas
+  \begin{align}
+       \frac 1h \Delta j_{{}_{\sst z}}(h)
+              &= \int_a^b \frac 1h \int_z^{z+h}f(x,y)\,dy\,dx \label{eqn_chord_int1} \\
+   \intertext{and}
+       \int_a^b f(x,z)\,dx
+             &= \int_a^b \frac 1h \int_z^{z+h}f(x,z)\,dy\,dx\,. \label{eqn_chord_int2}
+  \end{align}
+Subtract \eqref{eqn_chord_int2}) from~\eqref{eqn_chord_int1} to obtain a new equation.  Show
+that the right side of this new equation can be made arbitrarily small by choosing $h$
+sufficiently small.  (For this use an argument similar to the one used in the proof of
+lemma~\ref{lem_int_2cont}.  Conclude that $j\,'(z) = \int_a^b f(x,z)\,dx$.    \ns
+\end{proof}
+
+
+Now that we have a result (proposition~\ref{prop_chord_int}) allowing us to change the order
+of two integrals, we can prove a result which justifies changing the order of integration and
+differentiation. We show that if $f$ is continuous and $f_2$ (exists and) is continuous, then
+  \[ \dfrac d{dy} \int_a^b f(x,y)\,dx = \int_a^b \pd fy (x,y)\,dx\,. \]
+
+\begin{prop}\label{prop_diff_und_int}  Let $E$ be a Banach space, $a < b$, $c < d$, and $f \colon
+[a,b]\times [c,d] \sto E$.  If $f$ and $f_2$ are continuous then the function $g$ defined for
+all $y \in [c,d]$ by
+  \[ g(y) = \int_a^b f\,^y \]
+is continuously differentiable in $(c,d)$ and for $c < y < d$
+  \[ g'(y) = \int_a^b f_2(x,y)\,dx\,. \]
+\end{prop}
+
+\begin{proof} Exercise.    \emph{Hint.}  Let $h(y) = \int_a^b f_2(x,y)\,dx$ for $c \le y \le d$.
+Use proposition~\ref{prop_chord_int} to reverse the order of integration in $\int_c^z h$
+(where $c < z < d$).  Use the version of the \emph{fundamental theorem of calculus} given in
+Theorem~\ref{thm_ftc_II} to obtain $\int_c^z h = g(z) - g(c)$. Differentiate.
+(Solution~\ref{sol_prop_diff_und_int}.) \ns
+\end{proof}
+
+
+\begin{prob}  Compute
+  \[ \int_0^1\int_0^1 \frac {x^2-y^2}{(x^2+y^2)^2}\,dx\,dy  \qquad \text{and} \qquad
+                                \int_0^1\int_0^1 \frac {x^2-y^2}{(x^2+y^2)^2}\,dy\,dx\,. \]
+Why does the result not contradict the assertion made in proposition~\ref{prop_chord_int}?
+\end{prob}
+
+\begin{prob} (a)\quad Suppose that the functions $g\colon \R^n \sto \R$ and $h \colon \R \sto \R$
+are differentiable and $f = h \circ g$.  Show that
+  \[ f_k(x) = g_k(x)\,(Dh)(g(x)) \]
+whenever $x \in \R^n$ and $1 \le k \le n$.
+
+(b)\quad Let $g \colon \R^n \sto \R$ be differentiable and $j \colon \R \sto \R$ be
+continuous. Prove that
+  \[ \pd{}{x_k}\int_c^{g(x)}j(t)\,dt = g_k(x)\,j(g(x)) \]
+whenever $c \in \R$, $x \in \R^n$, and $1 \le k \le n$. \emph{Hint.}  The expression on the
+left denotes $f_k(x)$ where $f$ is the function $x \mapsto \int_c^{g(x)}j(t)\,dt$.
+
+(c)\quad  Use part (b) to compute
+  \[ \pd{}x\int_{x^3y}^{x^2 + y^2}\frac 1{1 + t^2 + cos^2t}\,dt\,. \]
+\end{prob}
+
+ \index{Leibniz's formula}%
+\begin{prop}[Leibniz's formula]  Let $f\colon [a,b] \times [c,d] \sto \R$ and $h \colon [c,d]
+\sto \R$.  If $f$ and $f_2$ are continuous, if $h$ is continuously differentiable on $(c,d)$,
+and if $h(y) \in [a,b]$ for every $y \in (c,d)$, then
+  \[ \frac d{dy}\int_a^{h(y)}f(x,y)\,dx = \int_a^{h(y)}f_2(x,y)\,dx + Dh(y)\,f(h(y),y)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}

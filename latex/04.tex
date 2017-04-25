@@ -1,0 +1,698 @@
+\chapter{SEQUENCES OF REAL NUMBERS}\label{seqs_rn}
+
+Sequences are an extremely useful tool in dealing with topological properties of sets in $\R$
+and, as we will see later, in general metric spaces.  A major goal of this chapter is to
+illustrate this usefulness by showing how sequences may be used to characterize open sets,
+closed sets, and continuous functions.
+
+
+
+\section{CONVERGENCE OF SEQUENCES}
+
+A
+ \index{sequence}%
+\df{sequence} is a function whose domain is the set $\N$ of natural numbers.  In this chapter
+the sequences we consider will all be sequences of real numbers, that is, functions from $\N$
+into $\R$. If $a$ is a sequence, it is conventional to write its value at a natural number $n$
+as $a_n$ rather than as $a(n)$. The sequence itself may be written in a number of ways:
+   \[a = (a_n)_{n=1}^\infty = (a_n) = (a_1,a_2,a_3, \dots).\]
+Care should be exercised in using the last of these notations.  It would not be clear, for
+example, whether $(\frac13,\frac15,\frac17,\dots)$ is intended to be the sequence of
+reciprocals of odd primes (in which case the next term would be $\frac1{11}$) or the sequence
+of reciprocals of odd integers greater than $1$ (in which case the next term would be
+$\frac19$). The element $a_n$ in the range of a sequence is the $n^{\text{th}}$
+ \index{term!of a sequence}%
+\df{term} of the sequence.
+
+It is important to distinguish in one's thinking between a sequence and its range.  Think of a
+sequence $(x_1,x_2,x_3,\dots)$ as an \emph{ordered} set: there is a first element $x_1$, and a
+second element $x_2$, and so on.  The range $\{x_1,x_2,x_3,\dots\}$ is just a set.  There is
+no ``first'' element.  For example, the sequences $(1,2,3,4,5,6,\dots)$ and
+$(2,1,4,3,6,5,\dots)$ are different whereas the sets $\{1,2,3,4,5,6,\dots\}$ and
+$\{2,1,4,3,6,5,\dots\}$ are exactly the same (both are $\N$).
+
+\begin{rem} Occasionally in the sequel it will be convenient to alter the preceding definition
+a bit to allow the domain of a sequence to be the set $\N \cup \{0\}$ of all positive
+integers. It is worth noticing as we go along that this in no way affects the correctness of
+the results we prove in this chapter.
+\end{rem}
+
+\begin{defn} A sequence $(x_n)$ of real numbers is
+ \index{eventually in}%
+\df{eventually in} a set $A$ if there exists a natural number $n_0$ such that $x_n \in A$
+whenever $n \ge n_0$.
+\end{defn}
+
+\begin{exam} For each $n \in \N$ let $x_n = 3 + \dfrac{7-n}2$.  Then the sequence
+$(x_n)_{n=1}^\infty$ is eventually strictly negative; that is, the sequence is eventually in
+the interval $(-\infty,0)$.
+\end{exam}
+
+\begin{proof} If $n \ge 14$, then $\dfrac{7-n}2 \le -\dfrac72$ and $x_n = 3 + \dfrac{7-n}2
+\le -\dfrac12 < 0$.  So $x_n \in (-\infty,0)$ whenever $n \ge 14$.
+\end{proof}
+
+\begin{exam} For each $n \in \N$ let $x_n = \dfrac{2n-3}n$.  Then the sequence $(x_n)_{n=1}^\infty$
+is eventually in the interval $(\frac32,2)$.
+\end{exam}
+
+\begin{proof} Problem. \ns \end{proof}
+
+\begin{defn}\label{df_conv_seq} A sequence $(x_n)_{n=1}^\infty$ of real numbers
+ \index{convergence!of a sequence}%
+\df{converges} to $a \in \R$ if it is eventually in every $\epsilon$-neighborhood of~$a$. When
+the sequence converges to $a$ we write
+ \index{<@$x_n \sto a \text{ as $n \sto \infty$}$ (limit of a sequence)}%
+ \begin{equation}\label{xn_to_a} x_n \sto a \text{ as $n \sto \infty$.}
+ \end{equation}
+These symbols may be read, ``$x_n$ approaches $a$ as $n$ gets large.''  If $(x_n)$ converges
+to $a$, the number $a$ is the
+ \index{limit!of a sequence}%
+\df{limit} of the sequence~$(x_n)$.  It would not be proper to refer to \emph{the} limit of a
+sequence if it were possible for a sequence to converge to two different points.  We show now
+that this cannot happen; limits of sequences are unique.
+\end{defn}
+
+\begin{prop} Let $(x_n)$ be a sequence in $\R$.  If $x_n \sto a$ and $x_n \sto b$ as $n \sto \infty$,
+then $a=b$.
+\end{prop}
+
+\begin{proof} Argue by contradiction.  Suppose $a \ne b$, and let $\epsilon = \abs{a-b}$. Then
+$\epsilon > 0$. Since $(x_n)$ is eventually in $J_{\epsilon/2}(a)$, there exists $n_0 \in \N$
+such that $x_n \in J_{\epsilon/2}(a)$ for $n \ge n_0$.  That is, $\abs{x_n - a} <
+\frac\epsilon2$ for $n \ge n_0$.  Similarly, since $(x_n)$ is eventually in
+$J_{\epsilon/2}(b)$, there is an $m_0 \in \N$ such that $\abs{x_n-b} < \frac\epsilon2$ for $n
+\ge m_0$.  Now if $n$ is any integer larger than both $n_0$ and $m_0$, then
+   \[\epsilon = \abs{a-b} = \abs{a-x_n+x_n-b} \le \abs{a-x_n} +
+              \abs{x_n-b} < \tfrac\epsilon2 + \tfrac\epsilon2 = \epsilon.\]
+But $\epsilon < \epsilon$ is impossible. Therefore, our initial supposition was wrong, and $a
+= b$.
+\end{proof}
+
+Since limits are unique, we may use an alternative notation to \eqref{xn_to_a}: if $(x_n)$
+converges to $a$ we may write
+ \index{limit@$\lim_{n \sto \infty}x_n$ (limit of a sequence)}%
+              \[\lim_{n \sto \infty}x_n = a.\]
+(Notice how inappropriate this notation would be if limits were not unique.)
+
+\begin{defn} If a sequence $(x_n)$ does not converge (that is, if there exists no $a \in \R$
+such that $(x_n)$ converges to $a$), then the sequence
+ \index{divergence!of a sequence}%
+\df{diverges}.  Sometimes a divergent sequence $(x_n)$ has the property that it is eventually
+in every interval of the form $(n,\infty)$ where $n \in \N$. In this case we write
+   \[x_n \sto \infty \text{ as $n \sto \infty$} \qquad \text{or} \qquad
+                          \lim_{n \sto \infty}x_n = \infty.\]
+If a divergent sequence $(x_n)$ is eventually in every interval of
+the form $(-\infty,-n)$ for $n \in \N$, we write
+   \[x_n \sto -\infty \text{ as $n \sto \infty$} \qquad \text{or} \qquad
+                               \lim_{n \sto \infty}x_n = -\infty.\]
+\end{defn}
+
+\begin{cau} It is \emph{not} true that every divergent sequence satisfies either $x_n \sto \infty$
+or $x_n \sto -\infty$.  See \ref{exam_div_seq} below.
+\end{cau}
+
+It is easy to rephrase the definition of convergence of a sequence in slightly different
+language.  The next problem gives two such variants.  Sometimes one of these alternative
+``definitions'' is more convenient than \ref{df_conv_seq}.
+
+\begin{prob}\label{cond_conv_seq} Let $(x_n)$ be a sequence of real numbers and $a \in \R$.
+ \begin{enumerate}
+  \item[(a)]  Show that $x_n \sto a$ if and only if for every $\epsilon > 0$ there exists
+$n_0 \in \N$ such that $\abs{x_n - a} < \epsilon$ whenever $n \ge n_0$.
+  \item[(b)] Show that $x_n \sto a$ if and only if $(x_n)$ is eventually in every
+neighborhood of~$a$.
+ \end{enumerate}
+\end{prob}
+
+
+\begin{exam}\label{seq_exam1} The sequence $(\frac1n)_{n=1}^\infty$ converges to~$0$.
+\end{exam}
+
+\begin{proof} Let $\epsilon > 0$. Use the \emph{Archimedean property}~\ref{arch_prop} of the
+real numbers to choose $N \in \N$ large enough that $N > \frac1\epsilon$. Then
+   \[\left\lvert\frac1n - 0\right\rvert = \frac1n \le \frac1N < \epsilon.\]
+whenever $n \ge N$.
+\end{proof}
+
+\begin{exam}\label{exam_div_seq} The sequence $\bigl((-1)^n\bigr)_{n=0}^\infty$ diverges.
+\end{exam}
+
+\begin{proof} Argue by contradiction. If we assume that $(-1)^n \sto a$ for some $a \in \R$,
+then there exists $N \in \N$ such that $n \ge N$ implies $\abs{(-1)^n - a} < 1$. Thus for
+every $n \ge N$
+ \begin{align*}
+        2 &=   \abs{(-1)^n - (-1)^{n+1}} \\
+          &=   \abs{(-1)^n - a + a - (-1)^{n+1}} \\
+          &\le \abs{(-1)^n - a} + \abs{a - (-1)^{n+1}} \\
+          &<   1 + 1  = 2
+ \end{align*}
+which is not possible.
+\end{proof}
+
+\begin{exam} The sequence  $\left(\dfrac n{n+1}\right)_{n=1}^\infty$ converges to $1$.
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prop}\label{abs_seq} Let $(x_n)$ be a sequence in $\R$. Then $x_n \sto 0$ if and
+only if $\abs{x_n} \sto 0$.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_abs_seq}.)  \ns  \end{proof}
+
+
+
+
+
+
+
+
+\section{ALGEBRAIC COMBINATIONS OF SEQUENCES}
+
+As you will recall from beginning calculus, one standard way of computing the limit of a
+complicated expression is to find the limits of the constituent parts of the expression and
+then combine them algebraically.  Suppose, for example, we are given sequences $(x_n)$ and
+$(y_n)$ and are asked to find the limit of the sequence $(x_n+y_n)$.  What do we do?  First we
+try to find the limits of the individual sequences $(x_n)$ and  $(y_n)$.  Then we add.  This
+process is justified by a proposition which says, roughly, that \emph{the limit of a sum is
+the sum of the limits.} Limits with respect to other algebraic operations behave similarly.
+
+The aim of the following problem is to develop the theory detailing how limits of sequences
+interact with algebraic operations.
+
+\begin{prob}\label{seq_proj} Suppose that $(x_n)$ and $(y_n)$ are sequences of real numbers,
+that $x_n \sto a$ and $y_n \sto b$, and that $c \in \R$.  For the case where $a$ and $b$ are
+real numbers derive the following:
+ \begin{enumerate}
+  \item[(a)] $x_n + y_n \sto a + b$,
+  \item[(b)] $x_n - y_n \sto a - b$,
+  \item[(c)] $x_n y_n \sto ab$,
+  \item[(d)] $c x_n \sto ca$, and
+  \item[(e)] $\dfrac{x_n}{y_n} \sto \dfrac ab$ if $b \ne 0$.
+ \end{enumerate}
+Then consider what happens in case $a = \pm\infty$ or $b = \pm\infty$ (or both).  What can you
+say (if anything) about the limits of the left hand expressions of (a)--(e)?  In those cases
+in which nothing can be said, give examples to demonstrate as many outcomes as possible.  For
+example, if $a = \infty$ and $b = -\infty$, then nothing can be concluded about the limit as
+$n$ gets large of $x_n+y_n$.  All of the following are possible:
+ \begin{enumerate}
+  \item[(i)] $x_n + y_n \sto -\infty$. [Let $x_n = n$ and $y_n = -2n$.]
+  \item[(ii)] $x_n + y_n \sto \alpha$, where $\alpha$ is any real number. [Let $x_n = \alpha + n$
+and $y_n = -n$.]
+  \item[(iii)] $x_n + y_n \sto \infty$. [Let $x_n = 2n$ and $y_n = -n$.]
+  \item[(iv)] None of the above. [Let $(x_n) = (1,2,5,6,9,10,13,14,\dots)$ and
+$y_n = (0,-3,-4,-7,-8,-11,-12,-15,\dots)$.]
+\end{enumerate}
+\end{prob}
+
+\begin{exam} If $x_n \sto a$ in $\R$ and $p \in  \N$, then ${x_n}^p \sto a^p$.
+\end{exam}
+
+\begin{proof} Use induction on $p$.  The conclusion obviously holds when $p=1$.  Suppose
+${x_n}^{p-1} \sto a^{p-1}$.  Apply part (c) of the preceding problem:
+   \[{x_n}^p = {x_n}^{p-1} \cdot x_n \sto a^{p-1} \cdot a = a^p.\]
+\end{proof}
+
+\begin{exam} If $x_n = \dfrac{2-5n+7n^2-6n^3}{4-3n+5n^2+4n^3}$ for each $n \in \N$, then
+$x_n \sto -\frac32$ as $n \sto \infty$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Find $\lim_{n \sto \infty}(\sqrt{n^2 + 5n} - n)$.
+\end{prob}
+
+Another very useful tool in computing limits is the ``sandwich theorem'',  which says that a
+sequence sandwiched between two other sequences with a common limit has that same limit.
+
+\begin{prop}[Sandwich theorem]\label{sand_seq}
+ \index{sandwich theorem}%
+Let $a$ be a real number or one of the symbols $+\infty$ or~$-\infty$.  If $x_n \sto a$ and
+$z_n \sto a$ and if $x_n \le y_n \le z_n$ for all $n$, then $y_n \sto a$.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{exam} If $x_n = \dfrac{\sin\bigl(3 + \pi^{n^2}\bigr)}{n^{3/2}}$ for each $n \in \N$,
+then $x_n \sto 0$ as $n \sto \infty$.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.} Use \ref{abs_seq}, \ref{seq_exam1}, and \ref{sand_seq}.
+  \ns \end{proof}
+
+
+\begin{exam} If $(x_n)$ is a sequence in $(0,\infty)$  and $x_n \sto a$, then
+$\sqrt{x_n} \sto \sqrt a$.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.}  There are two possibilities: treat the cases
+$a = 0$ and $a > 0$ separately. For the first use problem~\ref{cond_conv_seq}(a).  For the
+second use \ref{seq_proj}(b) and \ref{abs_seq}; write $\sqrt{x_n} - \sqrt a$ as
+$\abs{x_n~-~a}/(\sqrt{x_n} + \sqrt a)$. Then find an inequality which allows you to use the
+\emph{sandwich theorem}(proposition \ref{sand_seq}). \ns
+\end{proof}
+
+\begin{exam}\label{4exam2} The sequence $\bigl(n^{1/n}\bigr)$ converges to~$1$.
+\end{exam}
+
+\begin{proof} Problem. \emph{Hint.}  For each $n$ let $a_n = n^{1/n}-1$.  Apply the
+\emph{binomial theorem} \ref{binom_thm} to $(1+a_n)^n$ to obtain the inequality
+$n>\frac12n(n-1)\,{a_n}^2$ and hence to conclude that $0<a_n<\sqrt{\dfrac2{n-1}}$ for every
+$n$. Use the \emph{sandwich theorem} \ref{sand_seq}.  \ns
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\section{SUFFICIENT CONDITION FOR CONVERGENCE}
+
+An amusing situation sometimes arises in which we know what the limit of a sequence must be
+\emph{if} it exists, but we have no idea whether the sequence actually converges. Here is an
+example of this odd behavior.  The sequence will be recursively defined. Sequences are said to
+be
+ \index{recursive definition}%
+\df{recursively} defined if only the first term or first few terms
+are given explicitly and the remaining terms are defined by means
+of the preceding term(s).
+
+Consider the sequence $(x_n)$ defined so that $x_1=1$ and for $n \in \N$
+  \begin{equation}\label{recur_seq} x_{n+1} =
+\frac{3(1+x_n)}{3+x_n}\,.
+  \end{equation}
+It is obvious that \emph{IF the sequence converges} to a limit, say $\ell$, then $\ell$ must
+satisfy
+   \[\ell = \frac{3(1+\ell)}{3+\ell}\,. \]
+(This is obtained by taking limits as $n \sto \infty$ on both sides of \eqref{recur_seq}.)
+Cross-multiplying and solving for $\ell$ leads us to the conclusion that $\ell = \pm\sqrt3$.
+Since the first term $x_1$ is positive, equation \eqref{recur_seq} makes it clear that all the
+terms will be positive; so $\ell$ cannot be $-\sqrt3$.  Thus it is entirely clear that if the
+limit of the sequence exists, it must be $\sqrt3$.  What is \emph{not} clear is whether the
+limit exists at all.  This indicates how useful it is to know some conditions sufficient to
+guarantee convergence of a sequence.  The next proposition gives one important example of such
+a condition: it says that bounded monotone sequences converge.
+
+First, the relevant definitions.
+
+\begin{defn} A sequence $(x_n)$ of real numbers is
+ \index{bounded!sequence}%
+\df{bounded} if its range is a bounded subset of $\R$.  Another way of saying the same thing:
+a sequence $(x_n)$ in $\R$ is bounded if there exists a number $M$ such that $\abs{x_n} \le M$
+for all $n \in \N$.
+\end{defn}
+
+\begin{defn} A sequence $(a_n)$ of real numbers is
+ \index{increasing!sequence}%
+\df{increasing} if $a_{n+1} \ge a_n$ for every $n \in \N$; it is
+ \index{strictly increasing!sequence}%
+\df{strictly increasing} if $a_{n+1} > a_n$ for every $n$. A sequence is
+ \index{decreasing!sequence}%
+\df{decreasing} if $a_{n+1} \le a_n$  for every $n$, and is
+ \index{strictly decreasing!sequence}%
+\df{strictly decreasing} if $a_{n+1} < a_n$  for every $n$. A sequence is
+ \index{monotone!sequence}%
+\df{monotone} if it is either increasing or decreasing.
+\end{defn}
+
+\begin{prop}\label{bdd_monotone} Every bounded monotone sequence of real numbers converges.
+In fact, if a sequence is bounded and increasing, then it converges to the least upper bound
+of its range.  Similarly, if it is bounded and decreasing, then it converges to the greatest
+lower bound of its range.
+\end{prop}
+
+\begin{proof} Let $(x_n)$ be a bounded increasing sequence.  Let $R$ be the range of the
+sequence and $\ell$ be the least upper bound of $R$; that is, $\ell = \sup\{x_n \colon n \in
+\N\}$. We have seen in example \ref{sup_in_clo} that the least upper bound of a nonempty
+subset of $\R$ belongs to the closure of that set.  In particular, $\ell \in \clo R$. Thus
+given any $\epsilon > 0$ we can find a number $x_{n_0}$ of $R$ which lies in the
+interval~$J_\epsilon(\ell)$.  In fact, $x_{n_0} \in (\ell-\epsilon, \ell]$.  Since the
+sequence is increasing and bounded above by $\ell$, we have $x_n \in (\ell-\epsilon, \ell]
+\subseteq J_\epsilon(\ell)$ for every $n \ge n_0$.  What we have just proved is that the
+sequence $(x_n)$ is eventually in every $\epsilon$-neighborhood of $\ell$.  That is, $x_n \sto
+\ell$.
+
+If $(x_n)$ is bounded and decreasing, then the sequence $(-x_n)$ is bounded and increasing. If
+$R$ is the range of $(x_n)$ and $g$ is the greatest lower bound of $R$, then $-R$ is the range
+of $(-x_n)$ and $-g$ is the least upper bound of~$-R$.  By what we have just proved, $-x_n
+\sto -g$.  So $x_n \sto g$ as desired.
+\end{proof}
+
+\begin{exam}\label{exam_recur} Let $(x_n)$ be the sequence recursively defined above: $x_1 = 1$
+and \eqref{recur_seq} holds for all $n \ge 1$.  Then $x_n \sto \sqrt3$ as~$n~\sto~\infty$.
+\end{exam}
+
+\begin{proof} We have argued previously that the limit of the sequence is $\sqrt3$ \emph{if} it
+exists.  So what we must show is that the sequence does converge.  We have thus far one
+tool---proposition \ref{bdd_monotone}.  Thus we \emph{hope} that we will be able to prove that
+the sequence is bounded and monotone. If the sequence starts at $1$, is monotone, and
+approaches $\sqrt3$, then it must be increasing.  How do we prove that the sequence is
+bounded?   Bounded by what?  We observed earlier that $x_1 \ge 0$ and equation
+\eqref{recur_seq} then guarantees that all the remaining $x_n$'s will be positive.  So $0$ is
+a lower bound for the sequence.  If the sequence is increasing and approaches $\sqrt 3$, then
+$\sqrt3$ will be an upper bound for the terms of the sequence.  Thus it appears that the way
+to make use of proposition \ref{bdd_monotone} is to prove two things: (1) $0 \le x_n \le
+\sqrt3$ for all $n$; and (2) $(x_n)$ is increasing.  If we succeed in establishing both of
+these claims, we are done.  \ns
+\end{proof}
+
+\textbf{Claim 1.}  $0 \le x_n \le \sqrt3$ for all $n \in \N$.
+
+\begin{proof} We have already observed that $x_n \ge 0$ for all $n$.  We use mathematical
+induction to show that $x_n \le \sqrt3$ for all $n$.  Since $x_1=1$, it is clear that $x_1 \le
+\sqrt3$. For the inductive hypothesis suppose that for some particular $k$ we have
+  \begin{equation}\label{4loc1} x_k \le \sqrt3\,.
+  \end{equation}
+We wish to show that $x_{k+1} \le \sqrt3$.  To start, multiply both sides of \eqref{4loc1} by
+$3-\sqrt3$.  (If you are wondering, ``How did you know to do that?'' consult the next
+problem.)  This gives us
+   \[3x_k - \sqrt3 x_k \le 3\sqrt3 - 3.\]
+Rearrange so that all terms are positive
+   \[3 + 3x_k \le 3\sqrt3 + \sqrt3 x_k = \sqrt3(3 + x_k). \]
+But then clearly
+   \[x_{k+1} = \frac{3+3x_k}{3+x_k} \le \sqrt3, \]
+which was to be proved.  \ns
+\end{proof}
+
+\textbf{Claim 2.} The sequence $(x_n)$ is increasing.
+
+\begin{proof} We will show that $x_{n+1} - x_n \ge 0$ for all $n$.  For each $n$
+   \[x_{n+1}-x_n = \frac{3+3x_n}{3+x_n} - x_n = \frac{3-{x_n}^2}{3+x_n} \ge 0.\]
+(We know that $3-{x_n}^2 \ge 0$ from claim 1.)
+\end{proof}
+
+\begin{prob} A student, Fred R.\ Dimm, tried on an exam to prove the claims made in
+example \ref{exam_recur}.  For the inductive proof of claim 1 that $x_n \le \sqrt3$ he
+offered the following ``proof'':
+ \begin{align*}
+                  x_{k+1} &\le \sqrt3 \\
+     \frac{3+3x_k}{3+x_k} &\le \sqrt3 \\
+                   3+3x_k &\le \sqrt3(3+x_k) \\
+         3x_k - \sqrt3x_k &\le 3\sqrt3 - 3 \\
+            (3-\sqrt3)x_k &\le (3-\sqrt3)\sqrt3 \\
+                      x_k &\le \sqrt3, \qquad\text{which is true by hypothesis.}
+ \end{align*}
+ \begin{enumerate}
+  \item[(a)] Aside from his regrettable lack of explanation, Fred seems to be making a
+serious logical error.  Explain to poor Fred why his offering is not a proof.
+\emph{Hint.}  What would you say about a proof that $1=2$, which goes as follows?
+   \begin{align*}
+                    1 &= 2 \\
+            0 \cdot 1 &= 0 \cdot 2 \\
+                    0 &= 0, \qquad\text{which is true.}
+   \end{align*}
+  \item[(b)] Now explain why Fred's computation in (a) is really quite useful scratch
+work, even if it is not a proof.  \emph{Hint.} In the correct proof of claim 1, how
+\emph{might} its author have been inspired to ``multiply both sides of \ref{4loc1} by $3
+- \sqrt3$''?
+ \end{enumerate}
+\end{prob}
+
+\begin{exam}\label{4exam1} The condition (bounded and monotone) given in proposition
+\ref{bdd_monotone}, while sufficient to guarantee the convergence of a sequence, is not
+necessary.
+\end{exam}
+
+\begin{proof} Problem.  (Give an explicit example.) \ns
+\end{proof}
+
+Expressed as a conditional, proposition \ref{bdd_monotone} says that if a sequence is bounded
+and monotone, then it converges. Example \ref{4exam1} shows that the converse of this
+conditional is not correct.  A partial converse does hold however: if a sequence converges, it
+must be bounded.
+
+\begin{prop}\label{conv_bdd} Every convergent sequence in $\R$ is bounded.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_conv_bdd}.)  \ns \end{proof}
+
+We will encounter many situations when it is important to know the limit as $n$ gets large of
+$r^n$ where $r$ is a number in the interval $(-1,1)$ and the limit of $r^{1/n}$ where $r$ is a
+number greater than $0$.  The next two propositions show that the respective limits are always
+$0$ and $1$.
+
+\begin{prop}\label{prop_lim_pwrs} If $\abs{r} < 1$, then $r^n \sto 0$ as $n \sto \infty$.
+If $\abs{r} > 1$, then $(r^n)$ diverges.
+\end{prop}
+
+\begin{proof} Suppose that $\abs{r} < 1$. If $r=0$, the proof is trivial, so we consider
+only $r \ne 0$.  Since $0 < \abs r < 1$ whenever $-1 < r < 0$, proposition \ref{abs_seq}
+allows us to restrict our attention to numbers lying in the interval~$(0,1)$. Thus we suppose
+that $0 < r < 1$ and prove that $r^n \sto 0$.  Let $R$ be the range of the sequence $(r^n)$.
+That is, let $R = \{r^n \colon n \in \N\}$.  Let $g = \inf R$. Notice that $g \ge 0$ since $0$
+is a lower bound for $R$.  We use an argument by contradiction to prove that $g=0$. Assume to
+the contrary that $g > 0$.  Since $0 < r < 1$, it must follow that $gr^{-1} > g$.  Since $g$
+is the greatest lower bound of $R$, the number $gr^{-1}$ is not a lower bound for $R$. Thus
+there exists a member, say $r^k$, of $R$ such that $r^k < gr^{-1}$. But then $r^{k+1} < g$,
+which contradicts the choice of $g$ as a lower bound of $R$.  We conclude that $g = 0$.
+
+The sequence $(r^n)$ is bounded and decreasing.  Thus by proposition \ref{bdd_monotone} it
+converges to the greatest lower bound of its range; that is, $r^n \sto 0$ as $n \sto \infty$.
+
+Now suppose $r>1$.  Again we argue by contradiction.  Suppose that $(r^n)$ converges.  Then
+its range $R$ is a bounded subset of $\R$.
+
+Let $\ell = \sup R$.  Since $r>1$, it is clear that $\ell r^{-1} < \ell$.  Since $\ell$ is the
+least upper bound of $R$, there exists a number $r^k$ of $R$ such that $r^k > \ell r^{-1}$.
+Then $r^{k+1} > \ell$, contrary to the choice of $\ell$ as an upper bound for~$R$.
+
+Finally, suppose that $r<-1$.  If $(r^n)$ converges then its range is bounded.  In particular,
+$\{r^{2n}\colon n \in \N\}$ is bounded.  As in the preceding paragraph, this is impossible.
+\end{proof}
+
+\begin{prop} If $r > 0$, then $r^{1/n} \sto 1$ as $n \sto \infty$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Show that $\frac1n < r < n$ for some natural number $n$.
+Then use example \ref{4exam2} and proposition~\ref{sand_seq}.  (You will also make use of a
+standard arithmetic fact---one that arises in problem~\ref{proj_nth_roots}---that if $0 < a <
+b$, then $a^{1/n} < b^{1/n}$ for every natural number $n$.)   \ns
+\end{proof}
+
+\begin{prob} Find $\D\lim_{n \sto \infty}\frac{5^n + 3n + 1}{7^n - n - 2}$.
+\end{prob}
+
+
+
+
+
+
+
+
+
+
+
+\section{SUBSEQUENCES}
+
+As example \ref{exam_div_seq} shows, boundedness of a sequence of real numbers does not
+suffice to guarantee convergence.  It is interesting to note, however, that although the
+sequence $\bigl((-1)^n\bigr)_{n=1}^\infty$ does not converge, it does have subsequences that
+converge.  The odd numbered terms form a constant sequence $(-1,-1,-1,\dots)$, which of course
+converges.  The even terms converge to~$+1$.  It is an interesting, if not entirely obvious,
+fact that every bounded sequence has a convergent subsequence.  This is a consequence of our
+next proposition.
+
+Before proving proposition \ref{m_subseq} we discuss the notion of \emph{subsequence}. The
+basic idea here is simple enough. Let $a = (a_1, a_2, a_3, \dots )$ be a sequence of real
+numbers, and suppose that we construct a new sequence $b$ by taking some but not necessarily
+all of the terms of $a$ and listing them in the same order in which they appear in $a$. Then
+we say that this new sequence $b$ is a \emph{subsequence} of $a$.  We might, for example,
+choose every fifth member of $a$ thereby obtaining the subsequence $b = (b_1, b_2, b_3, \dots
+) = (a_5, a_{10}, a_{15}, \dots )$.  The following definition formalizes this idea.
+
+\begin{defn}\label{subseq_r} Let $(a_n)$ be a sequence of real numbers. If
+$\left(n_k\right)_{k=1}^\infty$ is a strictly increasing sequence in $\N$, then the sequence
+ \index{<@$\left(a_{n_k}\right)$ (subsequence of a sequence)}%
+   \[\left(a_{n_k}\right) = \left(a_{n_k}\right)_{k=1}^\infty =
+                       \left(a_{n_1}, a_{n_2}, a_{n_3}, \dots \right)\]
+is a
+ \index{subsequence}%
+\df{subsequence} of the sequence~$(a_n)$.
+\end{defn}
+
+\begin{exam} If $a_k = 2^{-k}$ and $b_k = 4^{-k}$ for all $k \in \N$, then $(b_k)$ is a subsequence
+of $(a_k)$. Intuitively, this is clear, since the second sequence $(\frac14, \frac1{16},
+\frac1{64}, \dots )$ just picks out the even-numbered terms of the first sequence $(\frac12,
+\frac14, \frac18, \frac1{16}, \dots )$.  This ``picking out'' is implemented by the strictly
+increasing function $n(k) = 2\,k$ (for $k \in \N$). Thus $b = a \circ n$ since
+   \[a_{n_k} = a(n(k)) = a(2k) = 2^{-2k} = 4^{-k} = b_k\]
+for all $k$ in~$\N$.
+\end{exam}
+
+\begin{prop}\label{m_subseq} Every sequence of real numbers has a monotone subsequence.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  A definition may be helpful. Say that a term $a_m$ of a
+sequence in $\R$ is a
+ \index{peak term}%
+ \index{term!peak}%
+\df{peak term} if it is greater than or equal to every succeeding term (that is, if $a_m \ge
+a_{m+k}$ for all $k \in \N$). There are only two possibilities: either there is a subsequence
+of the sequence $(a_n)$ consisting of peak terms, or else there is a last peak term in the
+sequence. (Include in this second case the situation in which there are no peak terms.) Show
+in each case how to select a monotone subsequence of $(a_n)$.  (Solution~\ref{sol_m_subseq}.)
+\ns
+\end{proof}
+
+\begin{cor}\label{bdd_convss} Every bounded sequence of real numbers has a convergent subsequence.
+\end{cor}
+
+\begin{proof} This is an immediate consequence of propositions \ref{bdd_monotone} and \ref{m_subseq}.
+\end{proof}
+
+Our immediate purpose in studying sequences is to facilitate our investigation of the topology
+of the set of real numbers.  We will first prove a key result \ref{Bolzano_thm}, usually known
+as \emph{Bolzano's theorem}, which tells us that bounded infinite subsets of $\R$ have
+accumulation points.  We then proceed to make available for future work sequential
+characterizations of open sets \ref{sc_open}, closed sets \ref{sc_closed}, and continuity of
+functions~\ref{sc_cont}.
+
+\begin{defn}\label{nested} A sequence $(A_1, A_2, A_3, \dots)$ of sets is
+ \index{nested sequence of sets}%
+\df{nested} if $A_{k+1} \subseteq A_k$ for every~$k$.
+\end{defn}
+
+\begin{prop}\label{inter_nested} The intersection of a nested sequence of nonempty closed
+bounded intervals whose lengths approach $0$ contains exactly one point.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Suppose that $J_n = [a_n, b_n] \ne \emptyset$ for each
+$n \in \N$, that $J_{n+1} \subseteq J_n$ for each $n$, and that $b_n - a_n \sto 0$ as $n \sto
+\infty$. Show that $\cap_{n=1}^\infty J_n = \{c\}$ for some $c \in \R$. \ns
+\end{proof}
+
+\begin{prob} Show by example that the intersection of a nested sequence of nonempty closed intervals
+may be empty.
+\end{prob}
+
+\begin{prob} Show by example that proposition \ref{inter_nested} no longer holds if ``closed'' is
+replaced by ``open''.
+\end{prob}
+
+\begin{prop}[Bolzano's theorem]\label{Bolzano_thm} Every bounded infinite subset of $\R$ has at
+least one accumulation point.
+\end{prop}
+
+\begin{proof} Let $A$ be a bounded infinite subset of $\R$. Since it is bounded it is contained in
+some interval $J_0 = [a_0,b_0]$.  Let $c_0$ be the midpoint of $J_0$. Then at least one of the
+intervals $[a_0,c_0]$ or $[c_0,b_0]$ contains infinitely many members of $A$ (see
+\ref{prob_union_fin}).  Choose one that does and call it $J_1$. Now divide $J_1$ in half and
+choose $J_2$ to be one of the resulting closed subintervals whose intersection with $A$ is
+infinite.  Proceed inductively to obtain a nested sequence of closed intervals
+   \[ J_0 \supseteq J_1 \supseteq J_2 \supseteq J_3 \supseteq \dots \]
+each one of which contains infinitely many points of $A$. By proposition \ref{inter_nested}
+the intersection of all the intervals $J_k$ consists of exactly one point $c$. Every open
+interval about $c$ contains some interval $J_k$ and hence infinitely many points of $A$. Thus
+$c$ is an accumulation point of~$A$.
+\end{proof}
+
+\begin{prop}\label{sc_open} A subset $U$ of $\R$ is open if and only if every sequence which
+converges to an element of $U$ is eventually in $U$.
+\end{prop}
+
+\begin{proof} Suppose $U$ is open in $\R$.  Let $(x_n)$ be a sequence which converges to a point
+$a$ in~$U$.  Since $U$ is a neighborhood of $a$, $(x_n)$ is eventually in $U$
+by~\ref{cond_conv_seq}(b).
+
+Conversely, suppose that $U$ is not open.  Then there is at least one point $a$ of $U$ which
+is not an interior point of $U$.  Then for each $n \in \N$ there is a point $x_n$ which
+belongs to $J_{1/n}(a)$ but \emph{not} to $U$.  Then the sequence $(x_n)$ converges to $a$ but
+no term of the sequence belongs to~$U$.
+\end{proof}
+
+\begin{prop}\label{sc_closure} A point $b$ belongs to the closure of a set $A$ in $\R$ if and
+only if there exists a sequence $(a_n)$ in $A$ which converges to~$b$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_sc_closure}.)   \ns   \end{proof}
+
+\begin{cor}\label{sc_closed} A subset $A$ of $\R$ is closed if and only if $b$ belongs to $A$
+whenever there is a sequence $(a_n)$ in $A$ which converges to~$b$.
+\end{cor}
+
+\begin{prop}\label{sc_cont} Let $A \subseteq \R$. A function $f \colon A \sto \R$ is continuous
+at $a$ if and only if $f(x_n) \sto f(a)$ whenever $(x_n)$ is a sequence in $A$ such that $x_n
+\sto a$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prob} Discuss in detail the continuity of algebraic combinations of continuous real valued
+functions defined on subsets of $\R$.  Show, for example, that if functions $f$ and $g$ are
+continuous at a point $a$ in $\R$, then such combinations as $f+g$ and $fg$ are also
+continuous at $a$.  What can you say about the continuity of polynomials?  \emph{Hint.}  Use
+problem \ref{seq_proj} and proposition~\ref{sc_cont}.
+\end{prob}
+
+We conclude this chapter with some problems.  The last six of these concern the convergence of
+recursively defined sequences.  Most of these are pretty much like example \ref{exam_recur}
+and require more in the way of patience than ingenuity.
+
+\begin{prob} If $A$ is a nonempty subset of $\R$ which is bounded above, then there exists an
+increasing sequence of elements of $A$ which converges to $\sup A$.  Similarly, if $A$ is
+nonempty and bounded below, then there is a decreasing sequence in $A$ converging to~$\inf A$.
+\end{prob}
+
+\begin{prob}[Geometric Series] Let $\abs r < 1$ and $a \in \R$. For each $n \ge 0$ let
+$s_n = \sum_{k=0}^n ar^k$.
+ \begin{enumerate}
+  \item[(a)] Show that the sequence $(s_n)_{n=0}^\infty$ converges. \emph{Hint.}  Consider $s_n - rs_n$.
+  \item[(b)] The limit found in part (a) is usually denoted by $\sum_{k=0}^\infty ar^k$. (This is the
+ \index{sum!of a geometric series}%
+\df{sum} of a geometric series.)  Use (a) to find $\sum_{k=0}^\infty 2^{-k}$.
+  \item[(c)] Show how (a) may be used to write the decimal $0.152424\overline{24}\dots$ as the
+quotient of two natural numbers.
+ \end{enumerate}
+\end{prob}
+
+\begin{exer}\label{4exer1} Suppose a sequence $(x_n)$ of real numbers satisfies
+   \[ 4 x_{n+1} = {x_n}^3 \]
+for all $n \in \N$.  For what values of $x_1$ does the sequence $(x_n)$ converge? For each
+such $x_1$ what is $\lim_{n \sto \infty} x_n$? \emph{Hint.}  First establish that \emph{if}
+the sequence $(x_n)$ converges, its limit must be $-2 ,0 ,\text{ or } 2$. This suggests
+looking at several special cases: $x_1 < -2$, $x_1 = -2$, $-2 < x_1 < 0$, $x_1 = 0$, $0 < x_1
+< 2$, $x_1 = 2$, and $x_1 > 2$. In case  $x_1 < -2$, for example, show that $x_n < -2$ for all
+$n$. Use this to show that the sequence $(x_n)$ is decreasing and that it has no limit.  The
+other cases can be treated in a similar fashion. (Solution~\ref{sol_4exer1}.)
+\end{exer}
+
+\begin{prob} Suppose a sequence $(x_n)$ in $\R$ satisfies
+   \[ 5x_{n+1} = 3x_n + 4 \]
+for all $n \in \N$. Show that $(x_n)$ converges. \emph{Hint.} First answer an easy question:
+If $x_n \sto \ell$, what is $\ell$? Then look at three cases: $x_1 < \ell$, $x_1 = \ell$, and
+$x_1 > \ell\,{}$. Show, for example, that if $x_1 < \ell$, then $(x_n)$ is bounded and
+increasing.
+\end{prob}
+
+\begin{prob} Suppose a sequence $(x_n)$ in $\R$ satisfies
+   \[ x_{n+1} = \sqrt{2 + x_n} \]
+for all $n \in \N$. Show that $(x_n)$ converges. To what does it
+converge?
+\end{prob}
+
+\begin{prob} Suppose that a sequence $(x_n)$ in $\R$ satisfies
+    \[ x_{n+1} = 1 - \sqrt{1 - x_n} \]
+for all $n \in \N$.  Show that $(x_n)$ converges. To what does it converge?  Does
+$\left(\dfrac{x_{n+1}}{x_n}\right)$ converge?
+\end{prob}
+
+\begin{prob} Suppose that a sequence $(x_n)$ of real numbers satisfies
+    \[ 3x_{n+1} = {x_n}^3 - 2 \]
+for all $n \in \N$. For what choices of $x_1$  does the sequence converge?  To what?
+\emph{Hint.}  Compute $x_{n+1} - x_n$.
+\end{prob}
+
+\begin{prob} Let $a > 1$. Suppose that a sequence $(x_n)$ in $\R$ satisfies
+   \[ (a + x_n)x_{n+1} = a(1 + x_n) \]
+for all $n$.  Show that if $x_1 > 0$, then $(x_n)$ converges. In this case find $\lim x_n$.
+\end{prob}
+
+
+
+
+\endinput

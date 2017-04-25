@@ -1,0 +1,901 @@
+\chapter{COMPUTATIONS IN $\R^n$}\label{comp_Rn}
+
+In the preceding two chapters we have developed some fundamental facts concerning the
+differential calculus in arbitrary Banach spaces. In the present chapter we restrict our
+attention to the Euclidean spaces~$\R^n$.  Not only are these spaces very important
+historically, but fortunately there are available a variety of powerful yet relatively simple
+techniques which make possible explicit computations of many of the concepts introduced in
+chapter~\ref{diff_calc}.  The usefulness of these spaces seems to be associated with the
+emphasis in classical physics on systems having a finite number of degrees of freedom. The
+computational simplicity stems from two facts: first, differentials of functions between
+Euclidean spaces are always continuous (see proposition~\ref{prop_fd_cont}); and second, the
+usual norm on $\R^n$ is derivable from an inner product. In the first section of this chapter
+we derive some standard elementary facts about inner products.  It is important to appreciate
+that despite their algebraic appearance, inner products are the source of much of the geometry
+in Euclidean spaces.
+
+\section{INNER PRODUCTS}
+\begin{defn}  Let $x = (x_1, \dots, x_n)$ and $y = (y_1, \dots,y_n)$ be vectors in $\R^n$.  The
+ \index{inner product}%
+ \index{product!inner}%
+ \index{<@$\langle x,y \rangle$ (dot product, inner product)}%
+\df{inner product} (or
+ \index{dot product}%
+ \index{product!dot}%
+\df{dot product}) of $x$ and $y$, denoted by $\langle x,y \rangle$,
+is defined by
+  \[ \langle x,y \rangle := \sum_{k=1}^n x_ky_k\,. \]
+\end{defn}
+
+As a first result we list the most important properties of the inner product.
+
+\begin{prop}\label{prop_prop_ip} Let $x$, $y$, and $z$ be vectors in $\R^n$ and $\alpha$ be a
+scalar.  Then
+ \begin{enumerate}
+  \item[(a)] $\langle x + y , z \rangle = \langle x , z \rangle + \langle y , z \rangle$;
+  \item[(b)] $\langle \alpha x , y \rangle = \alpha \langle x , y \rangle$;
+  \item[(c)] $\langle x , y \rangle = \langle y , x \rangle$;
+  \item[(d)] $\langle x , x \rangle \ge 0$;
+  \item[(e)] $\langle x , x \rangle = 0$ only if $x = \vc 0$; and
+  \item[(f)] $\norm x = \sqrt{\langle x , x \rangle} $.
+ \end{enumerate}
+Items (a) and (b) say that the inner product is
+ \index{linearity!of the inner product}%
+\emph{linear} in its first variable; (c) says it is
+ \index{symmetric}%
+\emph{symmetric}; and (d) and (e) say that it is
+ \index{positive definite}%
+\emph{positive definite}.  It is virtually obvious that an inner product is also linear in its
+second variable (see exercise~\ref{exer_ip1}).  Thus an inner product may be characterized as
+a positive definite, symmetric, bilinear functional on~$\R^n$.
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prop}\label{prop_ip_expan} If $x$ is in $\R^n$, then
+  \[ x = \sum_{k=1}^n \langle x , e^k \rangle e^k \,. \]
+\end{prop}
+
+This result is used so frequently that it has been stated formally as a proposition.  Its
+proof, however, is trivial. [It is clear from the definition of the inner product that
+$\langle x , e^k \rangle = x_k$, where, as usual, $\{e^1, \dots, e^n\}$ is the standard basis
+for~$\R^n$.]
+
+\begin{exer}\label{exer_ip1}  Use properties (a)--(c) above, but not the definition of
+\emph{inner product} to prove that
+  \[ \langle x , y + z \rangle =  \langle x , y \rangle + \langle x , z \rangle \]
+and
+  \[ \langle x , \alpha y \rangle = \alpha \langle x , y \rangle \]
+for all $x$, $y$, $z \in \R^n$ and $\alpha \in \R$. (Solution~\ref{sol_exer_ip1}.)
+\end{exer}
+
+ \index{parallelogram law}%
+\begin{prop}[The Parallelogram Law]  If $x$, $y \in \R^n$, then
+  \[ \norm{x + y}^2 + \norm{x - y}^2 = 2\norm x^2 + 2\norm y^2\,. \]
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+ \index{Schwarz inequality}%
+ \index{inequality!Schwarz}%
+\begin{prop}[Schwarz's Inequality]\label{Schwarz_ineq}  If $u$, $v \in \R^n$, then
+  \[ \abs{\langle u , v \rangle} \le \norm u \norm v\,. \]
+\end{prop}
+
+\begin{proof} This has been proved in chapter~\ref{metric}: notice that the left side of the
+inequality given in proposition~\ref{Schwarz} is $\bigl(\langle u , v \rangle\bigr)^2$ and the
+right side is $\norm u^2  \norm v^2$.
+\end{proof}
+
+\begin{defn}  If $x$ and $y$ are nonzero vectors in $\R^n$, define $\measuredangle(x,y)$, the
+ \index{<@$\measuredangle(x,y)$ (angle between two vectors)}%
+ \index{angle}%
+\df{angle} between $x$ and $y$, by
+  \[ \measuredangle(x,y)
+             :=  \arccos \left(\frac{\langle x , y \rangle}{\norm x \norm y}\right)\,. \]
+A version of this formula which is perhaps somewhat more familiar is
+  \[ \langle x,y \rangle = \norm x\norm y\cos\measuredangle(x,y)\,. \]
+\end{defn}
+
+\begin{exer}\label{exer_angle} How do we know that the preceding definition makes sense?
+(What is the domain of the arccosine function?)  (Solution~\ref{sol_exer_angle}.)
+\end{exer}
+
+\begin{prob}  Prove the
+ \index{law of cosines}%
+\emph{law of cosines}: if $x$ and $y$ are nonzero vectors in $\R^n$ and $\theta =
+\measuredangle(x,y)$, then
+  \[ \norm{x-y}^2 = \norm x^2 + \norm y^2 - 2\norm x\norm y\cos\theta\,. \]
+\end{prob}
+
+\begin{exer}\label{exer_angle2} What is the angle between the vectors $(1,0,1)$ and $(0,-1,1)$
+in~$\R^3$?   (Solution~\ref{sol_exer_angle2}.)
+\end{exer}
+
+\begin{prob} Find the angle between the vectors $(1,0,-1,-2)$ and $(-1,1,0,1)$ in $\R^4$.
+\end{prob}
+
+\begin{prob} The angle of intersection of two curves is by definition the angle between the
+tangent vectors to the curves at the point of intersection.  Find the angle of
+intersection at the point $(1,-2,3)$ of the curves $C_1$ and $C_2$ where
+  \[ C_1(t) = (t, t^2 + t - 4, 3 + \ln t) \]
+and
+  \[ C_2(u) = (u^2 - 8, u^2 - 2u - 5, u^3 - 3u^2 - 3u + 12)\,. \]
+\end{prob}
+
+\begin{defn} Two vectors $x$ and $y$ in $\R^n$ are
+ \index{perpendicular}%
+\df{perpendicular} (or
+ \index{orthogonal}%
+\df{orthogonal}) if $\langle x,y \rangle = 0$.  In this case we write
+ \index{<@$x \perp y$ (perpendicular, orthogonal)}%
+$x \perp y$.  Notice that the relationship between perpendicularity and angle is what we
+expect: if $x$ and $y$ are nonzero vectors then $x \perp y$ if and only if
+$\measuredangle(x,y) = \pi/2$.  The zero vector is perpendicular to all vectors but the angle
+it makes with another vector is not defined.
+\end{defn}
+
+\begin{prob}  Find a linear combination of the vectors $(1,0,2)$ and $(2,-1,1)$ which is
+perpendicular to the vector $(2,2,1)$ in~$\R^3$.
+\end{prob}
+
+\begin{prob}  Prove the
+ \index{Pythagorean theorem}%
+\emph{Pythagorean theorem}: if $x \perp y$ in $\R^n$, then
+  \[ \norm{x + y}^2 = \norm x^2 + \norm y^2\,. \]
+Does the converse hold?
+\end{prob}
+
+\begin{notn}  Let $f \colon U \sto \R^n$ and $g \colon V \sto \R^n$ where $U$ and $V$ are subsets
+of a normed linear space which are not disjoint.  Then we denote by $\langle f,g \rangle$ the
+real valued function on $U \cap V$ whose value at a point $x$ in $U \cap V$ is $\langle
+f(x),g(x) \rangle$.  That is,
+  \[ \langle f,g \rangle \colon U \cap V \sto \R \colon x \mapsto \langle f(x),g(x) \rangle\,. \]
+The scalar field $\langle f,g \rangle$ is the
+ \index{inner product!of functions}%
+\df{inner product} (or
+ \index{dot product!of functions}%
+\df{dot product} of $f$ and~$g$.
+\end{notn}
+
+\begin{prop}\label{prop_ip_diff}  Suppose that the functions $f \colon U \sto \R^n$ and
+$g\colon V \sto \R^n$, defined on subsets of a normed linear space $W$, are differentiable at
+a point $a$ in the interior of $U \cap V$.  Then $\langle f,g \rangle$ is differentiable at
+$a$ and
+  \[ d\langle f,g \rangle_a = \langle f(a),dg_a \rangle + \langle df_a,g(a) \rangle\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use propositions~\ref{prop_Leib_rul}
+and~\ref{prop_diff_coord}.  \ns
+\end{proof}
+
+\begin{cor}\label{cor_ip_der} If $f$ and $g$ are curves at a point $a$ in $\R^n$ and are
+differentiable, then
+  \[ D\langle f,g \rangle (a) = \langle f(a),Dg(a) \rangle + \langle Df(a), g(a) \rangle\,. \]
+\end{cor}
+
+\begin{proof} Use \ref{prop_ip_diff} and \ref{prop_diff_der}.
+  \begin{align*}
+     D \langle f,g \rangle (a) &= d\langle f,g \rangle_a(1) \\
+              &= \langle f(a),dg_a(1) \rangle + \langle df_a(1),g(a) \rangle \\
+              &= \langle f(a),Dg(a) \rangle + \langle Df(a),g(a) \rangle
+  \end{align*}
+\end{proof}
+
+\begin{prob} Let $f = (f^1,f^2,f^3)$ where
+  \begin{align*}
+        f^1(t) &= t^3 + 2t^2 - 4t + 1  \\
+        f^2(t) &= t^4 - 2t^3 + t^2 + 3 \\
+        f^3(t) &= t^3 - t^2 + t - 2
+  \end{align*}
+and let $g(t) = \norm{f(t)}^2$ for all $t$ in $\R$.  Find $Dg(1)$.
+\end{prob}
+
+\begin{prob}  Let $c$ be a differentiable curve in $\R^n$.  Show that the point $c(t)$ moves
+on the surface of a sphere centered at the origin if and only if the tangent vector $Dc(t)$ at
+$t$ is perpendicular to the position vector $c(t)$ at each~$t$. \emph{Hint.}  Use
+corollary~\ref{cor_ip_der}.
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{THE GRADIENT}  In beginning calculus texts the gradient of a real valued function of
+$n$ variables is usually defined to be an $n$-tuple of partial derivatives.  This definition,
+although convenient for computation, disguises the highly geometric nature of the gradient.
+Here we adopt a different definition: the gradient of a scalar field is the vector which
+represents, in a sense to be made precise below, the differential of the function. First we
+look at an important example of a bounded linear functional on~$\R^n$.
+
+\begin{exam}\label{exam_blf}  Let $b \in \R^n$.  Define
+  \[ \sbsb{\psi}b\colon \R^n \sto \R\colon x \mapsto \langle x,b \rangle\,. \]
+Then $\sbsb{\psi}b$ is a bounded linear functional on $\R^n$ and $\norm{\sbsb{\psi}b} =
+\norm b$.
+\end{exam}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_exam_blf}.)  \ns  \end{proof}
+
+The reason for the importance of the preceding example is that functions of the form
+$\sbsb{\psi}b$ turn out to be the \emph{only} bounded linear functionals on~$\R^n$. Since
+on $\R^n$ every linear functional is bounded (see propositions \ref{prop_fd_cont}
+and~\ref{prop_equiv_cont}), the functions $\sbsb{\psi}b$ are in fact the only real valued
+linear maps on~$\R^n$.  Thus we say that every linear functional on $\R^n$ can be
+represented in the form $\sbsb{\psi}b$ for some vector $b$ in $\R^n$.  Furthermore, this
+representation is unique.  These assertions are stated formally in the next theorem.
+
+\begin{thm}[Riesz-Fr\'echet Theorem]\label{thm_RF} If $f \in (\R^n)^*$, then there exists
+ \index{Riesz-Fr\'echet theorem}%
+a unique vector $b$ in $\R^n$ such that
+  \[ f(x) = \langle x,b \rangle \]
+for all $x$ in $\R^n$.
+\end{thm}
+
+\begin{proof} Problem.  \emph{Hint.}  For the existence part, (a) write $\sum_{k=1}^n x_ke^k$
+for $x$ in the expression $f(x)$, and use the linearity of~$f$.  Then, (b) write $\langle x,b
+\rangle$ as a sum.  Comparing the results of (a) and (b), guess the identity of the desired
+vector~$b$.  The uniqueness part is easy: suppose $f(x) = \langle x,a \rangle = \langle x,b
+\rangle$ for all $x$ in~$\R^n$. Show $a = b$.    \ns
+\end{proof}
+
+\begin{defn}  If a map $T \colon V \sto W$ between two normed linear spaces is both an isometry
+and a vector space isomorphism, we say that it is an
+ \index{isometric isomorphism}%
+ \index{isomorphism!isometric}%
+\df{isometric isomorphism} and that the spaces $V$ and $W$ are \df{isometrically isomorphic}.
+\end{defn}
+
+\begin{prop}  Each Euclidean space $\R^n$ is isometrically isomorphic to its dual~$(\R^n)^*$.
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}  Consider the map
+  \[ \psi\colon \R^n \sto (\R^n)^*\colon b \mapsto \psi_b\,. \]
+One thing that must be established is that $\psi$ is linear; don't confuse this with showing
+that each $\psi_b$ is linear---a task already accomplished in example~\ref{exam_blf}.  Use the
+Riesz-Fr\'echet theorem~\ref{thm_RF} and problem~\ref{prob_lin_bij}.    \ns
+\end{proof}
+
+The Riesz-Fr\'echet theorem \ref{thm_RF} is the crucial ingredient in our definition of the
+\emph{gradient} of a scalar field.
+
+\begin{defn}  Let $U \subseteq \R^n$ and $\phi\colon U \sto \R$ be a scalar field.  If $\phi$
+is differentiable at a point $a$ in $\intr U$, then its differential $d\phi_a$ is a bounded
+linear map from $\R^n$ into~$\R$.  That is, $d\phi_a \in (\R^n)^*$.  Thus according to the
+Riesz-Fr\'echet theorem~\ref{thm_RF} there exists a unique vector, which we denote by
+$\nabla\phi(a)$, representing the linear functional $d\phi_a$.  That is,
+ \index{<@$\nabla\phi(a)$ (gradient of $\phi$ at~$a$)}%
+$\nabla\phi(a)$ is the unique vector in $\R^n$ such that
+  \[ d\phi_a(x)  =  \langle x,\nabla\phi(a) \rangle \]
+for all $x$ in $\R^n$.  The vector $\nabla\phi(a)$ is the
+ \index{gradient!at a point}%
+\df{gradient} of $\phi$ at~$a$.  If $U$ is an open subset of $\R^n$ and $\phi$ is
+differentiable at each point of~$U$, then the function
+  \[ \nabla\phi\colon U \sto \R^n\colon u \mapsto \nabla\phi(u) \]
+is the
+ \index{gradient!on an open set}%
+\df{gradient} of~$\phi$.  Notice two things: first, the gradient of a scalar field is a vector
+field; and second, the differential $d\phi_a$ is the zero linear functional if and only if the
+gradient at~$a$, $\nabla\phi(a)$, is the zero vector in~$\R^n$.
+\end{defn}
+
+Perhaps the most useful fact about the gradient of a scalar field $\phi$ at a point $a$ in
+$\R^n$ is that it is the vector at $a$ which points in the direction of the most rapid
+increase of~$\phi$.
+
+\begin{prop}\label{prop_max_dd}  Let $\phi\colon U \sto \R$ be a scalar field on a subset $U$
+of~$\R^n$.  If $\phi$ is differentiable at a point $a$ in $U$ and $d\phi_a$ is not the zero
+functional, then the maximum value of the directional derivative $D_u\phi(a)$, taken over all
+unit vectors $u$ in $\R^n$, is achieved when $u$ points in the direction.of the gradient
+$\nabla\phi(a)$.  The minimum value is achieved when $u$ points in the opposite direction
+$-\nabla\phi(a)$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} Use proposition~\ref{prop_dd_diff} and recall that
+$\langle x,y \rangle = \norm x \norm y \cos\measuredangle(x,y)$.
+(Solution~\ref{sol_prop_max_dd}.) \ns
+\end{proof}
+
+When a curve $c$ is composed with a scalar field $\phi$ we obtain a real valued function of a
+single variable.  An easy but useful special case of the \emph{chain rule} says that the
+derivative of the composite $\phi\circ c$ is the dot product of the derivative of $c$ with the
+gradient of~$\phi$.
+
+\begin{prop}\label{prop_cr_curv}  Suppose that $c$ is a curve in $\R^n$ which is differentiable
+at a point $t$ in $\R$ and that $\phi$ belongs to $\fml D_{c(t)}(\R^n,\R)$.  Then $\phi\circ
+c$ is differentiable at $t$ and
+  \[ D(\phi \circ c)(t) = \langle Dc(t),(\nabla\phi)(c(t))\rangle\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use proposition~\ref{prop_diff_der} and the \emph{chain
+rule}~\ref{thm_ch_rul}.    \ns
+\end{proof}
+
+\begin{prob} If $\phi \colon \R^n \sto \R\colon x \mapsto \norm x^2$, then $\phi$ is
+differentiable at each point $b$ of $\R^n$ and
+  \[ d\phi_b = 2\psi_b \]
+Furthermore, $\nabla\phi = 2I$ (where $I$ is the identity function on~$\R^n$).  \emph{Hint.}
+The definition of $\psi_b$ is given in~\ref{exam_blf}.  Write $\phi = \langle I,I \rangle$ and
+use~\ref{prop_ip_diff}.
+\end{prob}
+
+\begin{prob}\label{prob_dc_mvt} For the function $\phi$ given in the preceding problem verify
+by direct computation the formula for the \emph{mean value
+theorem}~(proposition~\ref{prop_mvt_Bs}).
+\end{prob}
+
+\begin{defn}  A linear transformation $T\colon \R^n \sto \R^n$ is
+ \index{self-adjoint}%
+\df{self-adjoint} if $\langle Tx,y \rangle = \langle x,Ty \rangle$ for all $x$, $y \in \R^n$.
+\end{defn}
+
+\begin{prob}\label{prob_salt}  Let $T \in \ofml B(\R^n,\R^n)$ be self-adjoint and
+ \[\mu\colon \R^n \sto \R\colon  x \mapsto \langle Tx,x \rangle.\]
+ \begin{enumerate}
+  \item[(a)]  Show that $\mu$ is differentiable at each point $b$ in $\R^n$ and find $d\mu_b$.
+  \item[(b)] Find $\nabla\mu$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Repeat problem~\ref{prob_dc_mvt}, this time using the function $\mu$ given in
+problem~\ref{prob_salt}.
+\end{prob}
+
+ \index{conservation of energy}%
+\begin{exer}[Conservation of Energy]\label{cons_energ} Consider a
+particle $P$ moving in $\R^3$ under the influence of a force~$F$. Suppose that the position of
+$P$ at time $t$ is $x(t)$ where $x\colon \R \sto \R^3$ is at least twice differentiable.  Let
+$v := Dx$ be the velocity of $P$ and $a := Dv$ be its acceleration. Assume
+ \index{Newton's second law}%
+\emph{Newton's second law}: $F \circ x = ma$, where $F\colon \R^3 \sto \R^3$ is the force
+acting on $P$ and $m$ is the mass of~$P$. Suppose further that the force field $F$ is
+ \index{conservative}%
+\df{conservative}; that is, there exists a scalar field $\phi\colon \R^3 \sto \R$ such that $F
+= -\nabla\phi$. (Such a scalar field is a
+ \index{potential!function}%
+\df{potential function} for~$F$.)  The
+ \index{kinetic energy}%
+\df{kinetic energy} of $P$ is defined by
+  \[ KE := \tfrac12 m \norm v^2\,, \]
+its
+ \index{potential!energy}%
+\df{potential energy} by
+  \[ PE := \phi \circ x\,, \]
+and its
+ \index{total!energy}%
+\df{total energy} by
+  \[ TE := KE + PE\,. \]
+Prove, for this situation, the law of \emph{conservation of energy}:
+  \[ TE \text{ is constant.} \]
+\emph{Hint.}  Use propositions \ref{prop_sc_const}, \ref{prop_ip_diff},
+and~\ref{prop_cr_curv}.   (Solution~\ref{sol_cons_energ}.)
+\end{exer}
+
+In most circumstances the simplest way of computing the gradient of a scalar field $\phi$ on
+$\R^n$ is to calculate the $n$ partial derivatives of~$\phi$.  The $n$-tuple of these
+derivatives is the gradient.  In most beginning calculus texts this is the \emph{definition}
+of the gradient.
+
+\begin{prop}\label{prop_grad_pd} If $\phi$ is a scalar field on a subset of $\R^n$ and is
+differentiable at a point~$a$, then
+  \[ \nabla\phi(a) = \sum_{k=1}^n\phi_k(a) e^k\,. \]
+\end{prop}
+
+\begin{proof}  Exercise.  \emph{Hint.}  Substitute $\nabla\phi(a)$ for $x$
+in~\ref{prop_ip_expan}.  Use~\ref{prop_dd_diff}.  (Solution~\ref{sol_prop_grad_pd}.) \ns
+\end{proof}
+
+\begin{exer}\label{exer_comp_dd}  Let $\phi(w,x,y,z) = wz - xy$, $u = (\frac12, -\frac12,
+\frac12, -\frac12)$, and $a = (1,2,3,4)$. Find the directional derivative $D_u\phi(a)$.
+\emph{Hint.}  Use \ref{prop_dd_diff}, the definition of \emph{gradient},
+and~\ref{prop_grad_pd}.   (Solution~\ref{sol_exer_comp_dd}.)
+\end{exer}
+
+ \index{method of steepest descent}%
+ \index{steepest descent, method of}%
+\begin{exer}[Method of Steepest Descent]\label{mthd_st_desc}  Let $\phi(x,y) = 2x^2 + 6y^2$
+and $a = (2,-1)$.  Find the steepest downhill path on the surface $z = \phi(x,y)$ starting at
+the point $a$ and ending at the minimum point on the surface.  \emph{Hints.} (1)~It is enough
+to find the equation of the projection of the curve onto the $xy$-plane; every curve $t
+\mapsto \bigl(x(t),y(t)\bigr)$ in the $xy$-plane is the projection along the $z$-axis of a
+unique curve $t \mapsto \bigl(x(t),y(t),\phi(x(t),y(t))\bigr)$ on the surface $z = \phi(x,y)$.
+(2)~If $c\colon t \mapsto \bigl(x(t),y(t)\bigr)$ is the desired curve and we set $c(0) = a$,
+then according to proposition~\ref{prop_max_dd} the unit vector $u$ which minimizes the
+directional derivative $D_u\phi(b)$ at a point $b$ in $\R^2$ is the one obtained by choosing
+$u$ to point in the direction of~$-\nabla\phi(b)$.  Thus in order for the curve to point in
+the direction of the most rapid decrease of $\phi$ at each point~$c(t)$, the tangent vector to
+the curve at $c(t)$ must be some positive multiple $p(t)$ of~$-(\nabla\phi)\bigl(c(t)\bigr)$.
+The function $p$ will govern the speed of descent; since this is irrelevant in the present
+problem, set $p(t) = 1$ for all~$t$. (3)~Recall from beginning calculus that on an interval
+the only nonzero solution to an equation of the form $Dx(t) = kx(t)$ is of the form $x(t) =
+x(0)e^{kt}$.  (4)~The parameter $t$ which we have introduced is artificial.  Eliminate it to
+obtain an equation of the form $y = f(x)$.  (Solution~\ref{sol_mthd_st_desc}.)
+\end{exer}
+
+ \index{mean value theorem!for scalar fields}%
+\begin{prop}[A Mean Value Theorem for Scalar Fields]\label{prop_mvt_sf} Let $\phi$ be a
+differentiable scalar field on an open convex subset $U$ of $\R^n$ and suppose that $a$ and
+$b$ are distinct points belonging to~$U$.  Then there exists a point $c$ in the closed segment
+$[a,b]$ such that
+  \[ \phi(b) - \phi(a) = \langle b - a,\nabla\phi(c) \rangle\,. \]
+\end{prop}
+
+\begin{proof} Problem.   \emph{Hint.}   Let $l(t) = (1 - t)a + tb$ for $0 \le t \le 1$.  Apply
+the \emph{mean value theorem} for a real valued function of a single variable (\ref{mvthm}) to
+the function $\phi\circ l$.  Use proposition~\ref{prop_cr_curv}. \ns
+\end{proof}
+
+\begin{prob}  Let $c(t) = (\cos t,\sin t,t)$ and $\phi(x,y,z) = x^2y - 3yz$.  Find
+$D(\phi\circ c)(\pi/6)$.  \emph{Hint.} Use \ref{prop_cr_curv} and~\ref{prop_grad_pd}.
+\end{prob}
+
+\begin{prob}  Let $\phi(x,y,z) = xz - 4y$, $u = (\tfrac12,0,\tfrac12\sqrt3)$, and $a =
+(1,0,-\tfrac{\pi}2)$.  Find the directional derivative~$D_u\phi(a)$.
+\end{prob}
+
+\begin{prob} Show that if $V$ is a normed linear space, $f \in \fml D_a(\R^n,V)$, and $v$ is a
+nonzero vector in~$\R^n$, then
+  \[ D_vf(a) = \sum_{k=1}^nv_kf_k(a)\,. \]
+\emph{Hint.}  Use proposition \ref{prop_dd_diff}.
+\end{prob}
+
+\begin{prob}  Let $f \colon \R^2 \sto \R^2\colon x \mapsto ({x_1}^2 - {x_2}^2, 3x_1x_2)$,
+$a = (2,1)$, and $v = (-1,2)$.  Use the preceding problem to find~$D_vf(a)$.
+\end{prob}
+
+\begin{prob}\label{prob_sd}  Find the path of steepest descent on the surface $z = x^6 + 12y^4$
+starting at the point whose $x$-coordinate is $1$ and whose $y$-coordinate is~$\frac12$.
+\end{prob}
+
+\begin{prob}  Suppose that the temperature $\phi(x,y)$ at points $(x,y)$ on a flat surface is
+given by the formula
+  \[ \phi(x,y) = x^2 - y^2\,. \]
+Starting at a point $(a,b)$ on the surface, what path should be followed so that the
+temperature will increase as rapidly as possible?
+\end{prob}
+
+ \index{method of steepest descent}%
+ \index{steepest descent, method of}%
+\begin{prob}  This (like exercise \ref{mthd_st_desc} and problem~\ref{prob_sd}) is a steepest
+descent problem; but here, we suppose that for some reason we are unable to solve explicitly
+the resulting differential equations.  Instead we invoke an approximation technique.  Let
+  \[ \phi(x) = 13{x_1}^2 - 42x_1 + 13{x_2}^2 + 6x_2 + 10x_1x_2 + 9 \]
+for all $x$ in~$\R^2$.  The goal is to approximate the path of steepest descent.  Start at an
+arbitrary point $x^0$ in $\R^2$ and choose a number $h > 0$.  At $x^0$ compute the gradient of
+$\phi$, take $u^0$ to be the unit vector pointing in the direction of $-\nabla\phi(x^0)$, and
+then move $h$ units in the direction of $u^0$ arriving at a point~$x^1$.  Repeat the
+procedure: find the unit vector $u^1$ in the direction of $-\nabla\phi(x^1)$, then from $x^1$
+move $h$ units along $u^1$ to a point~$x^2$.  Continue in this fashion.  In other words, $x^0
+\in \R^2$ and $h > 0$ are arbitrary, and for $n \ge 0$
+  \[ x^{n+1} = x^n + hu^n \]
+where $u^n = -\norm{\nabla\phi(x^n)}^{-1}\nabla\phi(x^n)$.
+ \begin{enumerate}
+  \item[(a)] Start at the origin $x^0 = (0,0)$ and choose $h = 1$. Compute 25 or 30 values of
+$x^n$.  Explain geometrically what is happening here.  Why is $h$ ``too large''?  \emph{Hint.}
+Don't attempt to do this by hand.  Write a program for a computer or a programmable
+calculator. In writing your program don't ignore the possibility that $\nabla\phi(x^n)$  may
+be zero for some~$n$. (Keep in mind when you write this up that your reader probably has no
+idea how to read the language in which you write your program. Document it well enough that
+the reader can easily understand what you are doing at each step.)
+  \item[(b)] Describe what happens when $h$ is ``too small''.  Again start at the origin, take
+$h = 0.001$ and compute 25 or 30 values of~$x^n$.
+  \item[(c)] By altering the values of $h$ at appropriate times, find a succession of points $x^0,
+\dots, x^n$ (starting with $x^0 = (0,0)\,)$ such that the distance between $x^n$ and the point
+where $\phi$ assumes its minimum value is less than~$0.001$.  (By examining the points $x^0,
+\dots, x^n$ you should be able to guess, for this particular function, the exact location of
+the minimum.)
+  \item[(d)] Alter the program in part (a) to eliminate division by $\norm{\nabla\phi(x^n)}$.
+(That is, let $x^{n+1} = x^n - h\nabla\phi(x^n)$.)  Explain what happens in this case when $h$
+is ``too large'' (say $h = 1$).  Explain why the altered program works better (provided that
+$h$ is chosen appropriately) than the program in (a) for the present function~$\phi$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Is it possible to find a differentiable scalar field $\phi$ on $\R^n$ and a point
+$a$ in $\R^n$ such that $D_u\phi(a) > 0$ for every nonzero $u$ in~$\R^n$?
+\end{prob}
+
+\begin{prob}  Is it possible to find a differentiable scalar field $\phi$ on $\R^n$ and a nonzero
+vector $u$ in $\R^n$ such that $D_u\phi(a) > 0$ for every $a$ in~$\R^n$?
+\end{prob}
+
+
+
+
+
+
+
+
+
+\section{THE JACOBIAN MATRIX}
+\begin{defn} Let $\open U{\R^n}$ and $f\colon U \sto \R^m$ be a differentiable function.  Recall
+that the components $f^1, \dots, f^m$ of $f$ satisfy
+  \[ f(x) = \bigl(f^1(x), \dots, f^m(x)\bigr) = \sum_{j=1}^m f^j(x) e^j \]
+for all $x$ in~$U$.  More briefly we may write
+  \[ f = (f^1, \dots, f^m) = \sum_{j=1}^m f^j e^j\,. \]
+Recall also (from proposition~\ref{prop_pd_vvf}) that
+  \[ (f^j)_k(a)  =  (f_k)^j(a) \]
+whenever $1 \le j \le m$, $1 \le k \le n$, and $a \in U$. Consequently the notation $f_k^j(a)$
+is unambiguous; from now on we use it.  As the differential of $f$ at a point $a$ in $U$ is a
+(bounded) linear map from $\R^n$ into $\R^m$, it may be represented by an $m \times n$ matrix.
+This is called the
+ \index{<@$\bigl[f_k^j(a)\bigr]$ (Jacobian matrix)}%
+ \index{Jacobian!matrix}%
+ \index{matrix!Jacobian}%
+\df{Jacobian matrix} of $f$ at~$a$.  The entry in the $j^{\text{th}}$ row and $k^{\text{th}}$
+column of this matrix is~$f_k^j(a)$.
+\end{defn}
+
+\begin{prop}\label{prop_jm_pd} If $f \in \fml D_a(\R^n,\R^m)$, then
+  \[ [df_a] = [f_k^j(a)]\,. \]
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.} It helps to distinguish notationally between the standard
+basis vectors in $\R^n$ and those in $\R^m$.  Denote the ones in $\R^n$ by $e^1, \dots, e^n$
+and those in $\R^m$ by $\hat e^1, \dots, \hat e^m$. Use~\ref{prop_mrlt_bas}.
+(Solution~\ref{sol_prop_jm_pd}.)  \ns
+\end{proof}
+
+Note that the $j^{\text{th}}$ row of the Jacobian matrix is $f_1^j, \dots, f_n^j$.  Thought of
+as a vector in $\R^n$ this is just the gradient of the scalar field~$f^j$.  Thus we may think
+of the Jacobian matrix $[df_a]$ as being in the form
+  \[ \begin{bmatrix}   \nabla f^1(a)  \\
+                         \vdots       \\
+                       \nabla f^m(a)
+     \end{bmatrix}\,. \]
+
+\begin{exer}\label{exer_jm_comp}  Let $f\colon \R^4 \sto \R^3\colon  (w,x,y,z) \mapsto
+(wxz, x^2 + 2y^2 + 3z^2, wy\arctan z)$, let $a = (1,1,1,1)$, and let $v = (0,2,-3,1)$.
+ \begin{enumerate}
+  \item[(a)] Find $[df_a]$.
+  \item[(b)] Find $df_a(v)$.
+ \end{enumerate}
+(Solution~\ref{sol_exer_jm_comp}.)
+\end{exer}
+
+\begin{prob} Let $f \colon \R^2 \sto \R^2\colon  x \mapsto ({x_1}^2 - {x_2}^2, 3x_1x_2)$ and
+$a = (2,1)$.
+ \begin{enumerate}
+  \item[(a)] Find $[df_a]$.
+  \item[(b)] Use part (a) to find $df_a(-1,3)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Let $f \colon \R^3 \sto \R^4 \colon (x,y,z) \mapsto (xy, y - z^2, 2xz, y + 3z)$,
+let $a = (1,-2,3)$, and let $v = (2,1,-1)$.
+ \begin{enumerate}
+  \item[(a)] Find $[df_a]$.
+  \item[(b)] Use part (a) to calculate $D_vf(a)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Let $f \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x^2y, 2xy^2)$, let $a = (2,-1)$,
+and let $u = (\frac35, \frac45)$.  Compute $D_uf(a)$ in three ways:
+ \begin{enumerate}
+  \item[(a)] Use the definition of \emph{directional derivative}.
+  \item[(b)] Use proposition~\ref{prop_diff_dd}.
+  \item[(c)] Use proposition~\ref{prop_dd_diff}.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Suppose that $f \in \fml D_a(\R^3,\R^4)$ and that the Jacobian matrix of $f$ at
+$a$ is
+  \[ \begin{bmatrix}  b & c & e \\
+                      g & h & i \\
+                      j & k & l \\
+                      m & n & p
+     \end{bmatrix} \]
+Find $f_1(a)$, $f_2(a)$, $f_3(a)$, $\nabla f^1(a)$, $\nabla f^2(a)$, $\nabla f^3(a)$, and
+$\nabla f^4(a)$.
+\end{prob}
+
+\begin{prob}  Let $f \in \fml D_a(\R^n,\R^m)$ and $v \in \R^n$.  Show that
+ \begin{enumerate}
+  \item[(a)] $df_a(v) = \sum_{j=1}^m \langle \nabla f^j(a),v \rangle e^j$, and
+  \item[(b)] $\norm{df_a} \le \sum_{j=1}^m \norm{\nabla f^j(a)}$.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+\section{THE CHAIN RULE}  In some respects it is convenient for scientists  to work with variables
+rather than functions.  Variables denote the physical quantities in which a scientist is
+ultimately interested.  (In thermodynamics, for example, $T$ is temperature, $P$ pressure, $S$
+entropy, and so on.)  Functions usually have no such standard associations.  Furthermore, a
+problem which deals with only a small number of variables may turn out to involve a dauntingly
+large number of functions if they are specified. The simplification provided by the use of
+variables may, however, be more apparent than real, and the price paid in increased ambiguity
+for their suggestiveness is often substantial. Below are a few examples of ambiguities
+produced by the combined effects of excessive reliance on variables, inadequate (if
+conventional) notation, and the unfortunate mannerism of using the same name for a function
+and a dependent variable (``Suppose $x = x(s,t)$\dots'').
+ \begin{enumerate}
+  \item[(A)]  If $z = f(x,y)$, what does $\pd{}{x}z(y,x)$ mean? (Perhaps $f_1(y,x)$?
+Possibly $f_2(y,x)$?)
+  \item[(B)]  If $z = f(x,t)$ where $x = x(t)$, then what is $\pd zt$?  (Is it $f_2(t)$?  Perhaps
+the derivative of $t \mapsto f(x(t),t)$ is intended?)
+  \item[(C)]  Let $f(x,y)$ be a function of two variables. Does the expression $z = f(tx,ty)$ have
+three partial derivatives $\pd zx$, $\pd zy$, and $\pd zt$? Do $\pd zx$ and $\pd fx$ mean the
+same thing?
+  \item[(D)]  Let $w = w(x,y,t)$ where $x = x(s,t)$ and $y = y(s,t)$.  A direct application of the
+chain rule (as stated in most beginning calculus texts) produces
+    \[ \pd wt = \pd wx \pd xt + \pd wy \pd yt + \pd wt\,. \]
+Is this correct ? Do the terms of the form $\pd wt$ cancel?
+  \item[(E)]  Let $z = f(x,y) = g(r,\theta)$ where $x = r\cos\theta$ and $y = r\sin\theta$.  Do
+$\pd zr$ and $\pd z\theta$ make sense? Do $\pd zx$ and $\pd zy$?  How about $z_1$ and $z_2$?
+Are any of these equal?
+  \item[(F)]  The formulas for changing polar to rectangular coordinates are $x = r\cos\theta$ and $y =
+r\sin\theta$. So if we compute the partial derivative of the variable $r$ with respect to the
+variable~$x$ we get
+ \[ \pd rx = \dfrac{\partial }{\partial x}\sqrt{x^2 + y^2}
+             = \dfrac x{\sqrt{x^2 + y^2}} =  \dfrac xr = \cos\theta\,. \]
+On the other hand, since $r = \dfrac x{\cos\theta}$, we use the \emph{chain rule} to get
+  \[ \pd rx = \dfrac1{\cos\theta} = \sec\theta\,. \]
+Do you suppose something is wrong here? What?
+ \end{enumerate}
+
+The principal goal of the present section is to provide a reliable formalism for dealing with
+partial derivatives of functions of several variables in such a way that questions like
+(A)--(F) can be avoided.  The basic strategy is quite simple: when in doubt give names to the
+relevant functions (especially composite ones!) and then use the chain rule.  Perhaps it
+should be remarked that one need not make a fetish of avoiding variables. Many problems stated
+in terms of variables can be solved quite simply without the intrusion of the names of
+functions. (\emph{E.g.\ }What is $\pd zx$ if $z = x^3y^2$?)  This section is intended as a
+guide for the perplexed.  Although its techniques are often useful in dissipating confusion
+generated by inadequate notation, it is neither necessary nor even particularly convenient to
+apply them routinely to every problem which arises. Let us start by writing the chain rule for
+functions between Euclidean spaces in terms of partial derivatives.  Suppose that $f \in \fml
+D_a(\R^p,\R^n)$ and $g \in \fml D_{f(a)}(\R^n,\R^m)$. Then according to
+theorem~\ref{thm_ch_rul}
+  \[ d(g \circ f)_a = dg_{f(a)} \circ df_a\,. \]
+Replacing these linear transformations by their matrix representations and using
+proposition~\ref{prop_comp_mrlt} we obtain
+ \begin{equation}\label{eqn_cr_sv1}
+    \bigl[d(g \circ f)_a\bigr] = \bigl[dg_{f(a)}\bigr]\bigl[df_a\bigr]\,.
+ \end{equation}
+
+ \index{chain rule}%
+\begin{prop}\label{prop_cr_pd}  If $f \in \fml D_a(\R^p,\R^n)$ and $g \in \fml
+D_{f(a)}(\R^n,\R^m)$, then $\bigl[d(g \circ f)_a\bigr]$ is the $m \times p$ matrix whose entry
+in the $j^{\text{th}}$ row and $k^{\text{th}}$ column is $\sum_{i=1}^n g_i^j(f(a))f_k^i(a)$.
+That is,
+  \[ (g \circ f)_k^j(a) = \sum_{i=1}^n\bigl(g_i^j \circ f\bigr)(a) f_k^i(a) \]
+for $1 \le j \le m$ and $1 \le k \le p$.
+\end{prop}
+
+\begin{proof} Multiply the two matrices on the right hand side of~\eqref{eqn_cr_sv1} and use
+proposition~\ref{prop_jm_pd}.
+\end{proof}
+
+
+It is occasionally useful to restate proposition~\ref{prop_cr_pd} in the following (clearly
+equivalent) way.
+
+\begin{cor} If $f \in \fml D_a(\R^p,\R^n)$ and $g \in \fml D_{f(a)}(\R^n,\R^m)$, then
+  \[ \bigl[d(g \circ f)_a\bigr] = \bigl[\langle\nabla g^j(f(a)) ,
+                         f_k(a)\rangle\bigr]_{j=1}^m{\bigl.\bigr.}_{k=1}^p\,. \]
+\end{cor}
+
+\begin{exer}\label{exer_crpd_not}  This is an exercise in translation of notation.  Suppose
+$y = y(u,v,w,x)$ and $z = z(u,v,w,x)$ where $u = u(s,t)$, $v = v(s,t)$, $w = w(s,t)$, and $x =
+x(s,t)$.  Show that (under suitable hypotheses)
+  \[ \pd zt = \pd zu\pd ut + \pd zv\pd vt + \pd zw\pd wt + \pd zx\pd xt\,. \]
+(Solution~\ref{sol_exer_crpd_not}.)
+\end{exer}
+
+\begin{prob}  Suppose that the variables $x$, $y$, and $z$ are differentiable functions of the
+variables $\alpha$, $\beta$, $\gamma$, $\delta$, and $\epsilon$, which in turn depend in a
+differentiable fashion on the variables $r$, $s$, and~$t$.  As in exercise~\ref{exer_crpd_not}
+use proposition~\ref{prop_cr_pd} to write $\pd zr$ in terms of quantities such as $\pd
+z\alpha$, $\pd \delta r$, \emph{etc.}
+\end{prob}
+
+\begin{exer}\label{exer_crpd_xmp}  Let $f(x,y,z) = (xy^2, 3x - z^2, xyz, x^2 + y^2, 4xz + 5)$,
+$g(s,t,u,v,w) = (s^2 + u^2 + v^2, s^2v - 2tw^2)$, and $a = (1,0,-1)$.  Use the \emph{chain
+rule} to find $\bigl[d(g \circ f)_a\bigr]$. (Solution~\ref{sol_exer_crpd_xmp}.)
+\end{exer}
+
+\begin{prob}  Let $f(x,y,z) = (x^3y^2\sin z, x^2 + y\cos z)$, $g(u,v) = (\sqrt uv, v^3)$,
+$k = g \circ f$, $a = (1,-2,\pi/2)$, and $h = (1,-1,2)$.  Use the \emph{chain rule} to find
+$dk_a(h)$.
+\end{prob}
+
+\begin{prob}  Let $f(x,y,z) = (x^2y + y^2z, xyz)$, $g(x,y) = (x^2y, 3xy, x - 2y, x^2 + 3)$,
+and $a = (1,-1,2)$.  Use the \emph{chain rule} to find $\bigl[d(g \circ f)_a\bigr]$.
+\end{prob}
+
+We now consider a slightly more complicated problem.  Suppose that $w = w(x,y,t)$ where $x =
+x(s,t)$ and $y = y(s,t)$ and that all the functions mentioned are differentiable.  (This is
+problem (D) at the beginning of this section.)  It is perhaps tempting to write
+ \begin{equation}\label{eqns_dwdt}
+  \begin{aligned}
+   \pd wt &= \pd wx\pd xt + \pd wy\pd yt + \pd wt\pd tt \\
+          &= \pd wx\pd xt + \pd wy\pd yt + \pd wt
+  \end{aligned}
+ \end{equation}
+(since $\pd tt = 1$).  The trouble with this is that the $\pd wt$ on the left is not the same
+as the one on the right.  The $\pd tt$ on the right refers only to the rate of change of $w$
+with respect to $t$ insofar as $t$ appears \emph{explicitly} in the formula for~$w$; the one
+on the left takes into account the fact that in addition $w$ depends \emph{implicitly} on $t$
+\emph{via} the variables $x$ and~$y$.  What to do?  Use functions.  Relate the variables by
+functions as follows.
+ \begin{equation}\label{pic_vars1}
+  \begin{CD}
+   \begin{matrix} s \\ t \end{matrix}  @>f>>
+   \begin{matrix} x  \\ y \\ t \end{matrix} @>g>> w
+  \end{CD}
+ \end{equation}
+Also let $h = g \circ f$.  Notice that $f^3 = \pi_2$ (that is, $f^3(s,t) = t$).  Then
+according to the \emph{chain rule}
+  \[ h_2 = \sum_{k=1}^3 (g_k \circ f)\, f_2^k\,. \]
+But $f_2^3 = 1$ (that is, $\pd tt = 1$).  So
+ \begin{equation}\label{eqn_dwdt2}
+    h_2 = (g_1 \circ f)f_2^1 + (g_2 \circ f)f_2^2 + g_3 \circ f.
+ \end{equation}
+The ambiguity of \eqref{eqns_dwdt} has been eliminated in~\eqref{eqn_dwdt2}.  The $\pd wt$ on
+the left is seen to be the derivative with respect to $t$ of the composite $h = g \circ f$,
+whereas the $\pd wt$ on the right is just the derivative with respect to $t$ of the
+function~$g$.
+
+One last point.  Many scientific workers adamantly refuse to give names to
+functions.  What do they do?  Look back at diagram~\eqref{pic_vars1} and remove
+the names of the functions.
+ \begin{equation}\label{pic_vars2}
+  \begin{CD}
+   \begin{matrix} s \\ t \end{matrix}  @>>>
+   \begin{matrix} x  \\ y \\ t \end{matrix} @>>> w
+  \end{CD}
+ \end{equation}
+The problem is that the symbol ``$t$'' occurs twice.  To specify differentiation of the
+composite function (our $h$) with respect to~$t$, indicate that the ``$t$'' you are interested
+in is the one in the left column of~\eqref{pic_vars2}.  This may be done by listing everything
+else that appears in that column. That is, specify which variables are held constant.  This
+specification conventionally appears as a subscript outside parentheses.  Thus the $\pd wt$ on
+the left of~\eqref{eqns_dwdt} (our $h_2$) is written as $\cpd wts$ (and is read, ``$\pd wt$
+with $s$ held constant'').  Similarly, the $\pd wt$ on the right of~\eqref{eqns_dwdt}) (our
+$g_3$) involves differentiation with respect to $t$ while $x$ and $y$ are fixed.  So it is
+written $\cpd wt{x,y}$ (and is read, ``$\pd wt$ with $x$ and $y$ held constant).
+Thus~\eqref{eqns_dwdt} becomes
+  \begin{equation}\label{eqn_dwdt3}
+     \cpd wts =  \pd wx\pd xt + \pd wy\pd yt + \cpd wt{x,y}
+  \end{equation}
+
+It is not necessary to write, for example, an expression such as $\cpd wx{t,y}$ because there
+is no ambiguity; the symbol ``$x$'' occurs only once in~\eqref{pic_vars2}.  If you choose to
+use the convention just presented, it is best to use it only to avoid confusion; use it
+because you \emph{must}, not because you \emph{can}.
+
+\begin{exer}\label{exer_crpd_xmp2}  Let $w = t^3 + 2yx^{-1}$ where $x = s^2 + t^2$ and $y =
+s \arctan t$.  Use the \emph{chain rule} to find $\cpd wts$ at the point where $s = t = 1$.
+(Solution~\ref{sol_exer_crpd_xmp2}.)
+\end{exer}
+
+We conclude this section with two more exercises on the use of the \emph{chain rule}.  Part of
+the difficulty here and in the problems at the end of the section is to interpret correctly
+what the problem says.  The suggested solutions may seem longwinded, and they are.
+Nevertheless these techniques prove valuable in situations complicated enough to be confusing.
+With practice it is easy to do many of the indicated steps mentally.
+
+\begin{exer}\label{exer_crpd_xmp3}  Show that if $z = xy + x\phi(yx^{-1})$, then $x \pd zx +
+y \pd zy = xy + z$. \emph{Hint.} Start by restating the exercise in terms of functions.  Add
+suitable hypotheses.  In particular, suppose that $\phi \colon \R \sto \R$ is differentiable.
+Let
+  \[ j(x,y) = xy + x\phi(yx^{-1}) \]
+for $x$, $y \in \R$, $x \ne 0$.  Then for each such $x$ and $y$
+  \begin{equation}\label{eqn_crpd_xmp3}
+      xj_1(x,y) + yj_2(x,y) = xy + j(x,y)\,.
+  \end{equation}
+To prove this assertion proceed as follows.
+ \begin{enumerate}
+  \item[(a)] Let $g(x,y) = yx^{-1}$.  Find $\bigl[dg_{(x,y)}\bigr]$.
+  \item[(b)] Find $\bigl[d(\phi \circ g)_{(x,y)}\bigr]$.
+  \item[(c)] Let $G(x,y) = \bigl(x,\phi(yx^{-1})\bigr)$.  Use (b) to find
+$\bigl[dG_{(x,y)}\bigr]$.
+  \item[(d)] Let $m(x,y) = xy$. Find $\bigl[dm_{(x,y)}\bigr]$.
+  \item[(e)] Let $h(x,y) = x\phi(yx^{-1})$.  Use (c) and (d) to find $\bigl[dh_{(x,y)}\bigr]$.
+  \item[(f)] Use (d) and (e) to find $\bigl[dj_{(x,y)}\bigr]$.
+  \item[(g)] Use (f) to prove~\eqref{eqn_crpd_xmp3}.
+ \end{enumerate}
+(Solution~\ref{sol_exer_crpd_xmp3}.)
+\end{exer}
+
+\begin{exer}\label{exer_crpd_xmp4}  Show that if $f(u,v) = g(x,y)$ where $f$ is a differentiable
+real valued function, $u = x^2 - y^2$, and $v = 2xy$, then
+  \begin{equation}\label{eqn_crpd_xmp4a}
+      y \pd gx - x \pd gy = 2v \pd fu - 2u \pd fv
+  \end{equation}
+\emph{Hint.}  The equations $u = x^2 - y^2$ and $v = 2xy$ give $u$ and $v$ in terms of $x$
+and~$y$.  Think of the function $h\colon (x,y) \mapsto (u,v)$ as a change of variables
+in~$\R^2$.  That is, define
+  \[ h \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x^2 - y^2, 2xy)\,. \]
+
+Then on the $uv$-plane (that is, the codomain of~$h$) the function $f$ is real valued and
+differentiable.  The equation $f(u,v) = g(x,y)$ serves only to fix notation.  It indicates
+that $g$ is the composite function $f \circ h$.  We may visualize the situation thus.
+ \begin{equation}
+  \begin{CD}
+   \begin{matrix} x \\ y \end{matrix}  @>h>>
+   \begin{matrix} u \\ v \end{matrix} @>f>> w
+  \end{CD}
+ \end{equation}
+where $g = f \circ h$.
+
+Now what are we trying to prove?  The conclusion~\eqref{eqn_crpd_xmp4a} is clear enough if we
+evaluate the partial derivatives at the right place.  Recalling that we have defined $h$ so
+that $u = h^1(x,y)$ and $v = h^2(x,y)$, we may write~\eqref{eqn_crpd_xmp4a} in the following
+form.
+  \begin{equation}\label{eqn_crpd_xmp4b}
+      y g_1(x,y) - x g_2(x,y) = 2h^2(x,y)f_1(h(x,y)) - 2h^1(x,y)f_2(h(x,y))\,.
+  \end{equation}
+Alternatively we may write
+  \[ \pi_2 g_1 - \pi_1 g_2 = 2 h^2f_1 - 2h^1f_2 \]
+(where $\pi_1$ and $\pi_2$ are the usual coordinate projections).  To
+verify~\eqref{eqn_crpd_xmp4b} use the \emph{chain rule} to find $\bigl[dg_{(x,y)}\bigr]$.
+(Solution~\ref{sol_exer_crpd_xmp4}.)
+\end{exer}
+
+\begin{prob}  Let $w = \frac12x^2y + \arctan(tx)$ where $x = t^2 - 3u^2$ and $y = 2tu$.  Find
+$\cpd wtu$ when $t = 2$ and $u = -1$.
+\end{prob}
+
+\begin{prob}  Let $z = \frac1{16}uw^2xy$ where $w = t^2 - u^2 + v^2$, $x = 2tu + tv$, and $y = 3uv$.
+Find $\cpd zu{t,v}$ when $t = 1$, $u = -1$, and $v = -2$.
+\end{prob}
+
+\begin{prob}  If $z = f\biggl(\frac{x-y}y\biggr)$, then $x \pd zx + y \pd zy = 0$.  State this
+precisely and prove it.
+\end{prob}
+
+\begin{prob}  If $\phi$ is a differentiable function on an open subset of $\R^2$ and $w =
+\phi(u^2 - t^2, t^2 - u^2)$, then $t \pd wu + u \pd wt = 0$.  \emph{Hint.}  Let $h(t,u) = (u^2
+- t^2, t^2 - u^2)$ and $w = \psi(t,u)$ where $\psi = \phi \circ h$.  Compute
+$\bigl[dh_{(t,u)}\bigr]$.  Use the \emph{chain rule} to find $\bigl[d\psi_{(t, u)}\bigr]$.
+Then simplify $t \psi_2(t,u) + u \psi_1(t,u)$.
+\end{prob}
+
+\begin{prob}  If $f(u,v) = g(x,y)$ where $f$ is a differentiable real valued function on $\R^2$
+and if $u = x^3 + y^3$ and $v = xy$, then
+  \[ x \pd gx + y \pd gy = 3u \pd fu + 2v \pd fv\,. \]
+\end{prob}
+
+\begin{prob}  Let $f(x,y) = g(r,\theta)$ where $(x,y)$ are Cartesian coordinates and $(r,\theta)$
+are polar coordinates in the plane.  Suppose that $f$ is differentiable at all $(x,y)$
+in~$\R^2$.
+ \begin{enumerate}
+  \item[(a)]  Show that except at the origin
+      \[ \pd fx  = (\cos \theta)\pd gr - \frac1r(\sin \theta)\pd g\theta\,. \]
+  \item[(b)] Find a similar expression for $\pd fy$.
+ \end{enumerate}
+\emph{Hint.}  Recall that Cartesian and polar coordinates are related by $x = r\cos\theta$ and
+$y = r\sin\theta$.
+\end{prob}
+
+\begin{prob} Let $n$ be a fixed positive integer.  A function $f \colon \R^2 \sto \R^2$ is
+ \index{homogeneous}%
+\df{homogeneous of degree} $n$ if $f(tx,ty) = t^nf(x,y)$ for all $t$, $x$, $y \in \R$.  If
+such a function $f$ is differentiable, then
+  \begin{equation}\label{eqn_crpd_homog}
+       x \pd fx + y \pd fy = nf\,.
+  \end{equation}
+\emph{Hint.}  Try the following:
+ \begin{enumerate}
+  \item[(a)] Let $G(x,y,t) = (tx,ty)$.  Find $\bigl[dG_{(t,x,y)}\bigr]$.
+  \item[(b)] Let $h = f \circ G$.  Find $\bigl[dh_{(x,y,t)}\bigr]$.
+  \item[(c)] Let $H(x,y,t) = (t^n, f(x,y))$.  Find $\bigl[dH_{(x,y,t)}\bigr]$.
+  \item[(d)] Let $k = m \circ H$ (where $m(u,v) = uv$).  Find $\bigl[dk_{(x,y,t)}\bigr]$.
+  \item[(e)] By hypothesis $h = k$; so the answers to (b) and (d) must be the same.  Use this
+fact to derive~\eqref{eqn_crpd_homog}.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+\endinput

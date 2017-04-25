@@ -1,0 +1,253 @@
+\chapter{ARITHMETIC}\label{arithmetic}
+\section{THE FIELD AXIOMS}
+The set $\R$ of real numbers is the cornerstone of calculus.  It is remarkable that all of its
+properties can be derived from a very short list of axioms.  We will not travel the rather
+lengthy road of deriving from these axioms all the properties  (arithmetic of fractions, rules
+of exponents, \emph{etc.}) of $\R$ which we use in this text.  This journey, although
+interesting enough in itself, requires a substantial investment of time and effort.  Instead
+we discuss briefly one standard set of axioms for $\R$ and, with the aid of these axioms, give
+sample derivations of some familiar properties of~$\R$. In the present chapter we consider the
+first four axioms, which govern the operations on $\R$ of addition and multiplication.  The
+name we give to the collective consequences of these axioms is
+\index{arithmetic}%
+\emph{arithmetic}.
+
+\begin{defn} A
+ \index{binary operation}%
+\df{binary operation} $\ast$ on a set $S$ is a rule that associates with each pair $x$ and $y$
+of elements in $S$ one and only one element $x \ast y$ in $S$.  (More precisely, $\ast$ is a
+function from $S \times S$ into~$S$. See appendices \ref{fcns} and \ref{prods}.)
+\end{defn}
+
+The first four axioms say that the set $\R$ of real numbers under the binary operations of
+addition and multiplication (denoted, as usual, by $+$ and $\cdot$) form a
+ \index{field}%
+\df{field}.  We will follow conventional practice by allowing $xy$ as a substitute notation
+for $x \cdot y$.
+
+\begin{ax}[I] The operations $+$ and $\cdot$ on $\R$ are
+ \index{associative}%
+associative (that is, $x + (y + z)  =  (x + y) + z$ and $x(y z) = (xy)z$ for all $x$, $y$, $z
+\in \R$) and
+ \index{commutative}%
+commutative ($x + y = y + x$ and $xy = yx$ for all $x$, $y \in \R$).
+\end{ax}
+
+\begin{ax}[II]  There exist distinct additive and multiplicative
+ \index{identity!elements}%
+identities (that is, there are elements $0$ and $1$ in $\R$ with $1 \ne 0$ such that $x + 0 =
+x$ and $x \cdot 1 = x$ for all $x \in \R$).
+\end{ax}
+
+\begin{ax}[III]  Every element $x$ in $\R$ has an
+ \index{additive inverse}%
+ \index{inverse!additive}%
+additive inverse  (that is, a number $- x$ such that $x + (- x) = 0$); and every element $x
+\in \R$ different from $0$ has a
+ \index{multiplicative inverse}%
+ \index{inverse!multiplicative}%
+multiplicative inverse (that is, a number $x^{-1}$ such that $x\,x^{-1} = 1$).
+\end{ax}
+
+\begin{ax}[IV]  Multiplication
+\index{distributive law}%
+distributes over addition (that is, $x(y + z)  =  xy + xz$ for all $x$, $y$, $z \in \R$).
+\end{ax}
+
+\begin{exam} Multiplication is not a binary operation on the set $\R' = \{x \in \R \colon x~\ne~-1\}$.
+\end{exam}
+
+\begin{proof} The numbers $2$ and $-\frac12$ belong to $\R'$, but their product does not.
+\end{proof}
+
+\begin{exam} Subtraction is a binary operation on the set $\R$ of real numbers, but is neither
+associative nor commutative.
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prob} Let $\R^+$ be the set of all real numbers $x$ such that $x > 0$.  On $\R^+$ define
+  \[ x \ast y = \frac{xy}{x+y}\,. \]
+Determine whether $\ast$ is a binary operation on $\R^+$. Determine whether $\ast$ is
+associative and whether it is commutative.  Does $\R^+$ have an identity element with respect
+to $\ast$?  (That is, is there a member $e$ of $\R^+$ such that $x \ast e = x$ and $e \ast x =
+x$ for all $x$ in $\R^+$?)
+\end{prob}
+
+Subtraction  and  division  are defined in terms of addition and multiplication by
+  \[ x - y := x + (-y) \]
+and, for $y \ne 0$,
+  \[ \frac xy := xy^{-1}\,. \]
+
+We use the familiar rule for avoiding an excess of parentheses: multiplication takes
+precedence over addition. Thus, for example, $wx + yz$ means $(wx) + (yz)$.
+
+\begin{prob}\label{rdl} The rule given in Axiom IV is the
+ \index{distributive law!left}%
+\emph{left distributive law}.  The
+ \index{distributive law!right}%
+\emph{right distributive law}, $(x + y)z = xz + yz$, is also true. Use the axioms to prove it.
+\end{prob}
+
+\begin{exer}\label{2x_is_x} Show that if $x$ is a real number such that $x + x = x$, then $x = 0$.
+\emph{Hint.} Simplify both sides of $(x+x)+(-x) = x+(x+(-x))$. (Solution~\ref{sol_2x_is_x}.)
+\end{exer}
+
+\begin{prob}\label{annih} Show that the additive identity $0$ annihilates everything in $\R$
+under multiplication.  That is, show that $0 \cdot x = 0$ for every real number $x$.
+\emph{Hint.} Consider $(0 + 0)x$. Use \ref{rdl} and~\ref{2x_is_x}.
+\end{prob}
+
+\begin{exer}\label{arith_exer1} Give a careful proof using only the axioms above that if $w$,
+$x$, $y$, and $z$ are real numbers, then
+  \[ (w + x) + (y + z) = z + (x + (y + w))\,. \]
+\emph{Hint.}  Since we are to make explicit use of the associative law, be careful not to
+write expressions such as $w + x + (y + z)$. Another set of parentheses is needed to indicate
+the order of operations.  Both $(w + x) + (y + z)$ and $w + (x + (y + z))$, for example, do
+make sense.  (Solution~\ref{sol_arith_exer1}.)
+
+\end{exer}
+
+\begin{prob}\label{prob_zero_prod} Show that if the product $xy$ of two numbers is zero, then
+either $x = 0$ or $y = 0$.  (Here the word ``or'' is used in its inclusive sense; both $x$ and
+$y$ may be $0$.  It is always used that way in mathematics.) \emph{Hint.} Convince yourself
+that, as a matter of logic, it is enough to show that if $y$ is not equal to $0$ then $x$ must
+be. Consider $(xy)y^{-1}$ and use~\ref{annih}.
+\end{prob}
+
+
+
+
+
+
+
+\section{UNIQUENESS OF IDENTITIES}  Axiom II guarantees only the \emph{existence} of additive
+and multiplicative identities $0$ and~$1$.  It is natural to enquire about their
+\emph{uniqueness}. Could there be two real numbers which act as additive identities? That is,
+could we have numbers $0' \ne 0$ which satisfy
+ \begin{equation}\label{arith_eqn1} x + 0 = x
+ \end{equation}
+and
+ \begin{equation}\label{arith_eqn1'} x + 0' = x
+ \end{equation}
+for all $x$ in~$\R$?  The answer as you would guess is \emph{no:} there is only one additive
+identity in $\R$. The proof is very short.
+
+\begin{prop} The additive identity in $\R$ is unique.
+\end{prop}
+
+\begin{proof}  Suppose that the real numbers $0$ and $0'$ satisfy
+\eqref{arith_eqn1} and \eqref{arith_eqn1'} all real numbers~$x$.
+Then
+\begin{align*}    0 &= 0 + 0' \\
+                    &= 0' + 0 \\
+                    &= 0'.
+\end{align*}
+The three equalities are justified, respectively, by
+\eqref{arith_eqn1'}, axiom~I, and \eqref{arith_eqn1}.
+\end{proof}
+
+\begin{prop} The multiplicative identity $1$ on $\R$ is unique.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+
+
+
+\section{UNIQUENESS OF INVERSES}  The question of uniqueness also arises for inverses; only
+their existence is guaranteed by axiom~III.  Is it possible for a number to have more than one
+additive inverse?  That is, if $x$ is a real number is it possible that there are two
+different numbers, say $-x$ and $\overline x$, such that the equations
+\begin{equation}\label{arith_eqn2} x + (-x) = 0 \qquad
+            \text{and} \qquad x + \overline x = 0
+\end{equation}
+both hold?  The answer is \emph{no}.
+
+\begin{prop}\label{addinv_uniq} Additive inverses in $\R$ are unique.
+\end{prop}
+
+\begin{proof} Assume that the equations \eqref{arith_eqn2} are true.  We show that $-x$ and
+$\overline x$ are the same number.
+  \begin{align*}
+           \overline x &= \overline x + 0 \\
+                       &= \overline x + (x + (-x)) \\
+                       &= (\overline x + x) + (-x) \\
+                       &= (x + \overline x) + (-x) \\
+                       &= 0 + (-x) \\
+                       &= (-x) + 0 \\
+                       &= -x.
+  \end{align*}
+\end{proof}
+
+\begin{prob} The proof of proposition \eqref{addinv_uniq} contains seven equal signs.  Justify each one.
+\end{prob}
+
+\begin{prob} Prove that in $\R$ multiplicative inverses are unique.
+\end{prob}
+
+\begin{exam} Knowing that identities and inverses are unique is helpful in deriving additional
+properties of the real numbers.  For example, the familiar fact that
+  \[ -(-x) = x \]
+follows immediately from the equation
+  \begin{equation}\label{arith_eqn3} (-x) + x = 0.
+  \end{equation}
+What proposition \ref{addinv_uniq} tells us is that if $a + b = 0$ then $b$ must be the
+additive inverse of~$a$.  So from \eqref{arith_eqn3} we conclude that $x$ must be the additive
+inverse of $-x$; in symbols, $x = -(-x)$.
+\end{exam}
+
+\begin{prob} Show that if $x$ is a nonzero real number, then
+  \[ \bigl(x^{-1}\bigr)^{-1} = x\,. \]
+\end{prob}
+
+\section{ANOTHER CONSEQUENCE OF UNIQUENESS}  We can use proposition \ref{addinv_uniq} to show
+that in $\R$
+  \begin{equation}\label{arith_eqn4} -(x + y) = - x - y.
+  \end{equation}
+Before looking at the proof of this assertion it is well to note the two uses of the ``-''
+sign on the right side of~\eqref{arith_eqn4}. The first, attached to~``$x$'', indicates the
+additive inverse of~$x$; the second indicates subtraction. Thus $-x-y$ means $(-x) + (-y)$.
+The idea behind the proof is to add the right side of \eqref{arith_eqn4} to $x + y$. If the
+result is $0$, then the uniqueness of additive inverses, proposition \ref{addinv_uniq}, tells
+us that $-x-y$ is the additive inverse of~$x+y$.  And that is exactly what we get:
+  \begin{align*}
+     (x + y) + (-x -y) &= (x + y) + ((-x) + (-y)) \\
+                       &= (y + x) + ((-x) + (-y)) \\
+                       &= y + (x + ((-x) + (-y))) \\
+                       &= y + ((x + (-x)) + (-y)) \\
+                       &= y + (0 + (-y)) \\
+                       &= (y + 0) + (-y) \\
+                       &= y + (-y) \\
+                       &= 0.
+  \end{align*}
+
+\begin{prob} Justify each step in the proof of equation~\eqref{arith_eqn4}.
+\end{prob}
+
+\begin{prob} Prove that if $x$ and $y$ are nonzero real numbers, then
+  \[ (xy)^{-1} = y^{-1}x^{-1}\,. \]
+\end{prob}
+
+\begin{prob} Show that
+  \[ (-1)x = -x \]
+for every real number~$x$. \emph{Hint.} Use the uniqueness of additive inverses.
+\end{prob}
+
+\begin{prob}\label{arith_prob1} Show that
+  \[ -(xy) = (-x)y = x(-y) \]
+and that
+  \[ (-x)(-y) = xy \]
+for all $x$ and $y$ in~$\R$. \emph{Hint.}  For the first equality add $(-x)y$ to~$xy$.
+\end{prob}
+
+\begin{prob} Use the first four axioms for $\R$ to develop the rules for adding, multiplying,
+subtracting, and dividing fractions. Show for example that
+  \[ \frac ab + \frac  cd  = \frac{ad + bc}{bd} \]
+if $b$ and $d$ are not zero.  (Remember that, by definition, $\dfrac ab + \dfrac cd$ is
+$ab^{-1} + cd^{-1}$ and $\dfrac{ad + bc}{bd}$ is $(ad + bc)(bd)^{-1}$.)
+\end{prob}
+
+
+
+\endinput

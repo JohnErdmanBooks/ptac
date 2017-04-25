@@ -1,0 +1,158 @@
+\chapter{ORDER PROPERTIES OF $\R$}\label{order_R}
+
+ \setcounter{section}{1}
+ \setcounter{thm}{0}
+
+
+The second group of axioms are the order axioms. They concern a subset $\Po$ of $\R$ (call
+this the set of
+ \index{positive!strictly}%
+ \index{numbers!strictly positive}%
+\df{strictly positive} numbers).
+
+\begin{ax}[V]  The set $\Po$ is closed under addition and multiplication.  (That is, if $x$ and
+$y$ belong to $\Po$, so do $x + y$  and $xy$.)
+\end{ax}
+
+\begin{ax}[VI]\label{axiom_trichot} For each real number $x$ exactly one of the following is true:
+$x = 0$, $x \in \Po$, or  $-x \in \Po$.  This is the
+ \index{trichotomy}%
+ \index{axiom!of trichotomy}%
+\emph{axiom of trichotomy}.
+\end{ax}
+
+Define the relation $<$ on $\R$ by
+  \[ x < y  \text{ if and only if }  y - x \in \Po\,. \]
+Also define $>$ on $\R$ by
+  \[ x > y \text{ if and only if } y < x\,. \]
+We write $x \le y$ if $x < y$ or $x = y$, and $x \ge y$ if $y \le x$.
+
+\begin{prop}\label{lt_tran} On $\R$ the relation $<$ is transitive (that is, if $x < y$ and
+$y < z$, then $x < z$).
+\end{prop}
+
+\begin{proof} If $x < y$ and $y < z$, then $y - x$ and $z - y$ belong to $\Po$.  Thus
+  \begin{align*}
+      z - x &= z +(-x) \\
+            &= (z + 0) + (-x) \\
+            &= (z + (y + (-y))) + (-x) \\
+            &= (z + ((-y) + y)) + (-x) \\
+            &= ((z + (-y)) + y) + (-x) \\
+            &= (z + (-y)) + (y + (-x)) \\
+            &= (z - y) + (y - x) \in \Po.
+  \end{align*}
+This shows that $x < z$.
+\end{proof}
+
+\begin{prob} Justify each of the seven equal signs in the proof of proposition~\ref{lt_tran}.
+\end{prob}
+
+\begin{exer}\label{pos} Show that a real number $x$ belongs to the set $\Po$ if and only if
+$x > 0$.  (Solution~\ref{sol_pos}.)
+
+\end{exer}
+
+\begin{prop}\label{mult_pos} If $x > 0$ and $y < z$ in $\R$, then $xy < xz$.
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.} Use problem \ref{arith_prob1}.
+(Solution~\ref{sol_mult_pos}.)  \ns
+\end{proof}
+
+\begin{prop} If $x$, $y$, $z \in \R$ and $y < z$, then $x + y < x + z$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Use equation \eqref{arith_eqn4}. \ns
+\end{proof}
+
+\begin{prop} If $w < x$ and $y < z$, then $w + y < x + z$.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prob}  Show that $1 > 0$. \emph{Hint.} Keep in mind that $1$ and $0$ are assumed to be
+distinct. (Look at the axiom concerning additive and multiplicative identities.)  If $1$ does
+not belong to $\Po$, what can you say about the number $-1$? What about $(-1)(-1)$? Use
+problem~\ref{arith_prob1}.
+\end{prob}
+
+\begin{prop} If $x > 0$, then $x^{-1} > 0$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}  If $0 < x < y$, then $1/y < 1/x$.
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop}\label{mult_ineq} If $0 < w < x$ and $0 < y < z$, then $wy < xz$.
+\end{prop}
+
+\begin{proof} Exercise. \ns   (Solution~\ref{sol_mult_ineq}.) \end{proof}
+
+\begin{prob} Show that $x < 0$ if and only if $-x > 0$.
+\end{prob}
+
+\begin{prob} Show that if $y < z$ and $x < 0$, then $xz < xy$.
+\end{prob}
+
+\begin{prob}  Show that $x < y$ if and only if $-y < -x$.
+\end{prob}
+
+\begin{prob}\label{prob_sqrt_uniq} Suppose that $x$, $y \ge 0$ and $x^2 = y^2$. Show that $x = y$.
+\end{prob}
+
+\begin{prob} Show in considerable detail how the preceding results can be used to solve the
+inequality
+  \[ \frac5{x + 3} < 2 - \frac1{x - 1}\,. \]
+\end{prob}
+
+\begin{prob} Let $\C = \{(a,b) \colon a,b \in \R\}$.  On $\C$ define two binary operations $+$
+and $\cdot$ by:
+  \[ (a,b) + (c,d) = (a + c, b + d) \]
+and
+  \[ (a,b) \cdot (c,d) = (ac-bd,ad+bc)\,. \]
+Show that $\C$ under these operations is a field. (That is, $\C$ satisfies axioms I--IV.)
+This is the field of
+ \index{complex numbers}%
+\df{complex numbers}.
+
+Determine whether it is possible to make $\C$ into an ordered field.  (That is, determine
+whether it is possible to choose a subset $\Po$ of $\C$ which satisfies axioms V and~VI.)
+\end{prob}
+
+The axioms presented thus far define an ordered field. To obtain the particular ordered field
+$\R$ of real numbers we require one more axiom.  We assume that $\R$ is order complete; that
+is, $\R$ satisfies the \emph{least upper bound axiom}.  This axiom will be stated (and
+discussed in some detail) in chapter~\ref{lub} (in particular, see~\ref{axiom_lub}).
+
+
+There is a bit more to the axiomatization of $\R$ than we have indicated in the preceding
+discussion. For one thing, how do we know that the axioms are
+ \index{consistent}%
+ \index{axioms!consistent}%
+consistent?  That is, how do we know that they will not yield a contradiction?  For this
+purpose one constructs a \emph{model} for $\R$, that is, a concrete mathematical object which
+satisfies all the axioms for $\R$. One standard procedure is to define the positive integers
+in terms of sets: $0$ is the empty set $\emptyset$, the number $1$ is the set whose only
+element is $0$, the number $2$ is the set whose only element is $1$, and so on. Using the
+positive integers we construct the set $\Z$ of all integers $\dots, -2, -1 , 0, 1, 2,
+\dots\;$.  From these we construct the set  $\Q$ of rational numbers (that is, numbers of the
+form $p/q$ where $p$ and $q$ are integers and  $q \ne 0$).
+%Later, in chapter~\ref{equiv}, this part of the construction is
+%carried out as an exercise in the use of equivalence classes.
+Finally the reals are constructed from the rationals.
+
+Another matter that requires attention is the use of the definite article in the expression
+``\emph{the} real numbers''. This makes sense only if the axioms are shown to be
+ \index{categorical}%
+ \index{axioms!categorical}%
+categorical; that is, if there is ``essentially'' only one model for the axioms.  This turns
+out to be correct about the axioms for $\R$ given an appropriate technical meaning of
+``essentially''---but we will not pursue this matter here.  More about both the construction
+of the reals and their uniqueness can be found in \cite{Spivak:1967}.
+
+
+
+\endinput

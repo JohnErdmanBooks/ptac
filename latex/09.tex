@@ -1,0 +1,387 @@
+\chapter{METRIC SPACES}\label{metric}
+
+Underlying the definition of the principal objects of study in calculus---derivatives,
+integrals, and infinite series---is the notion of ``limit''. What we mean when we write
+     \[\lim_{x \sto a}f(x) = L\]
+is that $f(x)$ can be made arbitrarily close to $L$ by choosing $x$ sufficiently close to~$a$.
+To say what we mean by ``closeness'' we need the notion of the distance between two points. In
+this chapter we study ``distance functions'', also known as ``metrics''.
+
+In the preceding chapters we have looked at such topics as limits, continuity, connectedness,
+and compactness from the point of view of a single example, the real line $\R$, where the
+distance between two points is the absolute value of their difference.  There are other
+familiar distance functions (the Euclidean metric in the plane $\R^2$ or in three-space
+$\R^3$, for example, where the distance between points is usually taken to be the square root
+of the sum of the squares of the differences of their coordinates), and there are many less
+familiar ones which are also useful in analysis. Each of these has its own distinctive
+properties which merit investigation. But that would be a poor place to start. It is easier to
+study first those properties they have in common. We list four conditions we may reasonably
+expect any distance function to satisfy.  If $x$ and $y$ are points, then the distance between
+$x$ and $y$ should be:
+ \begin{enumerate}
+  \item[(i)] greater than or equal to zero;
+  \item[(ii)] greater than zero if $x$ and $y$ are distinct;
+  \item[(iii)] the same as the distance between $y$ and $x$; and
+  \item[(iv)] no larger than the sum of the distances produced by taking a detour through a point~$z$.
+ \end{enumerate}
+We formalize these conditions to define a ``metric'' on a set.
+
+
+
+
+\section{DEFINITIONS}
+\begin{defn}\label{def_met} Let $M$ be a nonempty set. A function $d \colon M \times M \sto \R$ is a
+ \index{metric}%
+\df{metric} (or
+ \index{distance!function}%
+ \index{dxy@$d(x,y)$ (distance between two points)}%
+\df{distance function}) on $M$ if for all $x$, $y$, $z \in M$
+ \begin{align*}
+     &\text{(1)}\quad d(x,y) = d(y,x) \\
+     &\text{(2)}\quad d(x,y) \le d(x,z) + d(z,y) \\
+     &\text{(3)}\quad d(x,y) = 0 \text{ if and only if } x = y.
+ \end{align*}
+If $d$ is a metric on a set $M$, then we say that the pair $(M,d)$ is a
+ \index{metric!space}%
+ \index{space!metric}%
+\df{metric space}.
+\end{defn}
+
+It is standard practice---although certainly an abuse of language---to refer to ``the metric
+space $M$'' when in fact we mean ``the metric space $(M,d)$''.  We will adopt this convention
+when it appears that no confusion will result.  We must keep in mind, however, that there are
+situations where it is clearly inappropriate; if, for example, we are considering two
+different metrics on the same set $M$, a reference to ``the metric space $M$'' would be
+ambiguous.
+
+In our formal definition of ``metric'', what happened to condition (i) above, which requires a
+metric to be nonnegative? It is an easy exercise to show that it is implied by the remaining
+conditions.
+
+\begin{prop}\label{met_pos} If $d$ is a metric on a set $M$, then $d(x,y) \ge 0$ for all $x$,
+$y \in M$.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_met_pos}.)  \ns  \end{proof}
+
+\begin{defn} For each point $a$ in a metric space $(M,d)$ and each number $r > 0$ we define
+\index{ball@$B_r(a)$ (open ball of radius $r$ about~$a$)}%
+$B_r(a)$, the
+ \index{open!ball}%
+ \index{ball!open}%
+\df{open ball} about $a$ of radius~$r$, to be the set of all those points whose distance from
+$a$ is less than $r$. That is,
+  \[ B_r(a) := \{x \in M \colon d(x,a) < r\}\,. \]
+\end{defn}
+
+
+
+\section{EXAMPLES}
+\begin{exam}\label{met_r} The absolute value of the difference of two numbers is a metric on~$\R$.
+We will call this the usual metric on $\R$.  Notice that in this metric the open ball about
+$a$ of radius $r$ is just the open interval $(a - r,a + r)$. (Proof: $x \in B_r(a)$ if and
+only if $d(x,a) <r$ if and only if $\abs{x - a} < r$ if and only if $a - r < x < a + r$.)
+\end{exam}
+
+\begin{prob} Define $d(x,y) = \abs{\arctan x - \arctan y}$ for all $x$, $y \in \R$.
+ \begin{enumerate}
+  \item[(a)] Show that $d$ is a metric on $\R$.
+  \item[(b)] Find $d(-1,\sqrt 3)$.
+  \item[(c)] Solve the equation $d(x,0) = d(x,\sqrt 3)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Let $f(x) = \dfrac1{\mathstrut1+x}$ for all $x \ge 0$. Define a metric $d$ on
+$[0,\infty)$ by $d(x,y) = \abs{f(x) - f(y)}$. Find a point $z \ne 1$ in this space whose
+distance from 2 is equal to the distance between 1 and~2.
+\end{prob}
+
+\begin{exam} Define $d(x,y) = \abs{x^2 - y^2}$ for all $x$, $y \in \R$.  Then $d$ is
+\emph{not} a metric on~$\R$.
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{exam} Let $f(x) = \dfrac x{\mathstrut1+x^2}$ for $x \ge 0$. Define a function $d$
+on $[0,\infty) \times [0,\infty)$ by $d(x,y) = \abs{f(x)- f(y)}$.  Then $d$ is \emph{not} a
+metric on~$[0,\infty)$.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+For our next example we make use of a (special case of) an important fact known as
+\emph{Minkowski's inequality}. This we derive from another standard result, \emph{Schwarz's
+inequality}.
+ \index{Schwarz inequality}%
+ \index{inequality!Schwarz}%
+\begin{prop}[Schwarz's Inequality]\label{Schwarz} Let $u_1,\dots,u_n, v_1, \dots, v_n \in \R$.
+Then
+  \[ \biggl(\sum_{k=1}^n u_kv_k \biggr)^2
+          \le \biggl(\sum_{k=1}^n{u_k}^2 \biggr)\biggl(\sum_{k=1}^n {v_k}^2\biggr)\,. \]
+\end{prop}
+
+\begin{proof}  To simplify notation make some abbreviations: let $a = \sum\limits_{k=1}^n {u_k}^2$,
+$b = \sum\limits_{k=1}^n {v_k}^2$, and $c = \sum\limits_{k=1}^n u_kv_k$. Then
+ \begin{align*}
+    0 &\le \sum_{k=1}^n\left(\sqrt b \,\,u_k -
+                           \frac c{\sqrt b}\,v_k \right)^2 \\
+      &= ab - 2c^2 + c^2 \\
+      &= ab - c^2 \,.
+ \end{align*}
+\end{proof}
+
+ \index{Minkowski inequality}%
+ \index{inequality!Minkowski}%
+\begin{prop}[Minkowski's Inequality]\label{Minkow} Let $u_1, \dots, u_n, v_1, \dots, v_n \in \R$. Then
+  \[ \biggl(\sum_{k=1}^n \bigl(u_k + v_k\bigr)^2\biggr)^{\frac12} \le
+          \biggl(\sum_{k=1}^n {u_k}^2\biggr)^{\frac12}
+                   + \biggl(\sum_{k=1}^n {v_k}^2\biggr)^{\frac12}\,. \]
+\end{prop}
+
+\begin{proof}  Let $a$, $b$, and $c$ be as in \ref{Schwarz}. Then
+ \begin{align*}
+    \sum_{k=1}^n (u_k + v_k)^2 &= a + 2c + b \\
+                               &\le a + 2\abs{c} + b \\
+                               &\le a + 2\sqrt{ab} + b \qquad \text{(by \ref{Schwarz})} \\
+                               &= \bigl(\sqrt a + \sqrt b \bigr)^2 \,.
+ \end{align*}
+\end{proof}
+
+
+\begin{exam}\label{Eucl_met} For points $x = (x_1,\dots,x_n)$ and $y = (y_1,\dots,y_n)$ in $\R^n$ let
+  \[ d(x,y) := \biggl(\sum_{k=1}^n(x_k - y_k )^2\biggr)^{\frac12}\,. \]
+Then $d$ is the
+ \index{usual!metric on $\R^n$}%
+ \index{metric!usual}%
+\df{usual} (or
+ \index{Euclidean metric}%
+ \index{metric!Euclidean}%
+\df{Euclidean}) \df{metric} on $\R^n$. The only nontrivial part of the proof that $d$ is a
+metric is the verification of the \emph{triangle inequality} (that is, condition (2) of the
+definition):
+   \[d(x,y) \le d(x,z) + d(z,y)\,.\]
+To accomplish this let $x = (x_1,\dots,x_n)$, $y = (y_1,\dots,y_n)$, and $z = (z_1,\dots,z_n)$
+be points in $\R^n$. Apply \emph{Minkowski's inequality}~(\ref{Minkow}) with $u_k = x_k - z_k$
+and $v_k = z_k - y_k$ for $1 \le k \le n$ to obtain
+ \begin{align*}
+    d(x,y) &= \biggl(\sum_{k=1}^n (x_k - y_k)^2\biggr)^{\frac12} \\
+           &= \biggl(\sum_{k=1}^n \bigl((x_k-z_k)  +
+                     (z_k-y_k)\bigr)^2\biggr)^{\frac12} \\
+           &\le \biggl(\sum_{k=1}^n (x_k - z_k)^2\biggr)^{\frac12}
+                 + \biggl(\sum_{k=1}^n (z_k - y_k)^2\biggr)^{\frac12} \\
+          &= d(x,z) + d(z,y) \,.
+ \end{align*}
+\end{exam}
+
+\begin{prob} Let $d$ be the usual metric on $\R^2$.
+ \begin{enumerate}
+  \item[(a)] Find $d(x,y)$ when $x = (3,-2)$ and $y = (-3,1)$.
+  \item[(b)] Let $x = (5,-1)$ and $y = (-3,-5)$. Find a point $z$ in $\R^2$ such that $d(x,y)
+= d(y,z) = d(x,z)$.
+  \item[(c)] Sketch $B_r(a)$ when $a = (0,0)$ and $r = 1$.
+ \end{enumerate}
+\end{prob}
+
+The Euclidean metric is by no means the only metric on $\R^n$ which is useful.  Two more
+examples follow (\ref{taxicab} and~\ref{unif_rn}).
+
+\begin{exam}\label{taxicab} For points $x = (x_1,\dots,x_n)$ and $y = (y_1,\dots,y_n)$ in $\R^n$ let
+ \index{done@$d_1$ (taxicab metric, product metric)}%
+   \[ d_1(x,y) := \sum_{k=1}^n \abs{x_k - y_k}\,. \]
+It is easy to see that $d_1$ is a metric on $\R^n$. When $n = 2$ this is frequently called the
+ \index{taxicab metric}%
+ \index{metric!taxicab}%
+\df{taxicab metric}. (Why?)
+\end{exam}
+
+\begin{prob} Let $d_1$ be the taxicab metric on $\R^2$ (see~\ref{taxicab}).
+ \begin{enumerate}
+  \item[(a)] Find $d_1(x,y)$ where $x=(3,-2)$ and $y=(-3,1)$.
+  \item[(b)] Let $x=(5,-1)$ and $y=(-3,-5)$. Find a point $z$ in $\R^2$  such that $d_1(x,y)
+= d_1(y,z) = d_1(x,z)$.
+  \item[(c)] Sketch $B_r(a)$ for the metric $d_1$ when $a=(0,0)$ and $r = 1$.
+ \end{enumerate}
+\end{prob}
+
+\begin{exam}\label{unif_rn} For $x = (x_1,\dots,x_n)$ and $y = (y_1,\dots,y_n)$ in $\R^n$ let
+ \index{du@$d_u$ (uniform metric)}%
+   \[ d_u(x,y) := \max\{\abs{x_k - y_k} \colon 1 \le k \le n\}\,. \]
+Then $d_u$ is a metric on $\R^n$. The triangle inequality is verified as follows:
+ \begin{align*}
+   \abs{x_k - y_k} &\le \abs{x_k - z_k} + \abs{z_k - y_k} \\
+                   &\le \max\{\abs{x_i - z_i}: 1 \le i \le n\} +
+                                   \max\{\abs{z_i - y_i}: 1 \le i \le n\} \\
+                   &= d_u(x,z) + d_u(z,y)
+ \end{align*}
+whenever $1 \le k \le n$. Thus
+ \begin{align*}
+     d_u(x,y) &= \max\{\abs{x_k - y_k} \colon 1 \le k \le n\} \\
+              &\le d_u(x,z) + d_u(z,y)\,.
+ \end{align*}
+The metric $d_u$ is called the
+ \index{uniform!metric!on $\R^n$}%
+ \index{metric!uniform!on $\R^n$}%
+\df{uniform metric}. The reason for this name will become clear later.
+\end{exam}
+
+Notice that on the real line the three immediately preceding metrics agree; the distance
+between points is just the absolute value of their difference.  That is, when $n = 1$ the
+metrics given in \ref{Eucl_met}, \ref{taxicab}, and \ref{unif_rn} reduce to the one given
+in~\ref{met_r}.
+
+\begin{prob} This problem concerns the metric $d_u$ (defined in example~\ref{unif_rn}) on~$\R^2$.
+ \begin{enumerate}
+  \item[(a)] Find $d_u(x,y)$ when $x = (3,-2)$ and $y=(-3,1)$.
+  \item[(b)] Let $x=(5,-1)$ and $y=(-3,-5)$. Find a point $z$ in $\R^2$ such that $d_u(x,y)
+= d_u(y,z) = d_u(x,z)$.
+  \item[(c)] Sketch $B_r(a)$ for the metric $d_u$ when $a=(0,0)$ and $r = 1$.
+ \end{enumerate}
+\end{prob}
+
+\begin{exam}\label{discrete} Let $M$ be any nonempty set. For $x$, $y \in M$ define
+   \[ d(x,y) = \begin{cases} 1 &\text{ if } x\ne y \\
+                             0 &\text{ if } x=y\,.
+               \end{cases} \]
+It is easy to see that $d$ is a metric; this is the
+ \index{discrete metric}%
+ \index{metric!discrete}%
+\df{discrete metric} on~$M$. Although the discrete metric is rather trivial it proves quite
+useful in constructing counterexamples.
+\end{exam}
+
+\begin{exam}\label{Gam} Let $d$ be the usual metric on $\R^2$ and 0 be the origin. Define a
+function $\rho$ on $\R^2$ as follows:
+ \index{<@$\rho$ (Greek airline metric)}%
+   \[\rho (x,y) := \begin{cases}
+                      d(x,y), &\text{if $x$ and $y$ are collinear with 0, and} \\
+             d(x,0) + d(0,y), &\text{otherwise.}
+                   \end{cases} \]
+The function $\rho$ is a metric on~$\R^2$.  This metric is sometimes called the
+ \index{Greek airline metric}%
+ \index{metric!Greek airline}%
+\df{Greek airline metric}.
+\end{exam}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prob} Let $\rho$ be the Greek airline metric on $\R^2$.
+ \begin{enumerate}
+  \item[(a)] Let $x = (-1,2)$, $y = (-3,6)$, and $z = (-3,4)$. Find $\rho(x,y)$ and $\rho(x,z)$.
+Which point, $y$ or $z$, is closer to $x$ with respect to~$\rho$?
+  \item[(b)] Let $r = 1$. Sketch $B_r(a)$ for the metric $\rho$ when $a = (0,0)$, $a = (\frac14,0)$,
+$a = (\frac12,0)$, $a = (\frac34,0)$, $a = (1,0)$, and $a = (3,0)$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prop}\label{ms_ineq} Let $(M,d)$ be a metric space and $x$, $y$, $z \in M$. Then
+   \[ \abs{d(x,z) - d(y,z)} \le d(x,y)\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{prop} If $a$ and $b$ are distinct points in a metric space, then there exists a number
+$r > 0$ such that $B_r(a)$ and $B_r(b)$ are disjoint.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prop}\label{ball_int} Let $a$ and $b$ be points in a metric space and $r$, $s > 0$.
+If $c$ belongs to $B_r(a) \cap B_s(b)$, then there exists a number $t > 0$ such that $B_t(c)
+\subseteq B_r(a) \cap B_s(b)$.
+\end{prop}
+
+\begin{proof} Problem. \ns  \end{proof}
+
+\begin{prob} Let $f(x) = \dfrac 1{1+x^2}$ for all $x \ge 0$, and define a metric $d$ on the
+interval $[0,\infty)$ by
+  \[ d(x,y) = \abs{f(x) - f(y)}\,. \]
+ \begin{enumerate}
+  \item[(a)] With respect to this metric find the point halfway between $1$ and~$2$.
+  \item[(b)] Find the open ball $B_{\frac3{10}}(1)$.
+ \end{enumerate}
+\end{prob}
+
+
+
+
+
+
+
+\section{STRONGLY EQUIVALENT METRICS}
+Ahead of us lie many situations in which it will be possible to replace a computationally
+complicated metric on some space by a simpler one without affecting the fundamental
+properties of the space. As it turns out, a sufficient condition for this process to be
+legitimate is that the two metrics be ``strongly equivalent''.  For the moment we content
+ourselves with the \emph{definition} of this term and an example; applications will be
+discussed later when we introduce the weaker notion of ``equivalent metrics''
+(see~\ref{def_equiv_metrics}).
+
+\begin{defn} Two metrics $d_1$ and $d_2$ on a set $M$ are
+ \index{equivalent!strongly}%
+ \index{metrics!equivalent!strongly}%
+ \index{strongly equivalent metrics}%
+\df{strongly equivalent} if there exist numbers $\alpha$, $\beta > 0$ such that
+ \begin{align*}
+     d_1(x,y) &\le \alpha\, d_2(x,y) \text{\quad and} \\
+     d_2(x,y) &\le \beta\, d_1(x,y)
+ \end{align*}
+for all $x$ and $y$ in $M$.
+\end{defn}
+
+\begin{prop}\label{3equiv} On $\R^2$ the three metrics $d$, $d_1$, and $d_u$, defined in
+examples~\ref{Eucl_met}, \ref{taxicab}, and~\ref{unif_rn}, are strongly equivalent.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  First prove that if $a$, $b \ge 0$, then
+   \[ \max\{a,b\} \le a+b \le \sqrt 2 \,\sqrt{a^2+b^2} \le 2 \max \{a,b\}\,.\]
+(Solution~\ref{sol_3equiv}.)   \ns
+\end{proof}
+
+\begin{prob} Let $d$ and $\rho$ be strongly equivalent metrics on a set~$M$. Then every
+open ball in the space $(M,d)$ contains an open ball of the space $(M,\rho)$ (and
+\emph{vice versa}).
+\end{prob}
+
+\begin{prob} Let $a$, $b$, $c$, $d \in \R$.  Establish each of the following:
+ \begin{enumerate}
+  \item[(a)] $(\frac13a + \frac23b)^2 \le \frac13a^2 + \frac23b^2\,.$
+
+\vskip 2 pt
+
+  \item[(b)] $(\frac12a + \frac13b + \frac16c)^2
+                    \le \frac12a^2 + \frac13b^2 + \frac16c^2\,.$
+
+\vskip 2 pt
+
+  \item[(c)] $(\frac5{12}a + \frac13b + \frac16c +\frac1{12}d)^2
+                \le \frac5{12}a^2 + \frac13b^2 + \frac16c^2 + \frac1{12}d^2\,.$
+ \end{enumerate}
+
+\vskip 2 pt \noindent \emph{Hint.} If (a), (b), and (c) are all special cases of some general
+result, it may be easier to give one proof (of the general theorem) rather than three proofs
+(of the special cases). In each case what can you say about the numbers multiplying $a$, $b$,
+$c$, and $d$? Notice that if $x > 0$, then $xy = \sqrt x\,(\sqrt x\,y)$. Use Schwarz's
+inequality~\ref{Schwarz}.
+\end{prob}
+
+\begin{prop}\label{bdd_met} Let $(M,d)$ be a metric space. The function $\rho$ defined on
+$M \times M$ by
+  \[ \rho(x,y) = \frac{d(x,y)}{1 + d(x,y)} \]
+is a metric on~$M$.
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.}  Show first that  $\dfrac u{1+u} \le \dfrac v{1+v}$
+whenever $0 \le u \le v$.  \ns
+\end{proof}
+
+\begin{prob}\label{d_ne_rho} In problem \ref{bdd_met} take $M$ to be the real line $\R$ and
+$d$ to be the usual metric on $\R$ (see~\ref{met_r}).
+ \begin{enumerate}
+  \item[(a)] Find the open ball $B_{\frac35}(1)$ in the metric space $(\R, \rho)$.
+  \item[(b)] Show that the metrics $d$ and $\rho$ are \emph{not} strongly equivalent on~$\R$.
+ \end{enumerate}
+\end{prob}
+
+
+
+\endinput

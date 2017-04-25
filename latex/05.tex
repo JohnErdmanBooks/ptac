@@ -1,0 +1,317 @@
+\chapter{CONNECTEDNESS AND THE INTERMEDIATE VALUE THEOREM}\label{ivt}
+
+\section{CONNECTED SUBSETS OF $\R$}
+There appears to be no way of finding an exact solution to such an equation as
+\begin{equation}\label{ivt_eqn1}  \sin x = x - 1.
+\end{equation}
+No algebraic trick or trigonometric identity seems to help.  To be entirely honest we must ask
+what reason we have for thinking that \eqref{ivt_eqn1} \emph{has} a solution.  True, even a
+rough sketch of the graphs of the functions $x \mapsto \sin x$ and $x \mapsto x - 1$ seems to
+indicate that the two curves cross not far from $x = 2$. But is it not possible in the vast
+perversity of the-way-things-are that the two curves might somehow skip over one another
+without actually having a point in common?  To say that it seems unlikely is one thing, to say
+that we \emph{know} it can not happen is another.  The solution to our dilemma lies in a
+result familiar from nearly every beginning calculus course: the \emph{intermediate value
+theorem.} Despite the complicated symbol-ridden formulations in most calculus texts what this
+theorem really says is that continuous functions from $\R$ to $\R$ take intervals to
+intervals.  In order to prove this fact we will first need to introduce an important
+topological property of all intervals, \emph{connectedness}.  Once we have proved the
+\emph{intermediate value theorem} not only will we have the intellectual satisfaction of
+saying that we \emph{know} \eqref{ivt_eqn1} has a solution, but we can utilize this same
+theorem to find approximations to the solution of \eqref{ivt_eqn1} whose accuracy is limited
+only by the computational means at our disposal.
+
+So, first we define ``connected''.  Or rather, we define ``disconnected'', and then agree that
+sets are connected if they are not disconnected.
+
+\begin{defn} A subset $A$ of $\R$ is
+ \index{disconnected!subset of $\R$}%
+\df{disconnected} if there exist disjoint nonempty sets $U$ and $V$ both open in $A$ whose
+union is~$A$.  In this case we say that the sets $U$ and $V$ \emph{disconnect}~$A$.  A subset
+$A$ of $\R$ is
+ \index{connected!subset of $\R$}%
+\df{connected} if it is not disconnected.
+\end{defn}
+
+\begin{prop}\label{prop_nasc_conn}  A set $A \subseteq \R$ is connected if and only if the
+only subsets of $A$ which are both open in $A$ and closed in $A$ are the null set and $A$
+itself.
+\end{prop}
+
+\begin{proof} Exercise. (Solution~\ref{sol_nasc_conn}.)  \ns  \end{proof}
+
+\begin{exam} The set $\{1,4,8\}$ is disconnected.
+\end{exam}
+
+\begin{proof} Let $A = \{1,4,8\} \subseteq \R$.  Notice that the sets $\{1\}$ and $\{4,8\}$
+are open subsets of~$A$.  Reason: $(-\infty, 2) \cap A = \{1\}$ and $(2,\infty) \cap A =
+\{4,8\}$; so $\{1\}$ is the intersection of an open subset of $\R$ with $A$, and so is
+$\{4,8\}$ (see definition~\ref{rel_open}). Thus $\{1\}$ and $\{4,8\}$ are disjoint nonempty
+open subsets of $A$ whose union is~$A$.  That is, the sets $\{1\}$ and $\{4,8\}$
+disconnect~$A$.
+\end{proof}
+
+\begin{exam} The set $\Q$ of rational numbers is disconnected.
+\end{exam}
+
+\begin{proof} The sets $\{x \in \Q \colon x < \pi\}$ and $\{x \in \Q \colon x > \pi\}$
+disconnect~$\Q$.
+\end{proof}
+
+\begin{exam} The set $\{\frac1n \colon n \in \N\}$ is disconnected.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+If $A$ is a subset of $\R$, it is somewhat awkward that ``connected'' is defined in terms of
+(relatively) open subsets of~$A$.  In general, it is a nuisance to deal with relatively open
+subsets.  It would be much more convenient to deal only with the familiar topology of~$\R$.
+Happily, this can be arranged.
+
+It is an elementary observation that $A$ is disconnected if we can find disjoint sets $U$ and
+$V$, both open in $\R$, whose intersections with $A$ are nonempty and whose union
+contains~$A$. (For then the sets $U \cap A$ and $V \cap A$ disconnect $A$.) Somewhat less
+obvious is the fact that $A$ is disconnected if and only if it can be written as the union of
+two nonempty subsets $C$ and $D$ of $\R$ such that
+ \begin{equation}\label{eqn_mut_sep} C \cap \clo D  = \clo C \cap D
+              = \emptyset.  \end{equation}
+(The indicated closures are in $\R$.)
+
+\begin{defn} Two nonempty subsets $C$ and $D$ of $\R$ which satisfy
+equation~\eqref{eqn_mut_sep} are said to be
+ \index{mutually separated}%
+ \index{separated!mutually}%
+\df{mutually separated} in~$\R$.
+\end{defn}
+
+\begin{prop}\label{prop_mut_sep} A subset $A$ of $\R$ is disconnected if and only if it is the
+union of two nonempty sets mutually separated in~$\R$.
+\end{prop}
+
+\begin{proof} If $A$ is disconnected, it can be written as the union of two disjoint nonempty
+sets $U$ and $V$ which are open in~$A$.  (These sets need not, of course, be open in $\R$.) We
+show that $U$ and $V$ are mutually separated.  It suffices to prove that $U \cap \clo V$ is
+empty, that is, $U \subseteq \R \setminus \clo V$.  To this end suppose that $u \in U$. Since
+$U$ is open in $A$, there exists $\delta > 0$ such that
+   \[A \cap J_\delta(u) = \{x \in A \colon \abs{x-u} < \delta\} \subseteq U
+                             \subseteq \R \setminus V.\]
+The interval $J_\delta(u) = (u-\delta,u+\delta)$ is the union of two sets: $A \cap
+J_\delta(u)$ and $A^c \cap J_\delta(u)$.  We have just shown that the first of these belongs
+to $\R \setminus V$. Certainly the second piece contains no points of $A$ and therefore no
+points of~$V$.  Thus $J_\delta(u) \subseteq \R \setminus V$. This shows that $u$ does not
+belong to the closure (in $\R$) of the set~$V$; so $u \in \R \setminus \clo V$.  Since $u$ was
+an arbitrary point of $U$, we conclude that $U \subseteq \R \setminus \clo V$.
+
+Conversely, suppose that $A = U \cup V$ where $U$ and $V$ are nonempty sets mutually separated
+in~$\R$.  To show that the sets $U$ and $V$ disconnect $A$, we need only show that they are
+open in $A$, since they are obviously disjoint.
+
+Let us prove that $U$ is open in $A$.  Let $u \in U$ and notice that since $U \cap \clo V$ is
+empty, $u$ cannot belong to $\clo V$.
+
+Thus there exists $\delta > 0$ such that $J_\delta(u)$ is disjoint from $V$. Then certainly $A
+\cap J_\delta(u)$ is disjoint from $V$. Thus $A \cap J_\delta(u)$ is contained in $U$.
+Conclusion: $U$ is open in~$A$.
+\end{proof}
+
+The importance of proposition~\ref{prop_mut_sep} is that it allows us to avoid the definition
+of ``connected'', which involves \emph{relatively} open subsets, and replace it with an
+equivalent condition which refers only to closures in~$\R$.  There is no important idea here,
+only a matter of convenience.  We will use this characterization in the proof of our next
+proposition, which identifies the connected subsets of the real line.  (To appreciate the
+convenience that proposition ~\ref{prop_mut_sep} brings our way, try to prove the next result
+using only the definition of ``connected'' and not \ref{prop_mut_sep}.)  As mentioned earlier
+we need to know that in the real line the intervals are the connected sets.  This probably
+agrees with your intuition in the matter.  It is plausible, and it is true; but it is not
+obvious, and its proof requires a little thought.
+
+\begin{defn} A subset $J$ of $\R$ is an
+ \index{interval}%
+\df{interval} provided that it satisfies the following condition: if $c$, $d \in J$ and $c < z
+< d$, then $z \in J$. (Thus, in particular, the empty set and sets containing a single point
+are intervals.)
+\end{defn}
+
+\begin{prop}\label{prop_conn_int}  A subset $J$ of $\R$ is connected if and only if it is
+an interval.
+\end{prop}
+
+\begin{proof} To show that intervals are connected argue by contradiction. Assume that there
+exists an interval $J$ in $\R$ which is not connected.  By proposition~\ref{prop_mut_sep}
+there exist nonempty sets $C$ and $D$ in $\R$ such that $J = C \cup D$ and
+    \[ C \cap \clo D = \clo C \cap D = \emptyset \]
+(closures are taken in~$\R$).  Choose $c \in C$ and $d \in D$. Without loss of generality
+suppose $c < d$. Let $A = (-\infty, d) \cap C$ and $z = \sup A$.  Certainly $c \le z \le d$.
+Now $z \in \clo C$. (We know from example~\ref{sup_in_clo} that $z$ belongs to $\clo A$ and
+therefore to $\clo C$.)   Furthermore $z \in \clo D$. (If $z = d$, then $z \in D \subseteq
+\clo D$.  If $z < d$, then the interval $(z,d)$ is contained in $J$ and, since $z$ is an upper
+bound for $A$, this interval contains no point of $C$. Thus $(z,d) \subseteq D$ and $z \in
+\clo D$.)  Finally, since $z$ belongs to $J$ it is a member of either $C$ or $D$. But $z \in
+C$ implies $z \in C \cap \clo D = \emptyset$, which is impossible; and $z \in D$ implies $z
+\in \clo C \cap D = \emptyset$, which is also impossible.
+
+The converse is easy. If $J$ is not an interval, then there exist numbers $c < z < d$ such
+that $c$, $d \in J$ and $z \notin J$. It is easy to see that the sets $(-\infty, z) \cap J$
+and $(z, \infty) \cap J$ disconnect~$J$.
+\end{proof}
+
+\section{CONTINUOUS IMAGES OF CONNECTED SETS} Some of the facts we prove in this chapter are
+quite specific to the real line~$\R$.  When we move to more complicated metric spaces no
+reasonable analog of these facts is true. For example, even in the plane $\R^2$ nothing
+remotely like proposition~\ref{prop_conn_int} holds. While it is not unreasonable to guess
+that the connected subsets of the plane are those in which we can move continuously between
+any two points of the set without leaving the set, this conjecture turns out to be wrong.  The
+latter property, \emph{arcwise connectedness}, is sufficient for connectedness to hold---but
+is not necessary.  In chapter~\ref{conn} we will give an example of a connected set which is
+not arcwise connected.
+
+Despite the fact that some of our results are specific to~$\R$, others will turn out to be
+true in very general settings.  The next theorem, for example, which says that continuity
+preserves connectedness, is true in~$\R$, in~$\R^n$, in metric spaces, and even in general
+topological spaces.  More important, the same proof works in all these cases!  Thus when you
+get to chapter~\ref{conn}, where connectedness in metric spaces is discussed,  you will
+already know the proof that the continuous image of a connected set is itself connected.
+
+\begin{thm}\label{thm_contimg_conn} The continuous image of a connected set is connected.
+\end{thm}
+
+\begin{proof} Exercise. \emph{Hint.}  Prove the contrapositive.  Let $f\colon A \sto \R$ be
+a continuous function where $A \subseteq \R$.  Show that if $\ran f$ is disconnected, then so
+is~$A$.  (Solution~\ref{sol_contimg_conn}.)   \ns
+\end{proof}
+
+The important \emph{intermediate value theorem}, is an obvious corollary of the preceding
+theorem.
+
+\begin{thm}[Intermediate Value Theorem: Conceptual Version]\label{thm_ivt1} The continuous
+ \index{intermediate value theorem}%
+image in $\R$ of an interval is an interval.
+\end{thm}
+
+\begin{proof} Obvious from \ref{prop_conn_int} and \ref{thm_contimg_conn}.
+\end{proof}
+
+A slight variant of this theorem, familiar from beginning calculus, helps explain the
+\emph{name} of the result.  It says that if a continuous real valued function defined on an
+interval takes on two values, then it takes on every intermediate value, that is, every value
+between them. It is useful in establishing the existence of solutions to certain equations and
+also in approximating these solutions.
+
+
+\begin{thm}[Intermediate Value Theorem: Calculus Text Version]\label{thm_ivt2}  Let $f \colon J
+\sto \R$ be a continuous function defined on an interval $J \subseteq \R$. If $a$, $b \in \ran
+f$ and $a < z < b$, then $z \in \ran f$.
+\end{thm}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_ivt2}.)   \ns  \end{proof}
+
+Here is a typical application of the \emph{intermediate value theorem}.
+
+\begin{exam}\label{exam_ivt_eqn} The equation
+ \begin{equation}\label{ivt_soln_eqn2}
+   x^{27} + 5x^{13} + x = x^3+ x^5 + \frac2{\sqrt{1+3x^2}}
+ \end{equation}
+has at least one real solution.
+\end{exam}
+
+\begin{proof}  Exercise.  \emph{Hint.}  Consider the function $f$
+whose value at $x$ is the left side minus the right side of~\eqref{ivt_soln_eqn2}. What can
+you say without much thought about $f(2)$ and $f(-2)$?  (Solution~\ref{sol_ivt_eqn}.)   \ns
+\end{proof}
+
+As another application of the \empty{intermediate value theorem} we prove a fixed point
+theorem. (\textbf{Definition:} Let $f \colon S \sto S$ be a mapping from a set $S$ into
+itself. A point $c$ in $S$ is a
+ \index{fixed point}%
+\df{fixed point} of the function $f$ if $f(c) = c$.)  The next result is a (very) special case
+of the celebrated Brouwer fixed point theorem, which says that every continuous map from the
+closed unit ball of $\R^n$ into itself has a fixed point. The proof of this more general
+result is rather complicated and will not be given here.
+
+\begin{prop}\label{prop_ivt_fp} Let $a < b$ in $\R$.  Every continuous map of the interval
+$[a,b]$ into itself has a fixed point.
+\end{prop}
+
+\begin{proof} Exercise.  (Solution~\ref{sol_ivt_fp}.)    \ns  \end{proof}
+
+\begin{exam} The equation
+    \[ x^{180} + \frac{84}{1+x^2+\cos^2x} = 119 \]
+has at least two solutions in $\R$.
+\end{exam}
+
+\begin{proof} Problem.  \ns   \end{proof}
+
+\begin{prob} Show that the equation
+    \[ \frac1{\sqrt{4x^2+x+4}} - 1 = x - x^5 \]
+has at least one real solution.  Locate such a solution between consecutive integers.
+\end{prob}
+
+\begin{prob}  We return to the problem we discussed at the beginning of this chapter.
+Use the \emph{intermediate value theorem} to find a solution to the equation
+   \[ \sin x = 1 - x \]
+accurate to within $10^{-5}$. \emph{Hint.}  You may assume, for the purposes of this problem,
+that the function $x \mapsto \sin x$ is continuous.  You will not want to do the computations
+by hand; write a program for a computer or programmable calculator.  Notice to begin with that
+there is a solution in the interval $[0, 1]$. Divide the interval in half and decide which
+half, $[0,\frac12]$ or $[\frac12,1]$, contains the solution.  Then take the appropriate half
+and divide \emph{it} in half. Proceed in this way until you have achieved the desired
+accuracy.  Alternatively, you may find it convenient to divide each interval into tenths
+rather than halves.
+\end{prob}
+
+
+
+
+
+
+
+\section{HOMEOMORPHISMS}
+\begin{defn} Two subsets $A$ and $B$ of $\R$ are
+ \index{homeomorphic}%
+\df{homeomorphic} if there exists a continuous bijection $f$ from $A$ onto $B$ such that
+$f^{-1}$ is also continuous.  In this case the function $f$ is a
+ \index{homeomorphism}%
+\df{homeomorphism}.
+\end{defn}
+
+Notice that if two subsets $A$ and $B$ are homeomorphic, then there is a one-to-one
+correspondence between the open subsets of $A$ and those of~$B$.  In terms of topology, the
+two sets are identical. Thus if we know that the open intervals $(0,1)$ and $(3,7)$ are
+homeomorphic (see the next problem), then we treat these two intervals for all topological
+purposes as indistinguishable.  (Of course, a concept such as distance is another matter; it
+is \emph{not} a topological property.  When we consider the distance between points of our two
+intervals, we can certainly distinguish between them: one is four times the length of the
+other.)  A homeomorphism is sometimes called a
+ \index{topological!isomorphism}%
+ \index{isomorphism!topological}%
+\df{topological isomorphism}.
+
+\begin{prob} Discuss the homeomorphism classes of intervals in $\R$.  That is, tell, as generally
+as you can, which intervals in $\R$ are homeomorphic to which others---and, of course, explain
+why.  It might be easiest to start with some examples.  Show that
+ \begin{enumerate}
+  \item[(a)] the open intervals $(0,1)$ and $(3,7)$ are homeomorphic; and
+  \item[(b)] the three intervals $(0,1)$, $(0,\infty)$, and $\R$ are homeomorphic.
+ \end{enumerate}
+Then do some counterexamples.  Show that
+ \begin{enumerate}
+  \item[(c)] no two of the intervals $(0,1)$, $(0,1]$, and $[0,1]$ are homeomorphic.
+ \end{enumerate}
+\emph{Hint.}  For (a) consider the function $x \mapsto 4x+3$.  For part of (c) suppose that
+$f:(0,1] \sto (0,1)$ is a homeomorphism. What can you say about the restriction of $f$
+to~$(0,1)$?
+
+When you feel comfortable with the examples, then try to prove more general statements.  For
+example, show that any two bounded open intervals are homeomorphic.
+
+Finally, try to find the \emph{most general} possible homeomorphism classes.  (A
+ \index{homeomorphism!class}
+\df{homeomorphism class} is a family of intervals any two of which
+are homeomorphic.)
+\end{prob}
+
+\begin{prob}  Describe the class of all continuous mappings from $\R$ into~$\Q$.
+\end{prob}
+
+
+\endinput

@@ -1,0 +1,404 @@
+\chapter{LEAST UPPER BOUNDS AND GREATEST LOWER BOUNDS}\label{lub}
+
+The last axiom for the set $\R$ of real numbers is the \emph{least
+upper bound axiom}.  Before stating it we make some definitions.
+
+
+
+\section{UPPER AND LOWER BOUNDS}
+\begin{defn}  A number $u$ is an
+ \index{upper bound}%
+ \index{bound!upper}%
+\df{upper bound} for a set $A$ of real numbers if $u \ge a$ for every $a \in A$.  If the set
+$A$ has at least one upper bound, it is said to be
+ \index{bounded!above}%
+\df{bounded above}.  Similarly, $v$ is a
+ \index{lower bound}%
+ \index{bound!lower}%
+\df{lower bound} for $A$ if $v \le a$ for every $a \in A$, and a set with at least one lower
+bound is
+ \index{bounded!below}%
+\df{bounded below}.  The set $A$ is
+ \index{bounded!subset of $\R$}%
+\df{bounded} if it is bounded both above and below. (Perhaps it should be emphasized that when
+we say, for example, that $A$ \emph{has} an upper bound we mean only that there is a real
+number $u$ which is greater than or equal to each member of $A$; we do \emph{not} mean that
+$u$ necessarily belongs to $A$---although of course it may.)
+\end{defn}
+
+\begin{exam} The set $A = \{x \in \R \colon \abs{x - 2} < 5 \}$ is bounded.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam} The open interval $(-1,1)$ has infinitely many upper bounds.  In fact, any set
+which is bounded above has infinitely many upper bounds.
+\end{exam}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{exam} The set $A = \{x \in \R \colon x^3 - x \le 0\}$ is not bounded.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+
+
+
+
+
+
+\section{LEAST UPPER AND GREATEST LOWER BOUNDS}
+\begin{defn}  A number $\ell$ is the
+ \index{supremum}%
+\df{supremum}(or
+ \index{least!upper bound}%
+ \index{bound!least upper}%
+\df{least upper bound}) of a set~$A$~if:
+  \begin{enumerate}
+   \item[(1)] $\ell$ is an upper bound for $A$, and
+   \item[(2)] $\ell \le u$ whenever $u$ is an upper bound for $A$.
+  \end{enumerate}
+If $\ell$ is the least upper bound of $A$, we write
+ \index{supremum@$\sup A$ (supremum of $A$)}%
+$\ell =\sup A$. Similarly, a lower bound $g$ of a set is the
+ \index{infimum}%
+\df{infimum}(or
+ \index{greatest!lower bound}%
+ \index{bound!greatest lower}%
+\df{greatest lower bound}) of a set~$A$~if it is greater than or equal to every lower bound of
+the set.  If $g$ is the greatest lower bound of $A$, we write
+ \index{infimum@$\inf A$ (infimum of $A$)}%
+$g = \inf A$.
+
+If $A$ is not bounded above (and consequently, $\sup A$ does not exist), then it is common
+practice to write $\sup A = \infty$. Similarly, if $A$ is not bounded below, we write $\inf A
+= -\infty$.
+\end{defn}
+
+\begin{cau}  The expression ``$\sup A = \infty$'' does \emph{not} mean that $\sup A$ exists and
+equals some object called $\infty$; it \emph{does} mean that $A$ is not bounded above.
+\end{cau}
+
+It is clear that least upper bounds and greatest lower bounds, when they exist, are unique.
+If, for example, $\ell$ and $m$ are both least upper bounds for a set $A$, then $\ell \le m$
+and $m \le \ell$; so $\ell = m$.
+
+
+
+\begin{defn} Let $A \subseteq \R$. If there exists a number $M$ \emph{belonging to} $A$ such
+that $M \ge a$ for every $a \in A$), then this element is the
+ \index{largest}%
+\df{largest element} (or
+ \index{greatest}%
+\df{greatest element}, or
+ \index{maximum}%
+\df{maximum}) of~$A$.  We denote this element (when it exists)
+ \index{maximum@$\max A$ (maximum of $A$)}%
+by $\max A$.
+
+ Similarly, if there exists a number $m$ \emph{belonging to} $A$ such that $m \le a$ for every
+$a \in A$), then this element is the
+ \index{smallest}%
+\df{smallest element} (or
+ \index{least}%
+\df{least element}, or
+ \index{minimum}%
+\df{minimum}) of~$A$.  We denote this element (when it exists)
+ \index{minimum@$\min A$ (minimum of $A$)}%
+by $\min A$.
+\end{defn}
+
+
+
+\begin{exam}   Although the largest element of a set (when it exists) is always a least upper
+bound, the converse is not true.  It is possible for a set to have a least upper bound but no
+maximum.  The interval $(-2,3)$ has a least upper bound (namely, 3), but it has no largest
+element.
+\end{exam}
+
+\begin{exam} If $A = \{x \in \R \colon \abs x < 4\}$, then $\inf A = -4$ and $\sup A = 4$.
+But $A$ has no maximum or minimum.  If $B = \{\abs x \colon x < 4\}$, then $\inf B = 0$ but
+$\sup B$ does not exist.  (It is correct to write $\sup B = \infty$.)  Furthermore, $B$ has a
+smallest element, $\min B = 0$, but no largest element.
+\end{exam}
+
+Incidentally, the words ``maximum'', ``supremum'', ``minimum'', and ``infimum'' are all
+singular.  The preferred plurals are, respectively, ``maxima'', ``suprema'', ``minima'', and
+``infima''.
+
+\begin{prob} For each of the following sets find the least upper bound and the greatest lower
+bound (if they exist).
+ \begin{enumerate}
+  \item[(a)] $A = \{x \in \R \colon \abs{x - 3} < 5\}$.
+  \item[(b)] $B = \{\abs{x - 3} \colon x < 5\}$.
+  \item[(c)] $C = \{\abs{x - 3} \colon x > 5\}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} Show that the set $\Po$ of positive real numbers has an infimum but no smallest
+element.
+\end{prob}
+
+\begin{exer}\label{exer_sup1}  Let $f(x) = x^2 - 4x + 3$ for every $x \in \R$, let
+$A = \{x \colon f(x) < 3\}$, and let $B = \{f(x) \colon x < 3\}$.
+ \begin{enumerate}
+  \item[(a)] Find $\sup A$ and $\inf A$ (if they exist).
+  \item[(b)] Find $\sup B$ and $\inf B$ (if they exist).
+ \end{enumerate}
+(Solution~\ref{sol_exer_sup1}.)
+\end{exer}
+
+\begin{exam}  Let $\D A = \left\{x \in \R \colon \frac5{x - 3} - 3 \ge 0\right\}$.  Then
+$\sup A = \max A = 14/3$, $\inf A = 3$, and $\min A$ does not exist.
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam}  Let $f(x) = -\frac12 + \sin x$ for $x \in \R$.
+ \begin{enumerate}
+  \item[(a)] If $A = \{f(x) \colon x \in \R\}$, then $\inf A = -\frac32$ and $\sup A = \frac12$.
+  \item[(b)] If $B = \{\abs{f(x)} \colon x \in \R\}$, then $\inf B = 0$ and $\sup B = \frac32$.
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem.  \ns  \end{proof}
+
+\begin{exam}  Let $f(x) = x^{20} - 2$ for $0 < x < 1$.
+ \begin{enumerate}
+  \item[(a)] If $A = \{f(x) \colon 0 < x < 1\}$, then $\inf A = -2$ and $\sup A = -1$.
+  \item[(b)] If $B = \{\abs{f(x)} \colon 0 < x < 1\}$, then $\inf B = 1$ and $\sup B = 2$.
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{exam}  Let $f(x) = x^{20} - \frac14$ for $0 \le x \le 1$.
+ \begin{enumerate}
+  \item[(a)] If $A = \{f(x) \colon 0 \le x \le 1\}$, then $\inf A = -\frac14$ and $\sup A = \frac34$.
+  \item[(b)] If $B = \{\abs{f(x)} \colon 0 \le x \le 1\}$, then $\inf B = 0$ and $\sup B = \frac34$.
+ \end{enumerate}
+\end{exam}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prob}\label{prob_sup1}  Let $f(x) = -4x^2 - 4x + 3$ for every $x \in \R$, let
+$A = \{x \in \R \colon f(x) > 0\}$, and let  $B = \{f(x) \colon -2 < x < 2\}$.
+ \begin{enumerate}
+  \item[(a)] Find $\sup A$ and $\inf A$ (if they exist).
+  \item[(b)] Find $\sup B$ and $\inf B$ (if they exist).
+ \end{enumerate}
+\end{prob}
+
+\begin{prob} For $c>0$ define a function $f$ on $[0,\infty)$ by $f(x) = x\,e^{-cx}$.  Find
+$\sup\{\abs{f(x)}\colon x~\ge~0\}$.
+\end{prob}
+
+\begin{prob}  For each $n = 1,2,3, \dots$, define a function $f_n$ on $\R$ by $f_n(x) =
+\dfrac{x}{1+nx^2}$.  For each $n \in \N$ let $A_n = \{f_n(x) \colon x \in \R\}$.  For
+each $n$ find $\inf A_n$ and $\sup A_n$.
+\end{prob}
+
+
+
+
+
+
+
+\section{THE LEAST UPPER BOUND AXIOM FOR $\R$}
+We now state our last assumption concerning the set $\R$ of real numbers.  This is the
+ \index{least!upper bound!axiom}%
+ \index{axiom!least upper bound}%
+\emph{least upper bound} (or
+ \index{order completeness axiom}%
+ \index{axiom!order completeness}%
+\emph{order completeness}) \emph{axiom}.
+
+\begin{ax}[VII]\label{axiom_lub} Every nonempty set of real numbers which is bounded above has
+a least upper bound.
+\end{ax}
+
+\begin{notn} If $A$ and $B$ are subsets of $\R$ and $\alpha \in \R$, then
+  \begin{align*}
+      A + B &:= \{a + b \colon a \in A \text{ and }b \in B\}, \\
+         AB &:= \{ab \colon a \in A \text{ and }b \in B\}, \\
+   \alpha B &:= \{\alpha\}B = \{\alpha b \colon b \in B\}, \text{and} \\
+         -A &:= (-1) A = \{-a \colon a \in A\}.
+  \end{align*}
+\end{notn}
+
+\begin{prop} If $A$ is a nonempty subset of $\R$ which is bounded below, then $A$ has a greatest
+lower bound. In fact,
+  \[ \inf A  =  -\sup(-A)\,. \]
+\end{prop}
+
+\begin{proof}  Let $b$ be a lower bound for $A$. Then since $b \le a$ for every $a \in A$, we see
+that $-b \ge -a$ for every $a \in A$. This says that $-b$ is an upper bound for the set  $-A$.
+By the \emph{least upper bound axiom}~(\ref{axiom_lub}) the set $-A$ has a least upper bound,
+say $\ell$. We show that $-\ell$ is the greatest lower bound for $A$. Certainly it is a lower
+bound [$\ell \ge -a$ for all $a \in A$ implies $-\ell \le a$ for all $a \in A$].
+
+Again letting $b$ be an arbitrary lower bound for $A$, we see, as above, that $-b$ is an upper
+bound for $-A$.  Now $\ell \le -b$, since $\ell$ is the least upper bound for $-A$. Thus
+$-\ell \ge b$. We have shown
+  \[ \inf A = -\ell = -\sup(-A)\,. \]
+\end{proof}
+
+\begin{cor}  If $A$ is a nonempty set of real numbers which is bounded above, then
+  \[ \sup A  = -\inf(-A)\,. \]
+\end{cor}
+
+\begin{proof} If $A$ is bounded above, then $-A$ is bounded below. By the preceding proposition
+$\inf (-A) = -\sup A$.
+\end{proof}
+
+\begin{prop}  Suppose $\emptyset \ne A \subseteq B \subseteq \R$.
+ \begin{enumerate}
+  \item[(a)] If $B$ is bounded above, so is $A$ and $\sup A \le \sup B$.
+  \item[(b)] If $B$ is bounded below, so is $A$ and $\inf A \ge \inf B$.
+ \end{enumerate}
+\end{prop}
+
+\begin{proof} Problem.   \ns  \end{proof}
+
+\begin{prop}  If $A$ and $B$ are nonempty subsets of $\R$ which are bounded above, then
+$A + B$ is bounded above and
+  \[ \sup (A + B) = \sup A + \sup B\,. \]
+\end{prop}
+
+\begin{proof} Problem. \emph{Hint.}  It is easy to show that if $\ell$ is the least upper bound
+for $A$ and $m$ is the least upper bound for $B$, then $\ell + m$ is \emph{an} upper bound for
+$A + B$.
+
+One way to show that $\ell + m$ is the \emph{least} upper bound for $A + B$, is to argue
+by contradiction.  Suppose there exists an upper bound $u$ for $A + B$ which is strictly
+less than $\ell + m$.  Find numbers $a$ in $A$ and $b$ in $B$ which are close enough to
+$\ell$ and $m$, respectively, so that their sum exceeds $u$.
+
+An even nicer proof results from taking $u$ to be an arbitrary upper bound for $A + B$
+and proving directly that $\ell + m \le u$. Start by observing that $u - b$ is an upper
+bound for $A$ for every $b \in B$, and consequently $l \le u - b$ for every $b \in B$.
+\ns
+\end{proof}
+
+\begin{prop}\label{prop_sup_prod} If $A$ and $B$ are nonempty subsets of $[0,\infty)$ which are
+bounded above, then the set $AB$ is bounded above and
+  \[ \sup(AB) = (\sup A)(\sup B)\,. \]
+\end{prop}
+
+\begin{proof} Exercise.  \emph{Hint.}  The result is trivial if $A = \{0\}$ or if $B = \{0\}$.
+So suppose that both $A$ and $B$ contain elements strictly greater than~$0$, in which case
+$\ell := \sup A > 0$ and $m := \sup B > 0$.  Show that the set $AB$ is bounded above. (If $x
+\in AB$, there exist $a \in A$ and $b \in B$ such that $x = ab$.)  Then $AB$ has a least upper
+bound, say~$c$.  To show that $\ell m \le c$, assume to the contrary that $c < \ell m$. Let
+$\epsilon = \ell m - c$. Since $\ell$ is the least upper bound for $A$, we may choose $a \in
+A$ so that $a > \ell - \epsilon (2m)^{-1}$. Having chosen this $a$, explain how to choose $b
+\in B$ so that $ab > \ell m - \epsilon$. (Solution~\ref{sol_prop_sup_prod}.)  \ns
+\end{proof}
+
+\begin{prop}  If $B$ is a nonempty subset of $[0,\infty)$ which is bounded above and if
+$\alpha \ge 0$, then $\alpha B$ is bounded above and
+  \[ \sup (\alpha B) = \alpha \sup B\,. \]
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  This is a \emph{very} easy consequence of one of the
+previous propositions.
+\end{proof}
+
+
+
+
+
+
+\section{THE ARCHIMEDEAN PROPERTY}
+
+One interesting property that distinguishes the set of real numbers from many other ordered
+fields is that for any real number $a$ (no matter how large) and any positive
+number~$\epsilon$ (no matter how small) it is possible by adding together enough copies of
+$\epsilon$ to obtain a sum greater than~$a$.  This is the \emph{Archimedean property} of the
+real number system.  It is an easy consequence of the order completeness of the reals; that
+is, it  follows from the \emph{least upper bound axiom}(\ref{axiom_lub}).
+
+\begin{prop}[The Archimedean Property of $\R$]\label{arch_prop}
+  \index{Archimedean property}%
+  \index{property!Archimedean}%
+If $a \in \R$ and $\epsilon > 0$, then there exists $n \in \N$ such that $n\epsilon > a$.
+\end{prop}
+
+\begin{proof} Problem.  \emph{Hint.}  Argue by contradiction.  Assume that the set
+$A := \{n\epsilon \colon n \text{ belongs to }\N\}$ is bounded above.   \ns
+\end{proof}
+
+It is worth noting that the preceding proposition shows that the set $\N$ of natural numbers
+is not bounded above. [Take  $\epsilon = 1$.]
+
+Another useful consequence of the \emph{least upper bound axiom} is the existence of
+$n^{\text{th}}$ roots of numbers $a \ge 0$. Below we establish the existence of square roots;
+but the proof we give can be modified without great difficulty to show that every number $a
+\ge 0$ has an $n^{\text{th}}$ root (see project~\ref{proj_nth_roots}).
+
+\begin{prop}\label{prop_exist_sqrt}  Let $a \ge 0$.  There exists a unique number $x \ge 0$
+such that $x^2 = a$.
+\end{prop}
+
+\begin{proof} Exercise. \emph{Hint.}  Let $A = \{t > 0 \colon t^2 < a\}$. Show that $A$ is
+not empty and that it is bounded above. Let $x = \sup A$.  Show that assuming $x^2 < a$ leads
+to a contradiction. [Choose  $\epsilon$ in $(0, 1)$ so that $\epsilon < 3^{-1} x^{-2}(a -
+x^2)$ and prove that $ x(1 + \epsilon)$ belongs to $A$.]  Also show that assuming $x^2 > a$
+produces a contradiction. [Choose $\epsilon$ in $(0, 1)$ so that $\epsilon < (3a)^{-1}(x^2 -
+a)$, and prove that the set $A \cap \bigl(x(1 + \epsilon)^{-1}, x\bigr)$ is not empty. What
+can be said about $x(1 + \epsilon)^{-1}$?] (Solution~\ref{sol_prop_exist_sqrt}.) \ns
+\end{proof}
+
+
+\begin{notn}  The unique number $x$ guaranteed by the preceding proposition is denoted by
+$\sqrt a$ or by $a^{\frac 12}$.  Similarly, $n^{\text{th}}$ roots are denoted by either $\root
+n \of a$ or $a^{\frac1n}$.
+\end{notn}
+
+\begin{prob} Prove the following properties of the square root function.
+ \begin{enumerate}
+  \item[(a)] If $x,y \ge 0$, then $\sqrt{xy} = \sqrt x \sqrt y$.
+  \item[(b)] If $0 < x < y$, then $\sqrt x < \sqrt y$. \emph{Hint.} Consider
+$(\sqrt y)^2 - (\sqrt x)^2$.
+  \item[(c)] If $0 < x < 1$, then $x^2 < x$ and $x < \sqrt x$.
+  \item[(d)] If $x > 1$, then $x < x^2$ and $\sqrt x < x$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}\label{proj_nth_roots}  Restate the assertions of the preceding problem for
+$n^{\text{th}}$ roots (and $n^{\text{th}}$ powers). Explain what alterations in the proofs
+must be made to accommodate this change.
+\end{prob}
+
+\begin{defn}  Let $x \in \R$. The
+ \index{absolute!value}%
+\df{absolute value} of $x$, denoted
+ \index{<@$\abs{x}$ (absolute value of $x$)}
+by $\abs x$, is defined to be $\sqrt{x^2}$.  In light of the preceding proposition it is clear
+that if $x \ge 0$, then $\abs x = x$; and if $x < 0$, then $\abs x = -x$.  From this
+observation it is easy to deduce two standard procedures for establishing an inequality of the
+form $\abs x < c$ (where $c > 0$).  One is to show that $x^2 < c^2$. The other is to show that
+$-c < x < c$ (or what is the same thing: that both $x < c$ and $-x < c$ hold).  Both methods
+are used extensively throughout the text, especially in chapter~\ref{cont_on_R} when we
+discuss continuity of real valued functions.
+\end{defn}
+
+\begin{prob}\label{prob_abs_val}  Prove that if $a$, $b \in \R$, then
+ \begin{enumerate}
+  \item[(a)] $\abs{ab} = \abs a \, \abs b$;
+  \item[(b)] $\abs{a + b} \le \abs a + \abs b$; and
+  \item[(c)] $\bigl\lvert\abs a - \abs b\bigr\lvert \le \abs{a-b}$.
+ \end{enumerate}
+\end{prob}
+
+\begin{prob}  Prove that if $a$, $b \in \R$, then $\abs{ab} \le \frac12 (a^2 + b^2)$.  \emph{Hint.}
+Consider the square of $a - b$ and of $a + b$.
+\end{prob}
+
+
+
+
+
+
+\endinput
