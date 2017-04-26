@@ -1,0 +1,18 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Sequential characterization of compactness</title>
+  <introduction>
+    <p>
+      We have previously characterized open sets, closed sets, closure, and continuity by means of
+      sequences. Our next goal is to produce a characterization of compactness in terms of
+      sequences. This is achieved in <xref ref="cpt_scpt">theorem</xref> where it is shown that compactness in
+      metric spaces is equivalent to something called <em>sequential compactness</em>. For this
+      concept we need to speak of <em>subsequences</em> of sequences of points in a metric space. <xref ref="subseq_r">In</xref> we defined <q>subsequence</q> for sequences of real numbers. There is certainly
+      no reason why we cannot speak of subsequences of arbitrary sequences.
+    </p>
+  </introduction>
+  <xi:include  href="section16-1.mbx" />
+  <xi:include  href="section16-2.mbx" />
+  <xi:include  href="section16-3.mbx" />
+  <xi:include  href="section16-4.mbx" />
+</chapter>

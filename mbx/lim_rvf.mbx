@@ -1,0 +1,23 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="lim_rvf">
+  <title>Limits of real valued functions</title>
+  <introduction>
+    <p>
+      In <xref ref="seqs_rn">chapter</xref> we studied limits of sequences of real
+      numbers. In this very short chapter we investigate limits of real
+      valued functions of a real variable. Our principal result
+      <xref ref="cnt_vs_lim" /> is a characterization of the continuity of a
+      function <m>f</m> at a point in terms of the limit of <m>f</m> at that point.
+    </p>
+
+    <p>
+      Despite the importance of this characterization, there is one
+      crucial difference between a function being continuous at a point
+      and having a limit there. If <m>f</m> is continuous at<nbsp /><m>a</m>, then <m>a</m>
+      must belong to the domain of <m>f</m>. In order for <m>f</m> to have a limit
+      at<nbsp /><m>a</m>, it is not required that <m>a</m> be in the domain of<nbsp /><m>f</m>.
+    </p>
+  </introduction>
+  <xi:include  href="section7-1.mbx" />
+  <xi:include  href="section7-2.mbx" />
+</chapter>

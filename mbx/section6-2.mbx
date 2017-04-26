@@ -1,0 +1,281 @@
+
+<section>
+  <title>Examples of compact subsets of <m>\R</m></title>
+  <p>
+    It is easy to give examples of sets that are <em>not</em> compact. For example, <m>\R</m> itself
+    is not compact. To see this consider the family <m>\sfml U</m> of all open intervals of the
+    form <m>(-n,n)</m> where <m>n</m> is a natural number. Then <m>\sfml U</m> covers <m>\R</m> (what property
+    of <m>\R</m> guarantees this?); but certainly no finite subfamily of <m>\sfml U</m> does.
+  </p>
+
+  <p>
+    What is usually a lot trickier, because the definition is hard to apply directly, is proving
+    that some particular compact set really is compact. The simplest examples of compact spaces
+    are the finite ones. (See <xref ref="cpt_exm1">example</xref>.) Finding nontrivial examples is another
+    matter.
+  </p>
+
+  <p>
+    In this section we guarantee ourselves a generous supply of compact subsets of <m>\R</m> by
+    specifying some rather powerful methods for creating new compact sets from old ones. In
+    particular, we will show that a set is compact if it is
+    <ol>
+      <li>
+        <p>
+          a closed subset of a compact set <xref ref="cpt_cnd1" />,
+        </p>
+      </li>
+
+      <li>
+        <p>
+          a finite union of compact sets ( <xref ref="cpt_cnd3"></xref>(b)), or
+        </p>
+      </li>
+
+      <li>
+        <p>
+          the continuous image of a compact set <xref ref="cpt_cnd4" />.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Nevertheless it is clear that we need something to start with. In <xref ref="cpt_exm2">example</xref> we
+    prove directly from the definition that the closed unit interval <m>[0,1]</m> is compact. It is
+    fascinating to see how this single example together with conditions (1)<ndash />(3) above can be used
+    to generate a great variety of compact sets in general metric spaces. This will be done in
+    <xref ref="cpt">chapter</xref>.
+  </p>
+
+  <example xml:id="cpt_exm1">
+    <statement>
+      <p>
+        Every finite subset of <m>\R</m> is compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>A = \{x_1,x_2, \dots, x_n\}</m> be a finite subset of <m>\R</m>. Let <m>\sfml U</m> be a
+      family of open sets which covers <m>A</m>. For each <m>k = 1,\dots,n</m> there is at least one set
+      <m>U_k</m> in <m>\sfml U</m> which contains <m>x_k</m>. Then the family <m>\{U_1, \dots, U_n\}</m> is a
+      finite subcover of <m>\sfml U</m> for <m>A</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="cpt_cnd1">
+    <statement>
+      <p>
+        Every closed subset of a compact set is compact.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>A</m> be a closed subset of a compact set <m>K</m> and
+      <m>\sfml U</m> be a cover of <m>A</m> by open sets. Consider <m>\sfml U \cup \{A^c\}</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="cpt_cb">
+    <statement>
+      <p>
+        Every compact subset of <m>\R</m> is closed and bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> To show that a compact set <m>A</m> is closed, show that
+      its complement is open. To this end let <m>y</m> be an arbitrary point in<nbsp /><m>A^c</m>. For each <m>x</m> in
+      <m>A</m> take disjoint open intervals about <m>x</m> and<nbsp /><m>y</m>. (<xref ref="sol_cpt_cb">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    As we will see later, the preceding result holds in arbitrary metric spaces. In fact, it is
+    true in very general topological spaces. Its converse, the celebrated <em>Heine-Borel
+    theorem</em> (<xref ref="HBthm">see</xref>), although also true in <m>\R^n</m>, (<xref ref="HBThm">see</xref>) does <em>not</em>
+    hold in all metric spaces (see <xref ref="cpt_prb2">problems</xref>, <xref ref="cpt_prb3"></xref> and <xref ref="cpt_prb4"></xref>).
+    Thus it is important at a conceptual level not to regard the property closed-and-bounded as
+    being identical with compactness.
+  </p>
+
+  <p>
+    Now, finally, we give a nontrivial example of a compact space. The proof requires verifying
+    some details, which at first glance may make it seem complicated. The basic idea behind the
+    proof, however, is quite straightforward. It repays close study since it involves an
+    important technique of proof that we will encounter again. The first time you read the proof,
+    try to see its structure, to understand its basic logic. Postpone for a second reading the
+    details which show that the conditions labelled (1) and (2) hold. Try to understand instead
+    why verification of these two conditions is really all we need in order to prove that <m>[0,1]</m>
+    is compact.
+  </p>
+
+  <example xml:id="cpt_exm2">
+    <statement>
+      <p>
+        The closed unit interval <m>[0,1]</m> is compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>\sfml U</m> be a family of open subsets of <m>\R</m> which covers <m>[0,1]</m> and let
+      <m>A</m> be the set of all <m>x</m> in <m>[0,1]</m> such that the closed interval <m>[0,x]</m> can be covered
+      by finitely many members of <m>\sfml U</m>. It is clear that <m>A</m> is nonempty (since it
+      contains 0), and that if a number <m>y</m> belongs to <m>A</m> then so does any number in <m>[0,1]</m>
+      less than <m>y</m>. We prove two more facts about <m>A</m>:
+      <ol>
+        <li>
+          <title>(1)</title>
+          <p>
+            If <m>x\in A</m> and <m>x\lt 1</m>, then there exists a number <m>y > x</m> such that <m>y \in A</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(2)</title>
+          <p>
+            If <m>y</m> is a number in <m>[0,1]</m> such that <m>x \in A</m> for all <m>x \lt  y</m>, then <m>y\in A</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      To prove (1) suppose that <m>x \in A</m> and <m>x\lt 1</m>. Since <m>x \in A</m> there exists sets <m>U_1,
+      \dots, U_n</m> in <m>\sfml U</m> which cover the interval <m>[0,x]</m>. The number <m>x</m> belongs to at
+      least one of these sets, say <m>U_1</m>. Since <m>U_1</m> is an open subset of <m>\R</m>, there is an
+      interval <m>(a,b)</m> such that <m>x \in (a,b) \subseteq U_1</m>. Since <m>x\lt 1</m> and <m>x\lt b</m>, there
+      exists a number <m>y \in (0,1)</m> such that <m>x \lt  y \lt  b</m>. From <m>[0,x] \subseteq
+      \bigcup_{k=1}^n U_k</m> and <m>[x,y] \subseteq (a,b) \subseteq U_1</m> it follows that <m>U_1,
+      \dots, U_n</m> cover the interval <m>[0,y]</m>. Thus <m>y > x</m> and <m>y</m> belongs to <m>A</m>.
+    </p>
+
+    <p>
+      The proof of (2) is similar. Suppose that <m>y \in [0,1]</m> and that <m>[0,y) \subseteq A</m>. The
+      case <m>y=0</m> is trivial so we suppose that <m>y>0</m>. Then <m>y</m> belongs to at least one member
+      of <m>\sfml U</m>, say <m>V</m>. Choose an open interval <m>(a,b)</m> in <m>[0,1]</m> such that <m>y \in (a,b)
+      \subseteq V</m>. Since <m>a \in A</m> there is a finite collection of sets <m>U_1, \dots, U_n</m> in
+      <m>\sfml U</m> which covers <m>[0,a]</m>. Then clearly <m>\{U_1, \dots, U_n, V\}</m> is a cover for
+      <m>[0,y]</m>. This shows that <m>y</m> belongs to <m>A</m>.
+    </p>
+
+    <p>
+      Finally, let <m>u = \sup A</m>. We are done if we can show that <m>u = 1</m>. Suppose to the contrary
+      that <m>u\lt 1</m>. Then <m>[0,u) \subseteq A</m>. We conclude from (2) that <m>u \in A</m> and then from (1)
+      that there is a point greater than <m>u</m> which belongs to <m>A</m>. This contradicts the choice of
+      <m>u</m> as the supremum of <m>A</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A = \{0\} \cup \{1/n \colon n \in \N\}</m> and <m>\sfml U</m> be the family
+        <m>\{U_n \colon n \ge 0\}</m> where <m>U_0 = (-1,0.1)</m> and <m>U_n = \left(\dfrac 5{6n},\dfrac
+        7{6n}\right)</m> for <m>n \ge 1</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find a finite subfamily of <m>\sfml U</m> which covers <m>A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Explain why a solution to (a) does not suffice to show
+              that <m>A</m> is compact.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use the {definition} of compactness to show that
+              <m>A</m> is compact.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Use <xref ref="cpt_cnd1">proposition</xref> to show that <m>A</m> is
+              compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        Show that the set <m>A = \{1/n \colon n \in \N\}</m> is not a compact subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give two proofs that the interval <m>[0,1)</m> is not compact<mdash />one making use of
+        <xref ref="cpt_cb">proposition</xref> and one not.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="cpt_cnd2">
+    <statement>
+      <p>
+        The intersection of a nonempty collection of compact subsets
+        of <m>\R</m> is itself compact.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="cpt_cnd3">
+    <statement>
+      <p>
+        Let <m>\sfml K</m> be the family of compact subsets of<nbsp /><m>\R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>\bigcup\sfml K</m> need not be compact.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if <m>\sfml K</m> contains only finitely many sets, then
+              <m>\bigcup\sfml K</m> is compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

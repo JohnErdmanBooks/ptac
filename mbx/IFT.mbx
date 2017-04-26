@@ -1,0 +1,47 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="IFT">
+  <title>The implicit function theorem</title>
+  <introduction>
+    <p>
+      This chapter deals with the problem of solving equations and systems of equations for some of
+      the variables which appear in terms of the others. In a few very simple cases this can be
+      done explicitly. As an example, consider the equation
+      <men xml:id="eqn_circ5" >
+        x^2 + y^2 = 25
+      </men>
+      for the circle of radius <m>5</m> centered at the origin in<nbsp /><m>\R^2</m>. Although<nbsp /><xref ref="eqn_circ5" /> can
+      <em>not</em> be solved <em>globally</em> for <m>y</m> in terms of <m>x</m> (that is, there is no function
+      <m>f</m> such that <m>y = f(x)</m> for all points <m>(x,y)</m> satisfying<nbsp /><xref ref="eqn_circ5" />), it
+      nevertheless <em>is</em> possible at most points on the circle to solve <em>locally</em> for <m>y</m>
+      in terms of<nbsp /><m>x</m>. For example, if <m>(a,b)</m> lies on the circle and <m>b > 0</m>, then there exist
+      open intervals <m>J_1</m> and <m>J_2</m> containing <m>a</m> and <m>b</m>, respectively, and a function <m>f \colon
+      J_1 \sto J_2</m> such that every point <m>(x,y)</m> in the rectangular region <m>J_1 \times J_2</m> will
+      satisfy <m>y = f(x)</m> if and only if it satisfies equation<nbsp /><xref ref="eqn_circ5" />. In particular, we
+      could choose <m>J_1 = (-5,5)</m>, <m>J_2 = (0,6)</m>, and <m>f \colon x \mapsto \sqrt{25 - x^2}</m>. In case
+      <m>b \lt  0</m> the function <m>f</m> would be replaced by <m>f:x \mapsto - \sqrt{25 - x^2}</m>. If <m>b = 0</m>
+      then there is <em>no</em> local solution for <m>y</m> in terms of<nbsp /><m>x</m>: each rectangular region about
+      either of the points <m>(5,0)</m> or <m>(-5,0)</m> will contain pairs of points symmetrically located
+      with respect to the <m>x</m>-axis which satisfy<nbsp /><xref ref="eqn_circ5" />; and it is not possible for the
+      graph of a function to contain such a pair.
+    </p>
+
+    <p>
+      Our attention in this chapter is focused not on the relatively rare cases where it is possible
+      to compute explicit (local) solutions for some of the variables in terms of the remaining ones
+      but on the more typical situation where no such computation is possible. In this latter
+      circumstance it is valuable to have information concerning the <em>existence</em> of (local)
+      solutions and the differentiability of such solutions.
+    </p>
+
+    <p>
+      The simplest special case is a single equation of the form <m>y = f(x)</m> where <m>f</m> is a
+      continuously differentiable function. The <em>inverse function theorem</em>, derived in the
+      first section of this chapter, provides conditions under which this equation can be solved
+      locally for <m>x</m> in terms of<nbsp /><m>y</m>, say <m>x = g(y)</m>, and gives us a formula allowing us to compute
+      the differential of <m>g</m>. More complicated equations and systems of equations require the
+      <em>implicit function theorem</em>, which is the subject of the second section of the chapter.
+    </p>
+  </introduction>
+  <xi:include  href="section29-1.mbx" />
+  <xi:include  href="section29-2.mbx" />
+</chapter>

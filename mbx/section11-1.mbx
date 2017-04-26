@@ -1,0 +1,423 @@
+
+<section>
+  <title>Open and closed sets</title>
+  <definition>
+    <statement>
+      <p>
+        A subset <m>A</m> of a metric space <m>M</m> is
+        <index><main>open</main><sub>subset of a metric space</sub></index><term>open</term> in <m>M</m> if <m>\intr A = A</m>. That is, a set is open if it contains an open ball about
+        each of its points. To indicate that <m>A</m> is open in <m>M</m> we
+        <index><main><@<m>\open{}{}</m> (open subset of)</main></index>write<nbsp /><m>\open{A}{M}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="subsp_vs_sp">
+    <statement>
+      <p>
+        Care must be taken to claim that a particular set is open
+        (or not open) <em>only</em> when the metric space in which the set <q>lives</q> is clearly
+        understood. For example, the assertion <q>the set <m>[0,1)</m> is open</q> is false if the metric
+        space in question is <m>\R</m>. It is true, however, if the metric space being considered is
+        <m>[0,\infty)</m> (regarded as a subspace of <m>\R</m>). The reason: In the space <m>[0,\infty)</m> the point
+        0 is an interior point of <m>[0,1)</m>; in <m>\R</m> it is not.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        In a metric space every open ball is an open set. Notice that this is exactly what
+        <xref ref="sm_in_lar">lemma</xref> says: each point of an open ball is an interior point of that ball.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    The fundamental properties of open sets may be deduced easily from information we already
+    possess concerning interiors of sets. Three facts about open sets are given in <xref ref="op_un_bl"></xref><ndash /> <xref ref="in_lar"></xref>. The first of these is very simple.
+  </p>
+
+  <proposition xml:id="op_un_bl">
+    <statement>
+      <p>
+        Every nonempty open set is a union of open balls.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>U</m> be an open set. For each <m>a</m> in <m>U</m> there is an open ball <m>B(a)</m> about
+      <m>a</m> contained in<nbsp /><m>U</m>. Then clearly
+      <me>
+        U = \textstyle\bigcup\{B_a\colon  a \in U\}\,.
+      </me>
+    </p>
+  </proof>
+
+  <proposition xml:id="op_in_ms">
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The union of any family of open subsets of <m>M</m> is open.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The intersection of any <em>finite</em> family of open subsets of <m>M</m> is open.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      (a)Let <m>\sfml U</m> be a family of open subsets of <m>M</m>. Since the interior of a set
+      is always contained in the set, we need only show that <m>\bigcup \sfml U \subseteq
+      \intr{\bigl(\bigcup \sfml U\bigr)}</m>. <xref ref="un_int">By</xref>
+      <md>
+        <mrow>\textstyle\bigcup \sfml U
+                      \amp = \textstyle\bigcup\{U\colon U \in \sfml U\}</mrow>
+        <mrow>\amp = \textstyle\bigcup\{\intr U\colon U \in \sfml U\}</mrow>
+        <mrow>\amp \subseteq \intr{\bigl(\textstyle\bigcup \sfml U\bigr)}.</mrow>
+      </md>
+    </p>
+
+    <p>
+      (b)It is enough to show that the intersection of <em>two</em> open sets is open. Let
+      <m>\open{U,V}M</m>. Then by <xref ref="in_in"></xref>
+      <me>
+        \intr{(U \cap V)} = \intr U \cap \intr V = U \cap V\,.
+      </me>
+    </p>
+  </proof>
+
+  <proposition xml:id="in_lar">
+    <statement>
+      <p>
+        The interior of a set <m>A</m> is the largest open set contained in<nbsp /><m>A</m>.
+        \mbox{( Precisely:} <m>\intr A</m> is the union of all the open sets contained in <m>A</m>.\mbox{)}
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_in_lar">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>A</m> of a metric space is
+        <index><main>closed</main></index><term>closed</term> if <m>\clo A = A</m>. That is, a set is closed if it contains all its accumulation
+        points.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        As is the case with open sets, care must be taken when affirming or denying that
+        a particular set is closed. It must be clearly understood in which metric space the set
+        <q>lives</q>. For example the interval <m>(0,1]</m> is not closed in the metric space <m>\R</m>, but it is
+        a closed subset of the metric space <m>(0,\infty)</m> (regarded as a subspace of <m>\R</m>).
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    <em>REMINDER.</em> Recall the remarks made after <xref ref="cl_int_cl">example</xref>: <em>sets are not
+    like doors or windows; they are not necessarily either open or closed.</em> One can not show that
+    a set is closed, for example, by showing that it fails to be open.
+  </p>
+
+  <proposition xml:id="op_vs_cl">
+    <statement>
+      <p>
+        A subset of a metric space is open if and only if its complement
+        is closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="int_vs_cl">problem</xref>. (<xref ref="sol_op_vs_cl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Facts already proved concerning closures of sets give us one way of dealing with closed sets;
+    the preceding proposition gives us another. To illustrate this, we give two proofs of the next
+    proposition.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        The intersection of an arbitrary family of closed subsets of a metric space is closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>\sfml A</m> be a family of closed subsets of a metric space. Then
+      <m>\bigcap \sfml A</m> is the complement of <m>\bigcup \{A^c\colon A \in \sfml A\}</m>. Since each
+      set <m>A^c</m> is open (by <xref ref="op_vs_cl"></xref>), the union of <m>\{A^c \colon A \in \sfml A\}</m> is
+      open (by <xref ref="op_in_ms"></xref>(a)); and its complement <m>\bigcap \sfml A</m> is closed
+      ( <xref ref="op_vs_cl"></xref> again).
+    </p>
+  </proof>
+
+  <proof>
+    <p>
+      Let <m>\sfml A</m> be a family of closed subsets of a metric space. Since a
+      set is always contained in its closure, we need only show that <m>\clo{\bigcap \sfml A}
+      \subseteq \bigcap \sfml A</m>. Use <xref ref="intr_cl">problem</xref>(a):
+      <md>
+        <mrow>\clo{\textstyle\bigcap \sfml A}
+                           \amp \subseteq \textstyle\bigcap\{\,\clo A \colon A \in \sfml A\,\}</mrow>
+        <mrow>\amp = \textstyle\bigcap\{\,A \colon A \in \sfml A\,\}</mrow>
+        <mrow>\amp = \textstyle\bigcap \sfml A\,.   \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        The union of a finite family of closed subsets of a metric space is closed.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Prove this assertion using <xref ref="op_in_ms">propositions</xref>(b) and <xref ref="op_vs_cl"></xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Prove this assertion using <xref ref="un_clo">problem</xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example to show that the intersection of an arbitrary family of open subsets
+        of a metric space need not be open.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example to show that the union of an arbitrary family of closed subsets of a
+        metric space need not be closed.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space, <m>a \in M</m>, and <m>r > 0</m>. The
+        <index><main>cra@<m>C_r(a)</m> (closed ball of radius <m>r</m> about<nbsp /><m>a</m>)</main></index>
+        <index><main>closed</main><sub>ball</sub></index>
+        <index><main>ball</main><sub>closed</sub></index><term>closed ball</term> <m>C_r(a)</m> about <m>a</m> of radius <m>r</m> is <m>\{x \in M \colon d(a,x) \le r\}</m>. The
+        <index><main>sra@<m>S_r(a)</m> (sphere or radius <m>r</m> about<nbsp /><m>a</m>)</main></index>
+        <index><main>sphere</main></index><term>sphere</term> <m>S_r(a)</m> about <m>a</m> of radius <m>r</m> is <m>\{x \in M \colon d(a,x) = r\}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space, <m>a \in M</m>, and <m>r > 0</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Give an example to show that the closed ball about <m>a</m> of radius <m>r</m> need not be the
+              same as the closure of the open ball about <m>a</m> of radius <m>r</m>.  That is, the sets <m>C_r(a)</m> and
+              <m>\clo{B_r(a)}</m> may differ.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that every closed ball in <m>M</m> is a closed subset of<nbsp /><m>M</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show that every sphere in <m>M</m> is a closed subset of<nbsp /><m>M</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        In a metric space the closure of a set <m>A</m> is the smallest closed set
+        containing <m>A</m>. \mbox{(Precisely:} <m>\clo A</m> is the intersection of the family of all closed
+        sets which contain <m>A</m>.\mbox{)}
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> is a subset of a metric space, then its boundary <m>\partial A</m> is equal
+        to<nbsp /><m>\clo A \setminus \intr A</m>. Thus <m>\partial A</m> is closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of a metric space <m>M</m>. If <m>A</m> is closed in <m>M</m> or if it is
+        open in <m>M</m>, then <m>\intr{(\partial A)} = \emptyset</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example of a subset <m>A</m> of the metric space <m>\R</m> the interior of whose
+        boundary is all of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A \subseteq B \subseteq M</m> where <m>M</m> is a metric space. We say that <m>A</m> is
+        <index><main>dense</main></index><term>dense</term> in <m>B</m> if <m>\clo A \supseteq B</m>. Thus, in particular, <m>A</m> is dense in the space <m>M</m>
+        if<nbsp /><m>\clo A = M</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The rational numbers are dense in the reals; so are the irrationals.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      That <m>\clo Q = \R</m> was proved in <xref ref="q_dense"></xref>. The proof that <m>\clo{Q^c} = \R</m>
+      is similar.
+    </p>
+  </proof>
+
+  <p>
+    The following proposition gives a useful and easily applied criterion for determining when a
+    set is dense in a metric space.
+  </p>
+
+  <proposition xml:id="cnd_dns">
+    <statement>
+      <p>
+        A subset <m>D</m> of a metric space <m>M</m> is dense in <m>M</m> if and only if
+        every open ball contains a point of<nbsp /><m>D</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cnd_dns">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space. Prove the following.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A \subseteq M</m> and <m>\open UM</m>, then <m>U \cap \clo A \subseteq \clo{U \cap A}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>D</m> is dense in <m>M</m> and <m>\open UM</m>, then <m>U \subseteq \clo{U \cap D}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>A \subseteq B \subseteq C \subseteq M</m> where <m>M</m> is a metric space. If <m>A</m>
+        is dense in <m>B</m> and <m>B</m> is dense in <m>C</m>, then <m>A</m> is dense in<nbsp /><m>C</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

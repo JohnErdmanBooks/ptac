@@ -1,0 +1,40 @@
+
+<section xml:id="restr_quan">
+  <title>Restricted quantifiers</title>
+  <p>
+    Now that we have the logical connectives
+    <m>\Rightarrow</m> and <m>\land</m> at our disposal, it is possible to introduce restricted quantifiers
+    formally in terms of unrestricted ones. This enables one to obtain properties of the former
+    from corresponding facts about the latter.
+  </p>
+
+  <p>
+    (See <xref ref="exer_ueq">exercise</xref> and <xref ref="prob_ord_restr_quan">problems</xref>
+    and <xref ref="prob_neg_restr_quan"></xref>.)
+  </p>
+
+  <definition>
+    <title>of restricted quantifiers</title>
+    <statement>
+      <p>
+        <index><main>restricted quantifiers</main></index>Let <m>S</m> be a set and <m>P(x)</m> be an open sentence. We define <m>(\forall x \in S)\,P(x)</m> to be
+        true if and only if <m>(\forall x)\,\bigl((x \in S) \Rightarrow P(x)\bigr)</m> is true; and we
+        define <m>(\exists x \in S)\,P(x)</m> to be true if and only if <m>(\exists x)\, \bigl((x \in S)
+        \land P(x)\bigr)</m> is true.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_ueq">
+    <statement>
+      <p>
+        Use the preceding definition and the fact (mentioned in
+        <xref ref="quan">chapter</xref>) that the order of unrestricted existential quantifiers does not matter to
+        show that the order of restricted existential quantifiers does not matter. That is, show that
+        if <m>S</m> and <m>T</m> are sets and <m>P(x,y)</m> is an open sentence, then <m>(\exists x \in S)\,(\exists y
+        \in T)\, P(x,y)</m> holds if and only if <m>(\exists y \in T)\,(\exists x \in S)\, P(x,y)</m> does.
+        (<xref ref="sol_exer_ueq">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+</section>

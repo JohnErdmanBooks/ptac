@@ -1,0 +1,17 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="fpt">
+  <title>Applications of a fixed point theorem</title>
+  <introduction>
+    <p>
+      We now have enough information about metric spaces to consider some interesting applications. We
+      will first prove a result known as the <em>contractive mapping theorem</em> and then use it to find
+      solutions to systems of simultaneous linear equations and to certain integral equations. Since
+      this chapter contains mostly examples, we will make liberal use of computations from beginning
+      calculus. Although it would perhaps be more logical to defer these matters until we have developed
+      the necessary facts concerning integrals, derivatives, and power series, there is nevertheless much
+      to be said for presenting some nontrivial applications relatively early.
+    </p>
+  </introduction>
+  <xi:include  href="section19-1.mbx" />
+  <xi:include  href="section19-2.mbx" />
+</chapter>

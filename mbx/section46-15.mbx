@@ -1,0 +1,29 @@
+
+<section>
+  <title>Exercises in Chapter 15</title>
+  <solution xml:id="sol_mtc">
+    <p>
+      (Solution to <xref ref="mtc"></xref>)
+      Suppose that <m>A</m> is compact. Let <m>\sfml V</m> be a family of open subsets of <m>M</m> which
+      covers<nbsp /><m>A</m>. Then
+      <me>
+        \sfml U := \{V \cap A \colon  V \in \sfml V\}
+      </me>
+      is a family of open subsets of <m>A</m> which covers<nbsp /><m>A</m>. Since <m>A</m> is compact we may choose
+      a subfamily <m>\{U_1, \dots ,U_n\} \subseteq \sfml U</m> which covers <m>A</m>. For <m>1 \le k \le n</m>
+      choose <m>V_k \in \sfml V</m> so that <m>U_k = V_k \cap A</m>. Then <m>\{V_1, \dots, V_n\}</m> is a
+      finite subfamily of <m>\sfml V</m> which covers<nbsp /><m>A</m>.
+    </p>
+
+    <p>
+      Conversely, Suppose every cover of <m>A</m> by open subsets of <m>M</m> has a finite subcover. Let
+      <m>\sfml U</m> be a family of open subsets of <m>A</m> which covers <m>A</m>. According to
+      <xref ref="open_in_subsp">proposition</xref> there is for each <m>U</m> in <m>\sfml U</m> a set <m>V_U</m> open in
+      <m>M</m> such that <m>U = V_U \cap A</m>. Let <m>\sfml V</m> be <m>\{V_U \colon U \in \sfml U\}</m>. This is
+      a cover for <m>A</m> by open subsets of<nbsp /><m>M</m>. By hypothesis there is a finite subfamily <m>\{V_1,
+      \dots, V_n\}</m> of <m>\sfml V</m> which covers <m>A</m>. For <m>1 \le k \le n</m> let <m>U_k = V_k \cap A</m>.
+      Then <m>\{U_1, \dots, U_n\}</m> is a finite subfamily of <m>\sfml U</m> which covers <m>A</m>. Thus <m>A</m>
+      is compact.
+    </p>
+  </solution>
+</section>

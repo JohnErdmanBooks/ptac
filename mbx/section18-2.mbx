@@ -1,0 +1,217 @@
+
+<section>
+  <title>Completeness</title>
+  <definition>
+    <statement>
+      <p>
+        A metric space <m>M</m> is
+        <index><main>complete</main></index><term>complete</term> if every Cauchy sequence in <m>M</m> converges to a point of<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="r_compl">
+    <statement>
+      <p>
+        The metric space <m>\R</m> is complete.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>(x_n)</m> be a Cauchy sequence in<nbsp /><m>\R</m>. By <xref ref="cau_bdd">proposition</xref>
+      the sequence <m>(x_n)</m> is bounded; by <xref ref="bdd_convss">corollary</xref> it has a convergent
+      subsequence; and so by <xref ref="cs_css">proposition</xref> it converges.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        If <m>(x_n)</m> and <m>(y_n)</m> are Cauchy sequences in a metric space, then
+        <m>\left(d\bigl(x_n,y_n\bigr)\right)_{n=1}^\infty</m> is a Cauchy sequence in<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="ms_ineq">Proposition</xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\Q</m> of rational numbers (regarded as a subspace of <m>\R</m>) is not complete.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_cpt_impl_cmpl">
+    <statement>
+      <p>
+        Every compact metric space is complete.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="cpt_scpt">Theorem</xref> and
+      <xref ref="cs_css">proposition</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space with the discrete metric.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Which sequences in <m>M</m> are Cauchy?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that <m>M</m> is complete.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that completeness is not a topological property.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_clss_ms">
+    <statement>
+      <p>
+        Let <m>M</m> be a complete metric space and <m>M_0</m> be a subspace
+        of<nbsp /><m>M</m>. Then <m>M_0</m> is complete if and only if it is a closed subset of<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prod_compl">
+    <statement>
+      <p>
+        The product of two complete metric spaces is complete.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prod_compl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="eq_compl">
+    <statement>
+      <p>
+        If <m>d</m> and <m>\rho</m> are strongly equivalent metrics on a
+        set<nbsp /><m>M</m>, then the space <m>(M,d)</m> is complete if and only if <m>(M,\rho)</m> is.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_eq_compl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="Rn_compl">
+    <statement>
+      <p>
+        With its usual metric the space <m>\R^n</m>
+        is complete.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Since <m>\R</m> is complete <xref ref="r_compl" />, <xref ref="prod_compl">proposition</xref> and
+      induction show that <m>\R^n</m> is complete under the metric <m>d_1</m> (defined in <xref ref="taxicab"></xref>).
+      Since the usual metric is strongly equivalent to <m>d_1</m>, we may conclude from
+      <xref ref="eq_compl">proposition</xref> that <m>\R^n</m> is complete under its usual metric.
+    </p>
+  </proof>
+
+  <p>
+    Here is one more example of a complete metric space.
+  </p>
+
+  <example xml:id="bdd_compl">
+    <statement>
+      <p>
+        If <m>S</m> is a set, then the metric space <m>\fml B(S,\R)</m> is complete.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_bdd_compl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="CMR_cmpl">
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space, then <m>\fml C(M,\R)</m> is a
+        complete metric space.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give examples of metric spaces <m>M</m> and <m>N</m>, a homeomorphism <m>f \colon M \sto N</m>,
+        and a Cauchy sequence <m>(x_n)</m> in <m>M</m> such that the sequence <m>\bigl(f(x_n)\bigr)</m> is <em>not</em>
+        Cauchy in<nbsp /><m>N</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>D</m> is a dense subset of a metric space <m>M</m> and every Cauchy sequence
+        in <m>D</m> converges to a point of<nbsp /><m>M</m>, then <m>M</m> is complete.
+      </p>
+    </statement>
+  </problem>
+</section>

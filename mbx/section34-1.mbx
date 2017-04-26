@@ -1,0 +1,102 @@
+
+<section>
+  <title>Proving theorems</title>
+  <p>
+    Mathematical results are called <em>theorems</em><mdash />or <em>propositions</em>, or <em>lemmas</em>, or
+    <em>corollaries</em>, or <em>examples</em>. All these are intended to be mathematical facts. The
+    different words reflect only a difference of emphasis. Theorems are more important than
+    propositions. A lemma is a result made use of in a (usually more important) subsequent
+    result. The German word for lemma is particularly suggestive: <q>Hilfsatz,</q> meaning <q>helping
+    statement.</q> A corollary (to a theorem or proposition) is an additional result we get
+    (almost) for free. All these results are typically packaged in the form, <q>If <m>P</m>, then
+    <m>Q</m>.</q> The assertion <m>P</m> is the <em>hypothesis</em> (or <em>premise</em>, or <em>assumption</em>,
+    or <em>supposition</em>). The assertion <m>Q</m> is the <em>conclusion</em>. Notice that the result
+    <q>Every object of type <m>A</m> is of type <m>B</m></q> is in this form. It can be rephrased as, <q>If <m>x</m>
+    is an object of type <m>A</m>, then <m>x</m> is of type<nbsp /><m>B</m>.</q>
+  </p>
+
+  <p>
+    The statements, <m>P</m> and <m>Q</m> themselves may be complicated conjunctions, or disjunctions,
+    or conditionals of simpler statements. One common type of theorem, for example, is, <q>If
+    <m>P_1</m>, <m>P_2</m>, <ellipsis />, and <m>P_m</m>, then <m>Q_1</m>, <m>Q_2</m>, <ellipsis />, and<nbsp /><m>Q_n</m>.</q> (Personally, I
+    think such a theorem is clumsily stated if <m>m</m> and <m>n</m> turn out to be large.)
+  </p>
+
+  <p>
+    A
+    <index><main>proofs</main></index><em>proof</em> of a result is a sequence of statements, each with justification, which leads to
+    the conclusion(s) of the desired result. The statements that constitute a proof may be
+    definitions, or hypotheses, or statements which result from applying to previous steps of the
+    proof a valid
+    <index><main>rule of inference</main></index>rule of inference.
+    <index><main>modus ponens</main></index><em>Modus ponens</em> is the basic rule of inference. It says that if you know a proposition
+    <m>P</m> and you also know that <m>P</m> implies <m>Q</m>, then you can conclude that <m>Q</m> is true. Another
+    important rule of inference (sometimes called <em>universal instantiation</em>) is that if you
+    know a proposition <m>P(x)</m> to be true for every <m>x</m> in a set <m>S</m> and you know that <m>a</m> is a
+    member of <m>S</m>, then you can conclude that <m>P(a)</m> is true.
+  </p>
+
+  <p>
+    Other rules of inference can be derived from <em>modus ponens</em>. Let's look at an
+    example. Certainly, if we know that the proposition <m>P \land Q</m> is true we should be able
+    to conclude that <m>P</m> is true. The reason is simple we know (or can easily check) that
+    <men xml:id="eqn_rul_inf" >
+      (P \land Q) \Rightarrow P
+    </men>
+    is a tautology (true for all truth values of <m>P</m> and <m>Q</m>). Since <m>P \land Q</m> is known to be
+    true, <m>P</m> follows from<nbsp /><xref ref="eqn_rul_inf" /> by <em>modus ponens</em>. No attempt is made here to
+    list every rule of inference that it is appropriate to use. Most of them should be entirely
+    obvious. For those that are not, truth tables may help. (As an example consider
+    <xref ref="prob_zero_prod">problem</xref>: If the product of two numbers <m>x</m> and <m>y</m> is zero, then either
+    <m>x</m> or <m>y</m> must be zero. Some students feel obligated to prove two things: that if <m>xy=0</m> and
+    <m>x \neq 0</m> then <m>y=0</m> <em>AND</em> that if <m>xy=0</m> and <m>y \neq 0</m> then <m>x=0</m>. Examination of
+    truth tables shows that this is not necessary.)
+  </p>
+
+  <p>
+    A proof in which you start with the hypotheses and reason until you reach the conclusion is a
+    <index><main>direct proof</main></index>
+    <index><main>proof</main><sub>direct</sub></index><em>direct proof</em>. There are two other proof formats, which are known as
+    <index><main>indirect proof</main></index>
+    <index><main>proof</main><sub>indirect</sub></index><em>indirect proofs</em>. The first comes about by observing that the proposition <m>\sim Q
+    \Rightarrow \sim P</m> is logically equivalent to <m>P \Rightarrow Q</m>. (We say that <m>\sim Q
+    \Rightarrow \sim P</m> is the
+    <index><main>contrapositive</main></index><em>contrapositive</em> of <m>P \Rightarrow Q</m>.) To prove that <m>P</m> implies <m>Q</m>, it suffices to
+    assume that <m>Q</m> is false and prove, using this assumption that <m>P</m> is false. Some find it odd
+    that to prove something is true one starts by assuming it to be false. A slight variant of
+    this is the
+    <index><main>proof</main><sub>by contradiction</sub></index>
+    <index><main>contradiction, proof by</main></index><em>proof by contradiction</em>. Here, to prove that <m>P</m> implies <m>Q</m>, assume two things: that
+    <m>P</m> is true and that <m>Q</m> is false. Then attempt to show that these lead to a contradiction.
+    We like to believe that the mathematical system we work in is consistent (although we know we
+    can't prove it), so when an assumption leads us to a contradiction we reject it. Thus in a
+    proof by contradiction when we find that <m>P</m> and <m>\sim Q</m> can't both be true, we conclude that
+    if <m>P</m> is true <m>Q</m> must also be true.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that in an inconsistent system, everything is true. That is, prove that if
+        <m>P</m> and <m>Q</m> are propositions and that if both <m>P</m> and <m>\sim P</m> are true, then <m>Q</m> is true.
+        <em>Hint.</em> Consider the proposition <m>(P \land \sim P) \Rightarrow Q</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        What is wrong with the following proof that <m>1</m> is the largest natural number.
+      </p>
+
+      <blockquote>
+      Let <m>N</m> be the largest natural number.  Since <m>N</m> is a natural number so is<nbsp /><m>N^2</m>.  We see
+      that <m>N^2 = N \cdot N \ge N \cdot 1 = N</m>.  Clearly the reverse inequality <m>N^2 \le N</m> holds
+      because <m>N</m> is the largest natural number.  Thus <m>N^2 = N</m>.  This equation has only two
+      solutions: <m>N=0</m> and <m>N=1</m>.  Since <m>0</m> is not a natural number, we have <m>N=1</m>.  That is, <m>1</m>
+      is the largest natural number.
+      </blockquote>
+    </statement>
+  </problem>
+</section>

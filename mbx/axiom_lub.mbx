@@ -1,0 +1,186 @@
+
+<section xml:id="axiom_lub">
+  <title>The least upper bound axiom for <m>\R</m></title>
+  <p>
+    We now state our last assumption concerning the set <m>\R</m> of real numbers. This is the
+    <index><main>least</main><sub>upper bound!axiom</sub></index>
+    <index><main>axiom</main><sub>least upper bound</sub></index><em>least upper bound</em> (or
+    <index><main>order completeness axiom</main></index>
+    <index><main>axiom</main><sub>order completeness</sub></index><em>order completeness</em>) <em>axiom</em>.
+  </p>
+
+  <p>
+    \begin{ax}[VII] Every nonempty set of real numbers which is bounded above has
+    a least upper bound.
+    \end{ax}
+  </p>
+
+  <notation>
+
+  <p>
+    If <m>A</m> and <m>B</m> are subsets of <m>\R</m> and <m>\alpha \in \R</m>, then
+    <md>
+      <mrow>A + B \amp := \{a + b \colon a \in A \text{ and } b \in B\},</mrow>
+      <mrow>AB \amp := \{ab \colon a \in A \text{ and } b \in B\},</mrow>
+      <mrow>\alpha B \amp := \{\alpha\}B = \{\alpha b \colon b \in B\}, \text{ and }</mrow>
+      <mrow>-A \amp := (-1) A = \{-a \colon a \in A\}.</mrow>
+    </md>
+  </p>
+
+  </notation>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> is a nonempty subset of <m>\R</m> which is bounded below, then <m>A</m> has a greatest
+        lower bound. In fact,
+        <me>
+          \inf A  =  -\sup(-A)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>b</m> be a lower bound for <m>A</m>. Then since <m>b \le a</m> for every <m>a \in A</m>, we see
+      that <m>-b \ge -a</m> for every <m>a \in A</m>. This says that <m>-b</m> is an upper bound for the set <m>-A</m>.
+      By the <em>least upper bound axiom</em><nbsp /><xref ref="axiom_lub" /> the set <m>-A</m> has a least upper bound,
+      say <m>\ell</m>. We show that <m>-\ell</m> is the greatest lower bound for <m>A</m>. Certainly it is a lower
+      bound [<m>\ell \ge -a</m> for all <m>a \in A</m> implies <m>-\ell \le a</m> for all <m>a \in A</m>].
+    </p>
+
+    <p>
+      Again letting <m>b</m> be an arbitrary lower bound for <m>A</m>, we see, as above, that <m>-b</m> is an upper
+      bound for <m>-A</m>. Now <m>\ell \le -b</m>, since <m>\ell</m> is the least upper bound for <m>-A</m>. Thus
+      <m>-\ell \ge b</m>. We have shown
+      <me>
+        \inf A = -\ell = -\sup(-A)\,.
+      </me>
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>A</m> is a nonempty set of real numbers which is bounded above, then
+        <me>
+          \sup A  = -\inf(-A)\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      If <m>A</m> is bounded above, then <m>-A</m> is bounded below. By the preceding proposition
+      <m>\inf (-A) = -\sup A</m>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>\emptyset \ne A \subseteq B \subseteq \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>B</m> is bounded above, so is <m>A</m> and <m>\sup A \le \sup B</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>B</m> is bounded below, so is <m>A</m> and <m>\inf A \ge \inf B</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are nonempty subsets of <m>\R</m> which are bounded above, then
+        <m>A + B</m> is bounded above and
+        <me>
+          \sup (A + B) = \sup A + \sup B\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> It is easy to show that if <m>\ell</m> is the least upper bound
+      for <m>A</m> and <m>m</m> is the least upper bound for <m>B</m>, then <m>\ell + m</m> is <em>an</em> upper bound for
+      <m>A + B</m>.
+    </p>
+
+    <p>
+      One way to show that <m>\ell + m</m> is the <em>least</em> upper bound for <m>A + B</m>, is to argue
+      by contradiction. Suppose there exists an upper bound <m>u</m> for <m>A + B</m> which is strictly
+      less than <m>\ell + m</m>. Find numbers <m>a</m> in <m>A</m> and <m>b</m> in <m>B</m> which are close enough to
+      <m>\ell</m> and <m>m</m>, respectively, so that their sum exceeds <m>u</m>.
+    </p>
+
+    <p>
+      An even nicer proof results from taking <m>u</m> to be an arbitrary upper bound for <m>A + B</m>
+      and proving directly that <m>\ell + m \le u</m>. Start by observing that <m>u - b</m> is an upper
+      bound for <m>A</m> for every <m>b \in B</m>, and consequently <m>l \le u - b</m> for every <m>b \in B</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_sup_prod">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are nonempty subsets of <m>[0,\infty)</m> which are
+        bounded above, then the set <m>AB</m> is bounded above and
+        <me>
+          \sup(AB) = (\sup A)(\sup B)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> The result is trivial if <m>A = \{0\}</m> or if <m>B = \{0\}</m>.
+      So suppose that both <m>A</m> and <m>B</m> contain elements strictly greater than<nbsp /><m>0</m>, in which case
+      <m>\ell := \sup A > 0</m> and <m>m := \sup B > 0</m>. Show that the set <m>AB</m> is bounded above. (If <m>x
+      \in AB</m>, there exist <m>a \in A</m> and <m>b \in B</m> such that <m>x = ab</m>.) Then <m>AB</m> has a least upper
+      bound, say<nbsp /><m>c</m>. To show that <m>\ell m \le c</m>, assume to the contrary that <m>c \lt  \ell m</m>. Let
+      <m>\epsilon = \ell m - c</m>. Since <m>\ell</m> is the least upper bound for <m>A</m>, we may choose <m>a \in
+      A</m> so that <m>a > \ell - \epsilon (2m)^{-1}</m>. Having chosen this <m>a</m>, explain how to choose <m>b
+      \in B</m> so that <m>ab > \ell m - \epsilon</m>. (<xref ref="sol_prop_sup_prod">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>B</m> is a nonempty subset of <m>[0,\infty)</m> which is bounded above and if
+        <m>\alpha \ge 0</m>, then <m>\alpha B</m> is bounded above and
+        <me>
+          \sup (\alpha B) = \alpha \sup B\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> This is a <em>very</em> easy consequence of one of the
+      previous propositions.
+    </p>
+  </proof>
+</section>

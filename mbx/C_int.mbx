@@ -1,0 +1,20 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="C_int">
+  <title>The cauchy integral</title>
+  <introduction>
+    <p>
+      In this chapter we develop a theory of integration for vector valued functions. In one way
+      our integral, the Cauchy integral, will be more general and in another way slightly less
+      general than the classical Riemann integral, which is presented in beginning calculus. The
+      Riemann integral is problematic: the derivation of its properties is considerably more
+      complicated than the corresponding derivation for the Cauchy integral. But very little added
+      generality is obtained as a reward for the extra work. On the other hand the Riemann integral
+      is not nearly general enough for advanced work in analysis; there the full power of the
+      Lebesgue integral is needed. Before starting our discussion of integration we derive some
+      standard facts concerning uniform continuity.
+    </p>
+  </introduction>
+  <xi:include  href="section24-1.mbx" />
+  <xi:include  href="section24-2.mbx" />
+  <xi:include  href="Cauchy_int.mbx" />
+</chapter>

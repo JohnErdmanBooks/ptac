@@ -1,0 +1,183 @@
+
+<section>
+  <title>Pointwise convergence</title>
+  <p>
+    Sequences of functions may converge in many different and interesting ways. Another mode of
+    convergence that is frequently encountered is <q>pointwise convergence</q>.
+  </p>
+
+  <definition xml:id="def_pc_R">
+    <statement>
+      <p>
+        Let <m>(f_n)</m> be a sequence of real valued functions on a nonempty
+        set<nbsp /><m>S</m>. If there is a function <m>g</m> such that
+        <me>
+          f_n(x) \sto g(x) \qquad\text{ for all \(x \in S\) }
+        </me>
+        then <m>(f_n)</m>
+        <index><main>pointwise</main><sub>convergence</sub></index>
+        <index><main>convergence</main><sub>pointwise</sub></index><term>converges pointwise</term> to<nbsp /><m>g</m>. In this case we write
+        <index><main><@<m>f_n \sto g \text{ (ptws) }</m> (pointwise convergence)</main></index>
+        <me>
+          f_n \sto g \text{ (ptws) }  \,.
+        </me>
+      </p>
+
+      <p>
+        The function <m>g</m> is the
+        <index><main>pointwise</main><sub>limit</sub></index>
+        <index><main>limit</main><sub>pointwise</sub></index><term>pointwise limit</term> of the sequence<nbsp /><m>f_n</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In the following proposition we make the important, if elementary, observation that uniform
+    convergence is stronger than pointwise convergence.
+  </p>
+
+  <proposition xml:id="uc_vs_pwc">
+    <statement>
+      <p>
+        Uniform convergence implies pointwise convergence, but not conversely.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_uc_vs_pwc">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Find an example of a sequence <m>(f_n)</m> of functions in <m>\fml B([0,1])</m> which
+        converges pointwise to the zero function <m>\vc 0</m> but satisfies
+        <me>
+          d_u(f_n,\vc 0) \sto \infty \qquad \text{ as \(n \sto \infty\) } \,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Next we show that the uniform limit of a sequence of bounded functions is itself bounded.
+  </p>
+
+  <proposition xml:id="unif_lim_bdd">
+    <statement>
+      <p>
+        Let <m>(f_n)</m> be a sequence in <m>\fml B(S)</m> and <m>g</m> be a
+        real valued function on<nbsp /><m>S</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>f_n \sto g \text{ (unif) }</m>, then <m>g \in \fml B(S)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The assertion in (a) does not hold if uniform convergence is replaced by
+              pointwise convergence.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_unif_lim_bdd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="uc_exer3">
+    <statement>
+      <p>
+        Let <m>f_n(x) = x^n - x^{2n}</m> for <m>0 \le x \le 1</m> and <m>n \in \N</m>.
+        Does the sequence <m>(f_n)</m> converge pointwise on <m>[0,1]</m>? Is the convergence uniform?
+        (<xref ref="sol_uc_exer3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Given in each of the following is the <m>n^{\text{ th } }</m> term of a sequence of
+        real valued functions defined on<nbsp /><m>[0,1]</m>. Which of these converge pointwise on<nbsp /><m>[0,1]</m>? For
+        which is the convergence uniform?
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>x \mapsto x^n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>x \mapsto nx</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>x \mapsto xe^{-nx}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Given in each of the following is the <m>n^{\text{ th } }</m> term of a sequence of real
+        valued functions defined on <m>[0,1]</m>. Which of these converge pointwise on <m>[0,1]</m>? For which
+        is the convergence uniform?
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>x \mapsto \dfrac1{\mathstrut nx+1}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>x \mapsto \dfrac{\mathstrut x}{\mathstrut nx+1}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>x \mapsto \dfrac{\mathstrut x^2}n - \dfrac{\mathstrut x}{n^2}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f_n(x) = \dfrac{(n-1)x + x^2}{\mathstrut n + x}</m> for all <m>x \ge 1</m> and
+        <m>n \in \N</m>. Does the sequence <m>(f_n)</m> have a pointwise limit on <m>\mathstrut [1,\infty)</m>? A
+        uniform limit?
+      </p>
+    </statement>
+  </problem>
+</section>

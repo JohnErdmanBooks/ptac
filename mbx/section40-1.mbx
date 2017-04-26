@@ -1,0 +1,172 @@
+
+<section>
+  <title>Cartesian products</title>
+  <p>
+    Ordered pairs are familiar objects. They are used among other
+    things for coordinates of points in the plane. In the first sentence of <xref ref="sets">chapter</xref> it
+    was promised that all subsequent mathematical objects would be defined in terms of sets. So
+    here just for the record is a formal definition of <q>ordered pair</q>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>x</m> and <m>y</m> be elements of arbitrary sets. Then the
+        <index><main><@<m>(x,y)</m> (ordered pair)</main></index>
+        <index><main>ordered</main><sub>pair</sub></index><term>ordered pair</term> <m>(x,y)</m> is defined to be <m>\{\{x,y\},\{x\}\}</m>. This definition reflects our
+        intuitive attitude: an ordered pair is a set <m>\{x,y\}</m> with one of the elements, here <m>x</m>,
+        designated as being <q>first</q>. Thus we specify two things: <m>\{x,y\}</m> and<nbsp /><m>\{x\}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Ordered pairs have only one interesting property: two of them are equal if and only if both
+    their first coordinates and their second coordinates are equal. As you will discover by
+    proving the next proposition, this fact follows easily from the definition.
+  </p>
+
+  <proposition xml:id="lex1">
+    <statement>
+      <p>
+        Let <m>x</m>, <m>y</m>, <m>u</m>, and <m>v</m> be elements of arbitrary sets. Then
+        <m>(x,y) = (u,v)</m> if and only if <m>x = u</m> and <m>y = v</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Do not assume that the set <m>\{x,y\}</m> has two elements.
+      If <m>x = y</m>, then <m>\{x,y\}</m> has only one element. (<xref ref="sol_lex1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Asked to define an <q>ordered triple</q>, one might be tempted to try a definition
+        analogous to the definition of ordered pairs: let <m>(a,b,c)</m> be <m>\{\{a,b,c\},\{a,b\},\{a\}\}</m>.
+        This appears to specify the entries, to pick out a <q>first</q> element, and to identify the
+        <q>first two</q> elements. Explain why this won't work. (<xref ref="triple">See</xref> for a definition that
+        does work.)
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. The
+        <index><main><@<times /> (Cartesian product)</main></index>
+        <index><main>product</main><sub>Cartesian</sub></index><term>Cartesian product</term> of <m>S</m> and <m>T</m>, denoted by <m>S \times T</m>, is defined to be
+        <m>\{(x,y)\colon x \in S \text{ and }  y \in T\}</m>. The set <m>S \times S</m> is often denoted
+        by<nbsp /><m>S^2</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = \{1,x\}</m> and <m>T = \{x,y,z\}</m>. Then
+        <me>
+          S \times T = \{(1,x), (1,y), (1,z), (x,x), (x,y), (x,z)\}\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>S = \{0,1,2\}</m> and <m>T = \{1,2,3\}</m>. List all members of
+        <m>(T \times S) \setminus (S \times T)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T</m>, <m>U</m>, and <m>V</m> be sets. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>(S \times T) \cap (U \times V) = (S \cap U) \times (T \cap V)</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(S \times T) \cup (U \times V) \subseteq (S \cup U)
+                      \times (T \cup V)</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              equality need not hold in (b).
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The proofs of (a) and (b) in the preceding problem are not particularly difficult.
+    Nonetheless, before one can write down a proof one must have a conjecture as to what is true.
+    How could we have <em>guessed</em> initially that equality holds in (a) but not in<nbsp />(b)? The
+    answer is, as it frequently is in mathematics, <em>by looking at pictures.</em> Try the
+    following: Make a sketch where <m>S</m> and <m>U</m> are overlapping intervals on the <m>x</m>-axis and <m>T</m>
+    and <m>V</m> are overlapping intervals on the <m>y</m>-axis. Then <m>S \times T</m> and <m>U \times V</m> are
+    overlapping rectangles in the plane. Are not (a) and (b) almost obvious from your sketch?
+  </p>
+
+  <p>
+    We will also have occasion to use ordered <m>n</m>-tuples and <m>n</m>-fold Cartesian products for <m>n</m>
+    greater than<nbsp /><m>2</m>.
+  </p>
+
+  <definition xml:id="triple">
+    <statement>
+      <p>
+        Let <m>n \ge 3</m>. We define
+        <index><main>ordered</main><sub><m>n</m>-tuple</sub></index><term>ordered</term> <m>n</m>-<term>tuples</term> inductively. Suppose ordered <m>(n-1)</m>-tuples
+        <m>\bigl(x_1,\dots,x_{n-1}\bigr)</m> have been defined. Let <m>\bigl(x_1,\dots,x_n\bigr) :=
+        \left(\bigl(x_1,\dots,x_{n-1}\bigr),x_n\right)</m>. An easy inductive proof shows that
+        <m>\bigl(x_1,\dots,x_n\bigr) = \bigl(y_1,\dots,y_n\bigr)</m> if and only if <m>x_k = y_k</m> for <m>k = 1,
+        \dots, n</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>S_1,\dots,S_n</m> are sets, we define the
+        <index><main>Cartesian product</main></index>
+        <index><main>product</main><sub>Cartesian</sub></index>
+        <index><main><@<m>S_1 \times \dots \times S_n</m> (<m>n</m>-fold Cartesian product)</main></index><term>Cartesian product</term> <m>S_1 \times \dots \times S_n</m> to be the set of all ordered
+        <index><main><@<m>(x_1,x_2,\dots,x_n)</m> (<m>n</m>-tuples)</main></index>
+        <index><main>ntuple@<m>n</m>-tuple</main></index><m>n</m>-tuples <m>\bigl(x_1,\dots,x_n)</m> where <m>x_k \in S_k</m> for <m>1 \le k \le n</m>. We write
+        <index><main><@<m>S^n</m> (<m>n</m>-fold Cartesian product)</main></index><m>S^n</m> for <m>S \times \dots \times S</m> (<m>n</m> factors).
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The <m>n</m>-fold Cartesian product of the set <m>\R</m> of real numbers is the set
+        <index><main><@<m>\R^n</m> (<m>n</m>-space)</main></index>
+        <index><main>realnumberss@<m>\R^n</m> (<m>n</m>-space)</main></index>
+        <index><main>nspace@<m>n</m>-space</main></index><m>\R^n</m> of all <m>n</m>-tuples of real numbers and is often called (Euclidean) <m>n</m>-space.
+      </p>
+    </statement>
+  </example>
+</section>

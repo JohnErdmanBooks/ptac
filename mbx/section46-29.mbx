@@ -1,0 +1,280 @@
+
+<section>
+  <title>Exercises in Chapter 29</title>
+  <solution xml:id="sol_exer_not_c1">
+    <p>
+      (Solution to <xref ref="exer_not_c1"></xref>)
+      Let <m>U = V = \R</m> and <m>f(x) = x^3</m> for all <m>x</m> in<nbsp /><m>\R</m>. Although <m>f</m> is continuously
+      differentiable and does have an inverse, it is not <m>\fml C^1</m>-invertible. The inverse function
+      <m>x \mapsto x^{\frac13}</m> is not differentiable at<nbsp /><m>0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_c1_inv">
+    <p>
+      (Solution to <xref ref="exer_c1_inv"></xref>)
+      Set <m>y = x^2 - 6x + 5</m> and solve for <m>x</m> in terms of<nbsp /><m>y</m>. After completing the square and
+      taking square roots we have
+      <me>
+        \abs{x - 3} = \sqrt{y + 4} \,.
+      </me>
+    </p>
+
+    <p>
+      Thus there are two solutions <m>x = 3 + \sqrt{y + 4}</m> and <m>x = 3 - \sqrt{y + 4}</m>. The first of
+      these produces values of <m>x</m> no smaller than <m>3</m> and the second produces values no larger
+      than<nbsp /><m>3</m>. Thus for <m>x=1</m> we choose the latter. A local <m>\fml C^1</m>-inverse of <m>f</m> is given on
+      the interval <m>f^{\sto}(0,2) = (-3,5)</m> by
+      <me>
+        \locinv f(y) = 3 - \sqrt{y+4} \,.    \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_der_finv">
+    <p>
+      (Solution to <xref ref="exer_der_finv"></xref>)
+      In order to apply the chain rule to the composite function <m>\locinv f \circ f</m> we need to know
+      that <em>both</em> <m>f</m> and <m>\locinv f</m> are differentiable. But differentiability of <m>\locinv f</m>
+      was not a hypothesis. Indeed, the major difficulty in proving the <em>inverse function
+      theorem</em> is showing that a local <m>\fml C^1</m>-inverse of a <m>\fml C^1</m>-function is in fact
+      differentiable (at points where its differential does not vanish). Once that is known, the
+      argument presented in <xref ref="exer_der_finv"></xref> correctly derives the formula for <m>D\locinv f(b)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_xmpl_ift_12">
+    <p>
+      (Solution to <xref ref="xmpl_ift_12"></xref>)
+      Let <m>f(x,y) = x^2y + \sin(\frac{\pi}2 xy^2) - 2</m> for all <m>x</m> and <m>y</m> in<nbsp /><m>\R</m>.
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            There exist a neighborhood <m>V</m> of <m>1</m> and a function <m>h \colon V \sto \R</m>
+            which satisfy
+            <md>
+              <mrow>{2}
+                     \amp \text{ (i) }   \amp \amp  h(1) = 2; \text{ and }</mrow>
+              <mrow>\amp \text{ (ii) }  \amp \amp  f(x,h(x)) = 0  \text{ for all \(x\) in \(V\). }</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            Let <m>G(x,y) = (x,f(x,y))</m> for all <m>x,y \in \R</m>. Then <m>G</m> is continuously
+            differentiable and
+            <me>
+              \begin{bmatrix}dG_{(1,2)}
+              \end{bmatrix}  =
+                                  \begin{bmatrix}1   \amp     0  \\
+                                              4 + 2\pi  \amp   1 + 2\pi
+              \end{bmatrix}  \,.
+            </me>
+            Thus <m>dG_{(1,2)}</m> is invertible, so by the <em>inverse function theorem</em> <m>G</m> has a local
+            <m>\fml C^1</m>-inverse, say <m>H</m>, defined on some neighborhood <m>W</m> of <m>(1,0) = G(1,2)</m>. Let <m>V =
+            \{x:(x,0) \in W\}</m> and <m>h(x) = H^2(x,0)</m> for all <m>x</m> in<nbsp /><m>V</m>.  The function <m>h</m> is in <m>\fml
+            C^1</m> because <m>H</m> is. Condition (i) is satisfied by <m>h</m> since
+            <md>
+              <mrow>(1,2) \amp = H(G(1,2))</mrow>
+              <mrow>\amp = H(1,f(1,2))</mrow>
+              <mrow>\amp = H(1,0)</mrow>
+              <mrow>\amp = (H^1(1,0)\,,\,H^2(1,0))</mrow>
+              <mrow>\amp = (H^1(1,0)\,,\,h(1))</mrow>
+            </md>
+            and (ii) holds because
+            <md>
+              <mrow>(x,0) \amp = G(H(x,0))</mrow>
+              <mrow>\amp = G(H^1(x,0)\,,\,H^2(x,0))</mrow>
+              <mrow>\amp = (H^1(x,0)\,,\,f(H^1(x,0),H^2(x,0)))</mrow>
+              <mrow>\amp = (x\,,\,f(x,h(x)))</mrow>
+            </md>
+            for all <m>x</m> in <m>V</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            Let <m>G</m>, <m>H</m>, and <m>h</m> be as in (b). By the <em>inverse function theorem</em>
+            <md>
+              <mrow>\begin{bmatrix}dH_{(1,0)}
+              \end{bmatrix} 
+                                  \amp = \begin{bmatrix}dH_{G(1,2)}
+              \end{bmatrix}</mrow>
+              <mrow>\amp = {\begin{bmatrix}dG_{(1,2)}
+              \end{bmatrix} }^{-1}</mrow>
+              <mrow>\amp = {\begin{bmatrix}
+                                             1     \amp      0</mrow>
+              <mrow>4 + 2\pi  \amp    1 + 2\pi
+                                      \end{bmatrix}}^{-1}</mrow>
+              <mrow>\amp = {\begin{bmatrix}
+                                             1     \amp        0</mrow>
+              <mrow>-\frac{4 + 2\pi}{1 + 2\pi}     \amp    \frac1{1 + 2\pi}
+                                      \end{bmatrix}} \,.</mrow>
+            </md>
+            Then <m>\frac{dy}{dx}</m> at <m>(1,2)</m> is just <m>h'(1)</m> and
+            <me>
+              h'(1) = H^2_1(1,0) = -\frac{4+2\pi}{1+2\pi} \,.   \qedhere
+            </me>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+  <solution xml:id="sol_xmpl_ift_13">
+    <p>
+      (Solution to <xref ref="xmpl_ift_13"></xref>)
+      Let <m>f(x,y,z) = x^2z + yz^2 - 3z^3 - 8</m> for all <m>x</m>, <m>y</m>, <m>z \in \R</m>.
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            There exist a neighborhood <m>V</m> of <m>(3,2)</m> and a function <m>h \colon V \sto \R</m>
+            which satisfy
+            <md>
+              <mrow>{2}
+                    \amp \text{ (i) }   \amp \amp  h(3,2) = 1; \text{ and }</mrow>
+              <mrow>\amp \text{ (ii) }  \amp \amp  f(x,y,h(x,y)) = 0 \text{ for all \(x\), \(y  \in V.\) }</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            Let <m>G(x,y,z) := (x,y,f(x,y,z))</m> for all <m>x</m>, <m>y</m>, <m>z \in \R</m>. Then
+            <me>
+              \begin{bmatrix}dG_{(3,2,1)}
+              \end{bmatrix}  =
+                           \begin{bmatrix}1  \amp   0  \amp   0  \\
+                                            0  \amp   1  \amp   0   \\
+                                            6  \amp   1  \amp   4
+              \end{bmatrix}
+            </me>
+            so <m>dG_{(3,2,1)}</m> is invertible. By the <em>inverse function theorem</em> <m>G</m> has a local <m>\fml
+            C^1</m>-inverse <m>H</m> defined on some neighborhood <m>W</m> of <m>(3,2;0) = G(3,2,1)</m>. Write <m>H =
+            (H^1,H^2)</m> where <m>\ran{H^1} \subseteq \R^2</m> and <m>\ran{H^2} \subseteq \R</m>. Let <m>V = \{(x,y):
+            (x,y,0) \in W\}</m> and <m>h(x,y) = H^2(x,y;0)</m>.  The function <m>h</m> belongs to <m>\fml C^1</m> because
+            <m>H</m> does. Now condition (i) holds because
+            <md>
+              <mrow>(3,2;1) \amp = H(G(3,2;1))</mrow>
+              <mrow>\amp = H(3,2;f(3,2,1))</mrow>
+              <mrow>\amp = H(3,2;0)</mrow>
+              <mrow>\amp = (H^1(3,2;0)\,;\,H^2(3,2;0))</mrow>
+              <mrow>\amp = (H^1(3,2;0)\,;\,h(3,2))</mrow>
+            </md>
+            and condition (ii) follows by equating the third components of the first and last terms of the
+            following computation
+            <md>
+              <mrow>(x,y;0) \amp = G(H(x,y;0))</mrow>
+              <mrow>\amp = G(H^1(x,y;0);H^2(x,y;0))</mrow>
+              <mrow>\amp = (H^1(x,y;0)\,;\,f(H^1(x,y;0);H^2(x,y;0)))</mrow>
+              <mrow>\amp = (x,y\,;\,f(x,y;h(x,y)))\,.</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            We wish to find <m>\cpd zxy</m> and <m>\cpd zyx</m> at <m>(3,2,1)</m>; that is, <m>h_1(3,2)</m> and
+            <m>h_2(3,2)</m>, respectively. The <em>inverse function theorem</em> tells us that
+            <md>
+              <mrow>\begin{bmatrix}dH_{(3,2,0)}
+              \end{bmatrix} 
+                       \amp = \begin{bmatrix}dH_{G(3,2,1)}
+              \end{bmatrix}</mrow>
+              <mrow>\amp = {\begin{bmatrix}dG_{(3,2,1)}
+              \end{bmatrix} }^{-1}</mrow>
+              <mrow>\amp = {\begin{bmatrix}   1  \amp   0  \amp   0</mrow>
+              <mrow>0  \amp   1  \amp   0</mrow>
+              <mrow>6  \amp   1  \amp   4  \end{bmatrix}}^{-1}</mrow>
+              <mrow>\amp = {\begin{bmatrix}   1     \amp      0    \amp     0</mrow>
+              <mrow>0     \amp      1    \amp     0</mrow>
+              <mrow>-\frac32  \amp  -\frac14 \amp   \frac14  \end{bmatrix}}\,.</mrow>
+            </md>
+            Thus at <m>(3,2,1)</m>
+            <me>
+              \cpd zxy = h_1(3,2) = \pd{H^2}x(3,2) = -\frac32
+            </me>
+            and
+            <me>
+              \cpd zyx = h_2(3,2) = \pd{H^2}y(3,2) = -\frac14 \,.   \qedhere
+            </me>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+  <solution xml:id="sol_xmpl_ift_24">
+    <p>
+      (Solution to <xref ref="xmpl_ift_24"></xref>)
+      Let <m>f = (f^1,f^2)</m> where
+      <me>
+        f^1(u,v;x,y) = 2u^3vx^2 + v^2x^3y^2 - 3u^2y^4
+      </me>
+      and
+      <me>
+        f^2(u,v;x,y) = 2uv^2y^2 - uvx^2 + u^3xy - 2\,.
+      </me>
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            There exist a neighborhood <m>V</m> of <m>(a,b)</m> in <m>\R^2</m> and a function
+            <m>h \colon V \sto \R^2</m> which satisfy
+            <md>
+              <mrow>{2}
+                      \amp \text{ (i) }  \amp \amp  h(a,b) = (c,d); \text{ and }</mrow>
+              <mrow>\amp \text{ (ii) }   \amp \amp  f(u,v;h(u,v)) = (0,0) \text{ for all \(u\), \(v \in V.\) }</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            Let <m>G(u,v;x,y) := (u,v;f(u,v;x,y))</m> for all <m>u</m>, <m>v</m>, <m>x</m>, <m>y \in \R</m>.
+            Then <m>G</m> is continuously differentiable and
+            <me>
+              \begin{bmatrix}dG_{(1,1)}
+              \end{bmatrix} 
+                             = \begin{bmatrix}1  \amp   0  \amp   0  \amp   0  \\
+                                                0  \amp   1  \amp   0  \amp   0  \\
+                                                0  \amp   4  \amp   7  \amp  -10 \\
+                                                4  \amp   3  \amp  -1  \amp   3
+              \end{bmatrix}  \,.
+            </me>
+            Since <m>\det \bigl[dG_{(1,1)}\bigr] = 11 \ne 0</m>, we know from the <em>inverse function
+            theorem</em> that <m>G</m> is locally <m>\fml C^1</m>-invertible at <m>(1,1)</m>. That is, there exist a
+            neighborhood <m>W</m> of <m>G(1,1;1,1) = (1,1;0,0)</m> in <m>\R^4</m> and a local <m>\fml C^1</m>-inverse <m>H:W
+            \sto \R^4</m> of<nbsp /><m>G</m>. Write <m>H</m> in terms of its component functions, <m>H = (H^1,H^2)</m> where <m>\ran
+            H^1</m> and <m>\ran H^2</m> are contained in <m>\R^2</m>, and set <m>h(u,v) = H^2(u,v;0,0)</m> for all <m>(u,v)</m>
+            in <m>V := \{(u,v): (u,v;0,0) \in W\}</m>. Then <m>V</m> is a neighborhood of <m>(1,1)</m> in <m>\R^2</m> and the
+            function <m>h</m> is continuously differentiable because <m>H</m> is. We conclude that <m>h(1,1) = (1,1)</m>
+            from the following computation.
+            <md>
+              <mrow>(1,1;1,1) \amp = H(G(1,1;1,1))</mrow>
+              <mrow>\amp = H(1,1;f(1,1;1,1))</mrow>
+              <mrow>\amp = (H^1(1,1;f(1,1;1,1))\,;\,H^2(1,1;f(1,1;1,1)))</mrow>
+              <mrow>\amp = (1,1\,;\,H^2(1,1;0,0))</mrow>
+              <mrow>\amp = (1,1\,;\,h(1,1)) \,.</mrow>
+            </md>
+            And from
+            <md>
+              <mrow>(u,v;0,0) \amp = G(H(u,v;0,0))</mrow>
+              <mrow>\amp = G(H^1(u,v;0,0);H^2(u,v;0,0))</mrow>
+              <mrow>\amp = (H^1(u,v;0,0)\,;\,f(H^1(u,v;0,0);H^2(u,v;0,0)))</mrow>
+              <mrow>\amp = (u,v\,;\,f(u,v;h(u,v)))</mrow>
+            </md>
+            we conclude that (ii) holds; that is,
+            <me>
+              f(u,v;h(u,v)) = (0,0)
+            </me>
+            for all <m>u</m>, <m>v \in V</m>.         \qedhere
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</section>

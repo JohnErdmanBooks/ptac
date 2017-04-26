@@ -1,0 +1,169 @@
+
+<section>
+  <title>Exercises in Chapter 13</title>
+  <solution xml:id="sol_uc_exer1">
+    <p>
+      (Solution to <xref ref="uc_exer1"></xref>)
+      Let <m>C</m> be the set of all functions defined on <m>[0,1]</m> such that <m>0 \lt  g(x) \lt  2</m> for all <m>x \in
+      [0,1]</m>. It is clear that <m>B_1(f) \subseteq C</m>. The reverse inclusion, however, is not
+      correct. For example, let
+      <me>
+        g(x) = \begin{cases}1, \amp \text{ if \(x = 0\) }  \\
+                                  x, \amp \text{ if \(0 \lt  x \le 1\) } .
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Then <m>g</m> belongs to <m>C</m>; but it does <em>not</em> belong to <m>B_1(f)</m> since
+      <me>
+        d_u(f,g) = \sup\{\abs{f(x) - g(x)}: 0 \le x \le 1\} = 1\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_uc_exer2">
+    <p>
+      (Solution to <xref ref="uc_exer2"></xref>)
+      Let <m>f</m>, <m>g</m>, <m>h \in \fml B(S)</m>. There exist positive constants <m>M</m>, <m>N</m>, and <m>P</m> such that
+      <m>\abs{f(x)}\le M</m>, <m>\abs{g(x)}\le N</m>, and <m>\abs{h(x)}\le P</m> for all <m>x</m> in <m>S</m>.
+    </p>
+
+    <p>
+      First show that <m>d_u</m> is real valued. (That is, show that <m>d_u</m> is never infinite.) This is
+      easy:
+      <md>
+        <mrow>d_u(f,g) \amp = \sup\{\abs{f(x) - g(x)} \colon x \in S\}</mrow>
+        <mrow>\amp \le \sup\{\abs{f(x)} + \abs{g(x)} \colon x \in S\}</mrow>
+        <mrow>\amp \le M + N.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Now verify conditions (1)<ndash />(3) of the definition of <q>metric</q> in <xref ref="def_met"></xref>. Condition<nbsp />(1)
+      follows from the observation that
+      <me>
+        \abs{f(x) - g(x)} = \abs{g(x) - f(x)} \qquad\text{ for all \(x \in S\). }
+      </me>
+    </p>
+
+    <p>
+      To establish condition (2) notice that for every <m>x \in S</m>
+      <md>
+        <mrow>\abs{f(x) - h(x)} \amp \le \abs{f(x) - g(x)} + \abs{g(x) - h(x)}</mrow>
+        <mrow>\amp \le d_u(f,g) + d_u(g,h);</mrow>
+      </md>
+      and therefore
+      <me>
+        d_u(f,h) = \sup\{\abs{f(x) - h(x)} \colon x \in S\} \le d_u(f,g) + d_u(g,h)\,.
+      </me>
+    </p>
+
+    <p>
+      Finally, condition (3) holds since
+      <md>
+        <mrow>d_u(f,g) = 0
+               \amp \text{ iff }  \abs{f(x) - g(x)}=0 \qquad\text{ for all \(x \in S\) }</mrow>
+        <mrow>\amp \text{ iff }  f(x) = g(x) \qquad\text{ for all \(x \in S\) }</mrow>
+        <mrow>\amp \text{ iff }  f = g.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_uc_vs_pwc">
+    <p>
+      (Solution to <xref ref="uc_vs_pwc"></xref>)
+      Let <m>(f_n)</m> be a sequence of functions in <m>\fml F(S,\R)</m> and suppose that <m>f_n \sto g
+      \text{ (unif) }</m> in<nbsp /><m>\fml F(S,\R)</m>. Then for every <m>x \in S</m>
+      <me>
+        \abs{f_n(x) - g(x)} \le \sup\{\abs{f_n(y) - g(y)} \colon y \in S\}
+                       \sto 0  \qquad\text{ as \(n \sto \infty\) } .
+      </me>
+    </p>
+
+    <p>
+      Thus <m>f_n \sto g \text{ (ptws) }</m>.
+    </p>
+
+    <p>
+      On the other hand, if we define for each <m>n \in \N</m> a function <m>f_n</m> on <m>\R</m> by
+      <me>
+        f_n(x) = \begin{cases}1, \amp \text{ if \(x \ge n\) }  \\
+                                    0, \amp \text{ if \(x \lt  n\) } ,
+        \end{cases}
+      </me>
+      then it is easy to see that the sequence <m>(f_n)</m> converges pointwise to the zero function <m>\vc
+      0</m>; but since <m>d_u(f_n,\vc 0) = 1</m> for every <m>n</m>, the sequence does not converge uniformly
+      to<nbsp /><m>\vc 0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_unif_lim_bdd">
+    <p>
+      (Solution to <xref ref="unif_lim_bdd"></xref>)
+      (a)Since <m>f_n \sto g \text{ (unif) }</m>, there exists <m>m \in \N</m> such that
+      <me>
+        \abs{f_n(x) - g(x)} \le \sup\{\abs{f_n(y) - g(y)} \colon y \in S\} \lt  1
+      </me>
+      whenever <m>n \ge m</m> and <m>x \in S</m>. Thus, in particular,
+      <me>
+        \abs{g(x)} \le \abs{f_m(x) - g(x)} + \abs{f_m(x)} \lt  1 + K
+      </me>
+      where <m>K</m> is a number satisfying <m>\abs{f_m(x)} \le K</m> for all <m>x \in S</m>.
+    </p>
+
+    <p>
+      (b)Let
+      <me>
+        f_n(x) = \begin{cases}x, \amp \text{if \(\abs{x} \le n\)}  \\
+                                    0, \amp \text{if \(\abs{x} > n\)} 
+        \end{cases}
+      </me>
+      and <m>g(x) = x</m> for all <m>x</m> in<nbsp /><m>\R</m>. Then <m>f_n \sto g \text{ (ptws) }</m>, each <m>f_n</m> is bounded,
+      but <m>g</m> is not.
+    </p>
+  </solution>
+  <solution xml:id="sol_uc_exer3">
+    <p>
+      (Solution to <xref ref="uc_exer3"></xref>)
+      If <m>0 \le x \lt  1</m>, then
+      <me>
+        f_n(x) = x^n - x^{2n} \sto 0 \qquad\text{ as \(n \sto \infty\) } \,.
+      </me>
+    </p>
+
+    <p>
+      This and the obvious fact that <m>f_n(1) = 0</m> for every <m>n</m> tell us that
+      <me>
+        f_n \sto \vc 0 \text{ (ptws) } \,.
+      </me>
+    </p>
+
+    <p>
+      Observe that <m>x^{2n} \le x^n</m> whenever <m>0 \le x \le 1</m> and <m>n \in \N</m>. Thus <m>f_n \ge 0</m> for
+      each <m>n</m>. Use techniques from beginning calculus to find the maximum value of each <m>f_n</m>.
+      Differentiating we see that
+      <me>
+        f_n'(x) = n\,x^{n-1} - 2n\,x^{2n-1} = n\,x^{n-1}(1 - 2x^n)
+      </me>
+      for <m>n > 1</m>. Thus the function <m>f_n</m> has a critical point, in fact assumes a maximum, when <m>1
+      - 2x^n = 0</m>; that is, when <m>x = 2^{-1/n}</m>. But then
+      <me>
+        \sup\{\abs{f_n(x)-0} \colon 0 \le x \le 1\} = f_n(2^{-1/n})
+                                 = \tfrac12 - \tfrac14 = \tfrac14
+      </me>
+      for all <m>n > 1</m>. Since <m>\sup\{\abs{f_n(x) - 0} \colon 0 \le x \le 1\} \nrightarrow 0</m> as <m>n
+      \sto \infty</m>, the convergence is not uniform.
+    </p>
+
+    <p>
+      Is it possible that the sequence <m>f_n</m> converges uniformly to some function <m>g</m> other than the
+      zero function? The answer is <em>no</em>. According to <xref ref="uc_vs_pwc">proposition</xref> if <m>f_n \sto
+      g \ne 0 \text{ (unif) }</m>, then <m>f_n \sto g \text{ (ptws) }</m>. But this contradicts what we
+      have already shown, namely, <m>f_n \sto 0 \text{ (ptws) }</m>.
+    </p>
+
+    <p>
+      Note: Since each of the functions <m>f_n</m> belongs to <m>\fml B([0,1])</m>, it is permissible, and
+      probably desirable, in the preceding proof to replace each occurrence of the rather cumbersome
+      expression <m>\sup\{\abs{f_n(x) - 0} \colon 0 \le x \le 1\}</m> by <m>d_u(f_n,\vc 0)</m>.
+    </p>
+  </solution>
+</section>

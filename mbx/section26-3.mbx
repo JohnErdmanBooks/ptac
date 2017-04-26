@@ -1,0 +1,233 @@
+
+<section>
+  <title>Iterated integrals</title>
+  <p>
+    In the preceding section we considered partial differentiation of functions defined on the
+    product of two or more spaces. In this section we consider the integration of such functions.
+    To take the partial derivative of a function <m>f\colon (x,y) \mapsto f(x,y)</m> with respect to
+    <m>x</m> we hold <m>y</m> fixed and differentiate the function <m>x \mapsto f(x,y)</m>. Partial integration
+    works in very much the same way. If <m>f</m> is a continuous function mapping a rectangular subset
+    <m>[a,b]\times [c,d]</m> of <m>\R^2</m> into a Banach space <m>E</m>, we may, for each fixed <m>y</m> in <m>[c,d]</m>,
+    integrate the function <m>x \mapsto f(x,y)</m> over the interval <m>[a,b]</m>. (This function is
+    continuous since it is the composite of the continuous functions <m>x \mapsto (x,y)</m> and<nbsp /><m>f</m>.)
+    The integration will result in a vector which depends on <m>y</m>, call it<nbsp /><m>h(y)</m>. We will show
+    shortly that the function <m>y \mapsto h(y)</m> is also continuous and so may be integrated
+    over<nbsp /><m>[c,d]</m>. The resulting vector in <m>E</m> is denoted by <m>\int_c^d\left(\int_a^b
+    f(x,y)\,dx\right)\,dy</m> or just <m>\int_c^d\int_a^b f(x,y)\,dx\,dy</m>. The two integrals operating
+    successively are called
+    <index><main><@<m>\int_c^d\left(\int_a^b f(x,y)\,dx\right)\,dy</m> (iterated integrals)</main></index>
+    <index><main>iterated integrals</main></index>
+    <index><main>integral</main><sub>iterated</sub></index><term>iterated integrals</term>.
+  </p>
+
+  <notation>
+
+  <p>
+    Let <m>f \colon (x,y) \mapsto f(x,y)</m> be a continuous function defined on a subset
+    of <m>\R^2</m> containing the rectangle <m>[a,b] \times [c,d]</m>. Throughout this section we denote by
+    <index><main><@<m>f\,^y</m>, <m>{}^xf</m></main></index><m>f\,^y</m> the function of <m>x</m> which results from holding <m>y</m> fixed and by <m>{}^xf</m> the function
+    of <m>y</m> resulting from fixing<nbsp /><m>x</m>. That is, for each <m>y</m>
+    <me>
+      f\,^y \colon x \mapsto f(x,y)
+    </me>
+    and for each <m>x</m>
+    <me>
+      {}^xf\colon y\mapsto f(x,y)\,.
+    </me>
+  </p>
+
+  <p>
+    For each <m>y</m> we interpret <m>\int_a^b f(x,y)\,dx</m> to mean <m>\int_a^b f\,^y</m>, and for each <m>x</m> we
+    take <m>\int_c^d f(x,y)\,dy</m> to be <m>\int_c^d\, {}^xf</m>. Thus
+    <me>
+      \int_c^d\int_a^b f(x,y)\,dx\,dy = \int_c^d g
+    </me>
+    where <m>g(y) = \int_a^b f\,^y</m> for all <m>y \in [c,d]</m>. In order for <m>\int_c^d g</m> to make sense
+    we must know that <m>g</m> is a regulated function. It will suffice for our needs to show that if
+    <m>f</m> is continuous, then so is<nbsp /><m>g</m>.
+  </p>
+
+  </notation>
+
+  <lemma xml:id="lem_int_2cont">
+    <statement>
+      <p>
+        Let <m>f \colon [a,b] \times [c,d] \sto E</m> be a continuous
+        function into a Banach space. For each <m>y \in [c,d]</m> let
+        <me>
+          g(y) = \int_a^b f\,^y\,.
+        </me>
+      </p>
+
+      <p>
+        Then <m>g</m> is uniformly continuous on<nbsp /><m>[c,d]</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prop_cont_ucont">proposition</xref>.
+      (<xref ref="sol_lem_int_2cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Perhaps the most frequently used result concerning iterated integrals is that if <m>f</m> is
+    continuous, then the order of integration does not matter.
+  </p>
+
+  <proposition xml:id="prop_chord_int">
+    <statement>
+      <p>
+        If <m>E</m> is a Banach space, if <m>a \lt  b</m> and <m>c \lt  d</m>, and if
+      </p>
+
+      <p>
+        <m>f\colon [a,b]\times [c,d] \sto E</m> is continuous, then
+        <me>
+          \int_a^b \int_c^d f(x,y)\,dy\,dx = \int_c^d \int_a^b f(x,y)\,dx\,dy\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Define functions <m>j</m> and <m>k</m> for all <m>z</m> in <m>[c,d]</m> by
+      the formulas
+      <md>
+        <mrow>j(z) \amp = \int_a^b \int_c^z f(x,y)\,dy\,dx</mrow>
+        <intertext>and</intertext>
+        <mrow>k(z) \amp = \int_c^z \int_a^b f(x,y)\,dx\,dy\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      It suffices to show that <m>j = k</m>. (Why?) One may accomplish this by showing that <m>j\,'(z) =
+      k'(z)</m> for all <m>z</m> and that <m>j(c) = k(c)</m> (see <xref ref="cor_const_diff">corollary</xref>). Finding
+      <m>k'(z)</m> is easy. To find <m>j\,'(z)</m> derive the formulas
+      <md>
+        <mrow>\frac 1h \Delta j_{{}_{\sst z}}(h)
+                      \amp = \int_a^b \frac 1h \int_z^{z+h}f(x,y)\,dy\,dx</mrow>
+        <mrow></mrow>
+        <intertext>and</intertext>
+        <mrow>\int_a^b f(x,z)\,dx
+                     \amp = \int_a^b \frac 1h \int_z^{z+h}f(x,z)\,dy\,dx\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Subtract <xref ref="eqn_chord_int2" />) from<nbsp /><xref ref="eqn_chord_int1" /> to obtain a new equation. Show
+      that the right side of this new equation can be made arbitrarily small by choosing <m>h</m>
+      sufficiently small. (For this use an argument similar to the one used in the proof of
+      <xref ref="lem_int_2cont">lemma</xref>. Conclude that <m>j\,'(z) = \int_a^b f(x,z)\,dx</m>.
+    </p>
+  </proof>
+
+  <p>
+    Now that we have a result (<xref ref="prop_chord_int">proposition</xref>) allowing us to change the order
+    of two integrals, we can prove a result which justifies changing the order of integration and
+    differentiation. We show that if <m>f</m> is continuous and <m>f_2</m> (exists and) is continuous, then
+    <me>
+      \dfrac d{dy} \int_a^b f(x,y)\,dx = \int_a^b \pd fy (x,y)\,dx\,.
+    </me>
+  </p>
+
+  <proposition xml:id="prop_diff_und_int">
+    <statement>
+      <p>
+        Let <m>E</m> be a Banach space, <m>a \lt  b</m>, <m>c \lt  d</m>, and <m>f \colon
+        [a,b]\times [c,d] \sto E</m>. If <m>f</m> and <m>f_2</m> are continuous then the function <m>g</m> defined for
+        all <m>y \in [c,d]</m> by
+        <me>
+          g(y) = \int_a^b f\,^y
+        </me>
+        is continuously differentiable in <m>(c,d)</m> and for <m>c \lt  y \lt  d</m>
+        <me>
+          g'(y) = \int_a^b f_2(x,y)\,dx\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>h(y) = \int_a^b f_2(x,y)\,dx</m> for <m>c \le y \le d</m>.
+      Use <xref ref="prop_chord_int">proposition</xref> to reverse the order of integration in <m>\int_c^z h</m>
+      (where <m>c \lt  z \lt  d</m>). Use the version of the <em>fundamental theorem of calculus</em> given in
+      <xref ref="thm_ftc_II">Theorem</xref> to obtain <m>\int_c^z h = g(z) - g(c)</m>. Differentiate.
+      (<xref ref="sol_prop_diff_und_int">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Compute
+        <me>
+          \int_0^1\int_0^1 \frac {x^2-y^2}{(x^2+y^2)^2}\,dx\,dy  \qquad \text{ and }  \qquad
+                                          \int_0^1\int_0^1 \frac {x^2-y^2}{(x^2+y^2)^2}\,dy\,dx\,.
+        </me>
+      </p>
+
+      <p>
+        Why does the result not contradict the assertion made in <xref ref="prop_chord_int">proposition</xref>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (a)Suppose that the functions <m>g\colon \R^n \sto \R</m> and <m>h \colon \R \sto \R</m>
+        are differentiable and <m>f = h \circ g</m>. Show that
+        <me>
+          f_k(x) = g_k(x)\,(Dh)(g(x))
+        </me>
+        whenever <m>x \in \R^n</m> and <m>1 \le k \le n</m>.
+      </p>
+
+      <p>
+        (b)Let <m>g \colon \R^n \sto \R</m> be differentiable and <m>j \colon \R \sto \R</m> be
+        continuous. Prove that
+        <me>
+          \pd{}{x_k}\int_c^{g(x)}j(t)\,dt = g_k(x)\,j(g(x))
+        </me>
+        whenever <m>c \in \R</m>, <m>x \in \R^n</m>, and <m>1 \le k \le n</m>. <em>Hint.</em> The expression on the
+        left denotes <m>f_k(x)</m> where <m>f</m> is the function <m>x \mapsto \int_c^{g(x)}j(t)\,dt</m>.
+      </p>
+
+      <p>
+        (c)Use part (b) to compute
+        <me>
+          \pd{}x\int_{x^3y}^{x^2 + y^2}\frac 1{1 + t^2 + cos^2t}\,dt\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>Leibniz's formula</main></index>
+  </p>
+
+  <proposition>
+    <title>Leibniz's formula</title>
+    <statement>
+      <p>
+        Let <m>f\colon [a,b] \times [c,d] \sto \R</m> and <m>h \colon [c,d]
+        \sto \R</m>. If <m>f</m> and <m>f_2</m> are continuous, if <m>h</m> is continuously differentiable on <m>(c,d)</m>,
+        and if <m>h(y) \in [a,b]</m> for every <m>y \in (c,d)</m>, then
+        <me>
+          \frac d{dy}\int_a^{h(y)}f(x,y)\,dx = \int_a^{h(y)}f_2(x,y)\,dx + Dh(y)\,f(h(y),y)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

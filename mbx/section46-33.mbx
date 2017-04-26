@@ -1,0 +1,47 @@
+
+<section>
+  <title>Exercises in Appendix h</title>
+  <solution xml:id="sol_pos">
+    <p>
+      (Solution to <xref ref="pos"></xref>)
+      By definition <m>x > 0</m> holds if and only if <m>0 \lt  x</m>, and this holds (again by definition) if
+      and only if <m>x - 0 \in \Po</m>. Since <m>-0 = 0</m> (which is obvious from <m>0 + 0 = 0</m> and the fact
+      that the additive identity is unique), we conclude that <m>x > 0</m> if and only if
+      <me>
+        x = x + 0 = x + (-0) = x - 0 \in \Po\,.   \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_mult_pos">
+    <p>
+      (Solution to <xref ref="mult_pos"></xref>)
+      By the preceding exercise <m>x > 0</m> implies that <m>x \in \Po</m>; and <m>y \lt  z</m> implies <m>z - y \in
+      \Po</m>. Since <m>\Po</m> is closed under multiplication, <m>x(z - y)</m> belongs to <m>\Po</m>. Thus
+      <md>
+        <mrow>xz - xy  \amp = xz + (-(xy))</mrow>
+        <mrow>\amp = xz + x(-y) \qquad\text{ by <xref ref="arith_prob1">problem</xref> }</mrow>
+        <mrow>\amp = x(z + (-y))</mrow>
+        <mrow>\amp = x(z - y) \in \Po\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This shows that <m>xy \lt  xz</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_mult_ineq">
+    <p>
+      (Solution to <xref ref="mult_ineq"></xref>)
+      Since <m>0 \lt  w \lt  x</m> and <m>y > 0</m>, we may infer from <xref ref="mult_pos">exercise</xref> that <m>yw \lt  yx</m>.
+      Similarly, we obtain <m>xy \lt  xz</m> from the conditions <m>0 \lt  y \lt  z</m> and <m>x > 0</m> (which holds by the
+      transitivity of <m>\lt</m>, <xref ref="lt_tran">proposition</xref>). Then
+      <me>
+        wy = yw \lt  yx = xy \lt  xz\,.
+      </me>
+    </p>
+
+    <p>
+      Thus the desired inequality <m>wy \lt  xz</m> follows (again by transitivity of<nbsp /><m>\lt</m>).
+    </p>
+  </solution>
+</section>

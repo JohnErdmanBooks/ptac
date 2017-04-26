@@ -1,0 +1,7 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Set operations</title>
+  <xi:include  href="section35-1.mbx" />
+  <xi:include  href="section35-2.mbx" />
+  <xi:include  href="section35-3.mbx" />
+</chapter>

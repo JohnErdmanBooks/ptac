@@ -1,0 +1,154 @@
+
+<section>
+  <title>Exercises in Appendix j</title>
+  <solution xml:id="sol_exer_sup1">
+    <p>
+      (Solution to <xref ref="exer_sup1"></xref>)
+    </p>
+
+    <p>
+      (a) A number <m>x</m> belongs to the set <m>A</m> if <m>x^2 - 4x + 3 \lt  3</m>; that is, if <m>x(x - 4) \lt  0</m>.
+      This occurs if and only if <m>x > 0</m> and <m>x \lt  4</m>. Thus <m>A = (0,4)</m>; so <m>\sup A = 4</m> and <m>\inf
+      A = 0</m>.
+    </p>
+
+    <p>
+      (b) Use beginning calculus to see that <m>f'(x) = 2x - 4</m>. Conclude that the function <m>f</m> is
+      decreasing on the interval <m>(-\infty,2)</m> and is increasing on <m>(2, 3)</m>. Thus <m>f</m> assumes a
+      minimum at <m>x = 2</m>. Since <m>f(2) = -1</m>, we see that <m>B = [-1,\infty)</m>. Thus <m>\sup B</m> does not
+      exist and <m>\inf B = -1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_sup_prod">
+    <p>
+      (Solution to <xref ref="prop_sup_prod"></xref>)
+      As in the hint let <m>\ell = \sup A</m> and <m>m = \sup B</m>, and suppose that <m>\ell</m>, <m>m > 0</m>. If <m>x
+      \in AB</m>, then there exist <m>a \in A</m> and <m>b \in B</m> such that <m>x = ab</m>. From <m>a \le \ell</m> and
+      <m>b \le m</m> it is clear that <m>x \le \ell m</m>; so <m>\ell m</m> is an upper bound for <m>AB</m>.
+    </p>
+
+    <p>
+      Since <m>AB</m> is bounded above it must have a least upper bound, say<nbsp /><m>c</m>. Clearly <m>c \le \ell
+      m</m>; we show that <m>\ell m \le c</m>. Assume, to the contrary, that <m>c \lt  \ell m</m>. Let <m>\epsilon =
+      \ell m - c</m>. Since <m>\epsilon > 0</m> and <m>\ell</m> is the least upper bound for <m>A</m> we may choose
+      an element <m>a</m> of <m>A</m> such that <m>a > \ell - \epsilon(2m)^{-1}</m>. Similarly, we may choose <m>b
+      \in B</m> so that <m>b > m - \epsilon(2\ell)^{-1}</m>. Then
+      <md>
+        <mrow>ab \amp > \bigl(\ell - \epsilon(2m)^{-1}\bigr)\bigl(m - \epsilon(2\ell)^{-1}\bigr)</mrow>
+        <mrow>\amp = \ell m - \epsilon + \epsilon^2(4\ell m)^{-1}</mrow>
+        <mrow>\amp > \ell m - \epsilon</mrow>
+        <mrow>\amp = c.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This is a contradiction, since <m>ab</m> belongs to <m>AB</m> and <m>c</m> is an upper bound of <m>AB</m>. We
+      have shown
+      <me>
+        \sup(AB) = c = \ell m = (\sup A)(\sup B)
+      </me>
+      as required.
+    </p>
+  </solution>
+  <remark>
+    <p>
+      It is not particularly difficult to follow the details of the preceding proof.
+      But that is <em>not</em> the same thing as <em>understanding</em> the proof! It is easy to see,
+      for example, that <em>if</em> we choose <m>a > \ell - \epsilon(2m)^{-1}</m> and <m>b > m -
+      \epsilon(2\ell)^{-1}</m>, <em>then</em> <m>ab>c</m>. But that still leaves room to be puzzled. You
+      might reasonably say when shown this proof, <q>Well, that certainly <em>is</em> a proof. And it
+      looks very clever. But what I don't understand is how did you know to choose <m>a</m> and <m>b</m> in
+      just that particular (or should I say `peculiar'?) way? Do you operate by fits of
+      inspiration, or a crystal ball, or divination of entrails, or what?</q> The question deserves
+      an answer. Once we have assumed <m>c</m> to be an upper bound smaller than <m>\ell m</m> (and set
+      <m>\epsilon = \ell m - c</m>), our hope is to choose <m>a \in A</m> close to <m>\ell</m> and <m>b \in B</m> close
+      to <m>m</m> in such a way that their product <m>ab</m> exceeds <m>c</m>. It is difficult to say immediately
+      <em>how</em> close <m>a</m> should be to <m>\ell</m> (and <m>b</m> to <m>m</m>). Let's just say that <m>a > \ell -
+      \delta_1</m> and <m>b > m - \delta_2</m>, where <m>\delta_1</m> and <m>\delta_2</m> are small positive numbers.
+      We will figure out <em>how</em> small they should be in a moment. Then
+      <me>
+        ab > (\ell - \delta_1)(m - \delta_2) = \ell m - m\delta_1
+                                               - \ell\delta_2 + \delta_1\delta_2\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>\delta_1\delta_2</m> is positive, we can simplify the preceding inequality and write
+      <men xml:id="eqn1_sup_prod" >
+        ab > \ell m - m\delta_1 - \ell\delta_2\,.
+      </men>
+    </p>
+
+    <p>
+      What we <em>want</em> to get at the end of our computation is
+      <men xml:id="eqn2_sup_prod" >
+        ab > c = \ell m - \epsilon.
+      </men>
+    </p>
+
+    <p>
+      Now comparing what we have <xref ref="eqn1_sup_prod" /> with what we want <xref ref="eqn2_sup_prod" />, we
+      see that all we need to do is choose <m>\delta_1</m> and <m>\delta_2</m> in such a way that
+      <men xml:id="eqn3_sup_prod" >
+        m\delta_1 + \ell\delta_2 \lt  \epsilon
+      </men>
+    </p>
+
+    <p>
+      (for then <m>\ell m - (m\delta_1 + \ell\delta_2) > \ell m - \epsilon = c</m>, and we are done). To
+      guarantee that the sum of two numbers is less than <m>\epsilon</m> it suffices to choose both of
+      them to be less than <m>\epsilon/2</m>. Clearly, we have <m>m\delta_1 \lt  \epsilon/2</m> if we choose
+      <m>\delta_1 \lt  \epsilon(2m)^{-1}</m>; and we have <m>\ell\delta_2 \lt  \epsilon/2</m> if we choose <m>\delta_2
+      \lt  \epsilon(2\ell)^{-1}</m>. And that's all we need.
+    </p>
+  </remark>
+  <solution xml:id="sol_prop_exist_sqrt">
+    <p>
+      (Solution to <xref ref="prop_exist_sqrt"></xref>)
+      Let <m>A = \{t > 0 \colon t^2 \lt  a\}</m>. The set <m>A</m> is not empty since it contains <m>a(1 +
+      a)^{-1}</m>. [<m>a^2(1 + a)^{-2} \lt  a(1 + a)^{-1} \lt  a</m>.] It is easy to see that <m>A</m> is bounded
+      above by <m>M := \max\{1,a\}</m>. [If <m>t \in A</m> and <m>t \le 1</m>, then <m>t \le M</m>; on the other hand,
+      if <m>t \in A</m> and <m>t > 1</m>, then <m>t \lt  t^2 \lt  a \le M</m>.] By the <em>least upper bound axiom</em>
+      <xref ref="axiom_lub" /> <m>A</m> has a supremum, say <m>x</m>. It follows from the <em>axiom of trichotomy</em>
+      (axiom_trichot) that exactly one of three things must be true: <m>x^2 \lt  a</m>, <m>x^2 > a</m>, or
+      <m>x^2 = a</m>. We show that <m>x^2 = a</m> by eliminating the first two alternatives.
+    </p>
+
+    <p>
+      First assume that <m>x^2 \lt  a</m>. Choose <m>\epsilon</m> in <m>(0,1)</m> so that <m>\epsilon \lt  3^{-1}x^{-2}(a
+      - x^2)</m>. Then
+      <md>
+        <mrow>(1 + \epsilon)^2 \amp = 1 + 2\epsilon + \epsilon^2</mrow>
+        <mrow>\amp \lt  1 + 3\epsilon</mrow>
+      </md>
+      so that
+      <me>
+        x^2(1 + \epsilon)^2 \lt  x^2(1 + 3\epsilon) \lt  a\,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>x(1 + \epsilon)</m> belongs to <m>A</m>. But this is impossible since <m>x(1 + \epsilon) > x</m> and
+      <m>x</m> is the supremum of <m>A</m>.
+    </p>
+
+    <p>
+      Now assume <m>x^2 > a</m>. Choose <m>\epsilon</m> in <m>(0,1)</m> so that <m>\epsilon \lt  (3a)^{-1}(x^2 - a)</m>.
+      Then by <xref ref="eqn1_sqrt" />
+      <men xml:id="eqn2_sqrt" >
+        a \lt  x^2(1 + 3\epsilon)^{-1} \lt  x^2(1 + \epsilon)^{-2}\,.
+      </men>
+    </p>
+
+    <p>
+      Now since <m>x = \sup A</m> and <m>x(1 + \epsilon)^{-1} \lt  x</m>, there must exist <m>t \in A</m> such that
+      <m>x(1 + \epsilon)^{-1} \lt  t \lt  x</m>. But then
+      <me>
+        x^2(1 + \epsilon)^{-2} \lt  t^2 \lt  a\,,
+      </me>
+      which contradicts<nbsp /><xref ref="eqn2_sqrt" />. Thus we have demonstrated the existence of a number <m>x
+      \ge 0</m> such that <m>x^2 = a</m>. That there is only one such number has already been proved: see
+      <xref ref="prob_sqrt_uniq">problem</xref>.
+    </p>
+  </solution>
+</section>

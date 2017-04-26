@@ -1,0 +1,6 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>The topology of metric spaces</title>
+  <xi:include  href="section11-1.mbx" />
+  <xi:include  href="section11-2.mbx" />
+</chapter>

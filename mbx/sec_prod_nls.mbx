@@ -1,0 +1,493 @@
+
+<section xml:id="sec_prod_nls">
+  <title>Products</title>
+  <p>
+    In this and the succeeding three sections we substantially increase our store of examples of
+    normed linear spaces by creating new spaces from old ones. In particular, we will show that
+    each of the following can be made into a normed linear space:
+    <ol>
+      <li>
+        <title>(i)</title>
+        <p>
+          a vector subspace of a normed linear space,
+        </p>
+      </li>
+
+      <li>
+        <title>(ii)</title>
+        <p>
+          the product of two normed linear spaces,
+        </p>
+      </li>
+
+      <li>
+        <title>(iii)</title>
+        <p>
+          the set of bounded functions from a nonempty set into
+          a normed linear space, and
+        </p>
+      </li>
+
+      <li>
+        <title>(iv)</title>
+        <p>
+          the set of continuous linear maps between two normed
+          linear spaces.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    It is obvious that (i) is a normed linear space: if <m>V</m> is a normed linear space with norm
+    <m>\norm</m> and <m>W</m> is a vector subspace of <m>V</m>, then the restriction of <m>\norm</m> to <m>W</m>
+    is a norm on<nbsp /><m>W</m>. Now consider (ii). Given normed linear spaces <m>V</m> and <m>W</m>, we wish to make
+    the product vector space (see <xref ref="prod_vs">example</xref>) into a normed linear space. As a
+    preliminary we discuss <em>equivalent norms</em>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two norms on a vector space are
+        <index><main>equivalent</main><sub>norms</sub></index>
+        <index><main>norms</main><sub>equivalent</sub></index><term>equivalent</term> if they induce equivalent metrics. If two norms on a vector space <m>V</m> are
+        equivalent, then, since they induce equivalent metrics, they induce identical topologies
+        on<nbsp /><m>V</m>. Thus properties such as continuity, compactness, and connectedness are unaltered when
+        norms are replaced by equivalent ones (see <xref ref="mtr_vs_top">proposition</xref> and the discussion
+        preceding it). In the next proposition we give a very simple necessary and sufficient
+        condition for two norms to be equivalent.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_norm_equiv">
+    <statement>
+      <p>
+        Two norms <m>\norm{}_1</m> and <m>\norm{}_2</m> on a vector
+        space <m>V</m> are equivalent if and only if there exist numbers <m>\alpha</m>, <m>\beta > 0</m> such that
+        <me>
+          \norm x_1 \le \alpha \norm x_2 \qquad\text{ and } \qquad \norm x_2 \le \beta \norm x_1
+        </me>
+        for all <m>x \in V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_norm_equiv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    If <m>V</m> and <m>W</m> are normed linear spaces with norms <m>{\norm{}}_{\ssst V}</m> and
+    <m>{\norm{}}_{\ssst W}</m> respectively, how do we provide the product vector space <m>V \times
+    W</m> (see <xref ref="prod_vs">example</xref>) with a norm? There are at least three more or less obvious
+    candidates: for <m>v \in V</m> and <m>w \in W</m> let
+    <md>
+      <mrow>\norm{(v,w)} \amp := \bigl({{\norm v}_{\ssst V}}^2 + {{\norm w}_{\ssst W}}^2\bigr)^{1/2},</mrow>
+      <mrow>{\norm{(v,w)}}_1 \amp := {\norm v}_{\ssst V} + {\norm w}_{\ssst W}, \qquad\text{ and }</mrow>
+      <mrow>{\norm{(v,w)}}_u \amp := \max\{{\norm{v}}_{\ssst V}, {\norm w}_{\ssst W}\}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    First of all, are these really norms on <m>V \times W</m>? Routine computations show that the
+    answer is <em>yes</em>. By way of illustration we write out the three verifications required
+    for the first of the candidate norms. If <m>v</m>, <m>x \in V</m>, if <m>w</m>, <m>y \in W</m>, and if <m>\alpha
+    \in \R</m>, then
+    <md>
+      <mrow>\text{ (a) } \qquad \norm{(v,w) + (x,y)}
+                        \amp = \norm{(v + x, w + y)}</mrow>
+      <mrow>\amp = \bigl({{\norm{v + x}}_{\ssst V}}^2 + {{\norm{w + y}}_{\ssst W}}^2\bigr)^{1/2}</mrow>
+      <mrow>\amp \le \bigl(({\norm v}_{\ssst V} + {\norm x}_{\ssst V})^2
+                             + ({\norm w}_{\ssst W} + {\norm y}_{\ssst W})^2\bigr)^{1/2}</mrow>
+      <mrow>\amp \le \bigl({{\norm v}_{\ssst V}}^2 + {{\norm w}_{\ssst W}}^2\bigr)^{1/2}
+                             + \bigl({{\norm x}_{\ssst V}}^2 + {{\norm y}_{\ssst W}}^2\bigr)^{1/2}</mrow>
+      <mrow>\amp = \norm{(v,w)} + \norm{(x,y)}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    The last inequality in this computation is, of course, Minkowski's <xref ref="Minkow">inequality</xref>.
+    <md>
+      <mrow>\text{ (b) } \qquad \norm{\alpha(v,w)}
+                    \amp = \norm{(\alpha v, \alpha w)}</mrow>
+      <mrow>\amp = \bigl({{\norm{\alpha v}}_{\ssst V}}^2
+                                 + {{\norm{\alpha w}}_{\ssst W}}^2\bigr)^{1/2}</mrow>
+      <mrow>\amp = \left(\bigl(\abs{\alpha}\, {\norm v}_{\ssst V}\bigr)^2
+                                 + \bigl(\abs{\alpha}\, {\norm w}_{\ssst W}\bigr)^2\right)^{1/2}</mrow>
+      <mrow>\amp = \abs{\alpha}\,\bigl({{\norm v}_{\ssst V}}^2
+                                 + {{\norm w}_{\ssst W}}^2\bigr)^{1/2}</mrow>
+      <mrow>\amp = \abs{\alpha}\,\norm{(v,w)}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    (c) If <m>\norm{(v,w)} = 0</m>, then <m>{{\norm v}_{\ssst V}}^2 + {{\norm w}_{\ssst W}}^2 = 0</m>. This
+    implies that <m>{\norm v}_{\ssst V}</m> and <m>{\norm w}_{\ssst W}</m> are both zero. Thus <m>v</m> is the
+    zero vector in <m>V</m> and <m>w</m> is the zero vector in <m>W</m>; so <m>(v,w) = (0,0)</m>, the zero vector in
+    <m>V \times W</m>.
+  </p>
+
+  <p>
+    Now which of these norms should we choose to be the product norm on <m>V \times W</m>? The next
+    proposition shows that at least as far as topological considerations (continuity, compactness,
+    connectedness, <em>etc.</em>) are concerned, it really doesn't matter.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        The three norms on <m>V \times W</m> defined above are equivalent.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Notice that the norms <m>\norm{}</m>, <m>{\norm{}}_1</m>, and <m>{\norm{}}_u</m>
+      defined above induce, respectively, the metrics <m>d</m>, <m>d_1</m>, and <m>d_u</m> defined in
+      <xref ref="metric">chapter</xref>. In <xref ref="x3equiv">proposition</xref> we proved that these three metrics are
+      equivalent. Thus the norms which induce them are equivalent.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Since <m>d_1</m> was chosen (in <xref ref="prod_met"></xref>) as our <q>official</q> product metric, we
+        choose <m>{\norm{}}_1</m>, which induces <m>d_1</m>, as the
+        <index><main>product</main><sub>norm</sub></index>
+        <index><main>norm</main><sub>product</sub></index><term>product norm</term> on <m>V \times W</m>. In <xref ref="prop_add_cont">proposition</xref> you are asked to show
+        that with this definition of the product norm, the operation of addition on a normed linear
+        space is continuous. In the next proposition we verify that scalar multiplication (regarded
+        as a map from <m>\R \times V</m> into <m>V</m>) is also continuous.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_scmlt_cont">
+    <statement>
+      <p>
+        If <m>V</m> is a normed linear space, then the mapping
+        <m>(\beta,x) \mapsto \beta x</m> from <m>\R \times V</m> into <m>V</m> is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> To show that a map <m>f\colon U \sto W</m> between two normed
+      linear space is continuous at a point <m>a</m> in<nbsp /><m>U</m>, it must be shown that for every <m>\epsilon >
+      0</m> there exists <m>\delta > 0</m> such that <m>{\norm{u - a}}_{\ssst U} \lt  \delta</m> implies
+      <m>{\norm{f(u) - f(a)}}_{\ssst W} \lt  \epsilon</m>. (<xref ref="sol_prop_scmlt_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_scmlt">
+    <statement>
+      <p>
+        Let <m>(\beta_n)</m> be a sequence of real numbers and <m>(x_n)</m> be a
+        sequence of vectors in a normed linear space<nbsp /><m>V</m>. If <m>\beta_n \sto \alpha</m> in <m>\R</m> and <m>x_n
+        \sto a</m> in<nbsp /><m>V</m>, then <m>\beta_n x_n \sto \alpha a</m> in<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cor_scmlt">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>V</m> is a normed linear space and <m>\alpha</m> is a nonzero scalar, the map
+        <me>
+          M_\alpha \colon V \sto V\colon x \mapsto \alpha x
+        </me>
+        is a homeomorphism.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_add_cont">
+    <statement>
+      <p>
+        Let <m>V</m> be a normed linear space. The operation of addition
+        <me>
+          A\colon V \times V \sto V\colon (x,y) \mapsto x + y
+        </me>
+        is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_clo_subsp">
+    <statement>
+      <p>
+        Let <m>V</m> be a normed linear space. Prove the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>x_n \sto a</m> and <m>y_n \sto b</m> in <m>V</m>, then <m>x_n + y_n \sto a + b</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>S</m> is a vector subspace of <m>V</m>, then so is <m>\clo S</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sum_cpt">
+    <statement>
+      <p>
+        If <m>K</m> and <m>L</m> are compact subsets of a normed linear space,
+        then the set
+        <me>
+          K + L := \{k + l\colon k \in K \text{ and }  l \in L\}
+        </me>
+        is compact. <em>Hint.</em> Let <m>A</m> be as in <xref ref="prop_add_cont">proposition</xref>. What is <m>A^\sto(K
+        \times L)</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sums_nls">
+    <statement>
+      <p>
+        Let <m>B</m> and <m>C</m> be subsets of a normed linear space and
+        <m>\alpha \in \R</m>. Prove the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\clo{\alpha B} = \alpha \clo B</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\clo B + \clo C \subseteq \clo{B + C}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>B + C</m> need not be closed even if <m>B</m> and <m>C</m> are; thus equality need not hold
+              in<nbsp />(b).  <em>Hint.</em>  In <m>\R^2</m> try part of the curve <m>y = 1/x</m> and the negative <m>x</m>-axis.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_lin_bij">
+    <statement>
+      <p>
+        Show that a linear bijection <m>f \colon V \sto W</m> between normed
+        linear spaces is an isometry if and only if it is
+        <index><main>norm</main><sub>preserving</sub></index>norm preserving (that is, if and only if <m>\norm{f(x)}_{\ssst W} = \norm x_{\ssst V}</m> for all
+        <m>x \in V</m>).
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> be a vector in a vector space<nbsp /><m>V</m>. The map
+        <me>
+          T_a\colon V \sto V\colon x \mapsto x + a
+        </me>
+        is called
+        <index><main><@<m>T_a</m> (translation by<nbsp /><m>a</m>)</main></index>
+        <index><main>ta@<m>T_a</m> (translation by<nbsp /><m>a</m>)</main></index>
+        <index><main>translation</main></index><term>translation</term> by<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="prob_transl">
+    <statement>
+      <p>
+        Show that every translation map on a normed linear space is an
+        isometry and therefore a homeomorphism.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>U</m> be a nonempty open set in a normed linear space. Then <m>U - U</m> contains a
+        neighborhood of<nbsp /><m>0</m>. (By <m>U - U</m> we mean <m>\{u - v \colon u,v \in U\}</m>.) <em>Hint.</em> Consider
+        the union of all sets of the form <m>\bigl(T_{-v}\bigr)^\sto (U)</m> where <m>v \in U</m>. (As in
+        <xref ref="prob_transl">problem</xref> <m>T_{-v}</m> is a translation map.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>B</m> is a closed subset of a normed linear space <m>V</m> and <m>C</m> is a
+        compact subset of <m>V</m>, then <m>B + C</m> is closed. (Recall that part (c) of
+        <xref ref="prob_sums_nls">problem</xref> showed that this conclusion cannot be reached by assuming only
+        that <m>B</m> and <m>C</m> are closed.) <em>Hint.</em> Use the sequential characterization of <q>closed</q>
+        given in <xref ref="scm_closed">proposition</xref>. Let <m>(a_n)</m> be a sequence in <m>B+C</m> which converges to
+        a point in<nbsp /><m>V</m>. Write <m>a_n = b_n + c_n</m> where <m>b_n \in B</m> and <m>c_n \in C</m>. Why does <m>(c_n)</m>
+        have a subsequence <m>\bigl(c_{n_k}\bigr)</m> which converges to a point in <m>C</m>? Does
+        <m>\bigl(b_{n_k}\bigr)</m> converge?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces, <m>A \subseteq V</m>, <m>a \in A'</m>,
+        <m>\alpha \in \R</m>, and <m>f,g\colon A \sto W</m>. Prove the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If the limits of <m>f</m> and <m>g</m> exist as <m>x</m> approaches <m>a</m>, then so does the limit
+              of <m>f + g</m> and
+              <me>
+                \lim_{x \sto a}(f+g)(x) = \lim_{x \sto a}f(x) + \lim_{x \sto a}g(x)\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If the limit of <m>f</m> exists as <m>x</m> approaches <m>a</m>, then so does the limit of
+              <m>\alpha f</m> and
+              <me>
+                \lim_{x \sto a}(\alpha f)(x) = \alpha \lim_{x \sto a}f(x)\,.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces, <m>A \subseteq V</m>, <m>a \in A'</m>, and
+        <m>f\colon A \sto W</m>. Show that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\lim_{x \sto a}f(x) = 0 \text{ if and only if }  \lim_{x \sto a} \norm{f(x)} = 0</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\lim_{h \sto 0}f(a+h) = \lim_{x \sto a}f(x)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> These require only the most trivial modifications of the solutions to
+        <xref ref="abs_lim_R">problem</xref> and <xref ref="lim_changvar_R">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces, <m>A \subseteq V</m>, and <m>f\colon A \sto W</m>.
+        Suppose that <m>a</m> is an accumulation point of <m>A</m> and that <m>l = \lim_{x \sto a}f(x)</m> exists
+        in<nbsp /><m>W</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that if the norm on <m>V</m> is replaced by an equivalent one, then <m>a</m> is still
+              an accumulation point of<nbsp /><m>A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if both the norm on <m>V</m> and the one on <m>W</m> are replaced by equivalent
+              ones, then it is still true that <m>f(x) \sto l</m> as <m>x \sto a</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f\colon U \times V \sto W</m> where <m>U</m>, <m>V</m>, and <m>W</m> are normed linear spaces.
+        If the limit
+        <me>
+          l := \lim_{(x,y) \sto (a,b)} f(x,y)
+        </me>
+        exists and if <m>\lim_{x \sto a}f(x,y)</m> and <m>\lim_{y \sto b}f(x,y)</m> exist for all <m>y \in V</m> and
+        <m>x \in U</m>, respectively, then the iterated limits
+        <me>
+          \lim_{x \sto a}\bigl(\lim_{y \sto b} f(x,y)\bigr)  \text{ and } 
+                             \lim_{y \sto b}\bigl(\lim_{x \sto a} f(x,y)\bigr)
+        </me>
+        exist and are equal to<nbsp /><m>l</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_norms_Rn">
+    <statement>
+      <p>
+        All norms on <m>\R^n</m> are equivalent. <em>Hint.</em> It is
+        enough to show that an arbitrary norm <m>\trinorm{}</m> on <m>R^n</m> is equivalent to
+        <m>\norm{}_1</m> (where <m>\norm x_1 = \sum_{k=1}^n \abs{x_k}</m>). Use
+        <xref ref="prop_norm_equiv">proposition</xref>. To find <m>\alpha > 0</m> such that <m>\trinorm x \le \alpha\norm
+        x_1</m> for all <m>x</m> write <m>x = \sum_{k=1}^n x_k e^k</m> (where <m>e^1, \dots, e^n</m> are the standard
+        basis vectors on <m>\R^n</m>). To find <m>\beta > 0</m> such that <m>\norm x_1 \le \beta \trinorm x</m> let
+        <m>\R_1^n</m> be the normed linear space <m>\R^n</m> under the norm <m>\norm{}_1</m>. Show that the
+        function <m>x \mapsto \trinorm x</m> from <m>\R_1^n</m> into <m>\R</m> is continuous. Show that the unit
+        sphere <m>S = \{x \in \R^n: \norm x_1 = 1\}</m> is compact in<nbsp /><m>\R_1^n</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

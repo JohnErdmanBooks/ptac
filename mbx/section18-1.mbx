@@ -1,0 +1,91 @@
+
+<section>
+  <title>Cauchy sequences</title>
+  <definition>
+    <statement>
+      <p>
+        A sequence <m>(x_n)</m> in a metric space is a
+        <index><main>Cauchy</main><sub>sequence</sub></index>
+        <index><main>sequence</main><sub>Cauchy</sub></index><term>Cauchy sequence</term> if for every <m>\epsilon > 0</m> there exists <m>n_0 \in \N</m> such that
+        <m>d(x_m,x_n) \lt  \epsilon</m> whenever <m>m</m>, <m>n \ge n_0</m>. This condition is often abbreviated as
+        follows: <m>d(x_m, x_n) \sto 0</m> as <m>m</m>, <m>n \sto \infty</m> (or <m>\lim_{m,n \sto \infty}d(x_m,x_n) =
+        0</m>).
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        In the metric space <m>\R</m> the sequence <m>(1/n)</m> is Cauchy.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Given <m>\epsilon > 0</m> choose <m>n_0 > 2/\epsilon</m>. If <m>m</m>, <m>n > n_0</m>, then <m>d(1/m, 1/n)
+      = \abs{(1/m) - (1/n)}  \le (1/m) + (1/n) \le 2/n_0 \lt  \epsilon</m>. Notice that in <m>\R</m> this
+      sequence is also convergent.
+    </p>
+  </proof>
+
+  <example xml:id="compl_exm1">
+    <statement>
+      <p>
+        In the metric space <m>\R \setminus \{0\}</m> the sequence <m>(1/n)</m>
+        is Cauchy. (The proof is exactly the same as in the preceding example.) Notice, however, that
+        this sequence does not converge in <m>\R \setminus \{0\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="conv_cau">
+    <statement>
+      <p>
+        In a metric space every convergent sequence is Cauchy.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_conv_cau">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="cs_css">
+    <statement>
+      <p>
+        Every Cauchy sequence which has a convergent subsequence is itself
+        convergent (and to the same limit as the subsequence).
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cs_css">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="cau_bdd">
+    <statement>
+      <p>
+        Every Cauchy sequence is bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cau_bdd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Although every convergent sequence is Cauchy (<xref ref="conv_cau">proposition</xref>), the converse need
+    not be true (<xref ref="compl_exm1">example</xref>). Those spaces for which the converse is true are said
+    to be <em>complete</em>.
+  </p>
+</section>

@@ -1,0 +1,658 @@
+
+<section xml:id="blt">
+  <title>Bounded linear transformations</title>
+  <p>
+    Normed linear spaces have both algebraic and topological structure. It is therefore natural
+    to be interested in those functions between normed linear spaces which preserve both types of
+    structure, that is, which are both linear and continuous. In this section we study such
+    functions.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A linear transformation <m>T \colon V \sto W</m> between normed linear spaces is
+        <index><main>bounded</main><sub>linear map</sub></index><term>bounded</term> if there exists a number <m>M > 0</m> such that
+        <me>
+          \norm{Tx} \le M \norm x
+        </me>
+        for all <m>x \in V</m>. The family of all bounded linear transformations from <m>V</m> into <m>W</m> is
+        denoted
+        <index><main>bounded@<m>\ofml B(V,W)</m> (bounded linear maps between normed linear spaces)</main></index>by<nbsp /><m>\ofml B(V,W)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <caution>
+
+  <p>
+    There is a possibility of confusion. Here we have defined bounded linear
+    transformations; in <xref ref="space_bdd">section</xref> we gave a quite different definition for
+    <q>bounded</q> as it applies to arbitrary vector valued functions; and certainly linear
+    transformations are such functions. The likelihood of becoming confused by these two
+    different notions of boundedness is very small once one has made the following observation:
+    Except for the zero function, it is impossible for a linear transformation to be bounded in
+    the sense of <xref ref="space_bdd">section</xref>. (Proof. Let <m>T\colon V \sto W</m> be a nonzero linear
+    transformation between normed linear spaces. Choose <m>a</m> in <m>V</m> so that <m>Ta \ne 0</m>. Then
+    <m>\norm{Ta} > 0</m>, so that by the Archimedean principle (<xref ref="arch_prop">proposition</xref>) the number
+    <m>\norm{T(na)} = n\norm{Ta}</m> can be made as large as desired by choosing <m>n</m> sufficiently
+    large. Thus there is certainly no <m>M > 0</m> such that <m>\norm{Tx} \le M</m> for all<nbsp /><m>x</m>.) Since
+    nonzero linear transformations cannot be bounded in the sense of <xref ref="space_bdd">section</xref>, an
+    assertion that a linear map is bounded should always be interpreted in the sense of
+    boundedness introduced in this section.
+  </p>
+
+  </caution>
+
+  <p>
+    A function <m>f\colon S \sto W</m>, which maps a set <m>S</m> into a normed linear space <m>W</m>, is bounded
+    if and only if it maps <em>every</em> subset of <m>S</m> into a bounded subset of<nbsp /><m>W</m>. However, a
+    <em>linear</em> map <m>T\colon V \sto W</m> from one normed linear space into another is bounded if
+    and only if it maps every bounded subset of <m>V</m> into a bounded subset of<nbsp /><m>W</m>.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        A linear transformation <m>T\colon V \sto W</m> between normed linear spaces is bounded
+        if and only if <m>T^\sto(A)</m> is a bounded subset of <m>W</m> whenever <m>A</m> is a bounded subset of<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="exam_bdd_lt">
+    <statement>
+      <p>
+        Let <m>T \colon \R^2 \sto \R^3 \colon (x,y)
+        \mapsto (3x + y,x - 3y,4y)</m>. It is easily seen that <m>T</m> is linear. For all <m>(x,y)</m> in<nbsp /><m>\R^2</m>
+        <md>
+          <mrow>\norm{T(x,y)}
+                     \amp = \norm{(3x + y,x - 3y,4y)}</mrow>
+          <mrow>\amp = \bigl((3x + y)^2 + (x - 3y)^2 + (4y)^2\bigr)^{\frac12}</mrow>
+          <mrow>\amp = (10x^2 + 26y^2)^{\frac12}</mrow>
+          <mrow>\amp \le \sqrt{26}(x^2 + y^2)^{\frac12}</mrow>
+          <mrow>\amp = \sqrt{26}\norm{(x,y)}\,.</mrow>
+        </md>
+      </p>
+
+      <p>
+        So the linear transformation <m>T</m> is bounded.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    Why is boundedness of linear transformations an important concept? Because it turns out to be
+    equivalent to continuity and is usually easier to establish.
+  </p>
+
+  <proposition xml:id="prop_equiv_cont">
+    <statement>
+      <p>
+        Let <m>T\colon V \sto W</m> be a linear transformation between
+        normed linear spaces. The following are equivalent:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>T</m> is continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              There is at least one point at which <m>T</m> is continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>T</m> is continuous at <m>\vc 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>T</m> is bounded.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> To prove that (c) implies (d) argue by contradiction.
+      Show that for each <m>n</m> there exists <m>x_n</m> in <m>V</m> such that <m>\norm{Tx_n} > n\norm{x_n}</m>. Let
+      <m>y_n = \bigl(n\norm{x_n}\bigr)^{-1}x_n</m>. Give one argument to show that the sequence <m>(Ty_n)</m>
+      converges to zero as <m>n \sto\infty</m>. Give another to show that it does not.
+      (<xref ref="sol_prop_equiv_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>T \in \ofml B(V,W)</m> where <m>V</m> and <m>W</m> are normed linear spaces. Define
+        <me>
+          \norm T := \inf\{M > 0\colon \norm{Tx} \le M \norm x \text{ for all \(x \in V\) } \}.
+        </me>
+      </p>
+
+      <p>
+        This number is called the
+        <index><main><@<m>\norm T</m> (norm of a linear transformation)</main></index>
+        <index><main>linear</main><sub>transformation, norm of a</sub></index>
+        <index><main>norm</main><sub>of a linear transformation</sub></index><term>norm</term> of<nbsp /><m>T</m>. We show in <xref ref="prop_opnorm">proposition</xref> that the map <m>T \mapsto \norm T</m>
+        really is a norm on <m>\ofml B(V,W)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    There are at least four ways to compute the norm of a linear transformation<nbsp /><m>T</m>. Use the
+    definition or any of the three formulas given in the next lemma.
+  </p>
+
+  <lemma xml:id="lem_equiv_norm">
+    <statement>
+      <p>
+        Let <m>T</m> be a bounded linear map between nonzero normed linear
+        spaces. Then
+        <md>
+          <mrow>\norm T \amp = \sup\{\norm x^{-1}\,\norm{Tx} \colon x \ne \vc 0\}</mrow>
+          <mrow>\amp = \sup\{\norm{Tu} \colon \norm u = 1\}</mrow>
+          <mrow>\amp = \sup\{\norm{Tu} \colon \norm u \le 1\}.</mrow>
+        </md>
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> To obtain the first equality, use the fact that if a subset
+      <m>A</m> of <m>\R</m> is bounded above then <m>\sup A = \inf\{M \colon \text{ \(M\) is an upper bound
+      for~\(A\) } \}</m>. (<xref ref="sol_lem_equiv_norm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_norm_op">
+    <statement>
+      <p>
+        If <m>T \in \ofml B(V,W)</m> where <m>V</m> and <m>W</m> are normed linear spaces, then
+        <me>
+          \norm{Tx} \le \norm T \, \norm x
+        </me>
+        for all <m>x</m> in<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      By the preceding lemma <m>\norm T \ge \norm x^{-1}\norm{Tx}</m> for all <m>x \ne 0</m>. Thus
+      <m>\norm{Tx} \le \norm T \,\norm x</m> for all<nbsp /><m>x</m>.
+    </p>
+  </proof>
+
+  <p>
+    The following example shows how to use <xref ref="lem_equiv_norm">lemma</xref> (in conjunction with the
+    definition) to compute the norm of a linear transformation.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>T</m> be the linear map defined in <xref ref="exam_bdd_lt">example</xref>. We have already seen that
+        <m>\norm{T(x,y)} \le \sqrt{26}\norm{(x,y)}</m> for all <m>(x,y)</m> in <m>\R^2</m>. Since <m>\norm T</m> is
+        defined to be the infimum of the set of all numbers <m>M</m> such that <m>\norm{T(x,y)} \le M
+        \norm{(x,y)}</m> for all <m>(x,y) \in \R^2</m>, and since <m>\sqrt{26}</m> is such a number, we know that
+        <men xml:id="eqn_norm_est1" >
+          \norm  T \le \sqrt{26}
+        </men>
+      </p>
+
+      <p>
+        On the other hand <xref ref="lem_equiv_norm">lemma</xref> tells us that <m>\norm T</m> is the supremum of the
+        set of all numbers <m>\norm{Tu}</m> where <m>u</m> is a unit vector. Since <m>(0,1)</m> is a unit vector and
+        <m>\norm{T(0,1)} = \norm{(1,-3,4)} = \sqrt{26}</m>, we conclude that
+        <men xml:id="eqn_norm_est2" >
+          \norm  T \ge \sqrt{26}
+        </men>
+      </p>
+
+      <p>
+        Conditions <xref ref="eqn_norm_est1" /> and <xref ref="eqn_norm_est2" /> imply that <m>\norm T = \sqrt{26}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T\colon \R^2 \sto \R^3</m> be the linear transformation defined by <m>T(x,y) =
+        (3x, x + 2y, x - 2y)</m>. Find <m>\norm T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T\colon \R^3 \sto \R^4\colon x \mapsto (x_1 - 4x_2, 2x_1 + 3x_3, x_1 + 4x_2,
+        x_1- 6x_3)</m>. Find <m>\norm T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="exer_exam_norm">
+    <statement>
+      <p>
+        Find the norm of each of the
+        following.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The identity map on a normed linear space.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The zero map in <m>\ofml B(V,W)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              A coordinate projection <m>\pi_k: V_1 \times V_2 \sto V_k</m>
+              (<m>k = 1,2</m>) where <m>V_1</m> and <m>V_2</m> are nontrivial normed linear spaces (that is, normed linear
+              spaces which contain vectors other than the zero vector.)
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_exam_norm">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_norm_int">
+    <statement>
+      <p>
+        Let <m>\fml C = \fml C([a,b],\R)</m>. Define <m>J\colon
+        \fml C \sto \R</m> by
+        <me>
+          Jf = \int_a^b f(x)\,dx\,.
+        </me>
+      </p>
+
+      <p>
+        Show that <m>J \in \ofml B(\fml C,\R)</m> and find<nbsp /><m>\norm J</m>. (<xref ref="sol_exer_norm_int">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\fml C^1</m> and <m>\fml C</m> be as in <xref ref="prob_intop_c1">problem</xref>. Let <m>D</m> be the
+        differentiation operator
+        <me>
+          D \colon \fml C^1 \sto \fml C \colon f \mapsto f'
+        </me>
+      </p>
+
+      <p>
+        (where <m>f'</m> is the derivative of <m>f</m>). Let both <m>\fml C^1</m> and <m>\fml C</m> have the uniform
+        norm. Is the linear transformation <m>D</m> bounded? <em>Hint.</em> Let <m>[a,b] = [0,1]</m> and
+        consider the functions <m>f_n(x) = x^n</m> for <m>n \in \N</m> and <m>0 \le x \le 1</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Next we show that the set <m>\ofml B(V,W)</m> of all bounded linear transformations between two
+    normed linear spaces is itself a normed linear space.
+  </p>
+
+  <proposition xml:id="prop_opnorm">
+    <statement>
+      <p>
+        If <m>V</m> and <m>W</m> are normed linear spaces then under pointwise
+        operations <m>\ofml B(V,W)</m> is a vector space and the map <m>T \mapsto \norm T</m> from <m>\ofml
+        B(V,W)</m> into <m>\R</m> defined above is a norm on <m>\ofml B(V,W)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_opnorm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    One obvious fact that we state for future reference is that the composite of bounded linear
+    transformations is bounded and linear.
+  </p>
+
+  <proposition xml:id="prop_comp_op">
+    <statement>
+      <p>
+        If <m>S \in \ofml B(U,V)</m> and <m>T \in \ofml B(V,W)</m>, then
+        <m>TS \in \ofml B(U,W)</m> and <m>\norm{TS} \le \norm T \, \norm S</m>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_comp_op">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    In <xref ref="prop_ker_vsubsp">propositions</xref> and <xref ref="lt_prop2"></xref> we saw that the kernel and range of
+    a linear map <m>T</m> are vector subspaces, respectively, of the domain and codomain of<nbsp /><m>T</m>. It is
+    interesting to note that the kernel is always a closed subspace while the range need not be.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>V</m> and <m>W</m> are normed linear spaces and <m>T \in \ofml B(V,W)</m>, then <m>\ker T</m>
+        is a closed linear subspace of<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>c_0</m> be the vector space of all sequences <m>x</m> of real numbers (with pointwise
+        operations) which converge to zero. Give <m>c_0</m> the uniform norm (see <xref ref="exam_un_set">example</xref>
+        so that for every <m>x \in c_0</m>
+        <me>
+          \norm x_u = \sup\{x_k: k \in \N\}\,.
+        </me>
+      </p>
+
+      <p>
+        The family <m>l</m> of sequences of real numbers which have only finitely many nonzero coordinates
+        is a vector subspace of<nbsp /><m>c_0</m>, but it is not a closed subspace. Thus the range of the
+        inclusion map of <m>l</m> into <m>c_0</m> does not have closed range.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    In general the calculus of infinite dimensional spaces is no more complicated than calculus on
+    <m>\R^n</m>. One respect in which the Euclidean spaces <m>\R^n</m> turn out to be simpler, however, is
+    the fact that every linear map from <m>\R^n</m> into <m>\R^m</m> is automatically continuous. Between
+    finite dimensional spaces there are no discontinuous linear maps. And this is true regardless
+    of the particular norms placed on these spaces.
+  </p>
+
+  <proposition xml:id="prop_fd_cont">
+    <statement>
+      <p>
+        Let <m>\R^n</m> and <m>\R^m</m> have any norms whatever. If
+        <m>T \colon \R^n \sto \R^m</m> is linear, then it is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>\bigl[t_k^j\bigr] = [T]</m> be the matrix representation
+      of <m>T</m> and
+      <me>
+        M = \max\{\bigl| t_k^j \bigr| \colon 1 \le j \le m \text{ and }  1 \le k \le n\}\,.
+      </me>
+    </p>
+
+    <p>
+      Let <m>\R_u^m</m> be <m>\R^m</m> provided with the uniform norm
+      <me>
+        \norm x_u := \max\{\abs{x_k} \colon 1 \le k \le m\}
+      </me>
+      and <m>\R_1^n</m> be <m>\R^n</m> equipped with the norm
+      <me>
+        \norm x_1 := \sum_{k=1}^n \abs{x_k}\,.
+      </me>
+    </p>
+
+    <p>
+      Show that <m>T</m> regarded as a map from <m>\R_1^n</m> to <m>\R_u^m</m> is bounded (with <m>\norm T \le M</m>).
+      Then use <xref ref="prob_norms_Rn">problem</xref>.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_eval_op">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces and <m>x \in V</m>.
+        Define a map <m>E_x</m> (called
+        <index><main>evaluation map</main></index><term>evaluation at</term> <m>x</m>) by
+        <me>
+          E_x\colon \ofml B(V,W) \sto W\colon T \mapsto Tx\,.
+        </me>
+      </p>
+
+      <p>
+        Show that <m>E_x \in \ofml B\bigl(\ofml B(V,W),W\bigr)</m> and that <m>\norm{E_x} \le \norm x</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_Ex_cms">
+    <statement>
+      <p>
+        What changes in the preceding problem if we let <m>M</m> be a
+        compact metric space and <m>W</m> be a nonzero normed linear space and consider the evaluation map
+        <m>E_x \colon \fml C(M,W) \sto W \colon f \mapsto f(x)</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_comp_op">
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set and <m>T \colon V \sto W</m> be a bounded
+        linear transformation between normed linear spaces. Define a function <m>C_T</m> on the normed
+        linear space <m>\fml B(S,V)</m> by
+        <me>
+          C_T(f) :=  T \circ f
+        </me>
+        for all <m>f</m> in <m>\fml B(S,V)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>C_T(f)</m> belongs to <m>\fml B(S,W)</m> whenever <m>f</m> is a member of
+              <m>\fml B(S,V)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the map <m>C_T\colon \fml B(S,V) \sto \fml B(S,W)</m> is linear and
+              continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Find <m>\norm{C_T}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Show that if <m>f_n \sto g \text{ (unif) }</m> in <m>\fml B(S,V)</m>, then
+              <m>T \circ f_n \sto T \circ g \text{ (unif) }</m> in <m>\fml B(S,W)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              Show that <m>C_T</m> is injective if and only if <m>T</m> is.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_c_functor">
+    <statement>
+      <p>
+        Let <m>M</m> and <m>N</m> be compact metric spaces and
+        <m>\phi\colon M \sto N</m> be continuous. Define <m>T_\phi</m> on <m>\fml C(N,\R)</m> by
+        <me>
+          T_\phi(g) := g \circ \phi
+        </me>
+        for all <m>g</m> in <m>\fml C(N,\R)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>T_\phi</m> maps <m>\fml C(N,\R)</m> into <m>\fml C(M,\R)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>T_\phi</m> is a bounded linear transformation.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\norm{T_\phi} = 1</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              If <m>\phi</m> is surjective, then <m>T_\phi</m> is injective.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              If <m>T_\phi</m> is injective, then <m>\phi</m> is surjective.
+              <em>Hint.</em>  Suppose <m>\phi</m> is not surjective.  Choose <m>y</m> in <m>N \setminus \ran\phi</m>.  Show
+              that <xref ref="prob_urys_lem">problem</xref> can be applied to the sets <m>\{y\}</m> and <m>\ran\phi</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              If <m>T_\phi</m> is surjective, then <m>\phi</m> is injective.  <em>Hint.</em>  Here again
+              <xref ref="prob_urys_lem">problem</xref> is useful. [It is also true that if <m>\phi</m> is injective, then
+              <m>T_\phi</m> is surjective.  But more machinery is needed before we can prove this.]
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>(S_k)</m> be a sequence in <m>\ofml B(V,W)</m> and <m>U</m> be a member of <m>\ofml B(W,X)</m>
+        where <m>V</m>, <m>W</m>, and <m>X</m> are normed linear spaces. If <m>S_k \sto T</m> in <m>\ofml B(V,W)</m>, then
+        <m>US_k \sto UT</m>. Also, state and prove a similar result whose conclusion is, <q>then <m>S_kU \sto
+        TU</m>.</q>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A family <m>\ofml T</m> of linear maps from a vector space into itself is a
+        <index><main>commuting</main><sub>family</sub></index>
+        <index><main>family</main><sub>commuting</sub></index><term>commuting family</term> if <m>ST = TS</m> for all <m>S</m>, <m>T \in \ofml T</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <title>Markov-Kakutani Fixed Point Theorem</title>
+    <statement>
+      <p>
+        Prove: If <m>\ofml T</m> is a commuting family of bounded linear maps from a normed linear
+        space <m>V</m> into itself and <m>K</m> is a nonempty convex compact subset of <m>V</m> which is mapped
+        into itself by every member of <m>\ofml T</m>, then there is at least one point in <m>K</m> which
+        is fixed under every member of<nbsp /><m>\ofml T</m>. <em>Hint.</em> For every <m>T</m> in <m>\ofml T</m> and
+        <m>n</m> in <m>\N</m> define
+        <me>
+          T_n = n^{-1}\sum_{j=0}^{n-1} T^j
+        </me>
+      </p>
+
+      <p>
+        (where <m>T^0 := I</m>). Let <m>\ofml U= \{T_n\colon T \in \ofml T \text{ and }  n \in \N\}</m>.
+        Show that <m>\ofml U</m> is a commuting family of bounded linear maps on <m>V</m> each of which
+        maps <m>K</m> into itself and that if <m>U_1,\dots, U_n \in \ofml U</m>, then
+        <me>
+          (U_1 \dots U_n)^\sto (K) \subseteq \bigcap_{j=1}^n U_j^\sto (K)\,.
+        </me>
+      </p>
+
+      <p>
+        Let <m>\sfml C = \{U^\sto (K)\colon U \in \ofml U\}</m> and use <xref ref="fip">problem</xref> to show that
+        <m>\bigcap\sfml C \ne \emptyset</m>.
+      </p>
+
+      <p>
+        Finally, show that every element of <m>\bigcap\sfml C</m> is fixed under each <m>T</m> in <m>\ofml
+        T</m>; that is, if <m>a \in \bigcap\sfml C</m> and <m>T \in \ofml T</m>, then <m>Ta = a</m>. To this end
+        argue that for every <m>n \in \N</m> there exists <m>c_n \in K</m> such that <m>a = T_nc_n</m> and
+        therefore <m>Ta - a</m> belongs to <m>n^{-1}(K-K)</m> for each<nbsp /><m>n</m>. Use
+        <xref ref="prob_sum_cpt">problems</xref> and <xref ref="cpt_clbdd"></xref> to show that every neighborhood of <m>0</m>
+        contains, for sufficiently large <m>n</m>, sets of the form <m>n^{-1}(K-K)</m>. What do these last
+        two observations say about <m>Ta - a</m>?
+      </p>
+    </statement>
+  </problem>
+</section>

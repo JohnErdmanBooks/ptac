@@ -1,0 +1,376 @@
+
+<section>
+  <title>Inner products</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>x = (x_1, \dots, x_n)</m> and <m>y = (y_1, \dots,y_n)</m> be vectors in <m>\R^n</m>. The
+        <index><main>inner product</main></index>
+        <index><main>product</main><sub>inner</sub></index>
+        <index><main><@<m>\langle x,y \rangle</m> (dot product, inner product)</main></index><term>inner product</term> (or
+        <index><main>dot product</main></index>
+        <index><main>product</main><sub>dot</sub></index><term>dot product</term>) of <m>x</m> and <m>y</m>, denoted by <m>\langle x,y \rangle</m>,
+        is defined by
+        <me>
+          \langle x,y \rangle := \sum_{k=1}^n x_ky_k\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    As a first result we list the most important properties of the inner product.
+  </p>
+
+  <proposition xml:id="prop_prop_ip">
+    <statement>
+      <p>
+        Let <m>x</m>, <m>y</m>, and <m>z</m> be vectors in <m>\R^n</m> and <m>\alpha</m> be a
+        scalar. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\langle x + y , z \rangle = \langle x , z \rangle + \langle y , z \rangle</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\langle \alpha x , y \rangle = \alpha \langle x , y \rangle</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\langle x , y \rangle = \langle y , x \rangle</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\langle x , x \rangle \ge 0</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\langle x , x \rangle = 0</m> only if <m>x = \vc 0</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              <m>\norm x = \sqrt{\langle x , x \rangle}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Items (a) and (b) say that the inner product is
+        <index><main>linearity</main><sub>of the inner product</sub></index><em>linear</em> in its first variable; (c) says it is
+        <index><main>symmetric</main></index><em>symmetric</em>; and (d) and (e) say that it is
+        <index><main>positive definite</main></index><em>positive definite</em>. It is virtually obvious that an inner product is also linear in its
+        second variable (see <xref ref="exer_ip1">exercise</xref>). Thus an inner product may be characterized as
+        a positive definite, symmetric, bilinear functional on<nbsp /><m>\R^n</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_ip_expan">
+    <statement>
+      <p>
+        If <m>x</m> is in <m>\R^n</m>, then
+        <me>
+          x = \sum_{k=1}^n \langle x , e^k \rangle e^k \,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <p>
+    This result is used so frequently that it has been stated formally as a proposition. Its
+    proof, however, is trivial. [It is clear from the definition of the inner product that
+    <m>\langle x , e^k \rangle = x_k</m>, where, as usual, <m>\{e^1, \dots, e^n\}</m> is the standard basis
+    for<nbsp /><m>\R^n</m>.]
+  </p>
+  <exercise xml:id="exer_ip1">
+    <statement>
+      <p>
+        Use properties (a)<ndash />(c) above, but not the definition of
+        <em>inner product</em> to prove that
+        <me>
+          \langle x , y + z \rangle =  \langle x , y \rangle + \langle x , z \rangle
+        </me>
+        and
+        <me>
+          \langle x , \alpha y \rangle = \alpha \langle x , y \rangle
+        </me>
+        for all <m>x</m>, <m>y</m>, <m>z \in \R^n</m> and <m>\alpha \in \R</m>. (<xref ref="sol_exer_ip1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    <index><main>parallelogram law</main></index>
+  </p>
+
+  <proposition>
+    <title>The Parallelogram Law</title>
+    <statement>
+      <p>
+        If <m>x</m>, <m>y \in \R^n</m>, then
+        <me>
+          \norm{x + y}^2 + \norm{x - y}^2 = 2\norm x^2 + 2\norm y^2\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>Schwarz inequality</main></index>
+    <index><main>inequality</main><sub>Schwarz</sub></index>
+  </p>
+
+  <proposition xml:id="Schwarz_ineq">
+    <title>Schwarz's Inequality</title>
+    <statement>
+      <p>
+        If <m>u</m>, <m>v \in \R^n</m>, then
+        <me>
+          \abs{\langle u , v \rangle} \le \norm u \norm v\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      This has been proved in <xref ref="metric">chapter</xref>: notice that the left side of the
+      inequality given in <xref ref="Schwarz">proposition</xref> is <m>\bigl(\langle u , v \rangle\bigr)^2</m> and the
+      right side is <m>\norm u^2  \norm v^2</m>.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>x</m> and <m>y</m> are nonzero vectors in <m>\R^n</m>, define <m>\measuredangle(x,y)</m>, the
+        <index><main><@<m>\measuredangle(x,y)</m> (angle between two vectors)</main></index>
+        <index><main>angle</main></index><term>angle</term> between <m>x</m> and <m>y</m>, by
+        <me>
+          \measuredangle(x,y)
+                       :=  \arccos \left(\frac{\langle x , y \rangle}{\norm x \norm y}\right)\,.
+        </me>
+      </p>
+
+      <p>
+        A version of this formula which is perhaps somewhat more familiar is
+        <me>
+          \langle x,y \rangle = \norm x\norm y\cos\measuredangle(x,y)\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_angle">
+    <statement>
+      <p>
+        How do we know that the preceding definition makes sense?
+        (What is the domain of the arccosine function?) (<xref ref="sol_exer_angle">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Prove the
+        <index><main>law of cosines</main></index><em>law of cosines</em>: if <m>x</m> and <m>y</m> are nonzero vectors in <m>\R^n</m> and <m>\theta =
+        \measuredangle(x,y)</m>, then
+        <me>
+          \norm{x-y}^2 = \norm x^2 + \norm y^2 - 2\norm x\norm y\cos\theta\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="exer_angle2">
+    <statement>
+      <p>
+        What is the angle between the vectors <m>(1,0,1)</m> and <m>(0,-1,1)</m>
+        in<nbsp /><m>\R^3</m>? (<xref ref="sol_exer_angle2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Find the angle between the vectors <m>(1,0,-1,-2)</m> and <m>(-1,1,0,1)</m> in <m>\R^4</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        The angle of intersection of two curves is by definition the angle between the
+        tangent vectors to the curves at the point of intersection. Find the angle of
+        intersection at the point <m>(1,-2,3)</m> of the curves <m>C_1</m> and <m>C_2</m> where
+        <me>
+          C_1(t) = (t, t^2 + t - 4, 3 + \ln t)
+        </me>
+        and
+        <me>
+          C_2(u) = (u^2 - 8, u^2 - 2u - 5, u^3 - 3u^2 - 3u + 12)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Two vectors <m>x</m> and <m>y</m> in <m>\R^n</m> are
+        <index><main>perpendicular</main></index><term>perpendicular</term> (or
+        <index><main>orthogonal</main></index><term>orthogonal</term>) if <m>\langle x,y \rangle = 0</m>. In this case we write
+        <index><main><@<m>x \perp y</m> (perpendicular, orthogonal)</main></index><m>x \perp y</m>. Notice that the relationship between perpendicularity and angle is what we
+        expect: if <m>x</m> and <m>y</m> are nonzero vectors then <m>x \perp y</m> if and only if
+        <m>\measuredangle(x,y) = \pi/2</m>. The zero vector is perpendicular to all vectors but the angle
+        it makes with another vector is not defined.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Find a linear combination of the vectors <m>(1,0,2)</m> and <m>(2,-1,1)</m> which is
+        perpendicular to the vector <m>(2,2,1)</m> in<nbsp /><m>\R^3</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove the
+        <index><main>Pythagorean theorem</main></index><em>Pythagorean theorem</em>: if <m>x \perp y</m> in <m>\R^n</m>, then
+        <me>
+          \norm{x + y}^2 = \norm x^2 + \norm y^2\,.
+        </me>
+      </p>
+
+      <p>
+        Does the converse hold?
+      </p>
+    </statement>
+  </problem>
+
+  <notation>
+
+  <p>
+    Let <m>f \colon U \sto \R^n</m> and <m>g \colon V \sto \R^n</m> where <m>U</m> and <m>V</m> are subsets
+    of a normed linear space which are not disjoint. Then we denote by <m>\langle f,g \rangle</m> the
+    real valued function on <m>U \cap V</m> whose value at a point <m>x</m> in <m>U \cap V</m> is <m>\langle
+    f(x),g(x) \rangle</m>. That is,
+    <me>
+      \langle f,g \rangle \colon U \cap V \sto \R \colon x \mapsto \langle f(x),g(x) \rangle\,.
+    </me>
+  </p>
+
+  <p>
+    The scalar field <m>\langle f,g \rangle</m> is the
+    <index><main>inner product</main><sub>of functions</sub></index><term>inner product</term> (or
+    <index><main>dot product</main><sub>of functions</sub></index><term>dot product</term> of <m>f</m> and<nbsp /><m>g</m>.
+  </p>
+
+  </notation>
+
+  <proposition xml:id="prop_ip_diff">
+    <statement>
+      <p>
+        Suppose that the functions <m>f \colon U \sto \R^n</m> and
+        <m>g\colon V \sto \R^n</m>, defined on subsets of a normed linear space <m>W</m>, are differentiable at
+        a point <m>a</m> in the interior of <m>U \cap V</m>. Then <m>\langle f,g \rangle</m> is differentiable at
+        <m>a</m> and
+        <me>
+          d\langle f,g \rangle_a = \langle f(a),dg_a \rangle + \langle df_a,g(a) \rangle\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="prop_Leib_rul">propositions</xref>
+      and <xref ref="prop_diff_coord"></xref>.
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_ip_der">
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are curves at a point <m>a</m> in <m>\R^n</m> and are
+        differentiable, then
+        <me>
+          D\langle f,g \rangle (a) = \langle f(a),Dg(a) \rangle + \langle Df(a), g(a) \rangle\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      <xref ref="prop_ip_diff">Use</xref> and <xref ref="prop_diff_der"></xref>.
+      <md>
+        <mrow>D \langle f,g \rangle (a) \amp = d\langle f,g \rangle_a(1)</mrow>
+        <mrow>\amp = \langle f(a),dg_a(1) \rangle + \langle df_a(1),g(a) \rangle</mrow>
+        <mrow>\amp = \langle f(a),Dg(a) \rangle + \langle Df(a),g(a) \rangle</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f = (f^1,f^2,f^3)</m> where
+        <md>
+          <mrow>f^1(t) \amp = t^3 + 2t^2 - 4t + 1</mrow>
+          <mrow>f^2(t) \amp = t^4 - 2t^3 + t^2 + 3</mrow>
+          <mrow>f^3(t) \amp = t^3 - t^2 + t - 2</mrow>
+        </md>
+        and let <m>g(t) = \norm{f(t)}^2</m> for all <m>t</m> in <m>\R</m>. Find <m>Dg(1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>c</m> be a differentiable curve in <m>\R^n</m>. Show that the point <m>c(t)</m> moves
+        on the surface of a sphere centered at the origin if and only if the tangent vector <m>Dc(t)</m> at
+        <m>t</m> is perpendicular to the position vector <m>c(t)</m> at each<nbsp /><m>t</m>. <em>Hint.</em> Use
+        <xref ref="cor_ip_der">corollary</xref>.
+      </p>
+    </statement>
+  </problem>
+</section>

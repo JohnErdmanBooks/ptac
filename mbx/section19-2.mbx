@@ -1,0 +1,107 @@
+
+<section>
+  <title>Application to integral equations</title>
+  <exercise xml:id="fpt_inteq">
+    <statement>
+      <p>
+        Use <xref ref="cmthm">theorem</xref> to solve the integral equation
+        <men xml:id="fpt_eq7" >
+          f(x) = \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt\,.
+        </men>
+      </p>
+
+      <p>
+        <em>Hint.</em> We wish to find a continuous function <m>f</m> which satisfies <xref ref="fpt_eq7" /> for all <m>x
+        \in \R</m>. Consider the mapping <m>T</m> which takes each continuous function <m>f</m> into the function <m>Tf</m>
+        whose value at <m>x</m> is given by
+        <me>
+          Tf(x) = \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt\,.
+        </me>
+      </p>
+
+      <p>
+        [It is important to keep in mind that <m>T</m> acts on functions, not on numbers. Thus <m>Tf(x)</m> is to be
+        interpreted as <m>(T(f))(x)</m> and not <m>T(f(x))</m>.] In order to make use of <xref ref="cmthm">theorem</xref>, the
+        mapping <m>T</m> must be contractive. One way to achieve this is to restrict our attention to
+        continuous functions on the interval <m>[0,1]</m> and use the uniform metric on <m>\fml C([0,1],\R)</m>.
+        Once a continuous function <m>f</m> is found such that <xref ref="fpt_eq7" /> is satisfied for all <m>x</m> in
+        <m>[0,1]</m>, it is a simple matter to check whether <xref ref="fpt_eq7" /> holds for all <m>x</m> in <m>\R</m>.
+        Consider then the map
+        <me>
+          T \colon \fml C([0,1],\R) \sto \fml C([0,1],\R) \colon f \mapsto Tf
+        </me>
+        where
+        <me>
+          Tf(x) := \tfrac13 x^3 + \int_0^x t^2 f(t)\,dt
+        </me>
+        for all <m>x \in [0,1]</m>. The space <m>\fml C([0,1],\R)</m> is complete. (Why?) Show that <m>T</m> is
+        contractive by estimating <m>\abs{Tf(x) - Tg(x)}</m>, where <m>f</m> and <m>g</m> are continuous functions on
+        <m>[0,1]</m>, and taking the supremum over all <m>x</m> in <m>[0,1]</m>. What can be concluded from <xref ref="cmthm">theorem</xref> about <xref ref="fpt_eq7" />?
+      </p>
+
+      <p>
+        To actually find a solution to <xref ref="fpt_eq7" />, use the <em>proof</em> of <xref ref="cmthm"></xref> (that
+        is, successive approximations). For simplicity start with the zero function in <m>\fml
+        C([0,1],\R)</m>: let <m>g_0(x) = 0</m> for <m>0 \le x \le 1</m>. For <m>n \ge 0</m> let <m>g_{n+1}(x) =
+        Tg_n(x)</m> for <m>0 \le x \le 1</m>. Compute <m>g_1</m>, <m>g_2</m>, <m>g_3</m>, and<nbsp /><m>g_4</m>. You should be able
+        to guess what <m>g_n</m> will be. (It is easy to verify the correctness of your guess by
+        induction, but it is not necessary to do this.) Next, let <m>f</m> be the function which is
+        the uniform limit of the sequence<nbsp /><m>(g_n)</m>. That is, <m>f</m> is the function whose power
+        series expansion has <m>g_n</m> as its <m>n^{\text{ th } }</m> partial sum. This power series
+        expansion should be one with which you are familiar from beginning calculus; what
+        elementary function does it represent?
+      </p>
+
+      <p>
+        Finally, show by direct computation that this elementary function does in fact satisfy
+        <xref ref="fpt_eq7" /> for all <m>x</m> in <m>\R</m>. (<xref ref="sol_fpt_inteq">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Give a careful proof that there exists a unique continuous real valued
+        function <m>f</m> on <m>[0,1]</m> which satisfies the integral equation
+        <me>
+          f(x) =  x^2 + \int_0^x t^2 f(t)\,dt\,.
+        </me>
+      </p>
+
+      <p>
+        (You are not asked to <em>find</em> the solution.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="cmthm">theorem</xref> to solve the integral equation
+        <me>
+          f(x) =  x + \int_0^x f(t)\,dt\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Follow the procedure of <xref ref="fpt_inteq">exercise</xref>. Keep in mind that the only
+        reason for choosing the particular interval <m>[0,1]</m> in <xref ref="fpt_inteq"></xref> was to make the
+        map <m>T</m> contractive.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        For every <m>f</m> in <m>\fml C([0,\pi/4],\R)</m> define
+        <me>
+          Tf(x) =  x^2 - 2 - \int_0^x f(t)\,dt
+        </me>
+        where <m>0 \le x \le \pi/4</m>. Show that <m>T</m> is a contraction. Find the fixed point of<nbsp /><m>T</m>.
+        What integral equation have you solved?
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,144 @@
+
+<section>
+  <title>The relative topology</title>
+  <p>
+    In <xref ref="subsp_vs_sp">example</xref> we considered the set <m>A = [0,1)</m> which is contained in both the
+    metric spaces <m>M = [0,\infty)</m> and <m>N = \R</m>. We observed that the question <q>Is <m>A</m> open?</q>
+    is ambiguous; it depends on whether we mean <q>open in <m>M</m></q> or <q>open in <m>N</m></q>. Similarly, the
+    notation <m>B_r(a)</m> is equivocal. In <m>M</m> the open ball <m>B_\frac12(0)</m> is the interval
+    <m>[0,\frac12)</m> while in <m>N</m> it is the interval <m>(-\frac12,\frac12)</m>. When working with sets
+    which are contained in two different spaces, considerable confusion can be created by
+    ambiguous choices of notation or terminology. In the next proposition, where we examine the
+    relationship between open subsets of a metric space <m>N</m> and open subsets of a subspace<nbsp /><m>M</m>, it
+    is necessary, in the proof, to consider open balls in both <m>M</m> and<nbsp /><m>N</m>. To avoid confusion we
+    use the usual notation <m>B_r(a)</m> for open balls in <m>M</m> and a different one <m>D_r(a)</m> for those
+    in<nbsp /><m>N</m>.
+  </p>
+
+  <p>
+    The point of the following proposition is that even if we are dealing with a complicated or
+    badly scattered subspace of a metric space, its open sets are easily identified. When an open
+    set in the larger space is intersected with the subspace <m>M</m> what results is an open set in
+    <m>M</m>; and, less obviously, <em>every</em> open set in <m>M</m> can be produced in this fashion.
+  </p>
+
+  <proposition xml:id="open_in_subsp">
+    <statement>
+      <p>
+        Let <m>M</m> be a subspace of a metric space <m>N</m>. A set
+        <m>U \subseteq M</m> is open in <m>M</m> if and only if there exists a set <m>V</m> open in <m>N</m> such that <m>U
+        = V \cap M</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let us establish some notation. If <m>a \in M</m> and <m>r > 0</m> we write <m>B_r(a)</m> for
+      the open ball about <m>a</m> of radius <m>r</m> in the space<nbsp /><m>M</m>. If <m>a \in N</m> and <m>r>0</m> we write
+      <m>D_r(a)</m> for the corresponding open ball in the space<nbsp /><m>N</m>. Notice that <m>B_r(a) = D_r(a) \cap
+      M</m>. Define a mapping <m>f</m> from the set of all open balls in <m>M</m> into the set of open balls in
+      <m>N</m> by
+      <me>
+        f(B_r(a)) = D_r(a)\,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>f</m> is just the function which associates with each open ball in the space <m>M</m> the
+      corresponding open ball (same center, same radius) in <m>N</m>; so <m>f(B) \cap M = B</m> for each open
+      ball <m>B</m> in <m>M</m>.
+    </p>
+
+    <p>
+      Now suppose <m>U</m> is open in <m>M</m>. By <xref ref="op_un_bl">proposition</xref> there exists a family
+      <m>\sfml B</m> of open balls in <m>M</m> such that <m>U = \bigcup\sfml B</m>. Let <m>\sfml D = \{f(B)
+      \colon B \in \sfml B\}</m> and <m>V = \bigcup\sfml D</m>. Then <m>V</m>, being a union of open balls
+      in <m>N</m>, is an open subset of <m>N</m> and
+      <md>
+        <mrow>V \cap M
+                \amp = \bigl(\textstyle\bigcup \sfml D\bigr) \cap M</mrow>
+        <mrow>\amp = \bigl(\textstyle\bigcup\{f(B):B \in \sfml B\}\bigr)\cap M</mrow>
+        <mrow>\amp = \textstyle\bigcup\{f(B) \cap M: B \in \sfml B\}</mrow>
+        <mrow>\amp = \textstyle\bigcup \sfml B</mrow>
+        <mrow>\amp = U\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      (For the third equality in the preceding string, see <xref ref="ioveru_inf">proposition</xref>.)
+    </p>
+
+    <p>
+      The converse is even easier. Let <m>V</m> be an open subset of <m>N</m> and <m>a \in V \cap M</m>. In order
+      to show that <m>V \cap M</m> is open in <m>M</m>, it suffices to show that, in the space <m>M</m>, the point
+      <m>a</m> is an interior point of the set <m>V \cap M</m>. Since <m>V</m> is open in <m>N</m>, there exists <m>r>0</m>
+      such that <m>D_r(a) \subseteq V</m>. But then
+      <me>
+        B_r(a) \subseteq D_r(a) \cap M \subseteq V \cap M\,.   \qedhere
+      </me>
+    </p>
+  </proof>
+
+  <p>
+    The family of all open subsets of a metric space is called the
+    <index><main>topology</main></index><term>topology</term> on the space. As was the case for the real numbers, the concepts of
+    continuity, compactness, and connectedness can be characterized entirely in terms of the
+    open subsets of the metric spaces involved and without any reference to the specific
+    metrics which lead to these open sets. Thus we say that continuity, compactness, and
+    connectedness are topological concepts. The next <xref ref="mtr_vs_top">proposition</xref> tells us
+    that strongly equivalent metrics on a set produce identical topologies. Clearly, no
+    topological property of a metric space is affected when we replace the given metric with
+    another metric which generates the same topology.
+  </p>
+
+  <definition xml:id="def_equiv_metrics">
+    <statement>
+      <p>
+        Two metrics <m>d_1</m> and <m>d_2</m> on a set <m>M</m> are
+        <index><main>equivalent</main><sub>metrics</sub></index>
+        <index><main>metrics</main><sub>equivalent</sub></index><term>equivalent</term> if they induce the same topology on<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    We now prove that strongly equivalent metrics are equivalent.
+  </p>
+
+  <proposition xml:id="mtr_vs_top">
+    <statement>
+      <p>
+        Let <m>d_1</m> and <m>d_2</m> be metrics on a set <m>M</m> and <m>\sfml T_1</m> and
+        <m>\sfml T_2</m> be the topologies on <m>(M,d_1)</m> and <m>(M,d_2)</m>, respectively. If <m>d_1</m> and
+        <m>d_2</m> are strongly equivalent, then <m>\sfml T_1 = \sfml T_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_mtr_vs_top">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example to show that equivalent metrics need not be strongly
+        equivalent.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>M</m> is a subspace of the metric space <m>(N,d)</m>, the family of open subsets of <m>M</m>
+        induced by the metric <m>d</m> is called the
+        <index><main>relative</main><sub>topology</sub></index><index><main>topology</main><sub>relative</sub></index><term>relative topology</term> on<nbsp /><m>M</m>. According to <xref ref="open_in_subsp">proposition</xref>, the relative
+        topology on <m>M</m> is<nbsp /><m>\{V \cap M \colon \open VN\}</m>.
+      </p>
+    </statement>
+  </definition>
+</section>

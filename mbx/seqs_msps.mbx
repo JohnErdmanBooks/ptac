@@ -1,0 +1,15 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="seqs_msps">
+  <title>Sequences in metric spaces</title>
+  <introduction>
+    <p>
+      In <xref ref="seqs_rn">chapter</xref> we were able to characterize several topological properties of the
+      real line <m>\R</m> by means of sequences. The same sort of thing works in general metric spaces.
+      Early in this chapter we give sequential characterizations of open sets, closed sets, dense
+      sets, closure, and interior. Later we discuss products of metric spaces.
+    </p>
+  </introduction>
+  <xi:include  href="section12-1.mbx" />
+  <xi:include  href="section12-2.mbx" />
+  <xi:include  href="section12-3.mbx" />
+</chapter>

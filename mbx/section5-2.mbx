@@ -1,0 +1,185 @@
+
+<section>
+  <title>Continuous images of connected sets</title>
+  <p>
+    Some of the facts we prove in this chapter are
+    quite specific to the real line<nbsp /><m>\R</m>. When we move to more complicated metric spaces no
+    reasonable analog of these facts is true. For example, even in the plane <m>\R^2</m> nothing
+    remotely like <xref ref="prop_conn_int">proposition</xref> holds. While it is not unreasonable to guess
+    that the connected subsets of the plane are those in which we can move continuously between
+    any two points of the set without leaving the set, this conjecture turns out to be wrong. The
+    latter property, <em>arcwise connectedness</em>, is sufficient for connectedness to hold<mdash />but
+    is not necessary. In <xref ref="conn">chapter</xref> we will give an example of a connected set which is
+    not arcwise connected.
+  </p>
+
+  <p>
+    Despite the fact that some of our results are specific to<nbsp /><m>\R</m>, others will turn out to be
+    true in very general settings. The next theorem, for example, which says that continuity
+    preserves connectedness, is true in<nbsp /><m>\R</m>, in<nbsp /><m>\R^n</m>, in metric spaces, and even in general
+    topological spaces. More important, the same proof works in all these cases! Thus when you
+    get to <xref ref="conn">chapter</xref>, where connectedness in metric spaces is discussed, you will
+    already know the proof that the continuous image of a connected set is itself connected.
+  </p>
+
+  <theorem xml:id="thm_contimg_conn">
+    <statement>
+      <p>
+        The continuous image of a connected set is connected.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Prove the contrapositive. Let <m>f\colon A \sto \R</m> be
+      a continuous function where <m>A \subseteq \R</m>. Show that if <m>\ran f</m> is disconnected, then so
+      is<nbsp /><m>A</m>. (<xref ref="sol_contimg_conn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The important <em>intermediate value theorem</em>, is an obvious corollary of the preceding
+    theorem.
+  </p>
+
+  <theorem xml:id="thm_ivt1">
+    <title>Intermediate Value Theorem: Conceptual Version</title>
+    <statement>
+      <p>
+        The continuous
+        <index><main>intermediate value theorem</main></index>image in <m>\R</m> of an interval is an interval.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Obvious from <xref ref="prop_conn_int"></xref> and <xref ref="thm_contimg_conn"></xref>.
+    </p>
+  </proof>
+
+  <p>
+    A slight variant of this theorem, familiar from beginning calculus, helps explain the
+    <em>name</em> of the result. It says that if a continuous real valued function defined on an
+    interval takes on two values, then it takes on every intermediate value, that is, every value
+    between them. It is useful in establishing the existence of solutions to certain equations and
+    also in approximating these solutions.
+  </p>
+
+  <theorem xml:id="thm_ivt2">
+    <title>Intermediate Value Theorem: Calculus Text Version</title>
+    <statement>
+      <p>
+        Let <m>f \colon J
+        \sto \R</m> be a continuous function defined on an interval <m>J \subseteq \R</m>. If <m>a</m>, <m>b \in \ran
+        f</m> and <m>a \lt  z \lt  b</m>, then <m>z \in \ran f</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_ivt2">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Here is a typical application of the <em>intermediate value theorem</em>.
+  </p>
+
+  <example xml:id="exam_ivt_eqn">
+    <statement>
+      <p>
+        The equation
+        <men xml:id="ivt_soln_eqn2" >
+          x^{27} + 5x^{13} + x = x^3+ x^5 + \frac2{\sqrt{1+3x^2}}
+        </men>
+        has at least one real solution.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Consider the function <m>f</m>
+      whose value at <m>x</m> is the left side minus the right side of<nbsp /><xref ref="ivt_soln_eqn2" />. What can
+      you say without much thought about <m>f(2)</m> and <m>f(-2)</m>? (<xref ref="sol_ivt_eqn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    As another application of the {intermediate value theorem} we prove a fixed point
+    theorem. (<em>Definition:</em> Let <m>f \colon S \sto S</m> be a mapping from a set <m>S</m> into
+    itself. A point <m>c</m> in <m>S</m> is a
+    <index><main>fixed point</main></index><term>fixed point</term> of the function <m>f</m> if <m>f(c) = c</m>.) The next result is a (very) special case
+    of the celebrated Brouwer fixed point theorem, which says that every continuous map from the
+    closed unit ball of <m>\R^n</m> into itself has a fixed point. The proof of this more general
+    result is rather complicated and will not be given here.
+  </p>
+
+  <proposition xml:id="prop_ivt_fp">
+    <statement>
+      <p>
+        Let <m>a \lt  b</m> in <m>\R</m>. Every continuous map of the interval
+        <m>[a,b]</m> into itself has a fixed point.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_ivt_fp">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The equation
+        <me>
+          x^{180} + \frac{84}{1+x^2+\cos^2x} = 119
+        </me>
+        has at least two solutions in <m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the equation
+        <me>
+          \frac1{\sqrt{4x^2+x+4}} - 1 = x - x^5
+        </me>
+        has at least one real solution. Locate such a solution between consecutive integers.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        We return to the problem we discussed at the beginning of this chapter.
+        Use the <em>intermediate value theorem</em> to find a solution to the equation
+        <me>
+          \sin x = 1 - x
+        </me>
+        accurate to within <m>10^{-5}</m>. <em>Hint.</em> You may assume, for the purposes of this problem,
+        that the function <m>x \mapsto \sin x</m> is continuous. You will not want to do the computations
+        by hand; write a program for a computer or programmable calculator. Notice to begin with that
+        there is a solution in the interval <m>[0, 1]</m>. Divide the interval in half and decide which
+        half, <m>[0,\frac12]</m> or <m>[\frac12,1]</m>, contains the solution. Then take the appropriate half
+        and divide <em>it</em> in half. Proceed in this way until you have achieved the desired
+        accuracy. Alternatively, you may find it convenient to divide each interval into tenths
+        rather than halves.
+      </p>
+    </statement>
+  </problem>
+</section>

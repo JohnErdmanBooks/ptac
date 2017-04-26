@@ -1,0 +1,9 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="images">
+  <title>Properties of functions</title>
+  <xi:include  href="section41-1.mbx" />
+  <xi:include  href="section41-2.mbx" />
+  <xi:include  href="section41-3.mbx" />
+  <xi:include  href="section41-4.mbx" />
+  <xi:include  href="sec_res_ext.mbx" />
+</chapter>

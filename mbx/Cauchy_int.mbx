@@ -1,0 +1,660 @@
+
+<section xml:id="Cauchy_int">
+  <title>The cauchy integral</title>
+  <p>
+    We are now ready to extend the integral from
+    the rather limited family of step functions to a class of functions large enough to contain
+    all continuous functions (in fact, all piecewise continuous functions).
+  </p>
+
+  <p>
+    Following Dieudonn&#xe9;<nbsp /><xref ref="Dieudonne_1962" /> we will call members of this larger class
+    <em>regulated functions</em>.
+  </p>
+
+  <p>
+    \fbox{<em>In this section <m>E</m> will be a Banach space, and <m>a</m> and <m>b</m> real numbers with <m>a
+    \lt  b</m>.</em>}
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Recall that the family <m>\fml S = \fml S([a,b],E)</m> of <m>E</m> valued step functions on
+        <m>[a,b]</m> is a subspace of the normed linear space <m>\fml B = \fml B([a,b],E)</m> of bounded
+        <m>E</m>-valued functions on <m>[a,b]</m>. The closure <m>\clo{\fml S}</m> of <m>\fml S</m> in <m>\fml B</m> is the
+        family of
+        <index><main>regulated functions</main></index>
+        <index><main>functions</main><sub>regulated</sub></index><term>regulated functions</term> on<nbsp /><m>[a,b]</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    It is an interesting fact that the regulated functions on an interval turn out to be exactly
+    those functions which have one-sided limits at every point of the interval. We will not need
+    this fact, but a proof may be found in Dieudonn&#xe9;<nbsp /><xref ref="Dieudonne_1962" />.
+  </p>
+
+  <p>
+    According to <xref ref="prob_clo_subsp">problem</xref>(b) the set <m>\clo{\fml S}</m> is a vector subspace of the
+    Banach space<nbsp /><m>\fml B</m>. Since it is closed in <m>\fml B</m> it is itself a Banach space. It is on
+    this Banach space that we define the Cauchy integral. The Cauchy integral is not as general
+    as the Riemann integral because the set <m>\clo{\fml S}</m> is not quite as large as the set of
+    functions on which the Riemann integral is defined. We do not prove this; nor do we prove the
+    fact that when both integrals are defined, they agree. What we are interested in proving is
+    that every continuous function is regulated; that is, every continuous function on <m>[a,b]</m>
+    belongs to<nbsp /><m>\fml S</m>.
+  </p>
+
+  <proposition xml:id="prop_cont_reg">
+    <statement>
+      <p>
+        Every continuous <m>E</m>-valued function on <m>[a,b]</m> is regulated.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prop_cont_ucont">proposition</xref>.
+      (<xref ref="sol_prop_cont_reg">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    It is not difficult to modify the preceding proof to show that every piecewise continuous
+    function on <m>[a,b]</m> is regulated. (Definition: A function <m>f\colon[a,b] \sto E</m> is
+    <index><main>piecewise continuous</main></index>
+    <index><main>continuous</main><sub>piecewise</sub></index><term>piecewise continuous</term> if there exists a partition <m>(t_0, \dots, t_n)</m> of <m>[a,b]</m> such that
+    <m>f</m> is continuous on each subinterval <m>(t_{k-1},t_k)</m>.)
+  </p>
+
+  <corollary>
+    <statement>
+      <p>
+        Every continuous <m>E</m> valued function on <m>[a,b]</m> is the uniform limit of a sequence
+        of step functions.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      According to <xref ref="prob_clo_seq">problem</xref> a function <m>f</m> belongs to the
+      closure of <m>S</m> if and only if there is a sequence of step functions which converges
+      (uniformly) to<nbsp /><m>f</m>.
+    </p>
+  </proof>
+
+  <p>
+    Now we are ready to define the Cauchy integral of a regulated function.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Recall that <m>\fml S = \fml S([a,b],E)</m> is a subset of the Banach space
+        <m>\fml B([a,b],E)</m>. In the preceding section we defined the integral of a step function.
+        The map
+        <me>
+          \int \colon \fml S \sto E
+        </me>
+        was shown to be bounded and linear [<xref ref="prop_intsf_lin">proposition</xref>]; therefore it is
+        uniformly continuous [<xref ref="prop_lin_ucont">proposition</xref>]. Thus [<xref ref="thm_ext_uc">theorem</xref>] it
+        has a unique continuous extension to<nbsp /><m>\clo{\fml S}</m>. This extension, which we denote also by
+        <m>\int</m>, and which is, in fact, uniformly continuous, is the
+        <index><main><@<m>\int_a^b f</m> (integral of a regulated function)</main></index>
+        <index><main>Cauchy</main><sub>integral</sub></index>
+        <index><main>integral</main><sub>Cauchy</sub></index><term>Cauchy</term> (or <term>Cauchy-Bochner</term>) <term>integral</term>. For <m>f</m> in <m>\clo{\fml S}</m> we call <m>\int
+        f</m> the <term>integral of</term> <m>f</m> (over <m>[a,b]</m>). As with step functions we may wish to emphasize
+        the domain of <m>f</m> or the role of a particular variable, in which case we may write <m>\int_a^bf</m>
+        or <m>\int_a^bf(t)\,dt</m> for <m>\int f</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Use the <em>definition</em> of the Cauchy integral to show that
+        <m>\int_0^1x^2\,dx = 1/3</m>. <em>Hint.</em> Start by finding a sequence of step functions
+        which converges uniformly to the function <m>x \mapsto x^2</m>. The <em>proof</em> of
+        <xref ref="prop_cont_reg">proposition</xref> may help; so also may <xref ref="prob_sum_sqrs">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Most of the properties of the Cauchy integral are derived from the corresponding
+    properties of the integral of step functions by taking limits. In the remainder of this
+    section it is well to keep in mind one aspect of <xref ref="thm_ext_uc">theorem</xref> (and its
+    proof): When a uniformly continuous function <m>f</m> is extended from a set <m>\fml S</m> to a
+    function <m>g</m> on its closure <m>\clo{\fml S}</m>, the value of <m>g</m> at a point <m>a</m> in <m>\clo{\fml
+    S}</m> is the limit of the values <m>f(x_n)</m> where <m>(x_n)</m> is any sequence in <m>\fml S</m> which
+    converges to<nbsp /><m>a</m>. What does this say in the present context? If <m>h</m> is a regulated
+    function, then there exists a sequence <m>(\sigma_n)</m> of step functions converging
+    uniformly to <m>h</m> and furthermore
+    <me>
+      \int h = \lim_{n\sto\infty} \int\sigma_n\,.
+    </me>
+  </p>
+
+  <p>
+    We use this fact repeatedly without explicit reference.
+  </p>
+
+  <p>
+    One more simple fact is worthy of notice. Following <xref ref="lem_int_stepf">lemma</xref> we remarked
+    that changing the value of a step function at finitely many points does not affect the value
+    of its integral. The same is true of regulated functions. [Proof. Certainly it suffices to
+    show that changing the value of a regulated function <m>f</m> at a single point <m>c</m> does not alter
+    the value of<nbsp /><m>\int f</m>. Suppose <m>(\sigma_n)</m> is a sequence of step functions converging
+    uniformly to <m>f</m>. Also suppose that <m>g</m> differs from <m>f</m> only at<nbsp /><m>c</m>. Replace each step
+    function <m>\sigma_n</m> by a function <m>\tau_n</m> which is equal to <m>\sigma_n</m> at each point other
+    than <m>c</m> and whose value at <m>c</m> is<nbsp /><m>g(c)</m>. Then <m>\tau_n \sto g \text{ (unif) }</m> and (by the
+    comment in the preceding paragraph) <m>\int g = \lim \int \tau_n = \lim \int \sigma_n = \int
+    f.</m>]
+  </p>
+
+  <p>
+    The following theorem (and <xref ref="prop_norm_Cint">proposition</xref>) generalize
+    <xref ref="prop_intsf_lin">proposition</xref>.
+  </p>
+
+  <theorem xml:id="thm_Cint_blt">
+    <statement>
+      <p>
+        The Cauchy integral is a bounded linear transformation which
+        maps the space of <m>E</m> valued regulated functions on <m>[a,b]</m> into the space<nbsp /><m>E</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_thm_Cint_blt">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Next we show that for real valued functions the Cauchy integral is a positive linear
+    functional. This generalizes <xref ref="prop_int_pos">proposition</xref>.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f</m> be a regulated real valued function on<nbsp /><m>[a,b]</m>. If <m>f(t) \ge 0</m> for all
+        <m>t</m> in <m>[a,b]</m>, then <m>\int f \ge 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Suppose that <m>f(t) \ge 0</m> for all <m>t</m> in <m>[a,b]</m> and that
+      <m>(\sigma_n)</m> is a sequence of real valued step functions converging uniformly to<nbsp /><m>f</m>. For
+      each <m>n \in N</m> define
+      <me>
+        \sigma_n^+\colon [a,b] \sto \R\colon t \mapsto \max\{\sigma_n(t),0\}\,.
+      </me>
+    </p>
+
+    <p>
+      Show that <m>(\sigma_n^+)</m> is a sequence of step functions converging uniformly to<nbsp /><m>f</m>. Then
+      use <xref ref="prop_int_pos">proposition</xref>.
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are regulated real valued functions on <m>[a,b]</m> and if <m>f(t) \le g(t)</m>
+        for all <m>t</m> in <m>[a,b]</m>, then <m>\int f \le \int g</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon [a,b] \sto E</m> be a regulated function and <m>(\sigma_n)</m> be a sequence of
+        <m>E</m>-valued step functions converging uniformly to<nbsp /><m>f</m>. Then
+        <me>
+          \bignorm{\int f} = \lim\bignorm{\int\sigma_n}\,.
+        </me>
+      </p>
+
+      <p>
+        Furthermore, if <m>g(t) = \norm{f(t)}</m> for all <m>t</m> in <m>[a,b]</m> and <m>\tau_n(t) =
+        \norm{\sigma_n(t)}</m> for all <m>n</m> in <m>\N</m> and <m>t</m> in <m>[a,b]</m>, then <m>(\tau_n)</m> is a sequence of
+        real valued step functions which converges uniformly to<nbsp /><m>g</m> and <m>\int g = \lim\int\tau_n</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_norm_Cint">
+    <statement>
+      <p>
+        Let <m>f</m> be a regulated <m>E</m> valued function on<nbsp /><m>[a,b]</m>. Then
+        <me>
+          \bignorm{\int f} \le \int\norm{f(t)}\,dt
+        </me>
+        and therefore
+        <me>
+          \bignorm{\int f} \le (b-a)\norm f_u\,.
+        </me>
+      </p>
+
+      <p>
+        Thus
+        <me>
+          \bignorm{\,\int\,} = b-a
+        </me>
+        where <m>\int\colon \clo{\fml S} \sto E</m> is the Cauchy integral and <m>\clo{\fml S}</m> is the family
+        of regulated <m>E</m> valued functions on the interval<nbsp /><m>[a,b]</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Explain in one or two brief sentences why the following is obvious: If <m>(f_n)</m> is
+        a sequence of <m>E</m>-valued regulated functions on <m>[a,b]</m> which converges uniformly to<nbsp /><m>g</m>, then
+        <m>g</m> is regulated and <m>\int g = \lim \int f_n</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\sigma, \tau\colon [0,3] \sto \R</m> be the step functions defined by
+        <me>
+          \sigma = \chi_{{}_\sst{[0,2]}} \qquad \text{ and } 
+                   \qquad  \tau = \chi_{{}_\sst{[0,2]}} + 2\chi_{{}_\sst{(2,3]}}\,.
+        </me>
+      </p>
+
+      <p>
+        Recall from <xref ref="prods">appendix</xref> that the function <m>(\sigma,\tau)\colon [0,3] \sto \R^2</m> is
+        defined by <m>(\sigma,\tau)(t) = \bigl(\sigma(t),\tau(t)\bigr)</m> for <m>0 \le t \le 3</m>. It is
+        clear that <m>(\sigma,\tau)</m> is a step function.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the partition <m>R</m> associated with<nbsp /><m>(\sigma,\tau)</m>. Find <m>(\sigma,\tau)_R</m>.
+              Make a careful sketch of<nbsp /><m>(\sigma,\tau)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\int(\sigma,\tau)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Same as preceding problem except let <m>\sigma = \chi_{{}_\sst{[0,1]}}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We now generalize <xref ref="prop_int_adj_int">proposition</xref> to regulated functions on adjoining
+    intervals.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>c</m> be an interior point of the interval <m>[a,b]</m>. If <m>g</m> and <m>h</m> are regulated
+        <m>E</m>-valued functions on the intervals <m>[a,c]</m> and <m>[c,b]</m>, respectively, define a function
+        <m>f\colon [a,b] \sto E</m> by
+        <me>
+          f(t) =
+                 \begin{cases}g(t), \qquad \amp \text{ if \(a \le c \le c\) }  \\
+                        h(t), \qquad \amp \text{ if \(c \lt  t \le b.\) } 
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Then <m>f</m> is a regulated function on <m>[a,b]</m> and
+        <me>
+          \int_a^b f = \int_a^c g + \int_c^b h\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    As was remarked after <xref ref="prop_int_adj_int">proposition</xref> it is the usual practice to use the
+    same name for a function and for its restriction to subintervals. Thus the notation of the
+    next corollary.
+  </p>
+
+  <corollary xml:id="cor_int_adj_int">
+    <statement>
+      <p>
+        If <m>f\colon [a,b] \sto E</m> is a regulated function and <m>c</m>
+        is an interior point of the interval <m>[a,b]</m>, then
+        <men xml:id="eqn_adj_int" >
+          \int_a^b f = \int_a^c f + \int_c^b f\,.
+        </men>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Let <m>g = f|_{[a,c]}</m> and <m>h = f|_{[c,b]}</m>. Notice that <m>g</m> and <m>h</m> are regulated.
+      [If, for example, <m>(\sigma_n)</m> is a sequence of step functions converging uniformly on
+      <m>[a,b]</m> to <m>f</m>, then the step functions <m>\sigma_n|_{[a,c]}</m> converge uniformly on <m>[a,c]</m>
+      to<nbsp /><m>g</m>.] Then apply the preceding proposition.
+    </p>
+  </proof>
+
+  <p>
+    It is convenient for formula<nbsp /><xref ref="eqn_adj_int" /> to be correct when <m>a</m>, <m>b</m>, and <m>c</m> are not
+    in increasing order or, for that matter, even necessarily distinct. This can be achieved by
+    means of a simple notational convention.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        For a regulated function <m>f</m> on <m>[a,b]</m> (where <m>a \lt  b</m>) define
+        <me>
+          \int_b^a f := -\int_a^b f\,.
+        </me>
+      </p>
+
+      <p>
+        Furthermore, if <m>g</m> is any function whose domain contains the point <m>a</m>, then
+        <me>
+          \int_a^a g := 0\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>f</m> is an <m>E</m> valued regulated function whose domain contains an interval to which
+        the points <m>a</m>, <m>b</m>, and <m>c</m> belong, then
+        <me>
+          \int_a^b f = \int_a^c f + \int_c^b f\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      The result is obvious if any two of the points <m>a</m>, <m>b</m>, and <m>c</m> coincide; so we
+      suppose that they are distinct. There are six possible orderings. We check one of these.
+      Suppose <m>c \lt  a \lt  b</m>. By <xref ref="cor_int_adj_int">corollary</xref>
+      <me>
+        \int_c^b f = \int_c^a f + \int_a^b f\,.
+      </me>
+    </p>
+
+    <p>
+      Thus
+      <me>
+        \int_a^b f = -\int_c^a f + \int_c^b f = \int_a^c f + \int_c^b f\,.
+      </me>
+    </p>
+
+    <p>
+      The remaining five cases are similar.
+    </p>
+  </proof>
+
+  <p>
+    Suppose <m>f</m> is an <m>E</m>-valued regulated function and <m>T</m> is a bounded linear map from <m>E</m> into
+    another Banach space<nbsp /><m>F</m>. It is interesting and useful to know that integration of the
+    composite function <m>T \circ f</m> can be achieved simply by integrating <m>f</m> and then
+    applying<nbsp /><m>T</m>. This fact can be expressed by means of the following commutative diagram.
+    Notation: <m>\clo{\fml S}_E</m> and <m>\clo{\fml S}_F</m> denote, respectively, the <m>E</m> valued and <m>F</m>
+    valued regulated functions on <m>[a,b]</m>; and <m>C_T</m> is the bounded linear transformation
+    discussed in <xref ref="prob_comp_op">problem</xref>. (<m>C_T(f) = T \circ f</m> for every<nbsp /><m>f</m>.)
+    <me>
+      \xy
+              \square[\clo{\fml S}_E`E`\clo{\fml S}_F`F;\int`C_T`T`\int]
+           \endxy
+    </me>
+  </p>
+
+  <p>
+    Alternatively it may be expressed by a formula, as in the next proposition.
+  </p>
+
+  <proposition xml:id="prop_int_compop">
+    <statement>
+      <p>
+        Let <m>T \colon E \sto F</m> be a bounded linear map between Banach
+        spaces and <m>f</m> be a regulated <m>E</m> valued function on the interval<nbsp /><m>[a,b]</m>. Then <m>T \circ f</m>
+        is a regulated <m>F</m> valued function on <m>[a,b]</m> and
+        <me>
+          \int(T \circ f) = T \biggl(\int f\biggr)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prob_int_compop">problem</xref>.
+      (<xref ref="sol_prop_int_compop">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_1param_fam">
+    <statement>
+      <p>
+        If <m>E</m> and <m>F</m> are Banach spaces and
+        <me>
+          T\colon [a,b] \sto \ofml B(E,F)\colon  t \mapsto T_t
+        </me>
+        is continuous, then for every <m>x</m> in <m>E</m>
+        <me>
+          \int  T_t(x)\,dt = \biggl(\int T\biggr)(x)\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.  <em>Hint.</em> For <m>x</m> in <m>E</m> let <m>E_x\colon \ofml B(E,F) \sto F</m>
+      be the map (evaluation at<nbsp /><m>x</m>) defined in <xref ref="prob_eval_op">problem</xref>. Write <m>T_t(x)</m> as <m>(E_x
+      \circ T)(t)</m> and apply <xref ref="prop_int_compop">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_int_const_vec">
+    <statement>
+      <p>
+        Let <m>f\colon [a,b] \sto \R</m> be a regulated function and
+        <m>x \in E</m>. For all <m>t</m> in <m>[a,b]</m> let <m>g(t) = f(t)\,x</m>. Then <m>g</m> is a regulated <m>E</m>-valued
+        function and <m>\int g = \bigl(\int f\bigr)x</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Prove the result first for the case <m>f</m> is a step function.
+      Then take limits.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>f\colon [a,b] \sto E</m> and <m>g\colon [a,b] \sto F</m> are regulated functions whose
+        ranges lie in Banach spaces, then the function
+        <me>
+          (f,g)\colon [a,b] \sto E \times F\colon  t \mapsto \bigl(f(t),g(t)\bigr)
+        </me>
+        is regulated and
+        <me>
+          \int (f,g) = \biggl(\int f, \int g\biggr)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Write <m>\int f</m> as <m>\int \bigl(\pi_1\circ(f,g)\bigr)</m> where
+      <m>\pi_1\colon E \times F \sto E</m> is the usual coordinate projection. Write <m>\int g</m> in a
+      similar fashion. Use <xref ref="prop_int_compop">proposition</xref>. Keep in mind that if <m>p</m> is a point
+      in the product <m>E \times F</m>, then <m>p = \bigl(\pi_1(p),\pi_2(p)\bigr)</m>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>h\colon [a,b] \sto E \times F</m> is a regulated function from <m>[a,b]</m> into the
+        product of two Banach spaces. Then the components <m>h^1</m> and <m>h^2</m> are regulated functions and
+        <me>
+          \int h = \biggl(\int h_1, \int h_2\biggr)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_int_Rnval">
+    <statement>
+      <p>
+        Suppose <m>f \colon [a,b] \sto \R^n</m> is a regulated function.
+        Express the integral of <m>f</m> in terms of the integrals of its components <m>f^1, \dots, f^n</m>.
+        Justify your answer carefully. <em>Hint.</em> When <m>\R^n</m> appears (without further
+        qualification) its norm is assumed to be the usual Euclidean norm. This is not the product
+        norm. What needs to be done to ensure that the results of the preceding problem will continue
+        to be true if the product norm on <m>E \times F</m> is replaced by an equivalent norm?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose <m>T \colon [0,1] \sto \ofml B(\R^2,\R^2)\colon  t \mapsto T_t)</m> is continuous,
+        and suppose that for each <m>t</m> in <m>[0,1]</m> the matrix representation of <m>T_t</m> is given by
+        <me>
+          \bigl[T_t\bigr] = \begin{bmatrix}1 \amp  t \\ t^2 \amp  t^3
+          \end{bmatrix} \,.
+        </me>
+      </p>
+
+      <p>
+        Find <m>\bigl[\int T\bigr]</m> the matrix representation of<nbsp /><m>\int T</m>. <em>Hint.</em> <xref ref="cor_1param_fam">Use</xref>, <xref ref="prop_int_const_vec"></xref>, and <xref ref="prob_int_Rnval"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        For every <m>f</m> in <m>\fml C([a,b],E)</m> define
+        <me>
+          \norm f_1 = \int_a^b \norm{f(t)}\,dt\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>\norm{}_1</m> is a norm on <m>\fml C([a,b],E)</m>. <em>Hint.</em>  In showing
+              that <m>\norm f_1 = 0</m> implies <m>f = 0</m>, <xref ref="pos_at_pt">proposition</xref> may help.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Are the norms <m>\norm{}_1</m> and <m>\norm{}_u</m> on <m>\fml C([a,b],E)</m> equivalent?
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>\fml C_1</m> be the vector space <m>\fml C([a,b],E)</m> under the norm <m>\norm{}_1</m>
+              and <m>\fml C_u</m> be the same vector space under its usual uniform norm.  Does convergence of a
+              sequence in <m>\fml C_u</m> imply convergence in<nbsp /><m>C_1</m>?  What about the converse?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>f \in \fml C([0,1],\R)</m> and <m>\int_0^1 x^nf(x)\,dx = 0</m> for
+        <m>n = 0,1,2,\dots</m>, then <m>f = 0</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find <m>\lim\frac{\int_0^1 x^nf(x)\,dx}{\int_0^1 x^n\,dx}</m> when <m>f</m> is a continuous
+        real valued function on<nbsp /><m>[0,1]</m>. <em>Hint.</em> For each <m>n</m> in <m>\N</m> let <m>L_n(f) =
+        \frac{\int_0^1 x^nf(x)\,dx}{\int_0^1 x^n\,dx}</m>. Show that <m>L_n</m> is a continuous linear
+        functional on the space <m>\fml C([0,1],\R)</m> of continuous real valued functions
+        on<nbsp /><m>[0,1]</m>. What is <m>\lim_{n \sto \infty} L_n(p)</m> when <m>p</m> is a polynomial? Use the
+        <index><main>Weierstrass approximation theorem</main></index>
+        <index><main>approximation theorem</main><sub>Weierstrass</sub></index><em>Weierstrass approximation theorem</em><nbsp /> <xref ref="Wat"></xref>.
+      </p>
+    </statement>
+  </problem>
+</section>

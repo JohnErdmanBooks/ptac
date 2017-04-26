@@ -1,0 +1,337 @@
+
+<section xml:id="neg">
+  <title>Negation</title>
+  <p>
+    If <m>P</m> is a sentence,
+    <index><main>#@<m>\sim P</m> (negation of <m>P</m>)</main></index>
+    then <m>\sim P</m>, read <q>the
+    <index><main>negation</main></index><term>negation</term> of <m>P</m></q> or <q>the
+    <index><main>denial</main></index><term>denial</term> of <m>P</m></q> or just <q>not <m>P</m></q>, is the sentence whose truth values are the opposite
+    of<nbsp /><m>P</m>.
+  </p>
+  <tabular>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>P</m></cell>
+      <cell><m>\sim P</m></cell>
+    </row>
+    <row bottom="medium">
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell  ><m>T</m></cell>
+      <cell><m>F</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>F</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+
+  <example xml:id="exam_demorg1">
+    <statement>
+      <p>
+        It should be clear that the denial of the disjunction of two
+        sentences <m>P</m> and <m>Q</m> is logically equivalent to the conjunction of their denials. If we were
+        in doubt about the correctness of this, however, we could appeal to a truth table to prove
+        that <m>\sim(P \lor Q)</m> is logically equivalent to <m>\sim P \land \sim Q</m>.
+      </p>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>(1)</cell>
+          <cell>(2)</cell>
+          <cell>(3)</cell>
+          <cell>(4)</cell>
+          <cell>(5)</cell>
+          <cell>(6)</cell>
+          <cell>(7)</cell>
+        </row>
+        <row>
+          <cell><m>P</m></cell>
+          <cell><m>Q</m></cell>
+          <cell><m>P \lor Q</m></cell>
+          <cell><m>\sim(P \lor Q)</m></cell>
+          <cell><m>\sim P</m></cell>
+          <cell><m>\sim Q</m></cell>
+          <cell><m>(\sim P) \land (\sim Q)</m></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  ><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+      <p>
+        Columns (4) and (7) have the same truth values: That is, the denial of the disjunction of <m>P</m>
+        and <m>Q</m> is logically equivalent to the conjunction of their denials. This result is one of
+        <index><main>De Morgan's laws</main><sub>in logic</sub></index><em>De Morgan's laws</em>. The other is given as
+        <xref ref="prob_demorg2">problem</xref>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    <index><main>De Morgan's laws</main><sub>in logic</sub></index>
+  </p>
+
+  <problem xml:id="prob_demorg2">
+    <title>De Morgan's law</title>
+    <statement>
+      <p>
+        Use a truth table to show that <m>\sim~(P \land Q)</m>
+        is logically equivalent to <m>(\sim P) \lor (\sim Q)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Obtain the result in <xref ref="prob_demorg2">problem</xref> without using truth tables.
+        <em>Hint.</em> <xref ref="exam_demorg1">Use</xref> together with the fact that a proposition <m>P</m> is logically
+        equivalent to <m>\sim\sim P</m>. Start by writing <m>(\sim P) \lor (\sim Q)</m> iff <m>\sim\sim((\sim P)
+        \lor (\sim Q))</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="equiv_impl">
+    <statement>
+      <p>
+        Let <m>P</m> and <m>Q</m> be sentences. Then <m>P \Rightarrow Q</m> is logically
+        equivalent to <m>Q \lor (\sim P)</m>. (<xref ref="sol_equiv_impl">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    One very important matter is the process of taking the negation of a quantified statement. Let
+    <m>P(x)</m> be an open sentence. If it is not the case that <m>P(x)</m> holds for every <m>x</m>, then it
+    must fail for some <m>x</m>, and conversely. That is, <m>\sim(\forall x)P(x)</m> is logically equivalent
+    to <m>(\exists x)\sim P(x)</m>.
+  </p>
+
+  <p>
+    Similarly, <m>\sim(\exists x)P(x)</m> is logically equivalent to <m>(\forall x)\sim P(x)</m>. (If it is
+    not the case that <m>P(x)</m> is true for some <m>x</m>, then it must fail for all <m>x</m>, and conversely.)
+  </p>
+
+  <example xml:id="exam_not_cont">
+    <statement>
+      <p>
+        In <xref ref="cont_on_R">chapter</xref> we define a real valued function
+        <m>f</m> on the real line to be continuous provided that
+        <me>
+          (\forall a)(\forall \epsilon)(\exists \delta)(\forall x)\,\abs{x-a}
+                    \lt  \delta \Rightarrow \abs{f(x) - f(a)} \lt  \epsilon.
+        </me>
+      </p>
+
+      <p>
+        How does one prove that a particular function <m>f</m> is <em>not</em> continuous? Answer: find
+        numbers <m>a</m> and <m>\epsilon</m> such that for every <m>\delta</m> it is possible to find an <m>x</m> such
+        that <m>\abs{f(x) - f(a)} \ge \epsilon</m> and <m>\abs{x - a} \lt  \delta</m>. To see that this is in fact
+        what we must do, notice that each pair of consecutive lines in the following argument are
+        logically equivalent.
+        <md>
+          <mrow>{2}
+            \amp \sim[(\forall a)(\forall \epsilon)(\exists \delta)(\forall x)\,
+                    \amp \amp \abs{x-a} \lt  \delta \Rightarrow
+                    \abs{f(x) - f(a)} \lt  \epsilon]</mrow>
+          <mrow>\amp (\exists a)\sim[(\forall \epsilon)(\exists \delta)(\forall x)\,
+                    \amp \amp \abs{x-a} \lt  \delta \Rightarrow
+                    \abs{f(x) - f(a)} \lt  \epsilon]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)\sim[(\exists \delta)(\forall x)\,
+                    \amp \amp \abs{x-a} \lt   \delta \Rightarrow
+                    \abs{f(x) - f(a)} \lt  \epsilon]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)(\forall \delta)\sim[(\forall x)\,
+                    \amp \amp \abs{x-a} \lt   \delta \Rightarrow
+                    \abs{f(x) - f(a)} \lt  \epsilon]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+                    \sim [\amp \amp \abs{x - a} \lt   \delta \Rightarrow
+                    \abs{f(x) - f(a)} \lt  \epsilon]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+                    \sim [(\amp \amp \abs{f(x) - f(a)} \lt  \epsilon)
+                    \lor \sim (\abs{x - a} \lt  \delta)]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)(\forall \delta)(\exists x)\,
+                    [\sim (\amp \amp \abs{f(x) - f(a)} \lt  \epsilon)
+                    \land \sim\sim(\abs{x - a} \lt  \delta)]</mrow>
+          <mrow>\amp (\exists a)(\exists \epsilon)(\forall \delta)(\exists x)
+                    [(\amp \amp \abs{f(x) - f(a)} \ge \epsilon)
+                    \land (\abs{x - a} \lt  \delta)]</mrow>
+        </md>
+      </p>
+
+      <p>
+        To obtain the third line from the end use <xref ref="equiv_impl">exercise</xref>; the penultimate line is
+        a consequence of <xref ref="exam_demorg1">example</xref>; and the last line makes use of the obvious fact
+        that a sentence <m>P</m> is always logically equivalent to <m>\sim\sim P</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Two students, Smith and Jones, are asked to prove a mathematical theorem of the form,
+        <q>If <m>P</m> then if <m>Q</m> then<nbsp /><m>R</m>.</q> Smith assumes that <m>Q</m> is a consequence of <m>P</m> and tries to
+        prove<nbsp /><m>R</m>. Jones assumes both <m>P</m> and <m>Q</m> are true and tries to prove<nbsp /><m>R</m>. Is either of these
+        students doing the right thing? Explain carefully.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        The
+        <index><main>contrapositive</main></index><term>contrapositive</term> of the implication <m>P \Rightarrow Q</m> is the implication <m>(\sim
+        Q)\Rightarrow(\sim P)</m>. Without using truth tables or assigning truth values show that an
+        implication is logically equivalent to its contrapositive. (This is a very important fact. In
+        many cases when you are asked to prove a theorem of the form <m>P \Rightarrow Q</m>, rather than
+        assuming <m>P</m> and proving <m>Q</m> you will find it easier to assume that <m>Q</m> is false and conclude
+        that <m>P</m> must also be false.) <em>Hint.</em> <xref ref="equiv_impl">Use</xref>. You may also use the obvious
+        facts that disjunction is a commutative operation (<m>P \lor Q</m> is logically equivalent to <m>Q
+        \lor P</m>) and that <m>P</m> is logically equivalent to <m>\sim\sim P</m>.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_ord_restr_quan">
+    <statement>
+      <p>
+        Use the formal definition of restricted quantifiers
+        given in <xref ref="restr_quan">section</xref> together with the fact mentioned in <xref ref="quan">appendix</xref>
+        that the order of unrestricted universal quantifiers does not matter to show that the
+        order of restricted universal quantifiers does not matter. That is, show that if <m>S</m> and
+        <m>T</m> are sets and <m>P(x,y)</m> is an open sentence, then <m>(\forall x \in S)(\forall y \in
+        T)P(x,y)</m> holds if and only if <m>(\forall y \in T)(\forall x \in S)P(x,y)</m> does.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_neg_restr_quan">
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>P(x)</m> be an open sentence. Show that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\sim(\forall x \in S)P(x)</m> if and only if <m>(\exists x \in S) \sim P(x)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\sim(\exists x \in S)P(x)</m> if and only if <m>(\forall x \in S) \sim
+              P(x)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use the corresponding facts (given in the two paragraphs following
+        <xref ref="equiv_impl">exercise</xref>) for unrestricted quantifiers.
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,225 @@
+
+<section>
+  <title>The stone-weierstrass theorem</title>
+  <p>
+    In <xref ref="exam_approx_sqrt">example</xref> we found that the square root function can be uniformly
+    approximated on <m>[0,1]</m> by polynomials. In this section we prove the remarkable
+    <em>Weierstrass approximation theorem</em> which says that <em>every</em> continuous real valued
+    function can be uniformly approximated on compact intervals by polynomials. We will in fact
+    prove an even stronger result due to M. H. Stone which generalizes the Weierstrass theorem to
+    arbitrary compact metric spaces.
+  </p>
+
+  <proposition xml:id="prop_SW_prep">
+    <statement>
+      <p>
+        Let <m>A</m> be a subalgebra of <m>\fml C(M,\R)</m> where <m>M</m> is a compact
+        metric space. If <m>f \in A</m>, then <m>\abs f \in \clo A</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>(p_n)</m> be a sequence of polynomials converging uniformly
+      on <m>[0,1]</m> to the square root function. (<xref ref="exam_approx_sqrt">See</xref>.) What can you say about
+      the sequence <m>(p_n \circ g^2)</m> where <m>g = f / \|f\|</m> ? (<xref ref="sol_prop_SW_prep">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_sup_clo">
+    <statement>
+      <p>
+        If <m>A</m> is a subalgebra of <m>\fml C(M,\R)</m> where <m>M</m> is a compact
+        metric space, and if <m>f</m>, <m>g \in A</m>, then <m>f \lor g</m> and <m>f \land g</m> belong to<nbsp /><m>\clo A</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      As in the solution to <xref ref="prob_cont_sup">problem</xref>, write <m>f \lor g =
+      \frac12(f + g + \abs{f-g})</m> and <m>f \land g = \frac12(f + g - \abs{f-g})</m>; then apply the
+      preceding proposition.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A family <m>\fml F</m> of real valued functions defined on a set <m>S</m> is a
+        <index><main>separating</main><sub>family of functions</sub></index>
+        <index><main>family</main><sub>separating</sub></index><term>separating</term> family if corresponding to every pair of distinct points <m>x</m> and <m>y</m> and <m>S</m>
+        there is a function <m>f</m> in <m>\fml F</m> such that <m>f(x) \ne f(y)</m>. In this circumstance we may
+        also say that the family <m>\fml F</m> <term>separates points</term> of<nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_sep_subalg">
+    <statement>
+      <p>
+        Let <m>A</m> be a separating unital subalgebra of
+        <m>\fml C(M,\R)</m> where <m>M</m> is a compact metric space. If <m>a</m> and <m>b</m> are distinct points in
+        <m>M</m> and <m>\alpha,\beta \in \R</m>, then there exists a function <m>f \in A</m> such that <m>f(a) =
+        \alpha</m> and <m>f(b) = \beta</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>g</m> be any member of <m>A</m> such that <m>g(a) \ne g(b)</m>.
+      Notice that if <m>k</m> is a constant, then the function <m>f \colon x \mapsto \alpha + k(g(x)-g(a))</m>
+      satisfies <m>f(a) = \alpha</m>. Choose <m>k</m> so that <m>f(b) = \beta</m>.
+    </p>
+  </proof>
+
+  <p>
+    Suppose that <m>M</m> is a compact metric space. The <em>Stone-Weierstrass theorem</em> says that any
+    separating unital subalgebra of the algebra of continuous real valued functions on <m>M</m> is
+    dense. That is, if <m>A</m> is such a subalgebra, then we can approximate each function <m>f \in
+    \fml C(M,\R)</m> arbitrarily closely by members of<nbsp /><m>A</m>. The proof falls rather naturally into
+    two steps. First (in <xref ref="lem_SW_prep">lemma</xref>) we find a function in <m>\clo A</m> which does not
+    exceed <m>f</m> by much; precisely, given <m>a \in M</m> and <m>\epsilon > 0</m> we find a function <m>g</m> in
+    <m>\clo A</m> which agrees with <m>f</m> at <m>a</m> and satisfies <m>g(x) \lt  f(x) + \epsilon</m> elsewhere. Then
+    (in <xref ref="SW_thm">theorem</xref>) given <m>\epsilon > 0</m> we find <m>h \in \clo A</m> such that <m>f(x) -
+    \epsilon \lt  h(x) \lt  f(x) + \epsilon</m>.
+  </p>
+
+  <lemma xml:id="lem_SW_prep">
+    <statement>
+      <p>
+        Let <m>A</m> be a unital separating subalgebra of <m>\fml C(M,\R)</m>
+        where <m>M</m> is a compact metric space. For every <m>f \in \fml C(M,\R)</m>, every <m>a \in M</m>, and
+        every <m>\epsilon > 0</m> there exists a function <m>g \in \clo A</m> such that <m>g(a) = f(a)</m> and <m>g(x)
+        \lt  f(x) + \epsilon</m> for all <m>x \in M</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> For each <m>y \in M</m> find a
+      function <m>\phi_y</m> which agrees with <m>f</m> at <m>a</m> and at <m>y</m>. Then <m>\phi_y(x) \lt  f(x) + \epsilon</m>
+      for all <m>x</m> in some neighborhood <m>U_y</m> of<nbsp /><m>y</m>. Find finitely many of these neighborhoods
+      <m>U_{y_1}, \dots, U_{y_n}</m> which cover<nbsp /><m>M</m>. Let <m>g = \phi_{y_1} \land \dots \land \phi_{y_n}</m>.
+      (<xref ref="sol_lem_SW_prep">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    <index><main>Stone-Weierstrass theorem</main></index>
+  </p>
+
+  <theorem xml:id="SW_thm">
+    <title>Stone-Weierstrass Theorem</title>
+    <statement>
+      <p>
+        <index><main>Stone-Weierstrass theorem</main></index>Let <m>A</m> be a unital separating subalgebra of <m>\fml C(M,\R)</m> where <m>M</m> is a compact metric
+        space. Then <m>A</m> is dense in<nbsp /><m>\fml C(M,\R)</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      All we need to show is that <m>\fml C(M,\R) \subseteq \clo A</m>. So we choose
+      <m>f \in \fml C(M,\R)</m> and try to show that <m>f \in \clo A</m>. It will be enough to show that for
+      every <m>\epsilon > 0</m> we can find a function <m>h \in \clo A</m> such that <m>\norm{f - h}_u \lt 
+      \epsilon</m>. [Reason: then <m>f</m> belongs to <m>\clo{\clo A}</m> (by <xref ref="cnd_dns">proposition</xref>) and
+      therefore to <m>\clo A</m> (by <xref ref="prop_clo"></xref>(b)).]
+    </p>
+
+    <p>
+      Let <m>\epsilon > 0</m>. For each <m>x \in M</m> we may, according to <xref ref="lem_SW_prep">lemma</xref>, choose a
+      function <m>g_x \in \clo A</m> such that <m>g_x(x) = f(x)</m> and
+      <men xml:id="SW_ineq1" >
+        g_x(y) \lt  f(y) + \epsilon
+      </men>
+      for every <m>y \in M</m>. Since both <m>f</m> and <m>g_x</m> are continuous and they agree at <m>x</m>, there
+      exists an open set <m>U_x</m> containing <m>x</m> such that
+      <men xml:id="SW_ineq2" >
+        f(y) \lt  g_x(y) + \epsilon
+      </men>
+      for every <m>y \in U_x</m>. (Why?)
+    </p>
+
+    <p>
+      Since the family <m>\{U_x\colon x \in M\}</m> covers <m>M</m> and <m>M</m> is compact, there exist points
+      <m>x_1, \dots, x_n</m> in <m>M</m> such that <m>\{U_{x_1}, \dots U_{x_n}\}</m> covers<nbsp /><m>M</m>. Let <m>h = g_{x_1}
+      \lor \dots \lor g_{x_n}</m>. We know from <xref ref="prob_clo_alg"></xref> that <m>\clo A</m> is a subalgebra of
+      <m>\fml C(M,\R)</m>. So according to <xref ref="cor_sup_clo">corollary</xref>, <m>h \in \clo{\clo A} = \clo A</m>.
+    </p>
+
+    <p>
+      By inequality<nbsp /><xref ref="SW_ineq1" />
+      <me>
+        g_{x_k}(y) \lt  f(y) + \epsilon
+      </me>
+      holds for all <m>y \in M</m> and <m>1 \le k \le n</m>. Thus
+      <men xml:id="SW_ineq3" >
+        h(y) \lt  f(y) + \epsilon
+      </men>
+      for all <m>y \in M</m>. Each <m>y \in M</m> belongs to at least one of the open sets<nbsp /><m>U_{x_k}</m>. Thus
+      by<nbsp /><xref ref="SW_ineq2" />
+      <men xml:id="SW_ineq4" >
+        f(y) \lt  g_{x_k}(y) + \epsilon \lt  h(y) + \epsilon
+      </men>
+      for every <m>y \in M</m>. Together <xref ref="SW_ineq3" /> and<nbsp /><xref ref="SW_ineq4" /> show that
+      <me>
+        -\epsilon \lt  f(y) - h(y) \lt  \epsilon
+      </me>
+      for all<nbsp /><m>y \in M</m>. That is, <m>\norm{f - h}_u \lt  \epsilon</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give the missing reason for inequality<nbsp /><xref ref="SW_ineq2" /> in the preceding proof.
+      </p>
+    </statement>
+  </problem>
+
+  <theorem xml:id="Wat">
+    <title>Weierstrass Approximation Theorem</title>
+    <statement>
+      <p>
+        <index><main>Weierstrass approximation theorem</main></index>
+        <index><main>approximation theorem</main><sub>Weierstrass</sub></index>Every continuous real valued function on <m>[a,b]</m> can be uniformly approximated by polynomials.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\fml G</m> be the set of all functions <m>f</m> in <m>\fml C\bigl(\,[0,1]\,\bigr)</m>
+        such that <m>f</m> is differentiable on <m>(0,1)</m> and <m>f\,'(\frac12) = 0</m>. Show that <m>\fml G</m> is
+        dense in<nbsp /><m>\fml C\bigl(\,[0,1]\,\bigr)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>M</m> is a closed and bounded subset of <m>\R</m>, then the normed linear space
+        <m>\fml C(M,\R)</m> is separable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

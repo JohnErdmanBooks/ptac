@@ -1,0 +1,282 @@
+
+<section>
+  <title>Convergence of sequences</title>
+  <p>
+    A
+    <index><main>sequence</main></index><term>sequence</term> is a function whose domain is the set <m>\N</m> of natural numbers. In this chapter
+    the sequences we consider will all be sequences of real numbers, that is, functions from <m>\N</m>
+    into <m>\R</m>. If <m>a</m> is a sequence, it is conventional to write its value at a natural number <m>n</m>
+    as <m>a_n</m> rather than as <m>a(n)</m>. The sequence itself may be written in a number of ways:
+    <me>
+      a = (a_n)_{n=1}^\infty = (a_n) = (a_1,a_2,a_3, \dots).
+    </me>
+  </p>
+
+  <p>
+    Care should be exercised in using the last of these notations. It would not be clear, for
+    example, whether <m>(\frac13,\frac15,\frac17,\dots)</m> is intended to be the sequence of
+    reciprocals of odd primes (in which case the next term would be <m>\frac1{11}</m>) or the sequence
+    of reciprocals of odd integers greater than <m>1</m> (in which case the next term would be
+    <m>\frac19</m>). The element <m>a_n</m> in the range of a sequence is the <m>n^{\text{ th } }</m>
+    <index><main>term</main><sub>of a sequence</sub></index><term>term</term> of the sequence.
+  </p>
+
+  <p>
+    It is important to distinguish in one's thinking between a sequence and its range. Think of a
+    sequence <m>(x_1,x_2,x_3,\dots)</m> as an <em>ordered</em> set: there is a first element <m>x_1</m>, and a
+    second element <m>x_2</m>, and so on. The range <m>\{x_1,x_2,x_3,\dots\}</m> is just a set. There is
+    no <q>first</q> element. For example, the sequences <m>(1,2,3,4,5,6,\dots)</m> and
+    <m>(2,1,4,3,6,5,\dots)</m> are different whereas the sets <m>\{1,2,3,4,5,6,\dots\}</m> and
+    <m>\{2,1,4,3,6,5,\dots\}</m> are exactly the same (both are <m>\N</m>).
+  </p>
+
+  <remark>
+    <p>
+      Occasionally in the sequel it will be convenient to alter the preceding definition
+      a bit to allow the domain of a sequence to be the set <m>\N \cup \{0\}</m> of all positive
+      integers. It is worth noticing as we go along that this in no way affects the correctness of
+      the results we prove in this chapter.
+    </p>
+  </remark>
+
+  <definition>
+    <statement>
+      <p>
+        A sequence <m>(x_n)</m> of real numbers is
+        <index><main>eventually in</main></index><term>eventually in</term> a set <m>A</m> if there exists a natural number <m>n_0</m> such that <m>x_n \in A</m>
+        whenever <m>n \ge n_0</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        For each <m>n \in \N</m> let <m>x_n = 3 + \dfrac{7-n}2</m>. Then the sequence
+        <m>(x_n)_{n=1}^\infty</m> is eventually strictly negative; that is, the sequence is eventually in
+        the interval <m>(-\infty,0)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      If <m>n \ge 14</m>, then <m>\dfrac{7-n}2 \le -\dfrac72</m> and <m>x_n = 3 + \dfrac{7-n}2
+      \le -\dfrac12 \lt  0</m>. So <m>x_n \in (-\infty,0)</m> whenever <m>n \ge 14</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        For each <m>n \in \N</m> let <m>x_n = \dfrac{2n-3}n</m>. Then the sequence <m>(x_n)_{n=1}^\infty</m>
+        is eventually in the interval <m>(\frac32,2)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition xml:id="df_conv_seq">
+    <statement>
+      <p>
+        A sequence <m>(x_n)_{n=1}^\infty</m> of real numbers
+        <index><main>convergence</main><sub>of a sequence</sub></index><term>converges</term> to <m>a \in \R</m> if it is eventually in every <m>\epsilon</m>-neighborhood of<nbsp /><m>a</m>. When
+        the sequence converges to <m>a</m> we write
+        <index><main><@<m>x_n \sto a \text{ as \(n \sto \infty\) }</m> (limit of a sequence)</main></index>
+        <men xml:id="xn_to_a" >
+          x_n \sto a \text{ as \(n \sto \infty\). }
+        </men>
+      </p>
+
+      <p>
+        These symbols may be read, <q><m>x_n</m> approaches <m>a</m> as <m>n</m> gets large.</q> If <m>(x_n)</m> converges
+        to <m>a</m>, the number <m>a</m> is the
+        <index><main>limit</main><sub>of a sequence</sub></index><term>limit</term> of the sequence<nbsp /><m>(x_n)</m>. It would not be proper to refer to <em>the</em> limit of a
+        sequence if it were possible for a sequence to converge to two different points. We show now
+        that this cannot happen; limits of sequences are unique.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be a sequence in <m>\R</m>. If <m>x_n \sto a</m> and <m>x_n \sto b</m> as <m>n \sto \infty</m>,
+        then <m>a=b</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Argue by contradiction. Suppose <m>a \ne b</m>, and let <m>\epsilon = \abs{a-b}</m>. Then
+      <m>\epsilon > 0</m>. Since <m>(x_n)</m> is eventually in <m>J_{\epsilon/2}(a)</m>, there exists <m>n_0 \in \N</m>
+      such that <m>x_n \in J_{\epsilon/2}(a)</m> for <m>n \ge n_0</m>. That is, <m>\abs{x_n - a} \lt 
+      \frac\epsilon2</m> for <m>n \ge n_0</m>. Similarly, since <m>(x_n)</m> is eventually in
+      <m>J_{\epsilon/2}(b)</m>, there is an <m>m_0 \in \N</m> such that <m>\abs{x_n-b} \lt  \frac\epsilon2</m> for <m>n
+      \ge m_0</m>. Now if <m>n</m> is any integer larger than both <m>n_0</m> and <m>m_0</m>, then
+      <me>
+        \epsilon = \abs{a-b} = \abs{a-x_n+x_n-b} \le \abs{a-x_n} +
+                      \abs{x_n-b} \lt  \tfrac\epsilon2 + \tfrac\epsilon2 = \epsilon.
+      </me>
+    </p>
+
+    <p>
+      But <m>\epsilon \lt  \epsilon</m> is impossible. Therefore, our initial supposition was wrong, and <m>a
+      = b</m>.
+    </p>
+  </proof>
+
+  <p>
+    Since limits are unique, we may use an alternative notation to <xref ref="xn_to_a" />: if <m>(x_n)</m>
+    converges to <m>a</m> we may write
+    <index><main>limit@<m>\lim_{n \sto \infty}x_n</m> (limit of a sequence)</main></index>
+    <me>
+      \lim_{n \sto \infty}x_n = a.
+    </me>
+  </p>
+
+  <p>
+    (Notice how inappropriate this notation would be if limits were not unique.)
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If a sequence <m>(x_n)</m> does not converge (that is, if there exists no <m>a \in \R</m>
+        such that <m>(x_n)</m> converges to <m>a</m>), then the sequence
+        <index><main>divergence</main><sub>of a sequence</sub></index><term>diverges</term>. Sometimes a divergent sequence <m>(x_n)</m> has the property that it is eventually
+        in every interval of the form <m>(n,\infty)</m> where <m>n \in \N</m>. In this case we write
+        <me>
+          x_n \sto \infty \text{ as \(n \sto \infty\) }  \qquad \text{ or }  \qquad
+                                    \lim_{n \sto \infty}x_n = \infty.
+        </me>
+      </p>
+
+      <p>
+        If a divergent sequence <m>(x_n)</m> is eventually in every interval of
+        the form <m>(-\infty,-n)</m> for <m>n \in \N</m>, we write
+        <me>
+          x_n \sto -\infty \text{ as \(n \sto \infty\) }  \qquad \text{ or }  \qquad
+                                         \lim_{n \sto \infty}x_n = -\infty.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <caution>
+
+  <p>
+    It is <em>not</em> true that every divergent sequence satisfies either <m>x_n \sto \infty</m>
+    or <m>x_n \sto -\infty</m>. <xref ref="exam_div_seq">See</xref> below.
+  </p>
+
+  </caution>
+
+  <p>
+    It is easy to rephrase the definition of convergence of a sequence in slightly different
+    language. The next problem gives two such variants. Sometimes one of these alternative
+    <q>definitions</q> is more convenient <xref ref="df_conv_seq">than</xref>.
+  </p>
+
+  <problem xml:id="cond_conv_seq">
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be a sequence of real numbers and <m>a \in \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>x_n \sto a</m> if and only if for every <m>\epsilon > 0</m> there exists
+              <m>n_0 \in \N</m> such that <m>\abs{x_n - a} \lt  \epsilon</m> whenever <m>n \ge n_0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that <m>x_n \sto a</m> if and only if <m>(x_n)</m> is eventually in every
+              neighborhood of<nbsp /><m>a</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="seq_exam1">
+    <statement>
+      <p>
+        The sequence <m>(\frac1n)_{n=1}^\infty</m> converges to<nbsp /><m>0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>\epsilon > 0</m>. Use the <em>Archimedean property</em><nbsp /> <xref ref="arch_prop"></xref> of the
+      real numbers to choose <m>N \in \N</m> large enough that <m>N > \frac1\epsilon</m>. Then
+      <me>
+        \left\lvert\frac1n - 0\right\rvert = \frac1n \le \frac1N \lt  \epsilon.
+      </me>
+      whenever <m>n \ge N</m>.
+    </p>
+  </proof>
+
+  <example xml:id="exam_div_seq">
+    <statement>
+      <p>
+        The sequence <m>\bigl((-1)^n\bigr)_{n=0}^\infty</m> diverges.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Argue by contradiction. If we assume that <m>(-1)^n \sto a</m> for some <m>a \in \R</m>,
+      then there exists <m>N \in \N</m> such that <m>n \ge N</m> implies <m>\abs{(-1)^n - a} \lt  1</m>. Thus for
+      every <m>n \ge N</m>
+      <md>
+        <mrow>2 \amp =   \abs{(-1)^n - (-1)^{n+1}}</mrow>
+        <mrow>\amp =   \abs{(-1)^n - a + a - (-1)^{n+1}}</mrow>
+        <mrow>\amp \le \abs{(-1)^n - a} + \abs{a - (-1)^{n+1}}</mrow>
+        <mrow>\amp \lt    1 + 1  = 2</mrow>
+      </md>
+      which is not possible.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The sequence <m>\left(\dfrac n{n+1}\right)_{n=1}^\infty</m> converges to <m>1</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="abs_seq">
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be a sequence in <m>\R</m>. Then <m>x_n \sto 0</m> if and
+        only if <m>\abs{x_n} \sto 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_abs_seq">Solution</xref>.)
+    </p>
+  </proof>
+</section>

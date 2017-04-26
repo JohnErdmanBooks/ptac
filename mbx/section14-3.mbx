@@ -1,0 +1,434 @@
+
+<section>
+  <title>Limits</title>
+  <p>
+    We now generalize to metric spaces the results of <xref ref="lim_rvf">chapter</xref> on limits of real
+    valued functions. Most of this generalization is accomplished quite simply: just replace open
+    intervals on the real line with open balls in metric spaces.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>B_r(a)</m> is the open ball of radius <m>r</m> about a point <m>a</m> in a metric space<nbsp /><m>M</m>,
+        then <m>B_r^*(a)</m>, the
+        <index><main>ball@<m>B_r^*(a)</m> (deleted open ball)</main></index>
+        <index><main>deleted</main><sub>open ball</sub></index>
+        <index><main>ball</main><sub>deleted</sub></index><term>deleted open ball</term> of radius <m>r</m> about <m>a</m>, is just <m>B_r(a)</m> with the point <m>a</m> deleted. That
+        is, <m>B_r^*(a) = \{x \in M\colon  0 \lt  d(x,a) \lt  r\}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(M,d)</m> and <m>(N,\rho)</m> be metric spaces, <m>A \subseteq M</m>, <m>f\colon A \sto N</m>,
+        <m>a</m> be an accumulation point of<nbsp /><m>A</m>, and <m>l~\in~N</m>. We say that <m>l</m> is the
+        <index><main>limit</main><sub>of a function</sub></index><term>limit of</term> <m>f</m> <term>as</term> <m>x</m> <term>approaches</term><nbsp /><m>a</m> (of the <term>limit of</term> <m>f</m> <term>at</term><nbsp /><m>a</m>) if:
+        for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that <m>f(x) \in B_\epsilon(l)</m> whenever
+        <m>x \in A \cap B_\delta^*(a)</m>. In slightly different notation:
+        <me>
+          (\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A)\;
+                  0 \lt  d(x,a) \lt  \delta \implies \rho(f(x),l) \lt  \epsilon.
+        </me>
+      </p>
+
+      <p>
+        When this condition is satisfied we write
+        <index><main><@<m>f(x) \sto l \text{ as }  x \sto a</m> (limit of a
+        function at a point)</main></index>
+        <me>
+          f(x) \sto l  \text{ as }  x \sto a
+        </me>
+        or
+        <index><main>limit@<m>\lim_{x \sto a}f(x)</m> (limit of a function at a point)</main></index>
+        <me>
+          \lim_{x \sto a}f(x) = l.
+        </me>
+      </p>
+
+      <p>
+        As in <xref ref="lim_rvf">chapter</xref> this notation is optimistic. We will show in the next proposition that
+        limits, if they exist, are unique.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="mslim_uniq">
+    <statement>
+      <p>
+        Let <m>f\colon A \sto N</m> where <m>M</m> and <m>N</m> are metric spaces and
+        <m>A \subseteq M</m>, and let <m>a \in A'</m>. If <m>f(x) \sto b</m> as <m>x \sto a</m> and <m>f(x) \sto c</m> as <m>x \sto
+        a</m>, then <m>b = c</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_mslim_uniq">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    For a function between metric spaces the relationship between its continuity at a point and its
+    limit there is exactly the same as in the case of real valued functions. (See <xref ref="cnt_vs_lim">proposition</xref> and the two examples which precede<nbsp />it.)
+  </p>
+
+  <proposition xml:id="cont_vs_lim">
+    <statement>
+      <p>
+        Let <m>M</m> and <m>N</m> be metric spaces, let <m>f\colon A \sto N</m> where
+        <m>A \subseteq M</m>, and let <m>a \in A \cap A'</m>. Then <m>f</m> is continuous at <m>a</m> if and only if
+        <me>
+          \lim_{x \sto a}f(x) = f(a).
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Modify the proof of <xref ref="cnt_vs_lim"></xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="lim_changvar_R">
+    <statement>
+      <p>
+        If <m>M</m> is a metric space, <m>f\colon A \sto M</m> where <m>A \subseteq \R</m>,
+        and <m>a \in A'</m>, then
+        <me>
+          \lim_{h \sto 0}f(a + h) = \lim_{x \sto a}f(x)
+        </me>
+        in the sense that if either limit exists, then so does the other and the two limits are equal.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Modify the proof of <xref ref="trnsl_lim"></xref>.
+    </p>
+  </proof>
+
+  <p>
+    We conclude this chapter by examining the relationship between <q>double</q> and <q>iterated</q> limits
+    of real valued functions of two real variables. A limit of the form
+    <me>
+      \lim_{(x,y) \sto (a,b)}f(x,y)
+    </me>
+    is a
+    <index><main>limit@<m>\lim_{(x,y) \sto (a,b)}f(x,y)</m> (double limits)</main></index>
+    <index><main>double limit</main></index>
+    <index><main>limit</main><sub>double</sub></index><term>double limit</term>; limits of the form
+    <me>
+      \lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr) 
+               \text{ and }   \lim_{y \sto b}
+               \bigl(\lim_{x \sto a}f(x,y)\bigr)
+    </me>
+    are
+    <index><main>limit@<m>\lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr)</m> (iterated limits)</main></index>
+    <index><main>iterated limits</main></index>
+    <index><main>limit</main><sub>iterated</sub></index><term>iterated limits</term>. The meaning of the expression <m>\lim_{x \sto a}\bigl(\lim_{y \sto b}
+    f(x,y)\bigr)</m> should be clear: it is <m>\lim_{x \sto a}h(x)</m> where <m>h</m> is the function defined by
+    <m>h(x) = \lim_{y \sto b}f(x,y)</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x,y) = x\sin(1 + x^2y^2)</m> for all <m>x,y \in \R</m>. Then
+        <m>\lim_{(x,y)\sto(0,0)}f(x,y) = 0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The function <m>f</m> maps <m>\R^2</m> into <m>\R</m>. We take the usual Euclidean metric on both
+      of these spaces. Given <m>\epsilon > 0</m>, choose <m>\delta = \epsilon</m>. If <m>(x,y) \in
+      B_\delta^*(0,0)</m>, then
+      <me>
+        \abs{f(x,y) - 0} = \abs x \abs{\sin(1 + x^2y^2)}  \le \abs x \\
+                 \le \sqrt{x^2 + y^2} = d\bigl((x,y),(0,0)\bigr) \lt   \delta = \epsilon\,. \qedhere
+      </me>
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x,y) = x\sin(1 + x^2y^2)</m> for all <m>x</m>, <m>y \in \R</m>. Then
+        <m>\lim_{x\sto 0}\bigl(\lim_{y \sto 0}f(x,y)\bigr)~=~0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Compute the inner limit first: <m>\lim_{x\sto 0}\bigl(\lim_{y \sto 0}
+      \bigl(x\sin(1+x^2y^2)\bigr) = \lim_{x \sto 0}(x\sin 1)~=~0</m>.
+    </p>
+  </proof>
+
+  <p>
+    Because of the intimate relationship between continuity and limits
+    (<xref ref="cont_vs_lim">proposition</xref>) and because of the fact that joint continuity implies separate
+    continuity (<xref ref="jc_sc">proposition</xref>), many persons wrongly conclude that the existence of a
+    double limit implies the existence of the corresponding iterated limits. One of the last
+    problems in this chapter will provide you with an example of a function having a double limit
+    at the origin but failing to have one of the corresponding iterated limits. In the next
+    proposition we prove that if in addition to the existence of the double limit we assume that
+    <m>\lim_{x \sto a}f(x,y)</m> and <m>\lim_{y \sto b}f(x,y)</m> always exist, then both iterated limits
+    exist and are equal.
+  </p>
+
+  <proposition xml:id="dbl_vs_iter">
+    <statement>
+      <p>
+        Let <m>f</m> be a real valued function of two real variables. If the limit
+        <me>
+          l = \lim_{(x,y) \sto (a,b)}f(x,y)
+        </me>
+        exists and if <m>\lim_{x \sto a}f(x,y)</m> and <m>\lim_{y \sto b}f(x,y)</m> exist for all <m>y</m> and <m>x</m>,
+        respectively, then the iterated limits
+        <me>
+          \lim_{x \sto a}\bigl(\lim_{y \sto b}f(x, y)\bigr)  \text{ 
+                         and }   \lim_{y \sto b}\bigl(\lim_{x \sto a}f(x,y)\bigr)
+        </me>
+        both exist and are equal to<nbsp /><m>l</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>g(x) = \lim_{y \sto b}f(x,y)</m> for all <m>x \in \R</m>. We
+      wish to show that <m>\lim_{x \sto a}g(x) = l</m>. The quantity <m>\abs{g(x) - l}</m> is small whenever both
+      <m>\abs{g(x) - f(x,y)}</m> and <m>\abs{f(x,y) - l}</m> are. Since <m>\lim_{(x,y) \sto (a,b)}f(x,y) = l</m> it is
+      easy to make <m>\abs{f(x,y) - l}</m> small: insist that <m>(x,y)</m> lie in some sufficiently small open ball
+      about <m>(a,b)</m> of radius, say, <m>\delta</m>. This can be accomplished by requiring, for example, that
+      <men xml:id="mslim_eq1" >
+        \abs{x - a} \lt  \delta/2
+      </men>
+      and that
+      <men xml:id="mslim_eq2" >
+        \abs{y - b} \lt  \delta/2.
+      </men>
+    </p>
+
+    <p>
+      Since <m>g(x) = \lim_{y \sto b}f(x,y)</m> for every <m>x</m>, we can make <m>\abs{g(x) - f(x,y)}</m> small (for
+      fixed <m>x</m>) by supposing that
+      <men xml:id="mslim_eq3" >
+        \abs{y - b} \lt  \eta
+      </men>
+      for some sufficiently small<nbsp /><m>\eta</m>. So the proof is straightforward: require <m>x</m> to satisfy
+      <xref ref="mslim_eq1" /> and for such <m>x</m> require <m>y</m> to satisfy <xref ref="mslim_eq2" /> and
+      <xref ref="mslim_eq3" />. (<xref ref="sol_dbl_vs_iter">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    It is sometimes necessary to show that certain limits do <em>not</em> exist. There is a rather simple
+    technique which is frequently useful for showing that the limit of a given real valued function
+    does not exist at a point<nbsp /><m>a</m>. Suppose we can find two numbers <m>\alpha \ne \beta</m> such that in
+    <em>every</em> neighborhood of <m>a</m> the function <m>f</m> assumes (at points other than <m>a</m>) both the
+    values <m>\alpha</m> and<nbsp /><m>\beta</m>. (That is, for every <m>\delta > 0</m> there exist points <m>u</m> and <m>v</m> in
+    <m>B_\delta(a)</m> distinct from <m>a</m> such that <m>f(u) = \alpha</m> and <m>f(v) = \beta</m>.) Then it is easy to
+    see that <m>f</m> cannot have a limit as <m>x</m> approaches<nbsp /><m>a</m>. Argue by contradiction: suppose <m>\lim_{x
+    \sto a}f(x) = l</m>. Let <m>\epsilon = \abs{\alpha - \beta}</m>. Then <m>\epsilon > 0</m>; so there exists
+    <m>\delta > 0</m> such that <m>\abs{f(x) - l} \lt  \epsilon/2</m> whenever <m>0 \lt  d(x,a) \lt  \delta</m>. Let <m>u</m> and
+    <m>v</m> be points in <m>B_\delta^*(a)</m> satisfying <m>f(u) = \alpha</m> and <m>f(v) = \beta</m>. Since <m>\abs{f(u) -
+    l} \lt  \epsilon/2</m> and <m>\abs{f(v) - l} \lt  \epsilon/2</m>, it follows that
+    <md>
+      <mrow>\epsilon  \amp = \abs{\alpha - \beta}</mrow>
+      <mrow>\amp = \abs{f(u) - f(v)}</mrow>
+      <mrow>\amp \le \abs{f(u) - l} + \abs{l - f(v)}</mrow>
+      <mrow>\amp \lt  \epsilon</mrow>
+    </md>
+    which is an obvious contradiction.
+  </p>
+
+  <example xml:id="lim_nex">
+    <statement>
+      <p>
+        Let <m>f(x,y) = \dfrac{x^2y^2}{x^2y^2 + (x + y)^4}</m> if <m>(x,y) \ne (0,0)</m>.
+        Then <m>\lim_{(x,y) \sto (0,0)}f(x,y)</m> does not exist.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lim_nex">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The limit as <m>(x,y) \sto (0,0)</m> of <m>\dfrac{x^3y^3}{x^{12} + y^4}</m> does not exist.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="abs_lim_R">
+    <statement>
+      <p>
+        Let <m>f\colon A \sto \R</m> where <m>A \subseteq M</m> and <m>M</m> is a metric
+        space, and let <m>a \in A'</m>. Show that
+        <me>
+          \lim_{x \sto a}f(x) = 0  \text{ if and only if } 
+                             \lim_{x \sto a}\abs{f(x)} = 0\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f</m>, <m>g</m>, <m>h\colon A \sto \R</m> where <m>A \subseteq M</m> and <m>M</m> is a metric space,
+        and let <m>a \in A'</m>. Show that if <m>f \le g \le h</m> and
+        <me>
+          \lim_{x \sto a}f(x) = \lim_{x \sto a}h(x) = l\,,
+        </me>
+        then <m>\lim_{x \sto a}g(x) = l</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m>, <m>N</m>, and <m>P</m> be metric spaces, <m>a \in A \subseteq M</m>, <m>f\colon A \sto N</m>,
+        and <m>g\colon N \sto P</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that if <m>l = \lim_{x \sto a}f(x)</m> exists and <m>g</m> is continuous at <m>l</m>, then
+              <m>\lim_{x \sto a}(g \circ f)(x)</m> exists and is equal to <m>g(l)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show by example that the following assertion need not be true: If <m>l =
+              \lim_{x \sto a}f(x)</m> exists and <m>\lim_{y \sto l}g(y)</m> exists, then <m>\lim_{x \sto a}(g \circ f)(x)</m>
+              exists.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a</m> be a point in a metric space. Show that
+        <me>
+          \lim_{x \sto a}d(x,a) = 0\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_lim_Rn">
+    <statement>
+      <p>
+        In this problem <m>\R^n</m> has its usual metric; in particular,
+        <me>
+          d(x,0) = \biggl(\sum_{k=1}^n x_k^2\biggr)^{1/2}
+        </me>
+        for all <m>x = (x_1,\dots,x_n) \in \R^n</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that
+              <me>
+                \lim_{x \sto 0} \frac{x_jx_k}{d(x,0)} = 0
+              </me>
+              whenever <m>1 \le j \le n</m> and <m>1 \le k \le n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              For <m>1 \le k \le n</m> show that <m>\lim_{x \sto 0}\dfrac{x_k}{d(x,0)}</m> does not exist.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="lim_exam1">
+    <statement>
+      <p>
+        Let <m>f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2}</m> for <m>(x,y) \ne (0,0)</m>.
+        Find the following limits, if they exist.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\lim_{(x,y) \sto (0,0)}f(x,y)</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\lim_{x \sto 0}\bigl(\lim_{y \sto 0}f(x,y)\bigr)</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\lim_{y \sto 0}\bigl(\lim_{x \sto 0}f(x,y)\bigr)</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Same as <xref ref="lim_exam1">problem</xref>, but <m>f(x,y) = \dfrac{xy}{x^2 + y^2}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Same as <xref ref="lim_exam1">problem</xref>, but <m>f(x,y) = \dfrac{x^2y^2}{x^2 + y^2}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Same as <xref ref="lim_exam1">problem</xref>, but <m>f(x,y) = y\sin(1/x)</m> if <m>x \ne 0</m> and
+        <m>f(x,y) = 0</m> if <m>x = 0</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

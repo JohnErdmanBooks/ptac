@@ -1,0 +1,56 @@
+
+<section>
+  <title>Exercises in Appendix i</title>
+  <solution xml:id="sol_prop_intrs_ind">
+    <p>
+      (Solution to <xref ref="prop_intrs_ind"></xref>)
+      Since <m>1</m> belongs to <m>A</m> for every <m>A \in \sfml A</m>, it is clear that <m>1 \in \cap\sfml A</m>.
+      If <m>x \in \cap\sfml A</m>, then <m>x \in A</m> for every <m>A \in \sfml A</m>. Since each set <m>A</m> in
+      <m>\sfml A</m> is inductive, <m>x + 1 \in A</m> for every <m>A \in \sfml A</m>. That is, <m>x + 1 \in
+      \cap\sfml A</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_mi1">
+    <p>
+      (Solution to <xref ref="exer_mi1"></xref>)
+      Let <m>S</m> be the set of all natural numbers for which the assertion is true. Certainly <m>1</m>
+      belongs to <m>S</m>. If <m>n \in S</m>, then <m>\sum_{k=1}^n k = \frac12 n(n + 1)</m>. Therefore
+      <md>
+        <mrow>\sum_{k=1}^{n+1}k \amp = \biggl(\sum_{k=1}^n k\biggr) + (n+1)</mrow>
+        <mrow>\amp = \frac12 n(n + 1) + (n + 1)</mrow>
+        <mrow>\amp = \frac12(n + 1)(n + 2),</mrow>
+      </md>
+      which shows that <m>n + 1 \in S</m>. Thus <m>S</m> is an inductive subset of <m>\N</m>. We conclude from
+      <xref ref="cor_mi2">corollary</xref> that <m>S = \N</m>. In other words, the assertion holds for all <m>n \in \N</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_well_ord">
+    <p>
+      (Solution to <xref ref="prop_well_ord"></xref>)
+      Let <m>K</m> be a subset of <m>\N</m> which has no smallest member. We show <m>K = \emptyset</m>. Let
+      <me>
+        J = \{n \in \N \colon n \lt  k \text{ for all }  k \in K\}\,.
+      </me>
+    </p>
+
+    <p>
+      Certainly <m>1</m> belongs to<nbsp /><m>J</m>. [If not, there would exist <m>c \in K</m> such that <m>1 \ge c</m>. From
+      <xref ref="prop_natno_pos">proposition</xref> we see that <m>c = 1</m>. Thus <m>1</m> belongs to <m>K</m> and is the
+      smallest member of <m>K</m>, contrary to our assumption.]
+    </p>
+
+    <p>
+      Now suppose that <m>n \in J</m> and prove that <m>n + 1 \in J</m>. If <m>n + 1 \notin J</m>, then there
+      exists <m>k \in K</m> such that <m>n + 1 \ge k</m>. By the inductive hypothesis <m>n \lt  k</m>. Thus <m>n \lt  k
+      \le n + 1</m>. We conclude from <xref ref="prob_less_pos">problem</xref>(b) that <m>k = n + 1</m>. But, since <m>n</m>
+      is smaller than every member of <m>K</m>, this implies that <m>n + 1</m> is the smallest member of <m>K</m>.
+      But <m>K</m> has no smallest member. Therefore we conclude that <m>n + 1 \in J</m>.
+    </p>
+
+    <p>
+      We have shown that <m>J</m> is an inductive subset of <m>\N</m>. Then <m>J = \N</m> (by
+      <xref ref="thm_mth_ind">theorem</xref>). If <m>K</m> contains any element at all, say <m>j</m>, then <m>j \in J</m>; so
+      in particular <m>j \lt  j</m>. Since this is not possible, we conclude that <m>K = \emptyset</m>.
+    </p>
+  </solution>
+</section>

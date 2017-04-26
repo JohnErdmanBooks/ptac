@@ -1,0 +1,160 @@
+
+<section>
+  <title>Absolute convergence</title>
+  <p>
+    It is a familiar fact from beginning calculus that absolute
+    convergence of a series of real numbers implies convergence of the series. The proof of this
+    depends in a crucial way on the completeness of<nbsp /><m>\R</m>. We show in the first proposition of
+    this section that for series in a normed linear space <m>V</m> absolute convergence implies
+    convergence if <em>and only if</em> <m>V</m> is complete.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(a_k)</m> be a sequence in a normed linear space<nbsp /><m>V</m>. We say that <m>(a_k)</m> is
+        <index><main>absolute</main><sub>summability</sub></index>
+        <index><main>summable</main><sub>absolutely</sub></index><term>absolutely summable</term> or, equivalently, that the series <m>\sum a_k</m>
+        <index><main>convergence</main><sub>absolute</sub></index>
+        <index><main>absolute</main><sub>convergence</sub></index><term>converges absolutely</term> if the series <m>\sum\norm{a_k}</m> converges in<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_compl_abssum">
+    <statement>
+      <p>
+        A normed linear space <m>V</m> is complete if and only if
+        every absolutely summable sequence in <m>V</m> is summable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> If <m>V</m> is complete, the <em>Cauchy
+      criterion</em><nbsp /> <xref ref="prop_Cauchy_crit"></xref> may be used. For the converse, suppose that every
+      absolutely summable sequence is summable. Let <m>(a_k)</m> be a Cauchy sequence in <m>V</m>. Find a
+      subsequence <m>\bigl(a_{n_k}\bigr)</m> such that <m>\bignorm{a_{n_{k+1}} - a_{n_k}} \lt  2^{-k}</m> for
+      each <m>k</m>. Consider the sequence <m>(y_k)</m> where <m>y_k := a_{n_{k+1}} - a_{n_k}</m> for all <m>k</m>.
+      (<xref ref="sol_prop_compl_abssum">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    One of the most useful consequences of absolute convergence of a series is that the terms of
+    the series may be rearranged without affecting the sum of the series. This is not true of
+    <index><main>conditionally convergent</main></index>
+    <index><main>convergence</main><sub>conditional</sub></index><term>conditionally convergent</term> series (that is, series which converge but do not converge
+    absolutely). One can show, in fact, that a conditionally convergent series of real numbers
+    can, by rearrangement, be made to converge to any real number whatever, or, for that matter,
+    to diverge. We will not demonstrate this here, but a nice proof can be found
+    in<nbsp /><nbsp /><xref ref="Apostol_1974" />.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A series <m>\sum_{k=1}^\infty b_k</m> is said to be a
+        <index><main>rearrangement of a series</main></index>
+        <index><main>series</main><sub>rearrangement of a</sub></index>
+        <index><main><@<m>\sum_{k=1}^\infty a_{\phi(k)}</m> (rearrangement of a series)</main></index><term>rearrangement</term> of the series <m>\sum_{k=1}^\infty a_k</m> if there exists a bijection
+        <m>\phi\colon \N \sto \N</m> such that <m>b_k = a_{\phi(k)}</m> for all <m>k</m> in<nbsp /><m>\N</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>\sum b_k</m> is a rearrangement of an absolutely convergent series <m>\sum a_k</m>
+        in a Banach space, then <m>\sum b_k</m> is itself absolutely convergent and it converges to the
+        same sum as <m>\sum a_k</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem <em>Hint.</em> Let <m>\beta_n := \sum_{k=1}^n \|b_k\|</m>. Show that the
+      sequence <m>(\beta_n)</m> is increasing and bounded. Conclude that <m>\sum b_k</m> is absolutely
+      convergent. The hard part of the proof is showing that if <m>\sum_1^\infty a_k</m> converges to a
+      vector <m>A</m>, then so does <m>\sum_1^\infty b_k</m>. Define partial sums as usual: <m>s_n := \sum_1^n
+      a_k</m> and <m>t_n := \sum_1^n b_k</m>. Given <m>\epsilon > 0</m>, you want to show that <m>\norm{t_n - A} \lt 
+      \epsilon</m> for sufficiently large<nbsp /><m>n</m>. Prove that there exists a positive <m>N</m> such that
+      <m>\norm{s_n - A} \lt  \frac12\epsilon</m> and <m>\sum_n^\infty \norm{a_k} \le \frac12\epsilon</m>
+      whenever <m>n \ge N</m>. Write
+      <me>
+        \norm{t_n - A} \le \norm{t_n - s_N} + \norm{s_N - A}\,.
+      </me>
+    </p>
+
+    <p>
+      Showing that <m>\norm{t_n - s_N} \le \frac12 \epsilon</m> for <m>n</m> sufficiently large takes a little
+      thought. For an appropriate function <m>\phi</m> write <m>b_k = a_{\phi(k)}</m>. Notice that
+      <me>
+        \norm{t_n - s_N} = \bignorm{\sum_1^n a_{\phi(k)} - \sum_1^N a_k}\,.
+      </me>
+    </p>
+
+    <p>
+      The idea of the proof is to choose <m>n</m> so large that there are enough terms <m>a_{\phi(j)}</m> to
+      cancel <em>all</em> the terms <m>a_k</m> (<m>1 \le k \le N</m>).
+    </p>
+
+    <p>
+      If you have difficulty in dealing with sums like <m>\sum_{k=1}^n a_{\phi(k)}</m> whose terms are
+      not consecutive (<m>a_1,a_2,\dots</m> are consecutive terms of the sequence <m>(a_k)</m>;
+      <m>a_{\phi(1)},a_{\phi(2)},\dots</m> in general are not), a notational trick may prove useful. For
+      <m>P</m> a <em>finite</em> subset of <m>\N</m>, write <m>\underset P{\sum} a_k</m> for the sum of all the terms
+      <m>a_k</m> such that <m>k</m> belongs to <m>P</m>. This notation is easy to work with. It should be easy to
+      convince yourself that, for example, if <m>P</m> and <m>Q</m> are finite subsets of <m>\N</m> and if they are
+      disjoint, then <m>\underset{P \cup Q}{\sum} a_k = \underset P{\sum}a_k + \underset Q{\sum} a_k</m>.
+      (What happens if <m>P \cap Q \ne \emptyset</m>?) In the present problem, let <m>C := \{1,\dots,N\}</m>
+      (where <m>N</m> is the integer chosen above). Give a careful proof that there exists an integer
+      <m>p</m> such that the set <m>\{\phi(1),\dots,\phi(p)\}</m> contains <m>C</m>. Now suppose <m>n</m> is any integer
+      greater than<nbsp /><m>p</m>. Let <m>F := \{\phi(1),\dots,\phi(n)\}</m> and show that
+      <me>
+        \norm{t_n - s_N} \le \underset G{\sum} \norm{a_k}
+      </me>
+      where <m>G := F\setminus C</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_abssum_x_bdd">
+    <statement>
+      <p>
+        If <m>(\alpha_n)</m> is an absolutely summable sequence in <m>\R</m>
+        and <m>(x_n)</m> is a bounded sequence in a Banach space <m>E</m>, then the sequence <m>(\alpha_n x_n)</m> is
+        summable in <m>E</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use the Cauchy <xref ref="prop_Cauchy_crit">criterion</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        What happens in the previous proposition if the sequence <m>(\alpha_n)</m> is assumed
+        only to be bounded and the sequence <m>(x_n)</m> is absolutely summable?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if the sequence <m>(a_n)</m> of real numbers is
+        <index><main>square summable</main></index>
+        <index><main>summable</main><sub>square</sub></index><term>square summable</term> (that is, if the sequence <m>({a_n}^2)</m> is summable), then the series <m>\sum
+        n^{-1} a_n</m> converges absolutely. <em>Hint.</em> Use the <em>Schwarz
+        inequality</em><nbsp /> <xref ref="Schwarz_ineq"></xref>.
+      </p>
+    </statement>
+  </problem>
+</section>

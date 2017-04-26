@@ -1,0 +1,59 @@
+
+<section>
+  <title>Uniqueness of identities</title>
+  <p>
+    Axiom II guarantees only the <em>existence</em> of additive
+    and multiplicative identities <m>0</m> and<nbsp /><m>1</m>. It is natural to enquire about their
+    <em>uniqueness</em>. Could there be two real numbers which act as additive identities? That is,
+    could we have numbers <m>0' \ne 0</m> which satisfy
+    <men xml:id="arith_eqn1" >
+      x + 0 = x
+    </men>
+    and
+    <men xml:id="arith_eqn1_" >
+      x + 0' = x
+    </men>
+    for all <m>x</m> in<nbsp /><m>\R</m>? The answer as you would guess is <em>no:</em> there is only one additive
+    identity in <m>\R</m>. The proof is very short.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        The additive identity in <m>\R</m> is unique.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Suppose that the real numbers <m>0</m> and <m>0'</m> satisfy
+      <xref ref="arith_eqn1" /> and <xref ref="arith_eqn1_" /> all real numbers<nbsp /><m>x</m>.
+      Then
+      <md>
+        <mrow>0 \amp = 0 + 0'</mrow>
+        <mrow>\amp = 0' + 0</mrow>
+        <mrow>\amp = 0'.</mrow>
+      </md>
+    </p>
+
+    <p>
+      The three equalities are justified, respectively, by
+      <xref ref="arith_eqn1_" />, axiom<nbsp />I, and <xref ref="arith_eqn1" />.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        The multiplicative identity <m>1</m> on <m>\R</m> is unique.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

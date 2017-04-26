@@ -1,0 +1,554 @@
+
+<section>
+  <title>The gradient</title>
+  <p>
+    In beginning calculus texts the gradient of a real valued function of
+    <m>n</m> variables is usually defined to be an <m>n</m>-tuple of partial derivatives. This definition,
+    although convenient for computation, disguises the highly geometric nature of the gradient.
+    Here we adopt a different definition: the gradient of a scalar field is the vector which
+    represents, in a sense to be made precise below, the differential of the function. First we
+    look at an important example of a bounded linear functional on<nbsp /><m>\R^n</m>.
+  </p>
+
+  <example xml:id="exam_blf">
+    <statement>
+      <p>
+        Let <m>b \in \R^n</m>. Define
+        <me>
+          \sbsb{\psi}b\colon \R^n \sto \R\colon x \mapsto \langle x,b \rangle\,.
+        </me>
+      </p>
+
+      <p>
+        Then <m>\sbsb{\psi}b</m> is a bounded linear functional on <m>\R^n</m> and <m>\norm{\sbsb{\psi}b} =
+        \norm b</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_blf">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The reason for the importance of the preceding example is that functions of the form
+    <m>\sbsb{\psi}b</m> turn out to be the <em>only</em> bounded linear functionals on<nbsp /><m>\R^n</m>. Since
+    on <m>\R^n</m> every linear functional is bounded (see <xref ref="prop_fd_cont">propositions</xref>
+    and <xref ref="prop_equiv_cont"></xref>), the functions <m>\sbsb{\psi}b</m> are in fact the only real valued
+    linear maps on<nbsp /><m>\R^n</m>. Thus we say that every linear functional on <m>\R^n</m> can be
+    represented in the form <m>\sbsb{\psi}b</m> for some vector <m>b</m> in <m>\R^n</m>. Furthermore, this
+    representation is unique. These assertions are stated formally in the next theorem.
+  </p>
+
+  <theorem xml:id="thm_RF">
+    <title>Riesz-Fr&#xe9;chet Theorem</title>
+    <statement>
+      <p>
+        If <m>f \in (\R^n)^*</m>, then there exists
+        <index><main>Riesz-Fr&#xe9;chet theorem</main></index>a unique vector <m>b</m> in <m>\R^n</m> such that
+        <me>
+          f(x) = \langle x,b \rangle
+        </me>
+        for all <m>x</m> in <m>\R^n</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> For the existence part, (a) write <m>\sum_{k=1}^n x_ke^k</m>
+      for <m>x</m> in the expression <m>f(x)</m>, and use the linearity of<nbsp /><m>f</m>. Then, (b) write <m>\langle x,b
+      \rangle</m> as a sum. Comparing the results of (a) and (b), guess the identity of the desired
+      vector<nbsp /><m>b</m>. The uniqueness part is easy: suppose <m>f(x) = \langle x,a \rangle = \langle x,b
+      \rangle</m> for all <m>x</m> in<nbsp /><m>\R^n</m>. Show <m>a = b</m>.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        If a map <m>T \colon V \sto W</m> between two normed linear spaces is both an isometry
+        and a vector space isomorphism, we say that it is an
+        <index><main>isometric isomorphism</main></index>
+        <index><main>isomorphism</main><sub>isometric</sub></index><term>isometric isomorphism</term> and that the spaces <m>V</m> and <m>W</m> are <term>isometrically isomorphic</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition>
+    <statement>
+      <p>
+        Each Euclidean space <m>\R^n</m> is isometrically isomorphic to its dual<nbsp /><m>(\R^n)^*</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Consider the map
+      <me>
+        \psi\colon \R^n \sto (\R^n)^*\colon b \mapsto \psi_b\,.
+      </me>
+    </p>
+
+    <p>
+      One thing that must be established is that <m>\psi</m> is linear; don't confuse this with showing
+      that each <m>\psi_b</m> is linear<mdash />a task already accomplished in <xref ref="exam_blf">example</xref>. Use the
+      Riesz-Fr&#xe9;chet <xref ref="thm_RF">theorem</xref> and <xref ref="prob_lin_bij">problem</xref>.
+    </p>
+  </proof>
+
+  <p>
+    The Riesz-Fr&#xe9;chet <xref ref="thm_RF">theorem</xref> is the crucial ingredient in our definition of the
+    <em>gradient</em> of a scalar field.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>U \subseteq \R^n</m> and <m>\phi\colon U \sto \R</m> be a scalar field. If <m>\phi</m>
+        is differentiable at a point <m>a</m> in <m>\intr U</m>, then its differential <m>d\phi_a</m> is a bounded
+        linear map from <m>\R^n</m> into<nbsp /><m>\R</m>. That is, <m>d\phi_a \in (\R^n)^*</m>. Thus according to the
+        Riesz-Fr&#xe9;chet <xref ref="thm_RF">theorem</xref> there exists a unique vector, which we denote by
+        <m>\nabla\phi(a)</m>, representing the linear functional <m>d\phi_a</m>. That is,
+        <index><main><@<m>\nabla\phi(a)</m> (gradient of <m>\phi</m> at<nbsp /><m>a</m>)</main></index><m>\nabla\phi(a)</m> is the unique vector in <m>\R^n</m> such that
+        <me>
+          d\phi_a(x)  =  \langle x,\nabla\phi(a) \rangle
+        </me>
+        for all <m>x</m> in <m>\R^n</m>. The vector <m>\nabla\phi(a)</m> is the
+        <index><main>gradient</main><sub>at a point</sub></index><term>gradient</term> of <m>\phi</m> at<nbsp /><m>a</m>. If <m>U</m> is an open subset of <m>\R^n</m> and <m>\phi</m> is
+        differentiable at each point of<nbsp /><m>U</m>, then the function
+        <me>
+          \nabla\phi\colon U \sto \R^n\colon u \mapsto \nabla\phi(u)
+        </me>
+        is the
+        <index><main>gradient</main><sub>on an open set</sub></index><term>gradient</term> of<nbsp /><m>\phi</m>. Notice two things: first, the gradient of a scalar field is a vector
+        field; and second, the differential <m>d\phi_a</m> is the zero linear functional if and only if the
+        gradient at<nbsp /><m>a</m>, <m>\nabla\phi(a)</m>, is the zero vector in<nbsp /><m>\R^n</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Perhaps the most useful fact about the gradient of a scalar field <m>\phi</m> at a point <m>a</m> in
+    <m>\R^n</m> is that it is the vector at <m>a</m> which points in the direction of the most rapid
+    increase of<nbsp /><m>\phi</m>.
+  </p>
+
+  <proposition xml:id="prop_max_dd">
+    <statement>
+      <p>
+        Let <m>\phi\colon U \sto \R</m> be a scalar field on a subset <m>U</m>
+        of<nbsp /><m>\R^n</m>. If <m>\phi</m> is differentiable at a point <m>a</m> in <m>U</m> and <m>d\phi_a</m> is not the zero
+        functional, then the maximum value of the directional derivative <m>D_u\phi(a)</m>, taken over all
+        unit vectors <m>u</m> in <m>\R^n</m>, is achieved when <m>u</m> points in the direction.of the gradient
+        <m>\nabla\phi(a)</m>. The minimum value is achieved when <m>u</m> points in the opposite direction
+        <m>-\nabla\phi(a)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prop_dd_diff">proposition</xref> and recall that
+      <m>\langle x,y \rangle = \norm x \norm y \cos\measuredangle(x,y)</m>.
+      (<xref ref="sol_prop_max_dd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    When a curve <m>c</m> is composed with a scalar field <m>\phi</m> we obtain a real valued function of a
+    single variable. An easy but useful special case of the <em>chain rule</em> says that the
+    derivative of the composite <m>\phi\circ c</m> is the dot product of the derivative of <m>c</m> with the
+    gradient of<nbsp /><m>\phi</m>.
+  </p>
+
+  <proposition xml:id="prop_cr_curv">
+    <statement>
+      <p>
+        Suppose that <m>c</m> is a curve in <m>\R^n</m> which is differentiable
+        at a point <m>t</m> in <m>\R</m> and that <m>\phi</m> belongs to <m>\fml D_{c(t)}(\R^n,\R)</m>. Then <m>\phi\circ
+        c</m> is differentiable at <m>t</m> and
+        <me>
+          D(\phi \circ c)(t) = \langle Dc(t),(\nabla\phi)(c(t))\rangle\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="prop_diff_der">proposition</xref> and the <em>chain
+      rule</em><nbsp /> <xref ref="thm_ch_rul"></xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>\phi \colon \R^n \sto \R\colon x \mapsto \norm x^2</m>, then <m>\phi</m> is
+        differentiable at each point <m>b</m> of <m>\R^n</m> and
+        <me>
+          d\phi_b = 2\psi_b
+        </me>
+      </p>
+
+      <p>
+        Furthermore, <m>\nabla\phi = 2I</m> (where <m>I</m> is the identity function on<nbsp /><m>\R^n</m>). <em>Hint.</em>
+        The definition of <m>\psi_b</m> is given in <xref ref="exam_blf"></xref>. Write <m>\phi = \langle I,I \rangle</m> and
+        <xref ref="prop_ip_diff">use</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_dc_mvt">
+    <statement>
+      <p>
+        For the function <m>\phi</m> given in the preceding problem verify
+        by direct computation the formula for the <em>mean value
+        theorem</em><nbsp />(<xref ref="prop_mvt_Bs">proposition</xref>).
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A linear transformation <m>T\colon \R^n \sto \R^n</m> is
+        <index><main>self-adjoint</main></index><term>self-adjoint</term> if <m>\langle Tx,y \rangle = \langle x,Ty \rangle</m> for all <m>x</m>, <m>y \in \R^n</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="prob_salt">
+    <statement>
+      <p>
+        Let <m>T \in \ofml B(\R^n,\R^n)</m> be self-adjoint and
+        <me>
+          \mu\colon \R^n \sto \R\colon  x \mapsto \langle Tx,x \rangle.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>\mu</m> is differentiable at each point <m>b</m> in <m>\R^n</m> and find <m>d\mu_b</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\nabla\mu</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Repeat <xref ref="prob_dc_mvt">problem</xref>, this time using the function <m>\mu</m> given in
+        <xref ref="prob_salt">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>conservation of energy</main></index>
+  </p>
+  <exercise xml:id="cons_energ">
+    <title>Conservation of Energy</title>
+    <statement>
+      <p>
+        Consider a
+        particle <m>P</m> moving in <m>\R^3</m> under the influence of a force<nbsp /><m>F</m>. Suppose that the position of
+        <m>P</m> at time <m>t</m> is <m>x(t)</m> where <m>x\colon \R \sto \R^3</m> is at least twice differentiable. Let
+        <m>v := Dx</m> be the velocity of <m>P</m> and <m>a := Dv</m> be its acceleration. Assume
+        <index><main>Newton's second law</main></index><em>Newton's second law</em>: <m>F \circ x = ma</m>, where <m>F\colon \R^3 \sto \R^3</m> is the force
+        acting on <m>P</m> and <m>m</m> is the mass of<nbsp /><m>P</m>. Suppose further that the force field <m>F</m> is
+        <index><main>conservative</main></index><term>conservative</term>; that is, there exists a scalar field <m>\phi\colon \R^3 \sto \R</m> such that <m>F
+        = -\nabla\phi</m>. (Such a scalar field is a
+        <index><main>potential</main><sub>function</sub></index><term>potential function</term> for<nbsp /><m>F</m>.) The
+        <index><main>kinetic energy</main></index><term>kinetic energy</term> of <m>P</m> is defined by
+        <me>
+          KE := \tfrac12 m \norm v^2\,,
+        </me>
+        its
+        <index><main>potential</main><sub>energy</sub></index><term>potential energy</term> by
+        <me>
+          PE := \phi \circ x\,,
+        </me>
+        and its
+        <index><main>total</main><sub>energy</sub></index><term>total energy</term> by
+        <me>
+          TE := KE + PE\,.
+        </me>
+      </p>
+
+      <p>
+        Prove, for this situation, the law of <em>conservation of energy</em>:
+        <me>
+          TE \text{ is constant. }
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use <xref ref="prop_sc_const">propositions</xref>, <xref ref="prop_ip_diff"></xref>,
+        and <xref ref="prop_cr_curv"></xref>. (<xref ref="sol_cons_energ">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    In most circumstances the simplest way of computing the gradient of a scalar field <m>\phi</m> on
+    <m>\R^n</m> is to calculate the <m>n</m> partial derivatives of<nbsp /><m>\phi</m>. The <m>n</m>-tuple of these
+    derivatives is the gradient. In most beginning calculus texts this is the <em>definition</em>
+    of the gradient.
+  </p>
+
+  <proposition xml:id="prop_grad_pd">
+    <statement>
+      <p>
+        If <m>\phi</m> is a scalar field on a subset of <m>\R^n</m> and is
+        differentiable at a point<nbsp /><m>a</m>, then
+        <me>
+          \nabla\phi(a) = \sum_{k=1}^n\phi_k(a) e^k\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Substitute <m>\nabla\phi(a)</m> for <m>x</m>
+      in <xref ref="prop_ip_expan"></xref>. <xref ref="prop_dd_diff">Use</xref>. (<xref ref="sol_prop_grad_pd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_comp_dd">
+    <statement>
+      <p>
+        Let <m>\phi(w,x,y,z) = wz - xy</m>, <m>u = (\frac12, -\frac12,
+        \frac12, -\frac12)</m>, and <m>a = (1,2,3,4)</m>. Find the directional derivative <m>D_u\phi(a)</m>.
+        <em>Hint.</em> <xref ref="prop_dd_diff">Use</xref>, the definition of <em>gradient</em>,
+        and <xref ref="prop_grad_pd"></xref>. (<xref ref="sol_exer_comp_dd">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    <index><main>method of steepest descent</main></index>
+    <index><main>steepest descent, method of</main></index>
+  </p>
+  <exercise xml:id="mthd_st_desc">
+    <title>Method of Steepest Descent</title>
+    <statement>
+      <p>
+        Let <m>\phi(x,y) = 2x^2 + 6y^2</m>
+        and <m>a = (2,-1)</m>. Find the steepest downhill path on the surface <m>z = \phi(x,y)</m> starting at
+        the point <m>a</m> and ending at the minimum point on the surface. <em>Hints.</em> (1)<nbsp />It is enough
+        to find the equation of the projection of the curve onto the <m>xy</m>-plane; every curve <m>t
+        \mapsto \bigl(x(t),y(t)\bigr)</m> in the <m>xy</m>-plane is the projection along the <m>z</m>-axis of a
+        unique curve <m>t \mapsto \bigl(x(t),y(t),\phi(x(t),y(t))\bigr)</m> on the surface <m>z = \phi(x,y)</m>.
+        (2)<nbsp />If <m>c\colon t \mapsto \bigl(x(t),y(t)\bigr)</m> is the desired curve and we set <m>c(0) = a</m>,
+        then according to <xref ref="prop_max_dd">proposition</xref> the unit vector <m>u</m> which minimizes the
+        directional derivative <m>D_u\phi(b)</m> at a point <m>b</m> in <m>\R^2</m> is the one obtained by choosing
+        <m>u</m> to point in the direction of<nbsp /><m>-\nabla\phi(b)</m>. Thus in order for the curve to point in
+        the direction of the most rapid decrease of <m>\phi</m> at each point<nbsp /><m>c(t)</m>, the tangent vector to
+        the curve at <m>c(t)</m> must be some positive multiple <m>p(t)</m> of<nbsp /><m>-(\nabla\phi)\bigl(c(t)\bigr)</m>.
+        The function <m>p</m> will govern the speed of descent; since this is irrelevant in the present
+        problem, set <m>p(t) = 1</m> for all<nbsp /><m>t</m>. (3)<nbsp />Recall from beginning calculus that on an interval
+        the only nonzero solution to an equation of the form <m>Dx(t) = kx(t)</m> is of the form <m>x(t) =
+        x(0)e^{kt}</m>. (4)<nbsp />The parameter <m>t</m> which we have introduced is artificial. Eliminate it to
+        obtain an equation of the form <m>y = f(x)</m>. (<xref ref="sol_mthd_st_desc">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    <index><main>mean value theorem</main><sub>for scalar fields</sub></index>
+  </p>
+
+  <proposition xml:id="prop_mvt_sf">
+    <title>A Mean Value Theorem for Scalar Fields</title>
+    <statement>
+      <p>
+        Let <m>\phi</m> be a
+        differentiable scalar field on an open convex subset <m>U</m> of <m>\R^n</m> and suppose that <m>a</m> and
+        <m>b</m> are distinct points belonging to<nbsp /><m>U</m>. Then there exists a point <m>c</m> in the closed segment
+        <m>[a,b]</m> such that
+        <me>
+          \phi(b) - \phi(a) = \langle b - a,\nabla\phi(c) \rangle\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>l(t) = (1 - t)a + tb</m> for <m>0 \le t \le 1</m>. Apply
+      the <em>mean value theorem</em> for a real valued function of a single variable <xref ref="mvthm" /> to
+      the function <m>\phi\circ l</m>. Use <xref ref="prop_cr_curv">proposition</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>c(t) = (\cos t,\sin t,t)</m> and <m>\phi(x,y,z) = x^2y - 3yz</m>. Find
+        <m>D(\phi\circ c)(\pi/6)</m>. <em>Hint.</em> <xref ref="prop_cr_curv">Use</xref> and <xref ref="prop_grad_pd"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\phi(x,y,z) = xz - 4y</m>, <m>u = (\tfrac12,0,\tfrac12\sqrt3)</m>, and <m>a =
+        (1,0,-\tfrac{\pi}2)</m>. Find the directional derivative<nbsp /><m>D_u\phi(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>V</m> is a normed linear space, <m>f \in \fml D_a(\R^n,V)</m>, and <m>v</m> is a
+        nonzero vector in<nbsp /><m>\R^n</m>, then
+        <me>
+          D_vf(a) = \sum_{k=1}^nv_kf_k(a)\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use <xref ref="prop_dd_diff">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^2 \sto \R^2\colon x \mapsto ({x_1}^2 - {x_2}^2, 3x_1x_2)</m>,
+        <m>a = (2,1)</m>, and <m>v = (-1,2)</m>. Use the preceding problem to find<nbsp /><m>D_vf(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sd">
+    <statement>
+      <p>
+        Find the path of steepest descent on the surface <m>z = x^6 + 12y^4</m>
+        starting at the point whose <m>x</m>-coordinate is <m>1</m> and whose <m>y</m>-coordinate is<nbsp /><m>\frac12</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that the temperature <m>\phi(x,y)</m> at points <m>(x,y)</m> on a flat surface is
+        given by the formula
+        <me>
+          \phi(x,y) = x^2 - y^2\,.
+        </me>
+      </p>
+
+      <p>
+        Starting at a point <m>(a,b)</m> on the surface, what path should be followed so that the
+        temperature will increase as rapidly as possible?
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>method of steepest descent</main></index>
+    <index><main>steepest descent, method of</main></index>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        This (like <xref ref="mthd_st_desc">exercise</xref> and <xref ref="prob_sd">problem</xref>) is a steepest
+        descent problem; but here, we suppose that for some reason we are unable to solve explicitly
+        the resulting differential equations. Instead we invoke an approximation technique. Let
+        <me>
+          \phi(x) = 13{x_1}^2 - 42x_1 + 13{x_2}^2 + 6x_2 + 10x_1x_2 + 9
+        </me>
+        for all <m>x</m> in<nbsp /><m>\R^2</m>. The goal is to approximate the path of steepest descent. Start at an
+        arbitrary point <m>x^0</m> in <m>\R^2</m> and choose a number <m>h > 0</m>. At <m>x^0</m> compute the gradient of
+        <m>\phi</m>, take <m>u^0</m> to be the unit vector pointing in the direction of <m>-\nabla\phi(x^0)</m>, and
+        then move <m>h</m> units in the direction of <m>u^0</m> arriving at a point<nbsp /><m>x^1</m>. Repeat the
+        procedure: find the unit vector <m>u^1</m> in the direction of <m>-\nabla\phi(x^1)</m>, then from <m>x^1</m>
+        move <m>h</m> units along <m>u^1</m> to a point<nbsp /><m>x^2</m>. Continue in this fashion. In other words, <m>x^0
+        \in \R^2</m> and <m>h > 0</m> are arbitrary, and for <m>n \ge 0</m>
+        <me>
+          x^{n+1} = x^n + hu^n
+        </me>
+        where <m>u^n = -\norm{\nabla\phi(x^n)}^{-1}\nabla\phi(x^n)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Start at the origin <m>x^0 = (0,0)</m> and choose <m>h = 1</m>. Compute 25 or 30 values of
+              <m>x^n</m>.  Explain geometrically what is happening here.  Why is <m>h</m> <q>too large</q>?  <em>Hint.</em>
+              Don't attempt to do this by hand.  Write a program for a computer or a programmable
+              calculator. In writing your program don't ignore the possibility that <m>\nabla\phi(x^n)</m>  may
+              be zero for some<nbsp /><m>n</m>. (Keep in mind when you write this up that your reader probably has no
+              idea how to read the language in which you write your program. Document it well enough that
+              the reader can easily understand what you are doing at each step.)
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Describe what happens when <m>h</m> is <q>too small</q>.  Again start at the origin, take
+              <m>h = 0.001</m> and compute 25 or 30 values of<nbsp /><m>x^n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              By altering the values of <m>h</m> at appropriate times, find a succession of points <m>x^0,
+              \dots, x^n</m> (starting with <m>x^0 = (0,0)\,)</m> such that the distance between <m>x^n</m> and the point
+              where <m>\phi</m> assumes its minimum value is less than<nbsp /><m>0.001</m>.  (By examining the points <m>x^0,
+              \dots, x^n</m> you should be able to guess, for this particular function, the exact location of
+              the minimum.)
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Alter the program in part (a) to eliminate division by <m>\norm{\nabla\phi(x^n)}</m>.
+              (That is, let <m>x^{n+1} = x^n - h\nabla\phi(x^n)</m>.)  Explain what happens in this case when <m>h</m>
+              is <q>too large</q> (say <m>h = 1</m>).  Explain why the altered program works better (provided that
+              <m>h</m> is chosen appropriately) than the program in (a) for the present function<nbsp /><m>\phi</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Is it possible to find a differentiable scalar field <m>\phi</m> on <m>\R^n</m> and a point
+        <m>a</m> in <m>\R^n</m> such that <m>D_u\phi(a) > 0</m> for every nonzero <m>u</m> in<nbsp /><m>\R^n</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Is it possible to find a differentiable scalar field <m>\phi</m> on <m>\R^n</m> and a nonzero
+        vector <m>u</m> in <m>\R^n</m> such that <m>D_u\phi(a) > 0</m> for every <m>a</m> in<nbsp /><m>\R^n</m>?
+      </p>
+    </statement>
+  </problem>
+</section>

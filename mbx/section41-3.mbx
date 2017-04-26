@@ -1,0 +1,45 @@
+
+<section>
+  <title>The identity function</title>
+  <p>
+    The family of all functions mapping a set <m>S</m> into a set <m>T</m>
+    is denoted by <m>\fml F(S,T)</m>. One member of <m>\fml F(S,S)</m> is particularly noteworthy, the
+    <index><main>identityfunction@<m>I_S</m> (identity function on a set <m>S</m>)</main></index><term>identity function</term> on <m>S</m>. It is defined by
+    <me>
+      I_S\colon S \sto S\colon x \mapsto x.
+    </me>
+  </p>
+
+  <p>
+    When the set <m>S</m> is understood from context, we write <m>I</m> for<nbsp /><m>I_S</m>.
+  </p>
+
+  <p>
+    The identity function is characterized algebraically by the conditions:
+    <me>
+      \text{ if \(f\colon R \sto S\), then \(I_S \circ f = f\) }
+    </me>
+    and
+    <me>
+      \text{ if \(g\colon S \sto T\), then \(g \circ I_S = g\) } .
+    </me>
+  </p>
+
+  <definition xml:id="def_incl_map">
+    <statement>
+      <p>
+        More general than the identity function are the inclusion maps.
+        If <m>A \subseteq S</m>, then the
+        <index><main>inclusionmap@<m>\iota_{A,S}</m> (inclusion map of <m>A</m> into <m>S</m>)</main></index><term>inclusion map</term> taking <m>A</m> into <m>S</m> is defined by
+        <me>
+          \iota_{A,S}:A \sto S\colon x \mapsto x.
+        </me>
+      </p>
+
+      <p>
+        When no confusion is likely to result, we abbreviate <m>\iota_{A,S}</m> to <m>\iota</m>. Notice that
+        <m>\iota_{S,S}</m> is just the identity map<nbsp /><m>I_S</m>.
+      </p>
+    </statement>
+  </definition>
+</section>

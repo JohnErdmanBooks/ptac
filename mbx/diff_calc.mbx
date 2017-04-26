@@ -1,0 +1,26 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="diff_calc">
+  <title>Differential calculus</title>
+  <introduction>
+    <p>
+      In <xref ref="dorf">chapter</xref> we studied the calculus of real valued functions of a real variable. We
+      now extend that study to vector valued functions of a vector variable. The first three
+      sections of this chapter repeat almost exactly the material in <xref ref="dorf">chapter</xref>. Absolute
+      values are replaced by norms, and linear maps by continuous linear maps. Other than that
+      there are few differences. In fact, if you have done <xref ref="dorf">chapter</xref> carefully you may
+      wish just to glance over the first three sections of this chapter and move on to
+      <xref ref="diff_curv">section</xref>.
+    </p>
+
+    <p>
+      \fbox{<em>Throughout this chapter <m>V</m>, <m>W</m>, and <m>X</m> (with or without
+      subscripts) will be normed linear spaces.</em>}
+    </p>
+  </introduction>
+  <xi:include  href="section25-1.mbx" />
+  <xi:include  href="section25-2.mbx" />
+  <xi:include  href="section25-3.mbx" />
+  <xi:include  href="diff_curv.mbx" />
+  <xi:include  href="section25-5.mbx" />
+  <xi:include  href="section25-6.mbx" />
+</chapter>

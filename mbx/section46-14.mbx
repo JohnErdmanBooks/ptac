@@ -1,0 +1,212 @@
+
+<section>
+  <title>Exercises in Chapter 14</title>
+  <solution xml:id="sol_top_ch_cont">
+    <p>
+      (Solution to <xref ref="top_ch_cont"></xref>)
+      Suppose <m>f</m> is continuous. Let <m>\open U{M_2}</m>. To show that <m>f^\gets(U)</m> is an open subset
+      of <m>M_1</m>, it suffices to prove that each point of <m>f^\gets(U)</m> is an interior point of
+      <m>f^\gets(U)</m>. If <m>a \in f^\gets(U)</m>, then <m>f(a) \in U</m>. Since <m>f</m> is continuous at <m>a</m>, the
+      set <m>U</m>, which is a neighborhood of <m>f(a)</m>, must contain the image under <m>f</m> of a neighborhood
+      <m>V</m> of<nbsp /><m>a</m>. But then
+      <me>
+        a \in V \subseteq f^\gets(f^{\sto}(V)) \subseteq f^\gets(U)
+      </me>
+      which shows that <m>a</m> lies in the interior of <m>f^\gets(U)</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>\open{f^\gets(U)}{M_1}</m> whenever <m>\open U{M_2}</m>. To see that <m>f</m> is
+      continuous at an arbitrary point <m>a</m> in <m>M_1</m>, notice that if <m>V</m> is a neighborhood of <m>f(a)</m>,
+      then <m>a \in \open{f^\gets(V)}{M_1}</m>. Thus <m>f^\gets(V)</m> is a neighborhood of <m>a</m> whose image
+      <m>f^{\sto}(f^\gets(V))</m> is contained in <m>V</m>. Thus <m>f</m> is continuous at <m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cont_mult">
+    <p>
+      (Solution to <xref ref="cont_mult"></xref>)
+      Show that <m>M</m> is continuous at an arbitrary point <m>(a,b)</m> in <m>\R^2</m>. Since the metric
+      <m>d_1</m> (defined in <xref ref="taxicab"></xref>) is equivalent to the usual metric on <m>\R^2</m>,
+      <xref ref="cont_eqmtr">proposition</xref> assures us that it is enough to establish continuity of the
+      function <m>M</m> with respect to the metric <m>d_1</m>. Let <m>K = \abs{a} + \abs{b} + 1</m>. Given
+      <m>\epsilon > 0</m>, choose <m>\delta = \min\{\epsilon/K,1\}</m>. If <m>(x,y)</m> is a point in <m>\R^2</m>
+      such that <m>\abs{x - a} + \abs{y - b} = d_1((x,y), (a,b)) \lt  \delta</m>, then
+      <me>
+        \abs{x} \le \abs{a} + \abs{x - a} \lt  \abs{a} + \delta \le
+                        \abs{a} + 1 \le K.
+      </me>
+    </p>
+
+    <p>
+      Thus for all such points <m>(x,y)</m>
+      <md>
+        <mrow>\abs{M(x, y) - M(a,b)}
+                        \amp = \abs{xy - xb + xb - ab}</mrow>
+        <mrow>\amp \le \abs{x}\,\abs{y-b} + \abs{x-a}\,\abs{b}</mrow>
+        <mrow>\amp \le K\abs{y-b} + K\abs{x-a}</mrow>
+        <mrow>\amp \lt  K\delta</mrow>
+        <mrow>\amp \le \epsilon.    \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_seq_ch_cont">
+    <p>
+      (Solution to <xref ref="seq_ch_cont"></xref>)
+      Suppose that <m>f</m> is continuous at <m>a</m>. Let <m>x_n \sto a</m> and <m>B_2</m> be a neighborhood of
+      <m>f(a)</m>. There exists a neighborhood <m>B_1</m> of <m>a</m> such that <m>f^{\sto}(B_1) \subseteq B2</m>.
+      Choose <m>n_0 \in \N</m> so that <m>x_n \in B_1</m> whenever <m>n \ge n_0</m>. Then <m>f(x_n) \in f^{\sto}(B_1)
+      \subseteq B_2</m> whenever <m>n \ge n_0</m>. That is, the sequence <m>\bigl(f(x_n)\bigr)</m> is eventually
+      in the neighborhood <m>B_2</m>. Since <m>B_2</m> was arbitrary, <m>f(x_n) \sto f(a)</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>f</m> is not continuous at <m>a</m>. Then there exists <m>\epsilon > 0</m> such
+      that the image under <m>f</m> of <m>B_\delta(a)</m> contains points which do not belong to
+      <m>B_\epsilon(f(a))</m>, no matter how small <m>\delta > 0</m> is chosen. Thus for every <m>n \in \N</m>
+      there exists <m>x_n \in B_{1/n}(a)</m> such that <m>f(x_n) \notin B_\epsilon(f(a))</m>. Then clearly
+      <m>x_n \sto a</m> but <m>f(x_n) \nrightarrow f(a)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_coord_projs">
+    <p>
+      (Solution to <xref ref="coord_projs"></xref>)
+      Let <m>(a,b)</m> be an arbitrary point in <m>M_1 \times M_2</m>. If <m>(x_n,y_n) \sto (a,b)</m> in <m>M_1
+      \times M_2</m>, then <xref ref="seq_prod">proposition</xref> tells us that <m>\pi_1(x_n,y_n) = x_n \sto a =
+      \pi_1(a,b)</m>. This shows that <m>\pi_1</m> is continuous at <m>(a,b)</m>. Similarly, <m>\pi_2</m> is
+      continuous at<nbsp /><m>(a,b)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_components">
+    <p>
+      (Solution to <xref ref="components"></xref>)
+      Suppose <m>f</m> is continuous. Then the components <m>f^1 = \pi_1 \circ f</m> and <m>f^2 = \pi_2 \circ
+      f</m>, being composites of continuous functions, are continuous. Conversely, suppose that <m>f^1</m>
+      and <m>f^2</m> are continuous. Let <m>a</m> be an arbitrary point in <m>N</m>. If <m>x_n \sto a</m>, then (by
+      <xref ref="seq_ch_cont">proposition</xref>) <m>f^1(x_n) \sto f^1(a)</m> and <m>f^2(x_n) \sto f^2(a)</m>. From
+      <xref ref="seq_prod">proposition</xref> we conclude that
+      <me>
+        f(x_n) = (f^1(x_n),f^2(x_n)) \sto (f^1(a),f^2(a)) = f(a)\,;
+      </me>
+      so <m>f</m> is continuous at<nbsp /><m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prod_cont">
+    <p>
+      (Solution to <xref ref="prod_cont"></xref>)
+      (a)The function <m>fg</m> is the composite of continuous functions (that is, <m>fg = M \circ
+      (f,g)</m>); so it is continuous by <xref ref="cmp_cnt">corollary</xref>.
+    </p>
+
+    <p>
+      (b)This is just a special case of (a) where <m>f</m> is the constant function whose value is
+      <m>\alpha</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_jc_sc">
+    <p>
+      (Solution to <xref ref="jc_sc"></xref>)
+      For each <m>a \in M_1</m> let <m>j_a\colon M_2 \sto M_1 \times M_2</m> be defined by <m>j_a(y) = (a,y)</m>.
+      Then <m>j_a</m> is continuous. (Proof: If <m>y_n \sto c</m>, then <m>j_a(y_n) = (a,y_n) \sto (a,c) =
+      j_a(c)</m>.) Since <m>f(a,\,\cdot\,) = f \circ j_a</m>, it too is continuous. The continuity of each
+      <m>f(\,\cdot\,b)</m> is established in a similar manner.
+    </p>
+  </solution>
+  <solution xml:id="sol_unif_lim_cont">
+    <p>
+      (Solution to <xref ref="unif_lim_cont"></xref>)
+      Show that <m>g</m> is continuous at an arbitrary point <m>a</m> in <m>M</m>. Let <m>\epsilon > 0</m>. Since <m>f_n
+      \sto g \text{ (unif) }</m> there exists <m>n \in \N</m> such that
+      <me>
+        \abs{f_m(x) - g(x)} \le \sup\{\abs{f_n(y) - g(y)}\colon  y \in M\} \lt  \epsilon/3
+      </me>
+      whenever <m>m \ge n</m> and <m>x \in M</m>. Since <m>f_n</m> is continuous at <m>a</m>, there exists <m>\delta > 0</m>
+      such that
+      <me>
+        \abs{f_n(x) - f_n(a)} \lt  \epsilon/3
+      </me>
+      whenever <m>d(x,a) \lt  \delta</m>. Thus for <m>x \in B_\delta(a)</m>
+      <md>
+        <mrow>\abs{g(x) - g(a)}
+                   \amp \le \abs{g(x) - f_n(x)} + \abs{f_n(x) - f_n(a)}
+                        + \abs{f_n(a) - g(a)}</mrow>
+        <mrow>\amp \lt  \tfrac\epsilon3 + \tfrac\epsilon3 +
+                        \tfrac\epsilon3 = \epsilon\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This shows that <m>g</m> is continuous at<nbsp /><m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_mslim_uniq">
+    <p>
+      (Solution to <xref ref="mslim_uniq"></xref>)
+      Argue by contradiction. If <m>b \ne c</m>, then <m>\epsilon = d(b,c) > 0</m>. Thus there exists
+      <m>\delta_1 > 0</m> such that <m>d(f(x),b) \lt  \epsilon/2</m> whenever <m>x \in A</m> and <m>0 \lt  d(x,a) \lt 
+      \delta_1</m>, and there exists <m>\delta_2 > 0</m> such that <m>d(f(x),c) \lt  \epsilon/2</m> whenever <m>x \in
+      A</m> and <m>0 \lt  d(x,a) \lt  \delta_2</m>. Let <m>\delta = \min\{\delta_1,\delta_2\}</m>. Since <m>a \in A'</m>,
+      the set <m>A \cap B_\delta(a)</m> is nonempty. Choose a point <m>x</m> in this set. Then
+      <me>
+        \epsilon = d(b,c) \le d(b,f(x)) + d(f(x),c) \lt 
+                    \tfrac\epsilon2 + \tfrac\epsilon2 = \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      This is a contradiction.
+    </p>
+  </solution>
+  <p>
+    It is worth noticing that the preceding proof cannot be made to work if <m>a</m> is not required to
+    be an accumulation point of<nbsp /><m>A</m>. To obtain a contradiction we must know that the condition <m>0
+    \lt  d(x,a) \lt  \delta</m> is satisfied for at least one <m>x</m> in the domain of<nbsp /><m>f</m>.
+  </p>
+  <solution xml:id="sol_dbl_vs_iter">
+    <p>
+      (Solution to <xref ref="dbl_vs_iter"></xref>)
+      Let <m>g(x) = \lim_{y \sto b}f(x,y)</m> for all <m>x \in \R</m>. It is enough to show that <m>\lim_{x \sto
+      a}\bigl(\lim_{y \sto b}f(x,y)\bigr) = \lim_{x \sto a}g(x) = l</m>. Given <m>\epsilon > 0</m>, choose
+      <m>\delta > 0</m> so that <m>\abs{f(x,y) - l} \lt  \epsilon/2</m> whenever <m>0 \lt  d\bigl((x,y),(a,b)\bigr) \lt 
+      \delta</m>. (This is possible because <m>l = \lim_{(x,y) \sto (a,b)}f(x,y)</m>.) Suppose that <m>0 \lt 
+      \abs{x-a} \lt  \delta/\sqrt2</m>. Then (by the definition of <m>g</m>) there exists <m>\eta_x > 0</m> such
+      that <m>\abs{g(x) - f(x,y)} \lt  \epsilon/2</m> whenever <m>0 \lt  \abs{y -b} \lt  \eta_x</m>. Now choose any
+      <m>y</m> such that <m>0 \lt  \abs{y -b} \lt  \min\{\delta/\sqrt2,\eta_x\}</m>. Then (still supposing that <m>0
+      \lt  \abs{x -a} \lt  \delta/\sqrt2</m>) we see that
+      <md>
+        <mrow>0 \amp \lt  d\bigl((x,y),(a,b)\bigr)</mrow>
+        <mrow>\amp = \bigl((x-a)^2 + (y-b)^2\bigr)^{1/2}</mrow>
+        <mrow>\amp \lt  \bigl((\delta^2/2 +
+                                         \delta^2/2\bigr)^{1/2}</mrow>
+        <mrow>\amp = \delta</mrow>
+      </md>
+      so
+      <me>
+        \abs{f(x,y) - l} \lt  \epsilon/2
+      </me>
+      and therefore
+      <md>
+        <mrow>\abs{g(x) - l}
+                    \amp \le \abs{g(x) - f(x,y)} + \abs{f(x,y) - l}</mrow>
+        <mrow>\amp \lt  \tfrac\epsilon2 + \tfrac\epsilon2 = \epsilon.</mrow>
+      </md>
+    </p>
+
+    <p>
+      That is, <m>\lim_{x \sto a}g(x) = l</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lim_nex">
+    <p>
+      (Solution to <xref ref="lim_nex"></xref>)
+      By the remarks preceding this exercise, we need only find two distinct values which the
+      function <m>f</m> assumes in every neighborhood of the origin. This is easy. Every neighborhood of
+      the origin contains points <m>(x,0)</m> distinct from <m>(0,0)</m> on the <m>x</m>-axis. At every such point
+      <m>f(x,y) = f(x,0) = 0</m>. Also, every neighborhood of the origin contains points <m>(x,x)</m>
+      distinct from <m>(0,0)</m> which lie on the line <m>y = x</m>. At each such point <m>f(x,y) = f(x, x) =
+      1/17</m>. Thus <m>f</m> has no limit at the origin since in every neighborhood of <m>(0,0)</m> it assumes
+      both the values <m>0</m> and <m>1/17</m>. (Notice, incidentally, that both iterated limits, <m>\lim_{x
+      \sto 0}\bigl(\lim_{y \sto 0}f(x, y)\bigr)</m> and <m>\lim_{y \sto 0}\bigl(\lim_{x \sto 0}f(x,
+      y)\bigr)</m> exist and equal<nbsp /><m>0</m>.)
+    </p>
+  </solution>
+</section>

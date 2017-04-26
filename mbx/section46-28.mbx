@@ -1,0 +1,444 @@
+
+<section>
+  <title>Exercises in Chapter 28</title>
+  <solution xml:id="sol_exer_par_sum1">
+    <p>
+      (Solution to <xref ref="exer_par_sum1"></xref>)
+      If <m>n</m> is odd then the <m>n^{\text{ th } }</m> partial sum <m>s_n</m> is<nbsp /><m>1</m>; if <m>n</m> is even then <m>s_n = 0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_par_sum2">
+    <p>
+      (Solution to <xref ref="exer_par_sum2"></xref>)
+      Use <xref ref="prob_geomser2">problem</xref>. The <m>n^{\text{ th } }</m> partial sum of the sequence
+      <m>\bigl(\frac12, \frac14, \frac18,\dots\bigr)</m> is
+      <md>
+        <mrow>s_n \amp = \frac12 + \frac14 + \frac18 + \dots + \frac1{2^n}</mrow>
+        <mrow>\amp = \sum_{k=1}^n \left(\frac12\right)^k</mrow>
+        <mrow>\amp = \sum_{k=0}^n \left(\frac12\right)^k - 1</mrow>
+        <mrow>\amp = \frac{1 - (\frac12)^{n+1}}{1 - \frac12} - 1</mrow>
+        <mrow>\amp = 2 - \left(\frac12\right)^n - 1</mrow>
+        <mrow>\amp = 1 - 2^{-n}.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_inf_ser1">
+    <p>
+      (Solution to <xref ref="exer_inf_ser1"></xref>)
+      For the sequence given in <xref ref="exer_par_sum1">exercise</xref>, the corresponding series
+      <m>\sum_{k=1}^\infty a_k</m> is the sequence <m>(1,0,1,0,1,\dots)</m> (of partial sums). For the
+      sequence in <xref ref="exer_par_sum2">exercise</xref>, the series <m>\sum_{k=1}^\infty a_k</m> is the sequence
+      <m>\bigl(\frac12, \frac34, \frac78,\dots\bigr)</m> (of partial sums).
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_inf_ser2">
+    <p>
+      (Solution to <xref ref="exer_inf_ser2"></xref>)
+      For the sequence <m>(a_k)</m> given in <xref ref="exer_par_sum1"></xref> the corresponding sequence of
+      partial sums <m>(1,0,1,0,1,\dots)</m> does not converge. Thus the sequence <m>(1,-1,1,-1,\dots)</m>
+      is not summable. Equivalently, the series <m>\sum_{k=1}^\infty (-1)^{k+1}</m> diverges.
+    </p>
+
+    <p>
+      For the sequence <m>(a_k)</m> of <xref ref="exer_par_sum2"></xref>, the <m>n^{\text{ th } }</m> partial sum is <m>1 -
+      2^{-n}</m> (<xref ref="exer_par_sum2">see</xref>). Since <m>\lim_{n \sto \infty} s_n = \lim_{n \sto
+      \infty} \bigl(1 - 2^{-n}\bigr) = 1</m> (see <xref ref="prop_lim_pwrs">proposition</xref>), we conclude
+      that the sequence <m>(1/2, 1/4, 1/8, \dots)</m> is summable; in other words, the series
+      <m>\sum_{k=1}^\infty 2^{-k}</m> converges. The sum of this series is<nbsp /><m>1</m>; that is
+      <me>
+        \sum_{k=1}^\infty 2^{-k} = 1\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_terms_zero">
+    <p>
+      (Solution to <xref ref="prop_terms_zero"></xref>)
+      Suppose that <m>\sum_{k=1}^\infty a_k = b</m>. If <m>s_n = \sum_{k=1}^n a_k</m>, then it is easy to see
+      that for each <m>n</m> we may write <m>a_n</m> as <m>s_n - s_{n-1}</m> (where we let <m>s_0 = 0</m>). Take limits
+      as <m>n \sto \infty</m> to obtain
+      <me>
+        a_n = s_n - s_{n-1} \sto b - b = 0\,.    \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_harm_ser">
+    <p>
+      (Solution to <xref ref="exam_harm_ser"></xref>)
+      Assume that the series <m>\sum_{k=1}^\infty k^{-1}</m> converges. Let <m>s_n = \sum_{k=1}^n k^{-
+      1}</m>. Since the sequence <m>(s_n)</m> of partial sums is assumed to converge, it is Cauchy (by
+      <xref ref="conv_cau">proposition</xref>). Thus there exists an index <m>p</m> such that <m>\abs{s_n - s_p} \lt 
+      \frac12</m> whenever <m>n \ge p</m>. We obtain a contradiction by noting that
+      <md>
+        <mrow>\abs{s_{2p} - s_p}
+                             \amp = \sum_{k=p+1}^{2p}\frac1k</mrow>
+        <mrow>\amp \ge \sum_{k=p+1}^{2p}\frac1{2p}</mrow>
+        <mrow>\amp = \frac p{2p}</mrow>
+        <mrow>\amp = \frac12\,.            \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_Cauchy_crit">
+    <p>
+      (Solution to <xref ref="prop_Cauchy_crit"></xref>)
+      Let <m>\sum a_k</m> be a convergent series in the normed linear space<nbsp /><m>V</m>. For each <m>n</m> in <m>\N</m>
+      let <m>s_n = \sum_{k=1}^n a_k</m>. Then <m>(s_n)</m> is a convergent sequence. By
+      <xref ref="conv_cau">proposition</xref> it is Cauchy. Thus given <m>\epsilon > 0</m> we may choose <m>n_0</m> in <m>\N</m>
+      so that <m>n > m \ge n_0</m> implies
+      <men xml:id="eqn_Cauchy_crit" >
+        \bignorm{\sum_{k=m+1}^n a_k} = \norm{s_n - s_m} \lt  \epsilon\,.
+      </men>
+    </p>
+
+    <p>
+      For the second assertion of the proposition, suppose that <m>V</m> is complete. Suppose further
+      that <m>(a_k)</m> is a sequence in <m>V</m> for which there exists <m>n_0 \in \N</m> such
+      that<nbsp /><xref ref="eqn_Cauchy_crit" /> holds whenever <m>n > m \ge n_0</m>. (As above, <m>s_n = \sum_{k=1}^n
+      a_k</m>.) This says that the sequence <m>(s_n)</m> of partial sums is Cauchy, and since <m>V</m> is
+      complete, the sequence <m>(s_n)</m> converges. That is, the series <m>\sum a_k</m> converges.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_M_test">
+    <p>
+      (Solution to <xref ref="exer_M_test"></xref>)
+      Let <m>f_n(x) = x^n\bigl(1 + x^n\bigr)^{-1}</m> for every <m>n \in \N</m> and <m>x \in [-\delta, \delta]</m>.
+      Also let <m>M_n = \delta^n(1 - \delta)^{-1}</m>. Since <m>0 \lt  \delta \lt  1</m>, the series <m>\sum M_n =
+      \sum \delta^n(1 - \delta)^{-1}</m> converges (by <xref ref="prob_geomser2">problem</xref>). For <m>\abs x \le
+      \delta</m>, we have <m>-x^n \le \abs x^n \le \delta^n \le \delta</m>; so <m>x^n \ge -\delta</m> and <m>1 +
+      x^n \ge 1 - \delta</m>. Thus
+      <me>
+        \abs{f_n(x)} = \frac{\abs x^n}{1 + x^n} \le \frac{\delta^n}{1 - \delta} = M_n\,.
+      </me>
+    </p>
+
+    <p>
+      Thus
+      <me>
+        \norm{f_n}_u = \sup\{\abs{f_n(x)}\colon \abs x \le \delta\} \le M_n
+      </me>
+    </p>
+
+    <p>
+      By the <em>Weierstrass M-test</em> (<xref ref="M_test">proposition</xref>), the series <m>\sum_{k=1}^\infty
+      f_k</m> converges uniformly.
+    </p>
+  </solution>
+  <solution xml:id="sol_ratio_test">
+    <p>
+      (Solution to <xref ref="ratio_test"></xref>)
+      As was remarked after <xref ref="prop_Cauchy_crit">proposition</xref>, the convergence of a series is not
+      affected by altering any finite number of terms. Thus without loss of generality we suppose
+      that <m>a_{k+1} \le \delta a_k</m> for all<nbsp /><m>k</m>. Notice that <m>a_2 \le \delta a_1</m>, <m>a_3 \le \delta
+      a_2 \le \delta^2 a_1</m>, <m>a_4 \le \delta^3 a_1</m>, <em>etc.</em> In general, <m>a_k \le \delta^{k-1}
+      a_1</m> for all<nbsp /><m>k</m>. The geometric series <m>\sum \delta^{k-1}</m> converges by
+      <xref ref="prob_geomser2">problem</xref>. Thus by the <em>comparison test</em> (<xref ref="comp_test">proposition</xref>),
+      the series <m>\sum a_k</m> converges. The second conclusion follows similarly from the
+      observations that <m>a_k \ge M^{k-1} a_1</m> and that <m>\sum M^{k-1}</m> diverges.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_compl_abssum">
+    <p>
+      (Solution to <xref ref="prop_compl_abssum"></xref>)
+      Suppose that <m>V</m> is complete and that <m>(a_k)</m> is an absolutely summable sequence in<nbsp /><m>V</m>. We
+      wish to show that <m>(a_k)</m> is summable. Let <m>\epsilon > 0</m>. Since <m>\sum\norm{a_k}</m> converges
+      in <m>\R</m> and <m>\R</m> is complete, we may invoke the <em>Cauchy criterion</em>
+      (<xref ref="prop_Cauchy_crit">proposition</xref>) to find an integer <m>n_0</m> such that <m>n > m \ge n_0</m>
+      implies <m>\sum_{k=m+1}^n \norm{a_k} \lt  \epsilon</m>. But for all such <m>m</m> and <m>n</m>
+      <me>
+        \bignorm{\sum_{k=m+1}^n a_k} \le \sum_{k=m+1}^n \norm{a_k} \lt  \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      This, together with the fact that <m>V</m> is complete, allows us to apply for a second time the
+      <em>Cauchy criterion</em> and to conclude that <m>\sum a_k</m> converges. That is, the sequence
+      <m>(a_k)</m> is summable.
+    </p>
+
+    <p>
+      For the converse suppose that every absolutely summable sequence in <m>V</m> is summable. Let
+      <m>(a_k)</m> be a Cauchy sequence in<nbsp /><m>V</m>. In order to prove that <m>V</m> is complete we must show that
+      <m>(a_k)</m> converges. For each <m>k</m> in <m>\N</m> we may choose a natural number <m>p_k</m> such that
+      <m>\norm{a_n - a_m} \le 2^{-k}</m> whenever <m>n > m \ge p_k</m>. Choose inductively a sequence <m>(n_k)</m>
+      in <m>\N</m> as follows. Let <m>n_1</m> be any integer such that <m>n_1 \ge p_1</m>. Having chosen integers
+      <m>n_1 \lt  n_2 \lt  \dots \lt  n_k</m> in <m>\N</m> so that <m>n_j \ge p_j</m> for <m>1 \le j \le k</m>, choose <m>n_{k+1}</m>
+      to be the larger of <m>p_{k+1}</m> and <m>n_k + 1</m>. Clearly, <m>n_{k+1} > n_k</m> and <m>n_{k+1} \ge
+      p_{k+1}</m>. Thus <m>\bigl(a_{n_k}\bigr)</m> is a subsequence of <m>(a_n)</m> and (since <m>n_{k+1} > n_k \ge
+      p_k</m> for each <m>k</m>) <m>\bignorm{a_{n_{k+1}} - a_{n_k}} \lt  2^{-k}</m> for each <m>k</m> in<nbsp /><m>\N</m>. Let <m>y_k =
+      a_{n_{k+1}} - a_{n_k}</m> for each<nbsp /><m>k</m>. Then <m>(y_n)</m> is absolutely summable since
+      <m>\sum\norm{y_k} \lt  \sum 2^{-k} = 1</m>. Consequently <m>(y_k)</m> is summable in<nbsp /><m>V</m>. That is, there
+      exists <m>b</m> in <m>V</m> such that <m>\sum_{k=1}^j y_k \sto b</m> as <m>j \sto \infty</m>. However, since
+      <m>\sum_{k=1}^j y_k = a_{n_{j+1}} - a_{n_1}</m>, we see that
+      <me>
+        a_{n_{j+1}} \sto a_{n_1} + b \qquad \text{ as } j \sto \infty\,.
+      </me>
+    </p>
+
+    <p>
+      This shows that <m>\bigl(a_{n_k}\bigr)</m> converges. Since <m>(a_n)</m> is a Cauchy sequence having a
+      convergent subsequence it too converges (<xref ref="cs_css">proposition</xref>). But this is what we
+      wanted to show.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bddfn_ba">
+    <p>
+      (Solution to <xref ref="exer_bddfn_ba"></xref>)
+    </p>
+
+    <p>
+      (a) It follows immediately from
+      <me>
+        \abs{(fg)(x)} = \abs{f(x)}\abs{g(x)}
+                           \le \norm f_u \norm g_u \qquad \text{ for every \(x \in S\) }
+      </me>
+      that
+      <me>
+        \norm{fg}_u = \sup\{\abs{(fg)(x)}\colon x \in S\} \le \norm f_u\,\norm g_u\,.
+      </me>
+    </p>
+
+    <p>
+      (b) Define <m>f</m> and <m>g</m> on <m>[0,2]</m> by
+      <me>
+        f(x) =
+           \begin{cases}1  \amp  \text{ if \(0 \le x \le 1\) } , \\
+             0  \amp  \text{ if \(1 \lt  x \le 2\) } 
+        \end{cases}
+      </me>
+      and <m>g(x) = 1 - f(x)</m>. Then <m>\norm f_u = \norm g_u = 1</m>, but <m>\norm{fg}_u = 0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_inv_ps">
+    <p>
+      (Solution to <xref ref="prop_inv_ps"></xref>)
+      Since <m>\norm x \lt  1</m>, the series <m>\sum_{k=0}^\infty \norm x^k</m> converges by
+      <xref ref="prob_geomser2">problem</xref>. Condition (e) in the definition of normed algebras is that
+      <m>\norm{xy} \le \norm x \, \norm y</m>. An easy inductive argument shows that <m>\norm{x^n} \le
+      \norm x^n</m> for all <m>n</m> in<nbsp /><m>\N</m>. We know that <m>\norm x^n \sto 0</m> (by
+      <xref ref="prop_lim_pwrs">proposition</xref>); so <m>\norm{x^n} \sto 0</m> also. Thus (by
+      <xref ref="prop_norm_cont">proposition</xref>(d)) <m>x^n \sto 0</m> as <m>n \sto \infty</m>. Furthermore, comparing
+      <m>\sum_0^\infty \norm{x^k}</m> with the series <m>\sum_0^\infty \norm x^k</m> shows that the former
+      converges (see <xref ref="comp_test">proposition</xref>). But this says just that the series <m>\sum_0^\infty
+      x^k</m> converges absolutely. It then follows from <xref ref="prop_compl_abssum">proposition</xref> that
+      <m>\sum_0^\infty x^k</m> converges. Letting <m>s_n = \sum_{k=0}^n x^k</m> we see that
+      <md>
+        <mrow>\smash[b]{(\vc 1 - x)\sum_{k=0}^\infty x^k}
+                          \amp = (\vc 1 - x)\lim s_n</mrow>
+        <mrow>\amp = \lim\bigl((\vc 1 - x)s_n\bigr)</mrow>
+        <mrow>\amp = \lim\bigl(\vc 1 - x^{n+1}\bigr)</mrow>
+        <mrow>\amp = \boldsymbol 1.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Similarly, <m>\bigl(\sum_0^\infty x^k\bigr)(\vc 1 - x) = \vc 1</m>. This shows that <m>\vc 1 - x</m> is
+      invertible and that its inverse <m>(\vc 1 - x)^{-1}</m> is the geometric series<nbsp /><m>\sum_0^\infty x^k</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_inv_cont">
+    <p>
+      (Solution to <xref ref="prop_inv_cont"></xref>)
+      Let <m>a \in \inv A</m>. We show that <m>r</m> is continuous at<nbsp /><m>a</m>. Given <m>\epsilon > 0</m> choose
+      <m>\delta</m> to be the smaller of the numbers <m>\frac12\norm{a^{-1}}^{-1}</m> and
+      <m>\frac12\norm{a^{-1}}^{-2}\epsilon</m>. Suppose that <m>\norm{y - a} \lt  \delta</m> and prove that
+      <m>\norm{r(y) - r(a)} \lt  \epsilon</m>. Let <m>x = \vc 1 - a^{-1}y</m>. Since
+      <me>
+        \norm x = \norm{a^{-1}a - a^{-1}y} \le \norm{a^{-1}} \norm{y-a}
+                        \lt  \norm{a^{-1}}\delta
+                        \le \norm{a^{-1}}\tfrac12\norm{a^{-1}}^{-1}
+                        = \tfrac12
+      </me>
+      we conclude from <xref ref="prop_inv_ps"></xref> and <xref ref="cor_inv_ps"></xref> that <m>\vc 1 - x</m> is invertible and
+      that
+      <men xml:id="eqn_inv_cont" >
+        \norm{(\vc 1 - x)^{-1} - \vc 1} \le \frac{\norm x}{1 - \norm x}
+      </men>
+    </p>
+
+    <p>
+      Thus
+      <md>
+        <mrow>{2}
+           \norm{r(y) - r(a)}
+               \amp = \norm{y^{-1}(a - y)a^{-1}} \amp 
+                         \amp \text{ (by <xref ref="prop_prop_inv"></xref>(e)) }</mrow>
+        <mrow>\amp \le \norm{y^{-1}a - \vc 1}\, \norm{a^{-1}} \amp \amp</mrow>
+        <mrow>\amp = \norm{(a^{-1}y)^{-1} - \vc 1}\, \norm{a^{-1}} \amp 
+                         \amp \text{ (by <xref ref="prop_prop_inv"></xref>(d)) }</mrow>
+        <mrow>\amp = \norm{(\vc 1 - x)^{-1} - \vc 1} \,
+                              \norm{a^{-1}} \amp \amp</mrow>
+        <mrow>\amp \le \frac{\norm x}{1 - \norm x} \norm{a^{-1}}  \amp 
+                         \amp \text{ (by inequality (46.28.2)) }</mrow>
+        <mrow>\amp \le 2 \norm x \,\norm{a^{-1}}  \amp 
+                         \amp \text{ (because \(\norm x \le \tfrac12\)) }</mrow>
+        <mrow>\amp \lt  2 \norm{a^{-1}}^2    \amp \amp</mrow>
+        <mrow>\amp \le \epsilon.</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_thm_Mertens">
+    <p>
+      (Solution to <xref ref="thm_Mertens"></xref>)
+      Throughout the proof we use the notation introduced in the hint. To avoid triviality we
+      suppose that <m>(a_k)</m> is not identically zero. Since <m>u_n</m> is defined to be <m>\sum_{k=0}^n c_k
+      = \sum_{k=0}^n \sum_{j=0}^k a_jb_{k-j}</m> it is clear that <m>u_n</m> can be obtained by finding the
+      sum of each column of the matrix <m>\bigl[d_{jk}\bigr]</m> and then adding these sums. On the other
+      hand the expression
+      <me>
+        \sum_{k=0}^n a_{n-k}t_k = \sum_{k=0}^n\sum_{j=0}^k a_{n-k}b_j
+      </me>
+      is obtained by finding the sum of each row of the matrix <m>[d_{jk}]</m> and then adding the sums.
+      It is conceivable that someone might find the preceding argument too <q>pictorial</q>, depending
+      as it does on looking at a <q>sketch</q> of the matrix<nbsp /><m>[d_{jk}]</m>. It is, of course, possible to
+      carry out the proof in a purely algebraic fashion. And having done so, it is also quite
+      conceivable that one might conclude that the algebraic approach adds more to the amount of
+      paper used than to the clarity of the argument. In any event, here, for those who feel more
+      comfortable with it, is a formal verification of the same result.
+      <md>
+        <mrow>u_n \amp = \sum_{k=0}^n c_k</mrow>
+        <mrow>\amp = \sum_{k=0}^n\sum_{j=0}^k a_jb_{k-j}</mrow>
+        <mrow>\amp = \sum_{k=0}^n\sum_{j=0}^k d_{jk}</mrow>
+        <mrow>\amp = \sum_{k=0}^n\sum_{j=0}^n d_{jk}</mrow>
+        <mrow>\amp = \sum_{j=0}^n\sum_{k=0}^n d_{jk}</mrow>
+        <mrow>\amp = \sum_{j=0}^n\sum_{k=j}^n d_{jk}</mrow>
+        <mrow>\amp = \sum_{j=0}^n\sum_{k=j}^n a_jb_{k-j}</mrow>
+        <mrow>\amp = \sum_{j=0}^n a_j \sum_{r=0}^{n-j} b_r</mrow>
+        <mrow>\amp = \sum_{j=0}^n a_j t_{n-j}</mrow>
+        <mrow>\amp = \sum_{k=0}^n a_{n-k}t_k .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Now that equation<nbsp /><xref ref="eqn_Mertens1" /> has been established we see that
+      <md>
+        <mrow>u_n \amp = \sum_{k=0}^n a_{n-k}b + \sum_{k=0}^n a_{n-k}(t_k - b)</mrow>
+        <mrow>\amp = s_nb + \sum_{k=0}^n a_{n-k}(t_k - b).</mrow>
+      </md>
+    </p>
+
+    <p>
+      Since <m>s_nb \sto ab</m>, it remains only to show that the last term on the right approaches <m>0</m>
+      as <m>n \sto \infty</m>. Since
+      <md>
+        <mrow>\bignorm{\sum_{k=0}^n a_{n-k}(t_k - b)}
+                     \amp \le \sum_{k=0}^n \norm{a_{n-k}(t_k - b)}</mrow>
+        <mrow>\amp \le \sum_{k=0}^n \norm{a_{n-k}}\,\norm{(t_k - b)}</mrow>
+        <mrow>\amp = \sum_{k=0}^n \alpha_{n-k}\beta_k</mrow>
+      </md>
+      it is sufficient to prove that given any <m>\epsilon > 0</m> the quantity <m>\sum_{k=0}^n
+      \alpha_{n-k}\beta_k</m> is less than <m>\epsilon</m> whenever <m>n</m> is sufficiently large.
+    </p>
+
+    <p>
+      Let <m>\alpha = \sum_{k=0}^\infty \norm{a_k}</m>. Then <m>\alpha > 0</m>. Since <m>\beta_k \sto 0</m> there
+      exists <m>n_1</m> in <m>\N</m> such that <m>k \ge n_1</m> implies <m>\beta_k \lt  \epsilon/(2\alpha)</m>. Choose
+      <m>\beta > \sum_{k=0}^{n_1} \beta_k</m>. Since <m>\alpha_k \sto 0</m>, there exists <m>n_2</m> in <m>\N</m> such
+      that <m>k \ge n_2</m> implies <m>\alpha_k \lt  \epsilon/(2\beta)</m>.
+    </p>
+
+    <p>
+      Now suppose that <m>n \ge n_1 + n_2</m>. If <m>0 \le k \le n_1</m>, then <m>n - k \ge n -n_1 \ge n_2</m>, so
+      that <m>\alpha_{n-k} \lt  \epsilon/(2\beta)</m>. This shows that
+      <md>
+        <mrow>p \amp = \sum_{k=0}^{n_1} \alpha_{n-k}\beta_k</mrow>
+        <mrow>\amp \le \epsilon(2\beta)^{-1}\sum_{k=0}^{n_1}\beta_k</mrow>
+        <mrow>\amp \lt  \epsilon/2.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Furthermore,
+      <md>
+        <mrow>q \amp = \sum_{k=n_1+1}^n \alpha_{n-k}\beta_k</mrow>
+        <mrow>\amp \le \epsilon(2\alpha)^{-1}\sum_{k=n_1+1}^n \alpha_{n-k}</mrow>
+        <mrow>\amp \le \epsilon(2\alpha)^{-1}\sum_{j=0}^\infty \norm{a_j}</mrow>
+        <mrow>\amp = \epsilon/2 .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus
+      <me>
+        \sum_{k=0}^n \alpha_{n-k}\beta_k  =  p + q \lt  \epsilon\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_pser_unif_conv">
+    <p>
+      (Solution to <xref ref="prop_pser_unif_conv"></xref>)
+      Let <m>0 \lt  s \lt  r</m>, let <m>M > 0</m> be such that <m>\norm{a_k}r^k \le M</m> for every <m>k</m> in<nbsp /><m>\N</m>, and let
+      <m>\rho = s/r</m>. Let <m>f_k(x) = a_kx^k</m> for each <m>k</m> in <m>\N</m> and <m>x</m> in <m>B_s(0)</m>. For each such
+      <m>k</m> and <m>x</m>
+      <md>
+        <mrow>\norm{f_k(x)}
+              \amp = \norm{a_kx^k} \le \norm{a_k}\norm x^k \le \norm{a_k}s^k</mrow>
+        <mrow>\amp = \norm{a_k}r^k\rho^k  \le  M\rho^k.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus <m>\norm{f_k}_u \le M\rho^k</m> for each<nbsp /><m>k</m>. Since <m>0 \lt  \rho \lt  1</m>, the series <m>\sum M\rho^k</m>
+      converges. Then, according to the <em>Weierstrass M-test</em> (<xref ref="M_test">proposition</xref>), the
+      series <m>\sum a_kx^k = \sum f_k(x)</m> converges uniformly on<nbsp /><m>B_s(0)</m>. The parenthetical comment
+      in the statement of the proposition is essentially obvious: For <m>a \in B_r(0)</m> choose <m>s</m> such
+      that <m>\norm a \lt  s \lt  r</m>. Since <m>\sum a_kx^k</m> converges uniformly on <m>B_s(0)</m>, it converges
+      at<nbsp /><m>a</m> (see <xref ref="prob_uc_pwc">problem</xref>).
+    </p>
+  </solution>
+  <solution xml:id="sol_unif_lim_dffrntls">
+    <p>
+      (Solution to <xref ref="unif_lim_dffrntls"></xref>)
+      Let <m>a</m> be an arbitrary point of<nbsp /><m>U</m>. Let <m>\phi = \lim_{n \sto \infty} d(f_n)</m>. We show that
+      <m>\Delta F_a \simeq T</m> where <m>T = \phi(a)</m>. We are supposing that <m>d(f_n) \sto
+      \phi\text{ (unif) }</m> on<nbsp /><m>U</m>. Thus given <m>\epsilon > 0</m> we may choose <m>N</m> in <m>\N</m> so that
+      <me>
+        \sup\bigl\{\bignorm{d\bigl(f_n\bigr)_x - \phi(x)} \colon x \in U\bigr\}
+                                                                  \lt  \tfrac18\epsilon
+      </me>
+      whenever <m>x \in U</m> and <m>n \ge N</m>. Let <m>g_n = f_n - f_N</m> for all <m>n \ge N</m>. Then for all such
+      <m>n</m> and all <m>x \in U</m> we have
+      <me>
+        \bignorm{d\bigl(g_n\bigr)_x}
+                   \le \bignorm{d\bigl(f_n\bigr)_x - \phi(x)} + \bignorm{\phi(x) - d\bigl(f_N\bigr)_x}
+                   \lt  \tfrac14\epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      Also it is clear that
+      <me>
+        \bignorm{d\bigl(g_n\bigr)_x - d\bigl(g_n\bigr)_a} \le \bignorm{d\bigl(g_n\bigr)_x}
+                                       + \bignorm{d\bigl(g_n\bigr)_a} \lt  \tfrac12\epsilon
+      </me>
+      for <m>x \in U</m> and <m>n \ge N</m>. According to <xref ref="cor_mvt_nls">corollary</xref>
+      <me>
+        \bignorm{\Delta\bigl(g_n\bigr)_a(h) - d\bigl(g_n\bigr)_a(h)}
+                                                 \le \tfrac12 \epsilon \norm h
+      </me>
+      whenever <m>n \ge N</m> and <m>h</m> is a vector such that <m>a + h \in U</m>. Thus
+      <me>
+        \bignorm{\Delta\bigl(f_n\bigr)_a(h) - d\bigl(f_n\bigr)_a(h) - \Delta\bigl(f_N\bigr)_a(h)
+                    + d\bigl(f_N\bigr)_a(h)} \le \tfrac12\epsilon\norm h
+      </me>
+      when <m>n \ge N</m> and <m>a + h \in U</m>. Taking the limit as <m>n \sto \infty</m> we obtain
+      <men xml:id="eqn_uldffr1" >
+        \bignorm{(\Delta F_a(h) - Th) - \bigl(\Delta\bigl(f_N\bigr)_a(h)
+                           - d\bigl(f_N\bigr)_a(h)\bigr)} \le \frac12\epsilon\norm h
+      </men>
+      for <m>h</m> such that <m>a+h \in U</m>. Since <m>f_N</m> is differentiable, <m>\Delta\bigl(f_N\bigr)_a \simeq
+      d\bigl(f_N\bigr)_a</m>; thus there exists <m>\delta > 0</m> such that <m>B_\delta(a) \subseteq U</m> and
+      <men xml:id="eqn_uldffr2" >
+        \bignorm{\Delta\bigl(f_N\bigr)_a(h) - d\bigl(f_N\bigr)_a(h)} \lt  \tfrac12\epsilon\norm h
+      </men>
+      for all <m>h</m> such that <m>\norm h \lt  \delta</m>. From<nbsp /><xref ref="eqn_uldffr1" /> and<nbsp /><xref ref="eqn_uldffr2" /> it
+      is clear that
+      <me>
+        \norm{\Delta F_a(h) - Th}  \lt   \epsilon\norm h
+      </me>
+      whenever <m>\norm h \lt  \delta</m>. Thus <m>\Delta F_a \simeq T</m>, which shows that <m>F</m> is
+      differentiable at <m>a</m> and
+      <me>
+        dF_a = T = \lim_{n \sto \infty} d\bigl(f_n\bigr)_a\,.    \qedhere
+      </me>
+    </p>
+  </solution>
+</section>

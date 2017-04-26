@@ -1,0 +1,292 @@
+
+<section xml:id="diff_curv">
+  <title>Differentiation of curves</title>
+  <p>
+    In the preceding section we have discussed
+    the differentiability of functions mapping one normed linear space into another. Here we
+    briefly consider the important and interesting special case which occurs when the domains of
+    the functions are one dimensional.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>curve</main></index><term>curve</term> in a normed linear space <m>V</m> is a continuous mapping from an interval in <m>\R</m>
+        into<nbsp /><m>V</m>. If <m>c \colon J \sto V</m> is a curve, if <m>0</m> belongs to the interval <m>J</m>, and if <m>c(0)
+        = a \in V</m>, then <m>c</m> is a
+        <index><main>curve</main><sub>at a point</sub></index><term>curve at</term><nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In classical terminology a curve <m>c \colon J \sto V \colon t \mapsto c(t)</m> is usually referred
+    to as a
+    <index><main>curve</main><sub>parametrized</sub></index>
+    <index><main>parametrized</main><sub>curve</sub></index><term>parametrized curve</term> in<nbsp /><m>V</m>. The interval <m>J</m> is the
+    <index><main>parameter</main><sub>interval</sub></index><term>parameter interval</term> and the variable <m>t</m> belonging to <m>J</m> is the
+    <index><main>parameter</main></index><term>parameter</term>. If you start with a subset <m>A</m> of <m>V</m> and find a continuous function <m>c</m> from
+    an interval <m>J</m> onto <m>A</m>, then <m>c</m> is called a
+    <index><main>parametrization</main></index><term>parametrization</term> of<nbsp /><m>A</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let
+        <md>
+          <mrow>c_1 \amp \colon [0,2\pi] \sto \R^2 \colon t \mapsto (\cos t,\sin t)</mrow>
+          <intertext>and</intertext>
+          <mrow>c_2 \amp \colon [0,3\pi] \sto \R^2 \colon t \mapsto (\sin(2t + 1), \cos(2t + 1)).</mrow>
+        </md>
+      </p>
+
+      <p>
+        Then <m>c_1</m> and <m>c_2</m> are two different parametrizations of the unit circle
+        <me>
+          \Sp^1 := \{(x,y) \in \R^2 \colon x^2 + y^2 = 1\}\,.
+        </me>
+      </p>
+
+      <p>
+        Parameters need have no physical significance, but it is quite common to think of a curve in
+        <m>\R^2</m> or <m>\R^3</m> as representing the motion of a particle in that space: the parameter <m>t</m> is
+        taken to be time and the range value <m>c(t)</m> is the position of the particle at time<nbsp /><m>t</m>. With
+        this interpretation we may view <m>c_1</m> and <m>c_2</m> as representing the motion of particles
+        traveling around the unit circle. In the first case the particle starts (when <m>t=0</m>) at the
+        point <m>(1,0)</m> and makes one complete trip around the circle traveling counterclockwise. In
+        the second case, the particle starts at the point <m>(\sin 1,\cos 1)</m> and traverses <m>\Sp^1</m>
+        three times moving clockwise.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>u \ne \vc 0</m> be vectors in <m>V</m>. The curve
+        <me>
+          \ell\colon \R \sto V\colon t \mapsto a + tu
+        </me>
+        is the
+        <index><main>parametrized</main><sub>line</sub></index>
+        <index><main>line</main><sub>parametrized</sub></index><term>parametrized line</term> through <m>a</m> in the direction of<nbsp /><m>u</m>. Of course, infinitely many other
+        parametrizations of the range of <m>\ell</m> are possible, but this is the standard one and we
+        adopt it.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Find a parametrization of the unit square
+        <me>
+          A := \{(x,y) \in \R^2\colon  d_u\bigl((x,y)\, , \,({\tfrac12},
+                                 {\tfrac12}) \bigr) = {\tfrac12}\}
+        </me>
+        which starts at <m>(0,0)</m> and traverses <m>A</m> once in a counterclockwise direction.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>c\colon J \sto V</m> be a curve in <m>V</m> and suppose that <m>a</m> is a point in the
+        interior of the interval<nbsp /><m>J</m>. Then
+        <index><main>dc@<m>Dc</m> (derivative of a curve <m>c</m>)</main></index><m>Dc(a)</m>, the
+        <index><main>derivative</main><sub>of a curve</sub></index>
+        <index><main>curve</main><sub>derivative of</sub></index><term>derivative</term> of <m>c</m> at <m>a</m>, is defined by the formula
+        <me>
+          Dc(a) := \lim_{h \sto \vc 0}\frac{\Delta c_a(h)}h
+        </me>
+        if the indicated limit exists. Notice that this is just the definition of <q>derivative</q>
+        given in beginning calculus. The derivative at <m>a</m> is also called the
+        <index><main>tangent</main><sub>vector</sub></index><term>tangent vector</term> to <m>c</m> at <m>a</m> or, in case we are thinking of the motion of a particle, the
+        <index><main>velocity</main></index><term>velocity</term> of <m>c</m> at<nbsp /><m>a</m>. If <m>Dc(a)</m> exists and is not zero, then the parametrized line
+        through <m>c(a)</m> in the direction of <m>Dc(a)</m> is the
+        <index><main>tangent</main><sub>line</sub></index>
+        <index><main>line</main><sub>tangent</sub></index><term>tangent line</term> to the image of <m>c</m> at the point<nbsp /><m>c(a)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_tang_curv">
+    <statement>
+      <p>
+        Let <m>c\colon [0,2\pi] \sto \R^2\colon  t \mapsto (\cos t,\sin t)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the tangent vector to <m>c</m> at <m>t=\frac{\pi}3</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the tangent line to the range of <m>c</m> at the point <m>(\frac12,\frac{\sqrt 3}2)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Write the equation of the range in <m>\R^2</m> of the tangent line found in<nbsp />(b).
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_tang_curv">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <proposition xml:id="prop_diff_der">
+    <statement>
+      <p>
+        If a curve <m>c\colon J \sto V</m> is differentiable at a point <m>a</m>
+        in the interior of the interval <m>J</m>, then it has a derivative at <m>a</m> and
+        <me>
+          Dc(a) = dc_a(1)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Start with the Newton quotient <m>\dfrac{\Delta c_a(h)}h</m>.
+      Subtract and add <m>\dfrac{dc_a(h)}h</m>.) (<xref ref="sol_prop_diff_der">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The converse of the preceding proposition is also true. Every curve possessing a derivative is
+    differentiable. This is our next proposition.
+  </p>
+
+  <proposition xml:id="prop_der_diff">
+    <statement>
+      <p>
+        If a curve <m>c\colon J \sto V</m> has a derivative at a point <m>a</m>
+        in <m>\intr J</m>, then it is differentiable at <m>a</m> and
+        <me>
+          dc_a(h) = h\,Dc(a) \qquad \text{ for all \(h \in \R\) } .
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Define <m>T \colon \R \sto V\colon  h \mapsto h\,Dc(a)</m>.
+      Show that <m>\Delta c_a \simeq T</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that curves <m>c_1</m> and <m>c_2</m> in a normed linear space are defined and
+        differentiable in some neighborhood of <m>a \in \R</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>D(c_1 + c_2)(a) = Dc_1(a) + Dc_2(a)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>D(\alpha c_1)(a) = \alpha\,Dc_1(a)</m> for all <m>\alpha \in \R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_nasc_tan_curves">
+    <statement>
+      <p>
+        Let <m>V</m> be a normed linear space and <m>a \in V</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Suppose <m>c</m> is a differentiable curve at the zero vector in<nbsp /><m>V</m>.  Then <m>c \simeq \vc 0</m>
+              if and only if <m>Dc(0) = \vc 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Suppose <m>c_1</m> and <m>c_2</m> are differentiable curves at<nbsp /><m>a</m>.  Then <m>c_1 \simeq c_2</m> if
+              and only if <m>Dc_1(0) = Dc_2(0)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prob_der_curv1">
+    <statement>
+      <p>
+        If <m>c \in \fml D_t(\R, V)</m> and <m>f \in \fml D_a(V,W)</m>, where
+        <m>a = c(t)</m>, then <m>f \circ c \in \fml D_t(\R,W)</m> and
+        <me>
+          D(f \circ c)(t) = df_a(Dc(t))\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Thus far integration and differentiation have been treated as if they belong to separate
+    worlds. In the next theorem, known as the <em>fundamental theorem of calculus</em>, we derive
+    the most important link between these two topics.
+  </p>
+
+  <p>
+    <index><main>fundamental theorem of calculus</main></index>
+  </p>
+
+  <theorem xml:id="thm_ftc">
+    <title>Fundamental Theorem Of Calculus</title>
+    <statement>
+      <p>
+        Let <m>a</m> belong to an open interval
+        <m>J</m> in the real line, <m>E</m> be a Banach space, and <m>f \colon J \sto E</m> be a regulated curve.
+        Define <m>F(x) = \int_a^xf</m> for all <m>x \in J</m>. If <m>f</m> is continuous at <m>c \in J</m>, then <m>F</m> is
+        differentiable at <m>c</m> and <m>DF(c) = f(c)</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> For every <m>\epsilon > 0</m> there exists <m>\delta > 0</m>
+      such that <m>c + h \in J</m> and <m>\norm{\Delta f_c(h)} \lt  \epsilon</m> whenever <m>\abs h \lt  \delta</m>.
+      (Why?) Use the (obvious) fact that <m>h\,f(c) = \int_c^{c + h}f(c)\,dt</m> to show that
+      <m>\norm{\Delta F_c(h) - h\,f(c)} \lt  \epsilon\,\abs h</m> whenever <m>0 \lt  \abs h \lt  \delta</m>. From this
+      conclude that <m>\lim\limits_{h \sto 0}\dfrac 1h \Delta F_c(h) = f(c)</m>.
+      (<xref ref="sol_thm_ftc">Solution</xref>.)
+    </p>
+  </proof>
+</section>

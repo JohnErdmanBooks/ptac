@@ -1,0 +1,127 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>For students: how to use this problemtext</title>
+  <p>
+    Some years ago at a national meeting of mathematicians many of the conventioneers went about
+    wearing pins which proclaimed, <q>Mathematics is Not a Spectator Sport</q>. It is hard to
+    overemphasize the importance of this observation. The idea behind it has been said in many
+    ways by many people; perhaps it was said best by Paul Halmos<nbsp /><nbsp /><xref ref="Halmos_1967" />: <em>The
+    only way to learn mathematics is to do mathematics.</em>
+  </p>
+
+  <p>
+    In most respects learning mathematics is more like learning to play tennis than learning
+    history. It is principally an activity, and only secondarily a body of knowledge. Although
+    no one would try to learn tennis just by watching others play the game and perhaps reading a
+    book or two about it, thousands of mathematics students in American universities every year
+    attempt to master mathematical subjects by reading textbooks and passively watching their
+    instructors do mathematics on a blackboard. There are, of course, reasons why this is so, but
+    it is unfortunate nevertheless. This book is designed to encourage <em>you</em> to do
+    mathematics.
+  </p>
+
+  <p>
+    When you sit down to work it is important to have a sizeable block of time at your disposal
+    during which you will not be interrupted. As you read pay especially close attention to
+    definitions. (After all, before you can think about a mathematical concept you must know what
+    it means.) Read until you arrive at a result (results are labeled <q>theorem</q>,
+    <q>proposition</q>, <q>example</q>, <q>problem</q>, <q>lemma</q>, <em>etc.</em>). Every result requires
+    justification. The proof of a result may appear in the body of the text, or it may be left to
+    you as an <em>exercise</em> or a <em>problem</em>.
+  </p>
+
+  <p>
+    When you reach a result stop and try to prove it. Make a serious attempt. If a hint appears
+    after the statement of the result, at first do not read it. Do not try to find the result
+    elsewhere; and do not ask for help. Halmos<nbsp /><nbsp /><xref ref="Halmos_1967" /> points out: <q>To the passive
+    reader a routine computation and a miracle of ingenuity come with equal ease, and later, when
+    he must depend on himself, he will find that they went as easily as they came.</q> Of course,
+    it is true that sometimes, even after considerable effort, you will not have discovered a
+    proof. What then?
+  </p>
+
+  <p>
+    If a hint is given, and if you have tried seriously but unsuccessfully to derive the result,
+    then (and only then) should you read the hint. Now try again. Seriously.
+  </p>
+
+  <p>
+    What if the hint fails to help, or if there is no hint? If you are stuck on a result whose
+    proof is labeled <q>exercise</q>, then follow the link to the solution. Turning to the solution
+    should be regarded as a last resort. Even then do not read the whole proof; read just the
+    first line or two, enough to get you started. Now try to complete the proof on your own. If
+    you can do a few more steps, fine. If you get stuck again in midstream, read some more of the
+    proof. Use as little of the printed proof as possible.
+  </p>
+
+  <p>
+    If you are stuck on a result whose proof is a <q>problem</q>, you will not find a solution in the
+    text. After a really serious attempt to solve the problem, go on. You can't bring your
+    mathematical education to a halt because of one refractory problem. Work on the next result.
+    After a day or two go back and try again. Problems often <q>solve themselves</q>; frequently an
+    intractably murky result, after having been allowed to <q>rest</q> for a few days, will suddenly,
+    and inexplicably become entirely clear. In the worst case, if repeated attempts fail to
+    produce a solution, you may have to discuss the problem with someone else<mdash />instructor,
+    friend, mother, <ellipsis /> .
+  </p>
+
+  <p>
+    A question that students frequently ask is, <q>When I'm stuck and I have no idea at all
+    what to do next, how can I continue to work on a problem?</q> I know of only one really
+    good answer. It is advice due to Polya. <em>If you can't solve a problem, then there is
+    an easier problem you can't solve: find it.</em>
+  </p>
+
+  <p>
+    Consider examples. After all, mathematical theorems are usually generalizations of things
+    that happen in interesting special cases. Try to prove the result in some concrete cases. If
+    you succeed, try to generalize your argument. Are you stuck on a theorem about general metric
+    spaces? Try to prove it for Euclidean <m>n</m>-space. No luck? How about the plane? Can you get
+    the result for the real line? The unit interval?
+  </p>
+
+  <p>
+    Add hypotheses. If you can't prove the result as stated, can you prove it under more
+    restrictive assumptions? If you are having no success with a theorem concerning general
+    matrices, can you prove it for symmetric ones? How about diagonal ones? What about the <m>2
+    \times 2</m> case?
+  </p>
+
+  <p>
+    Finally, one way or another, you succeed in producing a proof of the stated result. Is
+    that the end of the story? By no means. Now you should look carefully at the hypotheses.
+    Can any of them be weakened? Eliminated altogether? If not, construct counterexamples
+    to show that each of the hypotheses is necessary. Is the conclusion true in a more
+    general setting? If so, prove it. If not, give a counterexample. Is the converse true?
+    Again, prove or disprove. Can you find applications of the result? Does it add anything
+    to what you already know about other mathematical objects and facts?
+  </p>
+
+  <p>
+    Once you have worked your way through several results (a section or a chapter, say) it is a
+    good idea to consider the organization of the material. Is the order in which the
+    definitions, theorems, <em>etc.</em> occur a good one? Or can you think of a more perspicuous
+    ordering? Rephrase definitions (being careful, of course, not to change meanings!), recast
+    theorems, reorganize material, add examples. Do anything you can to make the results into a
+    clear and coherent body of material. In effect you should end up writing your own advanced
+    calculus text.
+  </p>
+
+  <p>
+    The fruit of this labor is understanding. After serious work on the foregoing items you will
+    begin to feel that you <q>understand</q> the body of material in question. This quest for
+    understanding, by the way, is pretty much what mathematicians do with their lives.
+  </p>
+
+  <p>
+    If you don't enjoy the activities outlined above, you probably don't very much like
+    mathematics.
+  </p>
+
+  <p>
+    Like most things that are worth doing, learning advanced calculus involves a substantial
+    commitment of time and energy; but as one gradually becomes more and more proficient, the
+    whole process of learning begins to give one a great sense of accomplishment, and, best of
+    all, turns out to be lots of fun.
+  </p>
+</chapter>

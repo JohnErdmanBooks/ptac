@@ -1,0 +1,568 @@
+
+<section>
+  <title>Exercises in Chapter 27</title>
+  <solution xml:id="sol_exer_ip1">
+    <p>
+      (Solution to <xref ref="exer_ip1"></xref>)
+      If <m>x</m>, <m>y</m>, and <m>z \in \R^n</m> and <m>\alpha \in \R</m>, then
+      <md>
+        <mrow>{2}
+              \langle x , y + z \rangle \amp = \langle y + z , x \rangle  \amp 
+                        \amp \text{ (by (c)) }</mrow>
+        <mrow>\amp = \langle y , x \rangle + \langle z , x \rangle        \amp 
+                        \amp \text{ (by (a)) }</mrow>
+        <mrow>\amp = \langle x , y \rangle + \langle x , z \rangle        \amp 
+                        \amp \text{ (by (c)) }</mrow>
+      </md>
+      and
+      <md>
+        <mrow>{2}
+              \langle x , \alpha y \rangle
+                        \amp = \langle \alpha y , x \rangle      \amp 
+                        \amp \text{ (by (c)) }</mrow>
+        <mrow>\amp = \alpha \langle y , x \rangle                \amp 
+                        \amp \text{ (by (b)) }</mrow>
+        <mrow>\amp = \alpha \langle x , y \rangle                \amp 
+                        \amp \text{ (by (c)) }</mrow>
+      </md>
+    </p>
+
+    <p>
+      \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_angle">
+    <p>
+      (Solution to <xref ref="exer_angle"></xref>)
+      The domain of the arccosine function is the closed interval<nbsp /><m>[-1,1]</m>. According to the
+      <em>Schwarz inequality</em> <m>\abs{\langle x , y \rangle} \le \norm x \norm y</m>; equivalently,
+      <me>
+        -1 \le \frac{\langle x,y \rangle}{\norm x \norm y} \le 1
+      </me>
+      for nonzero vectors <m>x</m> and<nbsp /><m>y</m>. This shows that <m>\langle x,y \rangle\norm x^{-1}\norm
+      y^{-1}</m> is in the domain of arccosine.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_angle2">
+    <p>
+      (Solution to <xref ref="exer_angle2"></xref>)
+      If <m>x = (1,0,1)</m> and <m>y = (0,-1,1)</m>, then <m>\langle x,y \rangle = 1</m> and <m>\norm x = \norm y =
+      \sqrt2</m>. So
+      <me>
+        \measuredangle(x,y) = \arccos\left(\frac{\langle x,y \rangle}{\norm x \norm y}\right)
+                                 = \arccos\frac12 = \frac\pi3\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_blf">
+    <p>
+      (Solution to <xref ref="exam_blf"></xref>)
+      The computations
+      <me>
+        \sbsb{\psi}b(x+y) = \langle x+y,b \rangle
+                         = \langle x,b \rangle + \langle y,b \rangle
+                         = \sbsb{\psi}b(x) + \sbsb{\psi}b(y)
+      </me>
+      and
+      <me>
+        \sbsb{\psi}b(\alpha x) = \langle \alpha x,b \rangle
+                              = \alpha \langle x,b \rangle
+                              = \alpha \sbsb{\psi}b(x)
+      </me>
+      show that <m>\sbsb{\psi}b</m> is linear. Since
+      <me>
+        \abs{\sbsb{\psi}b(x)} = \abs{\langle x,b \rangle} \le \norm b \norm x
+      </me>
+      for every <m>x</m> in <m>\R^n</m>, we conclude that <m>\sbsb{\psi}b</m> is bounded and that
+      <m>\norm{\sbsb{\psi}b} \le \norm b</m>. On the other hand, if <m>b \ne \vc 0</m>, then <m>\norm
+      b^{-1}b</m> is a unit vector, and since
+      <me>
+        \abs{\sbsb{\psi}b(\norm b^{-1}b)} = \langle \norm b^{-1}b,b \rangle
+                                         = \norm b^{-1}\langle b,b \rangle = \norm b
+      </me>
+      we conclude (from <xref ref="lem_equiv_norm">lemma</xref>) that <m>\norm{\sbsb{\psi}b} \ge \norm b</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_max_dd">
+    <p>
+      (Solution to <xref ref="prop_max_dd"></xref>)
+      By <xref ref="prop_dd_diff">proposition</xref> we have for every unit vector <m>u</m> in<nbsp /><m>\R^n</m>
+      <md>
+        <mrow>D_u\phi(a)  \amp = d\phi_a(u)</mrow>
+        <mrow>\amp = \langle u,\nabla\phi(a) \rangle</mrow>
+        <mrow>\amp = \norm{\nabla\phi(a)}\cos\theta</mrow>
+      </md>
+      where <m>\theta = \measuredangle(u,\nabla\phi(a))</m>. Since <m>\phi</m> and <m>a</m> are fixed we maximize
+      the directional derivative <m>D_u\phi(a)</m> by maximizing <m>\cos\theta</m>. But <m>\cos\theta = 1</m> when
+      <m>\theta = 0</m>; that is, when <m>u</m> and <m>\nabla\phi(a)</m> point in the same direction. Similarly,
+      to minimize <m>D_u\phi(a)</m> choose <m>\theta = \pi</m> so that <m>\cos\theta = -1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cons_energ">
+    <p>
+      (Solution to <xref ref="cons_energ"></xref>)
+      It suffices, by <xref ref="prop_sc_const">proposition</xref>, to show that the derivative of the total
+      energy <m>TE</m> is zero.
+      <md>
+        <mrow>D(TE) \amp = D(KE) + D(PE)</mrow>
+        <mrow>\amp = \tfrac12mD\langle v,v \rangle + D(\phi\circ x)</mrow>
+        <mrow>\amp = \tfrac12m(2\langle v,Dv \rangle)
+                            + \langle Dx, (\nabla\phi)\circ x \rangle</mrow>
+        <mrow>\amp = m\langle v,a \rangle
+                            + \langle v,-F \circ x \rangle</mrow>
+        <mrow>\amp = m\langle v,a \rangle - m\langle v,a \rangle</mrow>
+        <mrow>\amp = 0 .</mrow>
+      </md>
+    </p>
+
+    <p>
+      (The third equality <xref ref="prop_ip_diff">uses</xref> and <xref ref="prop_cr_curv"></xref>; the second last uses
+      <em>Newton's second law</em>.)
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_grad_pd">
+    <p>
+      (Solution to <xref ref="prop_grad_pd"></xref>)
+      Using the hint we compute
+      <md>
+        <mrow>{2}
+            \nabla\phi(a)
+                \amp = \sum_{k=1}^n \langle \nabla\phi(a),e^k \rangle e^k  \amp 
+                            \amp \text{ (by <xref ref="prop_ip_expan"></xref>) }</mrow>
+        <mrow>\amp = \sum_{k=1}^n d\phi_a(e^k)e^k         \amp  \amp</mrow>
+        <mrow>\amp = \sum_{k=1}^n D_{e^k}\phi(a) e^k         \amp 
+                            \amp \text{ (by <xref ref="prop_dd_diff"></xref>) }</mrow>
+        <mrow>\amp = \sum_{k=1}^n \phi_k(a) e^k .</mrow>
+      </md>
+    </p>
+
+    <p>
+      \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_comp_dd">
+    <p>
+      (Solution to <xref ref="exer_comp_dd"></xref>)
+      By <xref ref="prop_dd_diff">proposition</xref>
+      <me>
+        D_u\phi(a) = d\phi_a(u) = \langle u,\nabla\phi(a) \rangle\,.
+      </me>
+    </p>
+
+    <p>
+      Since
+      <md>
+        <mrow>\nabla\phi(w,x,y,z) \amp = \sum_{k=1}^4 \phi_k(w,x,y,z)e^k</mrow>
+        <mrow>\amp = (z,-y,-x,w)</mrow>
+      </md>
+      we see that
+      <me>
+        \nabla\phi(a) = (4,-3,-2,1)\,.
+      </me>
+    </p>
+
+    <p>
+      Thus
+      <me>
+        D_u\phi(a) = \langle (\tfrac12, -\tfrac12, \tfrac12, -\tfrac12), (4,-3,-2,1) \rangle = 2\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_mthd_st_desc">
+    <p>
+      (Solution to <xref ref="mthd_st_desc"></xref>)
+      As suggested in the hint, let <m>c\colon t \mapsto \bigl(x(t),y(t)\bigr)</m> be the desired curve
+      and set
+      <me>
+        c(0) = \bigl(x(0),y(0)\bigr) = a = (2,-1)\,.
+      </me>
+    </p>
+
+    <p>
+      At each point <m>c(t)</m> on the curve set the tangent vector <m>Dc(t)</m> equal to
+      <m>-\bigl(\nabla\phi\bigr)\bigl(c(t)\bigr)</m>. Then for every <m>t</m> we have
+      <md>
+        <mrow>\bigl(Dx(t),Dy(t)\bigr)
+                      \amp = -\bigl(\nabla\phi\bigr)\bigl(x(t),y(t)\bigr)</mrow>
+        <mrow>\amp = \bigl(-4x(t), -12y(t)\bigr).</mrow>
+      </md>
+    </p>
+
+    <p>
+      The two resulting equations
+      <me>
+        Dx(t) = -4 x(t) \qquad\text{ and } \qquad Dy(t) = -12y(t)
+      </me>
+      have as their only nonzero solutions
+      <me>
+        x(t) = x(0)e^{-4t} = 2e^{-4t}
+      </me>
+      and
+      <me>
+        y(t) = y(0)e^{-12t} = -e^{-12t}\,.
+      </me>
+    </p>
+
+    <p>
+      Eliminating the parameter we obtain
+      <me>
+        y(t) = -e^{-12t} = -\bigl(e^{-4t}\bigr)^3
+                 = -\bigl(\frac12x(t)\bigr)^3
+                 = -\frac18\bigl(x(t)\bigr)^3\,.
+      </me>
+    </p>
+
+    <p>
+      Thus the path of steepest descent (in the <m>xy</m>-plane) follows the curve <m>y = -\frac18x^3</m> from
+      <m>x = 2</m> to <m>x = 0</m> (where <m>\phi</m> obviously assumes its minimum).
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_jm_pd">
+    <p>
+      (Solution to <xref ref="prop_jm_pd"></xref>)
+      By <xref ref="prop_mrlt_bas">proposition</xref> it suffices to show that
+      <me>
+        [df_a] e^l = [f_k^j(a)] e^l
+      </me>
+      for <m>1 \le l \le n</m>. Since the <m>i^{\text{ th } }</m> coordinate (<m>1 \le i \le m</m>) of the vector
+      which results from the action of the matrix <m>[f_k^j(a)]</m> on the vector <m>e^l</m> is
+      <me>
+        \sum_{k=1}^n f_k^i(a)(e^l)_k = f_l^i(a)
+      </me>
+      we see that
+      <md>
+        <mrow>{2}
+             [f_k^j(a)] e^l \amp = \sum_{i=1}^m f_l^i(a) \hat e^i \amp  \amp</mrow>
+        <mrow>\amp = f_l(a)      \amp     \amp \text{ (by <xref ref="prop_pd_vvf">proposition</xref>) }</mrow>
+        <mrow>\amp = df_a(e^l)   \amp     \amp</mrow>
+        <mrow>\amp = [df_a] e^l. \amp     \amp</mrow>
+      </md>
+    </p>
+
+    <p>
+      \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_jm_comp">
+    <p>
+      (Solution to <xref ref="exer_jm_comp"></xref>)
+    </p>
+
+    <p>
+      (a) By <xref ref="prop_jm_pd">proposition</xref>
+      <me>
+        [df_{(w,x,y,z)}] = \begin{bmatrix}xz      \amp    wz   \amp       0       \amp         wx      \\
+                                         0      \amp    2x   \amp       4y      \amp         6z      \\
+                                    y\arctan z  \amp     0   \amp   w\arctan z  \amp   wy(1+z^2)^{-1}
+        \end{bmatrix} \,.
+      </me>
+    </p>
+
+    <p>
+      Therefore
+      <me>
+        [df_a] = \begin{bmatrix}1    \amp    1   \amp     0    \amp    1   \\
+                           0    \amp    2   \amp     4    \amp    6   \\
+                         \pi/4  \amp    0   \amp   \pi/4  \amp   1/2
+        \end{bmatrix} \,.
+      </me>
+    </p>
+
+    <p>
+      (b)
+      <md>
+        <mrow>df_a(v) \amp = [df_a] v</mrow>
+        <mrow>\amp = \begin{bmatrix}
+                                  1    \amp    1   \amp     0    \amp    1</mrow>
+        <mrow>0    \amp    2   \amp     4    \amp    6</mrow>
+        <mrow>\pi/4  \amp    0   \amp   \pi/4  \amp   1/2
+                             \end{bmatrix}
+                                              \begin{bmatrix}
+                                                   0</mrow>
+        <mrow>2</mrow>
+        <mrow>-3</mrow>
+        <mrow>1
+                                              \end{bmatrix}</mrow>
+        <mrow>\amp = \bigl(3,-2, \tfrac14(2-3\pi)\bigr)\,.     \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_crpd_not">
+    <p>
+      (Solution to <xref ref="exer_crpd_not"></xref>)
+      Let
+      <me>
+        g \colon \R^4 \sto \R^2 \colon (u,v,w,x) \mapsto \bigl(y(u,v,w,x), z(u,v,w,x)\bigr)
+      </me>
+      and
+      <me>
+        f\colon \R^2 \sto \R^4\colon  (s,t) \mapsto \bigl(u(s,t),v(s,t),w(s,t),x(s,t)\bigr)\,.
+      </me>
+    </p>
+
+    <p>
+      Here it is appropriate to think of the variables and functions as being arranged in the
+      following fashion.
+    </p>
+    <image source="images/e71f51adbb984ee59d0cd8140c11c2652b475d67.png"/>
+    <p>
+      The expression <m>\pd ut</m> is then taken to represent the function<nbsp /><m>f_2^1</m>. The expression <m>\pd
+      zu</m> appearing in the statement of the exercise represents <m>g_1^2 \circ f</m>. [One's first
+      impulse might be to let <m>\pd zu</m> be just<nbsp /><m>g_1^2</m>. But this cannot be correct. The product of
+      <m>\pd zu</m> and <m>\pd ut</m> is defined only at points where both are defined. The product of
+      <m>g_1^2</m> (whose domain lies in <m>\R^4</m>) and <m>f_2^1</m> (whose domain is in <m>\R^2</m>) is never
+      defined.] On the left side of the equation the expression <m>\pd zt</m> is the partial derivative
+      with respect to <m>t</m> of the composite function <m>f \circ g</m>. Thus it is expressed functionally
+      as <m>(g \circ f)_2^2</m>.
+    </p>
+
+    <p>
+      Using <xref ref="prop_cr_pd">proposition</xref> we obtain
+      <md>
+        <mrow>\pd zt \amp = (g \circ f)_2^2</mrow>
+        <mrow>\amp = \sum_{i=1}^4 (g_i^2 \circ f) f_2^i</mrow>
+        <mrow>\amp = \pd zu \pd ut + \pd zv \pd vt + \pd zw \pd wt + \pd zx \pd xt</mrow>
+      </md>
+    </p>
+
+    <p>
+      This equation is understood to hold at all points <m>a</m> in <m>\R^2</m> such that <m>f</m> is
+      differentiable at <m>a</m> and <m>g</m> is differentiable at<nbsp /><m>f(a)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_crpd_xmp">
+    <p>
+      (Solution to <xref ref="exer_crpd_xmp"></xref>)
+      Since
+      <me>
+        \bigl[df_{(x,y,z)}\bigr] =  \begin{bmatrix}
+                                             y^2 \amp  2xy \amp    0 \\
+                                               3 \amp    0 \amp  -2z \\
+                                              yz \amp   xz \amp   xy \\
+                                              2x \amp   2y \amp    0 \\
+                                              4z \amp    0 \amp   4x
+                                        \end{bmatrix}
+      </me>
+      we see that
+      <me>
+        \bigl[df_a\bigr] = \begin{bmatrix}
+                                    0 \amp   0 \amp   0 \\
+                                    3 \amp   0 \amp   2 \\
+                                    0 \amp  -1 \amp   0 \\
+                                    2 \amp   0 \amp   0 \\
+                                   -4 \amp   0 \amp   4
+                               \end{bmatrix}\,.
+      </me>
+    </p>
+
+    <p>
+      And since
+      <me>
+        \bigl[dg_{(s,t,u,v,w)}\bigr] = \begin{bmatrix}
+                                              2s \amp      0 \amp  2u \amp   2v \amp     0 \\
+                                             2sv \amp  -2w^2 \amp   0 \amp  s^2 \amp  -4tw
+                                           \end{bmatrix}
+      </me>
+      we see that
+      <me>
+        \bigl[dg_{f(a)}\bigr] = \bigl[dg_{(0,2,0,1,1)}\bigr] =
+                            \begin{bmatrix}
+                                  0 \amp   0 \amp   0 \amp   2 \amp   0 \\
+                                  0 \amp  -2 \amp   0 \amp   0 \amp  -8 
+                            \end{bmatrix}\,.
+      </me>
+    </p>
+
+    <p>
+      Thus by equation<nbsp /><xref ref="eqn_cr_sv1" />
+      <md>
+        <mrow>\bigl[d(g \circ f)_a\bigr]
+                        \amp = \bigl[dg_{f(a)}\bigr] \bigl[df_a\bigr]</mrow>
+        <mrow>\amp = \begin{bmatrix}
+                                0 \amp   0 \amp   0 \amp   2 \amp   0</mrow>
+        <mrow>0 \amp  -2 \amp   0 \amp   0 \amp  -8 
+                           \end{bmatrix}
+                                    \begin{bmatrix}
+                                         0 \amp   0 \amp   0</mrow>
+        <mrow>3 \amp   0 \amp   2</mrow>
+        <mrow>0 \amp  -1 \amp   0</mrow>
+        <mrow>2 \amp   0 \amp   0</mrow>
+        <mrow>-4 \amp   0 \amp   4
+                                    \end{bmatrix}</mrow>
+        <mrow>\amp = \begin{bmatrix}
+                                                 4 \amp  0 \amp    0</mrow>
+        <mrow>26 \amp  0 \amp  -36 
+                                            \end{bmatrix}\,.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_crpd_xmp2">
+    <p>
+      (Solution to <xref ref="exer_crpd_xmp2"></xref>)
+      Use formula<nbsp /><xref ref="eqn_dwdt3" />. It is understood that <m>\pd xt</m> and <m>\pd yt</m> must be evaluated
+      at the point <m>(1,1)</m>; and since <m>x(1,1) = 2</m> and <m>y(1,1) = \pi/4</m>, the partials <m>\pd wx</m>, <m>\pd
+      wy</m>, and <m>\cpd wt{x,y}</m> are to be evaluated at the point <m>(2,\pi/4,1)</m>. Calculate the terms
+      appearing on the right hand side of<nbsp /><xref ref="eqn_dwdt3" />:
+      <md>
+        <mrow>{2}
+            \pd xt \amp = 2t;              \amp  \qquad   \amp \text{ so }  \pd xt(1,1) = 2,</mrow>
+        <mrow>\pd yt \amp = \frac s{1+t^2};  \amp  \qquad   \amp \text{ so }  \pd yt(1,1) = 1/2,</mrow>
+        <mrow>\pd wx \amp = -\frac{2y}{x^2}; \amp  \qquad   \amp \text{ so }  \pd wx(2,\pi/4,1) = -\pi/8,</mrow>
+        <mrow>\pd wy \amp = \frac2x;         \amp  \qquad   \amp \text{ so }  \pd wy(2,\pi/4,1) = 1, \text{ and }</mrow>
+        <mrow>\cpd wt{x,y} \amp = 3t^2;   \amp  \qquad   \amp \text{ so }  \cpd wt{x,y}(2,\pi/4,1) = 3\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Therefore
+      <me>
+        \cpd wts(1,1) = -\frac\pi8\cdot2 + 1\cdot\frac12 + 3
+                           = \frac72 - \frac\pi4. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_crpd_xmp3">
+    <p>
+      (Solution to <xref ref="exer_crpd_xmp3"></xref>)
+      We proceed through steps (a)<ndash />(g) of the hint.
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            Define <m>g(x,y) = y/x</m> and compute its differential
+            <md>
+              <mrow>\bigl[dg_{(x,y)}\bigr] \amp = \bigl[g_1(x,y)\qquad g_2(x,y)\bigr]</mrow>
+              <mrow>\amp = [-yx^{-2} \qquad x^{-1}\bigr].</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            Then compute the differential of <m>\phi \circ g</m>
+            <md>
+              <mrow>\bigl[d(\phi \circ g)_{(x,y)}\bigr] \amp = \bigl[d\phi_{g(x,y)}\bigr] \bigl[dg_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \phi'\bigl(g(x,y)\bigr)\bigl[dg_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \phi'(yx^{-1})\bigl[-yx^{-2}\qquad x^{-1}\bigr]</mrow>
+              <mrow>\amp = \bigl[-yx^{-2}\phi'(yx^{-1}) \qquad
+                                                                            x^{-1}\phi'(yx^{-1})\bigr].</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            Let <m>G(x,y) = \bigl(x,\phi(y/x)\bigr)</m> and use (b) to calculate<nbsp /><m>\bigl[dG_{(x,y)}\bigr]</m>
+            <md>
+              <mrow>\bigl[dG_{(x,y)}\bigr] \amp = \begin{bmatrix}
+                                                     G_1^1(x,y)  \amp   G_2^1(x,y)</mrow>
+              <mrow>G_1^2(x,y)  \amp   G_2^2(x,y) 
+                                                 \end{bmatrix}</mrow>
+              <mrow>\amp = \begin{bmatrix}
+                                                     1           \amp              0</mrow>
+              <mrow>-yx^{-2}\phi'(yx^{-1}) \amp   x^{-1}\phi'(yx^{-1})
+                                                 \end{bmatrix}</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(d)</title>
+          <p>
+            Let <m>m(x,y) = xy</m> and compute its differential
+            <me>
+              \bigl[dm_{(x,y)}\bigr] = \bigl[ m_1(x,y) \qquad m_2(x,y)\bigr]
+                                             = \bigl[ y \qquad x \bigr]\,.
+            </me>
+          </p>
+        </li>
+
+        <li>
+          <title>(e)</title>
+          <p>
+            Since <m>h(x,y) = x\phi(yx^{-1}) = m(G(x,y))</m> we see that  <m>h = m \circ G</m> and therefore
+            <md>
+              <mrow>\bigl[dh_{(x,y)}\bigr]
+                         \amp = \bigl[d(m \circ G)_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \bigl[dm_{G(x,y)}\bigr] \bigl[dG_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \bigl[G^2(x,y) \qquad  G^1(x,y)\bigr] \bigl[dG_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \bigl[\phi(yx^{-1}) \qquad  x \bigr]
+                                       \begin{bmatrix}
+                                             1           \amp              0</mrow>
+              <mrow>-yx^{-2}\phi'(yx^{-1}) \amp   x^{-1}\phi'(yx^{-1})
+                                       \end{bmatrix}</mrow>
+              <mrow>\amp = \bigl[ \phi(yx^{-1} - yx^{-1}\phi'(yx^{-1}) \qquad  \phi'(yx^{-1}) \bigr]\,.</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(f)</title>
+          <p>
+            Since <m>j(x,y) = xy + x\phi(yx^{-1}) = m(x,y) + h(x,y)</m>, we see that
+            <md>
+              <mrow>\bigl[dj_{(x,y)}\bigr]
+                            \amp = \bigl[dm_{(x,y)}\bigr] + \bigl[dh_{(x,y)}\bigr]</mrow>
+              <mrow>\amp = \bigl[y + \phi(yx^{-1} - yx^{-1}\phi'(yx^{-1}) \qquad x + \phi'(yx^{-1}) \bigr]\,.</mrow>
+            </md>
+          </p>
+        </li>
+
+        <li>
+          <title>(g)</title>
+          <p>
+            Then finally,
+            <md>
+              <mrow>xj_1(x,y) + yj_2(x,y)
+                        \amp = x\bigl(y + \phi(yx^{-1} - yx^{-1}\phi'(yx^{-1})\bigr) + y\bigl(x + \phi'(yx^{-1})\bigr)</mrow>
+              <mrow>\amp = xy + x\phi(yx^{-1}) + yx</mrow>
+              <mrow>\amp = xy + j(x,y)     \qedhere</mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_crpd_xmp4">
+    <p>
+      (Solution to <xref ref="exer_crpd_xmp4"></xref>)
+      Let <m>h</m> be as in the hint. Then
+      <me>
+        \bigl[dh_{(x,y)}\bigr] = \begin{pmatrix}2x \amp    -2y  \\
+                                           2y \amp     2x
+        \end{pmatrix}
+      </me>
+      so
+      <md>
+        <mrow>\bigl[dg_{(x,y)}\bigr]
+                 \amp = \bigl[d(f \circ h)_{(x,y)}\bigr]</mrow>
+        <mrow>\amp = \bigl[df_{h(x,y)}\bigr]\bigl[dh_{(x,y)}\bigr]</mrow>
+        <mrow>\amp = \bigl[f_1(h(x,y)) \qquad f_2(h(x,y))\bigr]
+                     \begin{bmatrix}
+                          2x  \amp    -2y</mrow>
+        <mrow>2y  \amp     2x
+                     \end{bmatrix}</mrow>
+        <mrow>\amp = \bigl[2xf_1(h(x,y)) + 2y f_2(h(x,y))  \qquad
+                       -2yf_1(h(x,y)) + 2xf_2(h(x,y))\bigr]\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Therefore
+      <md>
+        <mrow>yg_1(x,y) - xg_2(x,y)
+                  \amp = 2xyf_1(h(x,y)) + 2y^2f_2(h(x,y)) + 2xyf_1(h(x,y)) - 2x^2f_2(h(x,y))</mrow>
+        <mrow>\amp = 4xyf_1(h(x,y)) - 2(x^2-y^2)f_2(h(x,y))</mrow>
+        <mrow>\amp = 2h^2(x,y)f_1(h(x,y)) - 2h^1(x,y)f_2(h(x,y))\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This computation, incidentally, gives one indication of the attractiveness of notation
+      which omits evaluation of partial derivatives. If one is able to keep in mind the points
+      at which the partials are being evaluated, less writing is required.
+    </p>
+  </solution>
+</section>

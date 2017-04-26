@@ -1,0 +1,71 @@
+
+<section>
+  <title>Exercises in Appendix p</title>
+  <solution xml:id="sol_prop_sub_cntbl">
+    <p>
+      (Solution to <xref ref="prop_sub_cntbl"></xref>)
+      If <m>S</m> is finite there is nothing to prove; so we suppose that <m>S</m> is an infinite subset of
+      <m>T</m>. Then <m>T</m> is countably infinite. Let <m>f \colon \N \sto T</m> be an enumeration of the
+      members of <m>T</m>. The restriction of <m>f</m> to the set <m>f^\gets(S) \subseteq \N</m> is a bijection
+      between <m>f^\gets(S)</m> and <m>S</m>; so we may conclude that <m>S</m> is countable provided we can prove
+      that <m>f^\gets(S)</m> is. Therefore it suffices to show that <em>every</em> subset of <m>\N</m> is
+      countable.
+    </p>
+
+    <p>
+      Let <m>A</m> be an infinite subset of <m>\N</m>. Define inductively elements <m>a_1 \lt  a_2 \lt  \dots</m> in <m>A</m>.
+      (Let <m>a_1</m> be the smallest member of <m>A</m>. Having chosen <m>a_1 \lt  a_2 \lt  \dots \lt  a_n</m> in <m>A</m>,
+      notice that the set <m>A \setminus \{a_1,\dots,a_n\}</m> is not empty and choose <m>a_{n+1}</m> to be
+      the smallest element of that set.) Let <m>a \colon \N \sto A</m> be the function <m>n \mapsto a_n</m>.
+      It is clear that <m>a_k \ge k</m> for all <m>k</m> and, since <m>a_k \lt  a_{k+1}</m> for all <m>k</m>, that <m>a</m> is
+      injective. To see that <m>a</m> is surjective, assume that it is not and derive a contradiction.
+      If <m>a</m> is not surjective, then the range of <m>a</m> is a proper subset of <m>A</m>. Let <m>p</m> be the
+      smallest element of <m>A \setminus \ran a</m>. Since <m>p \in A \setminus \ran a \subseteq A
+      \setminus \{a_1,\dots,a_p\}</m>, we see from the definition of <m>a_{p+1}</m> that <m>a_{p+1} \le p</m>. On
+      the other hand we know that <m>a_{p+1} \ge p + 1 > p</m>. This contradiction shows that <m>a</m> is a
+      surjection. Thus <m>A \sim \N</m> proving that <m>A</m> is countable.
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_nxn_cntbl">
+    <p>
+      (Solution to <xref ref="lem_nxn_cntbl"></xref>)
+      To see that the map
+      <me>
+        f \colon \N \times \N \sto \N \colon (m,n) \mapsto 2^{m-1}(2n - 1)
+      </me>
+      is a bijection, we construct its inverse (see <xref ref="prop_rinv_surj">propositions</xref>
+      and <xref ref="prop_linv_inj"></xref>). If <m>p \in \N</m> let <m>m</m> be the largest member of <m>\N</m> such that
+      <m>2^{m-1}</m> divides <m>p</m>. (If <m>p</m> is odd, then <m>m=1</m>.) Then <m>p/2^{m-1}</m> is odd and can be written
+      in the form <m>2n-1</m> for some <m>n \in \N</m>. The map <m>g \colon p \mapsto (m,n)</m> is clearly the
+      inverse of<nbsp /><m>f</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_union_cntbl">
+    <p>
+      (Solution to <xref ref="prop_union_cntbl"></xref>)
+      If <m>\sfml A</m> is infinite let
+      <me>
+        \sfml A = \{A_1,A_2,A_3, \dots\}\,;
+      </me>
+      while if <m>\sfml A</m> is finite, say <m>\card\sfml A = m</m>, let
+      <me>
+        \sfml A = \{A_1, \dots,A_m\}
+      </me>
+      and let <m>A_n = A_m</m> for all <m>n > m</m>. For each <m>j \in \N</m> the set <m>A_j</m> is either infinite, in
+      which case we write
+      <me>
+        A_j = \{a_{j1},a_{j2}, a_{j3},\dots\}\,,
+      </me>
+      or else it is finite, say <m>\card A_j = p</m>, in which case we write
+      <me>
+        A_j = \{a_{j1},\dots,a_{jp}\}
+      </me>
+      and let <m>a_{jq} = a_{jp}</m> for all <m>q > p</m>. Then the map
+      <me>
+        a \colon \N \times \N \sto \bigcup\sfml A \colon (j,k) \mapsto a_{jk}
+      </me>
+      is surjective. Thus <m>\bigcup\sfml A = \bigcup\limits_{j,k=1}^\infty A_{j,k} = \ran a</m> is
+      countable by <xref ref="lem_nxn_cntbl">lemma</xref> and <xref ref="prop_ran_cntbl">proposition</xref>.
+    </p>
+  </solution>
+</section>

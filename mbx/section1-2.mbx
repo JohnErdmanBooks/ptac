@@ -1,0 +1,198 @@
+
+<section>
+  <title>Interior of a set</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. A point <m>a</m> is an
+        <index><main>interior</main><sub>point</sub></index><term>interior point</term> of <m>A</m> if some <m>\epsilon</m>-neighborhood of <m>a</m> lies entirely in<nbsp /><m>A</m>. That
+        is, <m>a</m> is an interior point of <m>A</m> if and only if there exists <m>\epsilon > 0</m> such that
+        <m>J_\epsilon(a) \subseteq A</m>. The set of all interior points of <m>A</m> is denoted by <m>A^\circ</m> and
+        is called the
+        <index><main><@<m>A^\circ</m> (interior of<nbsp /><m>A</m>)</main></index>
+        <index><main>interior</main></index><term>interior</term> of<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Every point of the interval <m>(0,1)</m> is an interior point of that interval. Thus
+        <m>(0,1)^\circ = (0,1)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>a</m> be an arbitrary point in <m>(0,1)</m>. Choose <m>\epsilon</m> to be the smaller of
+      the two (positive) numbers <m>a</m> and <m>1-a</m>. Then <m>J_\epsilon(a) = (a - \epsilon, a + \epsilon)
+      \subseteq (0,1)</m> (because <m>\epsilon \le a</m> implies <m>a-\epsilon \ge 0</m>, and <m>\epsilon \le 1-a</m>
+      implies <m>a+\epsilon \le 1</m>).
+    </p>
+  </proof>
+
+  <example xml:id="interior_open_int">
+    <statement>
+      <p>
+        If <m>a \lt  b</m>, then every point of the interval <m>(a,b)</m> is an
+        interior point of the interval. Thus <m>(a,b)^\circ = (a,b)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The point <m>0</m> is not an interior point of the interval<nbsp /><m>[0,1)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Argue by contradiction. Suppose <m>0</m> belongs to the interior of<nbsp /><m>[0,1)</m>. Then for
+      some <m>\epsilon > 0</m> the interval <m>(-\epsilon,\epsilon) = J_\epsilon(0)</m> is contained in
+      <m>[0,1)</m>. But this is impossible since the number <m>-\frac12\epsilon</m> belongs to
+      <m>(-\epsilon,\epsilon)</m> but not to <m>[0,1)</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>A = [a,b]</m> where <m>a \lt  b</m>. Then <m>A^\circ = (a,b)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="x1exer3">
+    <statement>
+      <p>
+        Let <m>A = \{x \in \R\colon x^2-x-6 \ge 0\}</m>. Then <m>A^\circ \ne A</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_1exer3">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A = \{x \in \R\colon x^3 - 2x^2 - 11x + 12 \le 0\}</m>. Find <m>A^\circ</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        The interior of the set <m>\Q</m> of rational numbers is empty.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      No open interval contains only rational numbers.
+    </p>
+  </proof>
+
+  <proposition xml:id="intr_subsets">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are sets of real numbers with <m>A \subseteq B</m>,
+        then <m>\intr A \subseteq \intr B</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>a \in \intr A</m>. Then there is an <m>\epsilon > 0</m> such that <m>J_\epsilon(a)
+      \subseteq A \subseteq B</m>. This shows that <m>a \in \intr B</m>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> is a set of real numbers, then <m>A^{\circ\circ} = \intr A</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="intr_intersection">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are sets of real numbers, then
+        <me>
+          \intr{(A \cap B)} = \intr A \cap \intr B.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Show separately that <m>\intr{(A \cap B)} \subseteq
+      \intr A \cap \intr B</m> and that <m>\intr A \cap \intr B \subseteq \intr{(A \cap B)}</m>.
+      (<xref ref="sol_intr_intersection">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="intr_union">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are sets of real numbers, then
+        <me>
+          \intr{(A \cup B)} \supseteq \intr A \cup \intr B\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_intr_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Equality may fail in the preceding proposition.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> See if you can find sets <m>A</m> and <m>B</m> in <m>\R</m> both of
+      which have empty interior but whose union is all of<nbsp /><m>\R</m>.
+    </p>
+  </proof>
+</section>

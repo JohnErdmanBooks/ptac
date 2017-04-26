@@ -1,0 +1,27 @@
+
+<section xml:id="sec_res_ext">
+  <title>Restrictions and extensions</title>
+  <p>
+    If <m>f \colon S \sto T</m> and <m>A\subseteq S</m>, then the
+    <index><main><@<m>f\mid_{{}_A}</m> (restriction of <m>f</m> to <m>A</m>)</main></index>
+    <index><main>restriction</main></index><term>restriction</term> of <m>f</m> to <m>A</m>, denoted by <m>\bigl.f\bigr|_A</m>, is the function
+    <m>f\circ\iota_{{}_{A,S}}</m>. That is, it is the mapping from <m>A</m> into <m>T</m> whose value at each <m>x</m>
+    in <m>A</m> is <m>f(x)</m>.
+    <me>
+      \xy
+            \btriangle/\lt -`>`>/[S`A`T;\iota_{{}_{AS}}`f`\bigl.f\bigr|_A]
+           \endxy
+    </me>
+  </p>
+
+  <p>
+    Suppose that <m>g \colon A \sto T</m> and <m>A \subseteq S</m>. A function <m>f\colon S \sto T</m> is an
+    <index><main>extension</main></index><term>extension</term> of <m>g</m> to<nbsp /><m>S</m> if <m>f\big|_A = g</m>, that is, if the diagram
+    <me>
+      \xy
+           \btriangle/\lt -`>`>/[S`A`T;\iota_{{}_{AS}}`f`g]
+          \endxy
+    </me>
+    commutes.
+  </p>
+</section>

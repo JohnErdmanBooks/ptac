@@ -1,0 +1,8 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="log_con">
+  <title>Logical connectives</title>
+  <xi:include  href="d_and_c.mbx" />
+  <xi:include  href="implication.mbx" />
+  <xi:include  href="restr_quan.mbx" />
+  <xi:include  href="neg.mbx" />
+</chapter>

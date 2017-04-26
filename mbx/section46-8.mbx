@@ -1,0 +1,204 @@
+
+<section>
+  <title>Exercises in Chapter 08</title>
+  <solution xml:id="sol_lin_vs_o">
+    <p>
+      (Solution to <xref ref="lin_vs_o"></xref>)
+      Suppose that <m>T \in \ofml L \cap \lobo o</m>. Let <m>\epsilon > 0</m>. Since <m>T \in \lobo o</m>,
+      there exists <m>\delta > 0</m> so that <m>\abs{Ty} \le \epsilon \abs y</m> whenever <m>\abs y \lt 
+      \delta</m>. Since <m>T \in \ofml L</m> there exists <m>m \in \R</m> such that <m>Tx = mx</m> for all <m>x</m>
+      (see <xref ref="lin_R">example</xref>). Now, suppose <m>0 \lt  \abs y \lt  \delta</m>. Then
+      <me>
+        \abs m\,\abs y = \abs{Ty} \le \epsilon y
+      </me>
+      so <m>\abs m \le \epsilon</m>. Since <m>\epsilon</m> was arbitrary, we conclude that <m>m = 0</m>. That is,
+      <m>T</m> is the constant function<nbsp /><m>0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_O_closed">
+    <p>
+      (Solution to <xref ref="O_closed"></xref>)
+      Let <m>f</m>, <m>g \in \lobo O</m>. Then there exist positive numbers <m>M</m>, <m>N</m>, <m>\delta</m>, and <m>\eta</m>
+      such that <m>\abs{f(x)} \le M\abs{x}</m> whenever <m>\abs x \lt  \delta</m> and <m>\abs{g(x)} \lt  N\abs x</m>
+      whenever <m>\abs x \lt  \eta</m>. Then <m>\abs{f(x) + g(x)} \le (M + N)\abs x</m> whenever <m>\abs x</m> is
+      less than the smaller of <m>\delta</m> and <m>\eta</m>. So <m>f + g \in \lobo O</m>.
+    </p>
+
+    <p>
+      If <m>c</m> is a constant, then <m>\abs{cf(x)} = \abs c\,\abs{f(x)} \le \abs c\, M\,\abs x</m> whenever
+      <m>\abs x \lt  \delta</m>; so <m>cf \in \lobo O</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_O_comp_o">
+    <p>
+      (Solution to <xref ref="O_comp_o"></xref>)
+      (The domain of <m>f \circ g</m> is taken to be the set of all numbers <m>x</m> such that <m>g(x)</m> belongs
+      to the domain of <m>f</m>; that is, <m>\dom (f\circ g) = g^\gets(\dom f)</m>.) Since <m>f \in \lobo O</m>
+      there exist <m>M, \delta > 0</m> such that <m>\abs{f(y)} \le M\abs y</m> whenever <m>\abs y \lt  \delta</m>. Let
+      <m>\epsilon > 0</m>. Since <m>g \in \lobo o</m> there exists <m>\eta > 0</m> such that <m>\abs{g(x)} \le
+      \epsilon M^{-1} \abs x</m> whenever <m>\abs x \le \eta</m>.
+    </p>
+
+    <p>
+      Now if <m>\abs{x}</m> is less than the smaller of <m>\eta</m> and <m>M \epsilon^{-1} \delta</m>, then
+      <m>\abs{g(x)} \le \epsilon M^{-1} \abs x \lt  \delta</m>, so that
+      <me>
+        \abs{(f \circ g)(x)} \le M\abs{g(x)} \le \epsilon \abs x.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>f \circ g \in \lobo o</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_mult_o">
+    <p>
+      (Solution to <xref ref="mult_o"></xref>)
+      Since <m>\phi</m> and <m>f</m> belong to <m>\lobo O</m>, there exist positive numbers <m>M</m>, <m>N</m>, <m>\delta</m>, and
+      <m>\eta</m> such that <m>\abs{\phi(x)} \le M\abs x</m> whenever <m>\abs x \lt  \delta</m> and <m>\abs{f(x)} \lt 
+      N\abs x</m> whenever <m>\abs x \lt  \eta</m>. Suppose <m>\epsilon > 0</m>. If <m>\abs x</m> is less than the
+      smallest of <m>\epsilon M^{-1}N^{-1}</m>, <m>\delta</m>, and <m>\eta</m>, then
+      <me>
+        \abs{(\phi f)(x)} = \abs{\phi(x)}\,\abs{f(x)} \le MNx^2 \le \epsilon \abs{x}\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_8exer1">
+    <p>
+      (Solution to <xref ref="x8exer1"></xref>)
+      Clearly <m>f(0) - g(0) = 0</m>. Showing that <m>\D\lim_{x\sto 0}\frac{f(x) - g(x)}x = 0</m> is a routine
+      computation:
+      <md>
+        <mrow>\lim_{x \sto 0}\frac{f(x) - g(x)}x
+                   \amp = \lim_{x \sto 0} \frac1x\left(x^2 - 4x - 1 - \frac1{3x^2+4x-1}\right)</mrow>
+        <mrow>\amp = \lim_{x \sto 0} \frac{3x^4-8x^3-20x^2}{x(3x^2+4x-1)} = 0.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_tan_er">
+    <p>
+      (Solution to <xref ref="tan_er"></xref>)
+      Reflexivity is obvious. Symmetry: if <m>f \simeq g</m>, then <m>f - g \in \lobo o</m>; so <m>g - f =
+      (-1)(f - g) \in \lobo o</m> (by <xref ref="o_closed">proposition</xref>). Thus <m>g \simeq f</m>. Transitivity:
+      if <m>f \simeq g</m> and <m>g \simeq h</m>, then <m>g - f \in \lobo o</m> and <m>h - g \in \lobo o</m>; so <m>h - f
+      = (h - g) + (g - f) \in \lobo o</m> (again by <xref ref="o_closed"></xref>). Thus <m>f \simeq h</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_tan_uniq">
+    <p>
+      (Solution to <xref ref="tan_uniq"></xref>)
+      Since <m>S \simeq f</m> and <m>T \simeq f</m>, we conclude from <xref ref="tan_er">proposition</xref> that <m>S
+      \simeq T</m>. Then <m>S - T \in \ofml L \cap \lobo o</m> and thus <m>S - T = 0</m> by
+      <xref ref="lin_vs_o">proposition</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_del_sum">
+    <p>
+      (Solution to <xref ref="del_sum"></xref>)
+      For each <m>h</m> in the domain of <m>\Delta(f + g)_a</m> we have
+      <md>
+        <mrow>\Delta(f+g)_a(h) \amp = (f + g)(a + h) - (f + g)(a)</mrow>
+        <mrow>\amp = f(a + h) + g(a + h) - f(a) - g(a)</mrow>
+        <mrow>\amp = \Delta f_a(h) + \Delta g_a(h)</mrow>
+        <mrow>\amp = (\Delta f_a + \Delta g_a)(h).  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_del_comp">
+    <p>
+      (Solution to <xref ref="del_comp"></xref>)
+      For every <m>h</m> in the domain of <m>\Delta(g \circ f)_a</m> we have
+      <md>
+        <mrow>\Delta(g \circ f)_a(h) \amp = g(f(a+h)) - g(f(a))</mrow>
+        <mrow>\amp = g(f(a) + f(a+h) - f(a)) - g(f(a))</mrow>
+        <mrow>\amp = g(f(a) + \Delta f_a(h)) - g(f(a))</mrow>
+        <mrow>\amp = \bigl(\Delta g_{f(a)} \circ \Delta f_a\bigr)(h). \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_del_in_O">
+    <p>
+      (Solution to <xref ref="del_in_O"></xref>)
+      If <m>f</m> is differentiable at <m>a</m>, then
+      <me>
+        \Delta f_a = \bigl(\Delta f_a - df_a\bigr) + df_a \in \lobo o +
+                      \ofml L \subseteq \lobo O + \lobo O \subseteq \lobo O\, . \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_diff_cont">
+    <p>
+      (Solution to <xref ref="diff_cont"></xref>)
+      If <m>f \in \fml D_a</m> , then <m>\Delta f_a \in \lobo O \subseteq \fml C_0</m>. Since <m>\Delta f_a</m> is
+      continuous at <m>0</m>, <m>f</m> is continuous at<nbsp /><m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_diff_sm">
+    <p>
+      (Solution to <xref ref="diff_sm"></xref>)
+      Since <m>f</m> is differentiable at <m>a</m>, its differential exists and <m>\Delta f_a \simeq df_a</m>. Then
+      <me>
+        \Delta(\alpha f)_a = \alpha \Delta f_a \simeq \alpha df_a
+      </me>
+      by <xref ref="del_sm">propositions</xref> and <xref ref="tan_alg"></xref>. Since <m>\alpha df_a</m> is a linear function
+      which is tangent to <m>\Delta(\alpha f)_a</m>, we conclude that it must be the differential of
+      <m>\alpha f</m> at <m>a</m> (see <xref ref="diff_uniq">proposition</xref>). That is, <m>\alpha df_a = d(\alpha f)_a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_diff_mult">
+    <p>
+      (Solution to <xref ref="diff_mult"></xref>)
+      It is easy to check that <m>\phi(a)df_a + f(a)d\phi_a</m> is a linear function. From <m>\Delta f_a
+      \simeq df_a</m> we infer that <m>\phi(a)\Delta f_a \simeq \phi(a)df_a</m> (by
+      <xref ref="tan_alg">proposition</xref>), and from <m>\Delta\phi_a \simeq d\phi_a</m> we infer that
+      <m>f(a)\Delta\phi_a \simeq f(a)d\phi_a</m> (also by <xref ref="tan_alg"></xref>). From
+      <xref ref="del_in_O">propositions</xref> and <xref ref="mult_o"></xref> we see that
+      <me>
+        \Delta\phi_a \cdot \Delta f_a \in \lobo O \cdot \lobo O \subseteq \lobo o\,;
+      </me>
+      that is, <m>\Delta\phi_a \cdot \Delta f_a \simeq 0</m>. Thus by <xref ref="del_mult">propositions</xref>
+      and <xref ref="tan_alg"></xref>
+      <md>
+        <mrow>\Delta(\phi f)_a
+                    \amp = \phi(a)\Delta f_a + f(a)\Delta\phi_a + \Delta\phi_a \cdot \Delta f_a</mrow>
+        <mrow>\amp \simeq \phi(a)df_a + f(a)d\phi_a + 0</mrow>
+        <mrow>\amp = \phi(a)df_a + f(a)d\phi_a.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_ch_rul">
+    <p>
+      (Solution to <xref ref="ch_rul"></xref>)
+      By hypothesis <m>\Delta f_a \simeq df_a</m> and <m>\Delta g_{f(a)} \simeq dg_{f(a)}</m>. By
+      <xref ref="del_in_O">proposition</xref> <m>\Delta f_a \in \lobo O</m>. Then by <xref ref="tan_O">proposition</xref>
+      <men xml:id="x8eq1" >
+        \Delta g_{f(a)} \circ \Delta f_a
+                                       \simeq dg_{f(a)} \circ \Delta f_a\,;
+      </men>
+      and by <xref ref="L_tan">proposition</xref>
+      <men xml:id="x8eq2" >
+        dg_{f(a)} \circ \Delta f_a \simeq dg_{f(a)} \circ df_a\,.
+      </men>
+    </p>
+
+    <p>
+      According to <xref ref="del_comp">proposition</xref>
+      <men xml:id="x8eq3" >
+        \Delta(g \circ f)_a = \Delta g_{f(a)} \circ \Delta f_a\,.
+      </men>
+    </p>
+
+    <p>
+      From <xref ref="x8eq1" />, <xref ref="x8eq2" /> , and <xref ref="x8eq3" />, and <xref ref="tan_er">proposition</xref> we conclude
+      that
+      <me>
+        \Delta(g \circ f)_a \simeq dg_{f(a)} \circ df_a\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>dg_{f(a)} \circ df_a</m> is a linear function, the desired conclusion is an immediate
+      consequence of <xref ref="diff_uniq">proposition</xref>.
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,180 @@
+
+<section>
+  <title>Sequential compactness</title>
+  <definition>
+    <statement>
+      <p>
+        If <m>a</m> is a sequence of elements of a set <m>S</m> and <m>n \colon \N \sto \N</m> is
+        strictly increasing, then the composite function <m>a \circ n</m> is a
+        <index><main>subsequence</main></index><term>subsequence</term> of the sequence<nbsp /><m>a</m>. (Notice that <m>a \circ n</m> is itself a sequence of
+        elements of <m>S</m> since it maps <m>\N</m> into<nbsp /><m>S</m>.) The <m>k^{\text{ th } }</m> term of <m>a \circ n</m> is
+        frequently written as <m>a_{n_k}</m>; other acceptable notations are <m>a_{n(k)}</m> and <m>a(n(k))</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that it is possible for a sequence which fails to converge to have subsequences which
+    do converge. For example, if <m>a_n = (-1)^n + (1/n)</m> for each <m>n</m>, then the subsequence
+    <m>(a_{2n})</m> converges while the sequence <m>(a_n)</m> itself does not.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A metric space <m>M</m> is
+        <index><main>sequentially compact</main></index>
+        <index><main>compact</main><sub>sequentially</sub></index><term>sequentially compact</term> if every sequence in <m>M</m> has a convergent subsequence.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        It is important to understand that for a space to be sequentially compact the
+        preceding definition requires that every sequence in the space have a subsequence which
+        converges to a point <em>in that space</em>. It is not enough to find a subsequence which
+        converges in some larger space. For example, we know that the metric space <m>(0,1]</m> regarded as
+        a subspace of <m>\R</m> is not sequentially compact because the sequence <m>\bigl(\frac1n \bigr)</m> has
+        no subsequence which converges to something in<nbsp /><m>(0,1]</m>. That <m>\bigl(\frac1n \bigr)</m> happens
+        to converge to <m>0</m> in <m>\R</m> is completely irrelevant.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    A major goal of this chapter is to demonstrate that in metric spaces compactness and
+    sequential compactness are the same thing. This is done in <xref ref="cpt_scpt">theorem</xref>. Be aware
+    however that in general topological spaces this is <em>not</em> true. An essential ingredient
+    of the proof is the following chain of implications
+    <me>
+      \text{ sequentially compact }  \Longrightarrow \text{ totally bounded } 
+                                                  \Longrightarrow \text{ separable } .
+    </me>
+  </p>
+
+  <p>
+    So the next order of business is to define the last two concepts and prove that the preceding
+    implications do hold.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A metric space <m>M</m> is
+        <index><main>totally bounded</main></index>
+        <index><main>bounded</main><sub>totally</sub></index><term>totally bounded</term> if for every <m>\epsilon > 0</m> there exists a finite subset <m>F</m> of <m>M</m> such
+        that for every <m>a \in M</m> there is a point <m>x \in F</m> such that <m>d(x,a) \lt  \epsilon</m>. This
+        definition has a more or less standard paraphrase: A space is totally bounded if it can be
+        kept under surveillance by a finite number of arbitrarily near-sighted policemen.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="tbdd_bdd">
+    <statement>
+      <p>
+        Every totally bounded metric space is bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The converse of the preceding proposition is false. Any infinite set with the
+        discrete metric is an example of a bounded metric space which is not totally bounded. (Why?)
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="scpt_tbdd">
+    <statement>
+      <p>
+        Every sequentially compact metric space is totally bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Assume that a metric space <m>M</m> is not totally bounded.
+      Inductively construct a sequence in <m>M</m> no two terms of which are closer together than some
+      fixed distance <m>\epsilon > 0</m>. (<xref ref="sol_scpt_tbdd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A metric space is
+        <index><main>separable</main></index><term>separable</term> if it possesses a countable dense subset.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The space <m>\R^n</m> is separable. The set of points <m>(q_1, \dots, q_n)</m> such that
+        each coordinate <m>q_k</m> is rational is a countable dense subset of<nbsp /><m>\R^n</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        It follows easily from <xref ref="cnd_dns">proposition</xref> that the real line (or indeed any
+        uncountable set) with the discrete metric is <em>not</em> separable. (Consider the open balls of
+        radius <m>1</m> about each point.)
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="tbdd_sep">
+    <statement>
+      <p>
+        Every totally bounded metric space is separable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>M</m> be a totally bounded metric space. For each <m>n</m>
+      in <m>\N</m> choose a finite set <m>F_n</m> such that for each <m>a \in M</m> the set <m>F_n \cap
+      B_{\frac1n}(a)</m> is nonempty.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        The metric space <m>\R_d</m> comprising the real numbers under the discrete metric is
+        not separable.
+      </p>
+    </statement>
+  </problem>
+
+  <corollary xml:id="scpt_sep">
+    <statement>
+      <p>
+        Every sequentially compact metric space is separable.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      <xref ref="scpt_tbdd">Propositions</xref> and <xref ref="tbdd_sep"></xref>.
+    </p>
+  </proof>
+</section>

@@ -1,0 +1,585 @@
+
+<section>
+  <title>The mean value theorem(s)</title>
+  <p>
+    Heretofore we have discussed differentiability only of functions defined on <em>open</em>
+    subsets of normed linear spaces. It is occasionally useful to consider differentiability of
+    functions defined on other types of subsets. The business from beginning calculus of right
+    and left differentiability at endpoints of intervals does not extend in any very natural
+    fashion to functions with more complicated domains in higher dimensional spaces. Recall that
+    according to <xref ref="defn_nbhd_pt">definition</xref> a <em>neighborhood</em> of a point in a metric space
+    is an open set containing that point. It will be convenient to expand slightly our use of this
+    word.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>neighborhood</main><sub>of a set</sub></index><term>neighborhood</term> of a subset <m>A</m> of a metric space is any open set which contains<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces and <m>A \subseteq V</m>. A <m>W</m> valued function
+        <m>f</m> is said to be
+        <index><main>differentiable</main><sub>on a set</sub></index><term>differentiable on</term> <m>A</m> if it is (defined and) differentiable on some neighborhood of<nbsp /><m>A</m>.
+        The function <m>f</m> is
+        <index><main>continuously differentiable</main></index>
+        <index><main>differentiable</main><sub>continuously</sub></index><term>continuously differentiable on</term> <m>A</m> if it is differentiable on (a neighborhood of) <m>A</m> and
+        if its differential <m>df\colon x \mapsto df_x</m> is continuous at each point of<nbsp /><m>A</m>. The family
+        of all <m>W</m> valued continuously differentiable functions on <m>A</m> is denoted
+        <index><main>c@<m>\fml C^1(A,W)</m> (continuously differentiable functions)</main></index>by<nbsp /><m>\fml C^1(A,W)</m>. (Keep in mind that in order for a function <m>f</m> to belong to <m>\fml
+        C^1(A,W)</m> its domain must contain a <em>neighborhood</em> of<nbsp /><m>A</m>.)
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Given a function <m>f</m> for which both <q>differential</q> and <q>derivative</q> make sense it is
+    natural to ask if there is any difference between requiring <m>df</m> to be continuous and
+    requiring <m>Df</m> to be. It is the point of the next problem to show that there is not.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of <m>\R</m> with nonempty interior and <m>W</m> be a normed linear space.
+        A function <m>f</m> mapping a neighborhood of <m>A</m> into <m>W</m> belongs to <m>\fml C^1(A,W)</m> if and only
+        if its derivative <m>Df</m> (exists and) is continuous on some neighborhood of<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Not every function that is differentiable is continuously differentiable.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = x^2 \sin 1/x</m> for <m>x \ne 0</m> and <m>f(0) = 0</m>. Then <m>f</m> is differentiable
+        on <m>\R</m> but does not belong to <m>\fml C^1(\R,\R)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    We have already encountered one version of the <em>mean value theorem</em> (see
+    <xref ref="mvthm">theorem</xref>): if <m>a \lt  b</m> and <m>f</m> is a real valued function continuous on the interval
+    <m>[a,b]</m> and differentiable on the interior of that interval, then
+    <men xml:id="eqn_mvt1" >
+      \frac{f(b) - f(a)}{b - a} = Df(c)
+    </men>
+    for at least one number <m>c</m> between <m>a</m> and<nbsp /><m>b</m>.
+  </p>
+
+  <p>
+    We consider the problem of generalizing this formula to
+    <index><main>scalar</main><sub>field</sub></index>
+    <index><main>field</main><sub>vector</sub></index><em>scalar fields</em> (that is, real valued functions of a vector
+    variable), to
+    <index><main>curve</main></index><em>curves</em> (vector valued functions of a real variable), and to
+    <index><main>vector</main><sub>field</sub></index>
+    <index><main>field</main><sub>vector</sub></index><em>vector fields</em> (vector valued functions of a vector variable). There is no difficulty
+    in finding an entirely satisfactory variant of<nbsp /><xref ref="eqn_mvt1" /> which holds for scalar fields
+    whose domain lies in <m>\R^n</m>. This is done in <xref ref="comp_Rn">chapter</xref> once we have the notion of
+    <em>gradient</em> (see <xref ref="prop_mvt_sf">proposition</xref>). On the other hand we show in
+    <xref ref="exer_no_mvt">exercise</xref> that for curves (<em>a fortiori</em>, vector fields)
+    formula<nbsp /><xref ref="eqn_mvt1" /> does <em>not</em> hold. Nevertheless, the most useful aspect of the
+    <em>mean value theorem</em>, that changes in <m>f</m> over the interval <m>[a,b]</m> cannot exceed the
+    maximum value of <m>\abs{Df}</m> multiplied by the length of the interval does have a direct
+    generalization to vector fields (see <xref ref="thm_mvt_curv">proposition</xref>). A somewhat different
+    generalization can be produced by considering the version of the <em>fundamental theorem of
+    calculus</em> most used in beginning calculus: if <m>f</m> is a function whose derivative exists and is
+    continuous on <m>[a,b]</m>, then
+    <men xml:id="eqn_mvt2" >
+      f(b) - f(a) = \int_a^bDft\,dt.
+    </men>
+  </p>
+
+  <p>
+    (We have yet to prove this result. In fact we need the <em>mean value theorem</em> to do so.
+    See <xref ref="thm_ftc_II">theorem</xref>.) It is conventional to define <m>(b - a)^{-1}\int_a^bg</m> to be the
+    <index><main>mean</main><sub>value</sub></index>
+    <index><main>value</main><sub>mean</sub></index><term>mean value</term> (or
+    <index><main>average value</main></index>
+    <index><main>value</main><sub>average</sub></index><term>average value</term>) of a function <m>g</m> over the interval <m>[a,b]</m>. Thus<nbsp /><xref ref="eqn_mvt2" /> may be
+    regarded as a <q>mean value theorem</q> saying that the Newton quotient <m>(b-a)^{-1}(f(b)-f(a))</m>
+    is just the mean value of the <em>derivative</em> of<nbsp /><m>f</m>. Since functions between Banach spaces
+    do not in general have <q>derivatives</q> it is better for purposes of generalization to rewrite
+    <xref ref="eqn_mvt2" /> in terms of differentials. For a curve <m>f</m> with continuous derivative
+    <me>
+      \int_a^bDf(t)\,dt = \int_a^bdf_t(1)\,dt
+                             \text{ (by <xref ref="prop_diff_der"></xref>) }
+    </me>
+    so<nbsp /><xref ref="eqn_mvt2" /> becomes
+    <men xml:id="eqn_mvt3" >
+      f(b) - f(a) = \int_a^bdf_t(1)\,dt.
+    </men>
+  </p>
+
+  <p>
+    If we divide both sides by <m>b - a</m> this result says, briefly, that the Newton quotient of <m>f</m>
+    is the mean value of the <em>differential</em> of <m>f</m> over<nbsp /><m>[a,b]</m>.
+  </p>
+
+  <p>
+    There is one more thing to consider in seeking to generalize<nbsp /><xref ref="eqn_mvt1" />. In
+    <xref ref="C_int">chapter</xref> we defined the integral only for vector valued functions of a <em>real</em>
+    variable. So if <m>a</m> and <m>b</m> are points in a general Banach space, the expression <m>\int_a^b
+    df_t(1)\,dt</m> in<nbsp /><xref ref="eqn_mvt3" /> is meaningless (and so, of course, is the Newton quotient
+    <m>(f(b)-f(a))/(b-a)</m>). This is easily dealt with. In order to integrate over a closed segment
+    <m>[a,b]</m> in a Banach space, parametrize it: let <m>l(t) = (1 - t)a + tb</m> for <m>0 \leq t \leq 1</m>
+    and let <m>g = f\circ l</m>. Then
+    <men xml:id="eqn_mvt4" >
+      \begin{aligned}dg_t(1) \amp = df_{l(t)}(dl_t(1)) \\
+                              \amp = df_{l(t)}(b - a)\,.
+      \end{aligned}
+    </men>
+  </p>
+
+  <p>
+    Apply<nbsp /><xref ref="eqn_mvt3" /> to the function <m>g</m> over the interval <m>[0,1]</m> to obtain
+    <men xml:id="eqn_mvt5" >
+      g(1) - g(0) = \int_0^1dg_t(1)\,dt\,.
+    </men>
+  </p>
+
+  <p>
+    Substituting <xref ref="eqn_mvt4" /> in <xref ref="eqn_mvt5" /> leads to
+    <men xml:id="eqn_mvt6" >
+      \begin{aligned}f(b) - f(a) \amp = g(1) - g(0)  \\
+                             \amp = \int_0^1df_{l(t)}(b - a)\,dt.
+      \end{aligned}
+    </men>
+  </p>
+
+  <p>
+    Notice that if we let <m>h = b - a</m>, then<nbsp /><xref ref="eqn_mvt6" /> may be
+    written
+    <men xml:id="eqn_mvt7" >
+      \begin{aligned}\Delta f_a(h) \amp = \int_0^1df_{l(t)}(h)\,dt\\
+                              \amp = \left(\int_0^1df_{l(t)}\,dt\right)(h)
+      \end{aligned}
+    </men>
+    by <xref ref="cor_1param_fam">corollary</xref>. It is in this form (either<nbsp /><xref ref="eqn_mvt6" />
+    or<nbsp /><xref ref="eqn_mvt7" />) that the <em>mean value theorem</em> holds for a function <m>f</m> between
+    Banach spaces which is continuously differentiable on a segment<nbsp /><m>[a,b]</m>. It is worth noticing
+    that this generalization is weaker in three respects than the classical <em>mean value
+    theorem</em>: we are not able to conclude that there exists a particular point where the
+    differential of <m>f</m> is equal to <m>f(b)-f(a)</m>; we assume differentiability at <m>a</m> and <m>b</m>; and
+    we assume continuity of the differential. Nonetheless, this will be adequate for our
+    purposes.
+  </p>
+
+  <p>
+    <index><main>mean value theorem</main></index>
+  </p>
+  <exercise xml:id="exer_no_mvt">
+    <statement>
+      <p>
+        Show that the classical <em>mean value theorem</em>
+        (<xref ref="mvthm">theorem</xref>) fails for vector valued functions. That is, find an interval <m>[a,b]</m>, a
+        Banach space <m>E</m>, and a continuous function <m>f\colon [a,b] \sto E</m> differentiable on <m>(a,b)</m>
+        such that the equation <m>(b - a)Df(c) = f(b) - f(a)</m> holds for <em>no</em> point <m>c</m> in<nbsp /><m>(a,b)</m>.
+        <em>Hint.</em> Consider a parametrization of the unit circle. (<xref ref="sol_exer_no_mvt">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    Here is our first generalization of the <em>mean value theorem</em>. Others will occur
+    in <xref ref="prop_mvt_nls"></xref>, <xref ref="cor_mvt_nls"></xref>, and <xref ref="prop_mvt_Bs"></xref>.
+  </p>
+
+  <p>
+    <index><main>mean value theorem</main><sub>for curves</sub></index>
+  </p>
+
+  <theorem xml:id="thm_mvt_curv">
+    <title>Mean Value Theorem for Curves</title>
+    <statement>
+      <p>
+        Let <m>a \lt  b</m> and <m>W</m> be a normed
+        linear space. If a continuous function <m>f \colon [a,b] \sto W</m> has a derivative at each point
+        of <m>(a,b)</m> and if there is a constant <m>M</m> such that <m>\norm{Df(t)} \le M</m> for all <m>t \in
+        (a,b)</m>, then
+        <me>
+          \norm{f(b) - f(a)} \le M(b - a)\,.
+        </me>
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Given <m>\epsilon > 0</m> define <m>h(t) =
+      \norm{f(t) - f(a)} - (t - a)(M + \epsilon)</m> for <m>a \le t \le b</m>. Let <m>A =
+      h^{\gets}(-\infty,\epsilon]</m>. Show that:
+      <ol>
+        <li>
+          <title>(i)</title>
+          <p>
+            <m>A</m> has a least upper bound, say <m>l</m>;
+          </p>
+        </li>
+
+        <li>
+          <title>(ii)</title>
+          <p>
+            <m>l > a</m>;
+          </p>
+        </li>
+
+        <li>
+          <title>(iii)</title>
+          <p>
+            <m>l \in A</m>; and
+          </p>
+        </li>
+
+        <li>
+          <title>(iv)</title>
+          <p>
+            <m>l = b</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      To prove (iv) argue by contradiction. Assume <m>l \lt  b</m>. Show that <m>\norm{(t - l)^{-1}(f(t) -
+      f(l))} \lt  M + \epsilon</m> for <m>t</m> sufficiently close to and greater than<nbsp /><m>l</m>. For such <m>t</m> show
+      that <m>t \in A</m> by considering the expression
+      <me>
+        \norm{f(t)-f(l)} + \norm{f(l)-f(a)} - (t - l)(M + \epsilon)\, .
+      </me>
+    </p>
+
+    <p>
+      Finally, show that the desired conclusion follows from (iii) and<nbsp />(iv).
+      (<xref ref="sol_thm_mvt_curv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Next we extend the <em>mean value theorem</em> from curves to vector fields.
+  </p>
+
+  <p>
+    <index><main>mean value theorem</main><sub>for vector fields</sub></index>
+  </p>
+
+  <proposition xml:id="prop_mvt_nls">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces and <m>a</m> and <m>h</m> be points
+        in <m>V</m>. If a <m>W</m> valued function <m>f</m> is continuously differentiable on the segment <m>[a,a +
+        h]</m> , then
+        <me>
+          \norm{\Delta f_a(h)} \le M\norm h\,.
+        </me>
+        whenever <m>M</m> is a number such that <m>\norm{df_z} \le M</m> for all <m>z</m> in<nbsp /><m>[a,a + h]</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <m>l\colon t \mapsto a + th</m> (where <m>0 \le t \le 1</m>)
+      to parametrize the segment<nbsp /><m>[a,a + h]</m>. <xref ref="thm_mvt_curv">Apply</xref> to the function <m>g = f \circ
+      l</m>.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>mean value theorem</main></index>
+  </p>
+
+  <corollary xml:id="cor_mvt_nls">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear
+        spaces, <m>a</m> and <m>h</m> be points of <m>V</m>, the operator <m>T</m> belong to <m>\ofml B(V,W)</m>, and <m>g</m> be a
+        <m>W</m> valued function continuously differentiable on the segment<nbsp /><m>[a,a+h]</m>. If <m>M</m> is any
+        number such that <m>\norm{dg_z - T} \le M</m> for all <m>z</m> in <m>[a,a + h]</m>, then
+        <me>
+          \norm{\Delta g_a(h) - Th} \le M\norm h\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="prop_mvt_nls">Apply</xref> to the function <m>g - T</m>.
+    </p>
+  </proof>
+
+  <p>
+    The next proposition is an important application of the <em>mean value theorem</em>.
+  </p>
+
+  <proposition xml:id="prop_sc_const">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces, <m>U</m> be a nonempty
+        connected open subset of <m>V</m>, and <m>f\colon U \sto W</m> be differentiable. If <m>df_x = \vc 0</m> for
+        every <m>x \in U</m>, then <m>f</m> is constant.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Choose <m>a \in U</m> and set <m>G = f^\gets \{f(a)\}</m>. Show
+      that <m>G</m> is both an open and closed subset of<nbsp /><m>U</m>. Then <xref ref="prop_conn_oc">use</xref> to conclude
+      that <m>U=G</m>.
+    </p>
+
+    <p>
+      To prove that <m>G</m> is open in <m>U</m>, take an arbitrary point <m>y</m> in <m>G</m>, find an open ball <m>B</m>
+      about <m>y</m> which is contained in <m>U</m>, and <xref ref="prop_mvt_nls">use</xref> to show that <m>\Delta f_y(w -
+      y) = 0</m> for every <m>w</m> in<nbsp /><m>B</m>.
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_const_diff">
+    <statement>
+      <p>
+        Let <m>V</m>, <m>W</m>, and <m>U</m> be as in the preceding proposition.
+        If <m>f</m>, <m>g \colon U \sto W</m> are differentiable on <m>U</m> and have the same differentials at each
+        point of <m>U</m>, then <m>f</m> and <m>g</m> differ by a constant.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the hypothesis that <m>U</m> be connected cannot be deleted in
+        <xref ref="prop_sc_const">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <xref ref="cor_const_diff">Corollary</xref> makes possible a proof of the version of the <em>fundamental
+    theorem of calculus</em> which is the basis for the procedures of <q>formal integration</q> taught in
+    beginning calculus.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A differentiable curve <m>f</m> in a Banach space whose domain is an open interval in
+        <m>\R</m> is an
+        <index><main>antiderivative</main></index><term>antiderivative</term> of a function <m>g</m> if <m>Df = g</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    <index><main>fundamental theorem of calculus</main></index>
+  </p>
+
+  <theorem xml:id="thm_ftc_II">
+    <title>Fundamental Theorem of Calculus - Version II</title>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be points in an open interval <m>J  \subseteq \R</m> with <m>a \lt 
+        b</m>. If <m>g\colon J \sto E</m> is a continuous map into a Banach space and <m>f</m> is an
+        antiderivative of <m>g</m> on <m>J</m>, then
+        <me>
+          \int_a^b g = f(b) - f(a)\,.
+        </me>
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>h(x) = \int_a^xg</m> for <m>x</m> in<nbsp /><m>J</m>. Use
+      <xref ref="cor_const_diff">corollary</xref> to show that <m>h</m> and <m>f</m> differ by a constant. Find the value
+      of this constant by setting <m>x = a</m>.
+    </p>
+  </proof>
+
+  <p>
+    With this second version of the <em>fundamental theorem of calculus</em> in hand, we are in a
+    position to prove the version of the <em>mean value theorem</em> discussed in the introduction
+    to this section.
+  </p>
+
+  <p>
+    <index><main>mean value theorem</main><sub>for vector fields</sub></index>
+  </p>
+
+  <proposition xml:id="prop_mvt_Bs">
+    <statement>
+      <p>
+        Suppose that <m>E</m> and <m>F</m> are Banach spaces, and <m>a</m>, <m>h \in E</m>.
+        If an <m>F</m> valued function <m>f</m> is continuously differentiable on the segment <m>[a,a + h]</m>, then
+        <men xml:id="eqn_mvt_Bs" >
+          \Delta f_a(h) = \left( \int_0^1 df_{l(t)}\,dt\right)(h)
+        </men>
+        where <m>l(t) = a + th</m> for <m>0 \leq t \leq 1</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>g = f\circ l</m>. Show that <m>Dg(t)=df_{l(t)}(h)</m>.
+      <xref ref="cor_1param_fam">Apply</xref> to the right side of equation<nbsp /><xref ref="eqn_mvt_Bs" />.
+      <xref ref="thm_ftc_II">Use</xref>.
+    </p>
+  </proof>
+
+  <p>
+    It is conventional when we invoke any of the <xref ref="thm_mvt_curv">results</xref>, <xref ref="prop_mvt_nls"></xref>, <xref ref="cor_mvt_nls"></xref>, <xref ref="prop_mvt_Bs">or</xref> to say that we have used <q>the</q>
+    <index><main>mean value theorem</main></index><em>mean value theorem</em>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Verify <xref ref="prop_mvt_Bs">proposition</xref> directly for the function <m>f(x,y) = x^2 + 6xy
+        - 2y^2</m> by computing both sides of equation<nbsp /><xref ref="eqn_mvt_Bs" />.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>W</m> be a normed linear space and <m>a \lt  b</m>. For each <m>f</m> in <m>\fml C^1([a,b],W)</m>
+        define
+        <me>
+          \trinorm f = \sup\{\norm{f(x)}
+                             + \norm{Df(x)}\colon  a \leq x \leq b\}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>\fml C^1([a,b],W)</m> is a vector space and that the map <m>f \mapsto \trinorm f</m>
+              is a norm on this space.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>j(x) = \sqrt{1 + x^2}</m> for all <m>x</m> in<nbsp /><m>\R</m>.  Use the <em>mean value theorem</em>
+              to show that <m>\abs{\Delta j_x(y)} \leq \abs y</m> for all <m>x</m>, <m>y \in \R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>k</m> be a continuous real valued function on the interval<nbsp /><m>[a,b]</m>.  For each <m>f</m>
+              in <m>\fml C^1([a,b],\R)</m> define
+              <me>
+                \Phi (f) = \int_a^bk(x)\sqrt {1 + (f'(x))^2}\,dx\,.
+              </me>
+              Show that the function <m>\Phi \colon  \fml C^1([a,b],\R) \sto \R</m> is uniformly continuous.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>change of variables</main></index>
+  </p>
+
+  <proposition xml:id="prop_changvar">
+    <title>Change of Variables</title>
+    <statement>
+      <p>
+        If <m>f \in \fml C(J_2,E)</m> and <m>g \in
+        \fml C^1(J_1,J_2)</m> where <m>J_1</m> and <m>J_2</m> are open intervals in <m>\R</m> and <m>E</m> is a Banach space,
+        and if <m>a</m>, <m>b \in J_1</m> with <m>a \lt  b</m>, then
+        <me>
+          \int_a^b g'(f \circ g) = \int_{g(a)}^{g(b)}f\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="thm_ftc_II">Use</xref>. Let <m>F(x) = \int_{g(a)}^x f</m> for all
+      <m>x</m> in <m>J_2</m>. Compute <m>(F \circ g)'(t)</m>.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>integration by parts</main></index>
+  </p>
+
+  <proposition>
+    <title>Integration by Parts</title>
+    <statement>
+      <p>
+        If <m>f \in \fml C^1(J,\R)</m> and <m>g \in \fml C^1(J,E)</m> where
+        <m>J</m> is an open interval in <m>\R</m> and <m>E</m> is a Banach space, and if <m>a</m> and <m>b</m> are points in
+        <m>J</m> with <m>a \lt  b</m>, then
+        <me>
+          \int_a^b fg' = f(b)g(b) - f(a)g(a) - \int_a^b f'g\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Differentiate the function <m>t \mapsto f(t)g(t)</m>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>f \in \fml C(J,\R)</m> where <m>J</m> is an interval, and if <m>a</m>, <m>b \in J</m> with
+        <m>a \lt  b</m>, then there exists <m>c \in (a,b)</m> such that
+        <me>
+          \int_a^b f = f(c)(b - a)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show by example that the preceding proposition is no longer true if it is assumed
+        that <m>f</m> is a continuous function from <m>J</m> into<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

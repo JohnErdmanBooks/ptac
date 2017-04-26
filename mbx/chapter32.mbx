@@ -1,0 +1,73 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Special subsets of <m>\R</m></title>
+  <p>
+    We denote by
+    <index><main>realnumbers@<m>\R</m> (the real numbers)</main></index>
+    <index><main>numbers</main><sub>real</sub></index><m>\R</m> the set of real numbers. Certain subsets of <m>\R</m> have standard names. We list some of
+    them here for reference. The set
+    <index><main>positive@<m>\Po</m> (the strictly positive real numbers)</main></index>
+    <index><main>positive</main><sub>strictly</sub></index><m>\Po = \{x \in \R\colon  x > 0\}</m> of strictly positive numbers is discussed in
+    <xref ref="order_R">appendix</xref>. The set <m>\{1,2,3,\dots\}</m> of all
+    <index><main>naturalnumbers@<m>\N</m> (the natural numbers)</main></index>
+    <index><main>natural numbers</main></index>
+    <index><main>numbers</main><sub>natural</sub></index>
+    natural numbers is denoted by<nbsp /><m>\N</m>, initial segments <m>\{1,2,3,\dots,m\}</m> of this set by
+    <m>\N_m</m>, and the set <m>\{\dots,-3,-2,-1,0,1,2,3,\dots\}</m> of all
+    <index><main>z@<m>\Z</m> (the integers)</main></index>
+    <index><main>integers</main></index>
+    <index><main>numbers</main><sub>integers</sub></index>integers by<nbsp /><m>\Z</m>. The set of all rational numbers (numbers of the form <m>p/q</m> where <m>p,q \in
+    \Z</m> and <m>q \ne 0</m>) is denoted
+    <index><main>q@<m>\Q</m> (the rational numbers</main></index>
+    <index><main>rational numbers</main></index>
+    <index><main>numbers</main><sub>rational</sub></index>by<nbsp /><m>\Q</m>. There are the <em>open intervals</em>
+    <index><main><@<m>(a,b)</m> (open interval)</main></index>
+    <index><main>interval</main><sub>open</sub></index>
+    <index><main>open</main><sub>interval</sub></index>
+    <md>
+      <mrow>(a,b) \amp := \{x \in \R\colon a \lt  x \lt  b\},</mrow>
+      <mrow>(-\infty,b) \amp := \{x \in \R\colon x \lt  b\},\text{ and }</mrow>
+      <mrow>(a, \infty) \amp := \{x \in \R\colon x > a\}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    There are the <em>closed intervals</em>
+    <index><main><@<m>[a,b]</m> (closed interval)</main></index>
+    <index><main>interval</main><sub>closed</sub></index>
+    <index><main>closed</main><sub>interval</sub></index>
+    <md>
+      <mrow>\amp := \{x \in \R\colon a \le x \le b\},</mrow>
+      <mrow>(-\infty,b] \amp := \{x \in \R\colon x \le b\}, \text{ and }</mrow>
+      <mrow>[a, \infty) \amp := \{x \in \R\colon x \ge a\}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    And there are the intervals which (if <m>a \lt  b</m>) are neither open nor closed:
+    <md>
+      <mrow>\amp := \{x \in \R\colon a \lt  x \le b\}.</mrow>
+    </md>
+  </p>
+
+  <p>
+    The set <m>\R</m> of all real numbers may be written in interval notation as <m>(-\infty, \infty)</m>.
+    (As an interval it is considered both open and closed. The reason for applying the words
+    <q>open</q> and <q>closed</q> to intervals is discussed in <xref ref="nbhds_in_r">chapter</xref>.)
+  </p>
+
+  <p>
+    A subset <m>A</m> of <m>\R</m> is
+    <index><main>bounded</main><sub>subset of <m>\R</m></sub></index><term>bounded</term> if there is a positive number <m>M</m> such that <m>\abs a \le M</m> for all <m>a \in A</m>.
+    Thus intervals of the form <m>[a,b]</m>, <m>(a,b]</m>, <m>[a,b)</m>, and<nbsp /><m>(a,b)</m> are
+    <index><main>bounded</main><sub>interval</sub></index>
+    <index><main>interval</main><sub>bounded</sub></index>bounded. The other intervals are <em>unbounded</em>.
+  </p>
+
+  <p>
+    If <m>A</m> is a subset of <m>\R</m>, then
+    <index><main><@<m>A^+</m> (positive elements of a set<nbsp /><m>A</m>)</main></index><m>A^+ := A \cap [0,\infty)</m>. These are the
+    <index><main>positive</main><sub>elements of a set</sub></index><term>positive</term> elements of<nbsp /><m>A</m>. Notice, in particular, that <m>\Z^+</m>, the set of positive integers,
+    contains <m>0</m>, but <m>\N</m>, the set of natural numbers, does not.
+  </p>
+</chapter>

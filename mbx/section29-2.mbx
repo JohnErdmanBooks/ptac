@@ -1,0 +1,648 @@
+
+<section>
+  <title>The implicit function theorem</title>
+  <p>
+    In the preceding section we derived the <em>inverse function theorem</em>, which gives
+    conditions under which an equation of the form <m>y = f(x)</m> can be solved locally for <m>x</m> in
+    terms of <m>y</m>. The <em>implicit function theorem</em> deals with the local solvability of
+    equations that are not necessarily in the form <m>y = f(x)</m> and of systems of equations. The
+    <em>inverse function theorem</em> is actually a special case of the <em>implicit function
+    theorem</em>. Interestingly, the special case can be used to prove the more general one.
+  </p>
+
+  <p>
+    This section consists principally of exercises and problems which illustrate how the
+    <em>inverse function theorem</em> can be adapted to guarantee the existence of local solutions
+    for various examples of equations and systems of equations. Once the computational procedure
+    is well understood for these examples it is a simple matter to explain how it works in
+    general; that is, to prove the <em>implicit function theorem</em>.
+  </p>
+
+  <p>
+    Suppose, given an equation of the form <m>y = f(x)</m> and a point <m>a</m> in the domain of<nbsp /><m>f</m>, we are
+    asked to show that <em>the equation can be solved for <m>x</m> in terms of <m>y</m> near <m>a</m></em>. It is
+    clear what we are being asked: to show that <m>f</m> is locally invertible at <m>a</m>. (Since the
+    function <m>f</m> will usually satisfy some differentiability condition<mdash />continuous
+    differentiability, for example<mdash />it is natural to ask for the local inverse to satisfy the
+    same condition.)
+  </p>
+
+  <p>
+    As we have seen, local invertibility can be established by explicitly computing a local
+    inverse, which can be done only rarely, or by invoking the <em>inverse function theorem</em>.
+    Let us suppose we are given an equation of the form
+    <men xml:id="ift_eq1" >
+      f(x,y) = 0
+    </men>
+    and a point <m>(a,b)</m> in <m>\R^2</m> which satisfies<nbsp /><xref ref="ift_eq1" />.
+  </p>
+
+  <p>
+    <em>Question.</em> What does it mean to say that <xref ref="ift_eq1" /> can be solved for <m>y</m>
+    near <m>b</m> in terms of <m>x</m> near<nbsp /><m>a</m>? (Alternative wording: What does it mean to say that
+    <xref ref="ift_eq1" /> can be solved for <m>y</m> in terms of <m>x</m> near the point<nbsp /><m>(a,b)</m>?)
+  </p>
+
+  <p>
+    <em>Answer.</em> There exist a neighborhood <m>V</m> of <m>a</m> and a function <m>h \colon V \sto
+    \ R</m> which satisfy
+    <md>
+      <mrow>{2}
+          \amp \text{ (i) }   \amp \amp  h(a) = b</mrow>
+      <mrow>\amp \text{ (ii) }  \amp \amp  f(x,h(x)) = 0</mrow>
+    </md>
+    for all <m>x</m> in<nbsp /><m>V</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        In the introduction to this chapter we discussed the problem of solving the equation
+        <me>
+          x^2 + y^2 = 25
+        </me>
+        for <m>y</m> in terms of<nbsp /><m>x</m>. This equation can be put in the form <xref ref="ift_eq1" /> by setting
+        <m>f(x,y) = x^2 + y^2 - 25</m>. Suppose we are asked to show that <xref ref="ift_eq1" /> can be solved
+        for <m>y</m> near <m>4</m> in terms of <m>x</m> near<nbsp /><m>3</m>. As in the introduction, take <m>V = (- 5,5)</m> and
+        <m>h(x) = \sqrt{25 - x^2}</m> for all <m>x</m> in<nbsp /><m>V</m>. Then <m>h(3) = 4</m> and <m>f(x,h(x)) = x^2 +
+        \bigl(\sqrt{25 - x^2}\bigr)^2 -25 = 0</m>; so <m>h</m> is the desired local solution
+        to<nbsp /><xref ref="ift_eq1" />. If we are asked to show that <xref ref="ift_eq1" /> can be solved for <m>y</m> near
+        <m>-4</m> in terms of <m>x</m> near 3, what changes? We choose <m>h(x) = -\sqrt{25 - x^2}</m>. Notice that
+        condition (i) above dictates the choice of <m>h</m>. (Either choice will satisfy<nbsp />(ii).)
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    As was pointed out in the introduction, the preceding example is atypical in that it is
+    possible to <em>specify</em> the solution. We can actually <em>solve</em> for <m>y</m> in terms of<nbsp /><m>x</m>.
+    <em>Much</em> more common is the situation in which an explicit solution is not possible. What
+    do we do then?
+  </p>
+
+  <p>
+    To see how this more complicated situation can be dealt with, let us pretend just for a moment
+    that our computational skills have so totally deserted us that in the preceding example we are
+    unable to specify the neighborhood <m>V</m> and the function <m>h</m> required to solve<nbsp /><xref ref="ift_eq1" />.
+    The problem is still the same: show that the equation
+    <men xml:id="ift_eq2" >
+      x^2 + y^2 - 25 = 0
+    </men>
+    can be solved for <m>y</m> near <m>4</m> in terms of <m>x</m> near<nbsp /><m>3</m>. A good start is to define a function
+    <m>G \colon \R^2 \sto \R^2</m> by
+    <men xml:id="ift_eq3" >
+      G(x,y) = (x,f(x,y))
+    </men>
+    where as above <m>f(x,y) = x^2 + y^2 - 25</m>, and apply the <em>inverse function theorem</em>
+    to<nbsp /><m>G</m>. It is helpful to make a sketch here. Take the <m>xy</m>-plane to be the domain of <m>G</m> and
+    in this plane sketch the circle <m>x^2 + y^2 = 25</m>. For the codomain of <m>G</m> take another plane,
+    letting the horizontal axis be called <q><m>x</m></q> and the vertical axis be called<nbsp /><q><m>z</m></q>. Notice
+    that in this second plane the image under <m>G</m> of the circle drawn in the <m>xy</m>-plane is the
+    line segment <m>[- 5,5]</m> along the <m>x</m>-axis and that the image of the <m>x</m>-axis is the parabola
+    <m>z = x^2 - 25</m>. Where do points in the interior of the circle go? What about points outside
+    the circle? If you think of the action of <m>G</m> as starting with a folding of the <m>xy</m>-plane
+    along the <m>x</m>-axis, you should be able to guess the identity of those points where <m>G</m> is not
+    locally invertible. In any case we will find these points using the <em>inverse function
+    theorem</em>.
+  </p>
+
+  <p>
+    The function <m>G</m> is continuously differentiable on <m>\R^2</m> and (the matrix representation of)
+    its differential at a point <m>(x,y)</m> in <m>\R^2</m> is given by
+    <md>
+      \bigl[dG_{(x,y)}\bigr] = \bmatrix 1  \amp  0 \\ 2x \amp  2y \endbmatrix\,.
+    </md>
+  </p>
+
+  <p>
+    Thus according to the <em>inverse function theorem</em> <m>G</m> is locally <m>\fml C^1</m>-invertible at
+    every point <m>(x,y)</m> where this matrix is invertible, that is, everywhere except on the
+    <m>x</m>-axis. In particular, at the point <m>(3,4)</m> the function <m>G</m> is locally <m>\fml
+    C^1</m>-invertible. Thus there exist a neighborhood <m>W</m> of <m>G(3,4) = (3,0)</m> in <m>\ R^2</m> and a
+    local <m>\fml C^1</m>-inverse <m>H \colon W \sto \R^2</m> of <m>G</m>. Write <m>H</m> in terms of its component
+    functions <m>H = \bigl(H^1,H^2\bigr)</m> and set <m>h(x) = H^2(x,0)</m> for all <m>x</m> in <m>V := \{x:(x,0)
+    \in W\}</m>. Then <m>V</m> is a neighborhood of <m>3</m> in <m>\R</m> and the function <m>h</m> is continuously
+    differentiable (because <m>H</m> is). To show that <m>h</m> is a solution of the equation
+    <xref ref="ift_eq2" /> for <m>y</m> in terms of <m>x</m> we must show that
+    <md>
+      <mrow>{2}
+           \amp \text{ (i) }   \amp \amp  h(3) = 4;  \text{ and }</mrow>
+      <mrow>\amp \text{ (ii) }  \amp \amp  f(x,h(x)) = 0</mrow>
+    </md>
+    for all <m>x</m> in <m>V</m>.
+  </p>
+
+  <p>
+    To obtain (i) equate the second components of the first and last terms of the following
+    computation.
+    <md>
+      <mrow>(3,4) \amp = H(G(3,4))</mrow>
+      <mrow>\amp = H(3, f(3,4))</mrow>
+      <mrow>\amp = H(3,0)</mrow>
+      <mrow>\amp = (H^1(3,0)\,,\,H^2(3,0))</mrow>
+      <mrow>\amp = (H^1(3,0)\,,\,h(3)) .</mrow>
+    </md>
+  </p>
+
+  <p>
+    To obtain (ii) notice that for all <m>x</m> in <m>V</m>
+    <md>
+      <mrow>(x,0) \amp = G(H(x,0))</mrow>
+      <mrow>\amp = G(H^1(x,0)\,,\,H^2(x,0))</mrow>
+      <mrow>\amp = G(H^1(x,0)\,,\,h(x))</mrow>
+      <mrow>\amp = (H^1(x,0)\,,\,f(H^1(x,0),h(x)))\,.</mrow>
+    </md>
+  </p>
+
+  <p>
+    Equating first components we see that <m>H^1(x,0) = x</m>. So the
+    preceding can be written
+    <me>
+      (x,0) = (x,f(x,h(x)))
+    </me>
+    from which (ii) follows by equating second components.
+  </p>
+
+  <p>
+    Although the preceding computations demonstrate the existence of a local solution <m>y = h(x)</m>
+    without specifying it, it is nevertheless possible to calculate the value of its derivative
+    <m>\dfrac{dy}{dx}</m> at the point <m>(3,4)</m>, that is, to find <m>h'(3)</m>. Since <m>h'(3) = \bigl(H^2
+    \circ j_{{}_{\sst 1}}\bigr)'(3) = d\bigl(H^2 \circ j_{{}_{\sst 1}}\bigr)_3(1) =
+    \bigl(dH^2{}_{(3,0)} \circ j_{{}_{\sst 1}}\bigr)(1) = dH^2{}_{(3,0)}(1,0) = \pd {H^2}x(3,0)</m>
+    (where <m>j_{{}_{\sst 1}}</m> is the inclusion map <m>x \mapsto (x,0)</m> ) and since <m>H</m> is a local
+    inverse of <m>G</m>, the <em>inverse function theorem</em> tells us that
+    <md>
+      <mrow>\bigl[dH_{(3,0)}\bigr] \amp = \bigl[dH_{G(3,4)}\bigr]</mrow>
+      <mrow>\amp = \bigl[dG_{(3,4)}\bigr]^{-1}</mrow>
+      <mrow>\amp = {\begin{bmatrix}
+                                         1         \amp       0</mrow>
+      <mrow>f_1(3,4)  \amp   f_2(3,4)
+                                       \end{bmatrix}}^{-1}</mrow>
+      <mrow>\amp = {\begin{bmatrix}
+                                         1  \amp   0</mrow>
+      <mrow>6  \amp   8
+                                      \end{bmatrix}}^{-1}</mrow>
+      <mrow>\amp = \begin{bmatrix}
+                                         1         \amp      0</mrow>
+      <mrow>-\frac34  \amp   \frac18
+                                     \end{bmatrix} \,.</mrow>
+    </md>
+  </p>
+
+  <p>
+    But the entry in the lower left corner is <m>\pd{H^2}x(3,0)</m>. Therefore, <m>h'(3) = - \frac34</m>.
+  </p>
+
+  <p>
+    In the next exercise we consider an equation whose solution cannot be easily calculated.
+  </p>
+  <exercise xml:id="xmpl_ift_12">
+    <statement>
+      <p>
+        Consider the equation
+        <men xml:id="ift_12_eq1" >
+          x^2y + \sin\left(\frac{\pi}2 xy^2\right) = 2
+        </men>
+        where <m>x</m>, <m>y \in \ R</m>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              What does it mean to say that equation<nbsp /><xref ref="ift_12_eq1" /> can be solved for <m>y</m> in
+              terms of <m>x</m> near the point<nbsp /><m>(1,2)</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that it is possible to solve<nbsp /><xref ref="ift_12_eq1" /> as described in (a).
+              <em>Hint.</em>  Proceed as in the second solution to the preceding example.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use the <em>inverse function theorem</em> to find the value of <m>\frac{dy}{dx}</m>
+              at the point<nbsp /><m>(1,2)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_xmpl_ift_12">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Consider the equation
+        <men xml:id="ift_12_eq2" >
+          e^{xy^2} - x^2y + 3x = 4
+        </men>
+        where <m>x</m>, <m>y \in \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              What does it mean to say that equation<nbsp /><xref ref="ift_12_eq2" /> can be solved for <m>y</m>
+              near 0 in terms of <m>x</m> near<nbsp /><m>1</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that such a solution does exist.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use the <em>inverse function theorem</em> to compute the value of <m>\frac{dy}{dx}</m> at
+              the point<nbsp /><m>(1,0)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The preceding examples have all been equations involving only two variables. The technique
+    used in dealing with these examples works just as well in cases where we are given an equation
+    in an arbitrary number of variables and wish to demonstrate the existence of local solutions
+    for one of the variables in terms of the remaining ones.
+  </p>
+  <exercise xml:id="xmpl_ift_13">
+    <statement>
+      <p>
+        Consider the equation
+        <men xml:id="ift_13_eq1" >
+          x^2z + yz^2 - 3z^3 = 8
+        </men>
+        for <m>x</m>, <m>y</m>, <m>z \in \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              What does it mean to say that equation<nbsp /><xref ref="ift_13_eq1" /> can be solved for <m>z</m>
+              near <m>1</m> in terms of <m>x</m> and <m>y</m> near<nbsp /><m>(3,2)</m>?  (Alternatively: that<nbsp /><xref ref="ift_13_eq1" /> can be
+              solved for <m>z</m> in terms of <m>x</m> and <m>y</m> near the point <m>(x,y,z) = (3,2,1)</m>?)
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that such a solution does exist. <em>Hint.</em> Follow the preceding technique,
+              but instead of using<nbsp /><xref ref="ift_eq3" />, define <m>G(x,y,z) := (x,y,f(x,y,z))</m> for an appropriate
+              function<nbsp /><m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use the <em>inverse function theorem</em> to find the values of <m>\left(\pd zx \right)_y</m>
+              and <m>\left(\pd zy \right)_x</m> at the point<nbsp /><m>(3,2,1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_xmpl_ift_13">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="ift_prob2">
+    <statement>
+      <p>
+        Let <m>f(x,y,z) = xz + xy + yz - 3</m>. By explicit computation find a
+        neighborhood <m>V</m> of <m>(1,1)</m> in <m>\R^2</m> and a function <m>h \colon V \sto \R</m> such that <m>h(1,1) =
+        1</m> and <m>f(x,y,h(x,y)) = 0</m> for all <m>x</m> and <m>y</m> in<nbsp /><m>V</m>. Find <m>h_1(1,1)</m> and <m>h_2(1,1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the <em>inverse function theorem</em>, not direct calculation, to show that the equation
+        <me>
+          xz + xy + yz = 3
+        </me>
+        has a solution for <m>z</m> near <m>1</m> in terms of <m>x</m> and <m>y</m> near <m>(1,1)</m> and to find <m>\left(\pd zx
+        \right)_y</m> and <m>\left(\pd zy \right)_x</m> at the point <m>(1,1,1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (a) What does it mean to say that the equation
+        <me>
+          wx^2y + \sqrt wy^2z^4 = 3xz + 6x^3z^2 + 7
+        </me>
+        can be solved for <m>z</m> in terms of <m>w</m>, <m>x</m>, and <m>y</m> near the point <m>(w,x,y,z) = (4,1,2,1)</m>?
+        <ol>
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that such a solution exists.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use the <em>inverse function theorem</em> to find <m>\left(\pd zw \right)_{x,y}</m>,
+              <m>\left(\pd zx \right)_{w,y}</m>, and <m>\left(\pd zy \right)_{w,x}</m> at the point <m>(4,1,2,1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="ift_prob5">
+    <statement>
+      <p>
+        Let <m>\open U{\R^{n-1} \times \R}</m> and <m>f \in \fml C^1(U,\R)</m>.
+        Suppose that the point <m>(a,b) = (a_1, \dots ,a_{n-1};b)</m> belongs to <m>U</m>, that <m>f(a,b) = 0</m>,
+        and that <m>f_n(a,b) \ne 0</m>. Show that there exists a neighborhood <m>V</m> of <m>a</m> in <m>\R^{n-1}</m> and
+        a function <m>h</m> in <m>\fml C^1(V,\R)</m> such that <m>h(a) = b</m> and <m>f(x,h(x)) = 0</m> for all <m>x</m>
+        in<nbsp /><m>V</m>. <em>Hint.</em> Show that the function
+        <me>
+          G \colon U \sto \ R^{n-1} \times \R \colon (x,y)
+                              = (x_1, \dots ,x_{n-1};y) \mapsto (x,f(x,y))
+        </me>
+        has a local <m>\fml C^1</m>-inverse, say <m>H</m>, at<nbsp /><m>(a,b)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the equation
+        <me>
+          uvy^2z + w\sqrt xz^{10} + v^2e^yz^4 = 5 + uw^2\cos\bigl(x^3y^5\bigr)
+        </me>
+        can be solved for <m>x</m> near 4 in terms of <m>u</m>, <m>v</m>, <m>w</m>, <m>y</m>, and <m>z</m> near <m>-3</m>, <m>2</m>, <m>-1</m>,
+        <m>0</m>, and <m>1</m>, respectively. <em>Hint.</em> Use the preceding problem.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (a) Use <xref ref="ift_prob5">problem</xref> to make sense of the following <q>theorem</q>:
+        If <m>f(x,y,z) = 0</m>, then
+        <me>
+          \cpd zxy = -\frac{\cpd fx{y,z}}{\cpd fz{x,y}}\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> After determining that there exists a function <m>h</m> which satisfies the equation
+        <m>f(x,y,h(x,y)) = 0</m> on an appropriate neighborhood of a point, use the chain rule to
+        differentiate both sides of the equation with respect to <m>x</m>.)
+        <ol>
+          <li>
+            <title>(b)</title>
+            <p>
+              Verify part (a) directly for the function <m>f</m> given in <xref ref="ift_prob2">problem</xref>
+              by computing each side independently.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Restate and prove the following <q>theorem</q>: If <m>f(x,y,z) = 0</m>, then
+              <me>
+                \cpd zxy \cpd xyz \cpd yzx = -1\,.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        A commonly used formula in scientific work is
+        <me>
+          \cpd xyz = \frac 1{\cpd yxz}\,.
+        </me>
+      </p>
+
+      <p>
+        Recast this as a carefully stated theorem. Then prove the theorem. <em>Hint.</em> Use
+        <xref ref="ift_prob5">problem</xref> twice to obtain appropriate functions <m>h</m> and <m>j</m> satisfying
+        <m>f(h(y,z),y,z) = 0</m> and <m>f(x,j(x,z),z) = 0</m> on appropriate neighborhoods. Differentiate these
+        equations using the chain rule. Evaluate at a particular point. Solve.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (a) Make sense of the formula
+        <me>
+          \cpd xzy = -\frac{\cpd yzx}{\cpd yxz}
+        </me>
+        and prove it.
+        <ol>
+          <li>
+            <title>(b)</title>
+            <p>
+              Illustrate the result in part (a) by computing separately <m>\cpd PVT</m> and
+              <m>-\dfrac{\cpd TVP}{\cpd TPV}</m> from the equation of state <m>PV = RT</m> for an ideal gas. (Here <m>R</m>
+              is a constant.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We have dealt at some length with the problem of solving a single equation for one variable in
+    terms of the remaining ones. It is pleasant to discover that the techniques used there can be
+    adapted with only the most minor modifications to give local solutions for systems of <m>n</m>
+    equations in <m>p</m> variables (where <m>p > n</m>) for <m>n</m> of the variables in terms of the remaining
+    <m>p-n</m> variables. We begin with some examples.
+  </p>
+  <exercise xml:id="xmpl_ift_24">
+    <statement>
+      <p>
+        Consider the following system of equations:
+        <men xml:id="ift_24_eq1" >
+          \begin{cases}2u^3vx^2 + v^2x^3y^2 - 3u^2y^4 = 0 \\
+                      2uv^2y^2 - uvx^2 + u^3xy = 2 \,.
+          \end{cases}
+        </men>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              What does it mean to say that the system<nbsp /><xref ref="ift_24_eq1" /> can be solved for <m>x</m>
+              and <m>y</m> near <m>(c,d)</m> in terms of <m>u</m> and <m>v</m> near<nbsp /><m>(a,b)</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the system<nbsp /><xref ref="ift_24_eq1" /> can be solved for <m>x</m> and <m>y</m> near <m>(1,1)</m>
+              in terms of <m>u</m> and <m>v</m> near<nbsp /><m>(1,1)</m>. <em>Hint.</em> Try to imitate the technique of
+              <xref ref="ift_prob5">problem</xref>, except in this case define <m>G</m> on an appropriate subset of <m>\R^2
+              \times \R^2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_xmpl_ift_24">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="ift_prob10">
+    <statement>
+      <p>
+        Consider the following system of equations
+        <men xml:id="ift_23_eq1" >
+          \begin{cases}4x^2 + 4y^2 \amp = z \\
+                       x^2 + y^2 \amp = 5 - z \,.
+          \end{cases}
+        </men>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              What does it mean to say that <xref ref="ift_23_eq1" /> can be solved for  <m>y</m> and <m>z</m> near
+              <m>(1,4)</m> in terms of <m>x</m> near<nbsp />0?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that such a solution exists by direct computation.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Compute <m>\cpd yxz</m> and <m>\cpd zxy</m> at the point <m>x = 0</m>, <m>y = 1</m>, <m>z = 4</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="ift_prob11">
+    <statement>
+      <p>
+        (a) Repeat <xref ref="ift_prob10">problem</xref>(b), this time using the
+        <em>inverse function theorem</em> instead of direct computation.
+        <ol>
+          <li>
+            <title>(b)</title>
+            <p>
+              Use the <em>inverse function theorem</em> to find <m>\cpd yxz</m> and <m>\cpd zxy</m> at the
+              point <m>x = 0</m>, <m>y = 1</m>, <m>z = 4</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="ift_prob12">
+    <statement>
+      <p>
+        Discuss the problem of solving the system of equations
+        <men>
+          \begin{cases}ux^2 + vwy + u^2w \amp = 4 \\
+                   uvy^3 + 2wx - x^2y^2 \amp = 3
+          \end{cases}
+        </men>
+        for <m>x</m> and <m>y</m> near <m>(1,1)</m> in terms of <m>u</m>, <m>v</m>, and <m>w</m> near<nbsp /><m>(1,2,1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    As the preceding examples indicate, the first step in solving a system of <m>n</m> equations in
+    <m>n+k</m> unknowns (where <m>k>0</m>) for <m>n</m> of the variables in terms of the remaining <m>k</m> variables
+    is to replace the system of equations by a function <m>f:U \sto \R^n</m> where <m>\open U{\R^k \times
+    \R^n}</m>. If the finite dimensional spaces <m>\R^k</m> and <m>\R^n</m> are replaced by arbitrary Banach
+    spaces, the subsequent calculations can be carried out in exactly the same fashion as in the
+    examples we have just considered. The result of this computation is the <em>implicit
+    function theorem</em>.
+  </p>
+
+  <theorem xml:id="thm_impft">
+    <title>The Implicit Function Theorem</title>
+    <statement>
+      <p>
+        Let <m>E_1</m>, <m>E_2</m>, and <m>F</m> be Banach
+        spaces, <m>(a,b) \in \open U{E_1 \times E_2}</m>, and <m>f \in \fml C^1(U,F)</m>. If <m>f(a,b) = \vc 0</m>
+        and <m>d_2f_{(a,b)}</m> is invertible in <m>\ofml B(E_2,F)</m>, then there exist a neighborhood <m>V</m> of
+        <m>a</m> in <m>E_1</m> and a continuously differentiable function <m>h \colon V \sto E_2</m> such that <m>h(a)
+        = b</m> and <m>f(x,h(x)) = \vc 0</m> for all <m>x \in V</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>G(x,y) = (x,f(x,y))</m> for all <m>(x,y) \in U</m>. Show that
+      <m>dG_{(a,b)} = (x, Sx + Ty)</m> where <m>S = d_1f_{(a,b)}</m> and <m>T = d_2f_{(a,b)}</m>. Show that the
+      map <m>(x,z) \mapsto (x,T^{-1}(z-Sx))</m> from <m>E_1 \times F</m> to <m>E_1 \times E_2</m> is the inverse of
+      <m>dG_{(a,b)}</m>. (One can guess what the inverse of <m>dG_{(a,b)}</m> should be by regarding
+      <m>dG_{(a,b)}</m> as the matrix <m>\begin{bmatrix}I_{E_1} \amp  0 \\
+                                          S    \amp  T
+      \end{bmatrix}</m> acting on <m>E_1 \times E_2</m>.) Apply the <em>inverse
+      function theorem</em><nbsp /> <xref ref="thm_inft3"></xref> and proceed as in <xref ref="xmpl_ift_24">exercise</xref> and
+      <xref ref="ift_prob11">problems</xref> and <xref ref="ift_prob12"></xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose we are given a system of <m>n</m> equations in <m>p</m> variables where <m>p > n</m>. What
+        does the <em>implicit function theorem</em><nbsp /> <xref ref="thm_impft"></xref> say about the possibility of solving
+        this system locally for <m>n</m> of the variables in terms of the remaining <m>p - n</m> variables?
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    IIIII
+  </p>
+
+  <p>
+    \appendix
+  </p>
+</section>

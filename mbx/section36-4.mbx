@@ -1,0 +1,91 @@
+
+<section>
+  <title>Another consequence of uniqueness</title>
+  <p>
+    We can use <xref ref="addinv_uniq">proposition</xref> to show
+    that in <m>\R</m>
+    <men xml:id="arith_eqn4" >
+      -(x + y) = - x - y.
+    </men>
+  </p>
+
+  <p>
+    Before looking at the proof of this assertion it is well to note the two uses of the <q>-</q>
+    sign on the right side of<nbsp /><xref ref="arith_eqn4" />. The first, attached to<nbsp /><q><m>x</m></q>, indicates the
+    additive inverse of<nbsp /><m>x</m>; the second indicates subtraction. Thus <m>-x-y</m> means <m>(-x) + (-y)</m>.
+    The idea behind the proof is to add the right side of <xref ref="arith_eqn4" /> to <m>x + y</m>. If the
+    result is <m>0</m>, then the uniqueness of additive inverses, <xref ref="addinv_uniq">proposition</xref>, tells
+    us that <m>-x-y</m> is the additive inverse of<nbsp /><m>x+y</m>. And that is exactly what we get:
+    <md>
+      <mrow>(x + y) + (-x -y) \amp = (x + y) + ((-x) + (-y))</mrow>
+      <mrow>\amp = (y + x) + ((-x) + (-y))</mrow>
+      <mrow>\amp = y + (x + ((-x) + (-y)))</mrow>
+      <mrow>\amp = y + ((x + (-x)) + (-y))</mrow>
+      <mrow>\amp = y + (0 + (-y))</mrow>
+      <mrow>\amp = (y + 0) + (-y)</mrow>
+      <mrow>\amp = y + (-y)</mrow>
+      <mrow>\amp = 0.</mrow>
+    </md>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Justify each step in the proof of equation<nbsp /><xref ref="arith_eqn4" />.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that if <m>x</m> and <m>y</m> are nonzero real numbers, then
+        <me>
+          (xy)^{-1} = y^{-1}x^{-1}\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that
+        <me>
+          (-1)x = -x
+        </me>
+        for every real number<nbsp /><m>x</m>. <em>Hint.</em> Use the uniqueness of additive inverses.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="arith_prob1">
+    <statement>
+      <p>
+        Show that
+        <me>
+          -(xy) = (-x)y = x(-y)
+        </me>
+        and that
+        <me>
+          (-x)(-y) = xy
+        </me>
+        for all <m>x</m> and <m>y</m> in<nbsp /><m>\R</m>. <em>Hint.</em> For the first equality add <m>(-x)y</m> to<nbsp /><m>xy</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the first four axioms for <m>\R</m> to develop the rules for adding, multiplying,
+        subtracting, and dividing fractions. Show for example that
+        <me>
+          \frac ab + \frac  cd  = \frac{ad + bc}{bd}
+        </me>
+        if <m>b</m> and <m>d</m> are not zero. (Remember that, by definition, <m>\dfrac ab + \dfrac cd</m> is
+        <m>ab^{-1} + cd^{-1}</m> and <m>\dfrac{ad + bc}{bd}</m> is <m>(ad + bc)(bd)^{-1}</m>.)
+      </p>
+    </statement>
+  </problem>
+</section>

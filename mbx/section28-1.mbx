@@ -1,0 +1,614 @@
+
+<section>
+  <title>Convergence of series</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>(a_k)</m> be a sequence in a normed linear space. For each <m>n</m> in <m>\N</m> let
+        <m>s_n = \sum_{k=1}^n a_k</m>. The vector <m>s_n</m> is the
+        <index><main>partial</main><sub>sum</sub></index>
+        <index><main>sum</main><sub>partial</sub></index><term><m>n^{\text{ th } }</m> partial sum</term> of the sequence<nbsp /><m>(a_k)</m>. As is true of sequences, we permit
+        variations of this definition. For example, in <xref ref="pow_ser">section</xref> on power series we
+        consider sequences <m>\bigl(a_k\bigr)_{k=0}^n</m> whose first term has index zero. In this case,
+        of course, the proper definition of <m>s_n</m> is <m>\sum_{k=0}^n a_k</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_par_sum1">
+    <statement>
+      <p>
+        Let <m>a_k = (-1)^{k+1}</m> for each <m>k</m> in <m>\N</m>. For <m>n \in \N</m>
+        compute the <m>n^{\text{ th } }</m> partial sum of the sequence<nbsp /><m>(a_k)</m>.
+        (<xref ref="sol_exer_par_sum1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_par_sum2">
+    <statement>
+      <p>
+        Let <m>a_k = 2^{-k}</m> for each <m>k</m> in <m>\N</m>. For <m>n \in \N</m> show
+        that the <m>n^{\text{ th } }</m> partial sum of the sequence <m>(a_k)</m> is <m>1 - 2^{-n}</m>.
+        (<xref ref="sol_exer_par_sum2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(a_k)</m> be a sequence in a normed linear space. The
+        <index><main>infinite</main><sub>series</sub></index>
+        <index><main>series</main><sub>infinite</sub></index>
+        <index><main><@<m>\sum_{k=1}^\infty a_k</m> (infinite series)</main></index><term>infinite series</term> <m>\sum_{k=1}^\infty a_k</m> is defined to be the sequence <m>(s_n)</m> of partial
+        sums of the sequence <m>(a_k)</m>. We may also write <m>a_1 + a_2 + a_3 + \dots</m> for
+        <m>\sum_{k=1}^\infty a_k</m>. Again we permit variants of this definition. For example, the
+        infinite series associated with the sequence <m>\bigl(a_k\bigr)_{k=0}^\infty</m> is denoted by
+        <m>\sum_{k=0}^\infty a_k</m>. Whenever the range of the summation index <m>k</m> is understood from
+        context or is unimportant we may denote a series simply by <m>\sum a_k</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_inf_ser1">
+    <statement>
+      <p>
+        What are the infinite series associated with the sequences
+        given in <xref ref="exer_par_sum1">exercises</xref> and <xref ref="exer_par_sum2"></xref>?
+        (<xref ref="sol_exer_inf_ser1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(a_k)</m> be a sequence in a normed linear space<nbsp /><m>V</m>. If the infinite series
+        <m>\sum_{k=1}^\infty a_k</m> (that is, the sequence of partial sums of <m>(a_k)</m>) converges to a
+        vector <m>b</m> in <m>V</m>, then we say that the sequence <m>(a_k)</m> is
+        <index><main>summable</main><sub>sequence</sub></index>
+        <index><main>sequence</main><sub>summable</sub></index><term>summable</term> or, equivalently, that the series <m>\sum_{k=1}^\infty a_k</m> is a
+        <index><main>convergence</main><sub>of a series</sub></index>
+        <index><main>series</main><sub>convergent</sub></index><term>convergent series</term>. The vector <m>b</m> is called the
+        <index><main>sum</main><sub>of an infinite series</sub></index>
+        <index><main>series</main><sub>sum of a</sub></index><term>sum</term> of the series <m>\sum_{k=1}^\infty a_k</m> and we write
+        <me>
+          \sum_{k=1}^\infty a_k = b\,.
+        </me>
+      </p>
+
+      <p>
+        It is clear that a necessary and sufficient condition for a series <m>\sum_{k=1}^\infty a_k</m> to
+        be convergent or, equivalently, for the sequence <m>(a_k)</m> to be summable, is that there exist a
+        vector <m>b</m> in <m>V</m> such that
+        <men xml:id="cond_ser_conv" >
+          \bignorm{b - \sum_{k=1}^n a_k} \sto 0 \qquad \text{ as }  \qquad n \sto \infty.
+        </men>
+      </p>
+
+      <p>
+        If a series does not converge we say that it is a
+        <index><main>divergence</main><sub>of a series</sub></index>
+        <index><main>series</main><sub>divergent</sub></index><term>divergent series</term> (or that it <term>diverges</term>).
+      </p>
+    </statement>
+  </definition>
+
+  <caution>
+
+  <p>
+    It is an old, if illogical, practice to use the same notation <m>\sum_{k=1}^\infty a_k</m>
+    for both the sum of a convergent series and the series itself. As a result of this
+    convention, the statements <q><m>\sum_{k=1}^\infty a_k</m> converges to <m>b</m></q> and
+    <q><m>\sum_{k=1}^\infty a_k = b</m></q> are interchangeable. It is possible for this to cause
+    confusion, although in practice it is usually clear from the context which use of the symbol
+    <m>\sum_{k=1}^\infty a_k</m> is intended. Notice however that since a divergent series has no sum,
+    the symbol <m>\sum_{k=1}^\infty a_k</m> for such a series is unambiguous; it can refer only to the
+    series itself.
+  </p>
+
+  </caution>
+  <exercise xml:id="exer_inf_ser2">
+    <statement>
+      <p>
+        Are the sequences <m>(a_k)</m> given in <xref ref="exer_par_sum1">exercises</xref> and <xref ref="exer_par_sum2"></xref> summable? If <m>(a_k)</m> is summable, what is the sum
+        of the corresponding series <m>\sum_{k=1}^\infty a_k</m>? (<xref ref="sol_exer_inf_ser2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="prob_geomser2">
+    <title>Geometric Series</title>
+    <statement>
+      <p>
+        <index><main>geometric</main><sub>series</sub></index>
+        <index><main>series</main><sub>geometric</sub></index>Let <m>a</m> and <m>r</m> be real numbers.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that if <m>\abs r \lt  1</m>, then <m>\sum_{k=0}^\infty ar^k</m> converges and
+              <me>
+                \sum_{k=0}^\infty ar^k = \frac a{1-r}\,.
+              </me>
+              <em>Hint.</em>  To compute the <m>n^{\text{ th } }</m> partial sum <m>s_n</m>, use a technique similar
+              to the one used in <xref ref="exer_par_sum2">exercise</xref>. See also <xref ref="prob_geomser1">problem</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if <m>\abs r \ge 1</m> and <m>a \ne 0</m>, then <m>\sum_{k=0}^\infty ar^k</m>
+              diverges. <em>Hint.</em> Look at the cases <m>r \ge 1</m> and <m>r \le -1</m> separately.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\sum a_k</m> and <m>\sum b_k</m> be convergent series in a normed linear space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that the series <m>\sum(a_k + b_k)</m> also converges and that
+              <me>
+                \sum(a_k + b_k) = \sum a_k + \sum b_k\,.
+              </me>
+              <em>Hint.</em> <xref ref="prob_clo_subsp">Problem</xref>(a).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that for every <m>\alpha \in \R</m> the series <m>\sum (\alpha a_k)</m> converges
+              and that
+              <me>
+                \sum (\alpha a_k) = \alpha \sum a_k\,.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    One very easy way of seeing that certain series do not converge is to observe that its terms
+    do not approach<nbsp /><m>0</m>. (The proof is given in the next proposition.) It is important not to
+    confuse this assertion with its converse. <em>The condition <m>a_k \sto 0</m> does not guarantee
+    that <m>\sum_{k=1}^\infty a_k</m> converges.</em> (An example is given in <xref ref="exam_harm_ser">example</xref>.
+  </p>
+
+  <proposition xml:id="prop_terms_zero">
+    <statement>
+      <p>
+        If <m>\sum_{k=1}^\infty a_k</m> is a convergent series in a
+        normed linear space, then <m>a_k \sto 0</m> as <m>k \sto \infty</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Write <m>a_n</m> in terms of the partial sums <m>s_n</m> and
+      <m>s_{n-1}</m>. (<xref ref="sol_prop_terms_zero">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="exam_harm_ser">
+    <statement>
+      <p>
+        It is possible for a series to diverge even though the
+        terms <m>a_k</m> approach<nbsp /><m>0</m>. A standard example of this situation in <m>\R</m> is the harmonic series
+        <m>\sum_{k=1}^\infty 1/k</m>. The harmonic series diverges.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Show that the difference of the partial sums <m>s_{2p}</m>
+      and <m>s_p</m> is at least<nbsp /><m>1/2</m>. Assume that <m>(s_n)</m> converges. Use <xref ref="conv_cau">proposition</xref>.
+      (<xref ref="sol_exam_harm_ser">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>0 \lt  p \le 1</m>, then the series <m>\sum_{k=1}^\infty k^{-p}</m> diverges.
+        <em>Hint.</em> Modify the argument used in <xref ref="exam_harm_ser"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the series <m>\sum_{k=1}^\infty \frac1{k^2+k}</m> converges and find its sum.
+        <em>Hint.</em> <m>\frac1{k^2 + k} = \frac1k - \frac1{k + 1}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the preceding problem to show that the series <m>\sum_{k=1}^\infty \frac1{k^2}</m>
+        converges and that its sum is no greater than <m>2</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the series <m>\sum_{k=4}^\infty\frac1{k^2-1}</m> converges and find its sum.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>p \in \N</m>. Find the sum of the series <m>\sum_{k=1}^\infty\frac{(k-1)!}{(k+p)!}</m>.
+        <em>Hint.</em> If <m>a_k = \frac{k!}{(k+p)!}</m>, what can you say about <m>\sum_{k=1}^n(a_{k-1} -
+        a_k)</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    In <em>complete</em> normed linear spaces the elementary fact that a sequence is Cauchy if and
+    only if it converges may be rephrased to give a simple necessary and sufficient condition for
+    the convergence of series in the space.
+  </p>
+
+  <proposition xml:id="prop_Cauchy_crit">
+    <title>The Cauchy Criterion</title>
+    <statement>
+      <p>
+        <index><main>Cauchy</main><sub>criterion</sub></index>
+        <index><main>criterion</main><sub>Cauchy</sub></index>Let <m>V</m> be a normed linear space. If the series <m>\sum a_k</m> converges in <m>V</m>, then for every
+        <m>\epsilon > 0</m> there exists <m>n_0 \in \N</m> such that <m>\bignorm{\sum_{k=m+1}^n a_k} \lt  \epsilon</m>
+        whenever <m>n > m \ge n_0</m>. If <m>V</m> is a Banach space, then the converse of this implication
+        also holds.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise (<xref ref="sol_prop_Cauchy_crit">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The principal use of the preceding proposition is to shorten proofs. By invoking the
+    <em>Cauchy criterion</em> one frequently can avoid explicit reference to the partial sums of the
+    series involved. See, for example, <xref ref="prop_abssum_x_bdd">proposition</xref>.
+  </p>
+
+  <p>
+    One obvious consequence of the <em>Cauchy criterion</em> is that the convergence of an infinite
+    series is unaffected by changing any finite number of its terms. If <m>a_n = b_n</m> for all <m>n</m>
+    greater than some fixed integer <m>n_0</m>, then the series <m>\sum a_n</m> converges if and only if the
+    series <m>\sum b_n</m> does.
+  </p>
+
+  <p>
+    The examples of infinite series we have looked at thus far are all series of real numbers. We
+    now turn to series in the Banach space <m>\fml B(S,E)</m> of bounded <m>E</m> valued functions on a set
+    <m>S</m> (where <m>E</m> is a Banach space). Most of the examples we consider will be real valued
+    functions on subsets of the real line.
+  </p>
+
+  <p>
+    First a word of caution: the notations <m>\sum_{k=1}^\infty f_k</m> and <m>\sum_{k=1}^\infty f_k(x)</m>
+    can, depending on context, mean many different things. There are many ways in which sequences
+    (and therefore series) of functions can converge. There are, among a host of others, uniform
+    convergence, pointwise convergence, convergence in mean, and convergence in measure. Only the
+    first two of these appear in this text. Since we regard <m>\fml B(S,E)</m> as a Banach space under
+    the uniform norm <m>\norm{}_u</m>, it is not, strictly speaking, necessary for us to
+    write <q><m>f_n \sto g \text{ (unif) }</m></q> when we wish to indicate that the sequence <m>(f_n)</m>
+    converges to <m>g</m> in the space <m>\fml B(S,E)</m>; writing <q><m>f_n \sto g</m></q> is enough, because
+    unless the contrary is explicitly stated uniform convergence is understood. Nevertheless, in
+    the sequel we will frequently add the redundant <q>(unif)</q> just as a reminder that in the
+    space <m>\fml B(S,E)</m> we are dealing with uniform, and not some other type of, convergence of
+    sequences and series.
+  </p>
+
+  <p>
+    It is important to keep in mind that in the space <m>\fml B(S,E)</m> the following assertions are
+    equivalent:
+    <ol>
+      <li>
+        <title>(a)</title>
+        <p>
+          <m>\sum_{k=1}^\infty f_k</m> converges uniformly to <m>g</m>;
+        </p>
+      </li>
+
+      <li>
+        <title>(b)</title>
+        <p>
+          <m>g = \sum_{k=1}^\infty f_k</m>; and
+        </p>
+      </li>
+
+      <li>
+        <title>(c)</title>
+        <p>
+          <m>\norm{g - \sum_{k=1}^n f_k}_u \sto 0</m> as <m>n \sto
+          \infty</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Since uniform convergence implies pointwise convergence, but not conversely, each of the
+    preceding three conditions implies<mdash /><em>but is not implied by</em><mdash />the following three (which
+    are also equivalent):
+    <ol>
+      <li>
+        <title>(a<m>{}'</m>)</title>
+        <p>
+          <m>\sum_{k=1}^\infty f_k(x)</m> converges to <m>g(x)</m> for every <m>x</m> in<nbsp /><m>S</m>;
+        </p>
+      </li>
+
+      <li>
+        <title>(b<m>{}'</m>)</title>
+        <p>
+          <m>g(x) = \sum_{k=1}^\infty f_k(x)</m> for every <m>x</m> in<nbsp /><m>S</m>; and
+        </p>
+      </li>
+
+      <li>
+        <title>(c<m>{}'</m>)</title>
+        <p>
+          For every <m>x</m> in <m>S</m>
+          <me>
+            \bignorm{g(x) - \sum_{k=1}^n f_k(x)} \sto 0  \text{ as }    n \sto \infty\,.
+          </me>
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    One easy consequence of the <em>Cauchy criterion</em> (<xref ref="prop_Cauchy_crit">proposition</xref>) is
+    called the <em>Weierstrass M-test</em>. The rather silly name which is attached to this result
+    derives from the fact that in the statement of the proposition, the constants which appear are
+    usually named<nbsp /><m>M_n</m>.
+  </p>
+
+  <proposition xml:id="M_test">
+    <title>Weierstrass M-test</title>
+    <statement>
+      <p>
+        <index><main>Weierstrass M-test</main></index>
+        <index><main>M-test</main></index>Let <m>(f_n)</m> be a sequence of functions in <m>\fml B(S,E)</m> where <m>S</m> is a nonempty set and <m>E</m> is
+        a Banach space. If there is a summable sequence of positive constants <m>M_n</m> such that
+        <m>\bignorm{f_n}_u \le M_n</m> for every <m>n</m> in <m>\N</m>, then the series <m>\sum f_k</m> converges
+        uniformly on<nbsp /><m>S</m>. Furthermore, if the underlying set <m>S</m> is a metric space and each <m>f_n</m> is
+        continuous, then <m>\sum f_k</m> is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_M_test">
+    <statement>
+      <p>
+        Let <m>0 \lt  \delta \lt  1</m>. Show that the series
+        <m>\sum_{k=1}^\infty \frac{x^k}{1+x^k}</m> converges uniformly on the interval <m>[-\delta,\delta]</m>.
+        <em>Hint.</em> Use <xref ref="prob_geomser2">problem</xref>. (<xref ref="sol_exer_M_test">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>\sum_{n=1}^\infty\frac1{1 + n^2x}</m> converges uniformly on
+        <m>[\delta,\infty)</m> for any <m>\delta</m> such that <m>0 \lt  \delta \lt  1</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M > 0</m>. Show that <m>\sum_{n=1}^\infty\frac{n^2x^3}{n^4+x^4}</m> converges
+        uniformly on<nbsp /><m>[-M,M]</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>\sum_{n=1}^\infty\frac{nx}{n^4 + x^4}</m> converges uniformly on<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We conclude this section with a generalization of the alternating series test, familiar from
+    beginning calculus. Recall that an
+    <index><main>alternating series</main></index>
+    <index><main>series</main><sub>alternating</sub></index><term>alternating series</term> in <m>\R</m> is a series of the form <m>\sum_{k=1}^\infty (-1)^{k+1}
+    \alpha_k</m> where each <m>\alpha_k > 0</m>. The generalization here will not require that the
+    multipliers of the <m>\alpha_k</m>'s be <m>+1</m> and <m>-1</m> in strict alternation. Indeed they need not
+    even be real numbers; they may be the terms of any sequence of vectors in a Banach space for
+    which the corresponding sequence of partial sums is bounded. You are asked in
+    <xref ref="prob_ast">problem</xref> to show that the <em>alternating series test</em> actually follows from
+    the next proposition.
+  </p>
+
+  <p>
+    <index><main>alternating series test</main><sub>generalized</sub></index>
+  </p>
+
+  <proposition xml:id="prop_genl_ast">
+    <statement>
+      <p>
+        Let <m>(\alpha_k)</m> be a decreasing sequence of real numbers,
+        each greater than or equal to zero, which converges to zero. Let <m>(x_k)</m> be a sequence of
+        vectors in a Banach space for which there exists <m>M>O</m> such that <m>\bignorm{\sum_{k=1}^n x_k}
+        \le M</m> for all <m>n</m> in <m>\N</m>. Then <m>\sum_{k=1}^\infty \alpha_k x_k</m> converges and
+        <m>\bignorm{\sum_{k=1}^\infty \alpha_k x_k} \le M\alpha_1</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> This is a bit complicated. Start by proving the
+      following very simple geometrical fact about a normed linear space <m>V</m>: if <m>[x,y]</m> is a closed
+      segment in <m>V</m>, then one of its endpoints is at least as far from the origin as every other
+      point in the segment. Use this to derive the fact that if <m>x</m> and <m>y</m> are vectors in <m>V</m> and
+      <m>0 \le t \le 1</m>, then
+      <me>
+        \norm{x + ty} \le \max\{\norm x,\norm{x + y}\,.
+      </me>
+    </p>
+
+    <p>
+      Next prove the following result.
+    </p>
+
+    <lemma>
+      <statement>
+      <p>
+        Let <m>(\alpha_k)</m> be a decreasing sequence of real numbers with <m>\alpha_k \ge 0</m>
+        for every <m>k</m>, let <m>M > 0</m>, and let <m>V</m> be a normed linear space. If <m>x_1,\dots,x_n \in
+        V</m> satisfy
+        <men xml:id="eqn_ast" >
+          \bignorm{\sum_{k=1}^m x_k} \le M
+        </men>
+        for all <m>m \le n</m>, then
+        <me>
+          \bignorm{\sum_{k=1}^n \alpha_k x_k} \le M\alpha_1\,.
+        </me>
+      </p>
+      </statement>
+    </lemma>
+
+    <p>
+      To prove this result use mathematical induction. Supposing the lemma to be true for <m>n = p</m>,
+      let <m>y_1,\dots,y_{p+1}</m> be vectors in <m>V</m> such that <m>\bignorm{\sum_{k=1}^m y_k} \le M</m> for all
+      <m>m \le p+1</m>. Let <m>x_k = y_k</m> for <m>k = 1,\dots,p-1</m> and let <m>x_p = y_p +
+      (\alpha_{p+1}/\alpha_p)y_{p+1}</m>. Show that the vectors <m>x_1,\dots,x_p</m>
+      satisfy<nbsp /><xref ref="eqn_ast" /> for all <m>m \le p</m> and invoke the inductive hypothesis.
+    </p>
+
+    <p>
+      Once the lemma is in hand, apply it to the sequence <m>\bigl(x_k\bigr)_{k=1}^\infty</m> to obtain
+      <m>\bignorm{\sum_{k=1}^n \alpha_k x_k} \le M\alpha_1</m> for all <m>n \in \N</m>, and apply it to the
+      sequence <m>\bigl(x_k\bigr)_{k=m+1}^\infty</m> to obtain <m>\bignorm{\sum_{k = m+1}^n\alpha_kx_k} \le
+      2M\alpha_{m+1}</m> for <m>0 \lt  m \lt  n</m>. Use this last result to prove that the sequence of partial
+      sums of the series <m>\sum\alpha_k x_k</m> is Cauchy.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>alternating series test</main></index>
+  </p>
+
+  <problem xml:id="prob_ast">
+    <statement>
+      <p>
+        Use <xref ref="prop_genl_ast">proposition</xref> to derive the <em>alternating
+        series test</em>: If <m>(\alpha_k)</m> is a decreasing sequence of real numbers with <m>\alpha_k \ge 0</m>
+        for all <m>k</m> and if <m>\alpha_k \sto 0</m> as <m>k \sto \infty</m>, then the alternating series
+        <m>\sum_{k=1}^\infty (-1)^{k+1}\alpha_k</m> converges. Furthermore, the absolute value of the
+        difference between the sum of the series and its <m>n^{\text{ th } }</m> partial sum is no greater
+        than <m>\alpha_{n+1}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the series <m>\sum_{k=1}^\infty k^{-1}\sin(k\pi/4)</m> converges.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    An important and interesting result in analysis is the <em>Tietze extension theorem</em>. For
+    compact metric spaces it says that any continuous real valued function defined on a closed
+    subset of the space can be extended to a continuous function on the whole space and that this
+    process can be carried out in such a way that the (uniform) norm of the extension does not
+    exceed the norm of the original function. One proof of this uses both the M-<em>test</em> and
+    the <em>approximation theorem</em> of Weierstrass.
+  </p>
+
+  <theorem xml:id="Tet">
+    <title>Tietze Extension Theorem</title>
+    <statement>
+      <p>
+        <index><main>Tietze extension theorem</main></index>
+        <index><main>extension</main><sub>from closed sets</sub></index>Let <m>M</m> be a compact metric space, <m>A</m> be a closed subset of <m>M</m>, and <m>g\colon A \sto \R</m> be
+        continuous. Then there exists a continuous function <m>w\colon M \sto \R</m> such that <m>w\big|_A =
+        g</m> and <m>\norm w_u = \norm g_u</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> First of all demonstrate that a continuous function can
+      be truncated without disturbing its continuity. (Precisely: if <m>f \colon M \sto \R</m> is a
+      continuous function on a metric space, if <m>A \subseteq M</m>, and if <m>f^{\sto}(A) \subseteq
+      [a,b]</m>, then there exists a continuous function <m>g \colon M \sto \R</m> which agrees with <m>f</m> on
+      <m>A</m> and whose range is contained in <m>[a,b]</m>.) Let <m>\fml F = \{u\big|_A \colon  u \in \fml
+      C(M,\R)\}</m>. Notice that the preceding comment reduces the proof of <xref ref="Tet"></xref> to showing that
+      <m>\fml F = \fml C(A,\R)</m>. Use the <em>Stone-Weierstrass theorem</em><nbsp /> <xref ref="SW_thm"></xref> to prove that
+      <m>\fml F</m> is dense in <m>\fml C(A,\R)</m>. Next find a sequence <m>(f_n)</m> of functions in <m>\fml F</m>
+      such that
+      <me>
+        \bignorm{g - \sum_{k=1}^n f_k}_u \lt  \frac1{2^n}
+      </me>
+      for every <m>n</m>. Then for each <m>k</m> find a function <m>u_k</m> in <m>\fml C(M,\R)</m> whose restriction to
+      <m>A</m> is <m>f_k</m>. Truncate each <m>u_k</m> (as above) to form a new function <m>v_k</m> which agrees with
+      <m>u_k</m> (and therefore <m>f_k</m>) on <m>A</m> and which satisfies <m>\norm{v_k}_u = \norm{f_k}_u</m>. Use the
+      <em>Weierstrass M-test</em><nbsp /> <xref ref="M_test"></xref> to show that <m>\sum_1^{\infty}v_k</m> converges uniformly
+      on <m>M</m>. Show that <m>w = \sum_1^{\infty}v_k</m> is the desired extension.
+    </p>
+  </proof>
+
+  <p>
+    Recall that in <xref ref="prob_c_functor">problem</xref> we showed that if <m>\phi\colon M \sto N</m> is a
+    continuous map between compact metric spaces, then the induced map <m>T_{\phi}\colon \fml
+    C(N,\R) \sto \fml C(M,\R)</m> is injective if and only if <m>\phi</m> is surjective, and <m>\phi</m> is
+    injective if <m>T_{\phi}</m> is surjective. The <q>missing part</q> of this result (<m>T_{\phi}</m> is
+    surjective if <m>\phi</m> is injective) happens also to be true but requires the <em>Tietze
+    extension theorem</em> for its proof.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\phi</m> and <m>T_{\phi}</m> be as in <xref ref="prob_c_functor">problem</xref>. Show that if
+        <m>\phi</m> is injective, then <m>T_{\phi}</m> is surjective.
+      </p>
+    </statement>
+  </problem>
+</section>

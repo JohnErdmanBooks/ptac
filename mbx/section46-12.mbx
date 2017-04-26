@@ -1,0 +1,29 @@
+
+<section>
+  <title>Exercises in Chapter 12</title>
+  <solution xml:id="sol_scm_closed">
+    <p>
+      (Solution to <xref ref="scm_closed"></xref>)
+      Suppose that <m>A</m> is closed in <m>M</m>. Let <m>(a_n)</m> be a sequence in <m>A</m> which converges to a point
+      <m>b</m> in <m>M</m>. If <m>b</m> is in <m>A^c</m> then, since <m>A^c</m> is a neighborhood of <m>b</m>, the sequence
+      <m>(a_n)</m> is eventually in <m>A^c</m>, which is not possible. Therefore <m>b \in A</m>.
+    </p>
+
+    <p>
+      Conversely, if <m>A</m> is not closed, there exists an accumulation point <m>b</m> of <m>A</m> which does not
+      belong to <m>A</m>. Then for every <m>n \in \N</m> we may choose a point <m>a_n</m> in <m>B_{1/n}(b) \cap A</m>.
+      The sequence <m>(a_n)</m> lies in <m>A</m> and converges to <m>b</m>; but <m>b \notin A</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_3equiv_ms">
+    <p>
+      (Solution to <xref ref="x3equiv_ms"></xref>)
+      As in <xref ref="x3prods"></xref>, let <m>\rho_1</m> be the metric on <m>M_1</m> and <m>\rho_2</m> be the metric on <m>M_2</m>.
+      Use the inequalities given in the hint to <xref ref="x3equiv"></xref> with <m>a = \rho_1(x_1,y_1)</m> and <m>b =
+      \rho_2(x_2,y_2)</m> to obtain
+      <me>
+        d_u(x,y) \le d_1(x,y) \le \sqrt2\,d(x,y) \le 2\,d_u(x,y)\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+</section>

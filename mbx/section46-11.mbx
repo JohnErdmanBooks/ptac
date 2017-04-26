@@ -1,0 +1,83 @@
+
+<section>
+  <title>Exercises in Chapter 11</title>
+  <solution xml:id="sol_in_lar">
+    <p>
+      (Solution to <xref ref="in_lar"></xref>)
+      Since <m>\intr A</m> is an open set contained in <m>A</m> (by <xref ref="prop_int"></xref>(b)), it is contained in the
+      union of all such sets. That is,
+      <me>
+        \intr A \subseteq \textstyle\bigcup\{\,U \colon U \subseteq A
+                                                      \text{ and \(U\) is open } \}.
+      </me>
+    </p>
+
+    <p>
+      On the other hand, if <m>U</m> is an open subset of <m>A</m>, then (by <xref ref="prop_int"></xref>(a)) <m>U = \intr U
+      \subseteq \intr A</m>. Thus
+      <me>
+        \textstyle\bigcup\{U \colon U \subseteq A \text{ and \(U\) is open } \}
+                       \subseteq \intr A\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_op_vs_cl">
+    <p>
+      (Solution to <xref ref="op_vs_cl"></xref>)
+      Let <m>A</m> be a subset of a metric space. Using <xref ref="int_vs_cl">problem</xref> we see that
+      <md>
+        <mrow>A \text{ is open } 
+                  \amp \text{ if{f} }  A = \intr A</mrow>
+        <mrow>\amp \text{ if{f} }  A^c = \bigl(\intr A \bigr)^c = \clo{A^c}</mrow>
+        <mrow>\amp \text{ if{f} \(A^c\) is closed.}         \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_cnd_dns">
+    <p>
+      (Solution to <xref ref="cnd_dns"></xref>)
+      Suppose that <m>D</m> is dense in <m>M</m>. Argue by contradiction. If there is an open ball <m>B</m> which
+      contains no point of <m>D</m> (that is, <m>B \subseteq D^c</m>), then
+      <me>
+        B = \intr B \subseteq \intr{\bigl(D^c\bigr)}
+                      = \bigl(\,\clo D \,\bigr)^c = M^c = \emptyset\,,
+      </me>
+      which is not possible.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>D</m> is not dense in <m>M</m>. Then <m>\clo D</m> is a proper closed subset of
+      <m>M</m>, making <m>\bigl(\, \clo D \,\bigr)^c</m> a nonempty open set. Choose an open ball <m>B
+      \subseteq \bigl(\, \clo D \,\bigr)^c</m>. Since <m>\bigl(\,\clo D \,\bigr)^c \subseteq D^c</m>, the
+      ball <m>B</m> contains no point of<nbsp /><m>D</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_mtr_vs_top">
+    <p>
+      (Solution to <xref ref="mtr_vs_top"></xref>)
+      It is enough to show that <m>\sfml T_1 \subseteq \sfml T_2</m>. Thus we suppose that <m>U</m> is an
+      open subset of <m>(M,d_1)</m> and prove that it is an open subset of <m>(M,d_2)</m>. For <m>a \in M</m>,
+      <m>r > 0</m>, and <m>k=1,2</m> let <m>B_r^k(a)</m> be the open ball about <m>a</m> of radius <m>r</m> in the space
+      <m>(M,d_k)</m>; that is,
+      <me>
+        B_r^k(a) = \{x \in M: d_k(x,a) \lt  r\}\,.
+      </me>
+    </p>
+
+    <p>
+      To show that <m>U</m> is an open subset of <m>(M,d_2)</m> choose an arbitrary point <m>x</m> in <m>U</m> and find
+      an open ball <m>B_r^2(x)</m> about <m>x</m> contained in <m>U</m>. Since <m>U</m> is assumed to be open in
+      <m>(M,d_1)</m> there exists <m>s>0</m> such that <m>B_s^1(x) \subseteq U</m>. The metrics <m>d_1</m> and <m>d_2</m> are
+      equivalent, so, in particular, there is a constant <m>\alpha > 0</m> such that <m>d_1(u,v) \le
+      \alpha\,d_2(u,v)</m> for all <m>u,v \in M</m>. Let <m>r = s\,\alpha^{-1}</m>. Then if <m>y \in B_r^2(x)</m>, we
+      see that
+      <me>
+        d_1(y,x) \le \alpha\,d_2(y,x) \lt  \alpha\,r = s\,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>B_r^2(x) \subseteq B_s^1(x) \subseteq U</m>.
+    </p>
+  </solution>
+</section>

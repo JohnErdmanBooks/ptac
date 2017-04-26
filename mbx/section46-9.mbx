@@ -1,0 +1,50 @@
+
+<section>
+  <title>Exercises in Chapter 09</title>
+  <solution xml:id="sol_met_pos">
+    <p>
+      (Solution to <xref ref="met_pos"></xref>)
+      If <m>x</m>, <m>y \in M</m>, then
+      <me>
+        0 = d(x,x) \le d(x,y) + d(y,x) = 2\,d(x,y)\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_3equiv">
+    <p>
+      (Solution to <xref ref="x3equiv"></xref>)
+      It is clear that <m>\max\{a,b\} \le a + b</m>. Expanding the right side of <m>0 \le (a \pm b)^2</m> we
+      see that <m>2\abs{ab}\le a^2 + b^2</m>. Thus
+      <md>
+        <mrow>(a+b)^2 \amp \le a^2 + 2|ab| + b^2</mrow>
+        <mrow>\amp \le 2(a^2 + b^2)\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Taking square roots we get <m>a + b \le \sqrt2\,\sqrt{a^2 + b^2}</m>. Finally,
+      <md>
+        <mrow>\sqrt2\,\sqrt{a^2+b^2} \amp \le \sqrt2\,\sqrt{2(\max\{a,b\})^2}</mrow>
+        <mrow>\amp = 2\max\{a,b\}\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      We have established the claim made in the hint. Now if <m>x = (x_1,x_2)</m> and <m>y = (y_1,y_2)</m> are
+      points in <m>\R^2</m>, then
+      <md>
+        <mrow>\max\{\abs{x_1-y_1},\abs{x_2-y_2}\}
+                     \amp \le \abs{x_1-y_1} + \abs{x_2-y_2}</mrow>
+        <mrow>\amp \le \sqrt2\,\sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}</mrow>
+        <mrow>\amp \le 2\max\{\abs{x_1-y_1}, \abs{x_2-y_2}\}\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      In other words
+      <me>
+        d_u(x,y) \le d_1(x,y) \le \sqrt2\,d(x,y) \le 2\,d_u(x,y)\,. \qedhere
+      </me>
+    </p>
+  </solution>
+</section>

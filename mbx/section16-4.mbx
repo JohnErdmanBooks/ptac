@@ -1,0 +1,156 @@
+
+<section>
+  <title>The heine-borel theorem</title>
+  <p>
+    We have seen in <xref ref="cpt_clbdd">proposition</xref> that in an
+    arbitrary metric space compact sets are always closed and bounded. Recall also that the
+    converse of this is not true in general (see <xref ref="cpt_prb2">problem</xref>). In <m>\R^n</m>, however, the
+    converse does indeed hold. This assertion is the <em>Heine-Borel theorem</em>. Notice that in
+    <xref ref="HBthm">example</xref> we have already established its correctness for the case <m>n=1</m>. The proof
+    of the general case is now just as easy<mdash />we have done all the hard work in proving that the
+    product of finitely many compact spaces is compact (<xref ref="prod_cpt">corollary</xref>).
+  </p>
+
+  <p>
+    <index><main>Heine-Borel theorem</main></index>
+  </p>
+
+  <theorem xml:id="HBThm">
+    <title>Heine-Borel Theorem</title>
+    <statement>
+      <p>
+        A subset of <m>\R^n</m> is compact if and only if it
+        is closed and bounded.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_HBThm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The triangular region <m>T</m> whose vertices are <m>(0,0)</m>, <m>(1,0)</m>, and <m>(0,1)</m> is a
+        compact subset of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Define functions <m>f,g,h: \R^2 \sto \R</m> by <m>f(x,y) = x</m>, <m>g(x,y) = y</m>, and <m>h(x,y)
+      = x + y</m>. Each of these functions is continuous. Thus the sets
+      <md>
+        <mrow>A \amp := f^{\gets}[0,\infty) = \{(x,y) : x \ge 0\},</mrow>
+        <mrow>B \amp := g^{\gets}[0,\infty) = \{(x,y) : y \ge 0\}\text{ ,
+                               and }</mrow>
+        <mrow>C \amp := h^{\gets}(-\infty,1] = \{(x,y) : x+y \le 1\}</mrow>
+      </md>
+      are all closed sets. Thus <m>T = A \cap B \cap C</m> is closed. It is bounded since it is contained
+      in the open ball about the origin with radius<nbsp />2. Thus by the <em>Heine-Borel
+      theorem</em><nbsp /><xref ref="HBThm" />, <m>T</m><nbsp />is compact.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Do <xref ref="elps_cpt">problem</xref> again, this time using the <em>Heine-Borel theorem</em>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>Bolzano-Weierstrass theorem</main></index>
+  </p>
+
+  <problem xml:id="BWThm">
+    <title>Bolzano-Weierstrass Theorem</title>
+    <statement>
+      <p>
+        Every bounded infinite subset of <m>\R^n</m>
+        has at least one point of accumulation in <m>\R^n</m> (compare <xref ref="Bolzano_thm">proposition</xref>).
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="CIThm">
+    <title>Cantor Intersection Theorem</title>
+    <statement>
+      <p>
+        If <m>(A_n)</m> is a nested sequence of
+        <index><main>Cantor intersection theorem</main></index>nonempty closed bounded subsets of <m>\R^n</m>, then <m>\cap_{n=1}^{\infty}A_n</m> is nonempty.
+        Furthermore, if <m>\diam A_n \sto 0</m>, then <m>\cap_{n=1}^{\infty}A_n</m> is a single point.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use the <em>Cantor intersection theorem</em> (<xref ref="CIThm">problem</xref>) to show that the
+        medians of a triangle are concurrent.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="cpt_prb3">
+    <statement>
+      <p>
+        Let <m>m</m> be the set of all bounded sequences of real numbers under
+        the uniform metric:
+        <me>
+          d_u(a,b) = \sup \{\abs{a_n - b_n} \colon n \in \N\}
+        </me>
+        whenever <m>a</m>, <m>b \in m</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show by example that the <em>Heine-Borel theorem</em> <xref ref="HBThm" /> does not hold for
+              subsets of<nbsp /><m>m</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show by example that the <em>Bolzano-Weierstrass theorem</em> does not hold for subsets
+              of<nbsp /><m>m</m>. (See <xref ref="BWThm">problem</xref>.)
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show by example that the <em>Cantor intersection theorem</em> does not hold for subsets
+              of<nbsp /><m>m</m>. (See <xref ref="CIThm">problem</xref>.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="cpt_prb4">
+    <statement>
+      <p>
+        Find a metric space <m>M</m> with the property that every infinite subset
+        of <m>M</m> is closed and bounded but not compact.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove or disprove: If both the interior and the boundary of a set <m>A \subseteq \R</m> are
+        compact, then so is<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

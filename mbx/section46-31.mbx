@@ -1,0 +1,134 @@
+
+<section>
+  <title>Exercises in Appendix f</title>
+  <solution xml:id="sol_uoveri_fin">
+    <p>
+      (Solution to <xref ref="uoveri_fin"></xref>)
+      If <m>S</m>, <m>T</m>, and <m>U</m> are sets, then
+      <md>
+        <mrow>x \in S \cup (T \cap U) 
+                 \amp \text{ iff }   x \in S \text{ or }  x \in T \cap U</mrow>
+        <mrow>\amp \text{ iff }   x \in S  \text{ or } 
+                          (x \in T  \text{ and }  x \in U)</mrow>
+        <mrow>\amp \text{ iff }   (x \in S \text{ or }   x \in T)
+                          \text{ and }  (x \in S \text{ or }  x \in U)</mrow>
+        <mrow>\amp \text{ iff }    x  \in  S \cup T
+                          \text{ and }  x  \in  S \cup U</mrow>
+        <mrow>\amp \text{ iff }    x  \in  (S \cup T) \cap (S \cup U).</mrow>
+      </md>
+    </p>
+
+    <p>
+      <xref ref="prob_disj_conj">Problem</xref> was used to get the third line.
+    </p>
+  </solution>
+  <solution xml:id="sol_uoveri_inf">
+    <p>
+      (Solution to <xref ref="uoveri_inf"></xref>)
+      If <m>T</m> is a set and <m>\sfml S</m> is a family of sets, then
+      <md>
+        <mrow>x \in T \cup \bigl(\bigcap\sfml S\bigr) 
+               \amp \text{ iff }   x \in T \text{ or }  x \in \bigcap\sfml S</mrow>
+        <mrow>\amp \text{ iff }   x \in T \text{ or } 
+                      (\forall S \in \sfml S)\, x \in S</mrow>
+        <mrow>\amp \text{ iff }   (\forall S \in \sfml S)(x \in T
+                       \text{ or }  x \in S)</mrow>
+        <mrow>\amp \text{ iff }   (\forall S \in \sfml S)\, x \in T \cup S</mrow>
+        <mrow>\amp \text{ iff }   x \in \bigcap\{T \cup S\colon S \in \sfml S\}.</mrow>
+      </md>
+    </p>
+
+    <p>
+      To obtain the third line we used the principle mentioned in the last paragraph of
+      <xref ref="d_and_c">section</xref> of <xref ref="log_con">appendix</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_compl_union">
+    <p>
+      (Solution to <xref ref="prop_compl_union"></xref>)
+      Here is one proof: A necessary and sufficient condition for an element <m>x</m> to belong to the
+      complement of <m>S \cup T</m> is that it not belong to <m>S</m> or to<nbsp /><m>T</m>. This is the equivalent to its
+      belonging to both <m>S^c</m> and<nbsp /><m>T^c</m>, that is, to the intersection of the complements of <m>S</m>
+      and<nbsp /><m>T</m>.
+    </p>
+
+    <p>
+      A second more <q>formalistic</q> proof looks like this :
+      <md>
+        <mrow>x \in (S \cup T)^c  
+                     \amp \text{ iff }    x \notin S \cup T</mrow>
+        <mrow>\amp \text{ iff }    \sim(x \in S \cup T)</mrow>
+        <mrow>\amp \text{ iff }    \sim(x \in S \text{ or } 
+                                               x \in T)</mrow>
+        <mrow>\amp \text{ iff }    \sim(x \in S) \text{ and } 
+                                               \sim(x \in T)</mrow>
+        <mrow>\amp \text{ iff }    x \notin S \text{ and } 
+                                               x \notin T</mrow>
+        <mrow>\amp \text{ iff }    x \in S^c \text{ and } 
+                                               x \in T^c</mrow>
+        <mrow>\amp \text{ iff }    x \in S^c \cap T^c.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This second proof is not entirely without merit: at each step only one definition or fact is
+      used. (For example, the result presented in <xref ref="exam_demorg1">example</xref> justifies the fourth
+      <q>iff</q>.) But on balance most readers, unless they are very unfamiliar with the material,
+      would probably prefer the first version. After all, it's easier to read English than to
+      translate code.
+    </p>
+  </solution>
+  <solution xml:id="sol_comp_of_union">
+    <p>
+      (Solution to <xref ref="comp_of_union"></xref>)
+    </p>
+
+    <p>
+      Here is another formalistic proof. It is a good idea to try and rewrite it in
+      ordinary English.
+      <md>
+        <mrow>x  \in  (\bigcup \sfml S)^c  
+              \amp \text{ iff }    x \notin \bigcup \sfml S</mrow>
+        <mrow>\amp \text{ iff }    \sim (x \in \bigcup \sfml S)</mrow>
+        <mrow>\amp \text{ iff }    \sim(\exists S \in \sfml S)(x \in S)</mrow>
+        <mrow>\amp \text{ iff }    (\forall S \in \sfml S)\sim (x \in S)</mrow>
+        <mrow>\amp \text{ iff }    (\forall S \in \sfml S)(x \notin S)</mrow>
+        <mrow>\amp \text{ iff }    (\forall S \in \sfml S)(x \in S^c)</mrow>
+        <mrow>\amp \text{ iff }    x \in \bigcap\{S^c\colon S \in \sfml S\}. \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_decomp_union">
+    <p>
+      (Solution to <xref ref="prop_decomp_union"></xref>)
+      To see that <m>S \setminus T</m> and <m>T</m> are disjoint, notice that
+      <md>
+        <mrow>(S \setminus T) \cap T  \amp = S \cap T^c \cap T</mrow>
+        <mrow>\amp = S \cap \emptyset</mrow>
+        <mrow>\amp = \emptyset.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Furthermore,
+      <md>
+        <mrow>(S \setminus T) \cup T  \amp =  (S \cap T^c ) \cup T</mrow>
+        <mrow>\amp =  (S \cup T) \cap (T^c \cup T)</mrow>
+        <mrow>\amp =  S \cup T.</mrow>
+      </md>
+    </p>
+
+    <p>
+      As usual <m>S</m> and <m>T</m> are regarded as belonging to some universal set, say <m>U</m>. Then <m>T^c \cup
+      T</m> is all of <m>U</m> and its intersection with <m>S \cup T</m> (which is contained in <m>U</m>) is just <m>S \cup T</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_diff_union">
+    <p>
+      (Solution to <xref ref="exer_diff_union"></xref>)
+      We know from <xref ref="prop_union_sets">proposition</xref> (e) that <m>S \cup T  =  S</m> if and only if <m>T
+      \subseteq S</m>. But <xref ref="prop_decomp_union">proposition</xref> tells us that <m>S \cup T = (S \setminus
+      T) \cup T</m>. Thus <m>(S \setminus T) \cup T  =  S</m> if and only if <m>T \subseteq S</m>.
+    </p>
+  </solution>
+</section>

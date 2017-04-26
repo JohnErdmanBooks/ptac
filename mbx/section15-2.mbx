@@ -1,0 +1,152 @@
+
+<section>
+  <title>The extreme value theorem</title>
+  <definition>
+    <statement>
+      <p>
+        A real valued function <m>f</m> on a metric space <m>M</m> is said to have a
+        <index><main>maximum</main></index>
+        <index><main>maximum</main><sub>global</sub></index>
+        <index><main>global</main><sub>maximum</sub></index><term>(global) maximum</term> at a point <m>a</m> in <m>M</m> if <m>f(a) \ge f(x)</m> for every <m>x</m> in<nbsp /><m>M</m>; the
+        number <m>f(a)</m> is the
+        <index><main>maximum</main><sub>value</sub></index><term>maximum value</term> of <m>f</m>. The function has a
+        <index><main>minimum</main></index>
+        <index><main>minimum</main><sub>global</sub></index>
+        <index><main>global</main><sub>minimum</sub></index><term>(global) minimum</term> at <m>a</m> if <m>f(a) \le f(x)</m> for every <m>x</m> in<nbsp /><m>M</m>; and in this case <m>f(a)</m>
+        is the
+        <index><main>minimum</main><sub>value</sub></index><term>minimum value</term> of<nbsp /><m>f</m>. A number is an
+        <index><main>extreme</main><sub>value</sub></index><term>extreme value</term> of <m>f</m> if it is either a maximum or a minimum value. It is clear that a
+        function may fail to have maximum or minimum values. For example, on the open interval
+        <m>(0,1)</m> the function <m>f \colon x \mapsto x</m> assumes neither a maximum nor a minimum.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Our next goal is to show that every continuous function on a compact metric space attains both
+    a maximum and a minimum. This turns out to be an easy consequence of the fact that the
+    continuous image of a compact set is compact. All this works exactly as it did for<nbsp /><m>\R</m>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize the result of <xref ref="cpt_cnd4">theorem</xref> to metric spaces. That is, show
+        that if <m>M</m> and <m>N</m> are metric spaces, if <m>M</m> is compact, and if <m>f \colon M \sto N</m> is
+        continuous, then <m>f^{\sto}(M)</m> is compact.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>extreme value theorem</main></index>
+  </p>
+
+  <problem xml:id="EVThm">
+    <title>The Extreme Value Theorem.</title>
+    <statement>
+      <p>
+        Generalize the result of <xref ref="evthm">theorem</xref>
+        to metric spaces. That is, show that if <m>M</m> is a compact metric space and <m>f \colon M \sto
+        \R</m> is continuous, then <m>f</m> assumes both a maximum and a minimum value on<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    In <xref ref="unif_conv">chapter</xref> we defined the uniform metric on the family <m>\fml B(S,\R)</m> of all
+    bounded real valued functions on <m>S</m> and agreed to call convergence of sequences in this space
+    <q>uniform convergence</q>. Since <m>S</m> was an arbitrary set (not a metric space), the question of
+    continuity of members of <m>\fml B(S,\R)</m> is meaningless. For the moment we restrict our
+    attention to functions defined on a compact metric space, where the issue of continuity is
+    both meaningful and interesting.
+  </p>
+
+  <p>
+    A trivial, but crucial, observation is that if <m>M</m> is a compact metric space, then the
+    family
+    <index><main>continuous@<m>\fml C(M)</m>, <m>\fml C(M,\R)</m> (continuous real valued function on <m>M</m></main></index><m>\fml C(M) = \fml C(M,\R)</m> of continuous real valued functions on <m>M</m> is a subspace of
+    the metric space <m>\fml B(M) = \fml B(M,\R)</m>. This is an obvious consequence of the
+    <em>extreme value theorem</em><nbsp /><xref ref="EVThm" /> which says, in particular, that every
+    continuous real valued function on <m>M</m> is bounded. Furthermore, since the uniform limit
+    of continuous functions is continuous (see <xref ref="unif_lim_cont">proposition</xref>), it is clear
+    that <m>\fml C(M,\R)</m> is a closed subset of <m>\fml B(M,\R)</m> (see
+    <xref ref="scm_closed">proposition</xref> for the sequential characterization of closed sets). For
+    future reference we record this formally.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space, then <m>\fml C(M)</m> is a closed subset
+        of<nbsp /><m>\fml B(M)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <example>
+    <statement>
+      <p>
+        The circle <m>x^2 + y^2 = 1</m> is a compact subset of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Parametrize.
+    </p>
+  </proof>
+
+  <example xml:id="exam_ellipse_cpt">
+    <statement>
+      <p>
+        The ellipse <m>\D\frac{x^2}{16} + \frac{y^2}9 = 1</m> is a compact subset of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Regard <m>\R^2</m> as a metric space under the uniform metric (see <xref ref="unif_rn">example</xref>).
+        Then the boundary of the unit ball in this space is compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon M \sto N</m> be a continuous bijection between metric spaces.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show by example that <m>f</m> need not be a homeomorphism.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if <m>M</m> is compact, then <m>f</m> must be a homeomorphism.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

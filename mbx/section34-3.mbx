@@ -1,0 +1,49 @@
+
+<section>
+  <title>Fraktur and greek alphabets</title>
+  <p>
+    Fraktur is a typeface widely used until the middle of the twentieth century in Germany
+    and a few other countries. In this text it is used to denote families of sets and
+    families of linear maps. In general it is not a good idea to try to reproduce these
+    letters in handwritten material or when writing on the blackboard. In these cases English
+    script letters are both easier to read and easier to write. Here is a list of upper case
+    Fraktur letters:
+    <md>
+      <mrow>\amp \mathfrak A  (\text A)  \amp \amp \mathfrak B  (\text B)
+                     \amp \amp \mathfrak C  (\text C) \amp \amp \mathfrak D  (\text D)
+                     \amp \amp \mathfrak E  (\text E) \amp \amp \mathfrak F  (\text F)
+                     \amp \amp \mathfrak G  (\text G)</mrow>
+      <mrow>\amp \mathfrak H  (\text H)  \amp \amp \mathfrak I  (\text I)
+                     \amp \amp \mathfrak J  (\text J) \amp \amp \mathfrak K  (\text K)
+                     \amp \amp \mathfrak L  (\text L) \amp \amp \mathfrak M  (\text M)
+                     \amp \amp \mathfrak N  (\text N)</mrow>
+      <mrow>\amp \mathfrak O  (\text O)  \amp \amp \mathfrak P  (\text P)
+                     \amp \amp \mathfrak Q  (\text Q) \amp \amp \mathfrak R  (\text R)
+                     \amp \amp \mathfrak S  (\text S) \amp \amp \mathfrak T  (\text T)
+                     \amp \amp \mathfrak U  (\text U)</mrow>
+      <mrow>\amp \mathfrak V  (\text V)  \amp \amp \mathfrak W  (\text W)
+                     \amp \amp \mathfrak X  (\text X) \amp \amp \mathfrak Y  (\text Y)
+                     \amp \amp \mathfrak Z  (\text Z) \amp \amp  {}
+                     \amp \amp  {}</mrow>
+    </md>
+  </p>
+
+  <p>
+    The following is a list of standard Greek letters used in mathematics. Notice that in
+    some cases both upper case and lower case are commonly used:
+    <md>
+      <mrow>\amp \alpha  (\text{ alpha } )  \amp \amp \beta  (\text{ beta } )
+                     \amp \amp \Gamma, \gamma  (\text{ gamma } ) \amp \amp \Delta, \delta  (\text{ delta } )
+                     \amp \amp \epsilon  (\text{ epsilon } ) \amp \amp \zeta  (\text{ zeta } )</mrow>
+      <mrow>\amp \eta  (\text{ eta } ) \amp \amp \Theta, \theta  (\text{ theta } )
+                     \amp \amp \iota  (\text{ iota } )  \amp \amp \kappa  (\text{ kappa } )
+                     \amp \amp \Lambda, \lambda  (\text{ lambda } ) \amp \amp \mu  (\text{ mu } )</mrow>
+      <mrow>\amp \nu  (\text{ nu } )  \amp \amp \Xi, \xi  (\text{ xi } )
+                     \amp \amp \Pi, \pi  (\text{ pi } )  \amp \amp \rho  (\text{ rho } )
+                     \amp \amp \Sigma, \sigma  (\text{ sigma } ) \amp \amp \tau  (\text{ tau } )</mrow>
+      <mrow>\amp \Phi, \phi  (\text{ phi } ) \amp \amp \Psi, \psi  (\text{ psi } )
+                     \amp \amp \chi  (\text{ chi } )  \amp \amp \Omega, \omega  (\text{ omega } )
+                     \amp \amp  {}  \amp \amp   {}</mrow>
+    </md>
+  </p>
+</section>

@@ -1,0 +1,216 @@
+
+<section>
+  <title>Algebraic combinations of sequences</title>
+  <p>
+    As you will recall from beginning calculus, one standard way of computing the limit of a
+    complicated expression is to find the limits of the constituent parts of the expression and
+    then combine them algebraically. Suppose, for example, we are given sequences <m>(x_n)</m> and
+    <m>(y_n)</m> and are asked to find the limit of the sequence <m>(x_n+y_n)</m>. What do we do? First we
+    try to find the limits of the individual sequences <m>(x_n)</m> and <m>(y_n)</m>. Then we add. This
+    process is justified by a proposition which says, roughly, that <em>the limit of a sum is
+    the sum of the limits.</em> Limits with respect to other algebraic operations behave similarly.
+  </p>
+
+  <p>
+    The aim of the following problem is to develop the theory detailing how limits of sequences
+    interact with algebraic operations.
+  </p>
+
+  <problem xml:id="seq_proj">
+    <statement>
+      <p>
+        Suppose that <m>(x_n)</m> and <m>(y_n)</m> are sequences of real numbers,
+        that <m>x_n \sto a</m> and <m>y_n \sto b</m>, and that <m>c \in \R</m>. For the case where <m>a</m> and <m>b</m> are
+        real numbers derive the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>x_n + y_n \sto a + b</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>x_n - y_n \sto a - b</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>x_n y_n \sto ab</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>c x_n \sto ca</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\dfrac{x_n}{y_n} \sto \dfrac ab</m> if <m>b \ne 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Then consider what happens in case <m>a = \pm\infty</m> or <m>b = \pm\infty</m> (or both). What can you
+        say (if anything) about the limits of the left hand expressions of (a)<ndash />(e)? In those cases
+        in which nothing can be said, give examples to demonstrate as many outcomes as possible. For
+        example, if <m>a = \infty</m> and <m>b = -\infty</m>, then nothing can be concluded about the limit as
+        <m>n</m> gets large of <m>x_n+y_n</m>. All of the following are possible:
+        <ol>
+          <li>
+            <title>(i)</title>
+            <p>
+              <m>x_n + y_n \sto -\infty</m>. [Let <m>x_n = n</m> and <m>y_n = -2n</m>.]
+            </p>
+          </li>
+
+          <li>
+            <title>(ii)</title>
+            <p>
+              <m>x_n + y_n \sto \alpha</m>, where <m>\alpha</m> is any real number. [Let <m>x_n = \alpha + n</m>
+              and <m>y_n = -n</m>.]
+            </p>
+          </li>
+
+          <li>
+            <title>(iii)</title>
+            <p>
+              <m>x_n + y_n \sto \infty</m>. [Let <m>x_n = 2n</m> and <m>y_n = -n</m>.]
+            </p>
+          </li>
+
+          <li>
+            <title>(iv)</title>
+            <p>
+              None of the above. [Let <m>(x_n) = (1,2,5,6,9,10,13,14,\dots)</m> and
+              <m>y_n = (0,-3,-4,-7,-8,-11,-12,-15,\dots)</m>.]
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        If <m>x_n \sto a</m> in <m>\R</m> and <m>p \in  \N</m>, then <m>{x_n}^p \sto a^p</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Use induction on <m>p</m>. The conclusion obviously holds when <m>p=1</m>. Suppose
+      <m>{x_n}^{p-1} \sto a^{p-1}</m>. Apply part (c) of the preceding problem:
+      <me>
+        {x_n}^p = {x_n}^{p-1} \cdot x_n \sto a^{p-1} \cdot a = a^p.
+      </me>
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        If <m>x_n = \dfrac{2-5n+7n^2-6n^3}{4-3n+5n^2+4n^3}</m> for each <m>n \in \N</m>, then
+        <m>x_n \sto -\frac32</m> as <m>n \sto \infty</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Find <m>\lim_{n \sto \infty}(\sqrt{n^2 + 5n} - n)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Another very useful tool in computing limits is the <q>sandwich theorem</q>, which says that a
+    sequence sandwiched between two other sequences with a common limit has that same limit.
+  </p>
+
+  <proposition xml:id="sand_seq">
+    <title>Sandwich theorem</title>
+    <statement>
+      <p>
+        <index><main>sandwich theorem</main></index>Let <m>a</m> be a real number or one of the symbols <m>+\infty</m> or<nbsp /><m>-\infty</m>. If <m>x_n \sto a</m> and
+        <m>z_n \sto a</m> and if <m>x_n \le y_n \le z_n</m> for all <m>n</m>, then <m>y_n \sto a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        If <m>x_n = \dfrac{\sin\bigl(3 + \pi^{n^2}\bigr)}{n^{3/2}}</m> for each <m>n \in \N</m>,
+        then <m>x_n \sto 0</m> as <m>n \sto \infty</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="abs_seq">Use</xref>, <xref ref="seq_exam1"></xref>, and <xref ref="sand_seq"></xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        If <m>(x_n)</m> is a sequence in <m>(0,\infty)</m> and <m>x_n \sto a</m>, then
+        <m>\sqrt{x_n} \sto \sqrt a</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> There are two possibilities: treat the cases
+      <m>a = 0</m> and <m>a > 0</m> separately. For the first use <xref ref="cond_conv_seq">problem</xref>(a). For the
+      second <xref ref="seq_proj">use</xref>(b) and <xref ref="abs_seq"></xref>; write <m>\sqrt{x_n} - \sqrt a</m> as
+      <m>\abs{x_n~-~a}/(\sqrt{x_n} + \sqrt a)</m>. Then find an inequality which allows you to use the
+      <em>sandwich theorem</em>(<xref ref="sand_seq">proposition</xref>).
+    </p>
+  </proof>
+
+  <example xml:id="x4exam2">
+    <statement>
+      <p>
+        The sequence <m>\bigl(n^{1/n}\bigr)</m> converges to<nbsp /><m>1</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> For each <m>n</m> let <m>a_n = n^{1/n}-1</m>. Apply the
+      <em>binomial theorem</em> <xref ref="binom_thm"></xref> to <m>(1+a_n)^n</m> to obtain the inequality
+      <m>n>\frac12n(n-1)\,{a_n}^2</m> and hence to conclude that <m>0\lt a_n\lt \sqrt{\dfrac2{n-1}}</m> for every
+      <m>n</m>. Use the <em>sandwich theorem</em> <xref ref="sand_seq"></xref>.
+    </p>
+  </proof>
+</section>

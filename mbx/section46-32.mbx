@@ -1,0 +1,35 @@
+
+<section>
+  <title>Exercises in Appendix g</title>
+  <solution xml:id="sol_2x_is_x">
+    <p>
+      (Solution to <xref ref="x2x_is_x"></xref>)
+      If <m>x + x = x</m>, then
+      <md>
+        <mrow>x \amp = x + 0</mrow>
+        <mrow>\amp = x + (x + (-x))</mrow>
+        <mrow>\amp = (x + x) + (-x)</mrow>
+        <mrow>\amp = x + (-x)</mrow>
+        <mrow>\amp = 0.       \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_arith_exer1">
+    <p>
+      (Solution to <xref ref="arith_exer1"></xref>)
+      Use associativity and commutativity of addition.
+      <md>
+        <mrow>(w + x) + (y + z)  \amp = ((w + x) + y) + z</mrow>
+        <mrow>\amp = (w + (x + y)) + z</mrow>
+        <mrow>\amp = ((x + y) + w) + z</mrow>
+        <mrow>\amp = z + ((x + y) + w)</mrow>
+        <mrow>\amp = z + (x + (y + w)).</mrow>
+      </md>
+    </p>
+
+    <p>
+      The first, second, and last equalities use associativity of addition; steps 3 and 4 use its
+      commutativity.
+    </p>
+  </solution>
+</section>

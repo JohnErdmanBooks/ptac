@@ -1,0 +1,508 @@
+
+<section xml:id="matr">
+  <title>Matrices</title>
+  <p>
+    The purpose of this section and the next two is almost entirely computational. Many (but by
+    no means all!) of the linear transformations we will consider in the sequel are maps between
+    various Euclidean spaces; that is, between <m>\R^n</m> and <m>\R^m</m> where <m>m</m>, <m>n \in \N</m>. Such
+    transformations may be represented by matrices. This of great convenience in dealing with
+    specific examples because matrix computations are so very simple. We begin by reviewing a few
+    elementary facts about matrices and matrix operations.
+  </p>
+
+  <p>
+    For each <m>n \in \N</m> let <m>\N_n</m> be <m>\{1, \dots, n\}</m>. An <m>m \times n</m> (read <q><m>m</m> by <m>n</m></q>)
+    <index><main>matrix</main></index><term>matrix</term> is a function whose domain is <m>\N_m \times \N_n</m>. We deal here only with matrices
+    of real numbers; that is, with real valued functions on <m>\N_m \times \N_n</m>. If <m>a \colon
+    \N_m \times \N_n \sto \R</m> is an <m>m \times n</m> matrix, its value at <m>(i,j) \in \N_m \times \N_n</m>
+    will be denoted by<nbsp /><m>a_j^i</m>. (Occasionally we use the notation <m>a_{ij}</m> instead.) The matrix
+    <m>a</m> itself may be denoted by <m>{\bigl[a_j^i\bigr]_{i=1}^m}_{j=1}^n</m>,
+    <index><main><@<m>[a_j^i]</m>, <m>[a_{ij}]</m> (matrix notation)</main></index>by <m>[a_j^i]</m>, or by a rectangular array whose entry in row <m>i</m> and
+    column <m>j</m> is <m>a_j^i</m>.
+    <me>
+      \begin{bmatrix}a_1^1  \amp   a_2^1  \amp   \cdots \amp   a_n^1  \\
+                   a_1^2  \amp   a_2^2  \amp   \cdots \amp   a_n^2  \\
+                   \vdots \amp   \vdots \amp   \ddots \amp   \vdots \\
+                   a_1^m  \amp   a_2^m  \amp   \cdots \amp   a_n^m
+      \end{bmatrix}
+    </me>
+  </p>
+
+  <p>
+    In light of this notation it is reasonable to refer to the index <m>i</m> in the expression <m>a_j^i</m>
+    as the
+    <index><main>row</main><sub>index</sub></index><term>row!index</term> and to call <m>j</m> the
+    <index><main>column</main><sub>index</sub></index><term>column index</term>. (If you are accustomed to thinking of a matrix as <em>being</em> a
+    rectangular array, no harm will result. The reason for defining a matrix as a function is to
+    make good on the boast made in <xref ref="sets">appendix</xref> that everything in the sequel can be
+    defined ultimately in terms of sets.) We denote the family of all <m>m \times n</m> matrices of
+    real numbers
+    <index><main>matrices@<m>M_{m \times n}</m> (<m>m</m> by <m>n</m> matrices)</main></index>by<nbsp /><m>M_{m \times n}</m>. For families of square matrices we shorten <m>M_{n \times n}</m>
+    <index><main>matrices@<m>M_n</m> (square matrices)</main></index>to<nbsp /><m>M_n</m>.
+  </p>
+
+  <p>
+    Two <m>m \times n</m> matrices <m>a</m> and <m>b</m> may be added. Addition is done pointwise. The sum
+    <index><main><add@<m>a+b</m> (sum of matrices)</main></index><m>a+b</m> is the <m>m \times n</m> matrix whose
+    value at <m>(i,j)</m> is <m>a_j^i + b_j^i</m>, That is,
+    <me>
+      (a + b)_j^i =  a_j^i + b_j^i
+    </me>
+    for <m>1 \le i \le m</m> and <m>1 \le j \le n</m>. Scalar multiplication is also defined pointwise. If
+    <m>a</m> is an <m>m \times n</m> matrix and <m>\alpha \in \R</m>, then
+    <index><main><@<m>\alpha a</m> (scalar multiple of a matrix)</main></index><m>\alpha a</m> is the <m>m \times n</m> matrix whose
+    value at <m>(i,j)</m> is <m>\alpha a_j^i</m>. That is,
+    <me>
+      (\alpha a)_j^i  =  \alpha a_j^i
+    </me>
+    for <m>1 \le i \le m</m> and <m>1 \le j \le n</m>. We may also subtract matrices. By <m>-b</m> we mean
+    <m>(-1)b</m>, and by <m>a - b</m> we mean<nbsp /><m>a + (-b)</m>.
+  </p>
+  <exercise xml:id="ex_mat_add">
+    <statement>
+      <p>
+        Let
+        <me>
+          \begin{bmatrix}4  \amp   2  \amp   0  \amp  -1  \\
+                       -1  \amp  -3  \amp   1  \amp   5
+          \end{bmatrix}  \qquad \text{ and }  \qquad
+              \begin{bmatrix}1  \amp  -5  \amp   3  \amp  -1  \\
+                        3  \amp   1  \amp   0  \amp  -1
+          \end{bmatrix} \,.
+        </me>
+      </p>
+
+      <p>
+        Find <m>a + b</m>, <m>3a</m>, and <m>a - 2b</m>. (<xref ref="sol_ex_mat_add">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    If <m>a</m> is an <m>m \times n</m> matrix and <m>b</m> is an <m>n \times p</m> matrix, the product of <m>a</m> and <m>b</m>
+    is the <m>m \times p</m> matrix whose value at <m>(i,j)</m> is <m>\sum_{k=1}^n a_k^i b_j^k</m>. That is,
+    <me>
+      (ab)_j^i = \sum_{k=1}^n a_k^i b_j^k
+    </me>
+    for <m>1 \le i \le m</m> and <m>1 \le j \le p</m>. Notice that in order for the product
+    <index><main><@<m>ab</m> (product of matrices)</main></index>
+    <index><main>product</main><sub>of matrices</sub></index><m>ab</m> to be defined the number of columns of <m>a</m> must be the same as the number of rows of<nbsp /><m>b</m>.
+    Here is a slightly different way of thinking of the product of <m>a</m> and<nbsp /><m>b</m>. Define the
+    <index><main>inner product</main></index>
+    <index><main>product</main><sub>inner</sub></index><term>inner product</term> (or
+    <index><main>dot product</main></index>
+    <index><main>product</main><sub>dot</sub></index><term>dot product</term>) of two <m>n</m>-tuples <m>(x_1,x_2,\dots, x_n)</m> and <m>(y_1,y_2,\dots, y_n)</m> to be
+    <m>\sum_{k=1}^n x_k y_k</m>. Regard the rows of the matrix <m>a</m> as <m>n</m>-tuples (read from left to
+    right) and the columns of <m>b</m> as <m>n</m>-tuples (read from top to bottom). Then the entry in the
+    <m>i^{\text{ th } }</m> row and <m>j^{\text{ th } }</m> column of the product <m>ab</m> is the dot product of the
+    <m>i^{\text{ th } }</m> row of <m>a</m> and the <m>j^{\text{ th } }</m> column of<nbsp /><m>b</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Matrix multiplication is not commutative. If <m>a</m> is a <m>2 \times 3</m> matrix and
+        <m>b</m> is a <m>3 \times 4</m> matrix, then <m>ab</m> is defined but <m>ba</m> is not. Even in situations where
+        both products <m>ab</m> and <m>ba</m> are defined, they need not be equal. For example, if <m>a =
+        \begin{bmatrix}1 \amp  2 \\ 1 \amp  0
+        \end{bmatrix}</m> and <m>b = \begin{bmatrix}-1 \amp  1 \\ 2 \amp  3
+        \end{bmatrix}</m>, then <m>ab =
+        \begin{bmatrix}3 \amp  7 \\ -1 \amp  1
+        \end{bmatrix}</m> whereas <m>ba =
+        \begin{bmatrix}0 \amp  -2 \\ 5 \amp  4
+        \end{bmatrix}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="ex_mat_mult">
+    <statement>
+      <p>
+        Let <m>a = \begin{bmatrix}2 \amp  3 \amp  -1 \\ 0 \amp  1 \amp  4
+        \end{bmatrix}</m>
+        and <m>b = \begin{bmatrix}1 \amp  0 \\ 2 \amp  -1 \\ 1 \amp  -
+        \end{bmatrix}</m>. Find <m>ab</m>.
+        (<xref ref="sol_ex_mat_mult">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a = \begin{bmatrix}4 \amp   3 \amp   1 \amp   2 \\
+                                    0 \amp  -1 \amp  -1 \amp   1 \\
+                                    2 \amp   0 \amp   1 \amp   3
+        \end{bmatrix}</m>
+        and <m>b = \begin{bmatrix}2 \amp  -1 \\
+                           0 \amp   1 \\
+                           1 \amp   0 \\
+                          -3 \amp   2
+        \end{bmatrix}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the product <m>ab</m> (if it exists).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the product <m>ba</m> (if it exists).
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> be an <m>m \times n</m> matrix. The
+        <index><main>transpose</main></index><term>transpose</term> of <m>a</m>, denoted by <m>a^t</m>, is the <m>n \times m</m> matrix obtained by interchanging
+        the rows and columns of<nbsp /><m>a</m>. That is, if <m>b = a^t</m>, then <m>b_j^i = a_i^j</m> for <m>1 \le i \le n</m>
+        and <m>1 \le j \le  m</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>a =  \begin{bmatrix}1 \amp   2 \amp   0 \amp  -4 \\
+                                    3 \amp   0 \amp  -1 \amp   5
+        \end{bmatrix}</m>. Then
+        <m>a^t = \begin{bmatrix}1 \amp   3 \\
+                       2 \amp   0 \\
+                       0 \amp  -1 \\
+                      -4 \amp   5
+        \end{bmatrix}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    For material in the sequel the most important role played by matrices will be as
+    (representations of) linear transformations on finite dimensional vector spaces. Here is how
+    it works.
+  </p>
+
+  <definition xml:id="def_act_matr">
+    <statement>
+      <p>
+        We define the <em>action</em> of a matrix on a vector. If
+        <m>a \in M_{m \times n}</m> and <m>x \in \R^n</m>, then <m>ax</m>, the
+        <index><main>action of a matrix</main></index><term>result of</term> <m>a</m> <term>acting on</term> <m>x</m>, is defined to be the vector in <m>\R^m</m> whose
+        <m>j^{\text{ th } }</m> coordinate is <m>\sum_{k=1}^n a_k^j x_k</m> (this is just the dot product of the
+        <m>j^{\text{ th } }</m> row of <m>a</m> with<nbsp /><m>x</m>). That is,
+        <me>
+          (ax)_j := \sum_{k=1}^n a_k^jx_k
+        </me>
+        for <m>1 \le j \le m</m>. Here is another way of saying the same thing: Regard <m>x</m> as an <m>n \times
+        1</m> matrix
+        <me>
+          \begin{bmatrix}x_1 \\ x_2 \\ \vdots \\ x_n
+          \end{bmatrix}
+        </me>
+      </p>
+
+      <p>
+        (sometimes called a
+        <index><main>column</main><sub>vector</sub></index>
+        <index><main>vector</main><sub>column</sub></index><term>column vector</term>). Now multiply the <m>m \times n</m> matrix <m>a</m> by the <m>n \times 1</m> matrix<nbsp /><m>x</m>.
+        The result will be an <m>m \times 1</m> matrix (another column vector), say
+        <me>
+          \begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_m
+          \end{bmatrix} \,.
+        </me>
+      </p>
+
+      <p>
+        Then
+        <index><main><@<m>ax</m> (action of a matrix on a vector)</main></index><m>ax</m> is the <m>m</m>-tuple <m>(y_1,\dots, y_m)</m>. Thus <m>a</m> may be thought of as a mapping from <m>\R^n</m>
+        into <m>\R^m</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="ex_mat_act">
+    <statement>
+      <p>
+        Let <m>a =
+                \begin{bmatrix}3 \amp   0 \amp  -1 \amp  -4 \\
+                     2 \amp   1 \amp  -1 \amp  -2 \\
+                     1 \amp  -3 \amp   0 \amp   2
+        \end{bmatrix}</m> and <m>x = (2, 1, -1, 1)</m>. Find <m>ax</m>. (<xref ref="sol_ex_mat_act">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a = \begin{bmatrix}2 \amp   0 \\
+                                    1 \amp  -3 \\
+                                    5 \amp   1
+        \end{bmatrix}</m>
+        and <m>x = (1,-2)</m>. Find <m>ax</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    From the definition of the action of a matrix on a vector, we derive several formulas which
+    will be useful in the sequel. Each is a simple computation.
+  </p>
+
+  <proposition xml:id="prop_matr_arith">
+    <statement>
+      <p>
+        Let <m>a</m>, <m>b \in M_{m \times n}</m>; <m>c \in M_{n \times p}</m>;
+        <m>x</m>, <m>y \in \R^n</m>; <m>z \in \R^p</m>; and <m>\alpha \in \R</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>a(x + y) = ax + ay</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>a(\alpha x) = \alpha(ax)</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>(a + b)x = ax + bx</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>(\alpha a)x = \alpha(ax)</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>(ac)z = a(cz)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Part (a) is an exercise. (<xref ref="sol_prop_matr_arith">Solution</xref>.)
+      Parts (b)<ndash />(e) are problems.
+    </p>
+  </proof>
+
+  <p>
+    Next we show that a sufficient (and obviously necessary) condition for two <m>m \times n</m>
+    matrices to be equal is that they have the same action on the standard basis vectors
+    in<nbsp /><m>\R^n</m>.
+  </p>
+
+  <proposition xml:id="prop_mrlt_bas">
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be <m>m \times n</m> matrices and, as usual,
+        let <m>e^1, \dots, e^n</m> be the standard basis vectors in <m>\R^n</m>. If <m>ae^k = be^k</m> for <m>1 \le k
+        \le n</m>, then <m>a = b</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Compute <m>(ae^k)_j</m> and <m>(be^k)_j</m> for <m>1 \le j \le m</m>
+      and <m>1 \le k \le n</m>. Remember that <m>(e^k)_l = 0</m> if <m>k \ne l</m> and that <m>(e^k)_k = 1</m>.
+    </p>
+  </proof>
+
+  <remark>
+    <p>
+      The <xref ref="def_act_matr">definition</xref> of the action of a matrix on a vector technically
+      requires us to think of vectors as <q>column vectors</q>. It is probably more likely that most
+      of us think of vectors in <m>\R^n</m> as
+      <index><main>row</main><sub>vector</sub></index>
+      <index><main>vector</main><sub>row</sub></index><q>row vectors</q>, that is, as <m>n</m>-tuples or as <m>1 \times n</m> matrices. Then for the matrix
+      multiplication <m>ax</m> to make sense and for the result to again be a <q>row vector</q> we really
+      should write
+      <me>
+        \bigl(a(x^t)\bigr)^t
+      </me>
+      for the action of the matrix <m>a \in M_{m \times n}</m> on the vector <m>x \in \R^n</m>. We won't do
+      this. We will regard vectors as <q>row vectors</q> or <q>column vectors</q> as convenience
+      dictates.
+    </p>
+  </remark>
+
+  <definition>
+    <statement>
+      <p>
+        In our later work we will have occasion to consider
+        the action of a
+        <index><main>square matrix</main></index><term>square matrix</term> (one with the same number of rows as columns) on a pair of vectors. Let <m>a
+        \in  M_n</m> and <m>x,y \in \R^n</m>. We denote by <m>xay</m> the number <m>\sum_{j,k=1}^n a_k^jx_jy_k</m>.
+      </p>
+
+      <p>
+        Since
+        <me>
+          \sum_{j,k=1}^n a_k^jx_jy_k = \sum_{j=1}^n x_j \sum_{k=1}^na_k^jy_k
+        </me>
+        and since <m>\sum_{k=1}^na_k^jy_k</m> is just <m>(ay)_j</m>, we may write
+        <me>
+          xay = \sum_{j=1}^n x_j(ay)_j.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In other words <m>xay</m> is just the dot product of the vectors <m>x</m> and
+    <m>ay</m>. If we identify <m>n</m>-tuples (row vectors) with <m>1 \times n</m>
+    matrices, then <m>xay</m> is the product of the three matrices <m>x</m>, <m>a</m>,
+    and <m>y^t</m>. That is,
+    <me>
+      xay = \begin{bmatrix}x_1 \dots x_n
+      \end{bmatrix} 
+         \begin{bmatrix}a_1^1 \amp  \cdots \amp  a_n^1  \\
+             \vdots \amp  \ddots \amp  \vdots \\
+              a_1^n \amp  \cdots \amp  a_n^n
+      \end{bmatrix} 
+         \begin{bmatrix}y_1 \\
+                 \vdots \\
+                 y_n
+      \end{bmatrix} \,.
+    </me>
+  </p>
+  <exercise xml:id="ex_mat_act3">
+    <statement>
+      <p>
+        Let <m>a = \begin{bmatrix}1 \amp  3 \amp  -1 \\
+                                                      0 \amp  2 \amp  4  \\
+                                                      1 \amp  -1 \amp  1
+        \end{bmatrix}</m>, <m>x = (1,-2,0)</m>, and <m>y = (3,0,1)</m>.
+        Find the action of <m>a</m> on the pair of vectors <m>x</m> and <m>y</m>; that is, find<nbsp /><m>xay</m>.
+        (<xref ref="sol_ex_mat_act3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a = \begin{bmatrix}1 \amp   2 \amp   0 \amp  -1 \\
+                                       3 \amp  -3 \amp   1 \amp   0 \\
+                                       2 \amp   0 \amp   1 \amp  -4 \\
+                                      -1 \amp   1 \amp  -1 \amp   1
+        \end{bmatrix}</m>, <m>x = (1,-1,0,2)</m>, and <m>y = (1,0,3,1)</m>. Find<nbsp /><m>xay</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        The
+        <index><main>main diagonal</main></index>
+        <index><main>diagonal</main><sub>main</sub></index><term>main</term> (or
+        <index><main>principal diagonal</main></index>
+        <index><main>diagonal</main><sub>principal</sub></index><term>principal</term>) <term>diagonal</term> of a square matrix is the diagonal running from the upper left
+        corner to the lower right corner. That is, it consists of all the elements of the
+        form<nbsp /><m>a_k^k</m>. If each entry on the main diagonal of an <m>n \times n</m> matrix is <m>1</m> and all its
+        other entries are <m>0</m>, then the matrix is the <m>n \times n</m>
+        <index><main>identity matrix</main></index>
+        <index><main>matrix</main><sub>identity</sub></index><term>identity matrix</term>. This matrix is denoted
+        <index><main>identity@<m>I_n</m>, <m>I</m> (identity matrix</main></index>by<nbsp /><m>I_n</m> (or just by <m>I</m> if no confusion will result). If <m>c</m> is a real number, it is
+        conventional to denote the matrix <m>cI_n</m> by<nbsp /><m>c</m>. It is clear that <m>a\,I_n = I_n\,a = a</m> for
+        every <m>n \times n</m> matrix<nbsp /><m>a</m>. The <m>m \times n</m>
+        <index><main>zero</main><sub>matrix</sub></index>
+        <index><main>matrix</main><sub>zero</sub></index><term>zero matrix</term> is the <m>m \times n</m> matrix all of whose entries are<nbsp /><m>0</m>. It is denoted
+        <index><main>zero@<m>\vc 0_{m \times n}</m> (zero matrix)</main></index>by<nbsp /><m>\vc 0_{m \times n}</m> or just by <m>\vc 0</m>. Certainly <m>\vc 0 + a = a + \vc 0 = a</m> for every <m>m
+        \times n</m> matrix<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        A square matrix <m>a</m> in <m>\ofml M_{n \times n}</m> is invertible if there exists an
+        <m>n \times n</m> matrix <m>a^{-1}</m> such that
+        <me>
+          aa^{-1} = a^{-1}a = I_n\,.
+        </me>
+      </p>
+
+      <p>
+        The matrix
+        <index><main><@<m>a^{-1}</m> (inverse of a matrix)</main></index><m>a^{-1}</m> is the
+        <index><main>inverse</main><sub>of a matrix</sub></index>
+        <index><main>matrix</main><sub>inverse of a</sub></index><term>inverse</term> of<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="mmult_uniq_inv">
+    <statement>
+      <p>
+        An <m>n \times n</m>-matrix has at most one inverse.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_mmult_uniq_inv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="ex_mat_inv">
+    <statement>
+      <p>
+        Show that the matrix <m>b =
+            \begin{bmatrix}-1/2 \amp   1/2 \amp   3/2 \\
+                 1/4 \amp   1/4 \amp  -1/4 \\
+                 3/4 \amp  -1/4 \amp  -3/4
+        \end{bmatrix}</m> is the inverse of the matrix <m>a =
+                     \begin{bmatrix}1 \amp   0 \amp   2 \\
+                            0 \amp   3 \amp  -1 \\
+                            1 \amp  -1 \amp   1
+        \end{bmatrix} .</m> (<xref ref="sol_ex_mat_inv">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="prob_matr_inv">
+    <statement>
+      <p>
+        Show that the matrix <m>a =
+                  \begin{bmatrix}1 \amp   3 \amp  -1 \\
+                          0 \amp   2 \amp   1 \\
+                          1 \amp  -2 \amp   1
+        \end{bmatrix}</m> satisfies the equation
+        <me>
+          a^3 - 4a^2 + 8a - 9 = \vc 0.
+        </me>
+      </p>
+
+      <p>
+        Use this fact to find the inverse of<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

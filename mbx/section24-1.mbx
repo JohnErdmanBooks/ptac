@@ -1,0 +1,333 @@
+
+<section>
+  <title>Uniform continuity</title>
+  <definition>
+    <statement>
+      <p>
+        A function <m>f \colon M_1 \sto M_2</m> between metric spaces is
+        <index><main>uniform</main><sub>continuity</sub></index>
+        <index><main>continuous</main><sub>uniformly</sub></index><term>uniformly continuous</term> if for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        <m>d(f(x),f(y)) \lt  \epsilon</m> whenever <m>d(x,y) \lt  \delta</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Compare the definitions of <q>continuity</q> and <q>uniform continuity</q>. A function <m>f\colon M_1
+    \sto M_2</m> is continuous if
+    <me>
+      \forall a \in M_1\,   \forall \epsilon > 0\,
+                   \exists \delta > 0 \, \forall x \in M_1 \,
+                           d(x,a) \lt  \delta \implies d(f(x),f(a)) \lt  \epsilon\,.
+    </me>
+  </p>
+
+  <p>
+    We may just as well write this reversing the order of the first two (universal) quantifiers.
+    <me>
+      \forall \epsilon > 0\, \forall a \in M_1\,
+                   \exists \delta > 0 \,  \forall x \in M_1\,
+                           d(x,a) \lt  \delta \implies d(f(x),f(a)) \lt  \epsilon\,.
+    </me>
+  </p>
+
+  <p>
+    The function <m>f</m> is uniformly continuous if
+    <me>
+      \forall \epsilon > 0\,  \exists \delta > 0 \,
+                   \forall a \in M_1\,     \forall x \in M_1\,
+                           d(x,a) \lt  \delta  \implies d(f(x),f(a)) \lt  \epsilon\,.
+    </me>
+  </p>
+
+  <p>
+    Thus the difference between continuity and uniform continuity is the order of two quantifiers.
+    This makes the following result obvious.
+  </p>
+
+  <proposition xml:id="prop_uc_cont">
+    <statement>
+      <p>
+        Every uniformly continuous function between metric spaces is
+        continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <example>
+    <statement>
+      <p>
+        The function <m>f \colon \R \sto \R \colon x \mapsto 3x - 4</m> is uniformly continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Given <m>\epsilon > 0</m>, choose <m>\delta = \epsilon/3</m>. If <m>\abs{x-y} \lt  \delta</m>, then
+      <m>\abs{f(x) - f(y)} = \abs{(3x - 4) - (3y - 4)} = 3\abs{x - y} \lt  3\delta = \epsilon</m>.
+    </p>
+  </proof>
+
+  <example xml:id="exam_ucont">
+    <statement>
+      <p>
+        The function <m>f \colon [1,\infty) \sto \R \colon x \mapsto x^{-1}</m>
+        is uniformly continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_ucont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="exam_not_ucont">
+    <statement>
+      <p>
+        The function <m>g \colon (0,1] \sto \R \colon x \mapsto x^{-1}</m>
+        is not uniformly continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_not_ucont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be an arbitrary positive number. The function
+        <me>
+          f\colon [0, M] \sto \R \colon x \mapsto x^2
+        </me>
+        is uniformly continuous. Prove this assertion using only the definition of <q>uniform
+        continuity</q>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        The function
+        <me>
+          g \colon [0,\infty) \sto \R \colon x \mapsto x^2
+        </me>
+        is <em>not</em> uniformly continuous.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        Norms on vector spaces are always uniformly continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    We have already seen in <xref ref="prop_uc_cont">proposition</xref> that uniform continuity implies
+    continuity. <xref ref="exam_not_ucont">Example</xref> shows that the converse is not true in general.
+    There are however two special (and important!) cases where the concepts coincide. One is
+    linear maps between normed linear spaces, and the other is functions defined on compact metric
+    spaces.
+  </p>
+
+  <proposition xml:id="prop_lin_ucont">
+    <statement>
+      <p>
+        A linear transformation between normed linear spaces is
+        continuous if and only if it is uniformly continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Of course, the preceding result does not hold in general metric spaces (where <q>linearity</q>
+    makes no sense). The next proposition, for which we give a preparatory lemma, is a metric
+    space result.
+  </p>
+
+  <lemma xml:id="lem_conv_subseq">
+    <statement>
+      <p>
+        Let <m>(x_n)</m> and <m>(y_n)</m> be sequences in a compact metric
+        space. If <m>d(x_n,y_n) \sto 0</m> as <m>n \sto \infty</m>, then there exist convergent subsequences of
+        <m>(x_n)</m> and <m>(y_n)</m> which have the same limit.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lem_conv_subseq">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_cont_ucont">
+    <statement>
+      <p>
+        Let <m>M_1</m> be a compact metric space and <m>M_2</m> be an arbitrary
+        metric space. Every continuous function <m>f \colon M_1 \sto M_2</m> is uniformly continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_cont_ucont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    In <xref ref="Cauchy_int">section</xref> of this chapter, where we define the Cauchy integral, an important
+    step in the development is the extension of the integral from an exceedingly simple class of
+    functions, the step functions, to a class of functions large enough to contain all the
+    continuous functions. The two basic ingredients of this extension are the density of the step
+    functions in the large class and the uniform continuity of the integral.
+    <xref ref="thm_ext_uc">Theorem</xref> below is the crucial result which allows this extension. First, two
+    preliminary results.
+  </p>
+
+  <proposition xml:id="prop_ucont_Cauchy">
+    <statement>
+      <p>
+        If <m>f \colon M_1 \sto M_2</m> is a uniformly continuous map
+        between two metric spaces and <m>(x_n)</m> is a Cauchy sequence in <m>M_1</m>, then <m>\bigl(f(x_n)\bigr)</m>
+        is a Cauchy sequence in<nbsp /><m>M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show by example that <xref ref="prop_ucont_Cauchy">proposition</xref> is no longer true if
+        the word <q>uniformly</q> is deleted .
+      </p>
+    </statement>
+  </problem>
+
+  <lemma xml:id="lem_ucont_lim">
+    <statement>
+      <p>
+        Let <m>M_1</m> and <m>M_2</m> be metric spaces, <m>S \subseteq M_1</m>, and
+        <m>f \colon S \sto M_2</m> be uniformly continuous. If two sequences <m>(x_n)</m> and <m>(y_n)</m> in <m>S</m>
+        converge to the same limit in <m>M_1</m> and if the sequence <m>\bigl(f(x_n)\bigr)</m> converges, then
+        the sequence <m>\bigl(f(y_n)\bigr)</m> converges and <m>\lim f(x_n) = \lim f(y_n)</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Consider the <q>interlaced</q> sequence
+      <me>
+        (x_1, y_1, x_2, y_2, x_3, y_3, \dots )\,.
+      </me>
+    </p>
+
+    <p>
+      (<xref ref="sol_lem_ucont_lim">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    We are now in a position to show that a uniformly continuous map <m>f</m> from a subset of a metric
+    space into a complete metric space can be extended in a unique fashion to a continuous
+    function on the closure of the domain of<nbsp /><m>f</m>.
+  </p>
+
+  <theorem xml:id="thm_ext_uc">
+    <statement>
+      <p>
+        Let <m>M_1</m> and <m>M_2</m> be metric spaces, <m>S</m> a subset of <m>M_1</m>, and
+        <m>f \colon S \sto M_2</m>. If <m>f</m> is uniformly continuous and <m>M_2</m> is complete, then there
+        exists a unique continuous extension of <m>f</m> to<nbsp /><m>\clo S</m>. Furthermore, this extension is
+        uniformly continuous.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Define <m>g\colon \clo S \sto M_2</m> by <m>g(a) = \lim f(x_n)</m>
+      where <m>(x_n)</m> is a sequence in <m>S</m> converging to<nbsp /><m>a</m>. First show that <m>g</m> is well defined.
+      To this end you must show that
+      <ol>
+        <li>
+          <title>(i)</title>
+          <p>
+            <m>\lim f(x_n)</m> does exist, and
+          </p>
+        </li>
+
+        <li>
+          <title>(ii)</title>
+          <p>
+            the value assigned to <m>g</m> at <m>a</m> does not depend on the particular sequence
+            <m>(x_n)</m> chosen.  That is, if <m>x_n \sto a</m> and <m>y_n \sto a</m>, then <m>\lim f(x_n) = \lim f(y_n)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Next show that <m>g</m> is an extension of<nbsp /><m>f</m>.
+    </p>
+
+    <p>
+      To establish the uniform continuity of <m>g</m>, let <m>a</m> and <m>b</m> be points in<nbsp /><m>\clo S</m>. If <m>(x_n)</m>
+      is a sequence in <m>S</m> converging to <m>a</m>, then <m>f(x_n) \sto g(a)</m>. This implies that both
+      <m>d(x_j,a)</m> and <m>d\bigl(f(x_j),g(a)\bigr)</m> can be made as small as we please by choosing <m>j</m>
+      sufficiently large. A similar remark holds for a sequence <m>(y_n)</m> in <m>S</m> which converges
+      to<nbsp /><m>b</m>. From this show that <m>x_j</m> is arbitrarily close to <m>y_k</m> (for large <m>j</m> and <m>k</m>)
+      provided we assume that a is sufficiently close to<nbsp /><m>b</m>. Use this in turn to show that <m>g(a)</m>
+      is arbitrarily close to<nbsp /><m>g(b)</m> when <m>a</m> and <m>b</m> are sufficiently close.
+    </p>
+
+    <p>
+      The uniqueness argument is very easy.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon M \sto N</m> be a continuous bijection between metric spaces. If <m>M</m>
+        is complete and <m>f^{-1}</m> is uniformly continuous, then <m>N</m> is complete.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

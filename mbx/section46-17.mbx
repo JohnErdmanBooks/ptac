@@ -1,0 +1,177 @@
+
+<section>
+  <title>Exercises in Chapter 17</title>
+  <solution xml:id="sol_prop_conn_oc">
+    <p>
+      (Solution to <xref ref="prop_conn_oc"></xref>)
+      Suppose there exists a nonempty set <m>U</m> which is properly contained in <m>M</m> and which is both
+      open and closed. Then, clearly, the open sets <m>U</m> and <m>U^c</m> disconnect<nbsp /><m>M</m>. Conversely,
+      suppose that the space <m>M</m> is disconnected by sets <m>U</m> and<nbsp /><m>V</m>. Then the set <m>U</m> is not the
+      null set, is not equal to <m>M</m> (because its complement <m>V</m> is nonempty), is open, and is closed
+      (because <m>V</m> is open).
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_mut_sep2">
+    <p>
+      (Solution to <xref ref="prop_mut_sep2"></xref>)
+      If <m>N</m> is disconnected, it can be written as the union of two disjoint nonempty sets <m>U</m> and
+      <m>V</m> which are open in<nbsp /><m>N</m>. (These sets need not, of course, be open in <m>M</m>.) We show that
+      <m>U</m> and <m>V</m> are mutually separated. It suffices to prove that <m>U \cap \clo V</m> is empty, that
+      is, that <m>U \subseteq {\clo V}^c</m>. To this end suppose that <m>u \in U</m>. Since <m>U</m> is open in
+      <m>N</m>, there exists <m>\delta > 0</m> such that
+      <me>
+        N \cap B_\delta(u) = \{x \in N \colon d(x,u) \lt  \delta\} \subseteq U \subseteq V^c\,.
+      </me>
+    </p>
+
+    <p>
+      Clearly <m>B_\delta(u)</m> is the union of two sets: <m>N \cap B_\delta(u)</m> and <m>N^c \cap
+      B_\delta(u)</m>. We have just shown that the first of these is contained in <m>V^c</m>. The second
+      contains no points of <m>N</m> and therefore no points of<nbsp /><m>V</m>. Thus <m>B_\delta(u) \subseteq V^c</m>.
+      This shows that <m>u</m> does not belong to the closure (in <m>M</m>) of the set<nbsp /><m>V</m>; so <m>u \in {\clo
+      V}^c</m>. Since <m>u</m> was an arbitrary point of <m>U</m>, we conclude that <m>U \subseteq {\clo V}^c</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>N = U \cup V</m> where <m>U</m> and <m>V</m> are nonempty sets mutually separated
+      in<nbsp /><m>M</m>. To show that the sets <m>U</m> and <m>V</m> disconnect <m>N</m>, we need only show that they are
+      open in <m>N</m>, since they are obviously disjoint.
+    </p>
+
+    <p>
+      We prove that <m>U</m> is open in <m>N</m>. Let <m>u \in U</m> and notice that since <m>U \cap \clo V</m> is
+      empty, <m>u</m> cannot belong to <m>\clo V</m>. Thus there exists <m>\delta > 0</m> such that <m>B_\delta(u)</m>
+      is disjoint from<nbsp /><m>V</m>. Then certainly <m>N \cap B_\delta(u)</m> is disjoint from<nbsp /><m>V</m>. Thus <m>N \cap
+      B_\delta(u)</m> is contained in <m>U</m>. Conclusion: <m>U</m> is open in<nbsp /><m>N</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_sin_conn">
+    <p>
+      (Solution to <xref ref="exam_sin_conn"></xref>)
+      Let <m>G = \{(x,y) \colon y = \sin x\}</m>. The function <m>x \mapsto (x,\sin x)</m> is a continuous
+      surjection from <m>\R</m> (which is connected by <xref ref="prop_conn_int">proposition</xref>) onto <m>G \subseteq
+      \R^2</m>. Thus <m>G</m> is connected by <xref ref="thm_contimg_conn2">theorem</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_un_conn">
+    <p>
+      (Solution to <xref ref="prop_un_conn"></xref>)
+      Let the metric space <m>M</m> be the union of a family <m>\sfml C</m> of connected subsets of<nbsp /><m>M</m>
+      and suppose that <m>\bigcap \sfml C \ne \emptyset</m>. Argue by contradiction. Suppose that
+      <m>M</m> is disconnected by disjoint nonempty open sets <m>U</m> and <m>V</m>. Choose an element <m>p</m>
+      in<nbsp /><m>\bigcap \sfml C</m>. Without loss of generality suppose that <m>p \in U</m>. Choose <m>v \in
+      V</m>. There is at least one set C in <m>\sfml C</m> such that <m>v \in C</m>. We reach a
+      contradiction by showing that the sets <m>U \cap C</m> and <m>V \cap C</m> disconnect<nbsp /><m>C</m>. These
+      sets are nonempty [<m>p</m> belongs to <m>C \cap U</m> and <m>v</m> to <m>C \cap V</m>] and open in<nbsp /><m>C</m>. They
+      are disjoint because <m>U</m> and <m>V</m> are, and their union is <m>C</m>, since
+      <me>
+        (U \cap C) \cup (V \cap C) = (U \cup V) \cap C = M \cap C = C\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_sqr_conn">
+    <p>
+      (Solution to <xref ref="exam_sqr_conn"></xref>)
+      Between an arbitrary point <m>x</m> in the unit square and the origin there is a straight line
+      segment, denote it by<nbsp /><m>[0,x]</m>. Line segments are connected because they are continuous images
+      of (in fact, homeomorphic to) intervals in<nbsp /><m>\R</m>. The union of all the segments <m>[0,x]</m> where
+      <m>x</m> is in the unit square is the square itself. The intersection of all these segments is the
+      origin. Thus by <xref ref="prop_un_conn">proposition</xref> the square is connected.
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_conn_notarcw">
+    <p>
+      (Solution to <xref ref="exam_conn_notarcw"></xref>)
+      The set <m>B = \{(x,\sin x^{-1}) \colon  0 \lt  x \le 1\}</m> is a connected subset of <m>\R^2</m> since it
+      is the continuous image of the connected set <m>(0,1]</m> (see <xref ref="thm_contimg_conn2">theorem</xref>).
+      Then by <xref ref="prop_clconn_conn">proposition</xref> the set <m>M := \clo B</m> is also connected. Notice
+      that <m>M = A \cup B</m> where <m>A = \{(0,y) \colon \abs y \le 1\}</m>.
+    </p>
+
+    <p>
+      To show that <m>M</m> is not arcwise connected, argue by contradiction. Assume that there exists a
+      continuous function <m>f \colon [0,1] \sto M</m> such that <m>f(0) \in A</m> and <m>f(1) \in B</m>. We
+      arrive at a contradiction by showing that the component function <m>f^2 = \pi_2 \circ f</m> is not
+      continuous at the point <m>t_0 = \sup f^\gets(A)</m>.
+    </p>
+
+    <p>
+      To this end notice first that, since <m>A</m> is closed in <m>M</m> and <m>f</m> is continuous, the set
+      <m>f^\gets(A)</m> is closed in <m>[0,1]</m>. By <xref ref="sup_in_clo">example</xref> the point <m>t_0</m> belongs to
+      <m>f^\gets(A)</m>. Without loss of generality we may suppose that <m>f^2(t_0) \le 0</m>. We need only
+      show that for every <m>\delta > 0</m> there exists a number <m>t \in [0,1]</m> such that <m>\abs{t- t_0} \lt 
+      \delta</m> and <m>\abs{f^2(t) - f^2(t_0)} \ge 1</m>.
+    </p>
+
+    <p>
+      Let <m>\delta > 0</m>. Choose a point <m>t_1</m> in <m>(t_0, t_0 + \delta) \cap [0,1]</m>. By
+      <xref ref="prop_conn_int">proposition</xref> the interval <m>[t_0,t_1]</m> is connected, so its image
+      <m>\bigl(f^1\bigr)^\sto[t_0,t_1]</m> under the continuous function <m>f^1 = \pi_1 \circ f</m> is also a
+      connected subset of <m>[0,1]</m> (by <xref ref="thm_contimg_conn2">theorem</xref>) and therefore itself an
+      interval. Let <m>c = f^1(t_1)</m>. From <m>t_1 > t_0</m> infer that <m>t_1 \in f^\gets(B)</m> and that
+      therefore <m>c > 0</m>. Since <m>t_0 \in f^\gets(A)</m> it is clear that <m>f^1(t_0) = 0</m>. Thus the
+      interval <m>[0,c]</m> is not a single point and it is contained in <m>\bigl(f^1\bigr)^\sto[t_0,t_1]</m>.
+      Choose <m>n \in \N</m> sufficiently large that
+      <me>
+        x = \frac2{(4n+1)\pi} \lt  c\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>x</m> belongs to <m>\bigl(f^1\bigr)^\sto[t_0,t_1]</m>, there exists <m>t \in [t_0,t_1]</m> such that
+      <m>x = f^1(t)</m>. And since <m>x > 0</m> the point <m>f(t)</m> belongs to<nbsp /><m>B</m>. This implies that
+      <me>
+        f(t) = \bigl(f^1(t),f^2(t)\bigr) = (x,\sin x^{-1}) =
+                                     (x,\sin(4n+1)\tfrac\pi2) = (x,1)\,.
+      </me>
+    </p>
+
+    <p>
+      But then (since <m>f^2(t_0) \le 0</m>)
+      <me>
+        \abs{f^2(t) - f^2(t_0)} = \abs{1 - f^2(t_0)} \ge 1\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_opconn_arcw">
+    <p>
+      (Solution to <xref ref="prop_opconn_arcw"></xref>)
+      Let <m>A</m> be a connected open subset of <m>\R^n</m>. If <m>A</m> is empty the result is obvious, so
+      suppose that it is not. Choose <m>a \in A</m>. Let <m>U</m> be the set of all points <m>x</m> in <m>A</m> for
+      which there exists a continuous function <m>f \colon [0,1] \sto A</m> such that <m>f(0) = a</m> and
+      <m>f(1) = x</m>. The set <m>U</m> is nonempty [it contains <m>a</m>]. Let <m>V = A \setminus U</m>. We wish to
+      show that <m>V</m> is empty. Since <m>A</m> is connected it suffices to show that both <m>U</m> and <m>V</m> are
+      open.
+    </p>
+
+    <p>
+      To show that <m>U</m> is open let <m>u \in U</m> and let <m>f \colon [0,1] \sto A</m> be a continuous
+      function such that <m>f(0) = a</m> and <m>f(1) = u</m>. Since <m>A</m> is an open subset of <m>\R^n</m> there
+      exists <m>\delta > 0</m> such that <m>B_\delta(u) \subseteq A</m>. Every point <m>b</m> in <m>B_\delta(u)</m> can
+      be joined to <m>u</m> by the parametrized line segment <m>\ell \colon [0,1] \sto A</m> defined by
+      <me>
+        \ell(t) = \bigl((1-t)u_1 + tb_1, \dots , (1-t)u_n + tb_n\bigr)\,.
+      </me>
+    </p>
+
+    <p>
+      It is easy to see that since <m>b</m> can be joined to <m>u</m> and <m>u</m> to <m>a</m>, the point <m>b</m> can be
+      joined to<nbsp /><m>a</m>. [Proof: If <m>f \colon [0,1] \sto A</m> and <m>\ell \colon [0,1] \sto A</m> are
+      continuous functions satisfying <m>f(0) = a</m>, <m>f(1) = u</m>, <m>\ell(0) = u</m>, and <m>\ell(1) = b</m>, then
+      the function <m>g \colon [0,1] \sto A</m> defined by
+      <me>
+        g(t) = \begin{cases}f(2t),  \amp \text{ for \(0 \le t \le \frac12\) }  \\
+                      \ell(2t-1),  \amp \text{ for \(\frac12 \lt  t \le 1\) } 
+        \end{cases}
+      </me>
+      is continuous, <m>g(0) = a</m>, and <m>g(1) = b</m>.] This shows that <m>B_\delta(u) \subseteq U</m>.
+    </p>
+
+    <p>
+      To see that <m>V</m> is open let <m>v \in V</m> and choose <m>\epsilon > 0</m> so that <m>B_\epsilon(v)
+      \subseteq A</m>. If some point <m>y</m> in <m>B_\epsilon(v)</m> could be joined to <m>a</m> by an arc in<nbsp /><m>A</m>,
+      then <m>v</m> could be so joined to <m>a</m> (<em>via</em><nbsp /><m>y</m>). Since this is not possible, we have that
+      <m>B_\epsilon(v) \subseteq V</m>.
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,662 @@
+
+<section>
+  <title>Continuous functions</title>
+  <p>
+    As is the case with real valued functions of a real variable, a function <m>f\colon M_1 \sto
+    M_2</m> between two metric spaces is continuous at a point <m>a</m> in <m>M_1</m> if <m>f(x)</m> can be made
+    arbitrarily close to <m>f(a)</m> by insisting that <m>x</m> be sufficiently close to<nbsp /><m>a</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(M_1,d_1)</m> and <m>(M_2,d_2)</m> be metric spaces. A function <m>f\colon M_1 \sto M_2</m> is
+        <index><main>continuous</main><sub>at a point</sub></index><term>continuous at</term> a point <m>a</m> in <m>M_1</m> if every neighborhood of <m>f(a)</m> contains the image under
+        <m>f</m> of a neighborhood of<nbsp /><m>a</m>. Since every neighborhood of a point contains an open ball about the
+        point and since every open ball about a point <em>is</em> a neighborhood of that point, we may
+        restate the definition as follows. The function <m>f</m> is <term>continuous at</term> <m>a</m> if every open ball
+        about <m>f(a)</m> contains the image under <m>f</m> of an open ball about<nbsp /><m>a</m>; that is, if the following
+        condition is satisfied: for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        <men xml:id="clms_eq1" >
+          f^{\sto} (B_\delta(a))
+                                \subseteq B_\epsilon(f(a)).
+        </men>
+      </p>
+
+      <p>
+        There are many equivalent ways of expressing <xref ref="clms_eq1" />.
+        Here are three:
+        <md>
+          <mrow>B_\delta(a) \subseteq f^\gets(B_\epsilon(f(a)))</mrow>
+          <mrow>x \in B_\delta(a) \text{ implies }  f(x) \in B_\epsilon(f(a))</mrow>
+          <mrow>d_1(x,a) \lt  \delta \text{ implies }  d_2(f(x),f(a)) \lt  \epsilon</mrow>
+        </md>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that if <m>f</m> is a real valued function of a real variable, then the definition above agrees
+    with the one given at the beginning of <xref ref="cont_on_R">chapter</xref>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A function <m>f\colon M_1 \sto M_2</m> between two metric spaces is
+        <index><main>continuous</main></index><term>continuous</term> if it is continuous at each point of <m>M_1</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In proving propositions concerning continuity, one should not slavishly insist on specifying
+    the radii of open balls when these particular numbers are of no interest. As an illustration,
+    the next proposition, concerning the composite of continuous functions, is given two
+    proofs<mdash />one with the radii of open balls specified, and a smoother one in which they are
+    suppressed.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon M_1 \sto M_2</m> and <m>g\colon M_2 \sto M_3</m> be functions between
+        metric spaces. If <m>f</m> is continuous at <m>a</m> in <m>M_1</m> and <m>g</m> is continuous at <m>f(a)</m>
+        in<nbsp /><m>M_2</m>, then the composite function <m>g \circ f</m> is continuous at<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>\eta > 0</m>. We wish to show that there
+      exists <m>\delta > 0</m> such that
+      <me>
+        B_\delta(a) \subseteq (g \circ f)^\gets(B_\eta(g(f(a)))).
+      </me>
+    </p>
+
+    <p>
+      Since <m>g</m> is continuous at <m>f(a)</m> there exists <m>\epsilon > 0</m> such
+      that
+      <me>
+        B_\epsilon(f(a)) \subseteq g^\gets(B_\eta(g(f(a)))).
+      </me>
+    </p>
+
+    <p>
+      Since <m>f</m> is continuous at <m>a</m> there exists <m>\delta > 0</m> such that
+      <me>
+        B_\delta(a) \subseteq  f^\gets(B_\epsilon(f(a))).
+      </me>
+    </p>
+
+    <p>
+      Thus we have
+      <md>
+        <mrow>(g \circ f)^\gets(B_\eta(g(f(a))))
+                          \amp = f^\gets(g^\gets(B_\eta(g(f(a)))))</mrow>
+        <mrow>\amp \supseteq f^\gets(B_\epsilon(f(a)))</mrow>
+        <mrow>\amp \supseteq B_\delta(a).  \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <proof>
+    <p>
+      Let <m>B_3</m> be an arbitrary open ball about
+      <m>g(f(a))</m>. We wish to show that the inverse image of <m>B_3</m> under <m>g
+      \circ f</m> contains an open ball about<nbsp /><m>a</m>. Since <m>g</m> is continuous
+      at <m>f(a)</m>, the set <m>g^\gets(B_3)</m> contains an open ball <m>B_2</m> about
+      <m>f(a)</m>. And since <m>f</m> is continuous at <m>a</m>, the set <m>f^\gets(B_2)</m>
+      contains an open ball <m>B_1</m> about <m>a</m>. Thus we have
+      <md>
+        <mrow>(g \circ f)^\gets(B_3)
+                      \amp = f^\gets(g^\gets(B_3))</mrow>
+        <mrow>\amp \supseteq f^\gets(B_2)</mrow>
+        <mrow>\amp \supseteq B_1.   \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <p>
+    The two preceding proofs are essentially the same. The only difference is that the first proof
+    suffers from a severe case of clutter. It certainly is not more rigorous; it is just harder to
+    read. It is good practice to relieve proofs (and their readers) of extraneous detail. The following
+    corollary is an obvious consequence of the proposition we have just proved.
+  </p>
+
+  <corollary xml:id="cmp_cnt">
+    <statement>
+      <p>
+        The composite of two continuous functions is continuous.
+      </p>
+    </statement>
+  </corollary>
+
+  <p>
+    Next we prove a result emphasizing that continuity is a topological notion; that is, it can be
+    expressed in terms of open sets. A necessary and sufficient condition for a function to be
+    continuous is that the inverse image of every open set be open.
+  </p>
+
+  <proposition xml:id="top_ch_cont">
+    <statement>
+      <p>
+        A function <m>f\colon M_1 \sto M_2</m> between metric spaces is
+        continuous if and only if <m>f^\gets(U)</m> is an open subset of <m>M_1</m> whenever <m>U</m> is open in<nbsp /><m>M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_top_ch_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="exam1_cont">
+    <statement>
+      <p>
+        As an application of the preceding proposition we show that the
+        function
+        <me>
+          f\colon \R^2 \sto \R\colon  (x,y) \mapsto 2x - 5y
+        </me>
+        is continuous. One approach to this problem is to find, given a point <m>(a,b)</m> in <m>\R^2</m>
+        and <m>\epsilon > 0</m>, a number <m>\delta > 0</m> sufficiently small that <m>\sqrt{(x - a)^2 + (y -
+        b)^2} \lt  \delta</m> implies <m>\abs{(2x - 5y) - (2a - 5b)} \lt  \epsilon</m>. This is not
+        excessively difficult, but it is made somewhat awkward by the appearance of squares and a
+        square root in the definition of the usual metric on<nbsp /><m>\R^2</m>. A simpler approach is
+        possible. We wish to prove continuity of <m>f</m> with respect to the usual metric <m>d</m> on
+        <m>\R^2</m> (defined in <xref ref="Eucl_met"></xref>).
+      </p>
+
+      <p>
+        We know that the metric <m>d_1</m> (defined in <xref ref="taxicab"></xref>) on <m>\R^2</m> is (strongly)
+        equivalent to <m>d</m> <xref ref="x3equiv" /> and that equivalent metrics produce identical
+        topologies. Thus <m>(\R^2, d_1)</m> and <m>(\R^2, d)</m> have the same topologies. Since the
+        continuity of a function is a topological concept (this was the point
+        of <xref ref="top_ch_cont"></xref>), we know that <m>f</m> will be continuous with respect to <m>d</m> if and
+        only if it is continuous with respect to<nbsp /><m>d_1</m>. Since the metric <m>d_1</m> is algebraically
+        simpler, we prove continuity with respect to <m>d_1</m>. To this end, let <m>(a,b) \in \R^2</m>
+        and <m>\epsilon > 0</m>. Choose <m>\delta = \epsilon/5</m>. If <m>d_1((x,y),(a,b)) = \abs{x - a} +
+        \abs{y - b} \lt  \delta</m>, then
+        <md>
+          <mrow>\abs{f(x,y) - f(a,b)}
+                                 \amp = \abs{2(x - a) - 5(y - b)}</mrow>
+          <mrow>\amp \le 5(\abs{x - a} + \abs{y - b})</mrow>
+          <mrow>\amp \lt  5\delta</mrow>
+          <mrow>\amp = \epsilon.</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        The function
+        <me>
+          f \colon \R^2 \sto \R \colon  (x,y) \mapsto 5x - 7y
+        </me>
+        is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The principle used in <xref ref="exam1_cont">example</xref> works generally: replacing a metric on the
+    domain of a function by an equivalent metric does not affect the continuity of the function.
+    The same assertion is true for the codomain of a function as well. We state this formally.
+  </p>
+
+  <proposition xml:id="cont_eqmtr">
+    <statement>
+      <p>
+        Let <m>f\colon M_1 \sto M_2</m> be a continuous function between two
+        metric spaces <m>(M_1,d_1)</m> and <m>(M_2,d_2)</m>. If <m>\rho_1</m> is a metric on <m>M_1</m> equivalent to <m>d_1</m>
+        and <m>\rho_2</m> is equivalent to <m>d_2</m>, then <m>f</m> considered as a function from the space
+        <m>(M_1,\rho_1)</m> to the space <m>(M_2,\rho_2)</m> is still continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      This is an immediate consequence of <xref ref="mtr_vs_top">propositions</xref> and <xref ref="top_ch_cont"></xref>.
+    </p>
+  </proof>
+
+  <example xml:id="cont_mult">
+    <statement>
+      <p>
+        Multiplication is a continuous function on<nbsp /><m>\R</m>. That is,
+        if we define
+        <me>
+          M \colon \R^2 \sto \R \colon (x,y) \mapsto xy\,,
+        </me>
+        then the function <m>M</m> is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> <xref ref="cont_eqmtr">Use</xref>. (<xref ref="sol_cont_mult">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="cont_add">
+    <statement>
+      <p>
+        Addition is a continuous function on <m>\R</m>. That is, if we define
+        <me>
+          A \colon \R^2 \sto \R \colon (x,y) \mapsto x+y\,,
+        </me>
+        then the function <m>A</m> is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>d</m> be the usual metric on <m>\R^2</m>, let <m>\rho</m> be the metric on <m>\R^2</m> defined in
+        <xref ref="Gam">example</xref>, and let <m>f\colon (\R^2, d) \sto (\R^2,\rho)</m> be the identity function on <m>\R^2</m>.
+        Show that <m>f</m> is <em>not</em> continuous.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\R_d</m> be the set of real numbers with the discrete metric, and let <m>M</m> be an
+        arbitrary metric space. Describe the family of all continuous functions <m>f\colon \R_d \sto M</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_cont_closed">
+    <statement>
+      <p>
+        Let <m>f\colon M_1 \sto M_2</m> where <m>M_1</m> and <m>M_2</m> are metric
+        spaces. Then <m>f</m> is continuous if and only if <m>f^\gets(C)</m> is a closed subset of <m>M_1</m> whenever
+        <m>C</m> is a closed subset of<nbsp /><m>M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon M_1 \sto M_2</m> be a function between metric spaces. Then <m>f</m> is
+        continuous if and only if
+        <me>
+          f^\gets(\intr B) \subseteq \intr{\bigl(f^\gets(B)\bigr)}
+        </me>
+        for all <m>B \subseteq M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f \colon M_1 \sto M_2</m> be a function between metric spaces. Then <m>f</m> is
+        continuous if and only if
+        <me>
+          f^{\sto}\bigl(\,\clo A\,\bigr) \subseteq \clo{f^{\sto}(A)}
+        </me>
+        for every <m>A \subseteq M_1</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon M_1 \sto M_2</m> be a function between metric spaces. Then <m>f</m> is
+        continuous if and only if
+        <me>
+          \clo{f^\gets(B)}  \subseteq f^\gets\bigl(\,\clo B\,\bigr)
+        </me>
+        for every <m>B \subseteq M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f</m> be a real valued function on a metric space <m>M</m> and <m>a \in M</m>. If <m>f</m> is
+        continuous at <m>a</m> and <m>f(a) > 0</m>, then there exists a neighborhood <m>B</m> of <m>a</m> such that <m>f(x) >
+        \frac12 f(a)</m> for all <m>x \in B</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>N</m> be a metric space and <m>M</m> be a subspace of<nbsp /><m>N</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The inclusion map <m>\iota\colon M \sto N\colon x \mapsto x</m> is continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Restrictions of continuous functions are continuous. That is, if <m>f\colon M_1 \sto M_2</m>
+              is a continuous mapping between metric spaces and <m>A \subseteq M_1</m>, then <m>f|_A</m> is continuous.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that alteration of the codomain of a continuous function does not affect its
+        continuity. Precisely: If <m>f\colon M_0 \sto M</m> and <m>g\colon  M_0 \sto N</m> are functions between
+        metric spaces such that <m>f(x) = g(x)</m> for all <m>x \in M_0</m> and if their common image is a metric
+        subspace of both <m>M</m> and <m>N</m>, then <m>f</m> is continuous if and only if <m>g</m> is.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    In the next proposition we show that if two continuous functions agree on a dense subset of a
+    metric space, they agree everywhere on that space.
+  </p>
+
+  <proposition xml:id="agree_dense">
+    <statement>
+      <p>
+        If <m>f</m>, <m>g \colon M \sto N</m> are continuous functions between metric
+        spaces, if <m>D</m> is a dense subset of <m>M</m>, and if <m>f|_D = g|_D</m>, then <m>f = g</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Suppose that there is a point <m>a</m> where <m>f</m> and <m>g</m> differ.
+      Consider the inverse images under <m>f</m> and <m>g</m>, respectively, of disjoint neighborhoods of <m>f(a)</m>
+      and<nbsp /><m>g(a)</m>. Use <xref ref="cnd_dns">proposition</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>M</m> is a metric space and that <m>f\colon M \sto M</m> is continuous but
+        is <em>not</em> the identity map. Show that there exists a proper closed set <m>C \subseteq M</m> such
+        that
+        <me>
+          C \cup f^\gets(C) = M\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Choose <m>x</m> so that <m>x \ne f(x)</m>. Look at the complement of <m>U \cap f^\gets(V)</m> where
+        <m>U</m> and <m>V</m> are disjoint neighborhoods of <m>x</m> and <m>f(x)</m>, respectively.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    There are two ways in which metric spaces may be regarded as <q>essentially the same</q>: They may be
+    isometric (having essentially the same distance function); or they may be topologically equivalent
+    (having essentially the same open sets).
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let<m>(M,d)</m> and <m>(N,\rho)</m> be metric spaces. A bijection <m>f \colon M \sto N</m> is an
+        <index><main>isometry</main></index><term>isometry</term> if
+        <me>
+          \rho(f(x),f(y)) = d(x,y)
+        </me>
+        for all <m>x</m>, <m>y \in M</m>. If an isometry exists between two metric spaces, the spaces are said
+        to be
+        <index><main>isometric spaces</main></index><term>isometric</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        A bijection <m>g\colon M\sto N</m> between metric spaces is a
+        <index><main>homeomorphism</main></index><term>homeomorphism</term> if both <m>g</m> and <m>g^{-1}</m> are continuous. Notice that if <m>g</m> is a
+        homeomorphism, then <m>g^{\sto}</m> establishes a one-to-one correspondence between the family
+        of open subsets of <m>M</m> and the family of open subsets of<nbsp /><m>N</m>. For this reason two metric
+        spaces are said to be
+        <index><main>topological</main><sub>equivalence</sub></index>
+        <index><main>equivalent</main><sub>topologically</sub></index><term>(topologically) equivalent</term> or
+        <index><main>homeomorphic</main></index><term>homeomorphic</term> if there exists a homeomorphism between them. Since the open sets of a
+        space are determined by its metric, it is clear that every isometry is automatically a
+        homeomorphism. The converse, however, is not correct (see <xref ref="exam2_cont">example</xref>
+        below).
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example of a bijection between metric spaces which is continuous but is not
+        a homeomorphism.
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="exam2_cont">
+    <statement>
+      <p>
+        The open interval <m>(0,1)</m> and the real line <m>\R</m> (with their usual
+        metrics) are homeomorphic but not isometric.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    We have seen (in <xref ref="seqs_msps">chapter</xref>) that certain properties of sets in metric spaces can be
+    characterized by means of sequences. Continuity of functions between metric spaces also has a
+    simple and useful sequential characterization.
+  </p>
+
+  <proposition xml:id="seq_ch_cont">
+    <statement>
+      <p>
+        Let <m>f \colon M_1 \sto M_2</m> be a function between metric spaces
+        and <m>a</m> be a point in<nbsp /><m>M_1</m>. The function <m>f</m> is continuous at a if and only if <m>f(x_n) \sto f(a)</m>
+        whenever <m>x_n \sto a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_seq_ch_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give a second solution to <xref ref="agree_dense">proposition</xref>, this time making use of
+        <xref ref="scm_dense">propositions</xref> and <xref ref="seq_ch_cont"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="cont_add">examples</xref> and <xref ref="cont_mult"></xref> to show that if <m>x_n \sto a</m> and
+        <m>y_n \sto b</m> in<nbsp /><m>\R</m>, then <m>x_n + y_n \sto a + b</m> and <m>x_ny_n \sto ab</m>. (Do not give an
+        <q><m>\epsilon</m>-<m>\delta</m> proof</q>.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>c</m> be a point in a metric space <m>M</m>. Show that the function
+        <me>
+          f \colon M \sto \R \colon  x \mapsto d(x,c)
+        </me>
+        is continuous. <em>Hint.</em> Use <xref ref="ms_ineq">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="dist_sets_cont">
+    <statement>
+      <p>
+        Let <m>C</m> be a nonempty subset of a metric space. Then the
+        function
+        <me>
+          g \colon M \sto \R \colon  x \mapsto d(x,C)
+        </me>
+        is continuous. (<xref ref="dist_sets">See</xref> for the definition of <m>d(x,C)</m>.)
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>Urysohn's lemma</main></index>
+  </p>
+
+  <proposition xml:id="prob_urys_lem">
+    <title>Urysohn's lemma</title>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be nonempty disjoint closed
+        subsets of a metric space<nbsp /><m>M</m>. Then there exists a continuous function <m>f \colon M \sto \R</m>
+        such that <m>\ran f \subseteq [0,1]</m>, <m>f^{\sto}(A) = \{0\}</m>, and <m>f^{\sto}(B) = \{1\}</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Consider <m>\dfrac{d(x,A)}{d(x,A) + d(x,B)}</m>. Use
+      <xref ref="dist_sets_prob">problems</xref>(c) and <xref ref="dist_sets_cont"></xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        (Definition. Disjoint sets <m>A</m> and <m>B</m> in a metric space <m>M</m> are said to be
+        <index><main>separated</main><sub>by open sets</sub></index><term>separated by open sets</term> if there exist <m>\open{U,\,V}M</m> such that <m>U \cap V = \emptyset</m>,
+        <m>A \subseteq U</m>, and <m>B~\subseteq~V</m>.) Show that in a metric space every pair of disjoint
+        closed sets can be separated by open sets.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are continuous real valued functions on a metric space<nbsp /><m>M</m>, then
+        <m>\{x \in M\colon  f(x) \ne g(x)\}</m> is an open subset of<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>f</m> is a continuous real valued function on a metric space,
+        then <m>\abs{f}</m> is continuous. (We denote by <m>\abs{f}</m> the function <m>x \mapsto \abs{f(x)}</m>.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that metrics are continuous functions. That is, show that if <m>M</m> is a set and
+        <m>d\colon M \times M \sto \R</m> is a metric, then <m>d</m> is continuous. Conclude from this that if <m>x_n
+        \sto a</m> and <m>y_n \sto b</m> in a metric space, then <m>d(x_n,y_n) \sto d(a,b)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>f</m> and <m>g</m> are continuous real valued functions on a metric space<nbsp /><m>M</m>
+        and <m>f(a) = g(a)</m> at some point <m>a \in M</m>, then for every <m>\epsilon > 0</m> there exists a
+        neighborhood <m>U</m> of <m>a</m> such that <m>f(x) \lt  g(x) + \epsilon</m> for all <m>x \in U</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

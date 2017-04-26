@@ -1,0 +1,376 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Countable and uncountable sets</title>
+  <p>
+    There are many sizes of infinite sets<mdash />infinitely many in fact. In our subsequent work we
+    need only distinguish between countably infinite and uncountable sets. A set is countably
+    infinite if it is in one-to-one correspondence with the set of positive integers; if it is
+    neither finite nor countably infinite, it is uncountable. In this section we present some
+    basic facts about and examples of both countable and uncountable sets. This is all we will
+    need. Except for <xref ref="prob_unc_notr">problem</xref>, which is presented for general interest, we
+    ignore the many intriguing questions which arise concerning various sizes of uncountable sets.
+    For a very readable introduction to such matters see<nbsp /><xref ref="Kaplansky_1977" />, chapter<nbsp />2.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A set is
+        <index><main>countably infinite</main></index>
+        <index><main>infinite</main><sub>countably</sub></index><term>countably infinite</term> (or
+        <index><main>denumerable</main></index><term>denumerable</term>) if it is cardinally equivalent to the set <m>\N</m> of natural numbers. A
+        bijection from <m>\N</m> onto a countably infinite set <m>S</m> is an
+        <index><main>enumeration</main></index><term>enumeration</term> of the elements of<nbsp /><m>S</m>. A set is
+        <index><main>countable</main></index><term>countable</term> if it is either finite or countably infinite. If a
+        set is not countable it is
+        <index><main>uncountable</main></index><term>uncountable</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\E</m> of even integers in <m>\N</m> is countable.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The map <m>n \mapsto 2n</m> is a bijection from <m>\N</m> onto<nbsp /><m>\E</m>.
+    </p>
+  </proof>
+
+  <p>
+    The first proposition of this section establishes the fact that the <q>smallest</q> infinite sets
+    are the countable ones.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Every infinite set contains a countably infinite subset.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Review the proof of <xref ref="prop_ce_sub">proposition</xref>.
+    </p>
+  </proof>
+
+  <p>
+    If we are given a set <m>S</m> which we believe to be countable, it may be extremely difficult to
+    prove this by exhibiting an explicit bijection between <m>\N</m> and<nbsp /><m>S</m>. Thus it is of great
+    value to know that certain constructions performed with countable sets result in countable
+    sets. The next five propositions provide us with ways of generating new countable sets from
+    old ones. In particular, we show that each of the following is countable.
+    <ol>
+      <li>
+        <p>
+          Any subset of a countable set.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The range of a surjection with countable domain.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The domain of an injection with countable codomain.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The product of any finite collection of countable sets.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The union of a countable family of countable sets.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <proposition xml:id="prop_sub_cntbl">
+    <statement>
+      <p>
+        If <m>S \subseteq T</m> where <m>T</m> is countable, then <m>S</m> is countable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Show first that every subset of <m>\N</m> is countable.
+      (<xref ref="sol_prop_sub_cntbl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The preceding has an obvious corollary: if <m>S \subseteq T</m> and <m>S</m> is uncountable, then so
+    is<nbsp /><m>T</m>.
+  </p>
+
+  <proposition xml:id="prop_preimg_cntbl">
+    <statement>
+      <p>
+        If <m>f \colon S \sto T</m> is injective and <m>T</m> is countable,
+        then <m>S</m> is countable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Adapt the proof of <xref ref="prop_preimg_fin">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_ran_cntbl">
+    <statement>
+      <p>
+        If <m>f \colon S \sto T</m> is surjective and <m>S</m> is countable,
+        then <m>T</m> is countable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Adapt the proof of <xref ref="prop_ran_fin">proposition</xref>.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_nxn_cntbl">
+    <statement>
+      <p>
+        The set <m>\N \times \N</m> is countable.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Consider the map <m>(m,n) \mapsto 2^{m-1}(2n - 1)</m>.
+      (<xref ref="sol_lem_nxn_cntbl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="exam_qplus_cntbl">
+    <statement>
+      <p>
+        The set <m>\Q^+ \setminus \{0\} = \{x \in \Q \colon x > 0\}</m>
+        is countable.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Suppose that the rational number <m>m/n</m> is written in lowest terms. (That is, <m>m</m>
+      and <m>n</m> have no common factors greater than<nbsp />1.) Define <m>f(m/n) = (m,n)</m>. It is easy to see
+      that the map <m>f \colon \Q^+\setminus\{0\} \sto \N \times \N</m> is injective. By <xref ref="prop_preimg_cntbl">proposition</xref> and the preceding lemma, <m>Q^+</m> is countable.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_prod_cntbl">
+    <statement>
+      <p>
+        If <m>S</m> and <m>T</m> are countable sets, then so is <m>S \times T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Either <m>S \sim \{1,\dots,n\}</m> or else <m>S \sim \N</m>. In
+      either case there exists an injective map <m>f \colon S \sto \N</m>. Similarly there exists an
+      injection <m>g \colon T \sto \N</m>. Define the function <m>f \times g \colon S \times T \sto \N
+      \times \N</m> by <m>(f \times g)(x,y) = (f(x),g(y))</m>.
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>S_1, \dots, S_n</m> are countable sets, then <m>S_1 \times\dots\times S_n</m> is
+        countable.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      <xref ref="prop_prod_cntbl">Proposition</xref> and induction.
+    </p>
+  </proof>
+
+  <p>
+    Finally we show that a countable union of countable sets is countable.
+  </p>
+
+  <proposition xml:id="prop_union_cntbl">
+    <statement>
+      <p>
+        Suppose that <m>\sfml A</m> is a countable family of sets and
+        that each member of <m>\sfml A</m> is itself countable. Then <m>\bigcup\sfml A</m> is countable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="lem_nxn_cntbl">lemma</xref> and
+      <xref ref="prop_ran_cntbl">proposition</xref>. (<xref ref="sol_prop_union_cntbl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\Q</m> of rational numbers is countable.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>A = \Q^+\setminus\{0\}</m> and <m>B = -A = \{x \in \Q \colon x \lt  0\}</m>. Then <m>\Q
+      = A \cup B \cup \{0\}</m>. The set <m>A</m> is countable by <xref ref="exam_qplus_cntbl">example</xref>. Clearly
+      <m>A \sim B</m> (the map <m>x \mapsto -x</m> is a bijection); so <m>B</m> is countable. Since <m>Q</m> is the
+      union of three countable sets, it is itself countable by the preceding proposition.
+    </p>
+  </proof>
+
+  <p>
+    By virtue of <xref ref="prop_sub_cntbl"></xref><ndash /> <xref ref="prop_union_cntbl"></xref> we have a plentiful supply of
+    countable sets. We now look at an important example of a set which is not countable.
+  </p>
+
+  <example xml:id="exam_r_uncntbl">
+    <statement>
+      <p>
+        The set <m>\R</m> of real numbers is uncountable.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We take it to be known that if we exclude decimal expansions which end in an
+      infinite string of 9's, then every real number has a unique decimal expansion. (For an
+      excellent and thorough discussion of this matter see Stromberg's beautiful text on
+      <em>classical real analysis</em><nbsp /><nbsp /><xref ref="Stromberg_1981" />, especially Theorem<nbsp />2.57.) By (the
+      corollary to) <xref ref="prop_sub_cntbl">proposition</xref> it will suffice to show that the open unit
+      interval <m>(0,1)</m> is uncountable. Argue by contradiction: assume that <m>(0,1)</m> is countably
+      infinite. (We know, of course, from <xref ref="exer_int_inf">exercise</xref> that it is not finite.) Let
+      <m>r_1, r_2, r_3, \dots</m> be an enumeration of <m>(0,1)</m>. For each <m>j \in \N</m> the number <m>r_j</m> has
+      a unique decimal expansion
+      <me>
+        0.r_{j1}\,r_{j2}\,r_{j3}\,\dots\,.
+      </me>
+    </p>
+
+    <p>
+      Construct another number <m>x = 0.x_1\,x_2\,x_3\,\dots</m> as follows. For each <m>k</m> choose <m>x_k= 1</m>
+      if <m>r_{kk} \ne 1</m> and <m>x_k = 2</m> if <m>r_{kk} = 1</m>. Then <m>x</m> is a real number between <m>0</m> and
+      <m>1</m>, and it cannot be any of the numbers <m>r_k</m> in our enumeration (since it differs from <m>r_k</m>
+      at the <m>k^{\text{ th } }</m> decimal place). But this contradicts the assertion that <m>r_1, r_2, r_3,
+      \dots</m> is an enumeration of <m>(0,1)</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that the set of irrational numbers is uncountable.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>S</m> is countable and <m>T</m> is uncountable, then <m>T \setminus S  \sim T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\epsilon</m> be an arbitrary number greater than zero. Show that the rationals
+        in <m>[0,1]</m> can be covered by a countable family of open intervals the sum of whose
+        lengths is no greater than <m>\epsilon</m>. (Recall that a family <m>\sfml U</m> of sets is said to
+        <term>cover</term> a set <m>A</m> if <m>A \subseteq \bigcup \sfml U</m>.) Is it possible to cover the set
+        <m>\Q</m> of all rationals in <m>\R</m> by such a family? <em>Hint.</em> <m>\sum_{k=1}^\infty
+        2^{-k}~=~1</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (Definition: The <term>open disk</term> in <m>\R^2</m> with radius <m>r > 0</m> and center <m>(p,q)</m> is
+        defined to be the set of all points <m>(x,y)</m> in <m>\R^2</m> such that <m>(x - p)^2 + (y - q)^2 \lt 
+        r^2</m>.) Prove that the family of all open disks in the plane whose centers have rational
+        coordinates and whose radii are rational is countable.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (Definition: A real number is
+        <index><main>algebraic number</main></index><term>algebraic</term> if it is a root of some polynomial of degree greater than <m>0</m> with integer
+        coefficients. A real number which is not algebraic is <term>transcendental</term>. It can be shown
+        that the numbers <m>\pi</m> and <m>e</m>, for example, are transcendental.) Show that the set of all
+        transcendental numbers in <m>\R</m> is uncountable. <em>Hint.</em> Start by showing that the set of
+        polynomials with integer coefficients is countable.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that the set of all sequences whose terms consist of only 0's and 1's is
+        uncountable. <em>Hint.</em> Something like the argument in <xref ref="exam_r_uncntbl">example</xref> works.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\sfml J</m> be a disjoint family of intervals in <m>\R</m> each with length greater
+        than<nbsp />0. Show that <m>\sfml J</m> is countable.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_unc_notr">
+    <statement>
+      <p>
+        Find an uncountable set which is not cardinally equivalent
+        to<nbsp /><m>\R</m>. <em>Hint.</em> Let <m>\fml F = \fml F(\R,\R)</m>. Assume there exists a bijection <m>\phi
+        \colon \R \sto \fml F</m>. What about the function <m>f</m> defined by
+        <me>
+          f(x) = 1 + \bigl(\phi(x)\bigr)(x)
+        </me>
+        for all <m>x \in \R</m>?
+      </p>
+    </statement>
+  </problem>
+</chapter>

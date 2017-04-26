@@ -1,0 +1,13 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="nbhds_in_r">
+  <title>Topology of the real line</title>
+  <introduction>
+    <p>
+      It is clear from the definition of <q>interior</q> that the interior of a set is always contained
+      in the set. Those sets for which the reverse inclusion also holds are called <em>open
+      sets</em>.
+    </p>
+  </introduction>
+  <xi:include  href="section2-1.mbx" />
+  <xi:include  href="section2-2.mbx" />
+</chapter>

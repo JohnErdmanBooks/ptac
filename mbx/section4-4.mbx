@@ -1,0 +1,380 @@
+
+<section>
+  <title>Subsequences</title>
+  <p>
+    As <xref ref="exam_div_seq">example</xref> shows, boundedness of a sequence of real numbers does not
+    suffice to guarantee convergence. It is interesting to note, however, that although the
+    sequence <m>\bigl((-1)^n\bigr)_{n=1}^\infty</m> does not converge, it does have subsequences that
+    converge. The odd numbered terms form a constant sequence <m>(-1,-1,-1,\dots)</m>, which of course
+    converges. The even terms converge to<nbsp /><m>+1</m>. It is an interesting, if not entirely obvious,
+    fact that every bounded sequence has a convergent subsequence. This is a consequence of our
+    next proposition.
+  </p>
+
+  <p>
+    Before proving <xref ref="m_subseq">proposition</xref> we discuss the notion of <em>subsequence</em>. The
+    basic idea here is simple enough. Let <m>a = (a_1, a_2, a_3, \dots )</m> be a sequence of real
+    numbers, and suppose that we construct a new sequence <m>b</m> by taking some but not necessarily
+    all of the terms of <m>a</m> and listing them in the same order in which they appear in <m>a</m>. Then
+    we say that this new sequence <m>b</m> is a <em>subsequence</em> of <m>a</m>. We might, for example,
+    choose every fifth member of <m>a</m> thereby obtaining the subsequence <m>b = (b_1, b_2, b_3, \dots
+    ) = (a_5, a_{10}, a_{15}, \dots )</m>. The following definition formalizes this idea.
+  </p>
+
+  <definition xml:id="subseq_r">
+    <statement>
+      <p>
+        Let <m>(a_n)</m> be a sequence of real numbers. If
+        <m>\left(n_k\right)_{k=1}^\infty</m> is a strictly increasing sequence in <m>\N</m>, then the sequence
+        <index><main><@<m>\left(a_{n_k}\right)</m> (subsequence of a sequence)</main></index>
+        <me>
+          \left(a_{n_k}\right) = \left(a_{n_k}\right)_{k=1}^\infty =
+                                 \left(a_{n_1}, a_{n_2}, a_{n_3}, \dots \right)
+        </me>
+        is a
+        <index><main>subsequence</main></index><term>subsequence</term> of the sequence<nbsp /><m>(a_n)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        If <m>a_k = 2^{-k}</m> and <m>b_k = 4^{-k}</m> for all <m>k \in \N</m>, then <m>(b_k)</m> is a subsequence
+        of <m>(a_k)</m>. Intuitively, this is clear, since the second sequence <m>(\frac14, \frac1{16},
+        \frac1{64}, \dots )</m> just picks out the even-numbered terms of the first sequence <m>(\frac12,
+        \frac14, \frac18, \frac1{16}, \dots )</m>. This <q>picking out</q> is implemented by the strictly
+        increasing function <m>n(k) = 2\,k</m> (for <m>k \in \N</m>). Thus <m>b = a \circ n</m> since
+        <me>
+          a_{n_k} = a(n(k)) = a(2k) = 2^{-2k} = 4^{-k} = b_k
+        </me>
+        for all <m>k</m> in<nbsp /><m>\N</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="m_subseq">
+    <statement>
+      <p>
+        Every sequence of real numbers has a monotone subsequence.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> A definition may be helpful. Say that a term <m>a_m</m> of a
+      sequence in <m>\R</m> is a
+      <index><main>peak term</main></index>
+      <index><main>term</main><sub>peak</sub></index><term>peak term</term> if it is greater than or equal to every succeeding term (that is, if <m>a_m \ge
+      a_{m+k}</m> for all <m>k \in \N</m>). There are only two possibilities: either there is a subsequence
+      of the sequence <m>(a_n)</m> consisting of peak terms, or else there is a last peak term in the
+      sequence. (Include in this second case the situation in which there are no peak terms.) Show
+      in each case how to select a monotone subsequence of <m>(a_n)</m>. (<xref ref="sol_m_subseq">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="bdd_convss">
+    <statement>
+      <p>
+        Every bounded sequence of real numbers has a convergent subsequence.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      This is an immediate consequence of <xref ref="bdd_monotone">propositions</xref> and <xref ref="m_subseq"></xref>.
+    </p>
+  </proof>
+
+  <p>
+    Our immediate purpose in studying sequences is to facilitate our investigation of the topology
+    of the set of real numbers. We will first prove a key <xref ref="Bolzano_thm">result</xref>, usually known
+    as <em>Bolzano's theorem</em>, which tells us that bounded infinite subsets of <m>\R</m> have
+    accumulation points. We then proceed to make available for future work sequential
+    characterizations of open <xref ref="sc_open">sets</xref>, closed <xref ref="sc_closed">sets</xref>, and continuity of
+    <xref ref="sc_cont">functions</xref>.
+  </p>
+
+  <definition xml:id="nested">
+    <statement>
+      <p>
+        A sequence <m>(A_1, A_2, A_3, \dots)</m> of sets is
+        <index><main>nested sequence of sets</main></index><term>nested</term> if <m>A_{k+1} \subseteq A_k</m> for every<nbsp /><m>k</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="inter_nested">
+    <statement>
+      <p>
+        The intersection of a nested sequence of nonempty closed
+        bounded intervals whose lengths approach <m>0</m> contains exactly one point.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Suppose that <m>J_n = [a_n, b_n] \ne \emptyset</m> for each
+      <m>n \in \N</m>, that <m>J_{n+1} \subseteq J_n</m> for each <m>n</m>, and that <m>b_n - a_n \sto 0</m> as <m>n \sto
+      \infty</m>. Show that <m>\cap_{n=1}^\infty J_n = \{c\}</m> for some <m>c \in \R</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show by example that the intersection of a nested sequence of nonempty closed intervals
+        may be empty.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show by example that <xref ref="inter_nested">proposition</xref> no longer holds if <q>closed</q> is
+        replaced by <q>open</q>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="Bolzano_thm">
+    <title>Bolzano's theorem</title>
+    <statement>
+      <p>
+        Every bounded infinite subset of <m>\R</m> has at
+        least one accumulation point.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>A</m> be a bounded infinite subset of <m>\R</m>. Since it is bounded it is contained in
+      some interval <m>J_0 = [a_0,b_0]</m>. Let <m>c_0</m> be the midpoint of <m>J_0</m>. Then at least one of the
+      intervals <m>[a_0,c_0]</m> or <m>[c_0,b_0]</m> contains infinitely many members of <m>A</m> (<xref ref="prob_union_fin">see</xref>). Choose one that does and call it <m>J_1</m>. Now divide <m>J_1</m> in half and
+      choose <m>J_2</m> to be one of the resulting closed subintervals whose intersection with <m>A</m> is
+      infinite. Proceed inductively to obtain a nested sequence of closed intervals
+      <me>
+        J_0 \supseteq J_1 \supseteq J_2 \supseteq J_3 \supseteq \dots
+      </me>
+      each one of which contains infinitely many points of <m>A</m>. By <xref ref="inter_nested">proposition</xref>
+      the intersection of all the intervals <m>J_k</m> consists of exactly one point <m>c</m>. Every open
+      interval about <m>c</m> contains some interval <m>J_k</m> and hence infinitely many points of <m>A</m>. Thus
+      <m>c</m> is an accumulation point of<nbsp /><m>A</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="sc_open">
+    <statement>
+      <p>
+        A subset <m>U</m> of <m>\R</m> is open if and only if every sequence which
+        converges to an element of <m>U</m> is eventually in <m>U</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Suppose <m>U</m> is open in <m>\R</m>. Let <m>(x_n)</m> be a sequence which converges to a point
+      <m>a</m> in<nbsp /><m>U</m>. Since <m>U</m> is a neighborhood of <m>a</m>, <m>(x_n)</m> is eventually in <m>U</m>
+      by <xref ref="cond_conv_seq"></xref>(b).
+    </p>
+
+    <p>
+      Conversely, suppose that <m>U</m> is not open. Then there is at least one point <m>a</m> of <m>U</m> which
+      is not an interior point of <m>U</m>. Then for each <m>n \in \N</m> there is a point <m>x_n</m> which
+      belongs to <m>J_{1/n}(a)</m> but <em>not</em> to <m>U</m>. Then the sequence <m>(x_n)</m> converges to <m>a</m> but
+      no term of the sequence belongs to<nbsp /><m>U</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="sc_closure">
+    <statement>
+      <p>
+        A point <m>b</m> belongs to the closure of a set <m>A</m> in <m>\R</m> if and
+        only if there exists a sequence <m>(a_n)</m> in <m>A</m> which converges to<nbsp /><m>b</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_sc_closure">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="sc_closed">
+    <statement>
+      <p>
+        A subset <m>A</m> of <m>\R</m> is closed if and only if <m>b</m> belongs to <m>A</m>
+        whenever there is a sequence <m>(a_n)</m> in <m>A</m> which converges to<nbsp /><m>b</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proposition xml:id="sc_cont">
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. A function <m>f \colon A \sto \R</m> is continuous
+        at <m>a</m> if and only if <m>f(x_n) \sto f(a)</m> whenever <m>(x_n)</m> is a sequence in <m>A</m> such that <m>x_n
+        \sto a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Discuss in detail the continuity of algebraic combinations of continuous real valued
+        functions defined on subsets of <m>\R</m>. Show, for example, that if functions <m>f</m> and <m>g</m> are
+        continuous at a point <m>a</m> in <m>\R</m>, then such combinations as <m>f+g</m> and <m>fg</m> are also
+        continuous at <m>a</m>. What can you say about the continuity of polynomials? <em>Hint.</em> Use
+        <xref ref="seq_proj">problem</xref> and <xref ref="sc_cont">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We conclude this chapter with some problems. The last six of these concern the convergence of
+    recursively defined sequences. Most of these are pretty much like <xref ref="exam_recur">example</xref>
+    and require more in the way of patience than ingenuity.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>A</m> is a nonempty subset of <m>\R</m> which is bounded above, then there exists an
+        increasing sequence of elements of <m>A</m> which converges to <m>\sup A</m>. Similarly, if <m>A</m> is
+        nonempty and bounded below, then there is a decreasing sequence in <m>A</m> converging to<nbsp /><m>\inf A</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <title>Geometric Series</title>
+    <statement>
+      <p>
+        Let <m>\abs r \lt  1</m> and <m>a \in \R</m>. For each <m>n \ge 0</m> let
+        <m>s_n = \sum_{k=0}^n ar^k</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that the sequence <m>(s_n)_{n=0}^\infty</m> converges. <em>Hint.</em>  Consider <m>s_n - rs_n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The limit found in part (a) is usually denoted by <m>\sum_{k=0}^\infty ar^k</m>. (This is the
+               <index><main>sum</main><sub>of a geometric series</sub></index><term>sum</term> of a geometric series.)  Use (a) to find <m>\sum_{k=0}^\infty 2^{-k}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show how (a) may be used to write the decimal <m>0.152424\overline{24}\dots</m> as the
+              quotient of two natural numbers.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="x4exer1">
+    <statement>
+      <p>
+        Suppose a sequence <m>(x_n)</m> of real numbers satisfies
+        <me>
+          4 x_{n+1} = {x_n}^3
+        </me>
+        for all <m>n \in \N</m>. For what values of <m>x_1</m> does the sequence <m>(x_n)</m> converge? For each
+        such <m>x_1</m> what is <m>\lim_{n \sto \infty} x_n</m>? <em>Hint.</em> First establish that <em>if</em>
+        the sequence <m>(x_n)</m> converges, its limit must be <m>-2 ,0 ,\text{ or }  2</m>. This suggests
+        looking at several special cases: <m>x_1 \lt  -2</m>, <m>x_1 = -2</m>, <m>-2 \lt  x_1 \lt  0</m>, <m>x_1 = 0</m>, <m>0 \lt  x_1
+        \lt  2</m>, <m>x_1 = 2</m>, and <m>x_1 > 2</m>. In case <m>x_1 \lt  -2</m>, for example, show that <m>x_n \lt  -2</m> for all
+        <m>n</m>. Use this to show that the sequence <m>(x_n)</m> is decreasing and that it has no limit. The
+        other cases can be treated in a similar fashion. (<xref ref="sol_4exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose a sequence <m>(x_n)</m> in <m>\R</m> satisfies
+        <me>
+          5x_{n+1} = 3x_n + 4
+        </me>
+        for all <m>n \in \N</m>. Show that <m>(x_n)</m> converges. <em>Hint.</em> First answer an easy question:
+        If <m>x_n \sto \ell</m>, what is <m>\ell</m>? Then look at three cases: <m>x_1 \lt  \ell</m>, <m>x_1 = \ell</m>, and
+        <m>x_1 > \ell\,{}</m>. Show, for example, that if <m>x_1 \lt  \ell</m>, then <m>(x_n)</m> is bounded and
+        increasing.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose a sequence <m>(x_n)</m> in <m>\R</m> satisfies
+        <me>
+          x_{n+1} = \sqrt{2 + x_n}
+        </me>
+        for all <m>n \in \N</m>. Show that <m>(x_n)</m> converges. To what does it
+        converge?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that a sequence <m>(x_n)</m> in <m>\R</m> satisfies
+        <me>
+          x_{n+1} = 1 - \sqrt{1 - x_n}
+        </me>
+        for all <m>n \in \N</m>. Show that <m>(x_n)</m> converges. To what does it converge? Does
+        <m>\left(\dfrac{x_{n+1}}{x_n}\right)</m> converge?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that a sequence <m>(x_n)</m> of real numbers satisfies
+        <me>
+          3x_{n+1} = {x_n}^3 - 2
+        </me>
+        for all <m>n \in \N</m>. For what choices of <m>x_1</m> does the sequence converge? To what?
+        <em>Hint.</em> Compute <m>x_{n+1} - x_n</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a > 1</m>. Suppose that a sequence <m>(x_n)</m> in <m>\R</m> satisfies
+        <me>
+          (a + x_n)x_{n+1} = a(1 + x_n)
+        </me>
+        for all <m>n</m>. Show that if <m>x_1 > 0</m>, then <m>(x_n)</m> converges. In this case find <m>\lim x_n</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

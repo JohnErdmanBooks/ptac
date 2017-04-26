@@ -1,0 +1,373 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="nat_nos">
+  <title>Natural numbers and mathematical induction</title>
+  <p>
+    The <em>principle of mathematical induction</em> is predicated on a knowledge of the natural
+    numbers, which we introduce in this section. In what follows it is helpful to keep in mind
+    that the axiomatic development of the real numbers sketched in the preceding chapter says
+    nothing about the natural numbers; in fact, it provides explicit names for only three real
+    numbers: <m>0</m>, <m>1</m>, and <m>-1</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A collection <m>J</m> of real numbers is
+        <index><main>inductive set</main></index><term>inductive</term> if
+        <ol>
+          <li>
+            <p>
+              <m>1 \in J</m>,  and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>x + 1 \in J</m> whenever <m>x \in J</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\R</m> is itself inductive; so are the intervals <m>(0,\infty)</m>, <m>[-1, \infty)</m>,
+        and <m>[1,\infty)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="prop_intrs_ind">
+    <statement>
+      <p>
+        Let <m>\sfml A</m> be a family of inductive subsets of <m>\R</m>. Then
+        <m>\cap \sfml A</m> is inductive.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_intrs_ind">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>J</m> be the family of all inductive subsets of<nbsp /><m>\R</m>. Define
+        <me>
+          \N := \cap J\,.
+        </me>
+      </p>
+
+      <p>
+        We call <m>\N</m> the set of
+        <index><main>natural numbers</main></index>
+        <index><main>numbers</main><sub>natural</sub></index><term>natural numbers</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that according to <xref ref="prop_intrs_ind">proposition</xref> the set <m>\N</m> is inductive. It is
+    the <em>smallest</em> inductive set, in the sense that it is contained in <em>every</em> inductive
+    set. The elements of <m>\N</m> have standard names. Define <m>2 := 1 + 1</m>. Since <m>1</m> belongs to
+    <m>\N</m> and <m>\N</m> is inductive, <m>2</m><nbsp />belongs to<nbsp /><m>\N</m>. Define <m>3 := 2 + 1</m>. Since <m>2</m> belongs
+    to<nbsp /><m>\N</m>, so does<nbsp /><m>3</m>. Define <m>4 := 3 + 1</m>; <em>etc.</em>
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        The set of
+        <index><main>integers</main></index><term>integers</term>, denoted by <m>\Z</m>, is defined to be
+        <me>
+          -\N \cup \{0\} \cup \N
+        </me>
+        where <m>-\N := \{-n: n \in \N\}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The next proposition is practically obvious; but as it is an essential ingredient of several
+    subsequent arguments (<em>e.g.</em> <xref ref="prob_less_pos">problem</xref>), we state it formally.
+  </p>
+
+  <proposition xml:id="prop_natno_pos">
+    <statement>
+      <p>
+        If <m>n \in \N</m>, then <m>n \ge 1</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Since the set <m>[1,\infty)</m> is inductive, it must contain<nbsp /><m>\N</m>.
+    </p>
+  </proof>
+
+  <p>
+    The observation made previously that <m>\N</m> is the smallest inductive set clearly implies that
+    no proper subset of <m>\N</m> can be inductive. This elementary fact has a rather fancy name: it is
+    the <em>principle of mathematical induction</em>.
+  </p>
+
+  <theorem xml:id="thm_mth_ind">
+    <title>Principle of Mathematical Induction</title>
+    <statement>
+      <p>
+        <index><main>mathematical induction</main></index>
+        <index><main>induction</main><sub>mathematical</sub></index>
+        <index><main>principle</main><sub>of mathematical induction</sub></index>
+        Every inductive subset of <m>\N</m> equals <m>\N</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    By spelling out the definition of <q>inductive set</q> in the preceding theorem we obtain a
+    longer, perhaps more familiar, statement of the <em>principle of mathematical induction.</em>
+  </p>
+
+  <corollary xml:id="cor_mi2">
+    <statement>
+      <p>
+        If <m>S</m> is a subset of <m>\N</m> which satisfies
+        <ol>
+          <li>
+            <p>
+              <m>1 \in S</m>,  and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>n + 1 \in S</m> whenever <m>n \in S</m>,
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        then <m>S = \N</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <p>
+    Perhaps even more familiar is the version of the preceding which refers to <q>a proposition (or
+    assertion, or statement) concerning the natural number <m>n</m></q>.
+  </p>
+
+  <corollary xml:id="cor_mi3">
+    <statement>
+      <p>
+        Let <m>P(n)</m> be a proposition concerning the natural number<nbsp /><m>n</m>. If
+        <m>P(1)</m> is true, and if <m>P(n + 1)</m> is true whenever <m>P(n)</m> is true, then <m>P(n)</m> is true for all
+        <m>n \in \N</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      In <xref ref="cor_mi2">corollary</xref> let <m>S = \{n \in \N \colon P(n) \text{ is true } \}</m>.
+      Then <m>1 \in S</m> and <m>n + 1</m> belongs to <m>S</m> whenever <m>n</m> does. Thus <m>S = \N</m>. That is, <m>P(n)</m>
+      is true for all <m>n \in \N</m>.
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_mi1">
+    <statement>
+      <p>
+        Use <em>mathematical induction</em> to prove the following assertion:
+        The sum of the first <m>n</m> natural numbers is <m>\frac 12n(n+1)</m>. <em>Hint.</em> Recall that if
+        <m>p</m> and <m>q</m> are integers with <m>p \le q</m> and if <m>c_p, c_{p+1}, \dots, c_q</m> are real numbers,
+        then the sum <m>c_p + c_{p+1} + \dots + c_q</m> may be denoted by <m>\sum_{k=p}^q c_k</m>. Using this
+        summation notation, we may write the desired conclusion as <m>\sum_{k=1}^n k = \frac 12
+        n(n+1)</m>.) (<xref ref="sol_exer_mi1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    It is essentially obvious that there is nothing crucial about starting inductions with <m>n =
+    1</m>. Let <m>m</m> be any integer and <m>P(n)</m> be a proposition concerning integers <m>n \ge m</m>. If we
+    prove that <m>P(m)</m> is true and that <m>P(n + 1)</m> is true whenever <m>P(n)</m> is true and <m>n \ge m</m>,
+    then we may conclude that <m>P(n)</m> is true for all <m>n \ge m</m>. [Proof: Apply
+    <xref ref="cor_mi3">corollary</xref> to the proposition <m>Q</m> where <m>Q(n) = P(n + m - 1)</m>.]
+  </p>
+
+  <problem xml:id="prob_factor_ambm">
+    <statement>
+      <p>
+        Let <m>a,b \in \R</m> and <m>m \in \N</m>. Then
+        <me>
+          a^m - b^m = (a - b) \sum_{k=0}^{m-1} a^k b^{m-k-1}\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Multiply out the right hand side. This is not an induction problem.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_geomser1">
+    <statement>
+      <p>
+        If <m>r \in \R</m>, <m>r \ne 1</m>, and <m>n \in \N</m>, then
+        <me>
+          \sum_{k=0}^n r^k = \frac{1 - r^{n+1}}{1 - r}\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> <xref ref="prob_factor_ambm">Use</xref>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>m</m>, <m>n \in \N</m>. We say that <m>m</m> is a
+        <index><main>factor</main></index><term>factor</term> of <m>n</m> if <m>n/m \in \N</m>. Notice that <m>1</m> and <m>n</m> are always factors of <m>n</m>; these
+        are the
+        <index><main>factor</main><sub>trivial</sub></index>
+        <index><main>trivial</main><sub>factor</sub></index><term>trivial factors</term> of<nbsp /><m>n</m>. The number <m>n</m> is
+        <index><main>composite</main><sub>number</sub></index>
+        <index><main>number</main><sub>composite</sub></index><term>composite</term> if <m>n > 1</m> and if it has at least one nontrivial factor. (For example, <m>20</m> has
+        several nontrivial factors: <m>2</m>, <m>4</m>, <m>5</m>, and <m>10</m>. Therefore it is composite.) If <m>n > 1</m>
+        and it is not composite, it is
+        <index><main>prime number</main></index>
+        <index><main>number</main><sub>prime</sub></index><term>prime</term>. (For example, <m>7</m> is prime; its only factors are <m>1</m> and<nbsp /><m>7</m>.)
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that if <m>n \in \N</m> and <m>2^n - 1</m> is prime, then so is<nbsp /><m>n</m>. (<em>Hint.</em>
+        Prove the contrapositive. Use <xref ref="prob_factor_ambm">problem</xref>.) Illustrate your technique by
+        finding a nontrivial factor of <m>2^{403} - 1</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sum_sqrs">
+    <statement>
+      <p>
+        Show that <m>\sum_{k=1}^nk^2 = \frac16 n(n+1)(2n+1)</m> for every
+        <m>n \in \N</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_less_pos">
+    <statement>
+      <p>
+        Use only the definition of <m>\N</m> and the results given in this
+        section to prove (a) and (b).
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>m,n \in \N</m> and <m>m \lt  n</m>, then <m>n - m \in \N</m>. <em>Hint.</em>  One proof of this
+              involves an induction within an induction.  Restate the assertion to be proved as follows.
+              For every <m>m \in \N</m> it is true that:
+              <men xml:id="prob_eqn1_mi" >
+                \text{ if \(n \in \N\) and \(n > m\), then \(n - m \in \N\). }
+              </men>
+              Prove this assertion by induction on<nbsp /><m>m</m>.  That is, show that <xref ref="prob_eqn1_mi" /> holds for
+              <m>m = 1</m>, and then show that it holds for <m>m = k + 1</m> provided that it holds for <m>m = k</m>.  To
+              show that <xref ref="prob_eqn1_mi" /> holds for <m>m = 1</m>, prove that the set
+              <me>
+                J := \{1\} \cup \{n \in \N \colon n - 1 \in \N\}
+              </me>
+              is an inductive set.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>n \in \N</m>.  There does not exist a natural number <m>k</m> such that <m>n \lt  k \lt  n+1</m>.
+              <em>Hint.</em>  Argue by contradiction. Use part<nbsp />(a).
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>binomial theorem</main></index>
+  </p>
+
+  <problem xml:id="binom_thm">
+    <title>The binomial theorem.</title>
+    <statement>
+      <p>
+        If <m>x</m>, <m>y \in \R</m> and <m>n \in \N</m>, then
+        <me>
+          (x + y)^n = \sum_{k=0}^n\binom nkx^{n-k}y^k\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use induction. Recall that <m>0! = 1</m>, that <m>n! = n(n - 1)(n - 2) \dots 1</m> for <m>n
+        \in \N</m>, and that
+        <me>
+          \binom nk = \frac{n!}{k!(n-k)!}
+        </me>
+        for <m>0 \le k \le n</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The final result of this section is the
+    <index><main>well-ordering</main></index>
+    <index><main>principle</main><sub>of well-ordering</sub></index><em>principle of well-ordering</em>. It asserts that every nonempty subset of the natural
+    numbers has a smallest element.
+  </p>
+
+  <proposition xml:id="prop_well_ord">
+    <statement>
+      <p>
+        If <m>\emptyset \ne K \subseteq \N</m>, then there exists
+        <m>a \in K</m> such that <m>a \le k</m> for every <m>k \in K</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Assume that <m>K</m> has no smallest member. Show that
+      this implies <m>K = \emptyset</m> by proving that the set
+      <me>
+        J \equiv \{n \in \N \colon n \lt  k  \text{ for every }  k \in K\}
+      </me>
+      is inductive. In the inductive step <xref ref="prob_less_pos">problem</xref>(b) may prove useful.
+      (<xref ref="sol_prop_well_ord">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        (This slight modification of the <em>principle of mathematical induction</em>
+        is occasionally useful.) Let <m>P(n)</m> be a proposition concerning the natural number <m>n</m>. If
+        <m>P(n)</m> is true whenever <m>P(k)</m> is true for all <m>k \in \N</m> such that <m>k \lt  n</m>, then <m>P(n)</m> is
+        true for all <m>n</m>. <em>Hint.</em> Use the <em>well-ordering principle.</em>
+      </p>
+    </statement>
+  </problem>
+</chapter>

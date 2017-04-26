@@ -1,0 +1,33 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="dorf">
+  <title>Differentiation of real valued functions</title>
+  <introduction>
+    <p>
+      Differential calculus is a highly geometric subject<mdash />a fact which is not always made entirely
+      clear in elementary texts, where the study of derivatives as numbers often usurps the place of
+      the fundamental notion of linear approximation. The contemporary French mathematician Jean
+      Dieudonn&#xe9; comments on the problem in chapter<nbsp />8 of his magisterial multivolume treatise on
+      the <em>Foundations of Modern Analysis</em><nbsp /><xref ref="Dieudonne_1962" />
+    </p>
+
+    <blockquote>
+    \ldots<nbsp />the fundamental idea of calculus [is] the <q>local</q> approximation of functions by
+    <em>linear</em> functions. In the classical teaching of Calculus, this idea is immediately
+    obscured by the accidental fact that, on a one-dimensional vector space, there is a one-to-one
+    correspondence between linear forms and numbers, and therefore the derivative at a point is
+    defined as a <em>number</em> instead of a <em>linear form</em>.  This slavish subservience to the
+    shibboleth of numerical interpretation at any cost becomes much worse when dealing with
+    functions of several variables \ldots
+    </blockquote>
+
+    <p>
+      The goal of this chapter is to display as vividly as possible the geometric underpinnings of
+      the differential calculus. The emphasis is on <q>tangency</q> and <q>linear approximation</q>, not
+      on number.
+    </p>
+  </introduction>
+  <xi:include  href="section8-1.mbx" />
+  <xi:include  href="section8-2.mbx" />
+  <xi:include  href="section8-3.mbx" />
+  <xi:include  href="section8-4.mbx" />
+</chapter>

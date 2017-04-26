@@ -1,0 +1,25 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="comp_Rn">
+  <title>Computations in <m>\R^n</m></title>
+  <introduction>
+    <p>
+      In the preceding two chapters we have developed some fundamental facts concerning the
+      differential calculus in arbitrary Banach spaces. In the present chapter we restrict our
+      attention to the Euclidean spaces<nbsp /><m>\R^n</m>. Not only are these spaces very important
+      historically, but fortunately there are available a variety of powerful yet relatively simple
+      techniques which make possible explicit computations of many of the concepts introduced in
+      <xref ref="diff_calc">chapter</xref>. The usefulness of these spaces seems to be associated with the
+      emphasis in classical physics on systems having a finite number of degrees of freedom. The
+      computational simplicity stems from two facts: first, differentials of functions between
+      Euclidean spaces are always continuous (see <xref ref="prop_fd_cont">proposition</xref>); and second, the
+      usual norm on <m>\R^n</m> is derivable from an inner product. In the first section of this chapter
+      we derive some standard elementary facts about inner products. It is important to appreciate
+      that despite their algebraic appearance, inner products are the source of much of the geometry
+      in Euclidean spaces.
+    </p>
+  </introduction>
+  <xi:include  href="section27-1.mbx" />
+  <xi:include  href="section27-2.mbx" />
+  <xi:include  href="section27-3.mbx" />
+  <xi:include  href="section27-4.mbx" />
+</chapter>

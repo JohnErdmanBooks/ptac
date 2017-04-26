@@ -1,0 +1,56 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="evt">
+  <title>Compactness and the extreme value theorem</title>
+  <introduction>
+    <p>
+      One of the most important results in beginning calculus is the <em>extreme value theorem</em>: a
+      continuous function on a closed and bounded subset of the real line achieves both a maximum
+      and a minimum value. In the present chapter we prove this result. Central to understanding the
+      <em>extreme value theorem</em> is a curious observation: while neither boundedness nor the
+      property of being closed is preserved by continuity (see <xref ref="evt_pr1">problems</xref> and <xref ref="evt_pr2"></xref>), the property of being closed <em>and</em> bounded is preserved. Once we have
+      proved this result it is easy to see that a continuous function defined on a closed and
+      bounded set attains a maximum and minimum on the set.
+    </p>
+
+    <p>
+      Nevertheless, there are some complications along the way. To begin with, the proof that
+      continuity preserves the property of being closed and bounded turns out to be awkward and
+      unnatural.
+      Furthermore, although this result can be generalized to <m>\R^n</m>, it does not hold in more
+      general metric spaces. This suggests<mdash />even if it is not conclusive evidence<mdash />that we are
+      looking at the wrong concept. One of the mathematical triumphs of the early twentieth century
+      was the recognition that indeed the very concept of closed-and-bounded is a manifestation of
+      the veil of <em>m\={a}y\={a}</em>, a seductively simple vision which obscures the <q>real</q>
+      topological workings behind the scenes. Enlightenment, at this level, consists in piercing
+      this veil of illusion and seeing behind it the <q>correct</q> concept<mdash />compactness. There is
+      now overwhelming evidence that compactness <em>is</em> the appropriate concept. First and most
+      rewarding is the observation that the proofs of the preservation of compactness by continuity
+      and of the <em>extreme value theorem</em> now become extremely natural. Also, the same proofs
+      work not only for <m>\R^n</m> but for general metric spaces and even arbitrary topological spaces.
+      Furthermore, the property of compactness is an intrinsic one<mdash />if <m>A \subseteq B \subseteq C</m>,
+      then <m>A</m> is compact in <m>B</m> if and only if it is compact in <m>C</m>. (The property of being closed
+      is not intrinsic: the interval <m>(0,1]</m> is closed in <m>(0,\infty)</m> but not in <m>\R</m>.) Finally,
+      there is the triumph of products. In the early 1900's there were other contenders for the
+      honored place ultimately held by compactness<mdash />sequential compactness and countable
+      compactness. Around 1930 the great Russian mathematician Tychonov was able to show that
+      arbitrary products of compact spaces are compact, a powerful and useful property not shared by
+      the competitors.
+    </p>
+
+    <p>
+      There is, however, a price to be paid for the wonders of compactness<mdash />a frustratingly
+      unintuitive definition. It is doubtless this lack of intuitive appeal which explains why it
+      took workers in the field so long to come up with the optimal notion. Do not be discouraged if
+      you feel you don't understand the definition. I'm not sure anyone really <q>understands</q> it.
+      What is important is to be able to <em>use</em> it. And that is quite possible<mdash />with a little
+      practice. In this chapter we first define compactness <xref ref="df_cpt" /> and give two important
+      examples of compact sets: finite sets (<xref ref="cpt_exm1">see</xref>) and the interval <m>[0,1]</m> (<xref ref="cpt_exm2">see</xref>). Then we give a number of ways of creating new compact sets from old ones (<xref ref="cpt_cnd1">see</xref>, <xref ref="cpt_cnd2"></xref>, <xref ref="cpt_cnd3"></xref>(b), and <xref ref="cpt_cnd4"></xref>). <xref ref="cpt_cnd4">In</xref> we
+      show that the continuous image of a compact set is compact and in <xref ref="evthm"></xref> we prove the
+      <em>extreme value theorem</em>. Finally (in <xref ref="HBthm"></xref>) we prove the <em>Heine-Borel
+      theorem</em> for <m>\R</m>: the compact subsets of <m>\R</m> are those which are both closed and bounded.
+    </p>
+  </introduction>
+  <xi:include  href="section6-1.mbx" />
+  <xi:include  href="section6-2.mbx" />
+  <xi:include  href="section6-3.mbx" />
+</chapter>

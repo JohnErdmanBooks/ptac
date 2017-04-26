@@ -1,0 +1,59 @@
+
+<section>
+  <title>Exercises in Chapter 06</title>
+  <solution xml:id="sol_cpt_cb">
+    <p>
+      (Solution to <xref ref="cpt_cb"></xref>)
+      Let <m>A</m> be a compact subset of <m>\R</m>. To show that <m>A</m> is closed, prove that <m>A^c</m> is open. Let
+      <m>y</m> be a point of <m>A^c</m>. For each <m>x \in A</m> choose numbers <m>r_x > 0</m> and <m>s_x > 0</m> such that
+      the open intervals <m>J_{r_x}(x)</m> and <m>J_{s_x}(y)</m> are disjoint. The family <m>\{J_{r_x}(x) \colon
+      x \in A\}</m> is an open cover for <m>A</m>. Since <m>A</m> is compact there exist <m>x_1, \dots, x_n \in A</m>
+      such that <m>\{J_{r_{x_i}}(x_i) \colon 1 \le i \le n\}</m> covers <m>A</m>. It is easy to see that if
+      <me>
+        t = \min\{s_{x_1}, \dots, s_{x_n}\}
+      </me>
+      then <m>J_t(y)</m> is disjoint from <m>\bigcup_{i=1}^n J_{r_{x_i}}(x_i)</m> and hence from<nbsp /><m>A</m>. This
+      shows that <m>y \in A^{c \circ}</m>. Since <m>y</m> was arbitrary, <m>A^c</m> is open.
+    </p>
+
+    <p>
+      To prove that <m>A</m> is bounded, we need consider only the case where <m>A</m> is nonempty. Let <m>a</m> be
+      any point in <m>A</m>. Then <m>\{J_n(a) \colon n \in \N\}</m> covers <m>A</m> (it covers all of <m>\R</m>!). Since
+      <m>A</m> is compact a finite subcollection of these open intervals will cover <m>A</m>. In this finite
+      collection there is a largest open interval; it contains<nbsp /><m>A</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cpt_cnd4">
+    <p>
+      (Solution to <xref ref="cpt_cnd4"></xref>)
+      Let <m>\sfml V</m> be a family of open subsets of <m>\R</m> which covers <m>f^{\sto}(A)</m>. The family
+      <me>
+        \sfml U := \{f^{\gets}(V) \colon V \in \sfml V\}
+      </me>
+      is a family of open sets which covers <m>A</m> (<xref ref="cond3_cont">see</xref>). Since <m>A</m> is compact we
+      may choose sets <m>V_1, \dots, V_n \in \sfml V</m> such that <m>\bigcup_{k=1}^n f^{\gets}(V_k)
+      \supseteq A</m>. We complete the proof by showing that <m>f^{\sto}(A)</m> is covered by the
+      finite subfamily <m>\{V_1, \dots, V_n\}</m> of <m>\sfml V</m>. If <m>y \in f^{\sto}(A)</m>, then <m>y =
+      f(x)</m> for some <m>x \in A</m>. This element <m>x</m> belongs to at least one set <m>f^{\gets}(V_k)</m>;
+      so (by <xref ref="prop_f_finv">proposition</xref>)
+      <me>
+        y = f(x) \in f^{\sto}(f^{\gets}(V_k)) \subseteq V_k \,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>f^{\sto}(A) \subseteq \bigcup_{k=1}^n V_k</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_evthm">
+    <p>
+      (Solution to <xref ref="evthm"></xref>)
+      We prove that <m>f</m> assumes a maximum on <m>A</m>. (To see that <m>f</m> has a minimum apply the present
+      result to the function <m>-f</m>.) By <xref ref="cpt_cnd4">theorem</xref> the image of <m>f</m> is a compact subset
+      of <m>\R</m> and is therefore (<xref ref="cpt_cb">see</xref>) closed and bounded. Since it is bounded the image
+      of <m>f</m> has a least upper bound, say <m>l</m>. By <xref ref="sup_in_clo">example</xref> the number <m>l</m> is in the
+      closure of<nbsp /><m>\ran f</m>. Since the range of <m>f</m> is closed, <m>l \in \ran f</m>. Thus there exists a
+      point <m>a</m> in <m>A</m> such that <m>f(a) = l \ge f(x)</m> for all <m>x \in A</m>.
+    </p>
+  </solution>
+</section>

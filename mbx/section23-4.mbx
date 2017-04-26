@@ -1,0 +1,122 @@
+
+<section>
+  <title>Dual spaces and adjoints</title>
+  <p>
+    \fbox{In this section <m>U</m>, <m>V</m>, and <m>W</m> are normed linear spaces.}
+  </p>
+
+  <p>
+    Particularly important among the spaces of bounded linear transformations introduced in
+    <xref ref="blt">section</xref> are those consisting of maps from a space <m>V</m> into its scalar field<nbsp /><m>\R</m>.
+    The space <m>\ofml B(V,\R)</m> is the
+    <index><main>dual space</main></index>
+    <index><main>space</main><sub>dual</sub></index>
+    <index><main><@<m>V^*</m> (dual of a Banach space)</main></index><term>dual space</term> of <m>V</m> and is usually denoted by<nbsp /><m>V^*</m>. Members of <m>V^*</m> are called
+    <index><main>bounded</main><sub>linear functionals</sub></index>
+    <index><main>functionals</main><sub>bounded linear</sub></index><term>bounded linear functionals</term>. (When the word <q>function</q> is given the suffix <q>al</q> we
+    understand that the function is scalar valued.)
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f\colon \R^3 \sto \R\colon (x,y,z) \mapsto x + y + z</m>. Then <m>f</m> is a member
+        of <m>(\R^3)^*</m>. (It is obviously linear and is bounded by <xref ref="prop_fd_cont">proposition</xref>.)
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        The familiar Riemann integral of beginning calculus is a bounded linear functional
+        on the space <m>\fml C = \fml C([a,b],\R)</m>. That is, the functional <m>J</m> defined in
+        <xref ref="exer_norm_int">exercise</xref> belongs to<nbsp /><m>\fml C^*</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact metric space and <m>\fml C = \fml C(M,\R)</m>. For each <m>x</m> in <m>M</m>
+        the evaluation functional <m>E_x\colon f \mapsto f(x)</m> belongs to <m>\fml C^*</m>. (Take <m>W = \R</m> in
+        <xref ref="prob_Ex_cms">problem</xref>.)
+      </p>
+    </statement>
+  </example>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>T \in \ofml B(V,W)</m>. Define <m>T^*</m> by <m>T^*(g) = g \circ T</m> for every <m>g</m> in<nbsp /><m>W^*</m>.
+        The map <m>T^*</m> is the
+        <index><main>adjoint</main></index><term>adjoint</term> of<nbsp /><m>T</m>. In the next two propositions and <xref ref="prob_adj_bl">problem</xref> we state only
+        the most elementary properties of the adjoint map <m>T \mapsto T^*</m>. We will see more of it
+        later.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_adj1">
+    <statement>
+      <p>
+        If <m>T \in \ofml B(V,W)</m>, then <m>T^*</m> maps <m>W^*</m> into<nbsp /><m>V^*</m>.
+        Furthermore, if <m>g \in W^*</m>, then <m>\norm{T^*g} \le \norm T \, \norm g</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_adj1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>S \in \ofml B(U,V)</m>, <m>T \in \ofml B(V,W)</m>, and <m>I_V</m> be the identity map on <m>V</m>.
+        Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>T^*</m> belongs to <m>\ofml B(W^*,V^*)</m> and <m>\norm{T^*} \le \norm T</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(I_V)^*</m> is <m>I_{V^*}</m>, the identity map on <m>V^*</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>(TS)^* = S^*T^*</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_adj_bl">
+    <statement>
+      <p>
+        The adjoint map <m>T \mapsto T^*</m> from <m>\ofml B(V,W)</m> into
+        <m>\ofml B(W^*,V^*)</m> is itself a bounded linear transformation, and it has norm not
+        exceeding<nbsp /><m>1</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

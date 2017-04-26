@@ -1,0 +1,173 @@
+
+<section>
+  <title>Sequential characterizations of topological properties</title>
+  <p>
+    Now we proceed to characterize some metric space concepts in terms of sequences. The point of
+    this is that sequences are often easier to work with than arbitrary open sets.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        A subset <m>U</m> of a metric space <m>M</m> is open if and only if every sequence in <m>M</m>
+        which converges to an element of <m>U</m> is eventually in<nbsp /><m>U</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Suppose that <m>U</m> is an open subset of <m>M</m>. Let <m>(x_n)</m> be a sequence in <m>M</m> which
+      converges to a point <m>a</m> in <m>U</m>. Then <m>U</m> is a neighborhood of <m>a</m>. Since <m>x_n \sto a</m>, the
+      sequence <m>(x_n)</m> is eventually in<nbsp /><m>U</m>.
+    </p>
+
+    <p>
+      To obtain the converse suppose that <m>U</m> is not open. Some point, say <m>a</m>, of <m>U</m> is not an
+      interior point of <m>U</m>. Then for every <m>n</m> in <m>\N</m> we may choose an element <m>x_n</m> in
+      <m>B_{1/n}(a)</m> such that <m>x_n \notin U</m>. Then the sequence <m>(x_n)</m> converges to <m>a \in U</m>, but
+      it is certainly not true that <m>(x_n)</m> is eventually in<nbsp /><m>U</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="scm_closed">
+    <statement>
+      <p>
+        A subset <m>A</m> of a metric space is closed if and only if <m>b</m>
+        belongs to <m>A</m> whenever <m>(a_n)</m> is a sequence in <m>A</m> which converges to <m>b</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_scm_closed">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="scm_dense">
+    <statement>
+      <p>
+        A subset <m>D</m> of a metric space <m>M</m> is dense in <m>M</m> if and only
+        if every point of <m>M</m> is the limit of a sequence of elements of<nbsp /><m>D</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="lim_uniq">
+    <statement>
+      <p>
+        In metric spaces limits of sequences are unique. (That is,
+        if <m>a_n \sto b</m> and <m>a_n \sto c</m> in some metric space, then <m>b = c</m>.)
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_clo_seq">
+    <statement>
+      <p>
+        Show that a point <m>p</m> is in the closure of a subset <m>A</m> of a
+        metric space if and only if there is a sequence of points in <m>A</m> which converges to<nbsp /><m>p</m>.
+        Also, give a characterization of the interior of a set by means of sequences.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Since the rationals are dense in <m>\R</m>, it must be possible, according to
+        <xref ref="scm_dense">proposition</xref>, to find a sequence of rational numbers which converges to the
+        number<nbsp /><m>\pi</m>. Identify one such sequence.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="conv_eqm">
+    <statement>
+      <p>
+        Let <m>d_1</m> and <m>d_2</m> be strongly equivalent metrics on a
+        set<nbsp /><m>M</m>. If a sequence of points in <m>M</m> converges to a point <m>b</m> in the metric space
+        <m>(M,d_1)</m>, then it also converges to <m>b</m> in the space <m>(M,d_2)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="conv_eqm">proposition</xref> to show that the metric <m>\rho</m> defined in <xref ref="Gam">example</xref> is not strongly equivalent on <m>\R^2</m> to the usual Euclidean
+        (<xref ref="Eucl_met">example</xref>). You gave a (presumably different) proof of this in
+        <xref ref="d_ne_rho">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space with the discrete metric. Give a simple characterization
+        of the convergent sequences in<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition xml:id="dist_sets">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be nonempty subsets of a metric space<nbsp /><m>M</m>. The
+        <index><main>distance</main><sub>between sets</sub></index><term>distance</term> between <m>A</m> and <m>B</m>, which we denote
+        <index><main>dab@<m>d(A,B)</m> (distance between two sets</main></index>by<nbsp /><m>d(A,B)</m>, is defined to be <m>\inf\{d(a,b) \colon a \in A \text{ and }  b \in B\}</m>. If <m>a \in
+        M</m> we write <m>d(a,B)</m> for <m>d(\{a\},B)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="dist_sets_prob">
+    <statement>
+      <p>
+        Let <m>B</m> be a nonempty subset of a metric space<nbsp /><m>M</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that if <m>x \in B</m>, then <m>d(x,B) = 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Give an example to show that the converse of (a) may fail.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show that if <m>B</m> is closed, the converse of (a) holds.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

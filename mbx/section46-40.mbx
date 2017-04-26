@@ -1,0 +1,166 @@
+
+<section>
+  <title>Exercises in Appendix o</title>
+  <solution xml:id="sol_prop_card_n">
+    <p>
+      (Solution to <xref ref="prop_card_n"></xref>)
+      We wish to demonstrate that for all natural numbers <m>m</m> and <m>n</m> if there is a bijection from
+      <m>\{1,\dots, m\}</m> onto <m>\{1,\dots, n\}</m>, then <m>m = n</m>. To accomplish this use induction
+      on<nbsp /><m>n</m>.
+    </p>
+
+    <p>
+      First, suppose that for an arbitrary natural number <m>m</m> we have <m>\{1,\dots, m\} \sim \{1\}</m>.
+      That is, we suppose that there exists a bijection <m>f</m> from <m>\{1, \dots, m\}</m> onto <m>\{1\}</m>.
+      Then since <m>f(1) = 1 = f(m)</m> and <m>f</m> is injective, we conclude that <m>m = 1</m>. This establishes
+      the proposition in the case <m>n = 1</m>.
+    </p>
+
+    <p>
+      Next, we assume the truth of the result for some particular <m>n \in \N</m>: for every <m>m \in \N</m>
+      if <m>\{1,\dots, m\} \sim \{1,\dots, n\}</m>, then <m>m = n</m>. This is our inductive hypothesis. What
+      we wish to show is that for an arbitrary natural number <m>m</m> if <m>\{1,\dots, m\} \sim \{1,\dots,
+      n+1\}</m>, then <m>m = n+1</m>. Suppose then that <m>m \in \N</m> and <m>\{1,\dots, m\} \sim
+      \{1,\dots,n+1\}</m>. Then there is a bijection <m>f</m> from <m>\{1,\dots,m\}</m> onto <m>\{1,\dots,n + 1\}</m>.
+      Let <m>k = f^{-1}(n + 1)</m>. The restriction of <m>f</m> to the set <m>\{1,\dots,k - 1,k~+~1~, \dots,m\}</m>
+      is a bijection from that set onto <m>\{1,\dots,n\}</m>. Thus
+      <men xml:id="eqn_card_n1" >
+        \{1,\dots,k - 1,k + 1,\dots,m\} \sim \{1,\dots,n\}.
+      </men>
+    </p>
+
+    <p>
+      Furthermore, it is easy to see that
+      <men xml:id="eqn_card_n2" >
+        \{1,\dots,m - 1\} \sim \{1,\dots,k - 1,k + 1,\dots,m\}.
+      </men>
+    </p>
+
+    <p>
+      (The required bijection is defined by <m>g(j) = j</m> if <m>1 \le j \le k - 1</m> and <m>g(j) = j + 1</m> if
+      <m>k \le j \le m - 1</m>.) From <xref ref="eqn_card_n1" />, <xref ref="eqn_card_n2" />, and
+      <xref ref="prop_ce_er">proposition</xref> we conclude that
+      <me>
+        \{1,\dots,m-1\} \sim \{1,\dots,n\}\,.
+      </me>
+    </p>
+
+    <p>
+      By our inductive hypothesis, <m>m - 1 = n</m>. This yields the desired conclusion <m>m = n + 1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_card_union">
+    <p>
+      (Solution to <xref ref="prop_card_union"></xref>)
+      The result is trivial if <m>S</m> or <m>T</m> is empty; so we suppose they are not. Let <m>m = \card S</m>
+      and <m>n = \card T</m>. Then <m>S \sim \{1,\dots,m\}</m> and <m>T \sim \{1,\dots,n\}</m>. It is clear that
+      <me>
+        \{1,\dots,n\} \sim \{m+1,\dots,m + n\}\,.
+      </me>
+    </p>
+
+    <p>
+      (Use the map <m>j \mapsto j + m</m> for <m>1 \le j \le n</m>.) Thus <m>T \sim \{m + 1,\dots,m + n\}</m>. Let
+      <m>f \colon S \sto \{1,\dots,m\}</m> and <m>g \colon T \sto \{m + 1,\dots,m + n\}</m> be bijections.
+      Define <m>h \colon S \cup T \sto \{1,\dots,m + n\}</m> by
+      <me>
+        h(x) = \begin{cases}f(x), \amp \text{ for \(x \in S\) } \\
+                      g(x), \amp \text{ for \(x \in T\). } 
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Then clearly <m>h</m> is a bijection. So <m>S \cup T</m> is finite and <m>\card(S \cup T) = m + n = \card S + \card T</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_card_sub">
+    <p>
+      (Solution to <xref ref="lem_card_sub"></xref>)
+      Proceed by mathematical induction. If <m>C \subseteq \{1\}</m>, then either <m>C = \emptyset</m>, in
+      which case <m>\card C = 0</m>, or else <m>C = \{1\}</m>, in which case <m>\card C = 1</m>. Thus the lemma is
+      true if <m>n = 1</m>.
+    </p>
+
+    <p>
+      Suppose then that the lemma holds for some particular <m>n \in \N</m>. We prove its correctness for
+      <m>n + 1</m>. So we assume that <m>C \subseteq \{1,\dots,n + 1\}</m> and prove that <m>C</m> is finite and
+      that <m>\card C \le n + 1</m>. It is clear that <m>C \setminus \{n + 1\} \subseteq \{1,\dots,n\}</m>.
+      By the inductive hypothesis <m>C \setminus \{n + 1\}</m> is finite and <m>\card(C \setminus \{n +
+      1\}) \le n</m>. There are two possibilities: <m>n + 1 \notin C</m> and <m>n + 1 \in C</m>. In case <m>n + 1</m>
+      does not belong to <m>C</m>, then <m>C = C \setminus \{n + 1\}</m>; so <m>C</m> is finite and <m>\card C \le n
+      \lt  n + 1</m>. In the other case, where <m>n + 1</m> does belong to <m>C</m>, it is clear that <m>C</m> is finite
+      (because <m>C \setminus \{n + 1\}</m> is) and we have (by <xref ref="prop_card_union">proposition</xref>)
+      <md>
+        <mrow>\card C  \amp = \card\bigl((C \setminus \{n + 1\}) \cup \{n + 1\}\bigr)</mrow>
+        <mrow>\amp = \card(C \setminus \{n + 1\}) + \card(\{n + 1\})</mrow>
+        <mrow>\amp \le n + 1.        \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_ce_sub">
+    <p>
+      (Solution to <xref ref="prop_ce_sub"></xref>)
+      Suppose that <m>S</m> is infinite. We prove that there exists a proper subset <m>T</m> of <m>S</m> and a
+      bijection <m>f</m> from <m>S</m> onto <m>T</m>. We choose a sequence of distinct elements <m>a_k</m> in <m>S</m>, one
+      for each <m>k \in \N</m>. Let <m>a_1</m> be an arbitrary member of <m>S</m>. Then <m>S \setminus \{a_1\} \ne
+      \emptyset</m>. (Otherwise <m>S \sim \{a_1\}</m> and <m>S</m> is finite.) Choose <m>a_2 \in S \setminus
+      \{a_1\}</m>. Then <m>S \setminus \{a_1,a_2\} \ne \emptyset</m>. (Otherwise <m>S \sim \{a_1,a_2\}</m> and
+      <m>S</m> is finite.) In general, if distinct elements <m>a_1,\dots,a_n</m> have been chosen, then <m>S
+      \setminus \{a_1,\dots,a_n\}</m> cannot be empty; so we may choose <m>a_{n+1} \in S \setminus
+      \{a_1,\dots,a_n\}</m>. Let <m>T = S \setminus \{a_1\}</m>, and define <m>f \colon S \sto T</m> by
+      <me>
+        f(x) = \begin{cases}a_{k+1}, \amp \text{ if \(x=a_k\) for some \(k\) } \\
+                         x,       \amp \text{ otherwise } .
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Then <m>f</m> is a bijection from <m>S</m> onto the proper subset <m>T</m> of<nbsp /><m>S</m>.
+    </p>
+
+    <p>
+      For the converse construct a proof by contradiction. Suppose that <m>S \sim T</m> for some proper
+      subset <m>T \subseteq S</m>, and assume further that <m>S</m> is finite, so that <m>S \sim \{1,\dots,n\}</m>
+      for some <m>n \in \N</m>. Then by <xref ref="prop_card_sub">proposition</xref> the set <m>S \setminus T</m> is finite
+      and, since it is nonempty, is therefore cardinally equivalent to <m>\{1,\dots,p\}</m> for some <m>p
+      \in \N</m>. Thus
+      <md>
+        <mrow>n \amp = \card S</mrow>
+        <mrow>\amp = \card T</mrow>
+        <mrow>\amp = \card (S \setminus (S \setminus T))</mrow>
+        <mrow>\amp = \card S - \card(S \setminus T)\qquad \text{ (by <xref ref="prob_card_diff">problem</xref>) }</mrow>
+        <mrow>\amp = n - p.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Therefore <m>p = 0</m>, which contradicts the earlier assertion that <m>p \in \N</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_int_inf">
+    <p>
+      (Solution to <xref ref="exer_int_inf"></xref>)
+      The map <m>x \mapsto \frac12x</m> is a bijection from the interval <m>(0,1)</m> onto the interval
+      <m>(0,\frac12)</m>, which is a proper subset of<nbsp /><m>(0,1)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_ran_fin">
+    <p>
+      (Solution to <xref ref="prop_ran_fin"></xref>)
+      Since <m>f</m> is surjective it has a right inverse <m>f_r</m> (see <xref ref="prop_rinv_surj">proposition</xref>).
+      This right inverse is injective, since it has a left inverse (see
+      <xref ref="prop_linv_inj">proposition</xref>). Let <m>A = \ran f_r</m>. The function <m>f_r</m> establishes a
+      bijection between <m>T</m> and<nbsp /><m>A</m>. Thus <m>T \sim A \subseteq S</m>. If <m>S</m> is finite, so is <m>A</m> (by
+      <xref ref="prop_card_sub">proposition</xref>) and therefore so is <m>T</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_preimg_fin">
+    <p>
+      (Solution to <xref ref="prop_preimg_fin"></xref>)
+      Let <m>B = \ran f</m>. Then <m>S \sim B \subseteq T</m>. If <m>T</m> is finite, so is <m>B</m> (by
+      <xref ref="prop_card_sub">proposition</xref>) and therefore so is<nbsp /><m>S</m>.
+    </p>
+  </solution>
+</section>

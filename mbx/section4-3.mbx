@@ -1,0 +1,339 @@
+
+<section>
+  <title>Sufficient condition for convergence</title>
+  <p>
+    An amusing situation sometimes arises in which we know what the limit of a sequence must be
+    <em>if</em> it exists, but we have no idea whether the sequence actually converges. Here is an
+    example of this odd behavior. The sequence will be recursively defined. Sequences are said to
+    be
+    <index><main>recursive definition</main></index><term>recursively</term> defined if only the first term or first few terms
+    are given explicitly and the remaining terms are defined by means
+    of the preceding term(s).
+  </p>
+
+  <p>
+    Consider the sequence <m>(x_n)</m> defined so that <m>x_1=1</m> and for <m>n \in \N</m>
+    <men xml:id="recur_seq" >
+      x_{n+1} =
+      \frac{3(1+x_n)}{3+x_n}\,.
+    </men>
+  </p>
+
+  <p>
+    It is obvious that <em>IF the sequence converges</em> to a limit, say <m>\ell</m>, then <m>\ell</m> must
+    satisfy
+    <me>
+      \ell = \frac{3(1+\ell)}{3+\ell}\,.
+    </me>
+  </p>
+
+  <p>
+    (This is obtained by taking limits as <m>n \sto \infty</m> on both sides of <xref ref="recur_seq" />.)
+    Cross-multiplying and solving for <m>\ell</m> leads us to the conclusion that <m>\ell = \pm\sqrt3</m>.
+    Since the first term <m>x_1</m> is positive, equation <xref ref="recur_seq" /> makes it clear that all the
+    terms will be positive; so <m>\ell</m> cannot be <m>-\sqrt3</m>. Thus it is entirely clear that if the
+    limit of the sequence exists, it must be <m>\sqrt3</m>. What is <em>not</em> clear is whether the
+    limit exists at all. This indicates how useful it is to know some conditions sufficient to
+    guarantee convergence of a sequence. The next proposition gives one important example of such
+    a condition: it says that bounded monotone sequences converge.
+  </p>
+
+  <p>
+    First, the relevant definitions.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A sequence <m>(x_n)</m> of real numbers is
+        <index><main>bounded</main><sub>sequence</sub></index><term>bounded</term> if its range is a bounded subset of <m>\R</m>. Another way of saying the same thing:
+        a sequence <m>(x_n)</m> in <m>\R</m> is bounded if there exists a number <m>M</m> such that <m>\abs{x_n} \le M</m>
+        for all <m>n \in \N</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        A sequence <m>(a_n)</m> of real numbers is
+        <index><main>increasing</main><sub>sequence</sub></index><term>increasing</term> if <m>a_{n+1} \ge a_n</m> for every <m>n \in \N</m>; it is
+        <index><main>strictly increasing</main><sub>sequence</sub></index><term>strictly increasing</term> if <m>a_{n+1} > a_n</m> for every <m>n</m>. A sequence is
+        <index><main>decreasing</main><sub>sequence</sub></index><term>decreasing</term> if <m>a_{n+1} \le a_n</m> for every <m>n</m>, and is
+        <index><main>strictly decreasing</main><sub>sequence</sub></index><term>strictly decreasing</term> if <m>a_{n+1} \lt  a_n</m> for every <m>n</m>. A sequence is
+        <index><main>monotone</main><sub>sequence</sub></index><term>monotone</term> if it is either increasing or decreasing.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="bdd_monotone">
+    <statement>
+      <p>
+        Every bounded monotone sequence of real numbers converges.
+        In fact, if a sequence is bounded and increasing, then it converges to the least upper bound
+        of its range. Similarly, if it is bounded and decreasing, then it converges to the greatest
+        lower bound of its range.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>(x_n)</m> be a bounded increasing sequence. Let <m>R</m> be the range of the
+      sequence and <m>\ell</m> be the least upper bound of <m>R</m>; that is, <m>\ell = \sup\{x_n \colon n \in
+      \N\}</m>. We have seen in <xref ref="sup_in_clo">example</xref> that the least upper bound of a nonempty
+      subset of <m>\R</m> belongs to the closure of that set. In particular, <m>\ell \in \clo R</m>. Thus
+      given any <m>\epsilon > 0</m> we can find a number <m>x_{n_0}</m> of <m>R</m> which lies in the
+      interval<nbsp /><m>J_\epsilon(\ell)</m>. In fact, <m>x_{n_0} \in (\ell-\epsilon, \ell]</m>. Since the
+      sequence is increasing and bounded above by <m>\ell</m>, we have <m>x_n \in (\ell-\epsilon, \ell]
+      \subseteq J_\epsilon(\ell)</m> for every <m>n \ge n_0</m>. What we have just proved is that the
+      sequence <m>(x_n)</m> is eventually in every <m>\epsilon</m>-neighborhood of <m>\ell</m>. That is, <m>x_n \sto
+      \ell</m>.
+    </p>
+
+    <p>
+      If <m>(x_n)</m> is bounded and decreasing, then the sequence <m>(-x_n)</m> is bounded and increasing. If
+      <m>R</m> is the range of <m>(x_n)</m> and <m>g</m> is the greatest lower bound of <m>R</m>, then <m>-R</m> is the range
+      of <m>(-x_n)</m> and <m>-g</m> is the least upper bound of<nbsp /><m>-R</m>. By what we have just proved, <m>-x_n
+      \sto -g</m>. So <m>x_n \sto g</m> as desired.
+    </p>
+  </proof>
+
+  <example xml:id="exam_recur">
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be the sequence recursively defined above: <m>x_1 = 1</m>
+        and <xref ref="recur_seq" /> holds for all <m>n \ge 1</m>. Then <m>x_n \sto \sqrt3</m> as<nbsp /><m>n~\sto~\infty</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We have argued previously that the limit of the sequence is <m>\sqrt3</m> <em>if</em> it
+      exists. So what we must show is that the sequence does converge. We have thus far one
+      tool<mdash /><xref ref="bdd_monotone">proposition</xref>. Thus we <em>hope</em> that we will be able to prove that
+      the sequence is bounded and monotone. If the sequence starts at <m>1</m>, is monotone, and
+      approaches <m>\sqrt3</m>, then it must be increasing. How do we prove that the sequence is
+      bounded? Bounded by what? We observed earlier that <m>x_1 \ge 0</m> and equation
+      <xref ref="recur_seq" /> then guarantees that all the remaining <m>x_n</m>'s will be positive. So <m>0</m> is
+      a lower bound for the sequence. If the sequence is increasing and approaches <m>\sqrt 3</m>, then
+      <m>\sqrt3</m> will be an upper bound for the terms of the sequence. Thus it appears that the way
+      to make use of <xref ref="bdd_monotone">proposition</xref> is to prove two things: (1) <m>0 \le x_n \le
+      \sqrt3</m> for all <m>n</m>; and (2) <m>(x_n)</m> is increasing. If we succeed in establishing both of
+      these claims, we are done.
+    </p>
+  </proof>
+
+  <p>
+    <em>Claim 1.</em> <m>0 \le x_n \le \sqrt3</m> for all <m>n \in \N</m>.
+  </p>
+
+  <proof>
+    <p>
+      We have already observed that <m>x_n \ge 0</m> for all <m>n</m>. We use mathematical
+      induction to show that <m>x_n \le \sqrt3</m> for all <m>n</m>. Since <m>x_1=1</m>, it is clear that <m>x_1 \le
+      \sqrt3</m>. For the inductive hypothesis suppose that for some particular <m>k</m> we have
+      <men xml:id="x4loc1" >
+        x_k \le \sqrt3\,.
+      </men>
+    </p>
+
+    <p>
+      We wish to show that <m>x_{k+1} \le \sqrt3</m>. To start, multiply both sides of <xref ref="x4loc1" /> by
+      <m>3-\sqrt3</m>. (If you are wondering, <q>How did you know to do that?</q> consult the next
+      problem.) This gives us
+      <me>
+        3x_k - \sqrt3 x_k \le 3\sqrt3 - 3.
+      </me>
+    </p>
+
+    <p>
+      Rearrange so that all terms are positive
+      <me>
+        3 + 3x_k \le 3\sqrt3 + \sqrt3 x_k = \sqrt3(3 + x_k).
+      </me>
+    </p>
+
+    <p>
+      But then clearly
+      <me>
+        x_{k+1} = \frac{3+3x_k}{3+x_k} \le \sqrt3,
+      </me>
+      which was to be proved.
+    </p>
+  </proof>
+
+  <p>
+    <em>Claim 2.</em> The sequence <m>(x_n)</m> is increasing.
+  </p>
+
+  <proof>
+    <p>
+      We will show that <m>x_{n+1} - x_n \ge 0</m> for all <m>n</m>. For each <m>n</m>
+      <me>
+        x_{n+1}-x_n = \frac{3+3x_n}{3+x_n} - x_n = \frac{3-{x_n}^2}{3+x_n} \ge 0.
+      </me>
+    </p>
+
+    <p>
+      (We know that <m>3-{x_n}^2 \ge 0</m> from claim 1.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        A student, Fred R.<nbsp />Dimm, tried on an exam to prove the claims made in
+        <xref ref="exam_recur">example</xref>. For the inductive proof of claim 1 that <m>x_n \le \sqrt3</m> he
+        offered the following <q>proof</q>:
+        <md>
+          <mrow>x_{k+1} \amp \le \sqrt3</mrow>
+          <mrow>\frac{3+3x_k}{3+x_k} \amp \le \sqrt3</mrow>
+          <mrow>3+3x_k \amp \le \sqrt3(3+x_k)</mrow>
+          <mrow>3x_k - \sqrt3x_k \amp \le 3\sqrt3 - 3</mrow>
+          <mrow>(3-\sqrt3)x_k \amp \le (3-\sqrt3)\sqrt3</mrow>
+          <mrow>x_k \amp \le \sqrt3, \qquad\text{ which is true by hypothesis. }</mrow>
+        </md>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Aside from his regrettable lack of explanation, Fred seems to be making a
+              serious logical error.  Explain to poor Fred why his offering is not a proof.
+              <em>Hint.</em>  What would you say about a proof that <m>1=2</m>, which goes as follows?
+              <md>
+                <mrow>1 \amp = 2</mrow>
+                <mrow>0 \cdot 1 \amp = 0 \cdot 2</mrow>
+                <mrow>0 \amp = 0, \qquad\text{ which is true. }</mrow>
+              </md>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Now explain why Fred's computation in (a) is really quite useful scratch
+              work, even if it is not a proof.  <em>Hint.</em> In the correct proof of claim 1, how
+              <em>might</em> its author have been inspired to ``multiply both sides of <xref ref="x4loc1"></xref> by <m>3
+              - \sqrt3</m>''?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="x4exam1">
+    <statement>
+      <p>
+        The condition (bounded and monotone) given in <xref ref="bdd_monotone">proposition</xref>, while sufficient to guarantee the convergence of a sequence, is not
+        necessary.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. (Give an explicit example.)
+    </p>
+  </proof>
+
+  <p>
+    Expressed as a conditional, <xref ref="bdd_monotone">proposition</xref> says that if a sequence is bounded
+    and monotone, then it converges. <xref ref="x4exam1">Example</xref> shows that the converse of this
+    conditional is not correct. A partial converse does hold however: if a sequence converges, it
+    must be bounded.
+  </p>
+
+  <proposition xml:id="conv_bdd">
+    <statement>
+      <p>
+        Every convergent sequence in <m>\R</m> is bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_conv_bdd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    We will encounter many situations when it is important to know the limit as <m>n</m> gets large of
+    <m>r^n</m> where <m>r</m> is a number in the interval <m>(-1,1)</m> and the limit of <m>r^{1/n}</m> where <m>r</m> is a
+    number greater than <m>0</m>. The next two propositions show that the respective limits are always
+    <m>0</m> and <m>1</m>.
+  </p>
+
+  <proposition xml:id="prop_lim_pwrs">
+    <statement>
+      <p>
+        If <m>\abs{r} \lt  1</m>, then <m>r^n \sto 0</m> as <m>n \sto \infty</m>.
+        If <m>\abs{r} > 1</m>, then <m>(r^n)</m> diverges.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Suppose that <m>\abs{r} \lt  1</m>. If <m>r=0</m>, the proof is trivial, so we consider
+      only <m>r \ne 0</m>. Since <m>0 \lt  \abs r \lt  1</m> whenever <m>-1 \lt  r \lt  0</m>, <xref ref="abs_seq">proposition</xref>
+      allows us to restrict our attention to numbers lying in the interval<nbsp /><m>(0,1)</m>. Thus we suppose
+      that <m>0 \lt  r \lt  1</m> and prove that <m>r^n \sto 0</m>. Let <m>R</m> be the range of the sequence <m>(r^n)</m>.
+      That is, let <m>R = \{r^n \colon n \in \N\}</m>. Let <m>g = \inf R</m>. Notice that <m>g \ge 0</m> since <m>0</m>
+      is a lower bound for <m>R</m>. We use an argument by contradiction to prove that <m>g=0</m>. Assume to
+      the contrary that <m>g > 0</m>. Since <m>0 \lt  r \lt  1</m>, it must follow that <m>gr^{-1} > g</m>. Since <m>g</m>
+      is the greatest lower bound of <m>R</m>, the number <m>gr^{-1}</m> is not a lower bound for <m>R</m>. Thus
+      there exists a member, say <m>r^k</m>, of <m>R</m> such that <m>r^k \lt  gr^{-1}</m>. But then <m>r^{k+1} \lt  g</m>,
+      which contradicts the choice of <m>g</m> as a lower bound of <m>R</m>. We conclude that <m>g = 0</m>.
+    </p>
+
+    <p>
+      The sequence <m>(r^n)</m> is bounded and decreasing. Thus by <xref ref="bdd_monotone">proposition</xref> it
+      converges to the greatest lower bound of its range; that is, <m>r^n \sto 0</m> as <m>n \sto \infty</m>.
+    </p>
+
+    <p>
+      Now suppose <m>r>1</m>. Again we argue by contradiction. Suppose that <m>(r^n)</m> converges. Then
+      its range <m>R</m> is a bounded subset of <m>\R</m>.
+    </p>
+
+    <p>
+      Let <m>\ell = \sup R</m>. Since <m>r>1</m>, it is clear that <m>\ell r^{-1} \lt  \ell</m>. Since <m>\ell</m> is the
+      least upper bound of <m>R</m>, there exists a number <m>r^k</m> of <m>R</m> such that <m>r^k > \ell r^{-1}</m>.
+      Then <m>r^{k+1} > \ell</m>, contrary to the choice of <m>\ell</m> as an upper bound for<nbsp /><m>R</m>.
+    </p>
+
+    <p>
+      Finally, suppose that <m>r\lt -1</m>. If <m>(r^n)</m> converges then its range is bounded. In particular,
+      <m>\{r^{2n}\colon n \in \N\}</m> is bounded. As in the preceding paragraph, this is impossible.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>r > 0</m>, then <m>r^{1/n} \sto 1</m> as <m>n \sto \infty</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show that <m>\frac1n \lt  r \lt  n</m> for some natural number <m>n</m>.
+      Then use <xref ref="x4exam2">example</xref> and <xref ref="sand_seq">proposition</xref>. (You will also make use of a
+      standard arithmetic fact<mdash />one that arises in <xref ref="proj_nth_roots">problem</xref><mdash />that if <m>0 \lt  a \lt 
+      b</m>, then <m>a^{1/n} \lt  b^{1/n}</m> for every natural number <m>n</m>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Find <m>\D\lim_{n \sto \infty}\frac{5^n + 3n + 1}{7^n - n - 2}</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

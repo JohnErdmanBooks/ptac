@@ -1,0 +1,130 @@
+
+<section>
+  <title>Continuity<mdash />as a local property</title>
+  <p>
+    The definition of continuity uses the notion of the inverse image of a set under a function.
+    It is a good idea to look at <xref ref="images">appendices</xref> and <xref ref="inverses"></xref>, at least to fix
+    notation.
+  </p>
+
+  <definition xml:id="df_continuity">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is
+        <index><main>continuous</main><sub>at a point</sub></index><term>continuous at</term> a point <m>a</m> in <m>\R</m> if <m>f^\gets(V)</m> contains a neighborhood of <m>a</m> whenever
+        <m>V</m> is a neighborhood of<nbsp /><m>f(a)</m>. Here is another way of saying exactly the same thing: <m>f</m> is
+        continuous at <m>a</m> if every neighborhood of <m>f(a)</m> contains the image under <m>f</m> of a
+        neighborhood of<nbsp /><m>a</m>. (If it is not entirely clear that these two assertions are equivalent,
+        use <xref ref="prop_f_finv">propositions</xref> (a) and <xref ref="prop_finv_f"></xref> (a) to prove that <m>U \subseteq
+        f^\gets(V)</m> if and only if <m>f^\sto(U) \subseteq V</m>.)
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    As we saw in <xref ref="nbhds_in_r">chapter</xref>, it seldom matters whether we work with general
+    neighborhoods (as in the preceding definition) or with the more restricted
+    <m>\epsilon</m>-neighborhoods (as in the next proposition).
+  </p>
+
+  <proposition xml:id="cond1_cont">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous at <m>a \in \R</m>
+        if and only if for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        <men xml:id="continuity1" >
+          J_\delta(a) \subseteq
+                             f^\gets \bigl(J_\epsilon(f(a))\bigr)
+        </men>
+      </p>
+    </statement>
+  </proposition>
+
+  <p>
+    Before starting on a proof it is always a good idea to be certain that the meaning of the
+    proposition is entirely clear. In the present case the <q>if and only if</q> tells us that we
+    are being given a condition <em>characterizing</em> continuity at the point<nbsp /><m>a</m>; that is, a
+    condition which is both necessary and sufficient in order for the function to be continuous
+    at<nbsp /><m>a</m>. The condition states that no matter what positive number <m>\epsilon</m> we are given, we
+    can find a corresponding positive number <m>\delta</m> such that property <xref ref="continuity1" />
+    holds. This property is the heart of the matter and should be thought of conceptually rather
+    than in terms of symbols. Learning mathematics is easiest when we regard the content of
+    mathematics to be ideas; it is hardest when mathematics is thought of as a game played with
+    symbols. Thus property <xref ref="continuity1" /> says that if <m>x</m> is any number in the open
+    interval <m>(a-\delta, a+\delta)</m>, then the corresponding value <m>f(x)</m> lies in the open interval
+    between <m>f(a)-\epsilon</m> and <m>f(a)+\epsilon</m>. Once we are clear about what it is that we wish
+    to establish, it is time to turn to the proof.
+  </p>
+
+  <proof>
+    <p>
+      Suppose <m>f</m> is continuous at <m>a</m>. If <m>\epsilon > 0</m>, then <m>J_\epsilon(f(a))</m>
+      is a neighborhood of <m>f(a)</m> and therefore <m>f^\gets\bigl(J_\epsilon(f(a))\bigr)</m> contains a
+      neighborhood <m>U</m> of <m>a</m>. Since <m>a</m> is an interior point of <m>U</m>, there exists <m>\delta
+      > 0</m> such that <m>J_\delta(a) \subseteq U</m>. Then
+      <me>
+        J_\delta(a) \subseteq U \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)\,.
+      </me>
+    </p>
+
+    <p>
+      Conversely, suppose that for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+      <m>J_\delta(a) \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)</m>. Let <m>V</m> be a neighborhood of
+      <m>f(a)</m>. Then <m>J_\epsilon(f(a)) \subseteq V</m> for some <m>\epsilon > 0</m>. By hypothesis, there
+      exists <m>\delta > 0</m> such that <m>J_\delta(a) \subseteq f^\gets\bigl(J_\epsilon(f(a))\bigr)</m>.
+      Then <m>J_\delta(a)</m> is a neighborhood of <m>a</m> and <m>J_\delta(a) \subseteq f^\gets(V)</m>; so <m>f</m> is
+      continuous at<nbsp /><m>a</m>.
+    </p>
+  </proof>
+
+  <p>
+    We may use the remarks preceding the proof of <xref ref="cond1_cont"></xref> to give a second
+    characterization of continuity at a point. Even though the condition given is algebraic in
+    form, it is best to think of it geometrically. Think of it in terms of distance. In the next
+    corollary read <q><m>\abs{x-a}\lt \delta</m></q> as <q><m>x</m> is within <m>\delta</m> units of <m>a</m></q> (not as <q>the
+    absolute value of <m>x</m> minus <m>a</m> is less than <m>\delta</m></q>). If you follow this advice,
+    statements about continuity, when we get to metric spaces, will sound familiar. Otherwise,
+    everything will appear new and strange.
+  </p>
+
+  <corollary xml:id="cond2_cont">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous at <m>a</m> if and
+        only if for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        <men xml:id="continuity2" >
+          \abs{x - a} \lt  \delta  \implies \abs{f(x) - f(a)} \lt  \epsilon\,.
+        </men>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      This is just a restatement of <xref ref="cond1_cont">proposition</xref> because condition
+      <xref ref="continuity1" /> holds if and only if
+      <me>
+        x \in J_\delta(a) \implies  f(x) \in J_\epsilon(f(a))\,.
+      </me>
+    </p>
+
+    <p>
+      But <m>x</m> belongs to the interval <m>J_\delta(a)</m> if and only if <m>\abs{x - a} \lt  \delta</m>, and
+      <m>f(x)</m> belongs to <m>J_\epsilon(f(a))</m> if and only if <m>\abs{f(x) - f(a)} \lt  \epsilon</m>. Thus
+      <xref ref="continuity1" /> and <xref ref="continuity2" /> say exactly the same thing.
+    </p>
+  </proof>
+
+  <p>
+    Technically, <xref ref="df_continuity"></xref> is the definition of continuity at a point, <xref ref="cond1_cont">while</xref> and <xref ref="cond2_cont"></xref> are characterizations of this property.
+    Nevertheless, it is not altogether wrong-headed to think of them as alternative (but
+    equivalent) definitions of continuity. It really doesn't matter which one we choose to
+    be <em>the</em> definition. Each of them has its uses. For example, consider the result:
+    if <m>f</m> is continuous at <m>a</m> and <m>g</m> is continuous at <m>f(a)</m>, then <m>g \circ f</m> is
+    continuous at <m>a</m> (<xref ref="comp_cont_loc">see</xref>). The simplest proof of this <xref ref="df_continuity">uses</xref>. On the other hand, when we wish to verify that some particular
+    function is continuous at a point (see, for example, <xref ref="cont_exam1"></xref>), then, usually, <xref ref="cond2_cont"></xref> is best. There are other characterizations of continuity (<xref ref="cond3_cont">see</xref><ndash /> <xref ref="cond7_cont"></xref>). Before embarking on a particular problem involving
+    this concept, it is wise to take a few moments to reflect on which choice among the
+    assorted characterizations is likely to produce the simplest and most direct proof. This
+    is a favor both to your reader and to yourself.
+  </p>
+</section>

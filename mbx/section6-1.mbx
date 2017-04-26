@@ -1,0 +1,89 @@
+
+<section>
+  <title>Compactness</title>
+  <problem xml:id="evt_pr1">
+    <statement>
+      <p>
+        Give an example to show that if <m>f</m> is a continuous real valued
+        function of a real variable and <m>A</m> is a closed subset of <m>\R</m> which is contained in the
+        domain of <m>f</m>, then it is not necessarily the case that <m>f^\sto(A)</m> is a closed subset
+        of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="evt_pr2">
+    <statement>
+      <p>
+        Give an example to show that if <m>f</m> is a continuous real valued
+        function of a real variable and <m>A</m> is a bounded subset of the domain of <m>f</m>, then it is not
+        necessarily the case that <m>f^\sto(A)</m> is bounded.
+      </p>
+    </statement>
+  </problem>
+
+  <definition xml:id="df_cpt">
+    <statement>
+      <p>
+        A family <m>\sfml U</m> of sets is said to
+        <index><main>cover</main></index><term>cover</term> a set <m>A</m> if <m>\bigcup\,\sfml U \supseteq A</m>. The phrases <q><m>\sfml U</m> covers
+        <m>A</m></q>, <q><m>\sfml U</m> is a cover for <m>A</m></q>, <q><m>\sfml U</m> is a covering of <m>A</m></q>, and <q><m>A</m>
+        is covered by <m>\sfml U</m></q> are used interchangeably. If <m>A</m> is a subset of <m>\R</m> and
+        <m>\sfml U</m> is a cover for <m>A</m> which consists entirely of open subsets of <m>\R</m>, then <m>\sfml
+        U</m> is an
+        <index><main>open</main><sub>cover</sub></index>
+        <index><main>cover</main><sub>open</sub></index><term>open cover</term> for<nbsp /><m>A</m>. If <m>\sfml U</m> is a family of sets which covers <m>A</m> and <m>\sfml V</m>
+        is a subfamily of <m>\sfml U</m> which also covers <m>A</m>, then <m>\sfml V</m> is a
+        <index><main>subcover</main></index><term>subcover</term> of <m>\sfml U</m> for<nbsp /><m>A</m>. A subset <m>A</m> of <m>\R</m> is
+        <index><main>compact</main></index><term>compact</term> if <em>every</em> open cover of <m>A</m> has a finite subcover.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>A = [0,1]</m>, <m>U_1 = (-3,\frac23)</m>, <m>U_2 = (-1,\frac12)</m>, <m>U_3 = (0,\frac12)</m>,
+        <m>U_4 = (\frac13,\frac23)</m>, <m>U_5 = (\frac12,1)</m>, <m>U_6 = (\frac9{10},2)</m>, and <m>U_7 =
+        (\frac23,\frac32)</m>. Then the family <m>\sfml U = \{U_k \colon 1 \le k \le 7\}</m> is an open
+        cover for <m>A</m> (because each <m>U_k</m> is open and <m>\bigcup_{k=1}^7U_k = (-3,2) \supseteq A</m>).
+        The subfamily <m>\sfml V = \{U_1, U_5, U_6\}</m> of <m>\sfml U</m> is a subcover for <m>A</m> (because
+        <m>U_1 \cup U_5 \cup U_6 = (-3,2) \supseteq A</m>). The subfamily <m>\sfml W = \{U_1, U_2, U_3,
+        U_7\}</m> of <m>\sfml U</m> is <em>not</em> a subcover for <m>A</m> (because <m>U_1 \cup U_2 \cup U_3 \cup
+        U_7 = (-3,\frac23) \cup (\frac23,\frac32)</m> does not contain <m>A</m>).
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>J</m> be the open unit interval <m>(0,1)</m>. For each <m>a</m> let <m>U_a =
+        \left(a,a + \frac14 \right)</m>, and let <m>\sfml U = \{U_a \colon 0 \le a \le \frac34\}</m>.
+        Then certainly <m>\sfml U</m> covers <m>J</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find a finite subfamily of <m>\sfml U</m> which covers <m>J</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Explain why a solution to (a) does not suffice to show that <m>J</m> is compact.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show that <m>J</m> is not compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

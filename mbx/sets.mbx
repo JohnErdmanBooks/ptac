@@ -1,0 +1,357 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="sets">
+  <title>Sets</title>
+  <p>
+    In this text everything is defined ultimately in terms of two primitive (that is, undefined)
+    concepts:
+    <index><main>set</main></index>set and
+    <index><main>set</main><sub>membership in a</sub></index>set membership. We assume that these are already familiar to the reader. In particular, it is
+    assumed to be understood that distinct
+    <index><main>element</main></index>elements (or
+    <index><main>member</main></index>members, or points) can be regarded collectively as a single set (or family, or class, or
+    collection). To indicate that <m>x</m> belongs to a set <m>A</m> (or that <m>x</m> is a member of <m>A</m>) we
+    write <m>x \in A</m>; to indicate that it does not belong to <m>A</m> we write <m>x \notin A</m>.
+  </p>
+
+  <p>
+    We specify a set by listing its members between braces (for instance, <m>\{1, 2, 3, 4, 5\}</m> is
+    the set of the first five natural numbers), by listing some of its members between braces with
+    an ellipsis (three dots) indicating the missing members (<em>e.g.<nbsp /></em><m>\{1, 2, 3, \dots\}</m> is
+    the set of all natural numbers), or by writing <m>\{x\colon P(x)\}</m> where <m>P(x)</m> is an open
+    sentence which specifies what property the variable <m>x</m> must satisfy in order to be included
+    in the set (<em>e.g.<nbsp /></em><m>\{x\colon 0 \le x \le 1\}</m> is the closed unit interval <m>[0,1]</m>).
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\N</m> be the set of natural numbers <m>1</m>, <m>2</m>, <m>3</m>, <ellipsis /> and let
+        <me>
+          S = \{x \colon x \lt  30 \text{ and \(x = n^2\) for some \(n \in \N\) } \}\,.
+        </me>
+      </p>
+
+      <p>
+        List all the elements of<nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\N</m> be the set of natural numbers <m>1</m>, <m>2</m>, <m>3</m>, <ellipsis /> and let
+        <me>
+          S = \{x \colon x = n + 2 \text{ for some \(n \in \N\) such that \(n \lt  6\) } \}\,.
+        </me>
+      </p>
+
+      <p>
+        List all the elements of<nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that
+        <me>
+          S = \{x \colon x = n^2 + 2 \text{ for some \(n \in \N\) } \}
+        </me>
+        and that
+        <me>
+          T = \{3,6,11,18,27,33,38,51\}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find an element of <m>S</m> that is not in<nbsp /><m>T</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find an element of <m>T</m> that is not in<nbsp /><m>S</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that
+        <me>
+          S = \{x \colon x = n^2 + 2n \text{ for some \(n \in \N\) } \}
+        </me>
+        and that
+        <me>
+          T = \{x\colon x = 5n - 1 \text{ for some \(n \in \N\) } \}\,.
+        </me>
+      </p>
+
+      <p>
+        Find an element which belongs to both <m>S</m> and <nbsp /><m>T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Since all of our subsequent work depends on the notions of set and of set membership, it is
+    not altogether satisfactory to rely on intuition and shared understanding to provide a
+    foundation for these crucial concepts. It is possible in fact to arrive at paradoxes using a
+    naive approach to sets. (For example, ask yourself the question, <q>If <m>S</m> is the set of all
+    sets which do not contain themselves as members, then does <m>S</m> belong to <m>S</m>?</q> If the answer
+    is <em>yes</em>, then it must be <em>no</em>, and <em>vice versa</em>.) One satisfactory
+    alternative to our intuitive approach to sets is axiomatic set theory. There are many ways of
+    axiomatizing set theory to provide a secure foundation for subsequent mathematical
+    development. Unfortunately, each of these ways turns out to be extremely intricate, and it is
+    generally felt that the abstract complexities of axiomatic set theory do not serve well as a
+    beginning to an introductory course in advanced calculus.
+  </p>
+
+  <p>
+    Most of the paradoxes inherent in an intuitive approach to sets have to do with sets that are
+    too <q>large</q>. For example, the set <m>S</m> mentioned above is enormous. Thus in the sequel we
+    will assume that in each situation all the mathematical objects we are then considering (sets,
+    functions, <em>etc.</em>) belong to some appropriate <q>universal</q> set, which is <q>small</q>
+    enough to avoid set theoretic paradoxes. (Think of <q>universal</q> in terms of <q>universe of
+    discourse</q>, not <q>all-encompassing</q>.) In many cases an appropriate universal set is clear
+    from the context. Previously we considered a statement
+    <me>
+      (\forall y)(\exists x)\, x \lt  y\,.
+    </me>
+  </p>
+
+  <p>
+    The appearance of the symbol <q><m>\lt</m></q> suggests to most readers that <m>x</m> and <m>y</m> are real
+    numbers. Thus the universal set from which the variables are chosen is the set <m>\R</m> of all
+    real numbers. When there is doubt that the universal set will be properly interpreted, it may
+    be specified. In the example just mentioned we might write
+    <me>
+      (\forall y \in \R)(\exists x \in \R)\, x \lt  y.
+    </me>
+  </p>
+
+  <p>
+    This makes explicit the intended restriction that <m>x</m> and <m>y</m> be real numbers.
+  </p>
+
+  <p>
+    As another example recall that in <xref ref="quan">appendix</xref> we defined a real valued function <m>f</m> to
+    be continuous at a point <m>a \in \R</m> if
+    <me>
+      (\forall\epsilon > 0)(\exists \delta > 0) \text{ such that
+              \((\forall x)\, \abs{f(x)-f(a)} \lt  \epsilon\)  whenever
+                  \(\abs{x - a} \lt  \delta\)} .
+    </me>
+  </p>
+
+  <p>
+    Here the first two variables, <m>\epsilon</m> and <m>\delta</m>, are restricted to lie in the open
+    interval <m>(0, \infty)</m>. Thus we might rewrite the definition as follows:
+    <me>
+      <md>
+      \forall\epsilon\in (0,\infty)\,\, \amp \exists\delta\in (0,\infty) \\
+              \amp \text{such that (\(\forall x \in \R)\, \abs{f(x)-f(a)}
+              \lt \epsilon\) whenever \(\abs{x-a} \lt  \delta\)} .
+      </md>
+    </me>
+  </p>
+
+  <p>
+    The expressions <q><m>\forall x \in \R</m></q>, <q> <m>\exists\delta\in (0, \infty)</m></q>, <em>etc.</em><nbsp />are
+    called
+    <index><main>restricted quantifiers</main></index>
+    <index><main>quantifier</main><sub>restricted</sub></index><term>restricted quantifiers</term>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. We say that <m>S</m> is a
+        <index><main>subset</main></index><term>subset</term> of <m>T</m> and write
+        <index><main>subset@<m>\subseteq</m> (subset of)</main></index>
+        <index><main><@<m>\subseteq</m> (subset of)</main></index><m>S \subseteq T</m> (or <m>T \supseteq S</m>) if every member of <m>S</m> belongs to <m>T</m>. If <m>S \subseteq T</m>
+        we also say that <m>S</m> is <term>contained in</term> <m>T</m> or that <m>T</m>
+        <index><main>contains</main></index><term>contains</term><nbsp /><m>S</m>. Notice that the relation <m>\subseteq</m> is
+        <index><main>reflexive</main></index><term>reflexive</term> (that is, <m>S \subseteq S</m> for all <m>S</m>) and
+        <index><main>transitive</main></index><term>transitive</term> (that is, if <m>S \subseteq T</m> and <m>T \subseteq U</m>,
+        then <m>S \subseteq U</m>). It is also
+        <index><main>antisymmetric</main></index><term>antisymmetric</term> (that is, if <m>S \subseteq T</m> and <m>T \subseteq S</m>, then <m>S = T</m>). If we wish
+        to claim that <m>S</m> is <em>not</em> a subset of <m>T</m> we may write <m>S \not\subseteq T</m>. In this case
+        there is at least one member of <m>S</m> which does not belong to <m>T</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Since every number in the closed interval <m>[0,1]</m> also belongs to the interval
+        <m>[0,5]</m>, it is correct to write <m>[0, 1] \subseteq [0,5]</m>. Since the number <m>\pi</m> belongs to
+        <m>[0,5]</m> but not to <m>[0,1]</m>, we may also write <m>[0,5] \not\subseteq [0,1]</m>.
+      </p>
+    </statement>
+  </example>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>S \subseteq T</m> but <m>S \ne T</m>, then we say that <m>S</m> is a
+        <index><main>subset</main><sub>proper</sub></index>
+        <index><main>proper subset</main></index><term>proper subset</term> of <m>T</m> (or that <m>S</m> is <term>properly contained in</term> <m>T</m>, or that<nbsp /><m>T</m>
+        <index><main>properly contains</main></index><term>properly contains</term> <m>S</m>) and write
+        <index><main>subsetn@<m>\subsetneqq</m> (proper subset of)</main></index>
+        <index><main><@<m>\subsetneqq</m> (proper subset of)</main></index><m>S \subsetneqq T</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>S = \{x\colon x = 2n + 3 \text{ for some \(n \in \N\) } \}</m> and that
+        <m>T</m> is the set of all odd natural numbers <m>1</m>, <m>3</m>, <m>5</m>, <m>\dots</m> .
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Is <m>S \subseteq T</m>?  If not, find an element of <m>S</m> which does not
+              belong to<nbsp /><m>T</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Is <m>T \subseteq S</m>?  If not, find an element of <m>T</m> which does not
+              belong to<nbsp /><m>S</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        The
+        <index><main>empty set</main></index><term>empty set</term> (or
+        <index><main>null set</main></index><term>null set</term>), which is denoted
+        <index><main>emptyset@<m>\emptyset</m> (empty set, null set)</main></index>
+        <index><main><@<m>\emptyset</m> (empty set, null set)</main></index>
+        <index><main>nullset@<m>\emptyset</m> (empty set, null set)</main></index>by<nbsp /><m>\emptyset</m>, is defined to be the set which has no elements. (Or, if you like, define it to
+        be <m>\{x\colon x \ne x\}</m>.) It is regarded as a subset of every set, so that
+        <m>\emptyset\subseteq S</m> is always true. (Note: <q><m>\emptyset</m></q> is a letter of the Danish
+        alphabet, not the Greek letter <q>phi</q>.)
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>S</m> is a set, then the <term>power set</term> of <m>S</m>, which we denote
+        <index><main>powerset@<m>\sfml P</m> (power set)</main></index>by<nbsp /><m>\sfml P(S)</m>, is the set of all subsets of <m>S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = \{a,b,c\}</m>. Then the members of the power set of <m>S</m> are the empty set,
+        the three one-element subsets, the three two-element subsets, and the set <m>S</m> itself. That
+        is,
+        <me>
+          \sfml P(S) = \bigl\{\emptyset,\{a\},\{b\}, \{c\}, \{a,b\},
+                      \{a,c\}, \{b,c\},S\bigr\}\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        In each of the words (a)<ndash />(d) below let <m>S</m> be the set of letters in the word.
+        In each case find the number of members of <m>S</m> and the number of members of <m>\sfml P(S)</m>
+        the power set of<nbsp /><m>S</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              lull
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              appall
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              attract
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              calculus
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <caution>
+
+  <p>
+    In attempting to prove a theorem which has as a hypothesis <q>Let
+    <m>S</m> be a set</q> do not include in your proof something like <q>Suppose <m>S = \{s_1, s_2, \dots,
+    s_n\}</m></q> or <q>Suppose <m>S = \{s_1, s_2, \dots\}</m></q>. In the first case you are tacitly assuming
+    that <m>S</m> is finite and in the second that it is countable. Neither is justified by the
+    hypothesis.
+  </p>
+
+  </caution>
+  
+  <caution>
+
+  <p>
+    A single letter <m>\sfml S</m> (an S in fraktur font) is an acceptable symbol
+    in printed documents. Don't try to imitate it in hand-written work or on the blackboard. Use
+    script letters instead.
+  </p>
+
+  </caution>
+
+  <p>
+    Finally a word on the use of the symbols <m>=</m> and<nbsp /><m>:=</m>. In this text
+    <index><main>equality</main></index>
+    <index><main><@<m>=</m> (equals)</main></index>equality is used in the sense of identity. We write <m>x = y</m> to indicate that <m>x</m> and <m>y</m> are
+    two names for the same object. For example, <m>0.5 = 1/2 = 3/6 = 1/\sqrt 4</m> because <m>0.5</m>,
+    <m>1/2</m>, <m>3/6</m>, and <m>1/\sqrt 4</m> are different names for the same real number. You have probably
+    encountered other uses of the term <em>equality</em>. In many high school geometry texts, for
+    example, one finds statements to the effect that a triangle is isosceles if it has two equal
+    sides (or two equal angles). What is meant of course is that a triangle is isosceles if it
+    has two sides of <em>equal length</em> (or two angles of <em>equal angular measure</em>). We also
+    make occasional use of the
+    <index><main>equality</main><sub>by definition</sub></index>
+    <index><main><@<m>:=</m> (equality by definition)</main></index>symbol<nbsp /><m>:=</m> to indicate <em>equality by definition</em>. Thus when we write <m>a := b</m> we are
+    giving a new name <m>a</m> to an object <m>b</m> with which we are presumably already familiar.
+  </p>
+</chapter>

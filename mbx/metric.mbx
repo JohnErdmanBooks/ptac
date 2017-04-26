@@ -1,0 +1,66 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="metric">
+  <title>Metric spaces</title>
+  <introduction>
+    <p>
+      Underlying the definition of the principal objects of study in calculus<mdash />derivatives,
+      integrals, and infinite series<mdash />is the notion of <q>limit</q>. What we mean when we write
+      <me>
+        \lim_{x \sto a}f(x) = L
+      </me>
+      is that <m>f(x)</m> can be made arbitrarily close to <m>L</m> by choosing <m>x</m> sufficiently close to<nbsp /><m>a</m>.
+      To say what we mean by <q>closeness</q> we need the notion of the distance between two points. In
+      this chapter we study <q>distance functions</q>, also known as <q>metrics</q>.
+    </p>
+
+    <p>
+      In the preceding chapters we have looked at such topics as limits, continuity, connectedness,
+      and compactness from the point of view of a single example, the real line <m>\R</m>, where the
+      distance between two points is the absolute value of their difference. There are other
+      familiar distance functions (the Euclidean metric in the plane <m>\R^2</m> or in three-space
+      <m>\R^3</m>, for example, where the distance between points is usually taken to be the square root
+      of the sum of the squares of the differences of their coordinates), and there are many less
+      familiar ones which are also useful in analysis. Each of these has its own distinctive
+      properties which merit investigation. But that would be a poor place to start. It is easier to
+      study first those properties they have in common. We list four conditions we may reasonably
+      expect any distance function to satisfy. If <m>x</m> and <m>y</m> are points, then the distance between
+      <m>x</m> and <m>y</m> should be:
+      <ol>
+        <li>
+          <title>(i)</title>
+          <p>
+            greater than or equal to zero;
+          </p>
+        </li>
+
+        <li>
+          <title>(ii)</title>
+          <p>
+            greater than zero if <m>x</m> and <m>y</m> are distinct;
+          </p>
+        </li>
+
+        <li>
+          <title>(iii)</title>
+          <p>
+            the same as the distance between <m>y</m> and <m>x</m>; and
+          </p>
+        </li>
+
+        <li>
+          <title>(iv)</title>
+          <p>
+            no larger than the sum of the distances produced by taking a detour through a point<nbsp /><m>z</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      We formalize these conditions to define a <q>metric</q> on a set.
+    </p>
+  </introduction>
+  <xi:include  href="section9-1.mbx" />
+  <xi:include  href="section9-2.mbx" />
+  <xi:include  href="section9-3.mbx" />
+</chapter>

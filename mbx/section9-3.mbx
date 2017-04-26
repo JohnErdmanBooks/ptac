@@ -1,0 +1,145 @@
+
+<section>
+  <title>Strongly equivalent metrics</title>
+  <p>
+    Ahead of us lie many situations in which it will be possible to replace a computationally
+    complicated metric on some space by a simpler one without affecting the fundamental
+    properties of the space. As it turns out, a sufficient condition for this process to be
+    legitimate is that the two metrics be <q>strongly equivalent</q>. For the moment we content
+    ourselves with the <em>definition</em> of this term and an example; applications will be
+    discussed later when we introduce the weaker notion of <q>equivalent metrics</q>
+    (<xref ref="def_equiv_metrics">see</xref>).
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two metrics <m>d_1</m> and <m>d_2</m> on a set <m>M</m> are
+        <index><main>equivalent</main><sub>strongly</sub></index>
+        <index><main>metrics</main><sub>equivalent!strongly</sub></index>
+        <index><main>strongly equivalent metrics</main></index><term>strongly equivalent</term> if there exist numbers <m>\alpha</m>, <m>\beta > 0</m> such that
+        <md>
+          <mrow>d_1(x,y) \amp \le \alpha\, d_2(x,y) \ \ \text{ and }</mrow>
+          <mrow>d_2(x,y) \amp \le \beta\, d_1(x,y)</mrow>
+        </md>
+        for all <m>x</m> and <m>y</m> in <m>M</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="x3equiv">
+    <statement>
+      <p>
+        On <m>\R^2</m> the three metrics <m>d</m>, <m>d_1</m>, and <m>d_u</m>, defined in
+        <xref ref="Eucl_met">examples</xref>, <xref ref="taxicab"></xref>, and <xref ref="unif_rn"></xref>, are strongly equivalent.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> First prove that if <m>a</m>, <m>b \ge 0</m>, then
+      <me>
+        \max\{a,b\} \le a+b \le \sqrt 2 \,\sqrt{a^2+b^2} \le 2 \max \{a,b\}\,.
+      </me>
+    </p>
+
+    <p>
+      (<xref ref="sol_3equiv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>d</m> and <m>\rho</m> be strongly equivalent metrics on a set<nbsp /><m>M</m>. Then every
+        open ball in the space <m>(M,d)</m> contains an open ball of the space <m>(M,\rho)</m> (and
+        <em>vice versa</em>).
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a</m>, <m>b</m>, <m>c</m>, <m>d \in \R</m>. Establish each of the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>(\frac13a + \frac23b)^2 \le \frac13a^2 + \frac23b^2\,.</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(\frac12a + \frac13b + \frac16c)^2
+                                  \le \frac12a^2 + \frac13b^2 + \frac16c^2\,.</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>(\frac5{12}a + \frac13b + \frac16c +\frac1{12}d)^2
+                              \le \frac5{12}a^2 + \frac13b^2 + \frac16c^2 + \frac1{12}d^2\,.</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> If (a), (b), and (c) are all special cases of some general
+        result, it may be easier to give one proof (of the general theorem) rather than three proofs
+        (of the special cases). In each case what can you say about the numbers multiplying <m>a</m>, <m>b</m>,
+        <m>c</m>, and <m>d</m>? Notice that if <m>x > 0</m>, then <m>xy = \sqrt x\,(\sqrt x\,y)</m>. Use Schwarz's
+        <xref ref="Schwarz">inequality</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="bdd_met">
+    <statement>
+      <p>
+        Let <m>(M,d)</m> be a metric space. The function <m>\rho</m> defined on
+        <m>M \times M</m> by
+        <me>
+          \rho(x,y) = \frac{d(x,y)}{1 + d(x,y)}
+        </me>
+        is a metric on<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show first that <m>\dfrac u{1+u} \le \dfrac v{1+v}</m>
+      whenever <m>0 \le u \le v</m>.
+    </p>
+  </proof>
+
+  <problem xml:id="d_ne_rho">
+    <statement>
+      <p>
+        In <xref ref="bdd_met">problem</xref> take <m>M</m> to be the real line <m>\R</m> and
+        <m>d</m> to be the usual metric on <m>\R</m> (<xref ref="met_r">see</xref>).
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the open ball <m>B_{\frac35}(1)</m> in the metric space <m>(\R, \rho)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the metrics <m>d</m> and <m>\rho</m> are <em>not</em> strongly equivalent on<nbsp /><m>\R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

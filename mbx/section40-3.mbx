@@ -1,0 +1,240 @@
+
+<section>
+  <title>Functions</title>
+  <p>
+    Functions are familiar from beginning calculus. Informally, a function
+    consists of a pair of sets and a <q>rule</q> which associates with each member of the first set
+    (the <em>domain</em>) one and only one member of the second (the <em>codomain</em>). While this
+    informal <q>definition</q> is certainly adequate for most purposes and seldom leads to any
+    misunderstanding, it is nevertheless sometimes useful to have a more precise formulation.
+    This is accomplished by defining a function to be a special type of relation between two sets.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>function</main></index><term>function</term> <m>f</m> is an ordered triple <m>(S,T,G)</m> where <m>S</m> and <m>T</m> are sets and <m>G</m> is a
+        subset of <m>S \times T</m> satisfying:
+        <ol>
+          <li>
+            <p>
+              for each <m>s \in S</m> there is a <m>t \in T</m> such that <m>(s,t) \in G</m>, and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              if <m>(s,t_1)</m> and <m>(s,t_2)</m> belong to G, then <m>t_1 = t_2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        In this situation we say that <m>f</m> is a <em>function from</em> <m>S</m> <em>into</em> <m>T</m> (or that <m>f</m>
+        <em>maps</em> <m>S</m> <em>into</em> <m>T</m>) and write <m>f: S \sto T</m>. The set <m>S</m> is the
+        <index><main>domain</main></index><term>domain</term> (or the
+        <index><main>input space</main></index>
+        <index><main>space</main><sub>input</sub></index><term>input space</term>) of<nbsp /><m>f</m>. The set <m>T</m> is the
+        <index><main>codomain</main></index><term>codomain</term> (or
+        <index><main>target space</main></index>
+        <index><main>space</main><sub>target</sub></index><term>target space</term>, or the
+        <index><main>output space</main></index>
+        <index><main>space</main><sub>output</sub></index><term>output space</term>) of<nbsp /><m>f</m>. And the relation <m>G</m> is the
+        <index><main>graph</main></index><term>graph</term> of<nbsp /><m>f</m>. In order to avoid explicit reference to the graph <m>G</m> it is usual to
+        replace the expression <q><m>(x,y) \in G\,</m></q> by <q><m>y = f(x)</m></q>; the element <m>f(x)</m> is the
+        <index><main>image</main><sub>of a point</sub></index><term>image</term> of <m>x</m> under<nbsp /><m>f</m>. In this text (but not everywhere!) the words
+        <index><main>transformation</main></index><q>transformation</q>,
+        <index><main>map</main></index><q>map</q>, and
+        <index><main>mapping</main></index><q>mapping</q> are synonymous with <q>function</q>. The domain of <m>f</m> is denoted
+        <index><main>domain@<m>\dom f</m> (domain of a function <m>f</m>)</main></index>by<nbsp /><m>\dom f</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        There are many ways of specifying a function. Statements (1)<ndash />(4) below define
+        exactly the same function. We will use these (and other similar) notations interchangeably.
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              For each real number <m>x</m> we let <m>f(x) =x^2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              Let <m>f = (S,T,G)</m> where <m>S = T = \R</m> and <m>G = \{(x,x^2) \colon x \in \R\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(3)</title>
+            <p>
+              Let <m>f\colon \R \sto \R</m> be defined by <m>f(x) = x^2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(4)</title>
+            <p>
+              Consider the function
+               <index><main><@<m>f\colon A \sto B\colon x \mapsto f(x)</m> (function notation)</main></index><m>f\colon \R \sto \R\colon  x \mapsto x^2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <notation>
+
+  <p>
+    If <m>S</m> and <m>T</m> are sets we denote
+    <index><main>functions@<m>\fml F(S,T)</m> (functions from <m>S</m> into <m>T</m>)</main></index>by <m>\fml F(S,T)</m> the family of all functions from <m>S</m> into<nbsp /><m>T</m>.
+  </p>
+
+  </notation>
+  
+  <convention>
+
+  <p>
+    A
+    <index><main>real valued function</main></index><term>real valued</term> function is a function whose codomain lies in
+    <m>\R</m>. A function
+    <index><main>function</main><sub>of a real variable</sub></index><term>of a real variable</term> is a function whose domain is contained in<nbsp /><m>\R</m>. Some real valued
+    functions of a real variable may be specified simply by writing down a formula. When the
+    domain and codomain are not specified, the understanding is that the domain of the function is
+    the largest set of real numbers for which the formula makes sense and the codomain is taken to
+    be<nbsp /><m>\R</m>.
+  </p>
+
+  <p>
+    In the case of real valued functions on a set <m>S</m>, we frequently
+    <index><main>functions@<m>\fml F(S)</m>, <m>\fml F(S,\R)</m> (real valued functions on a set)</main></index>write <m>\fml F(S)</m> instead of<nbsp /><m>\fml F(S,\R)</m>.
+  </p>
+
+  </convention>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = (x^2 + x)^{-1}</m>. Since this formula is meaningful for all real numbers
+        except <m>-1</m> and <m>0</m>, we conclude that the domain of <m>f</m> is <m>\R \setminus \{-1,0\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = (x^2 + x)^{-1}</m> for <m>x > 0</m>. Here the domain of <m>f</m> is specified: it is
+        the interval <m>(0,\infty)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="lex2">
+    <statement>
+      <p>
+        Let <m>f(x)=(1- 2(1+(1-x)^{-1})^{-1})^{-1}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>f(\frac12)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the domain of <m>f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_lex2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="lex3">
+    <statement>
+      <p>
+        Let <m>f(x) = (-x^2 - 4x -1)^{-1/2}</m>. Find the domain of<nbsp /><m>f</m>.
+        (<xref ref="sol_lex3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x)=(1-(2+(3-(1+x)^{-1})^{-1})^{-1})^{-1}</m>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>f(\frac12)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the domain of <m>f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x)=(-x^2-7x-10)^{-1/2}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>f(-3)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the domain of <m>f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x)=\dfrac{\sqrt{x^2-4}}{5-\sqrt{36-x^2}}</m>. Find the domain of<nbsp /><m>f</m>.
+        Express your answer as a union of intervals.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Explain carefully why two functions <m>f</m> and <m>g</m> are equal if and only if
+        their domains and codomains are equal and <m>f(x) = g(x)</m> for every <m>x</m> in their common domain.
+      </p>
+    </statement>
+  </problem>
+</section>

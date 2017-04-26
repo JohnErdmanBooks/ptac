@@ -1,0 +1,260 @@
+
+<section>
+  <title>Complements</title>
+  <p>
+    Recall that we regard all the sets with which we work in a particular
+    situation as being subsets of some appropriate <q>universal</q> set. For each set <m>S</m> we
+    define the
+    <index><main><@<m>S^c</m> (complement of a set <m>S</m>)</main></index><term>complement</term> of <m>S</m> , denoted by <m>S^c</m>, to be the set of all members of our universal set
+    which do not belong to <m>S</m>. That is, we write <m>x \in S^c</m> if and only if <m>x \notin S</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> be the closed interval <m>(-\infty, 3]</m>. If nothing else is specified,
+        we think of this interval as being a subset of the real line <m>\R</m> (our universal set). Thus
+        <m>S^c</m> is the set of all <m>x</m> in <m>\R</m> such that <m>x</m> is not less than or equal to<nbsp /><m>3</m>. Thus
+        <m>S^c</m> is the interval <m>(3,\infty)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> be the set of all points <m>(x,y)</m> in the plane such that <m>x \ge 0</m> and
+        <m>y \ge 0</m>. Then <m>S^c</m> is the set of all points <m>(x,y)</m> in the plane such that either <m>x \lt  0</m>
+        or <m>y \lt  0</m>. That is ,
+        <me>
+          S^c  =  \{(x,y)\colon x \lt  0\} \cup \{(x,y)\colon y \lt  0\}\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    The two following propositions are
+    <index><main>De Morgan's laws</main><sub>for sets</sub></index><term>De Morgan's laws</term> for sets. As you may expect, they are obtained by translating into the
+    language of sets the facts of logic which go under the same name. (<xref ref="exam_demorg1">See</xref> and <xref ref="prob_demorg2"></xref>.)
+  </p>
+
+  <proposition xml:id="prop_compl_union">
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. Then
+        <me>
+          (S \cup T)^c = S^c \cap T^c\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="exam_demorg1">example</xref>.
+      (<xref ref="sol_prop_compl_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. Then
+        <me>
+          (S \cap T)^c = S^c \cup T^c\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Just as the distributive laws can be generalized to arbitrary families of sets, so too can De
+    Morgan's laws. The complement of the union of a family is the intersection of the complements
+    (<xref ref="comp_of_union">proposition</xref>), and the complement of the intersection of a family is the
+    union of the complements (<xref ref="comp_of_intersection">proposition</xref>).
+  </p>
+
+  <proposition xml:id="comp_of_union">
+    <statement>
+      <p>
+        Let <m>\sfml S</m> be a family of sets. Then
+        <me>
+          (\bigcup \sfml S)^c = \bigcap\{S^c\colon S \in \sfml S\}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_comp_of_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="comp_of_intersection">
+    <statement>
+      <p>
+        Let <m>\sfml S</m> be a family of sets. Then
+        <me>
+          (\bigcap \sfml S)^c  = \bigcup\{S^c\colon S \in \sfml S\}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>S</m> and <m>T</m> are sets we define the
+        <index><main>complement</main><sub>relative</sub></index>
+        <index><main>relative</main><sub>complement</sub></index><term>complement of</term> <m>T</m> <term>relative to</term> <m>S</m>, denoted by <m>S \setminus T</m>, to be the set of all
+        <m>x</m> which belong to <m>S</m> but not to<nbsp /><m>T</m>. That is,
+        <me>
+          S \setminus T :=  S \cap T^c\,.
+        </me>
+      </p>
+
+      <p>
+        The operation <m>{}\setminus{}</m> is usually called
+        <index><main>set</main><sub>subtraction</sub></index><term>set subtraction</term> and <m>S \setminus T</m> is read as <q><m>S</m> minus <m>T</m></q>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = [0,5]</m> and <m>T = [3,10]</m>. Then <m>S \setminus T = [0,3)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    It is a frequently useful fact that the union of two sets can be rewritten as a disjoint union
+    (that is, the union of two disjoint sets).
+  </p>
+
+  <proposition xml:id="prop_decomp_union">
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. Then <m>S \setminus T</m> and <m>T</m> are
+        disjoint sets whose union is <m>S \cup T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_decomp_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_diff_union">
+    <statement>
+      <p>
+        Show that <m>(S \setminus T) \cup T = S</m> if and only if
+        <m>T \subseteq S</m>. (<xref ref="sol_exer_diff_union">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>S = (3,\infty)</m>, <m>T = (0,10]</m>, <m>U = (-4,5)</m>, <m>V = [-2,8]</m>, and <m>\sfml S =
+        \{S^c, T, U, V\}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>\bigcup \sfml S</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\bigcap \sfml S</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>S</m>, <m>T</m>, and <m>U</m> are sets, then
+        <me>
+          (S \cap T) \setminus U  = (S \setminus U) \cap (T \setminus U)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>S</m>, <m>T</m>, and <m>U</m> are sets, then
+        <me>
+          S \cap (T \setminus U)  = (S  \cap T)  \setminus (S \cap U)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sdiff1">
+    <statement>
+      <p>
+        If <m>S</m> and <m>T</m> are sets, then <m>T \setminus S</m> and <m>T \cap S</m>
+        are disjoint and
+        <me>
+          T = (T \setminus S) \cup (T \cap S)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>S</m> and <m>T</m> are sets, then <m>S \cap T  =  S \setminus (S \setminus T)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A family <m>\sfml S</m> of sets
+        <index><main>covers</main></index><term>covers</term> (or is a
+        <index><main>cover</main></index><term>cover for</term>, or is a
+        <index><main>covering</main></index><term>covering for</term>) a set <m>T</m> if <m>T \subseteq \bigcup S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Find a family of open intervals which covers the set <m>\N</m> of natural numbers and has
+        the property that the sum of the lengths of the intervals is<nbsp /><m>1</m>. <em>Hint.</em>
+        <m>\sum_{k=1}^\infty 2^{-k} = 1</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

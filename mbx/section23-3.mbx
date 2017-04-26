@@ -1,0 +1,182 @@
+
+<section>
+  <title>Banach spaces</title>
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>Banach</main><sub>space</sub></index>
+        <index><main>space</main><sub>Banach</sub></index><term>Banach space</term> is a normed linear space which is complete with respect to the metric
+        induced by its norm.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        In <xref ref="r_compl">example</xref> we saw that <m>\R</m> is complete; so it is a Banach space.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        In <xref ref="Rn_compl">example</xref> it was shown that the space <m>\R^n</m> is complete with
+        respect to the Euclidean norm. Since all norms on <m>\R^n</m> are equivalent
+        (<xref ref="prob_norms_Rn">problem</xref>) and since completeness of a space is not affected by changing to
+        an equivalent metric (<xref ref="eq_compl">proposition</xref>), we conclude that <m>\R^n</m> is a Banach space
+        under all possible norms.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>S</m> is a nonempty set, then (under the uniform norm) <m>\fml B(S,\R)</m> is a
+        Banach space (see <xref ref="bdd_compl">example</xref>).
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space, then (under the uniform norm) <m>\fml C(M,\R)</m>
+        is a Banach space (see <xref ref="CMR_cmpl">example</xref>).
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    At the beginning of <xref ref="sec_prod_nls">section</xref> we listed 4 ways of making new normed linear
+    spaces from old ones. Under what circumstances do these new spaces turn out to be Banach
+    spaces?
+    <ol>
+      <li>
+        <title>(i)</title>
+        <p>
+          A closed vector subspace of a Banach space is a Banach space.
+          (See <xref ref="prop_clss_ms">proposition</xref>.)
+        </p>
+      </li>
+
+      <li>
+        <title>(ii)</title>
+        <p>
+          The product of two Banach space is a Banach space.
+          (See <xref ref="prod_compl">proposition</xref>.)
+        </p>
+      </li>
+
+      <li>
+        <title>(iii)</title>
+        <p>
+          If <m>S</m> is a nonempty set and <m>E</m> is a Banach space, then <m>\fml B(S,E)</m> is a Banach
+          space. (See <xref ref="prob_BSV_compl">problem</xref>.)
+        </p>
+      </li>
+
+      <li>
+        <title>(iv)</title>
+        <p>
+          If <m>V</m> is a normed linear space and <m>F</m> is a Banach space, then <m>\ofml B(V,F)</m> is
+          a Banach space. (See the following proposition.)
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <proposition xml:id="prop_BVW_compl">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces. Then <m>\ofml B(V,W)</m>
+        is complete if <m>W</m> is.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Show that if <m>(T_n)</m> is a Cauchy sequence in <m>\ofml B(V,W)</m>,
+      then <m>\lim\limits_{n \sto \infty} T_nx</m> exists for every <m>x</m> in <m>V</m>. Let <m>Sx = \lim\limits_{n
+      \sto \infty} T_nx</m>. Show that the map <m>S\colon x \mapsto Sx</m> is linear. If <m>\epsilon > 0</m>
+      then for <m>m</m> and <m>n</m> sufficiently large <m>\norm{T_m - T_n} \lt  \frac12 \epsilon</m>. For such <m>m</m>
+      and <m>n</m> show that
+      <me>
+        \norm{Sx - T_nx} \le \norm{Sx - T_mx} + \tfrac12 \epsilon \norm x
+      </me>
+      and conclude from this that <m>S</m> is bounded and that <m>T_n \sto S</m> in <m>\ofml B(V,W)</m>.
+      (<xref ref="sol_prop_BVW_compl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem xml:id="prob_BSV_compl">
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set and <m>V</m> be a normed linear space.
+        If <m>V</m> is complete, so is <m>\fml B(S,V)</m>. <em>Hint.</em> Make suitable modifications in the
+        proof of <xref ref="bdd_compl">example</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact metric space and <m>V</m> be a normed linear space. If <m>V</m> is
+        complete so is <m>\fml C(M,V)</m>. <em>Hint.</em> Use <xref ref="prop_unif_lim">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>m</m> be the set of all bounded sequences of real numbers. (That is, a sequence
+        <m>(x_1,x_2,\dots)</m> of real numbers belongs to <m>m</m> provided that there exists a constant <m>M>0</m>
+        such that <m>\abs{x_k} \le M</m> for all <m>k \in \N</m>.) If <m>x = (x_k)</m> and <m>y = (y_k)</m> belong to <m>m</m>
+        and <m>\alpha</m> is a scalar define
+        <me>
+          x + y = (x_1 + y_1,x_2 + y_2,\dots)
+        </me>
+        and
+        <me>
+          \alpha x = (\alpha x_1, \alpha x_2, \dots)\,.
+        </me>
+      </p>
+
+      <p>
+        Also, for each sequence <m>x</m> in <m>m</m> define
+        <me>
+          \norm x_u = \sup\{\abs{x_k}\colon k \in \N \}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>m</m> is a Banach space. <em>Hint.</em> The proof should be very short.  This
+              is a special case of a previous example.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The space <m>m</m> is not separable.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              The closed unit ball of the space <m>m</m> is closed and bounded but not compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

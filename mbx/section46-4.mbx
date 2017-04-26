@@ -1,0 +1,136 @@
+
+<section>
+  <title>Exercises in Chapter 04</title>
+  <solution xml:id="sol_abs_seq">
+    <p>
+      (Solution to <xref ref="abs_seq"></xref>)
+      Let <m>\epsilon > 0</m>. Notice that <m>x_n \in J_\epsilon(0)</m> if and only if <m>\abs{x_n} \in
+      J_\epsilon(0)</m>. Thus <m>(x_n)</m> is eventually in <m>J_\epsilon(0)</m> if and only if <m>(\abs{x_n})</m> is
+      eventually in<nbsp /><m>J_\epsilon(0)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_conv_bdd">
+    <p>
+      (Solution to <xref ref="conv_bdd"></xref>)
+      Let <m>x_n \sto a</m> where <m>(x_n)</m> is a sequence of real numbers. Then by <xref ref="cond_conv_seq">problem</xref>(a) there exists <m>n_0 \in \N</m> such that <m>n \ge n_0</m> implies <m>\abs{x_n - a}
+      \lt  1</m>. Then by <xref ref="prob_abs_val"></xref>(c)
+      <me>
+        \bigl\lvert \abs{x_n} - \abs a \bigr\lvert \le \abs{x_n - a} \lt  1
+      </me>
+      for all <m>n \ge n_0</m>. Thus, in particular,
+      <me>
+        \abs{x_n} \lt  \abs a + 1
+      </me>
+      for all <m>n \ge n_0</m>. If <m>M = \max\{\abs{x_1},\abs{x_2},\dots,\abs{x_{n_0-1}}, \abs a+1\}</m>,
+      then <m>\abs{x_n} \le M</m> for all <m>n \in \N</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_m_subseq">
+    <p>
+      (Solution to <xref ref="m_subseq"></xref>)
+      Let <m>(a_n)</m> be a sequence in<nbsp /><m>\R</m>. As suggested in the hint, consider two cases. First,
+      suppose that there is a subsequence <m>\left(a_{n_k}\right)</m> consisting of peak terms. Then for
+      each<nbsp /><m>k</m>,
+      <me>
+        a_{n_k} \ge a_{n_{k+1}}\,.
+      </me>
+    </p>
+
+    <p>
+      That is, the subsequence <m>\left(a_{n_k}\right)</m> is decreasing.
+    </p>
+
+    <p>
+      Now consider the second possibility: there exists a term <m>a_p</m> beyond which there are no peak
+      terms. Let <m>n_1 = p + 1</m>. Since <m>a_{n_1}</m> is not a peak term, there exists <m>n_2 > n_1</m> such
+      that <m>a_{n_2} > a_{n_1}</m>. Since <m>a_{n_2}</m> is not a peak term, there exists <m>n_3 > n_2</m> such
+      that <m>a_{n_3} > a_{n_2}</m>. Proceeding in this way we choose an increasing (in fact, strictly
+      increasing) subsequence <m>\left(a_{n_k}\right)</m> of the sequence <m>(a_n)</m>.
+    </p>
+
+    <p>
+      In both of the preceding cases we have found a monotone subsequence of the original sequence.
+    </p>
+  </solution>
+  <solution xml:id="sol_sc_closure">
+    <p>
+      (Solution to <xref ref="sc_closure"></xref>)
+      Suppose that <m>b \in \clo A</m>. There are two possibilities; <m>b \in A</m> or <m>b \in A'</m>. If <m>b \in
+      A</m>, then the constant sequence <m>(b,b,b,\dots)</m> is a sequence in <m>A</m> which converges to <m>b</m>. On
+      the other hand, if <m>b \in A'</m>, then for every <m>n \in \N</m> there is a point <m>a_n \in J_{1/n}(b)</m>
+      such that <m>a_n \in A</m> and <m>a_n \ne b</m>. Then <m>(a_n)</m> is a sequence in <m>A</m> which converges
+      to<nbsp /><m>b</m>.
+    </p>
+
+    <p>
+      Conversely, suppose there exists a sequence <m>(a_n)</m> in <m>A</m> such that <m>a_n \sto b</m>. Either
+      <m>a_n = b</m> for some <m>n</m> (in which case <m>b \in A</m>) or else <m>a_n</m> is different from <m>b</m> for all
+      <m>n</m>. In the latter case every neighborhood of <m>b</m> contains points of <m>A</m><mdash />namely, the
+      <m>a_n</m>'s for <m>n</m> sufficiently large<mdash />other than<nbsp /><m>b</m>. Thus in either case <m>b \in \clo A</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_4exer1">
+    <p>
+      (Solution to <xref ref="x4exer1"></xref>)
+      If <m>\ell = \lim_{n \sto \infty}x_n</m> exists, then taking limits as <m>n \sto \infty</m> of both
+      sides of the expression <m>4x_{n+1} = {x_n}^3</m> yields <m>4\ell = \ell^3</m>. That is,
+      <me>
+        \ell^3 - 4\ell = \ell(\ell - 2)(\ell + 2) = 0.
+      </me>
+    </p>
+
+    <p>
+      Thus if <m>\ell</m> exists, it must be <m>-2</m>, <m>0</m>, or <m>2</m>. Next notice that
+      <md>
+        <mrow>x_{n+1} - x_n \amp = \frac14{x_n}^3 - x_n</mrow>
+        <mrow>\amp = \frac14x_n(x_n - 2)(x_n + 2).</mrow>
+      </md>
+    </p>
+
+    <p>
+      Therefore
+      <men xml:id="x4loc2" >
+        x_{n+1} > x_n  \text{ if }   x_n \in (-2,0) \cup (2,\infty)
+      </men>
+      and
+      <men xml:id="x4loc3" >
+        x_{n+1} \lt  x_n  \text{ if }   x_n \in (-\infty,-2) \cup (0,2).
+      </men>
+    </p>
+
+    <p>
+      Now consider the seven cases mentioned in the hint. Three of these are trivial: if <m>x_1 = -2</m>,
+      <m>0</m>, or <m>2</m>, then the resulting sequence is constant (therefore certainly convergent).
+    </p>
+
+    <p>
+      Next suppose <m>x_1 \lt  -2</m>. Then <m>x_n \lt  -2</m> for every <m>n</m>. [The verification is an easy
+      induction: If <m>x_n \lt  -2</m>, then <m>{x_n}^3 \lt  -8</m>; so <m>x_{n+1} = \frac14 {x_n}^3 \lt  -2</m>.] From
+      this and <xref ref="x4loc3" /> we see that <m>x_{n+1} \lt  x_n</m> for every <m>n</m>. That is, the sequence
+      <m>(x_n)</m> decreases. Since the only possible limits are <m>-2</m>, <m>0</m>, and <m>2</m>, the sequence cannot
+      converge. (It must, in fact, be unbounded.)
+    </p>
+
+    <p>
+      The case <m>x_1 > 2</m> is similar. We see easily that <m>x_n > 2</m> for all <m>n</m> and therefore [by
+      <xref ref="x4loc2" />] the sequence <m>(x_n)</m> is increasing. Thus it diverges (and is unbounded).
+    </p>
+
+    <p>
+      If <m>-2 \lt  x_1 \lt  0</m>, then <m>-2 \lt  x_n \lt  0</m> for every <m>n</m>. [Again an easy inductive proof: If <m>-2 \lt 
+      x_n \lt  0</m>, then <m>-8 \lt  {x_n}^3 \lt  0</m>; so <m>-2 \lt  \frac14{x_n}^3 = x_{n+1} \lt  0</m>.] From <xref ref="x4loc2" />
+      we conclude that <m>(x_n)</m> is increasing. Being bounded above it must converge [see <xref ref="bdd_monotone">proposition</xref>] to some real number<nbsp /><m>\ell</m>. The only available candidate is <m>\ell = 0</m>.
+    </p>
+
+    <p>
+      Similarly, if <m>0 \lt  x_1 \lt  2</m>, then <m>0 \lt  x_n \lt  2</m> for all <m>n</m> and <m>(x_n)</m> is decreasing. Again
+      the limit is <m>\ell = 0</m>.
+    </p>
+
+    <p>
+      We have shown that the sequence <m>(x_n)</m> converges if and only if <m>x_1 \in [-2,2]</m>. If <m>x_1 \in
+      (-2,2)</m>, then <m>\lim x_n = 0</m>; if <m>x_1 = -2</m>, then <m>\lim x_n = -2</m>; and if <m>x_1 = 2</m>, then
+      <m>\lim x_n = 2</m>.
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,574 @@
+
+<section>
+  <title>Definitions and examples</title>
+  <definition xml:id="vs_def1">
+    <statement>
+      <p>
+        A
+        <index><main>vector</main><sub>space</sub></index><term>(real) vector space</term> is a set <m>V</m> together with a binary operation <m>(x,y) \mapsto x + y</m>
+        (called <term>addition</term>) from <m>V \times V</m> into <m>V</m> and a mapping <m>(\alpha,x) \mapsto \alpha x</m>
+        (called <term>scalar multiplication</term>) from <m>\R \times V</m> into <m>V</m> satisfying the following
+        conditions:
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              Addition is associative. That is,
+              <me>
+                x + (y + z) = (x + y) + z  \qquad\text{ for all \(x\), \(y\), \(z \in V\) } \,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              In <m>V</m> there is an element <m>\vc 0</m> (called the
+               <index><main>zero</main><sub>vector</sub></index>
+               <index><main><@<m>\vc 0</m> (zero vector)</main></index><term>zero vector</term>) such that
+              <me>
+                x + \vc 0 = x  \qquad\text{ for all \(x \in V\) } \,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(3)</title>
+            <p>
+              For each <m>x</m> in <m>V</m> there is a corresponding element
+              <m>-x</m> (the
+               <index><main>additive inverse</main></index>
+               <index><main>inverse</main><sub>additive</sub></index><term>additive inverse</term> of <m>x</m>) such that
+              <me>
+                x + (-x) = \vc 0\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(4)</title>
+            <p>
+              Addition is commutative. That is,
+              <me>
+                x + y = y + x   \qquad\text{ for all \(x\), \(y \in V\) } \,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(5)</title>
+            <p>
+              If <m>\alpha \in \R</m> and <m>x</m>, <m>y \in V</m>, then
+              <me>
+                \alpha(x + y) = (\alpha x) + (\alpha y)\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(6)</title>
+            <p>
+              If <m>\alpha</m>, <m>\beta \in \R</m> and <m>x \in V</m>, then
+              <me>
+                (\alpha + \beta)x = (\alpha x) + (\beta x)\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(7)</title>
+            <p>
+              If <m>\alpha</m>, <m>\beta \in \R</m> and <m>x \in V</m>, then
+              <me>
+                \alpha(\beta x) = (\alpha\beta)x\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(8)</title>
+            <p>
+              If <m>x \in V</m>, then
+              <me>
+                1 \cdot x = x\,.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    An element of <m>V</m> is a
+    <index><main>vector</main></index><term>vector</term>; an element of <m>\R</m> is, in this context, often called a
+    <index><main>scalar</main></index><term>scalar</term>. Concerning the order of performing operations, we agree that scalar
+    multiplication takes precedence over addition. Thus, for example, condition (5) above may be
+    unambiguously written as
+    <me>
+      \alpha(x + y) = \alpha x + \alpha y\,.
+    </me>
+  </p>
+
+  <p>
+    (Notice that the parentheses on the left may not be omitted.)
+  </p>
+
+  <p>
+    If <m>x</m> and <m>y</m> are vectors, we define <m>x - y</m> to be <m>x + (-y)</m>. If <m>A</m> and <m>B</m> are subsets of
+    a vector space, we define
+    <index><main><add@<m>A+B</m> (sum of subsets of a vector space)</main></index>
+    <me>
+      A + B := \{a + b \colon  a \in A, b \in B\}\,;
+    </me>
+    and if <m>\alpha \in \R</m>,
+    <index><main><@<m>\alpha A</m> (scalar multiple of a subset of a vector space)</main></index>
+    <me>
+      \alpha A  :=  \{\alpha a \colon a \in A\}\,.
+    </me>
+  </p>
+
+  <p>
+    Condition (3) above is somewhat optimistic. No uniqueness is asserted in (2) for the zero
+    vector <m>\vc 0</m>, so one may well wonder whether (3) is supposed to hold for <em>some</em> zero
+    vector <m>\vc 0</m> or for <em>all</em> such vectors. Fortunately, the problem evaporates since we
+    can easily show that the zero vector is in fact unique.
+  </p>
+  <exercise xml:id="vs_exer3">
+    <statement>
+      <p>
+        A vector space has exactly one zero vector. That is, if <m>\vc 0</m>
+        and <m>\vc 0'</m> are members of a vector space <m>V</m> which satisfy <m>x + \vc 0 = x</m> and <m>x + \vc 0' =
+        x</m> for all <m>x \in V</m>, then <m>\vc 0 = \vc 0'</m>. (<xref ref="sol_vs_exer3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    In a vector space not only is the zero vector unique but so are additive inverses.
+  </p>
+
+  <problem xml:id="vs_prob2">
+    <statement>
+      <p>
+        For every vector <m>x</m> in a vector space <m>V</m> there exists only one
+        vector <m>-x</m> such that
+        <me>
+          x + (-x) = \vc 0\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <xref ref="vs_exer1">In</xref> to <xref ref="vs_prob1"></xref> we state four useful, if elementary, facts concerning the
+    arithmetic of vectors.
+  </p>
+  <exercise xml:id="vs_exer1">
+    <statement>
+      <p>
+        If <m>x</m> is a vector (in some vector space) and <m>x + x = x</m>, then
+        <m>x = \vc 0</m>. <em>Hint.</em> Add <m>\vc 0</m> to <m>x</m>; then write <m>\vc 0</m> as <m>x + (-x)</m>.
+        (<xref ref="sol_vs_exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="vs_exer2">
+    <statement>
+      <p>
+        Let <m>x</m> be a vector (in a some vector space) and let <m>\alpha</m> be a
+        real number. Then <m>\alpha x = \vc 0</m> if and only if <m>x = \vc 0</m> or <m>\alpha = 0</m>.
+        <em>Hint.</em> Show three things:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\alpha \vc 0 = \vc 0</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>0\,x = \vc 0</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>\alpha \ne 0</m> and <m>\alpha x = \vc 0</m>, then <m>x = \vc 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (If it is not clear to you that proving (a), (b), and (c) is the same thing as
+        <xref ref="vs_exer2">proving</xref>, see the remark following this hint.) To prove (a) write <m>\vc 0 +
+        \vc 0 = \vc 0</m>, multiply by <m>\alpha</m>, and <xref ref="vs_exer1">use</xref>. For (c) use the fact that
+        if <m>\alpha \in \R</m> is not zero, it has a reciprocal. What happens if we multiply the
+        vector <m>\alpha x</m> by the scalar<nbsp /><m>1/\alpha</m>? (<xref ref="sol_vs_exer2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <remark>
+    <p>
+      It should be clear that proving (a) and (b) of the preceding hint proves that:
+      <me>
+        \text{ if \(x = \vc 0\) or \(\alpha = 0\), then \(\alpha x = \vc 0\). }
+      </me>
+    </p>
+
+    <p>
+      What may not be clear is that proving (c) is enough to establish:
+      <men xml:id="vs_eq1" >
+        \text{ if \(\alpha x = \vc 0\), then either \(x = \vc 0\) or \(\alpha = 0\). }
+      </men>
+    </p>
+
+    <p>
+      Some students feel that in addition to proving (c) it is also necessary to prove that:
+      <me>
+        \text{ if \(x \ne \vc 0\) and \(\alpha x = 0\), then \(\alpha = 0\). }
+      </me>
+    </p>
+
+    <p>
+      To see that this is unnecessary recognize that there are just two possible cases: either
+      <m>\alpha</m> is equal to zero, or it is not. In case <m>\alpha</m> <em>is</em> equal to zero, then the
+      conclusion of <xref ref="vs_eq1" /> is certainly true. The other case, where <m>\alpha</m> is <em>not</em>
+      zero, is dealt with by<nbsp />(c).
+    </p>
+  </remark>
+
+  <exercise xml:id="vs_exer4">
+    <statement>
+      <p>
+        If <m>x</m> is a vector, then <m>-(-x) = x</m>. <em>Hint.</em> Show that
+        <m>(-x) + x = \vc 0</m>. What <xref ref="vs_prob2">does</xref> say about<nbsp /><m>x</m>? (<xref ref="sol_vs_exer4">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="vs_prob1">
+    <statement>
+      <p>
+        If <m>x</m> is a vector, then <m>(-1)x = -x</m>. <em>Hint.</em> Show that
+        <m>x + (-1)x = \vc 0</m>. <xref ref="vs_prob2">Use</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Using nothing about vector spaces other than the definitions, prove that if <m>x</m> is a
+        vector, then <m>3x - x = x + x</m>. Write your proof using at most one vector space axiom (or
+        definition) at each step.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    We now give some examples of vector spaces.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>V = \R^n</m>. We make a standard notational convention. If <m>x</m> belongs to <m>\R^n</m>,
+        then <m>x</m> is an <m>n</m>-tuple whose coordinates are <m>x_1,x_2, \dots, x_n</m>; that is,
+        <me>
+          x = (x_1, x_2, \dots ,x_n)\,.
+        </me>
+      </p>
+
+      <p>
+        It must be confessed that we do not <em>always</em> use this convention. For example, the
+        temptation to denote a member of <m>\R^3</m> by <m>(x,y,z)</m>, rather than by <m>(x_1, x_2, x_3)</m>, is
+        often just too strong to resist. For <m>n</m>-tuples <m>x = (x_1, x_2,\dots, x_n)</m> and <m>y = (y_1,
+        y_2, \dots, y_n)</m> in <m>V</m> define
+        <me>
+          x + y := (x_1 + y_1, x_2 + y_2,  \dots, x_n + y_n)\,.
+        </me>
+      </p>
+
+      <p>
+        Accordingly we say that addition in <m>\R^n</m> is defined coordinatewise. Scalar multiplication
+        is also defined in a coordinatewise fashion. That is, if <m>x = (x_1, x_2,\dots, x_n) \in V</m> and
+        <m>\alpha \in \R</m>, then we define
+        <me>
+          \alpha x := (\alpha x_1, \alpha x_2, \dots, \alpha x_n)\,.
+        </me>
+      </p>
+
+      <p>
+        Under these operations <m>\R^n</m> becomes a vector space.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Just verify conditions (1)<ndash />(8) of <xref ref="vs_def1">definition</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let
+        <index><main>s@<m>s</m> (sequences of real numbers)</main></index><m>s</m> be the family of all sequences of real numbers. Explain how to define addition and scalar
+        multiplication on <m>s</m> in such a way that it becomes a vector space.
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="vs_exam1">
+    <statement>
+      <p>
+        Here is one of the ways in which we construct new vector spaces
+        from old ones. Let <m>V</m> be an arbitrary vector space and <m>S</m> be a nonempty set. Let
+        <index><main>f@<m>\fml F(S,V)</m> (vector valued functions on a set<nbsp /><m>S</m></main></index><m>\fml F(S,V)</m> be the family of all <m>V</m> valued functions defined on<nbsp /><m>S</m>. That is, <m>\fml
+        F(S,V)</m> is the set of all functions <m>f</m> such that <m>f\colon S \sto V</m>. We make <m>\fml F(S,V)</m>
+        into a vector space by defining operations in a pointwise fashion. For functions <m>f</m>, <m>g \in
+        \fml F(S,V)</m> define
+        <me>
+          (f + g)(x) := f(x) + g(x) \qquad\text{ for all \(x \in S\) } .
+        </me>
+      </p>
+
+      <p>
+        It should be clear that the two <q>+</q> signs in the preceding equation denote operations in
+        different spaces. The one on the left (which is being defined) represents addition in the
+        space <m>\fml F(S,V)</m>; the one on the right is addition in<nbsp /><m>V</m>. Because we specify the value of
+        <m>f + g</m> at each point <m>x</m> by adding the values of <m>f</m> and <m>g</m> at that point, we say that we
+        add <m>f</m> and <m>g</m>
+        <index><main>pointwise</main><sub>addition</sub></index><term>pointwise</term>.
+      </p>
+
+      <p>
+        We also define scalar multiplication to be a pointwise operation. That is, if <m>f \in \fml
+        F(S,V)</m> and <m>\alpha \in \R</m>, then we define the function <m>\alpha f</m> by
+        <me>
+          (\alpha f)(x) := \alpha(f(x)) \qquad\text{ for every \(x \in S\) } .
+        </me>
+      </p>
+
+      <p>
+        Notice that according to the definitions above, both <m>f + g</m> and <m>\alpha</m>f belong to <m>\fml
+        F(S,V)</m>. Under these pointwise operations <m>\fml F(S,V)</m> is a vector space. (Notice that the
+        family of real valued functions on a set <m>S</m> is a special case of the preceding. Just let <m>V =
+        \R</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem
+    </p>
+  </proof>
+
+  <p>
+    Most of the vector spaces we encounter in the sequel are subspaces of <m>\fml F(S,V)</m> for some
+    appropriate set <m>S</m> and vector space <m>V</m>: so we now take up the topic of subspaces of vector
+    spaces.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>W</m> of a vector space <m>V</m> is a
+        <index><main>subspace</main><sub>vector</sub></index><term>subspace</term> of <m>V</m> if it is itself a vector space under the operations it inherits from<nbsp /><m>V</m>.
+        In subsequent chapters we will regularly encounter objects which are simultaneously vector
+        spaces and metric spaces. (One obvious example is <m>\R^n</m>). We will often use the term
+        <index><main>vector</main><sub>subspace</sub></index><term>vector subspace</term> (or
+        <index><main>linear</main><sub>subspace</sub></index><term>linear subspace</term>) to distinguish a subspace of a vector space from a metric subspace.
+        (Example: the unit circle <m>\{(x,y) \colon x^2 + y^2 = 1\}</m> is a metric subspace of <m>\R^2</m> but
+        not a vector subspace thereof.)
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Given a subset <m>W</m> of a vector space <m>V</m> we do not actually need to check all eight vector
+    space axioms to establish that it is a subspace of <m>V</m>. We need only know that <m>W</m> is
+    nonempty and that it is closed under addition and scalar multiplication.
+  </p>
+
+  <proposition xml:id="vs_prop1">
+    <statement>
+      <p>
+        Let <m>W</m> be a subset of a vector space <m>V</m>. Then <m>W</m> is a subspace
+        of <m>V</m> provided that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>W \ne \emptyset</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>x + y \in W</m> whenever <m>x \in W</m> and <m>y \in W</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\alpha x \in W</m> whenever <m>x \in W</m> and <m>\alpha \in \R.</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_vs_prop1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set. Then the family <m>\fml B(S,\R)</m> of all bounded real
+        valued functions on <m>S</m> is a vector space because it is a subspace of <m>\fml F(S,\R)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      That it <em>is</em> a subspace of <m>\fml F(S,\R)</m> is clear from the preceding
+      proposition: every constant function is bounded, so the set <m>\fml B(S,\R)</m> is nonempty; that
+      it is closed under addition and scalar multiplication was proved in
+      <xref ref="uc_prop1">proposition</xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The <m>x</m>-axis (that is, <m>\{(x,0,0) \colon x \in \R\}</m>) is a subspace of<nbsp /><m>\R^3</m>.
+        So is the <m>xy</m>-plane (that is, <m>\{(x,y,0) \colon x,y \in \R\}</m>). In both cases it is clear
+        that the set in question is nonempty and is closed under addition and scalar multiplication.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space. Then the set <m>\fml C(M,\R)</m> of all continuous real
+        valued functions on <m>M</m> is a vector space.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a \lt  b</m> and <m>\fml F</m> be the vector space of all real valued functions on the
+        interval <m>[a,b]</m>. Consider the following subsets of <m>\fml F</m>:
+        <md>
+          <mrow>\fml K    \amp =  \{f \in \fml F \colon \text{ \(f\) is constant } \}</mrow>
+          <mrow>\fml D    \amp =  \{f \in \fml F \colon \text{ \(f\) is differentiable } \}</mrow>
+          <mrow>\fml B    \amp =  \{f \in \fml F \colon \text{ \(f\) is bounded } \}</mrow>
+          <mrow>\fml P_3  \amp =  \{f \in \fml F \colon \text{ \(f\) is a polynomial of degree \(3\) } \}</mrow>
+          <mrow>\fml Q_3  \amp =  \{f \in \fml F \colon \text{ \(f\) is a polynomial of degree less
+                                                                                 than or equal to \(3\) } \}</mrow>
+          <mrow>\fml P    \amp =  \{f \in \fml F \colon \text{ \(f\) is a polynomial } \}</mrow>
+          <mrow>\fml C    \amp =  \{f \in \fml F \colon \text{ \(f\) is continuous } \}</mrow>
+        </md>
+      </p>
+
+      <p>
+        Which of these are subspaces of which? <em>Hint.</em> There is a ringer in the list.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        The family of all solutions of the differential equation
+        <me>
+          xy'' + y' + xy = 0
+        </me>
+        is a subspace of <m>\fml C(\R,\R)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Let <m>A</m> be a subset of a vector space <m>V</m>. Question: What is meant by the phrase <q>the
+    smallest subspace of <m>V</m> which contains <m>A</m></q>? Answer: The intersection of all the subspaces
+    of <m>V</m> which contain <m>A</m>. It is important to realize that in order for this answer to make
+    sense, it must be known that the intersection of the family of subspaces containing <m>A</m> is
+    itself a subspace of <m>V</m>. This is an obvious consequence of the fact (proved below) that the
+    intersection of any family of subspaces is itself a subspace.
+  </p>
+
+  <proposition xml:id="intr_vsbs">
+    <statement>
+      <p>
+        Let <m>\sfml S</m> be a nonempty family of subspaces of a vector
+        space<nbsp /><m>V</m>. Then <m>\bigcap \sfml S</m> is a subspace of <m>V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> <xref ref="vs_prop1">Use</xref>. (<xref ref="sol_intr_vsbs">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="prod_vs">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be vector spaces. If addition and scalar multiplication
+        are defined on <m>V \times W</m> by
+        <me>
+          (v,w) + (x,y) := (v+x,w+y)
+        </me>
+        and
+        <me>
+          \alpha(v,w) := (\alpha v, \alpha w)
+        </me>
+        for all <m>v</m>, <m>x \in V</m>, all <m>w</m>, <m>y \in W</m>, and all <m>\alpha \in \R</m>, then <m>V \times W</m> becomes
+        a vector space. (This is called the
+        <index><main>product</main><sub>of vector spaces</sub></index><term>product</term> or
+        <index><main>external direct sum</main></index>
+        <index><main>direct sum</main><sub>external</sub></index>
+        <index><main>sum</main><sub>external direct</sub></index><term>(external) direct sum</term> of <m>V</m> and<nbsp /><m>W</m>. It is frequently denoted
+        <index><main><@<m>V \oplus W</m> (direct sum of vector spaces)</main></index>by<nbsp /><m>V \oplus W</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

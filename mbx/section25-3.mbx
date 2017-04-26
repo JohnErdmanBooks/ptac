@@ -1,0 +1,472 @@
+
+<section>
+  <title>Differentiation</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a(V,W)</m>. Define the function
+        <index><main><@<m>\Delta F_a</m></main></index>
+        <index><main>delta@<m>\Delta F_a</m></main></index><m>\Delta f_a</m> by
+        <me>
+          \Delta f_a(h) \equiv f(a+h) - f(a)
+        </me>
+        for all <m>h</m> such that <m>a + h</m> is in the domain of <m>f</m>. Notice that since <m>f</m> is defined in a
+        neighborhood of <m>a</m>, the function <m>\Delta f_a</m> is defined in a neighborhood of <m>\vc 0</m>; that
+        is, <m>\Delta f_a</m> belongs to <m>\fml F_{\vc 0}(V,W)</m>. Notice also that <m>\Delta f_a(\vc 0) = \vc
+        0</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_del_sm">
+    <statement>
+      <p>
+        If <m>f \in \fml F_a(V,W)</m> and <m>\alpha \in \R</m>, then
+        <me>
+          \Delta(\alpha f)_a = \alpha\,\Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      No changes need to be made in the proof of <xref ref="del_sm"></xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_del_sum">
+    <statement>
+      <p>
+        If <m>f</m>, <m>g \in \fml F_a(V,W)</m>, then
+        <me>
+          \Delta(f+g)_a = \Delta f_a + \Delta g_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      The proof given (in the <em>solutions to exercises</em>) for
+      <xref ref="del_sum">proposition</xref> needs no alteration.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_del_mult">
+    <statement>
+      <p>
+        If <m>\phi \in \fml F_a(V,\R)</m> and <m>f \in \fml F_a(V,W)</m>, then
+        <me>
+          \Delta(\phi f)_a = \phi(a)\cdot\Delta f_a \,+\, \Delta\phi_a\cdot f(a)
+                                                      \,+\, \Delta\phi_a\cdot\Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_del_comp">
+    <statement>
+      <p>
+        If <m>f \in \fml F_a(V,W)</m>, <m>g \in \fml F_{f(a)}(W,X)</m>, and
+        <m>g \circ f \in \fml F_a(V,X)</m>, then
+        <me>
+          \Delta(g \circ f)_a = \Delta g_{{}_{\sst{f(a)}}} \circ \Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Use the proof given (in the <em>solutions to exercises</em>) for
+      <xref ref="del_comp">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        A function <m>f \colon V \sto W</m> is continuous at the point <m>a</m> in <m>V</m> if and only if
+        <m>\Delta f_a</m> is continuous at <m>\vc 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_del_inv">
+    <statement>
+      <p>
+        If <m>f \colon U \sto U_1</m> is a bijection between subsets of
+        arbitrary vector spaces, then for each <m>a</m> in <m>U</m> the function <m>\Delta f_a \colon U - a \sto
+        U_1 - f(a)</m> is invertible and
+        <me>
+          \bigl(\Delta f_a\bigr)^{-1}=\Delta\bigl(f^{-1}\bigr)_{f(a)}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a(V,W)</m>. We say that <m>f</m> is
+        <index><main>differentiable</main><sub>at a point</sub></index><term>differentiable at</term> <m>a</m> if there exists a bounded linear map which is tangent at <m>\vc 0</m> to
+        <m>\Delta f_a</m>. If such a map exists, it is called the
+        <index><main>differential</main></index><term>differential</term> of <m>f</m> at <m>a</m> and is denoted
+        <index><main>dfa@<m>df_a</m> (differential of <m>f</m> at<nbsp /><m>a</m>)</main></index>by<nbsp /><m>df_a</m>. Thus <m>df_a</m> is just a member of <m>\ofml B(V,W)</m> which satisfies <m>df_a \simeq \Delta
+        f_a</m>. We denote by <m>\fml D_a(V,W)</m> the family of all functions in <m>\fml F_a(V,W)</m> which are
+        differentiable at<nbsp /><m>a</m>. We often shorten this to<nbsp /><m>\fml D_a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_diff_uniq">
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a(V,W)</m>. If <m>f</m> is differentiable at <m>a</m>,
+        then its differential is unique. (That is, there is at most one bounded linear map tangent at
+        <m>0</m> to <m>\Delta f_a</m>.)
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      <xref ref="prop_tan_lin">Proposition</xref>.
+    </p>
+  </proof>
+
+  <remark xml:id="rem_prop_diff">
+    <p>
+      If <m>f</m> is a function in <m>\fml F_a(V,W)</m> which is differentiable
+      at <m>a</m>, its differential <m>df_a</m> has three important properties:
+      <ol>
+        <li>
+          <title>(i)</title>
+          <p>
+            it is linear;
+          </p>
+        </li>
+
+        <li>
+          <title>(ii)</title>
+          <p>
+            it is continuous (that is, bounded as a linear map);
+          </p>
+        </li>
+
+        <li>
+          <title>(iii)</title>
+          <p>
+            <m>\D\lim_{h \sto \vc 0} \frac{\Delta f_a(h) - df_a(h)}{\norm h} = \vc 0</m> .
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      (An expression of the form <m>\dfrac{\Delta f_a(h) - df_a(h)}{\norm h}</m> is called a
+      <index><main>Newton quotient</main></index>
+      <index><main>quotient</main><sub>Newton</sub></index><term>Newton quotient</term>.)
+    </p>
+  </remark>
+
+  <exercise xml:id="exer_diff_R2">
+    <statement>
+      <p>
+        Let <m>f(x,y) = 3x^2 - xy + 4y^2</m>. Show that <m>df_{(1,-1)}(x,y) =
+        7x - 9y</m>. Interpret <m>df_{(1,-1)}</m> geometrically. (<xref ref="sol_exer_diff_R2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_diff_R3R2">
+    <statement>
+      <p>
+        Let
+        <me>
+          f \colon \R^3 \sto \R^2 \colon (x,y,z) \mapsto (x^2y - 7, 3xz + 4y)
+        </me>
+        and <m>a = (1,-1,0)</m>. Use the <em>definition</em> of <q>differential</q> to find <m>df_a</m>.
+        <em>Hint.</em> Work with the matrix representation of <m>df_a</m>. Since the differential must
+        belong to <m>\ofml B(\R^3,\R^2)</m>, its matrix representation is a <m>2 \times 3</m> matrix
+        <m>M = \begin{bmatrix}r  \amp   s  \amp   t \\
+                  u  \amp   v  \amp   w
+        \end{bmatrix}</m> . Use the requirement<mdash />condition (iii) of the preceding remark<mdash />that
+        <m>\norm h^{-1}\,\norm{\Delta f_a(h) - Mh} \sto \vc 0</m> as <m>h \sto \vc 0</m> to discover the
+        identity of the entries in<nbsp /><m>M</m>. (<xref ref="sol_exer_diff_R3R2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <proposition xml:id="prop_diff_O">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a</m>, then <m>\Delta f_a \in \lobo O</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Use the proof given (in the <em>solutions to exercises</em>) for
+      <xref ref="del_in_O">proposition</xref>. Since we are working with bounded linear maps between normed
+      spaces instead of linear maps on<nbsp /><m>\R</m>, we must change <m>\ofml L</m> to<nbsp /><m>\ofml B</m>.
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_diff_cont">
+    <statement>
+      <p>
+        Every function which is differentiable at a point is continuous
+        there.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Use the proof given (in the <em>solutions to exercises</em>) for
+      <xref ref="diff_cont">corollary</xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_diff_sm">
+    <statement>
+      <p>
+        If <m>f</m> is differentiable at <m>a</m> and <m>\alpha \in \R</m>, then
+        <m>\alpha f</m> is differentiable at <m>a</m> and
+        <me>
+          d(\alpha f)_a = \alpha\,df_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      The proof given (in the <em>solutions to exercises</em>) for
+      <xref ref="diff_sm">proposition</xref> works, but three references need to be changed. (What are the
+      correct references?)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_diff_sum">
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are differentiable at <m>a</m>, then <m>f + g</m> is
+        differentiable at <m>a</m> and
+        <me>
+          d(f+g)_a = df_a + dg_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>Leibniz's rule</main></index>
+  </p>
+
+  <proposition xml:id="prop_Leib_rul">
+    <title>Leibniz's Rule</title>
+    <statement>
+      <p>
+        <index><main>Leibniz's rule</main></index>If <m>\phi \in \fml D_a(V,\R)</m> and <m>f \in \fml D_a(V,W)</m>, then <m>\phi f \in \fml D_a(V,W)</m> and
+        <me>
+          d(\phi f)_a = d\phi_a \cdot f(a) \,+\, \phi(a)\,df_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_Leib_rul">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    In the chapters of beginning calculus texts devoted to the differential calculus of several
+    variables, the expression <q>chain rule</q> refers most frequently to a potentially infinite
+    collection of related results concerning the differentiation of composite functions. Several
+    examples such as the following are usually given:
+  </p>
+
+  <blockquote>
+  Let <m>w = f(x,y,z)</m>, <m>x = x(u,v)</m>, <m>y = y(u,v)</m>, and <m>z = z(u,v)</m>. If these functions are all
+  differentiable, then the function
+  <me>
+    w = f(x(u,v)\,,\,y(u,v)\,,\,z(u,v))
+  </me>
+  is differentiable and
+  <me xml:id="eqn_pd_cr" >
+    \tag{$\ast$}
+      \begin{split} \frac{\partial w}{\partial u}
+         \amp = \frac{\partial w}{\partial x}\frac{\partial x}{\partial u}
+         + \frac{\partial w}{\partial y}\frac{\partial y}{\partial u}
+         + \frac{\partial w}{\partial z}\frac{\partial z}{\partial u}\\
+       \frac{\partial w}{\partial v}
+         \amp = \frac{\partial w}{\partial x}\frac{\partial x}{\partial v}
+         + \frac{\partial w}{\partial y}\frac{\partial y}{\partial v}
+         + \frac{\partial w}{\partial z}\frac{\partial z}{\partial v}
+      \end{split}
+  </me>
+  </blockquote>
+
+  <p>
+    Then the reader is encouraged to invent new <q>chain rules</q> for functions having
+    different numbers of variables. Formulations such as <xref ref="eqn_pd_cr" /> have many shortcomings
+    the most serious of which is a nearly complete lack of discernible geometric content. The
+    version of the <em>chain rule</em> which we will prove says that (after a suitable translation)
+    the best linear approximation to the composite of two functions is the composite of the best
+    linear approximations. In other words, the differential of the composite is the composite of
+    the differentials. Notice that <xref ref="thm_ch_rul">theorem</xref>, where this is stated formally, is
+    simpler than <xref ref="eqn_pd_cr" />; it has obvious geometric content; it is a single <q>rule</q>
+    rather than a family of them; and it holds in arbitrary infinite dimensional normed linear
+    spaces as well as in finite dimensional ones.
+  </p>
+
+  <proposition xml:id="thm_ch_rul">
+    <title>The Chain Rule.</title>
+    <statement>
+      <p>
+        <index><main>chain rule</main></index>If <m>f \in \fml D_a(V,W)</m> and <m>g \in \fml D_{f(a)}(W,X)</m>, then <m>g \circ f \in \fml D_a(V,X)</m>
+        and
+        <me>
+          d(g \circ f)_a = dg_{{}_{\scriptstyle{f(a)}}} \circ df_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_thm_ch_rul">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Each of the preceding propositions concerning differentiation is a direct consequence of a
+    similar result concerning the map <m>\Delta</m>. In particular, the linearity of the map <m>f \mapsto
+    df_a</m> (<xref ref="prop_diff_sm">propositions</xref> and <xref ref="prop_diff_sum"></xref>) follows from the fact that the
+    function <m>f \mapsto \Delta f_a</m> is linear (<xref ref="prop_del_sm">propositions</xref>
+    and <xref ref="prop_del_sum"></xref>); <em>Leibniz's rule</em><nbsp /> <xref ref="prop_Leib_rul"></xref> is a consequence of
+    <xref ref="prop_del_mult">proposition</xref>; and the proof of the <em>chain rule</em><nbsp /> <xref ref="thm_ch_rul"></xref> makes
+    use of <xref ref="prop_del_comp">proposition</xref>. It is reasonable to hope that the result given in
+    <xref ref="prop_del_inv">proposition</xref> concerning <m>\Delta\bigl(f^{-1}\bigr)_{f(a)}</m> will lead to
+    useful information concerning the differential of the inverse function. This is indeed the
+    case; but obtaining information about <m>d\bigl(f^{-1}\bigr)_{f(a)}</m> from <xref ref="prop_del_inv"></xref> is
+    a rather involved undertaking. It turns out, happily enough, that (under mild hypotheses) the
+    differential of <m>f^{-1}</m> is the inverse of the differential of <m>f</m>. This result is known as
+    the <em>inverse function theorem</em>, and the whole of <xref ref="IFT">chapter</xref> is devoted to
+    detailing its proof and to examining some of its consequences.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <xref ref="prop_diff_sm">proposition</xref> is actually a special case of
+        <em>Leibniz's rule</em><nbsp /> <xref ref="prop_Leib_rul"></xref>. Also, suppose that <m>\phi \in \fml D_a(V,\R)</m> and
+        <m>w \in W</m>. Prove that <m>\phi w \in \fml D_a(V,W)</m> and that <m>d(\phi w)_a = d\phi_a \cdot w</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^2 \sto \R^2</m> be defined by <m>f(x) = (3x_1 - x_2 + 7, x_1 + 4x_2)</m>.
+        Show that <m>\bigl[df_{(1,0)}\bigr] =
+         \begin{bmatrix}3  \amp   -1 \\
+             1  \amp   4
+        \end{bmatrix}</m>. <em>Hint.</em> Let
+        <m>M = \begin{bmatrix}3  \amp   -1 \\
+                    1  \amp   4
+        \end{bmatrix}</m> and <m>a = (1,0)</m>. Show that the Newton quotient
+        <m>\dfrac{\mathstrut\Delta^{\mathstrut} f_a(h) - Mh}{\norm h}</m> approaches <m>\vc 0</m> as <m>h \sto \vc
+        0</m>. Use the uniqueness of differentials (<xref ref="prop_diff_uniq">proposition</xref>) to conclude that
+        <m>\bigl[df_a\bigr] = M</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>F \colon \R^2 \sto \R^4</m> be defined by
+        <me>
+          F(x) = (x_2\,,\,{x_1}^2\,,\,4 - x_1x_2\,,\,7x_1)
+        </me>
+        and let <m>a = (1,1)</m>. Use the <em>definition</em> of <q>differential</q> to show that
+        <me>
+          \bigl[dF_a\bigr] =
+               \begin{bmatrix}0  \amp   1 \\
+                   2  \amp   0 \\
+                  -1  \amp  -1 \\
+                   7  \amp   0
+          \end{bmatrix} \,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>F \colon \R^3 \sto \R^4\colon  x \mapsto (x_1 + 2x_3, x_2 - x_3, 4x_2,
+        2x_1 - 5x_2)</m> and <m>a = (1,2,-5)</m>. Use the <em>definition</em> of <q>differential</q> to find
+        <m>\bigl[dF_a\bigr]</m>. <em>Hint.</em> Use the technique suggested in
+        <xref ref="exer_diff_R3R2">exercise</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>F \colon \R^3 \sto \R^2</m> be defined by <m>F(x,y,z) = (xy - 3,y + 2z^2)</m>.
+        Use the <em>definition</em> of <q>differential</q> to find <m>\bigl[dF_{(1,-1,2)}\bigr]</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>F \colon \R^3 \sto \R^3: x \mapsto (x_1x_2,x_2 - {x_3}^2,2x_1x_3)</m>. Use the
+        <em>definition</em> of <q>differential</q> to find <m>\bigl[dF_a\bigr]</m> at <m>a</m> in<nbsp /><m>\R^3</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_diff_lt">
+    <statement>
+      <p>
+        Let <m>T \in \ofml B(V,W)</m> and <m>a \in V</m>. Find <m>dT_a</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,206 @@
+
+<section>
+  <title>Tangency</title>
+  <definition>
+    <statement>
+      <p>
+        Two functions <m>f</m> and <m>g</m> in <m>\fml F_{\vc 0}(V,W)</m> are
+        <index><main>tangent</main><sub>at zero</sub></index><term>tangent at zero</term>, in which case we write
+        <index><main><@<m>\simeq</m> (tangency)</main></index><m>f \simeq g</m>, if <m>f - g \in \lobo o(V,W)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_tan_equiv">
+    <statement>
+      <p>
+        The relation <q>tangency at zero</q> is an equivalence relation
+        on<nbsp /><m>\fml F_{\vc 0}</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_tan_equiv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The next result shows that at most one bounded linear transformation can be tangent at zero to
+    a given function.
+  </p>
+
+  <proposition xml:id="prop_tan_lin">
+    <statement>
+      <p>
+        Let <m>S,T \in \ofml B</m> and <m>f \in \fml F_0</m>. If <m>S \simeq f</m>
+        and <m>T \simeq f</m>, then <m>S = T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_tan_lin">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_tan_sum">
+    <statement>
+      <p>
+        If <m>f \simeq g</m> and <m>j \simeq k</m>, then <m>f + j \simeq g + k</m>,
+        and furthermore, <m>\alpha f \simeq \alpha g</m> for all <m>\alpha \in \R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    In the next proposition we see that if two real valued functions are tangent at zero,
+    multiplication by a vector does not disrupt this relationship. (For notation
+    <xref ref="notn_fcns_mult">see</xref>.)
+  </p>
+
+  <proposition xml:id="prop_tan_x_vec">
+    <statement>
+      <p>
+        Let <m>\phi, \psi \in \fml F_0(V,\R)</m> and <m>w \in W</m>. If
+        <m>\phi \simeq \psi</m>, then <m>\phi w \simeq \psi w</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_tan_x_vec">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_lin_comp_tan">
+    <statement>
+      <p>
+        Let <m>f</m>, <m>g \in \fml F_{\vc 0}(V,W)</m> and <m>T \in
+        \ofml B(W,X)</m>. If <m>f \simeq g</m>, then <m>T \circ f \simeq T \circ g</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_tan_comp_O">
+    <statement>
+      <p>
+        Let <m>h \in \lobo O(V,W)</m> and <m>f</m>, <m>g \in \fml F_0(W,X)</m>.
+        If <m>f \simeq g</m>, then <m>f \circ h \simeq g \circ h</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Fix a vector <m>x</m> in <m>V</m>. Define a function <m>M_x \colon \R \sto V</m> by
+        <me>
+          M_x(\alpha)=\alpha x \qquad \text{ for all \(\alpha \in \R\). }
+        </me>
+      </p>
+
+      <p>
+        Notice that <m>M_x \in \lobo B(\R,V)</m>. If <m>f \in \fml F_0(\R,V)</m> and <m>f \simeq M_x</m>, then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\dfrac{f(\alpha)}{\alpha} \sto x</m> as <m>\alpha \sto 0</m>;
+              and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>f(\alpha) \sto 0</m> as <m>\alpha \sto 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Each of the following is an abbreviated version of a proposition. Formulate precisely
+        and prove.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\fml C_{\vc 0} + \lobo O \subseteq \fml C_{\vc 0}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\fml C_{\vc 0} + \lobo o \subseteq \fml C_{\vc 0}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\lobo O + \lobo o \subseteq \lobo O</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>f \simeq g</m>. Then the following hold.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>g</m> is continuous at <m>\vc 0</m>, so is <m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>g</m> belongs to <m>\lobo O</m>, so does <m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>g</m> belongs to <m>\lobo o</m>, so does <m>f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

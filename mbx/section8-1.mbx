@@ -1,0 +1,268 @@
+
+<section>
+  <title>The families <m>\lobo O</m> and <m>\lobo o</m></title>
+  <notation>
+
+  <p>
+    Let <m>a \in \R</m>. We denote
+    <index><main>f@<m>\fml F_a</m> (functions defined in a neighborhood of<nbsp /><m>a</m>)</main></index>by<nbsp /><m>\fml F_a</m> the family of all real valued functions defined on a neighborhood of<nbsp /><m>a</m>. That
+    is, <m>f</m> belongs to <m>\fml F_a</m> if there exists an open set <m>U</m> such that <m>a \in U \subseteq
+    \dom f</m>.
+  </p>
+
+  </notation>
+
+  <p>
+    Notice that for each <m>a \in \R</m>, the set <m>\fml F_a</m> is closed under addition and
+    multiplication. (We define the sum of two functions <m>f</m> and <m>g</m> in <m>\fml F_a</m> to be the
+    function <m>f + g</m> whose value at <m>x</m> is <m>f(x) + g(x)</m> whenever <m>x</m> belongs to <m>\dom f \,\cap\,
+    \dom g</m>. A similar convention holds for multiplication.)
+  </p>
+
+  <p>
+    Among the functions defined on a neighborhood of zero are two subfamilies of crucial
+    importance; they are <m>\lobo O</m> (the family of <q><em>big-oh</em></q> functions) and <m>\lobo o</m> (the
+    family of <q><em>little-oh</em></q> functions).
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A function <m>f</m> in <m>\fml F_0</m> belongs to
+        <index><main>ohbig@<m>\lobo O</m> functions</main></index><m>\lobo O</m> if there exist numbers <m>c > 0</m> and <m>\delta > 0</m> such that
+        <me>
+          \abs{f(x)} \le c\,\abs{x}
+        </me>
+        whenever <m>\abs{x} \lt  \delta</m>.
+      </p>
+
+      <p>
+        A function <m>f</m> in <m>\fml F_0</m> belongs to
+        <index><main>ohlittle@<m>\lobo o</m> functions</main></index><m>\lobo o</m> if for every <m>c > 0</m> there exists <m>\delta > 0</m> such that
+        <me>
+          \abs{f(x)} \le c\,\abs{x}
+        </me>
+        whenever <m>\abs{x} \lt  \delta</m>. Notice that <m>f</m> belongs to <m>\lobo o</m> if and only if <m>f(0) = 0</m>
+        and
+        <me>
+          \lim_{h \sto 0}\frac{\abs{f(h)}}{\abs{h}} = 0\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = \sqrt{\abs{x}}</m>. Then <m>f</m> belongs to neither <m>\lobo O</m> nor <m>\lobo o</m>.
+        (A function belongs to <m>\lobo O</m> only if in some neighborhood of the origin its graph lies
+        between two lines of the form <m>y = cx</m> and <m>y = -cx</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>g(x) = \abs{x}</m>. Then <m>g</m> belongs to <m>\lobo O</m> but not to <m>\lobo o</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>h(x) = x^2</m>. Then <m>h</m> is a member of both <m>\lobo O</m> and <m>\lobo o</m>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    Much of the elementary theory of differential calculus rests on a few simple properties of the
+    families <m>\lobo O</m> and <m>\lobo o</m>. These are given in <xref ref="o_in_O">propositions</xref><ndash /> <xref ref="mult_o"></xref>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A function <m>L \colon \R \sto \R</m> is
+        <index><main>linear</main></index><term>linear</term> if
+        <me>
+          L(x + y) = L(x) + L(y)
+        </me>
+        and
+        <me>
+          L(cx) = cL(x)
+        </me>
+        for all <m>x</m>, <m>y</m>, <m>c \in \R</m>. The family of all linear functions from <m>\R</m> into <m>\R</m> will be
+        denoted
+        <index><main>linear@<m>\ofml L</m> (linear functions from <m>\R</m> into <m>\R</m>)</main></index>by<nbsp /><m>\ofml L</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The collection of linear functions from <m>\R</m> into <m>\R</m> is not very impressive, as the next
+    problem shows. When we get to spaces of higher dimension the situation will become more
+    interesting.
+  </p>
+
+  <example xml:id="lin_R">
+    <statement>
+      <p>
+        A function <m>f \colon \R \sto \R</m> is linear if and only if its graph is a
+        (nonvertical) line through the origin.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <caution>
+
+  <p>
+    Since linear functions must pass through the origin, straight lines are not in
+    general graphs of linear functions.
+  </p>
+
+  </caution>
+
+  <proposition xml:id="o_in_O">
+    <statement>
+      <p>
+        Every member of <m>\lobo o</m> belongs to <m>\lobo O</m>; so does every member
+        of <m>\ofml L</m>. Every member of <m>\lobo O</m> is continuous at 0.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Obvious from the definitions.
+    </p>
+  </proof>
+
+  <proposition xml:id="lin_vs_o">
+    <statement>
+      <p>
+        Other than the constant function zero, no linear function belongs to<nbsp /><m>\lobo o</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lin_vs_o">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="O_closed">
+    <statement>
+      <p>
+        The family <m>\lobo O</m> is closed under addition and multiplication
+        by constants.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_O_closed">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="o_closed">
+    <statement>
+      <p>
+        The family <m>\lobo o</m> is closed under addition and multiplication
+        by constants.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The next two propositions say that the composite of a function in <m>\lobo O</m> with one in <m>\lobo
+    o</m> (in either order) ends up in <m>\lobo o</m>.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>g \in \lobo O</m> and <m>f \in \lobo o</m>, then <m>f \circ g \in \lobo o</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="O_comp_o">
+    <statement>
+      <p>
+        If <m>g \in \lobo o</m> and <m>f \in \lobo O</m>, then <m>f \circ g \in \lobo o</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_O_comp_o">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="mult_o">
+    <statement>
+      <p>
+        If <m>\phi,f \in \lobo O</m>, then <m>\phi f \in \lobo o</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_mult_o">Solution</xref>.)
+    </p>
+  </proof>
+
+  <remark xml:id="rem_oO_R">
+    <p>
+      The preceding facts can be summarized rather concisely. (Notation:
+      <index><main>continuous@<m>\fml C_0</m> (functions continuous at<nbsp /><m>0</m>)</main></index><m>\fml C_0</m> is the set of all functions in <m>\fml F_0</m> which are continuous at 0.)
+      <md>
+        <mrow>\amp (1)\qquad \ofml L \cup \lobo o \subseteq \lobo O \subseteq
+                           \fml C_0 \, .</mrow>
+        <mrow>\amp (2)\qquad \ofml L \cap \lobo o = {0}\,.</mrow>
+        <mrow>\amp (3)\qquad \lobo O + \lobo O \subseteq \lobo O\,; \qquad
+                            \alpha\,\lobo O \subseteq \lobo O\,.</mrow>
+        <mrow>\amp (4)\qquad \lobo o + \lobo o \subseteq \lobo o\,; \qquad
+                            \alpha\,\lobo o \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (5)\qquad \lobo o \circ \lobo O \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (6)\qquad \lobo O \circ \lobo o \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (7)\qquad \lobo O \cdot \lobo O \subseteq \lobo o\,.</mrow>
+      </md>
+    </p>
+  </remark>
+
+  <problem xml:id="O_comp_O">
+    <statement>
+      <p>
+        Show that <m>\lobo O\circ\lobo O\subseteq\lobo O</m>. That is, if
+        <m>g \in \lobo O</m> and <m>f \in \lobo O</m>, then <m>f\circ g \in \lobo O</m>. (As usual, the domain of <m>f
+        \circ g</m> is taken to be <m>\{x \colon g(x) \in \dom f\}</m>.)
+      </p>
+    </statement>
+  </problem>
+</section>

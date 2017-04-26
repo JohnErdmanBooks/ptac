@@ -1,0 +1,137 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="prods">
+  <title>Products</title>
+  <p>
+    The Cartesian product of two sets, which was defined in <xref ref="fcns">appendix</xref>, is best thought
+    of not just as a collection of ordered pairs but as this collection together with two
+    distinguished <q>projection</q> mappings.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S_1</m> and <m>S_2</m> be nonempty sets. For <m>k = 1</m>, <m>2</m> define the
+        <index><main>pi@<m>\pi_k</m> (coordinate projection)</main></index>
+        <index><main><@<m>\pi_k</m> (coordinate projection)</main></index>
+        <index><main>projections</main><sub>coordinate</sub></index><term>coordinate projections</term> <m>\pi_k \colon S_1 \times S_2 \sto S_k</m> by <m>\pi_k(s_1,s_2) = s_k</m>.
+        We notice two simple facts:
+        <ol>
+          <li>
+            <p>
+              <m>\pi_1</m> and <m>\pi_2</m> are surjections; and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>z = (\pi_1(z),\pi_2(z))</m> for all <m>z \in S_1 \times S_2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        If <m>T</m> is a nonempty set and if <m>g \colon T \sto S_1</m> and <m>h \colon T \sto S_2</m>, then we
+        define the function <m>(g,h):T \sto S_1 \times S_2</m> by
+        <me>
+          (g,h)(t) = (g(t),h(t))\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        If <m>g(t) = \cos t</m> and <m>h(t) = \sin t</m>, then <m>(g,h)</m> is a map from <m>\R</m> to the
+        unit circle in the plane. (This is a <em>parametrization</em> of the unit circle.)
+      </p>
+    </statement>
+  </example>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S_1</m>, <m>S_2</m>, and <m>T</m> be nonempty sets and let <m>f \colon T \sto S_1 \times S_2</m>.
+        For <m>k = 1</m>, <m>2</m> we define functions <m>f^k \colon T \sto S_k</m> by <m>f^k = \pi_k \circ f</m>; these
+        are the
+        <index><main>components</main><sub>of a function</sub></index><term>components</term> of<nbsp /><m>f</m>. (The superscripts have nothing to do with powers. We use them because
+        we wish later to attach subscripts to functions to indicate partial differentiation.) Notice
+        that <m>f(t) = (\pi_1(f(t)),\pi_2(f(t)))</m> for all <m>t \in T</m>, so that
+        <me>
+          f = (\pi_1 \circ f, \pi_2 \circ f) = (f^1,f^2)\,.
+        </me>
+      </p>
+
+      <p>
+        If we are given the function <m>f</m>, the components <m>f^1</m> and <m>f^2</m> have been defined so as to
+        make the following diagram commute.
+        <me>
+          \xy
+                  \Atrianglepair/>`>`>`\lt -`>/[T`S_1`S_1 \times S_2`S_2;f^1`f`f^2`\pi_1`\pi_2]
+               \endxy
+        </me>
+      </p>
+
+      <p>
+        On the other hand, if the functions <m>f^1 \colon T \sto S_1</m> and <m>f^2 \colon T \sto S_2</m> are
+        given, then there exists a function <m>f</m>, namely <m>(f^1,f^2)</m>, which makes the diagram commute.
+        Actually, <m>(f^1,f^2)</m> is the <em>only</em> function with this property, a fact which we prove in
+        the next exercise.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="prod_exer">
+    <statement>
+      <p>
+        Suppose that <m>f^1 \in \fml F(T,S_1)</m> and <m>f^2 \in \fml F(T,S_2)</m>.
+        Then there exists a unique function <m>g \in \fml F(T,S_1 \times S_2)</m> such that <m>\pi_1 \circ g
+        = f^1</m> and <m>\pi_2 \circ g = f^2</m>. (<xref ref="sol_prod_exer">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The following problem, although interesting, is not needed elsewhere in this text, so it is
+    listed as optional. It says, roughly, that any set which <q>behaves like a Cartesian product</q>
+    must be in one-to-one correspondence with the Cartesian product.
+  </p>
+
+  <problem>
+    <title>optional</title>
+    <statement>
+      <p>
+        Let <m>S_1</m>, <m>S_2</m>, and <m>P</m> be nonempty sets and
+        <m>\rho_k \colon P \sto S_k</m> be surjections. Suppose that for every set <m>T</m> and every pair of
+        functions <m>f^k \in \fml F(T,S_k)</m> (<m>k=1,2</m>), there exists a unique function <m>g \in \fml
+        F(T,P)</m> such that <m>f^k = \rho_k \circ g</m> (<m>k = 1,2</m>). Then there exists a bijection from <m>P</m>
+        onto <m>S_1 \times S_2</m>. <em>Hint.</em> Consider the following diagrams.
+        <men xml:id="prod_diag1" >
+          \xy
+                \Atrianglepair/>`>`>`\lt -`>/[P`S_1`S_1 \times S_2`S_2;\rho_1`\rho`\rho_2`\pi_1`\pi_2]
+              \endxy
+        </men>
+        <men xml:id="prod_diag2" >
+          \xy
+                \Atrianglepair/>`>`>`\lt -`>/[S_1 \times S_2`S_1`P`S_2;\pi_1`\pi`\pi_2`\rho_1`\rho_2]
+              \endxy
+        </men>
+        <men xml:id="prod_diag3" >
+          \xy
+                \Atrianglepair/>`>`>`\lt -`>/[P`S_1`P`S_2;\rho_1`\rho`\rho_2`\rho_1`\rho_2]
+              \endxy
+        </men>
+      </p>
+
+      <p>
+        <xref ref="prod_exer">Exercise</xref> tells us that there exists a unique map <m>\rho</m> which makes diagram
+        <xref ref="prod_diag1" /> commute, and by hypothesis there exists a unique map <m>\pi</m> which makes
+        diagram <xref ref="prod_diag2" /> commute. Conclude from <xref ref="prod_diag1" /> and <xref ref="prod_diag2" />
+        that <xref ref="prod_diag3" /> commutes when <m>g = \pi \circ \rho</m>. It is obvious that
+        <xref ref="prod_diag3" /> commutes when <m>g = I_P</m>. Then use the uniqueness part of the hypothesis to
+        conclude that <m>\pi</m> is a left inverse for <m>\rho</m>. Now construct a new diagram replacing <m>P</m> by
+        <m>S_1 \times S_2</m> and <m>\rho_k</m> by <m>\pi_k</m> in<nbsp /><xref ref="prod_diag3" />.
+      </p>
+    </statement>
+  </problem>
+</chapter>

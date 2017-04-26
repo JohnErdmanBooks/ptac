@@ -1,0 +1,255 @@
+
+<section>
+  <title>Connected subsets of <m>\R</m></title>
+  <p>
+    There appears to be no way of finding an exact solution to such an equation as
+    <men xml:id="ivt_eqn1" >
+      \sin x = x - 1.
+    </men>
+  </p>
+
+  <p>
+    No algebraic trick or trigonometric identity seems to help. To be entirely honest we must ask
+    what reason we have for thinking that <xref ref="ivt_eqn1" /> <em>has</em> a solution. True, even a
+    rough sketch of the graphs of the functions <m>x \mapsto \sin x</m> and <m>x \mapsto x - 1</m> seems to
+    indicate that the two curves cross not far from <m>x = 2</m>. But is it not possible in the vast
+    perversity of the-way-things-are that the two curves might somehow skip over one another
+    without actually having a point in common? To say that it seems unlikely is one thing, to say
+    that we <em>know</em> it can not happen is another. The solution to our dilemma lies in a
+    result familiar from nearly every beginning calculus course: the <em>intermediate value
+    theorem.</em> Despite the complicated symbol-ridden formulations in most calculus texts what this
+    theorem really says is that continuous functions from <m>\R</m> to <m>\R</m> take intervals to
+    intervals. In order to prove this fact we will first need to introduce an important
+    topological property of all intervals, <em>connectedness</em>. Once we have proved the
+    <em>intermediate value theorem</em> not only will we have the intellectual satisfaction of
+    saying that we <em>know</em> <xref ref="ivt_eqn1" /> has a solution, but we can utilize this same
+    theorem to find approximations to the solution of <xref ref="ivt_eqn1" /> whose accuracy is limited
+    only by the computational means at our disposal.
+  </p>
+
+  <p>
+    So, first we define <q>connected</q>. Or rather, we define <q>disconnected</q>, and then agree that
+    sets are connected if they are not disconnected.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>A</m> of <m>\R</m> is
+        <index><main>disconnected</main><sub>subset of <m>\R</m></sub></index><term>disconnected</term> if there exist disjoint nonempty sets <m>U</m> and <m>V</m> both open in <m>A</m> whose
+        union is<nbsp /><m>A</m>. In this case we say that the sets <m>U</m> and <m>V</m> <em>disconnect</em><nbsp /><m>A</m>. A subset
+        <m>A</m> of <m>\R</m> is
+        <index><main>connected</main><sub>subset of <m>\R</m></sub></index><term>connected</term> if it is not disconnected.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_nasc_conn">
+    <statement>
+      <p>
+        A set <m>A \subseteq \R</m> is connected if and only if the
+        only subsets of <m>A</m> which are both open in <m>A</m> and closed in <m>A</m> are the null set and <m>A</m>
+        itself.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_nasc_conn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\{1,4,8\}</m> is disconnected.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>A = \{1,4,8\} \subseteq \R</m>. Notice that the sets <m>\{1\}</m> and <m>\{4,8\}</m>
+      are open subsets of<nbsp /><m>A</m>. Reason: <m>(-\infty, 2) \cap A = \{1\}</m> and <m>(2,\infty) \cap A =
+      \{4,8\}</m>; so <m>\{1\}</m> is the intersection of an open subset of <m>\R</m> with <m>A</m>, and so is
+      <m>\{4,8\}</m> (see <xref ref="rel_open">definition</xref>). Thus <m>\{1\}</m> and <m>\{4,8\}</m> are disjoint nonempty
+      open subsets of <m>A</m> whose union is<nbsp /><m>A</m>. That is, the sets <m>\{1\}</m> and <m>\{4,8\}</m>
+      disconnect<nbsp /><m>A</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\Q</m> of rational numbers is disconnected.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The sets <m>\{x \in \Q \colon x \lt  \pi\}</m> and <m>\{x \in \Q \colon x > \pi\}</m>
+      disconnect<nbsp /><m>\Q</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\{\frac1n \colon n \in \N\}</m> is disconnected.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    If <m>A</m> is a subset of <m>\R</m>, it is somewhat awkward that <q>connected</q> is defined in terms of
+    (relatively) open subsets of<nbsp /><m>A</m>. In general, it is a nuisance to deal with relatively open
+    subsets. It would be much more convenient to deal only with the familiar topology of<nbsp /><m>\R</m>.
+    Happily, this can be arranged.
+  </p>
+
+  <p>
+    It is an elementary observation that <m>A</m> is disconnected if we can find disjoint sets <m>U</m> and
+    <m>V</m>, both open in <m>\R</m>, whose intersections with <m>A</m> are nonempty and whose union
+    contains<nbsp /><m>A</m>. (For then the sets <m>U \cap A</m> and <m>V \cap A</m> disconnect <m>A</m>.) Somewhat less
+    obvious is the fact that <m>A</m> is disconnected if and only if it can be written as the union of
+    two nonempty subsets <m>C</m> and <m>D</m> of <m>\R</m> such that
+    <men xml:id="eqn_mut_sep" >
+      C \cap \clo D  = \clo C \cap D
+                    = \emptyset.
+    </men>
+  </p>
+
+  <p>
+    (The indicated closures are in <m>\R</m>.)
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two nonempty subsets <m>C</m> and <m>D</m> of <m>\R</m> which satisfy
+        equation<nbsp /><xref ref="eqn_mut_sep" /> are said to be
+        <index><main>mutually separated</main></index>
+        <index><main>separated</main><sub>mutually</sub></index><term>mutually separated</term> in<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_mut_sep">
+    <statement>
+      <p>
+        A subset <m>A</m> of <m>\R</m> is disconnected if and only if it is the
+        union of two nonempty sets mutually separated in<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      If <m>A</m> is disconnected, it can be written as the union of two disjoint nonempty
+      sets <m>U</m> and <m>V</m> which are open in<nbsp /><m>A</m>. (These sets need not, of course, be open in <m>\R</m>.) We
+      show that <m>U</m> and <m>V</m> are mutually separated. It suffices to prove that <m>U \cap \clo V</m> is
+      empty, that is, <m>U \subseteq \R \setminus \clo V</m>. To this end suppose that <m>u \in U</m>. Since
+      <m>U</m> is open in <m>A</m>, there exists <m>\delta > 0</m> such that
+      <me>
+        A \cap J_\delta(u) = \{x \in A \colon \abs{x-u} \lt  \delta\} \subseteq U
+                                     \subseteq \R \setminus V.
+      </me>
+    </p>
+
+    <p>
+      The interval <m>J_\delta(u) = (u-\delta,u+\delta)</m> is the union of two sets: <m>A \cap
+      J_\delta(u)</m> and <m>A^c \cap J_\delta(u)</m>. We have just shown that the first of these belongs
+      to <m>\R \setminus V</m>. Certainly the second piece contains no points of <m>A</m> and therefore no
+      points of<nbsp /><m>V</m>. Thus <m>J_\delta(u) \subseteq \R \setminus V</m>. This shows that <m>u</m> does not
+      belong to the closure (in <m>\R</m>) of the set<nbsp /><m>V</m>; so <m>u \in \R \setminus \clo V</m>. Since <m>u</m> was
+      an arbitrary point of <m>U</m>, we conclude that <m>U \subseteq \R \setminus \clo V</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>A = U \cup V</m> where <m>U</m> and <m>V</m> are nonempty sets mutually separated
+      in<nbsp /><m>\R</m>. To show that the sets <m>U</m> and <m>V</m> disconnect <m>A</m>, we need only show that they are
+      open in <m>A</m>, since they are obviously disjoint.
+    </p>
+
+    <p>
+      Let us prove that <m>U</m> is open in <m>A</m>. Let <m>u \in U</m> and notice that since <m>U \cap \clo V</m> is
+      empty, <m>u</m> cannot belong to <m>\clo V</m>.
+    </p>
+
+    <p>
+      Thus there exists <m>\delta > 0</m> such that <m>J_\delta(u)</m> is disjoint from <m>V</m>. Then certainly <m>A
+      \cap J_\delta(u)</m> is disjoint from <m>V</m>. Thus <m>A \cap J_\delta(u)</m> is contained in <m>U</m>.
+      Conclusion: <m>U</m> is open in<nbsp /><m>A</m>.
+    </p>
+  </proof>
+
+  <p>
+    The importance of <xref ref="prop_mut_sep">proposition</xref> is that it allows us to avoid the definition
+    of <q>connected</q>, which involves <em>relatively</em> open subsets, and replace it with an
+    equivalent condition which refers only to closures in<nbsp /><m>\R</m>. There is no important idea here,
+    only a matter of convenience. We will use this characterization in the proof of our next
+    proposition, which identifies the connected subsets of the real line. (To appreciate the
+    convenience that <xref ref="prop_mut_sep">proposition</xref> brings our way, try to prove the next result
+    using only the definition of <q>connected</q> and <xref ref="prop_mut_sep">not</xref>.) As mentioned earlier
+    we need to know that in the real line the intervals are the connected sets. This probably
+    agrees with your intuition in the matter. It is plausible, and it is true; but it is not
+    obvious, and its proof requires a little thought.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>J</m> of <m>\R</m> is an
+        <index><main>interval</main></index><term>interval</term> provided that it satisfies the following condition: if <m>c</m>, <m>d \in J</m> and <m>c \lt  z
+        \lt  d</m>, then <m>z \in J</m>. (Thus, in particular, the empty set and sets containing a single point
+        are intervals.)
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_conn_int">
+    <statement>
+      <p>
+        A subset <m>J</m> of <m>\R</m> is connected if and only if it is
+        an interval.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      To show that intervals are connected argue by contradiction. Assume that there
+      exists an interval <m>J</m> in <m>\R</m> which is not connected. By <xref ref="prop_mut_sep">proposition</xref>
+      there exist nonempty sets <m>C</m> and <m>D</m> in <m>\R</m> such that <m>J = C \cup D</m> and
+      <me>
+        C \cap \clo D = \clo C \cap D = \emptyset
+      </me>
+    </p>
+
+    <p>
+      (closures are taken in<nbsp /><m>\R</m>). Choose <m>c \in C</m> and <m>d \in D</m>. Without loss of generality
+      suppose <m>c \lt  d</m>. Let <m>A = (-\infty, d) \cap C</m> and <m>z = \sup A</m>. Certainly <m>c \le z \le d</m>.
+      Now <m>z \in \clo C</m>. (We know from <xref ref="sup_in_clo">example</xref> that <m>z</m> belongs to <m>\clo A</m> and
+      therefore to <m>\clo C</m>.) Furthermore <m>z \in \clo D</m>. (If <m>z = d</m>, then <m>z \in D \subseteq
+      \clo D</m>. If <m>z \lt  d</m>, then the interval <m>(z,d)</m> is contained in <m>J</m> and, since <m>z</m> is an upper
+      bound for <m>A</m>, this interval contains no point of <m>C</m>. Thus <m>(z,d) \subseteq D</m> and <m>z \in
+      \clo D</m>.) Finally, since <m>z</m> belongs to <m>J</m> it is a member of either <m>C</m> or <m>D</m>. But <m>z \in
+      C</m> implies <m>z \in C \cap \clo D = \emptyset</m>, which is impossible; and <m>z \in D</m> implies <m>z
+      \in \clo C \cap D = \emptyset</m>, which is also impossible.
+    </p>
+
+    <p>
+      The converse is easy. If <m>J</m> is not an interval, then there exist numbers <m>c \lt  z \lt  d</m> such
+      that <m>c</m>, <m>d \in J</m> and <m>z \notin J</m>. It is easy to see that the sets <m>(-\infty, z) \cap J</m>
+      and <m>(z, \infty) \cap J</m> disconnect<nbsp /><m>J</m>.
+    </p>
+  </proof>
+</section>

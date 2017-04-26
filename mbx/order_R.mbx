@@ -1,0 +1,286 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="order_R">
+  <title>Order properties of <m>\R</m></title>
+  <p>
+    The second group of axioms are the order axioms. They concern a subset <m>\Po</m> of <m>\R</m> (call
+    this the set of
+    <index><main>positive</main><sub>strictly</sub></index>
+    <index><main>numbers</main><sub>strictly positive</sub></index><term>strictly positive</term> numbers).
+  </p>
+
+  <p>
+    \begin{ax}[V] The set <m>\Po</m> is closed under addition and multiplication. (That is, if <m>x</m> and
+    <m>y</m> belong to <m>\Po</m>, so do <m>x + y</m> and <m>xy</m>.)
+    \end{ax}
+  </p>
+
+  <p>
+    \begin{ax}[VI] For each real number <m>x</m> exactly one of the following is true:
+    <m>x = 0</m>, <m>x \in \Po</m>, or <m>-x \in \Po</m>. This is the
+    <index><main>trichotomy</main></index>
+    <index><main>axiom</main><sub>of trichotomy</sub></index><em>axiom of trichotomy</em>.
+    \end{ax}
+  </p>
+
+  <p>
+    Define the relation <m>\lt</m> on <m>\R</m> by
+    <me>
+      x \lt  y  \text{ if and only if }   y - x \in \Po\,.
+    </me>
+  </p>
+
+  <p>
+    Also define <m>></m> on <m>\R</m> by
+    <me>
+      x > y \text{ if and only if }  y \lt  x\,.
+    </me>
+  </p>
+
+  <p>
+    We write <m>x \le y</m> if <m>x \lt  y</m> or <m>x = y</m>, and <m>x \ge y</m> if <m>y \le x</m>.
+  </p>
+
+  <proposition xml:id="lt_tran">
+    <statement>
+      <p>
+        On <m>\R</m> the relation <m>\lt</m> is transitive (that is, if <m>x \lt  y</m> and
+        <m>y \lt  z</m>, then <m>x \lt  z</m>).
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      If <m>x \lt  y</m> and <m>y \lt  z</m>, then <m>y - x</m> and <m>z - y</m> belong to <m>\Po</m>. Thus
+      <md>
+        <mrow>z - x \amp = z +(-x)</mrow>
+        <mrow>\amp = (z + 0) + (-x)</mrow>
+        <mrow>\amp = (z + (y + (-y))) + (-x)</mrow>
+        <mrow>\amp = (z + ((-y) + y)) + (-x)</mrow>
+        <mrow>\amp = ((z + (-y)) + y) + (-x)</mrow>
+        <mrow>\amp = (z + (-y)) + (y + (-x))</mrow>
+        <mrow>\amp = (z - y) + (y - x) \in \Po.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This shows that <m>x \lt  z</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Justify each of the seven equal signs in the proof of <xref ref="lt_tran">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="pos">
+    <statement>
+      <p>
+        Show that a real number <m>x</m> belongs to the set <m>\Po</m> if and only if
+        <m>x > 0</m>. (<xref ref="sol_pos">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <proposition xml:id="mult_pos">
+    <statement>
+      <p>
+        If <m>x > 0</m> and <m>y \lt  z</m> in <m>\R</m>, then <m>xy \lt  xz</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="arith_prob1">problem</xref>.
+      (<xref ref="sol_mult_pos">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>x</m>, <m>y</m>, <m>z \in \R</m> and <m>y \lt  z</m>, then <m>x + y \lt  x + z</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use equation <xref ref="arith_eqn4" />.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>w \lt  x</m> and <m>y \lt  z</m>, then <m>w + y \lt  x + z</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>1 > 0</m>. <em>Hint.</em> Keep in mind that <m>1</m> and <m>0</m> are assumed to be
+        distinct. (Look at the axiom concerning additive and multiplicative identities.) If <m>1</m> does
+        not belong to <m>\Po</m>, what can you say about the number <m>-1</m>? What about <m>(-1)(-1)</m>? Use
+        <xref ref="arith_prob1">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>x > 0</m>, then <m>x^{-1} > 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>0 \lt  x \lt  y</m>, then <m>1/y \lt  1/x</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="mult_ineq">
+    <statement>
+      <p>
+        If <m>0 \lt  w \lt  x</m> and <m>0 \lt  y \lt  z</m>, then <m>wy \lt  xz</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise.  (<xref ref="sol_mult_ineq">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>x \lt  0</m> if and only if <m>-x > 0</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>y \lt  z</m> and <m>x \lt  0</m>, then <m>xz \lt  xy</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>x \lt  y</m> if and only if <m>-y \lt  -x</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_sqrt_uniq">
+    <statement>
+      <p>
+        Suppose that <m>x</m>, <m>y \ge 0</m> and <m>x^2 = y^2</m>. Show that <m>x = y</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show in considerable detail how the preceding results can be used to solve the
+        inequality
+        <me>
+          \frac5{x + 3} \lt  2 - \frac1{x - 1}\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\C = \{(a,b) \colon a,b \in \R\}</m>. On <m>\C</m> define two binary operations <m>+</m>
+        and <m>\cdot</m> by:
+        <me>
+          (a,b) + (c,d) = (a + c, b + d)
+        </me>
+        and
+        <me>
+          (a,b) \cdot (c,d) = (ac-bd,ad+bc)\,.
+        </me>
+      </p>
+
+      <p>
+        Show that <m>\C</m> under these operations is a field. (That is, <m>\C</m> satisfies axioms I<ndash />IV.)
+        This is the field of
+        <index><main>complex numbers</main></index><term>complex numbers</term>.
+      </p>
+
+      <p>
+        Determine whether it is possible to make <m>\C</m> into an ordered field. (That is, determine
+        whether it is possible to choose a subset <m>\Po</m> of <m>\C</m> which satisfies axioms V and<nbsp />VI.)
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The axioms presented thus far define an ordered field. To obtain the particular ordered field
+    <m>\R</m> of real numbers we require one more axiom. We assume that <m>\R</m> is order complete; that
+    is, <m>\R</m> satisfies the <em>least upper bound axiom</em>. This axiom will be stated (and
+    discussed in some detail) in <xref ref="lub">chapter</xref> (in particular, <xref ref="axiom_lub">see</xref>).
+  </p>
+
+  <p>
+    There is a bit more to the axiomatization of <m>\R</m> than we have indicated in the preceding
+    discussion. For one thing, how do we know that the axioms are
+    <index><main>consistent</main></index>
+    <index><main>axioms</main><sub>consistent</sub></index>consistent? That is, how do we know that they will not yield a contradiction? For this
+    purpose one constructs a <em>model</em> for <m>\R</m>, that is, a concrete mathematical object which
+    satisfies all the axioms for <m>\R</m>. One standard procedure is to define the positive integers
+    in terms of sets: <m>0</m> is the empty set <m>\emptyset</m>, the number <m>1</m> is the set whose only
+    element is <m>0</m>, the number <m>2</m> is the set whose only element is <m>1</m>, and so on. Using the
+    positive integers we construct the set <m>\Z</m> of all integers <m>\dots, -2, -1 , 0, 1, 2,
+    \dots\;</m>. From these we construct the set <m>\Q</m> of rational numbers (that is, numbers of the
+    form <m>p/q</m> where <m>p</m> and <m>q</m> are integers and <m>q \ne 0</m>).
+    Finally the reals are constructed from the rationals.
+  </p>
+
+  <p>
+    Another matter that requires attention is the use of the definite article in the expression
+    <q><em>the</em> real numbers</q>. This makes sense only if the axioms are shown to be
+    <index><main>categorical</main></index>
+    <index><main>axioms</main><sub>categorical</sub></index>categorical; that is, if there is <q>essentially</q> only one model for the axioms. This turns
+    out to be correct about the axioms for <m>\R</m> given an appropriate technical meaning of
+    <q>essentially</q><mdash />but we will not pursue this matter here. More about both the construction
+    of the reals and their uniqueness can be found in<nbsp /><xref ref="Spivak_1967" />.
+  </p>
+</chapter>

@@ -1,0 +1,123 @@
+
+<section>
+  <title>Exercises in Chapter 03</title>
+  <solution xml:id="sol_cont_exam2">
+    <p>
+      (Solution to <xref ref="cont_exam2"></xref>)
+      Let <m>a \in \R</m>. Given <m>\epsilon > 0</m>, choose <m>\delta = \epsilon/5</m>. If <m>\abs{x - a} \lt  \delta</m>,
+      then <m>\abs{f(x) - f(a)} = 5\abs{x - a} \lt  5 \delta  = \epsilon</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cont_exam3">
+    <p>
+      (Solution to <xref ref="cont_exam3"></xref>)
+      Given <m>\epsilon > 0</m>, choose <m>\delta = \min\{1, \epsilon/7\}</m>, the smaller of the numbers <m>1</m>
+      and <m>\epsilon/7</m>. If <m>\abs{x - a} = \abs{x + 1} \lt  \delta</m>, then <m>\abs{x} = \abs{x + 1 - 1}
+      \le \abs{x + 1} + 1 \lt  \delta + 1 \le 2</m>. Therefore,
+      <md>
+        <mrow>\abs{f(x) - f(a)}
+                      \amp = \abs{x^3 - (-1)^3}     \tag{i}</mrow>
+        <mrow>\amp = \abs{x^3 + 1}          \tag{ii}</mrow>
+        <mrow>\amp = \abs{x + 1}\, \abs{x^2 - x + 1}
+                                                    \tag{iii}</mrow>
+        <mrow>\amp \le \abs{x+ 1} (x^2 + \abs{x} + 1)
+                                                    \tag{iv}</mrow>
+        <mrow>\amp \le \abs{x + 1}\,(4 + 2 + 1)
+                                                    \tag{v}</mrow>
+        <mrow>\amp = 7\abs{x + 1}   \tag{vi}</mrow>
+        <mrow>\amp \lt  7\delta        \tag{vii}</mrow>
+        <mrow>\amp \le \epsilon.    \tag{viii}</mrow>
+      </md>
+    </p>
+  </solution>
+  <remark>
+    <p>
+      How did we know to choose <m>\delta = \min\{1, \epsilon/7\}</m>? As scratch work
+      we do steps (i)<ndash />(iv), a purely algebraic process, and obtain
+      <me>
+        \abs{f(x) - f(a)} \le \abs{x+1}(x^2 + \abs{x} + 1)\,.
+      </me>
+    </p>
+
+    <p>
+      Now how do we guarantee that the quantity in parentheses doesn't get <q>too large</q>. The
+      answer is to require that <m>x</m> be <q>close to</q> <m>a=-1</m>. What do we mean by close? Almost
+      <em>anything</em> will work. Here it was decided, arbitrarily, that <m>x</m> should be no more than
+      <m>1</m> unit from <m>-1</m>. In other words, we wish <m>\delta</m> to be no larger than <m>1</m>. Then <m>\abs{x}
+      \le 2</m> and consequently <m>x^2+\abs{x}+1 \le 7</m>; so we arrive at step (vi)
+      <me>
+        \abs{f(x) - f(a)} \le 7\abs{x+1}\,.
+      </me>
+    </p>
+
+    <p>
+      Since we assume that <m>\abs{x-(-1)} = \abs{x+1} \lt  \delta</m>, we have<nbsp />(vii)
+      <me>
+        \abs{f(x) - f(a)} \lt  7\delta\,.
+      </me>
+    </p>
+
+    <p>
+      What we <em>want</em> is <m>\abs{f(x) - f(a)} \lt  \epsilon</m>. This can be achieved by choosing
+      <m>\delta</m> to be no greater than <m>\epsilon/7</m>. Notice that we have required two things of
+      <m>\delta</m>:
+      <me>
+        \delta \le 1  \text{ and }   \delta \le \epsilon/7\,.
+      </me>
+    </p>
+
+    <p>
+      The easiest way to arrange that <m>\delta</m> be no larger than each of two numbers is to make it
+      the smaller of the two. Thus our choice is <m>\delta = \min\{1, \epsilon/7\}</m>.
+    </p>
+
+    <p>
+      A good exercise is to repeat the preceding argument, but at (iv) require <m>x</m> to be within <m>2</m>
+      units of <m>-1</m> (rather than 1 unit as above). This will change some things in the proof, but
+      should not create any difficulty.
+    </p>
+  </remark>
+  <solution xml:id="sol_cont_exam4">
+    <p>
+      (Solution to <xref ref="cont_exam4"></xref>)
+      Let <m>a \in \R</m>. Given <m>\epsilon > 0</m>, choose <m>\delta = \min\{1, (4\abs{a} +
+      2)^{-1}\epsilon\}</m>. If <m>\abs{x - a} \lt  \delta</m>, then
+      <me>
+        \abs{x} \le \abs{x - a} + \abs{a} \lt  1 + \abs{a}.
+      </me>
+    </p>
+
+    <p>
+      Therefore
+      <md>
+        <mrow>\abs{f(x) - f(a)}
+                           \amp =  \abs{(2x^2 - 5) - (2a^2 - 5)}</mrow>
+        <mrow>\amp = 2\abs{x^2 - a^2}</mrow>
+        <mrow>\amp = 2\abs{x -  a}\, \abs{x + a}</mrow>
+        <mrow>\amp \le  2\abs{x - a}\,(\abs{x} + \abs{a})</mrow>
+        <mrow>\amp \le  2\abs{x - a}\,(1 + \abs{a} + \abs{a})</mrow>
+        <mrow>\amp \le  (4\abs{a} + 2)\abs{x - a}</mrow>
+        <mrow>\amp \lt  (4\abs{a} + 2) \delta</mrow>
+        <mrow>\amp \le \epsilon.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_cond3_cont">
+    <p>
+      (Solution to <xref ref="cond3_cont"></xref>)
+      Suppose f is continuous. Let <m>V</m> be an open subset of<nbsp /><m>\R</m>. To show that <m>f^\gets(V)</m> is open
+      it suffices to prove that each point of <m>f^\gets(V)</m> is an interior point of that set. (Notice
+      that if <m>f^\gets(V)</m> is empty, then there is nothing to prove. The null set is open.) If <m>a
+      \in f^\gets(V)</m>, then <m>V</m> is a neighborhood of <m>f(a)</m>. Since <m>f</m> is continuous at <m>a</m>, the set
+      <m>f^\gets(V)</m> contains a neighborhood of <m>a</m>, from which we infer that <m>a</m> is an interior point
+      of<nbsp /><m>f^\gets(V)</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>\open{f^\gets(V)}{\R}</m> whenever <m>\open V{\R}</m>. To see that <m>f</m> is
+      continuous at an arbitrary point <m>a</m> in <m>\R</m>, notice that if <m>V</m> is a neighborhood of <m>f(a)</m>,
+      then <m>a \in \open{f^\gets(V)}{\R}</m>. That is, <m>f^\gets(V)</m> is a neighborhood of <m>a</m>. So <m>f</m> is
+      continuous at<nbsp /><m>a</m>.
+    </p>
+  </solution>
+</section>

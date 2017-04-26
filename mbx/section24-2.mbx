@@ -1,0 +1,401 @@
+
+<section>
+  <title>The integral of step functions</title>
+  <p>
+    \fbox{<em>Throughout this section <m>E</m> is a Banach space.</em>}
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        An <m>(n+1)</m>-tuple <m>(t_0,t_1, \dots, t_n)</m> of real numbers is a
+        <index><main><@<m>(t_0,t_1,\dots,t_n)</m> (partition of an interval)</main></index>
+        <index><main>partition</main></index><term>partition</term> of the interval <m>[a,b]</m> in <m>\R</m> provided that
+        <ol>
+          <li>
+            <title>(i)</title>
+            <p>
+              <m>t_0 = a</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(ii)</title>
+            <p>
+              <m>t_n = b</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(iii)</title>
+            <p>
+              <m>t_{k-1} \lt  t_k</m> for <m>1 \le k \le n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        If <m>P = (s_0, \dots, s_m)</m> and <m>Q = (t_0, \dots, t_n)</m> are
+        partitions of the same interval <m>[a,b]</m> and if
+        <me>
+          \{s_0, \dots, s_m\} \subseteq \{t_0, \dots, t_n\}
+        </me>
+        then we say that <m>Q</m> is a
+        <index><main>refinement</main></index><term>refinement</term> of <m>P</m> and we write <m>P \preceq Q</m>.
+      </p>
+
+      <p>
+        Let <m>P = (s_0, \dots, s_m)</m>, <m>Q = (t_0, \dots, t_n)</m>, and <m>R = (u_0, \dots, u_p)</m> be
+        partitions of <m>[a,b] \subseteq \R</m>. If
+        <me>
+          \{u_0,\dots,u_p\} = \{s_0,\dots,s_m\} \cup \{t_0,\dots,t_n\}
+        </me>
+        then <m>R</m> is the
+        <index><main>refinement</main><sub>smallest common</sub></index>
+        <index><main>smallest</main><sub>common refinement</sub></index>
+        <index><main><@<m>P \lor Q</m> (smallest common refinement of partitions)</main></index><term>smallest common refinement</term> of <m>P</m> and <m>Q</m> and is denoted by <m>P \lor Q</m>. It is clear that
+        <m>P \lor Q</m> is the partition with fewest points which is a refinement of both <m>P</m> and<nbsp /><m>Q</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_partition">
+    <statement>
+      <p>
+        Consider partitions <m>P = \bigl(0, \frac14, \frac13, \frac12,
+        \frac23, \frac34, 1\bigr)</m> and <m>Q = \bigl(0, \frac15, \frac13, \frac23, \frac56, 1\bigr)</m>
+        of<nbsp /><m>[0,1]</m>. Find <m>P \lor Q</m>. (<xref ref="sol_exer_partition">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>A</m> be a subset of<nbsp /><m>S</m>. We define
+        <m>\chi_{{}_{\sst A}}\colon S \sto \R</m>, the
+        <index><main><@<m>\chi_{{}_{\sst A}}</m> (characteristic function of a set)</main></index>
+        <index><main>characteristic function</main></index>
+        <index><main>function</main><sub>characteristic</sub></index><term>characteristic function</term> of<nbsp /><m>A</m>, by
+        <me>
+          \chi_{{}_{\sst A}}(x) =
+                \begin{cases}1,  \qquad \amp \text{ if \(x \in A\) }  \\
+                           0,  \qquad \amp \text{ if \(x \in A^c\) } .
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        If <m>E</m> is a Banach space, then a function <m>\sigma\colon [a,b] \sto E</m> is an
+        <index><main>e@<m>E</m> valued step function</main></index>
+        <index><main>step function</main></index>
+        <index><main>function</main><sub><m>E</m> valued step</sub></index><term><m>E</m> valued step function</term> on the interval <m>[a,b]</m> if
+        <ol>
+          <li>
+            <title>(i)</title>
+            <p>
+              <m>\ran \sigma</m> is finite and
+            </p>
+          </li>
+
+          <li>
+            <title>(ii)</title>
+            <p>
+              for every <m>x \in \ran\sigma</m> the set <m>\sigma^\gets(\{x\})</m> is the union of finitely
+              many subintervals of<nbsp /><m>[a,b]</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        We denote by <m>\fml S([a,b],E)</m> the family of all <m>E</m> valued step functions defined on<nbsp /><m>[a,b]</m>.
+        Notice that <m>\fml S([a,b],E)</m> is a vector subspace of <m>\fml B([a,b],E)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    It is not difficult to see that <m>\sigma\colon [a,b] \sto E</m> is a step function if and only if
+    there exists a partition <m>(t_0, \dots, t_n)</m> of <m>[a,b]</m> such that <m>\sigma</m> is constant on each
+    of the open subintervals <m>(t_{k-1},t_k)</m>. If, in addition, we insist that <m>\sigma</m> be
+    discontinuous at each of the points <m>t_1, \dots, t_{n-1}</m>, then this partition is unique.
+    Thus we speak of the
+    <index><main>partition</main><sub>associated with a step function</sub></index><term>partition associated with</term> (or <term>induced by</term>) a step
+    function<nbsp /><m>\sigma</m>.
+  </p>
+
+  <notation>
+
+  <p>
+    Let <m>\sigma</m> be a step function on <m>[a,b]</m> and <m>P = (t_0, \dots, t_n)</m> be a partition
+    of <m>[a,b]</m> which is a refinement of the partition associated with<nbsp /><m>\sigma</m>. We define
+    <me>
+      \sigma_P = (x_1, \dots, x_n)
+    </me>
+    where <m>x_k</m> is the value of <m>\sigma</m> on the open interval <m>(t_{k-1},t_k)</m> for <m>1 \le k \le n</m>.
+  </p>
+
+  </notation>
+  <exercise xml:id="exer_int_stepf">
+    <statement>
+      <p>
+        Define <m>\sigma\colon [0,5] \sto \R</m> by
+        <me>
+          \sigma = \chi_{{}_\sst{[1,4]}}
+                      - \chi_{{}_\sst{(2,5]}}
+                      - \chi_{{}_\sst{\{4\}}}
+                     -2 \chi_{{}_\sst{[2,3)}}
+                      - \chi_{{}_\sst{[1,2)}}
+                      + \chi_{{}_\sst{[4,5)}}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the partition <m>P</m> associated with<nbsp /><m>\sigma</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\sigma_Q</m> where <m>Q = (0,1,2,3,4,5)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_int_stepf">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>\sigma</m> be an <m>E</m> valued step function on <m>[a,b]</m> and <m>(t_0, \dots, t_n)</m>
+        be the partition associated with<nbsp /><m>\sigma</m>. For <m>1 \le k \le n</m> let <m>\Delta t_k = t_k -
+        t_{k- 1}</m> and <m>x_k</m> be the value of <m>\sigma</m> on the subinterval <m>(t_{k-1},t_k)</m>. Define
+        <me>
+          \int \sigma := \sum_{k=1}^n (\Delta t_k) x_k\,.
+        </me>
+      </p>
+
+      <p>
+        The vector <m>\int\sigma</m> is the
+        <index><main>integral</main><sub>of a step function</sub></index>
+        <index><main>step function</main><sub>integral of</sub></index><term>integral</term> of <m>\sigma</m> over<nbsp /><m>[a,b]</m>. Other standard notations for <m>\int\sigma</m> are
+        <index><main><@<m>\int_a^b \sigma</m> (integral of a step function)</main></index><m>\int_a^b \sigma</m> and<nbsp /><m>\int_a^b \sigma(t)\,dt</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_int_stepf2">
+    <statement>
+      <p>
+        Find <m>\int_0^5 \sigma</m> where <m>\sigma</m> is the step function
+        given in <xref ref="exer_int_stepf">exercise</xref>. (<xref ref="sol_exer_int_stepf2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\sigma\colon [0,10] \sto \R</m> be defined by
+        <me>
+          \sigma =  2\chi_{{}_\sst{[1,5)}}
+                        -3\chi_{{}_\sst{[2,8)}}
+                        -5\chi_{{}_\sst{\{6\}}}
+                        + \chi_{{}_\sst{[4,10]}}
+                       +4 \chi_{{}_\sst{[9,10]}}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find the partition associated with <m>\sigma</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>Q = (0,1,2,3,4,5,6,7,8,9,10)</m>, what is <m>\sigma_Q</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Find <m>\int \sigma</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The next lemma is essentially obvious, but it is good practice to write out a proof anyway.
+    It says that in computing the integral of a step function <m>\sigma</m> it doesn't matter whether
+    we work with the partition induced by <m>\sigma</m> or with a refinement of that partition.
+  </p>
+
+  <lemma xml:id="lem_int_stepf">
+    <statement>
+      <p>
+        Let <m>\sigma</m> be an <m>E</m> valued step function on <m>[a,b]</m>.
+        If <m>Q = (u_0, \dots, u_m)</m> is a refinement of the partition associated with <m>\sigma</m> and if
+        <m>\sigma_Q = (y_1, \dots, y_m)</m>, then
+        <me>
+          \int\sigma = \sum_{k=1}^n(\Delta u_k)y_k\,.
+        </me>
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lem_int_stepf">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    It follows easily from the preceding lemma that changing the value of a step function at a
+    finite number of points does not affect the value of its integral. Next we show that for a
+    given interval the integral is a bounded linear transformation on the family of all <m>E</m> valued
+    step functions on the interval.
+  </p>
+
+  <proposition xml:id="prop_intsf_lin">
+    <statement>
+      <p>
+        The map
+        <me>
+          \int \colon \fml S([a,b],E) \sto E
+        </me>
+        is bounded and linear with <m>\norm \int = b - a</m>. Furthermore,
+        <me>
+          \biggl\|\int\sigma(t)\,dt\biggr\| \le \int \norm{\sigma(t)}\,dt
+        </me>
+        for every <m>E</m> valued step function <m>\sigma</m> on<nbsp /><m>[a,b]</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> To show that <m>\int(\sigma + \tau) = \int\sigma + \int\tau</m>,
+      let <m>P</m> and <m>Q</m> be the partitions associated with <m>\sigma</m> and <m>\tau</m>, respectively. Define
+      the partition <m>R = (t_0, \dots, t_n)</m> to be <m>P \lor Q</m>. Clearly <m>R</m> is a refinement of the
+      partition associated with<nbsp /><m>\sigma + \tau</m>. Suppose <m>\sigma_R = (x_1, \dots, x_n)</m> and <m>\tau_R
+      = (y_1, \dots, y_n)</m>. Use <xref ref="lem_int_stepf">lemma</xref> to compute <m>\int(\sigma + \tau)</m>. To
+      find <m>\norm\int</m> use the definition of the norm of a linear map and
+      <xref ref="lem_equiv_norm">lemma</xref>.
+    </p>
+  </proof>
+
+  <p>
+    We now show that in the case of real valued step functions the integral is a positive linear
+    functional; that is, it takes positive functions to positive numbers.
+  </p>
+
+  <proposition xml:id="prop_int_pos">
+    <statement>
+      <p>
+        If <m>\sigma</m> is a real valued step function on <m>[a,b]</m> and if
+        <m>\sigma(t) \ge 0</m> for all <m>t</m> in <m>[a,b]</m>, then <m>\int\sigma \ge 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>\sigma</m> and <m>\tau</m> are real valued step functions on <m>[a,b]</m> and if
+        <m>\sigma(t) \le \tau(t)</m> for all <m>t</m> in<nbsp /><m>[a,b]</m>, then <m>\int\sigma \le \int\tau</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Apply the preceding proposition to <m>\tau - \sigma</m>. Then (by <xref ref="prop_intsf_lin"></xref>)
+      <m>\int\tau - \int\sigma = \int(\tau~-~\sigma)~\ge~0</m>.
+    </p>
+  </proof>
+
+  <p>
+    Finally we prepare the ground for piecing together and integrating two functions on adjoining
+    intervals.
+  </p>
+
+  <proposition xml:id="prop_int_adj_int">
+    <statement>
+      <p>
+        Let <m>c</m> be an interior point of the interval<nbsp /><m>[a,b]</m>. If
+        <m>\tau</m> and <m>\rho</m> are <m>E</m> valued step functions on the intervals <m>[a,c]</m> and <m>[c,b]</m>,
+        respectively, define a function <m>\sigma\colon [a,b] \sto E</m> by
+        <me>
+          \sigma(t) =
+                  \begin{cases}\tau(t),  \qquad \amp \text{ if \(a \le t \le c\) }  \\
+                       \rho(t),  \qquad \amp \text{ if \(c \lt  t \le b\) } .
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Then <m>\sigma</m> is an <m>E</m> valued step function on <m>[a,b]</m> and
+        <me>
+          \int_a^b\sigma = \int_a^c\tau + \int_c^b\rho\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_int_adj_int">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Notice that if <m>\sigma</m> is a step function on <m>[a,b]</m>, then <m>\tau := \sigma|_{[a,c]}</m> and
+    <m>\rho := \sigma|_{[c,b]}</m> are step functions and by the preceding proposition
+    <me xml:id="sum_int_step" >
+      \int_a^b\sigma = \int_a^c\tau + \int_c^b\rho\,.
+    </me>
+  </p>
+
+  <p>
+    In this context one seldom distinguishes notationally between a function on an interval and
+    the restriction of that function to a subinterval. Thus<nbsp /><xref ref="sum_int_step" /> is usually
+    written
+    <me>
+      \int_a^b\sigma = \int_a^c\sigma + \int_c^b\sigma.
+    </me>
+  </p>
+
+  <problem xml:id="prob_int_compop">
+    <statement>
+      <p>
+        Let <m>\sigma\colon [a,b] \sto E</m> be a step function and
+        <m>T\colon E \sto F</m> be a bounded linear transformation from <m>E</m> into another Banach space<nbsp /><m>F</m>.
+        Then <m>T \circ \sigma</m> is an <m>F</m>-valued step function on <m>[a,b]</m> and
+        <me>
+          \int(T\circ \sigma) =  T\bigl(\int\sigma\bigr)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+</section>

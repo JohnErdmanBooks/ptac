@@ -1,0 +1,8 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Continuity and linearity</title>
+  <xi:include  href="blt.mbx" />
+  <xi:include  href="section23-2.mbx" />
+  <xi:include  href="section23-3.mbx" />
+  <xi:include  href="section23-4.mbx" />
+</chapter>

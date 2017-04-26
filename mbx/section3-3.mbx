@@ -1,0 +1,410 @@
+
+<section>
+  <title>Functions defined on subsets of <m>\R</m></title>
+  <p>
+    The remainder of this chapter is devoted to a small but important technical problem. Thus far
+    the definitions and propositions concerning continuity have dealt with functions whose domain
+    is <m>\R</m>. What do we do about functions whose domain is a proper subset of <m>\R</m>? After all,
+    many old friends<mdash />the functions <m>x \mapsto \sqrt x</m>, <m>x \mapsto \frac1x</m>, and <m>x \mapsto \tan
+    x</m>, for example<mdash />have domains which are not all of<nbsp /><m>\R</m>. The difficulty is that if we were
+    to attempt to apply <xref ref="cond1_cont">proposition</xref> to the square root function <m>f\colon x
+    \mapsto \sqrt x</m> (which would of course be improper since the hypothesis <m>f\colon\R \sto \R</m>
+    is not satisfied), we would come to the unwelcome conclusion that <m>f</m> is not continuous at
+    <m>0</m>: if <m>\epsilon > 0</m> then the set <m>f^\gets\bigl(J_\epsilon(f(0))\bigr) =
+    f^\gets\bigl(J_\epsilon(0)\bigr) = f^\gets(-\epsilon,\epsilon) = [0,{\epsilon}^2)</m> contains no
+    neighborhood of <m>0</m> in<nbsp /><m>\R</m>.
+  </p>
+
+  <p>
+    Now this can't be right. What we must do is to provide an appropriate definition for the
+    continuity of functions whose domains are proper subsets of <m>\R</m>. And we wish to do it in
+    such a way that we make as few changes as possible in the resulting propositions.
+  </p>
+
+  <p>
+    The source of our difficulty is the demand (in <xref ref="df_continuity">definition</xref>) that
+    <m>f^\gets(V)</m> contain a neighborhood of the point <m>a</m><mdash />and neighborhoods have been defined
+    only in <m>\R</m>. But why<nbsp /><m>\R</m>? That is not the domain of our function; the set <m>A = [0,\infty)</m>
+    is. We <em>should</em> be talking about neighborhoods in<nbsp /><m>A</m>. So the question we now face is:
+    how should we define neighborhoods in (and open subsets of) proper subsets of<nbsp /><m>\R</m>? The best
+    answer is astonishingly simple. An open subset of <m>A</m> is the intersection of an open subset
+    of <m>\R</m> with<nbsp /><m>A</m>.
+  </p>
+
+  <definition xml:id="rel_open">
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. A set <m>U</m> contained in <m>A</m> is
+        <index><main>open</main><sub>in a subset</sub></index><term>open in</term> <m>A</m> if there exists an open subset <m>V</m> of <m>\R</m> such that <m>U = V \cap A</m>.
+        Briefly, the open subsets of <m>A</m> are restrictions to <m>A</m> of open subsets of <m>\R</m>. If <m>U</m> is
+        an open subset of <m>A</m> we write <m>\open UA</m>. A <term>neighborhood of <m>a</m> in <m>A</m></term> is an open
+        subset of <m>A</m> which contains<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>[0,1)</m> is an open subset of<nbsp /><m>[0,\infty)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>V = (-1,1)</m>. Then <m>\open V\R</m> and <m>[0,1) = V
+      \cap [0,\infty)</m>; so <m>\open{[0,1)}{[0,\infty)}</m>.
+    </p>
+  </proof>
+
+  <p>
+    Since, as we have just seen, <m>[0,1)</m> is open in <m>[0,\infty)</m> but is not open in <m>\R</m>, there is
+    a possibility for confusion. Openness is not an intrinsic property of a set. When we say
+    that a set is open, the answer to the question <q>open in what?</q> must be either clear from
+    context or else specified. Since the topology (that is, collection of open subsets) which a
+    set <m>A</m> inherits from <m>\R</m> is often called the
+    <index><main>relative</main><sub>topology</sub></index>
+    <index><main>topology</main><sub>relative</sub></index><term>relative topology</term> on <m>A</m>, emphasis may be achieved by saying
+    that a subset <m>B</m> of <m>A</m> is
+    <index><main>relatively open</main></index><em>relatively open</em> in<nbsp /><m>A</m>. Thus, for example, we may say that
+    <m>[0,1)</m> is relatively open in <m>[0,\infty)</m>; or we may say that
+    <m>[0,1)</m> is a
+    <index><main>relative</main><sub>neighborhood</sub></index>
+    <index><main>neighborhood</main><sub>relative</sub></index>relative neighborhood of<nbsp /><m>0</m> (or any other point in the interval).
+    The question here is emphasis and clarity, not logic.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\{1\}</m> is an open subset of<nbsp /><m>\N</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set of all rational numbers <m>x</m> such that <m>x^2 \le 2</m> is an open subset of<nbsp /><m>\Q</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set of all rational numbers <m>x</m> such that <m>x^2 \le 4</m> is <em>not</em> an
+        open subset of<nbsp /><m>\Q</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>, <m>a \in A</m>, and <m>\epsilon > 0</m>. The
+        <index><main>relative</main><sub><m>\epsilon</m>-neighborhood</sub></index><m>\epsilon</m>-<term>neighborhood of <m>a</m> in <m>A</m></term> is <m>(a-\epsilon, a+\epsilon) \cap A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        In <m>\N</m> the <m>\frac12</m> - neighborhood of <m>1</m> is <m>\{1\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Since <m>(1-\frac12, 1+\frac12) \cap \N = (\frac12, \frac32) \cap \N = \{1\}</m>,
+      we conclude that the <m>\epsilon</m>-neighborhood of <m>1</m> is<nbsp /><m>\{1\}</m>.
+    </p>
+  </proof>
+
+  <p>
+    Now is the time to show that the family of relatively open subsets of <m>A</m> (that is, the
+    relative topology on <m>A</m>) is in fact a topology on<nbsp /><m>A</m>. In particular, we must show that this
+    family is closed under unions and finite intersections.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. Then
+        <ol>
+          <li>
+            <title>(i)</title>
+            <p>
+              <m>\emptyset</m> and <m>A</m> are relatively open in <m>A</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(ii)</title>
+            <p>
+              if <m>\sfml U</m> is a family of relatively open sets in <m>A</m>, then <m>\bigcup\sfml U</m>
+              is relatively open in<nbsp /><m>A</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(iii)</title>
+            <p>
+              if <m>\sfml U</m> is a finite family of relatively open sets in <m>A</m>, then
+              <m>\bigcap\sfml U</m> is relatively open in<nbsp /><m>A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Every subset of <m>\N</m> is relatively open in<nbsp /><m>\N</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Now we are in a position to consider the continuity of functions defined on proper subsets
+    of<nbsp /><m>\R</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a \in A \subseteq \R</m> and <m>f\colon A \sto \R</m>. The function <m>f</m> is
+        <index><main>continuous</main><sub>at a point</sub></index><term>continuous at</term> <m>a</m> if <m>f^\gets(V)</m> contains a neighborhood of <m>a</m> in <m>A</m> whenever <m>V</m> is a
+        neighborhood of <m>f(a)</m>. The function <m>f</m> is
+        <index><main>continuous</main></index><term>continuous</term> if it is continuous at each point in its domain.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    It is important to notice that we discuss the continuity of a function only at points where it
+    is defined. We will not, for example, make the claim found in so many beginning calculus
+    texts that the function <m>x \mapsto 1/x</m> is discontinuous at zero. Nor will we try to decide
+    whether the sine function is continuous at the Bronx zoo.
+  </p>
+
+  <p>
+    The next proposition tells us that the crucial characterization of continuity in terms of
+    inverse images of open sets (<xref ref="cond3_cont">see</xref>) still holds under the definition we have
+    just given. Furthermore codomains don't matter; that is, it doesn't matter whether we start
+    with open subsets of <m>\R</m> or with sets open in the range of the function.
+  </p>
+
+  <proposition xml:id="cond3a_cont">
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of<nbsp /><m>\R</m>. A function <m>f\colon A \sto \R</m>
+        is continuous if and only if <m>f^\gets(V)</m> is open in <m>A</m> whenever <m>V</m> is open in <m>\ran f</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Notice that if <m>\open W{\R}</m> and <m>V = W \cap \ran f</m>,
+      then <m>f^\gets(V) = f^\gets(W)</m>.
+    </p>
+  </proof>
+
+  <problem xml:id="cont_rel">
+    <statement>
+      <p>
+        Discuss the changes (if any) that must be made in <xref ref="cond1_cont"></xref>, <xref ref="cond2_cont"></xref>, <xref ref="comp_cont_loc"></xref>, and <xref ref="comp_cont"></xref>, in order to accommodate functions
+        whose domain is not all of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. Explain what <q>(relatively) closed subset of<nbsp /><m>A</m></q> should mean.
+        Suppose further that <m>B \subseteq A</m>. Decide how to define <q>the closure of <m>B</m> in<nbsp /><m>A</m></q> and
+        <q>the interior of <m>B</m> with respect to<nbsp /><m>A</m></q>. Explain what changes these definitions will
+        require in <xref ref="cond4_cont">propositions</xref><ndash /> <xref ref="cond7_cont"></xref> so that the results hold for
+        functions whose domains are proper subsets of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A = (0,1) \cup (1,2)</m>. Define <m>f\colon A \sto \R</m> by
+        <me>
+          f(x) = \begin{cases}0   \amp \text{ for \(0\lt x\lt 1\) } , \\
+                                     1   \amp \text{ for \(1\lt x\lt 2\) } \,.
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Is <m>f</m> a continuous function?
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        The function <m>f</m> defined by
+        <me>
+          f(x) = \frac1x \qquad\text{ for }  x \ne 0
+        </me>
+        is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The function <m>f</m> defined by
+        <me>
+          f(x) = \sqrt{x+2} \qquad\text{ for }  x \ge -2
+        </me>
+        is continuous at <m>x=-2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The square root function is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Define <m>f\colon (0,1) \sto \R</m> by setting <m>f(x) =0</m> if <m>x</m> is irrational and
+        <m>f(x) = 1/n</m> if <m>x = m/n</m> where <m>m</m> and <m>n</m> are natural numbers with no common factors. Where
+        is <m>f</m> continuous?
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="cont_exam5">
+    <statement>
+      <p>
+        Inclusion mappings between subsets of <m>\R</m> are continuous.
+        That is, if <m>A \subseteq B \subseteq \R</m>, then the inclusion mapping <m>\iota\colon A \sto
+        B\colon a \mapsto a</m> is continuous. (See <xref ref="def_incl_map">definition</xref>.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>\open UB</m>. By the definition of the relative topology on <m>B</m> (<xref ref="rel_open">see</xref>),
+      there exists an open subset <m>V</m> of <m>\R</m> such that <m>U = V \cap B</m>. Then <m>\iota^\gets(U) =
+      \iota^\gets(V \cap B) = V \cap B \cap A = \open{V \cap A}A</m>. Since the inverse image under
+      <m>\iota</m> of each open set is open, <m>\iota</m> is continuous.
+    </p>
+  </proof>
+
+  <p>
+    It is amusing to note how easy it is with the preceding example in hand to show that
+    restrictions of continuous functions are continuous.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>A \subseteq B \subseteq \R</m>. If <m>f\colon B \sto \R</m> is continuous,
+        then <m>f|_A</m>, the restriction of <m>f</m> to <m>A</m>, is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Recall (see <xref ref="images">appendix</xref> <xref ref="sec_res_ext">section</xref>) that <m>f|_A =
+      f \circ \iota</m> where <m>\iota</m> is the inclusion mapping of <m>A</m> into<nbsp /><m>B</m>. Since <m>f</m> is
+      continuous (by hypothesis) and <m>\iota</m> is continuous (by <xref ref="cont_exam5">example</xref>), their
+      composite <m>f|_A</m> is also continuous (by the generalization of <xref ref="comp_cont"></xref>
+      in <xref ref="cont_rel"></xref>).
+    </p>
+  </proof>
+
+  <p>
+    We conclude this chapter with the observation that if a continuous function is positive at a
+    point, it is positive nearby.
+  </p>
+
+  <proposition xml:id="pos_at_pt">
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m> and <m>f\colon A \sto \R</m> be continuous at
+        the point<nbsp /><m>a</m>. If <m>f(a)>0</m>, then there exists a neighborhood <m>J</m> of <m>a</m> in <m>A</m> such that
+        <m>f(x) > \frac12f(a)</m> for all <m>x \in J</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

@@ -1,0 +1,492 @@
+
+<section>
+  <title>Examples</title>
+  <example xml:id="met_r">
+    <statement>
+      <p>
+        The absolute value of the difference of two numbers is a metric on<nbsp /><m>\R</m>.
+        We will call this the usual metric on <m>\R</m>. Notice that in this metric the open ball about
+        <m>a</m> of radius <m>r</m> is just the open interval <m>(a - r,a + r)</m>. (Proof: <m>x \in B_r(a)</m> if and
+        only if <m>d(x,a) \lt r</m> if and only if <m>\abs{x - a} \lt  r</m> if and only if <m>a - r \lt  x \lt  a + r</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Define <m>d(x,y) = \abs{\arctan x - \arctan y}</m> for all <m>x</m>, <m>y \in \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>d</m> is a metric on <m>\R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>d(-1,\sqrt 3)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Solve the equation <m>d(x,0) = d(x,\sqrt 3)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac1{\mathstrut1+x}</m> for all <m>x \ge 0</m>. Define a metric <m>d</m> on
+        <m>[0,\infty)</m> by <m>d(x,y) = \abs{f(x) - f(y)}</m>. Find a point <m>z \ne 1</m> in this space whose
+        distance from 2 is equal to the distance between 1 and<nbsp />2.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        Define <m>d(x,y) = \abs{x^2 - y^2}</m> for all <m>x</m>, <m>y \in \R</m>. Then <m>d</m> is
+        <em>not</em> a metric on<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac x{\mathstrut1+x^2}</m> for <m>x \ge 0</m>. Define a function <m>d</m>
+        on <m>[0,\infty) \times [0,\infty)</m> by <m>d(x,y) = \abs{f(x)- f(y)}</m>. Then <m>d</m> is <em>not</em> a
+        metric on<nbsp /><m>[0,\infty)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    For our next example we make use of a (special case of) an important fact known as
+    <em>Minkowski's inequality</em>. This we derive from another standard result, <em>Schwarz's
+    inequality</em>.
+    <index><main>Schwarz inequality</main></index>
+    <index><main>inequality</main><sub>Schwarz</sub></index>
+  </p>
+
+  <proposition xml:id="Schwarz">
+    <title>Schwarz's Inequality</title>
+    <statement>
+      <p>
+        Let <m>u_1,\dots,u_n, v_1, \dots, v_n \in \R</m>.
+        Then
+        <me>
+          \biggl(\sum_{k=1}^n u_kv_k \biggr)^2
+                    \le \biggl(\sum_{k=1}^n{u_k}^2 \biggr)\biggl(\sum_{k=1}^n {v_k}^2\biggr)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      To simplify notation make some abbreviations: let <m>a = \sum\limits_{k=1}^n {u_k}^2</m>,
+      <m>b = \sum\limits_{k=1}^n {v_k}^2</m>, and <m>c = \sum\limits_{k=1}^n u_kv_k</m>. Then
+      <md>
+        <mrow>0 \amp \le \sum_{k=1}^n\left(\sqrt b \,\,u_k -
+                                   \frac c{\sqrt b}\,v_k \right)^2</mrow>
+        <mrow>\amp = ab - 2c^2 + c^2</mrow>
+        <mrow>\amp = ab - c^2 \,.</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <p>
+    <index><main>Minkowski inequality</main></index>
+    <index><main>inequality</main><sub>Minkowski</sub></index>
+  </p>
+
+  <proposition xml:id="Minkow">
+    <title>Minkowski's Inequality</title>
+    <statement>
+      <p>
+        Let <m>u_1, \dots, u_n, v_1, \dots, v_n \in \R</m>. Then
+        <me>
+          \biggl(\sum_{k=1}^n \bigl(u_k + v_k\bigr)^2\biggr)^{\frac12} \le
+                    \biggl(\sum_{k=1}^n {u_k}^2\biggr)^{\frac12}
+                             + \biggl(\sum_{k=1}^n {v_k}^2\biggr)^{\frac12}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>a</m>, <m>b</m>, and <m>c</m> be as in <xref ref="Schwarz"></xref>. Then
+      <md>
+        <mrow>\sum_{k=1}^n (u_k + v_k)^2 \amp = a + 2c + b</mrow>
+        <mrow>\amp \le a + 2\abs{c} + b</mrow>
+        <mrow>\amp \le a + 2\sqrt{ab} + b \qquad \text{ (by <xref ref="Schwarz"></xref>) }</mrow>
+        <mrow>\amp = \bigl(\sqrt a + \sqrt b \bigr)^2 \,.</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <example xml:id="Eucl_met">
+    <statement>
+      <p>
+        For points <m>x = (x_1,\dots,x_n)</m> and <m>y = (y_1,\dots,y_n)</m> in <m>\R^n</m> let
+        <me>
+          d(x,y) := \biggl(\sum_{k=1}^n(x_k - y_k )^2\biggr)^{\frac12}\,.
+        </me>
+      </p>
+
+      <p>
+        Then <m>d</m> is the
+        <index><main>usual</main><sub>metric on <m>\R^n</m></sub></index>
+        <index><main>metric</main><sub>usual</sub></index><term>usual</term> (or
+        <index><main>Euclidean metric</main></index>
+        <index><main>metric</main><sub>Euclidean</sub></index><term>Euclidean</term>) <term>metric</term> on <m>\R^n</m>. The only nontrivial part of the proof that <m>d</m> is a
+        metric is the verification of the <em>triangle inequality</em> (that is, condition (2) of the
+        definition):
+        <me>
+          d(x,y) \le d(x,z) + d(z,y)\,.
+        </me>
+      </p>
+
+      <p>
+        To accomplish this let <m>x = (x_1,\dots,x_n)</m>, <m>y = (y_1,\dots,y_n)</m>, and <m>z = (z_1,\dots,z_n)</m>
+        be points in <m>\R^n</m>. Apply <em>Minkowski's inequality</em><nbsp /><xref ref="Minkow" /> with <m>u_k = x_k - z_k</m>
+        and <m>v_k = z_k - y_k</m> for <m>1 \le k \le n</m> to obtain
+        <md>
+          <mrow>d(x,y) \amp = \biggl(\sum_{k=1}^n (x_k - y_k)^2\biggr)^{\frac12}</mrow>
+          <mrow>\amp = \biggl(\sum_{k=1}^n \bigl((x_k-z_k)  +
+                               (z_k-y_k)\bigr)^2\biggr)^{\frac12}</mrow>
+          <mrow>\amp \le \biggl(\sum_{k=1}^n (x_k - z_k)^2\biggr)^{\frac12}
+                           + \biggl(\sum_{k=1}^n (z_k - y_k)^2\biggr)^{\frac12}</mrow>
+          <mrow>\amp = d(x,z) + d(z,y) \,.</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>d</m> be the usual metric on <m>\R^2</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>d(x,y)</m> when <m>x = (3,-2)</m> and <m>y = (-3,1)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>x = (5,-1)</m> and <m>y = (-3,-5)</m>. Find a point <m>z</m> in <m>\R^2</m> such that <m>d(x,y)
+              = d(y,z) = d(x,z)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Sketch <m>B_r(a)</m> when <m>a = (0,0)</m> and <m>r = 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The Euclidean metric is by no means the only metric on <m>\R^n</m> which is useful. Two more
+    examples follow ( <xref ref="taxicab"></xref> and <xref ref="unif_rn"></xref>).
+  </p>
+
+  <example xml:id="taxicab">
+    <statement>
+      <p>
+        For points <m>x = (x_1,\dots,x_n)</m> and <m>y = (y_1,\dots,y_n)</m> in <m>\R^n</m> let
+        <index><main>done@<m>d_1</m> (taxicab metric, product metric)</main></index>
+        <me>
+          d_1(x,y) := \sum_{k=1}^n \abs{x_k - y_k}\,.
+        </me>
+      </p>
+
+      <p>
+        It is easy to see that <m>d_1</m> is a metric on <m>\R^n</m>. When <m>n = 2</m> this is frequently called the
+        <index><main>taxicab metric</main></index>
+        <index><main>metric</main><sub>taxicab</sub></index><term>taxicab metric</term>. (Why?)
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>d_1</m> be the taxicab metric on <m>\R^2</m> (<xref ref="taxicab">see</xref>).
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>d_1(x,y)</m> where <m>x=(3,-2)</m> and <m>y=(-3,1)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>x=(5,-1)</m> and <m>y=(-3,-5)</m>. Find a point <m>z</m> in <m>\R^2</m>  such that <m>d_1(x,y)
+              = d_1(y,z) = d_1(x,z)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Sketch <m>B_r(a)</m> for the metric <m>d_1</m> when <m>a=(0,0)</m> and <m>r = 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="unif_rn">
+    <statement>
+      <p>
+        For <m>x = (x_1,\dots,x_n)</m> and <m>y = (y_1,\dots,y_n)</m> in <m>\R^n</m> let
+        <index><main>du@<m>d_u</m> (uniform metric)</main></index>
+        <me>
+          d_u(x,y) := \max\{\abs{x_k - y_k} \colon 1 \le k \le n\}\,.
+        </me>
+      </p>
+
+      <p>
+        Then <m>d_u</m> is a metric on <m>\R^n</m>. The triangle inequality is verified as follows:
+        <md>
+          <mrow>\abs{x_k - y_k} \amp \le \abs{x_k - z_k} + \abs{z_k - y_k}</mrow>
+          <mrow>\amp \le \max\{\abs{x_i - z_i}: 1 \le i \le n\} +
+                                             \max\{\abs{z_i - y_i}: 1 \le i \le n\}</mrow>
+          <mrow>\amp = d_u(x,z) + d_u(z,y)</mrow>
+        </md>
+        whenever <m>1 \le k \le n</m>. Thus
+        <md>
+          <mrow>d_u(x,y) \amp = \max\{\abs{x_k - y_k} \colon 1 \le k \le n\}</mrow>
+          <mrow>\amp \le d_u(x,z) + d_u(z,y)\,.</mrow>
+        </md>
+      </p>
+
+      <p>
+        The metric <m>d_u</m> is called the
+        <index><main>uniform</main><sub>metric!on <m>\R^n</m></sub></index>
+        <index><main>metric</main><sub>uniform!on <m>\R^n</m></sub></index><term>uniform metric</term>. The reason for this name will become clear later.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    Notice that on the real line the three immediately preceding metrics agree; the distance
+    between points is just the absolute value of their difference. That is, when <m>n = 1</m> the
+    metrics given in <xref ref="Eucl_met"></xref>, <xref ref="taxicab"></xref>, and <xref ref="unif_rn"></xref> reduce to the one given
+    in <xref ref="met_r"></xref>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        This problem concerns the metric <m>d_u</m> (defined in <xref ref="unif_rn">example</xref>) on<nbsp /><m>\R^2</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>d_u(x,y)</m> when <m>x = (3,-2)</m> and <m>y=(-3,1)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>x=(5,-1)</m> and <m>y=(-3,-5)</m>. Find a point <m>z</m> in <m>\R^2</m> such that <m>d_u(x,y)
+              = d_u(y,z) = d_u(x,z)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Sketch <m>B_r(a)</m> for the metric <m>d_u</m> when <m>a=(0,0)</m> and <m>r = 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="discrete">
+    <statement>
+      <p>
+        Let <m>M</m> be any nonempty set. For <m>x</m>, <m>y \in M</m> define
+        <me>
+          d(x,y) = \begin{cases}1 \amp \text{ if }  x\ne y \\
+                                       0 \amp \text{ if }  x=y\,.
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        It is easy to see that <m>d</m> is a metric; this is the
+        <index><main>discrete metric</main></index>
+        <index><main>metric</main><sub>discrete</sub></index><term>discrete metric</term> on<nbsp /><m>M</m>. Although the discrete metric is rather trivial it proves quite
+        useful in constructing counterexamples.
+      </p>
+    </statement>
+  </example>
+
+  <example xml:id="Gam">
+    <statement>
+      <p>
+        Let <m>d</m> be the usual metric on <m>\R^2</m> and 0 be the origin. Define a
+        function <m>\rho</m> on <m>\R^2</m> as follows:
+        <index><main><@<m>\rho</m> (Greek airline metric)</main></index>
+        <me>
+          \rho (x,y) := \begin{cases}d(x,y), \amp \text{ if \(x\) and \(y\) are collinear with 0, and }  \\
+                       d(x,0) + d(0,y), \amp \text{ otherwise. } 
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        The function <m>\rho</m> is a metric on<nbsp /><m>\R^2</m>. This metric is sometimes called the
+        <index><main>Greek airline metric</main></index>
+        <index><main>metric</main><sub>Greek airline</sub></index><term>Greek airline metric</term>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\rho</m> be the Greek airline metric on <m>\R^2</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Let <m>x = (-1,2)</m>, <m>y = (-3,6)</m>, and <m>z = (-3,4)</m>. Find <m>\rho(x,y)</m> and <m>\rho(x,z)</m>.
+              Which point, <m>y</m> or <m>z</m>, is closer to <m>x</m> with respect to<nbsp /><m>\rho</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>r = 1</m>. Sketch <m>B_r(a)</m> for the metric <m>\rho</m> when <m>a = (0,0)</m>, <m>a = (\frac14,0)</m>,
+              <m>a = (\frac12,0)</m>, <m>a = (\frac34,0)</m>, <m>a = (1,0)</m>, and <m>a = (3,0)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="ms_ineq">
+    <statement>
+      <p>
+        Let <m>(M,d)</m> be a metric space and <m>x</m>, <m>y</m>, <m>z \in M</m>. Then
+        <me>
+          \abs{d(x,z) - d(y,z)} \le d(x,y)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>a</m> and <m>b</m> are distinct points in a metric space, then there exists a number
+        <m>r > 0</m> such that <m>B_r(a)</m> and <m>B_r(b)</m> are disjoint.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="ball_int">
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be points in a metric space and <m>r</m>, <m>s > 0</m>.
+        If <m>c</m> belongs to <m>B_r(a) \cap B_s(b)</m>, then there exists a number <m>t > 0</m> such that <m>B_t(c)
+        \subseteq B_r(a) \cap B_s(b)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac 1{1+x^2}</m> for all <m>x \ge 0</m>, and define a metric <m>d</m> on the
+        interval <m>[0,\infty)</m> by
+        <me>
+          d(x,y) = \abs{f(x) - f(y)}\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              With respect to this metric find the point halfway between <m>1</m> and<nbsp /><m>2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the open ball <m>B_{\frac3{10}}(1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

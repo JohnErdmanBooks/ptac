@@ -1,0 +1,188 @@
+
+<section>
+  <title>The field axioms</title>
+  <p>
+    The set <m>\R</m> of real numbers is the cornerstone of calculus. It is remarkable that all of its
+    properties can be derived from a very short list of axioms. We will not travel the rather
+    lengthy road of deriving from these axioms all the properties (arithmetic of fractions, rules
+    of exponents, <em>etc.</em>) of <m>\R</m> which we use in this text. This journey, although
+    interesting enough in itself, requires a substantial investment of time and effort. Instead
+    we discuss briefly one standard set of axioms for <m>\R</m> and, with the aid of these axioms, give
+    sample derivations of some familiar properties of<nbsp /><m>\R</m>. In the present chapter we consider the
+    first four axioms, which govern the operations on <m>\R</m> of addition and multiplication. The
+    name we give to the collective consequences of these axioms is
+    <index><main>arithmetic</main></index><em>arithmetic</em>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>binary operation</main></index><term>binary operation</term> <m>\ast</m> on a set <m>S</m> is a rule that associates with each pair <m>x</m> and <m>y</m>
+        of elements in <m>S</m> one and only one element <m>x \ast y</m> in <m>S</m>. (More precisely, <m>\ast</m> is a
+        function from <m>S \times S</m> into<nbsp /><m>S</m>. See <xref ref="fcns">appendices</xref> and <xref ref="prods"></xref>.)
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The first four axioms say that the set <m>\R</m> of real numbers under the binary operations of
+    addition and multiplication (denoted, as usual, by <m>+</m> and <m>\cdot</m>) form a
+    <index><main>field</main></index><term>field</term>. We will follow conventional practice by allowing <m>xy</m> as a substitute notation
+    for <m>x \cdot y</m>.
+  </p>
+
+  <p>
+    \begin{ax}[I] The operations <m>+</m> and <m>\cdot</m> on <m>\R</m> are
+    <index><main>associative</main></index>associative (that is, <m>x + (y + z)  =  (x + y) + z</m> and <m>x(y z) = (xy)z</m> for all <m>x</m>, <m>y</m>, <m>z
+    \in \R</m>) and
+    <index><main>commutative</main></index>commutative (<m>x + y = y + x</m> and <m>xy = yx</m> for all <m>x</m>, <m>y \in \R</m>).
+    \end{ax}
+  </p>
+
+  <p>
+    \begin{ax}[II] There exist distinct additive and multiplicative
+    <index><main>identity</main><sub>elements</sub></index>identities (that is, there are elements <m>0</m> and <m>1</m> in <m>\R</m> with <m>1 \ne 0</m> such that <m>x + 0 =
+    x</m> and <m>x \cdot 1 = x</m> for all <m>x \in \R</m>).
+    \end{ax}
+  </p>
+
+  <p>
+    \begin{ax}[III] Every element <m>x</m> in <m>\R</m> has an
+    <index><main>additive inverse</main></index>
+    <index><main>inverse</main><sub>additive</sub></index>additive inverse (that is, a number <m>- x</m> such that <m>x + (- x) = 0</m>); and every element <m>x
+    \in \R</m> different from <m>0</m> has a
+    <index><main>multiplicative inverse</main></index>
+    <index><main>inverse</main><sub>multiplicative</sub></index>multiplicative inverse (that is, a number <m>x^{-1}</m> such that <m>x\,x^{-1} = 1</m>).
+    \end{ax}
+  </p>
+
+  <p>
+    \begin{ax}[IV] Multiplication
+    <index><main>distributive law</main></index>distributes over addition (that is, <m>x(y + z)  =  xy + xz</m> for all <m>x</m>, <m>y</m>, <m>z \in \R</m>).
+    \end{ax}
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Multiplication is not a binary operation on the set <m>\R' = \{x \in \R \colon x~\ne~-1\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The numbers <m>2</m> and <m>-\frac12</m> belong to <m>\R'</m>, but their product does not.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Subtraction is a binary operation on the set <m>\R</m> of real numbers, but is neither
+        associative nor commutative.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\R^+</m> be the set of all real numbers <m>x</m> such that <m>x > 0</m>. On <m>\R^+</m> define
+        <me>
+          x \ast y = \frac{xy}{x+y}\,.
+        </me>
+      </p>
+
+      <p>
+        Determine whether <m>\ast</m> is a binary operation on <m>\R^+</m>. Determine whether <m>\ast</m> is
+        associative and whether it is commutative. Does <m>\R^+</m> have an identity element with respect
+        to <m>\ast</m>? (That is, is there a member <m>e</m> of <m>\R^+</m> such that <m>x \ast e = x</m> and <m>e \ast x =
+        x</m> for all <m>x</m> in <m>\R^+</m>?)
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Subtraction and division are defined in terms of addition and multiplication by
+    <me>
+      x - y := x + (-y)
+    </me>
+    and, for <m>y \ne 0</m>,
+    <me>
+      \frac xy := xy^{-1}\,.
+    </me>
+  </p>
+
+  <p>
+    We use the familiar rule for avoiding an excess of parentheses: multiplication takes
+    precedence over addition. Thus, for example, <m>wx + yz</m> means <m>(wx) + (yz)</m>.
+  </p>
+
+  <problem xml:id="rdl">
+    <statement>
+      <p>
+        The rule given in Axiom IV is the
+        <index><main>distributive law</main><sub>left</sub></index><em>left distributive law</em>. The
+        <index><main>distributive law</main><sub>right</sub></index><em>right distributive law</em>, <m>(x + y)z = xz + yz</m>, is also true. Use the axioms to prove it.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="x2x_is_x">
+    <statement>
+      <p>
+        Show that if <m>x</m> is a real number such that <m>x + x = x</m>, then <m>x = 0</m>.
+        <em>Hint.</em> Simplify both sides of <m>(x+x)+(-x) = x+(x+(-x))</m>. (<xref ref="sol_2x_is_x">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="annih">
+    <statement>
+      <p>
+        Show that the additive identity <m>0</m> annihilates everything in <m>\R</m>
+        under multiplication. That is, show that <m>0 \cdot x = 0</m> for every real number <m>x</m>.
+        <em>Hint.</em> Consider <m>(0 + 0)x</m>. <xref ref="rdl">Use</xref> and <xref ref="x2x_is_x"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="arith_exer1">
+    <statement>
+      <p>
+        Give a careful proof using only the axioms above that if <m>w</m>,
+        <m>x</m>, <m>y</m>, and <m>z</m> are real numbers, then
+        <me>
+          (w + x) + (y + z) = z + (x + (y + w))\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Since we are to make explicit use of the associative law, be careful not to
+        write expressions such as <m>w + x + (y + z)</m>. Another set of parentheses is needed to indicate
+        the order of operations. Both <m>(w + x) + (y + z)</m> and <m>w + (x + (y + z))</m>, for example, do
+        make sense. (<xref ref="sol_arith_exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="prob_zero_prod">
+    <statement>
+      <p>
+        Show that if the product <m>xy</m> of two numbers is zero, then
+        either <m>x = 0</m> or <m>y = 0</m>. (Here the word <q>or</q> is used in its inclusive sense; both <m>x</m> and
+        <m>y</m> may be <m>0</m>. It is always used that way in mathematics.) <em>Hint.</em> Convince yourself
+        that, as a matter of logic, it is enough to show that if <m>y</m> is not equal to <m>0</m> then <m>x</m> must
+        be. Consider <m>(xy)y^{-1}</m> and <xref ref="annih">use</xref>.
+      </p>
+    </statement>
+  </problem>
+</section>

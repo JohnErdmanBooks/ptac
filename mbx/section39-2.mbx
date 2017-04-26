@@ -1,0 +1,323 @@
+
+<section>
+  <title>Least upper and greatest lower bounds</title>
+  <definition>
+    <statement>
+      <p>
+        A number <m>\ell</m> is the
+        <index><main>supremum</main></index><term>supremum</term>(or
+        <index><main>least</main><sub>upper bound</sub></index>
+        <index><main>bound</main><sub>least upper</sub></index><term>least upper bound</term>) of a set<nbsp /><m>A</m><nbsp />if:
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              <m>\ell</m> is an upper bound for <m>A</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              <m>\ell \le u</m> whenever <m>u</m> is an upper bound for <m>A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        If <m>\ell</m> is the least upper bound of <m>A</m>, we write
+        <index><main>supremum@<m>\sup A</m> (supremum of <m>A</m>)</main></index><m>\ell =\sup A</m>. Similarly, a lower bound <m>g</m> of a set is the
+        <index><main>infimum</main></index><term>infimum</term>(or
+        <index><main>greatest</main><sub>lower bound</sub></index>
+        <index><main>bound</main><sub>greatest lower</sub></index><term>greatest lower bound</term>) of a set<nbsp /><m>A</m><nbsp />if it is greater than or equal to every lower bound of
+        the set. If <m>g</m> is the greatest lower bound of <m>A</m>, we write
+        <index><main>infimum@<m>\inf A</m> (infimum of <m>A</m>)</main></index><m>g = \inf A</m>.
+      </p>
+
+      <p>
+        If <m>A</m> is not bounded above (and consequently, <m>\sup A</m> does not exist), then it is common
+        practice to write <m>\sup A = \infty</m>. Similarly, if <m>A</m> is not bounded below, we write <m>\inf A
+        = -\infty</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <caution>
+
+  <p>
+    The expression <q><m>\sup A = \infty</m></q> does <em>not</em> mean that <m>\sup A</m> exists and
+    equals some object called <m>\infty</m>; it <em>does</em> mean that <m>A</m> is not bounded above.
+  </p>
+
+  </caution>
+
+  <p>
+    It is clear that least upper bounds and greatest lower bounds, when they exist, are unique.
+    If, for example, <m>\ell</m> and <m>m</m> are both least upper bounds for a set <m>A</m>, then <m>\ell \le m</m>
+    and <m>m \le \ell</m>; so <m>\ell = m</m>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. If there exists a number <m>M</m> <em>belonging to</em> <m>A</m> such
+        that <m>M \ge a</m> for every <m>a \in A</m>), then this element is the
+        <index><main>largest</main></index><term>largest element</term> (or
+        <index><main>greatest</main></index><term>greatest element</term>, or
+        <index><main>maximum</main></index><term>maximum</term>) of<nbsp /><m>A</m>. We denote this element (when it exists)
+        <index><main>maximum@<m>\max A</m> (maximum of <m>A</m>)</main></index>by <m>\max A</m>.
+      </p>
+
+      <p>
+        Similarly, if there exists a number <m>m</m> <em>belonging to</em> <m>A</m> such that <m>m \le a</m> for every
+        <m>a \in A</m>), then this element is the
+        <index><main>smallest</main></index><term>smallest element</term> (or
+        <index><main>least</main></index><term>least element</term>, or
+        <index><main>minimum</main></index><term>minimum</term>) of<nbsp /><m>A</m>. We denote this element (when it exists)
+        <index><main>minimum@<m>\min A</m> (minimum of <m>A</m>)</main></index>by <m>\min A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Although the largest element of a set (when it exists) is always a least upper
+        bound, the converse is not true. It is possible for a set to have a least upper bound but no
+        maximum. The interval <m>(-2,3)</m> has a least upper bound (namely, 3), but it has no largest
+        element.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>A = \{x \in \R \colon \abs x \lt  4\}</m>, then <m>\inf A = -4</m> and <m>\sup A = 4</m>.
+        But <m>A</m> has no maximum or minimum. If <m>B = \{\abs x \colon x \lt  4\}</m>, then <m>\inf B = 0</m> but
+        <m>\sup B</m> does not exist. (It is correct to write <m>\sup B = \infty</m>.) Furthermore, <m>B</m> has a
+        smallest element, <m>\min B = 0</m>, but no largest element.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    Incidentally, the words <q>maximum</q>, <q>supremum</q>, <q>minimum</q>, and <q>infimum</q> are all
+    singular. The preferred plurals are, respectively, <q>maxima</q>, <q>suprema</q>, <q>minima</q>, and
+    <q>infima</q>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        For each of the following sets find the least upper bound and the greatest lower
+        bound (if they exist).
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>A = \{x \in \R \colon \abs{x - 3} \lt  5\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>B = \{\abs{x - 3} \colon x \lt  5\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>C = \{\abs{x - 3} \colon x > 5\}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the set <m>\Po</m> of positive real numbers has an infimum but no smallest
+        element.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="exer_sup1">
+    <statement>
+      <p>
+        Let <m>f(x) = x^2 - 4x + 3</m> for every <m>x \in \R</m>, let
+        <m>A = \{x \colon f(x) \lt  3\}</m>, and let <m>B = \{f(x) \colon x \lt  3\}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>\sup A</m> and <m>\inf A</m> (if they exist).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\sup B</m> and <m>\inf B</m> (if they exist).
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_sup1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>\D A = \left\{x \in \R \colon \frac5{x - 3} - 3 \ge 0\right\}</m>. Then
+        <m>\sup A = \max A = 14/3</m>, <m>\inf A = 3</m>, and <m>\min A</m> does not exist.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = -\frac12 + \sin x</m> for <m>x \in \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A = \{f(x) \colon x \in \R\}</m>, then <m>\inf A = -\frac32</m> and <m>\sup A = \frac12</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>B = \{\abs{f(x)} \colon x \in \R\}</m>, then <m>\inf B = 0</m> and <m>\sup B = \frac32</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = x^{20} - 2</m> for <m>0 \lt  x \lt  1</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A = \{f(x) \colon 0 \lt  x \lt  1\}</m>, then <m>\inf A = -2</m> and <m>\sup A = -1</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>B = \{\abs{f(x)} \colon 0 \lt  x \lt  1\}</m>, then <m>\inf B = 1</m> and <m>\sup B = 2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = x^{20} - \frac14</m> for <m>0 \le x \le 1</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A = \{f(x) \colon 0 \le x \le 1\}</m>, then <m>\inf A = -\frac14</m> and <m>\sup A = \frac34</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>B = \{\abs{f(x)} \colon 0 \le x \le 1\}</m>, then <m>\inf B = 0</m> and <m>\sup B = \frac34</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_sup1">
+    <statement>
+      <p>
+        Let <m>f(x) = -4x^2 - 4x + 3</m> for every <m>x \in \R</m>, let
+        <m>A = \{x \in \R \colon f(x) > 0\}</m>, and let <m>B = \{f(x) \colon -2 \lt  x \lt  2\}</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>\sup A</m> and <m>\inf A</m> (if they exist).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>\sup B</m> and <m>\inf B</m> (if they exist).
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        For <m>c>0</m> define a function <m>f</m> on <m>[0,\infty)</m> by <m>f(x) = x\,e^{-cx}</m>. Find
+        <m>\sup\{\abs{f(x)}\colon x~\ge~0\}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        For each <m>n = 1,2,3, \dots</m>, define a function <m>f_n</m> on <m>\R</m> by <m>f_n(x) =
+        \dfrac{x}{1+nx^2}</m>. For each <m>n \in \N</m> let <m>A_n = \{f_n(x) \colon x \in \R\}</m>. For
+        each <m>n</m> find <m>\inf A_n</m> and <m>\sup A_n</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

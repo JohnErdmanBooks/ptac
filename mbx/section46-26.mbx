@@ -1,0 +1,396 @@
+
+<section>
+  <title>Exercises in Chapter 26</title>
+  <solution xml:id="sol_exer_no_mvt">
+    <p>
+      (Solution to <xref ref="exer_no_mvt"></xref>)
+      Let <m>f\colon [0,2\pi] \sto \R^2\colon  t \mapsto (\cos t, \sin t)</m>. Then <m>f</m> is continuous on
+      <m>[0,2\pi]</m> and differentiable on <m>(0,2\pi)</m>. Notice that <m>f(2\pi) - f(0) = (1,0) - (1,0) =
+      (0,0)</m>. But <m>Df(t) = (-\sin t, \cos t)</m>. Certainly there is no number <m>c</m> such that
+      <m>2\pi(-\sin c, \cos c) = (0,0)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_thm_mvt_curv">
+    <p>
+      (Solution to <xref ref="thm_mvt_curv"></xref>)
+      Given <m>\epsilon > 0</m>, define <m>h(t) = \norm{f(t) - f(a)} - (t - a)(M + \epsilon)</m> for <m>a \le t
+      \le b</m>. Since <m>f</m> is continuous on <m>[a,b]</m>, so is<nbsp /><m>h</m>. Let <m>A = h^\gets (-\infty,
+      \epsilon]</m>. The set <m>A</m> is nonempty (it contains<nbsp /><m>a</m>) and is bounded above (by <m>b</m>). By the
+      <em>least upper bound axiom</em><nbsp /> <xref ref="axiom_lub"></xref> it has a supremum, say<nbsp /><m>l</m>. Clearly <m>a \le l
+      \le b</m>. Since <m>h</m> is continuous and <m>h(a) = 0</m>, there exists <m>\eta > 0</m> such that <m>a \le t \lt 
+      a + \eta</m> implies <m>h(t) \le \epsilon</m>. Thus <m>[a, a + \eta) \subseteq A</m> and <m>l > a</m>. Notice
+      that since <m>h</m> is continuous the set <m>A</m> is closed (<xref ref="prop_cont_closed">proposition</xref>); and
+      since <m>l \in \clo A</m> (see <xref ref="sup_in_clo">example</xref>), <m>l</m> belongs to<nbsp /><m>A</m>.
+    </p>
+
+    <p>
+      We show that <m>l = b</m>. Assume to the contrary that <m>l \lt  b</m>. Since <m>f</m> is differentiable at
+      <m>l</m>, there exists <m>\delta > 0</m> such that if <m>t \in (l, l + \delta)</m> then <m>\norm{(t -
+      l)^{-1}(f(t) - f(l))} \lt  M + \epsilon</m>. Choose any point <m>t</m> in <m>(l,l + \delta)</m>. Then
+      <md>
+        <mrow>h(t) \amp = \norm{f(t) - f(a)} - (t - a)(M + \epsilon)</mrow>
+        <mrow>\amp \le \norm{f(t) - f(l)} + \norm{f(l) - f(a)}
+                       - (t - l)(M + \epsilon) - (l - a)(M + \epsilon)</mrow>
+        <mrow>\amp \lt  (t - l)(M + \epsilon) + h(l) - (t - l)(M + \epsilon)</mrow>
+        <mrow>\amp = h(l)</mrow>
+        <mrow>\amp \le \epsilon\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This says that <m>t \in A</m>, which contradicts the fact that <m>l</m> is an upper bound for <m>A</m>. Thus
+      <m>l = b</m> and <m>h(b) \le \epsilon</m>. That is,
+      <me>
+        \norm{f(b) - f(a)} \le (M + \epsilon)(b - a) + \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>\epsilon</m> was arbitrary,
+      <me>
+        \norm{f(b) - f(a)} \le M(b-a)\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_inj_proj">
+    <p>
+      (Solution to <xref ref="exer_inj_proj"></xref>)
+    </p>
+
+    <p>
+      (a) For every <m>x</m> in <m>V_k</m>
+      <me>
+        (\pi_k \circ j_{{}_{\sst k}})(x) = \pi_k(0,\dots, 0, x, 0,\dots, 0) = x\,.
+      </me>
+    </p>
+
+    <p>
+      (b) For every <m>x</m> in <m>V</m>
+      <md>
+        <mrow>\sum_{k=1}^n (j_{{}_{\sst k}} \circ \pi_k)(x)
+                  \amp = \sum_{k=1}^n j_{{}_{\sst k}}(x_k)</mrow>
+        <mrow>\amp = (x_1, 0, \dots ,0) + \dots + (0, \dots, 0, x_n)</mrow>
+        <mrow>\amp = (x_1, \dots, x_n)</mrow>
+        <mrow>\amp = x\,.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_Del_inj">
+    <p>
+      (Solution to <xref ref="exer_Del_inj"></xref>)
+      For every <m>h</m> in <m>B_k</m>
+      <md>
+        <mrow>(\Delta f_a \circ j_{{}_{\sst k}})(h)
+                      \amp = \Delta f_a (j_{{}_{\sst k}}(h))</mrow>
+        <mrow>\amp = f(a + j_{{}_{\sst k}}(h)) - f(a)</mrow>
+        <mrow>\amp = g(h) - g(\vc 0)</mrow>
+        <mrow>\amp = \Delta g_{\vc 0}(h)\,. \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_par_dffntl">
+    <p>
+      (Solution to <xref ref="prop_par_dffntl"></xref>)
+      Fix a point <m>(a,b)</m> in <m>U</m>. We make two observations about the notation introduced in the
+      hint. First,
+      <men xml:id="eqn_par_dffntl4" >
+        d(h^v)_z = d_1f_{(a + z,b + v)}\,.
+      </men>
+    </p>
+
+    <p>
+      [Proof: Since <m>f(a + z + s, b+v) = h^v(z + s) = (h^v \circ T_z)(s)</m>, we see that <m>d_1f_{(a +
+      z,b + v)} = d(h^v \circ T_z)_{\vc 0} = d(h^v)_{T_z(\vc 0)} \circ d(T_z)_{\vc 0} = d(h^v)_z
+      \circ I = d(h^v)_z\,.</m>]
+    </p>
+
+    <p>
+      Second,
+      <men xml:id="eqn_par_dffntl5" >
+        \Delta f_{(a,b)}(u,v) = \Delta (h^v)_{\vc 0}(u) + \Delta g_{\vc 0}(v)\,.
+      </men>
+    </p>
+
+    <p>
+      [Proof:
+      <md>
+        <mrow>\Delta f_{(a,b)}(u,v)
+                    \amp = f(a + u,b + v) - f(a,b)</mrow>
+        <mrow>\amp = f(a + u,b + v) - f(a,b + v) + f(a,b + v) - f(a,b)</mrow>
+        <mrow>\amp = h^v(u) - h^v(\vc 0) + g(v) - g(\vc 0)</mrow>
+        <mrow>\amp = \Delta (h^v)_{\vc 0}(u) + \Delta g_{\vc 0}(v)\,.]</mrow>
+      </md>
+    </p>
+
+    <p>
+      Let <m>\epsilon > 0</m>. By hypothesis the second partial differential of <m>f</m> exists at<nbsp /><m>(a,b)</m>.
+      That is, the function <m>g</m> is differentiable at <m>\vc 0</m> and
+      <me>
+        \Delta g_{\vc 0} \simeq dg_{\vc 0} = d_2f_{(a,b)} = T\,.
+      </me>
+    </p>
+
+    <p>
+      Thus there exists <m>\delta_1 > 0</m> such that
+      <men xml:id="ineq_par_dffntl1" >
+        \norm{\Delta g_{\vc 0}(v) - Tv} \le \epsilon\norm v
+      </men>
+      whenever <m>\norm v \lt  \delta_1</m>.
+    </p>
+
+    <p>
+      Since <m>d_1f</m> is assumed to (exist and) be continuous on <m>U</m>, there exists <m>\delta_2 > 0</m> such
+      that
+      <men xml:id="ineq_par_dffntl2" >
+        \norm{d_1f_{(a + s,b + t)} - d_1f_{(a,b)}} \lt  \epsilon
+      </men>
+      whenever <m>\norm{(s,t)}_1 \lt  \delta_2</m>. Suppose then that <m>(u,v)</m> is a point in <m>U</m> such that
+      <m>\norm{(u,v)}_1 \lt  \delta_2</m>. For each <m>z</m> in the segment <m>[\vc 0,u]</m>
+      <me>
+        \norm{(z,v)}_1 = \norm z + \norm v \le \norm u + \norm v = \norm{(u,v)}_1 \lt  \delta_2
+      </me>
+      so by<nbsp /><xref ref="eqn_par_dffntl4" /> and<nbsp /><xref ref="ineq_par_dffntl2" />
+      <me>
+        \norm{d(h^v)_z - S} = \norm{d_1f_{(a + z, b + v)} - d_1f_{(a,b)}} \lt  \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      Thus according to the version of the <em>mean value theorem</em> given in
+      <xref ref="cor_mvt_nls">corollary</xref>
+      <men xml:id="ineq_par_dffntl3" >
+        \norm{\Delta (h^v)_{\vc 0}(u) - Su} \le \epsilon \norm u
+      </men>
+      whenever <m>\norm{(u,v)}_1 \lt  \delta_2</m>.
+    </p>
+
+    <p>
+      Now let <m>\delta = \min\{\delta_1, \delta_2\}</m>. Suppose <m>\norm{(u,v)}_1 \lt  \delta</m>. Then since
+      <m>\norm v \le \norm u + \norm v = \norm{(u,v)}_1 \lt  \delta \le \delta_1</m>
+      inequality<nbsp /><xref ref="ineq_par_dffntl1" /> holds, and since <m>\norm{(u,v)}_1 \lt  \delta \le \delta_2</m>
+      inequality<nbsp /><xref ref="ineq_par_dffntl3" /> holds. Making use of these two inequalities
+      and<nbsp /><xref ref="eqn_par_dffntl5" /> we obtain
+      <md>
+        <mrow>\norm{\Delta f_{(a,b)}(u,v) - R(u,v)}
+                  \amp = \norm{\Delta (h^v)_{\vc 0}(u) + \Delta g_{\vc 0}(v) - Su - Tv}</mrow>
+        <mrow>\amp \le \norm{\Delta (h^v)_{\vc 0}(u) - Su} + \norm{\Delta g_{\vc 0}(v) - Tv}</mrow>
+        <mrow>\amp \le \epsilon\,\norm u + \epsilon\,\norm v</mrow>
+        <mrow>\amp = \epsilon \,\norm{(u,v)}_1\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus <m>\Delta f_{(a,b)} \simeq R</m> showing that <m>f</m> is differentiable at <m>(a,b)</m> and that its
+      differential is given by
+      <men xml:id="eqn_par_dffntl6" >
+        df_{(a,b)} = R = d_1f_{(a,b)} \circ \pi_1 + d_2f_{(a,b)} \circ\pi_2\,.
+      </men>
+    </p>
+
+    <p>
+      That <m>df</m> is continuous is clear from<nbsp /><xref ref="eqn_par_dffntl6" /> and the hypothesis that <m>d_1f</m>
+      and <m>d_2f</m> are continuously differentiable.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_pd_R4">
+    <p>
+      (Solution to <xref ref="exer_pd_R4"></xref>)
+      First we compute <m>df_a</m>. A straightforward calculation gives
+      <me>
+        \frac{\Delta f_a(h)}{\norm h_1}
+                     = \frac{h_1 + 2\,h_2 - 3\,h_3 + 6\,h_4 + h_2{}^2
+                              + 2\,h_1h_2 + h_1h_2{}^2 + 3\,h_3h_4} {\norm h_1}\,.
+      </me>
+    </p>
+
+    <p>
+      From this it is clear that the desired differential is given by
+      <me>
+        df_a(h) = h_1 + 2\,h_2 - 3\,h_3 + 6\,h_4
+      </me>
+      for then
+      <me>
+        \frac{\Delta f_a(h) - df_a(h)}{\norm h_1}
+                    = \frac{h_2{}^2 + 2\,h_1h_2 + h_1h_2{}^2 + 3\,h_3h_4}
+                                  {\norm h_1} \sto 0 \qquad \text{ as \(h \sto 0\) }
+      </me>
+    </p>
+
+    <p>
+      <em>Note.</em> In the preceding computation the use of the product norm <m>\norm{}_1</m> for
+      <m>\R^4</m> rather than the usual Euclidean norm is both arbitrary and harmless (see
+      <xref ref="prob_norms_Rn">problem</xref>.
+    </p>
+
+    <p>
+      (a) Compose <m>df_a</m> with the injection
+      <me>
+        j_{{}_{\sst 1}} \colon \R \sto \R\times R\times\R\times\R \colon x \mapsto (x,0,0,0)\,.
+      </me>
+    </p>
+
+    <p>
+      Then
+      <me>
+        d_1f_a(x) = df_a(j_{{}_{\sst 1}}(x)) = df_a(x,0,0,0) = x
+      </me>
+      for all <m>x</m> in<nbsp /><m>\R</m>.
+    </p>
+
+    <p>
+      (b) This has exactly the same answer as part (a)<mdash />although the rationale is slightly
+      different. The appropriate injection map is
+      <me>
+        j_{{}_{\sst 1}} \colon \R \sto \R^3 \colon  x \mapsto (x,\vc 0)
+      </me>
+    </p>
+
+    <p>
+      (where <m>\vc 0</m> is the zero vector in <m>\R^3</m>). We may rewrite<nbsp /><xref ref="eqn_pd_R4" /> in this case
+      as
+      <me>
+        f(x,y) = xy_1{}^2 + 3\,y_2y_3
+      </me>
+      for all <m>x \in \R</m> and <m>y \in \R^3</m>. Also write <m>a = (b,c)</m> where <m>b = 1 \in \R</m> and <m>c =
+      (1,2,-1) \in \R^3</m>, and write <m>h = (r,s)</m> where <m>r \in \R</m> and <m>s \in \R^3</m>. Then
+      <me>
+        df_a(h) = df_{(b,c)}(r,s) = r + 2\,s_1 - 3\,s_2 + 6\,s_3
+      </me>
+      so that
+      <me>
+        d_1f(x) = df_a(j_{{}_{\sst 1}}(x)) = df_a(x,\vc 0) = x
+      </me>
+      for all <m>x</m> in<nbsp /><m>\R</m>.
+    </p>
+
+    <p>
+      (c) Here the appropriate injection is
+      <me>
+        j_{{}_{\sst 1}} \colon \R^2 \sto \R^2 \times \R^2 \colon  x \mapsto (x,\vc 0)
+      </me>
+      where <m>\vc 0</m> is the zero vector in<nbsp /><m>\R^2</m>. Rewrite<nbsp /><xref ref="eqn_pd_R4" /> as
+      <me>
+        f(x,y) = x_1x_2{}^2 + 3\,y_1y_2
+      </me>
+      for all <m>x</m>, <m>y \in \R^2</m>. Let <m>a = (b,c)</m> where <m>b = (1,1)</m> and <m>c = (2,-1)</m>; and let <m>h =
+      (r,s)</m> where <m>r</m>, <m>s \in \R^2</m>. Then
+      <me>
+        df_a(h) = df_{(b,c)}(r,s) = r_1 + 2\,r_2 - 3\,s_1 + 6\,s_2
+      </me>
+      so that
+      <me>
+        d_1f_a(x) = df_a(j_{{}_{\sst 1}}(x)) = df_a(x,\vc 0) = x_1 + 2\,x_2
+      </me>
+      for all <m>x</m> in<nbsp /><m>\R^2</m>.
+    </p>
+
+    <p>
+      (d) As far as the partial differential <m>d_1</m> is concerned, this is essentially the same
+      problem as<nbsp />(c). However, in this case the injection <m>j_{{}_{\sst 1}}</m> is given by
+      <me>
+        j_{{}_{\sst 1}} \colon \R^2 \sto \R^2 \times \R \times \R \colon x \mapsto (x,0,0)\,.
+      </me>
+    </p>
+
+    <p>
+      Equation<nbsp /><xref ref="eqn_pd_R4" /> may be written
+      <me>
+        f(x,y,z) = x_1x_2{}^2 + 3\,yz
+      </me>
+      for all <m>x \in \R^2</m> and <m>y</m>, <m>z \in \R</m>. Let <m>a = (b,c,d)</m> where <m>b = (1,1)</m>, <m>c = 2</m>, and
+      <m>d = -1</m>; and let <m>h = (q,r,s)</m> where <m>q \in \R^2</m> and <m>r</m>, <m>s \in \R</m>. Then
+      <me>
+        df_a(h) = df_{(b,c,d)}(q,r,s) = q_{{}_{\sst 1}} + 2\,q_{{}_{\sst 2}} - 3\,r + 6\,s
+      </me>
+      so that
+      <me>
+        d_1f_a(x) = df_a(j_{{}_{\sst 1}}(x)) = df_{(b,c,d)}(x,0,0) = x_1 + 2\,x_2\,.
+      </me>
+    </p>
+
+    <p>
+      (e) Here <m>j_{{}_{\sst 1}} \colon \R^3 \sto \R^3 \times \R \colon x \mapsto (x,0)</m>.
+      Rewrite<nbsp /><xref ref="eqn_pd_R4" /> as
+      <me>
+        f(x,y) = x_1x_2{}^2 + 3\,x_3y
+      </me>
+      for all <m>x \in \R^3</m> and <m>y \in \R</m>. Let <m>a = (b,c)</m> with <m>b = (1,1,2)</m> and <m>c = -1</m>; and let
+      <m>h = (r,s)</m> where <m>r \in \R^3</m> and <m>s \in \R</m>. Then
+      <me>
+        df_a(h) = df_{(b,c)}(r,s) = r_1 + 2\,r_2 -3\,r_3 + 6\,s
+      </me>
+      so that
+      <me>
+        d_1f_a(x) = df_a(j_{{}_{\sst 1}}(x)) = df_{(b,c)}(x,0) = x_1 + 2\,x_2 - 3\,x_3\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_pd_R3">
+    <p>
+      (Solution to <xref ref="exer_pd_R3"></xref>)
+      Just do what you have always done: hold two of the variables constant and differentiate with
+      respect to the other. (See the paragraph after equation<nbsp /><xref ref="eqn_def_pd" />.)
+      <md>
+        <mrow>f_1(x,y,z) \amp = (3\,x^2y^2\sin z,2\,x);\text{ so } f_1(a)=(12,2).</mrow>
+        <mrow>f_2(x,y,z) \amp = (2\,x^3y\sin z, \cos z);\text{ so } f_2(a)=(-4,0).</mrow>
+        <mrow>f_3(x,y,z) \amp = (x^3y^2 \cos z,-y\sin z);\text{ so } f_3(a)=(0,2). \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_int_2cont">
+    <p>
+      (Solution to <xref ref="lem_int_2cont"></xref>)
+      Let <m>\epsilon > 0</m>. Since <m>[a,b] \times [c,d]</m> is compact, the continuous function <m>f</m> must be
+      uniformly continuous (see <xref ref="prop_cont_ucont">proposition</xref>). Thus there exists <m>\delta > 0</m>
+      such that <m>\norm{(x,y) - (u,v)}_1 \lt  \delta</m> implies <m>\norm{f(x,y) - f(u,v)} \lt  \epsilon\,(b -
+      a)^{-1}</m>. Suppose that <m>y</m> and <m>v</m> lie in <m>[c,d]</m> and that <m>\abs{y - v} \lt  \delta</m>. Then
+      <m>\norm{(x,y) - (x,v)}_1 \lt  \delta</m> for all <m>x</m> in <m>[a,b]</m>; so <m>\norm{f(x,y) - f(x,v)} \lt 
+      \epsilon\,(b - a)^{-1}</m> from which it follows that
+      <md>
+        <mrow>\norm{g(y) - g(v)}
+                    \amp = \bignorm{\int_a^bf^y - \int_a^bf^v}</mrow>
+        <mrow>\amp = \bignorm{\int_a^b(f^y - f^v)}</mrow>
+        <mrow>\amp \le \int_a^b\norm{f^y(x) - f^v(x)}\,dx</mrow>
+        <mrow>\amp = \int_a^b\norm{f(x,y) - f(x,v)}\,dx</mrow>
+        <mrow>\amp \lt  \int_a^b\epsilon\,(b - a)^{-1}\,dx</mrow>
+        <mrow>\amp = \epsilon\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus <m>g</m> is uniformly continuous.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_diff_und_int">
+    <p>
+      (Solution to <xref ref="prop_diff_und_int"></xref>)
+      Let <m>h(y) = \int_a^bf_2(x,y)\,dx</m>. By <xref ref="lem_int_2cont">lemma</xref> the function <m>h</m> is
+      continuous and therefore integrable on every interval of the form <m>[c,z]</m> where <m>c \le z \le
+      d</m>. Then by <xref ref="prop_chord_int">proposition</xref> we have
+      <md>
+        <mrow>\int_c^zh
+               \amp = \int_c^z\int_a^bf_2(x,y)\,dx\,dy</mrow>
+        <mrow>\amp = \int_a^b\int_c^zf_2(x,y)\,dy\,dx</mrow>
+        <mrow>\amp = \int_a^b\int_c^z\frac d{dy}\bigl({}^xf(y)\bigr)\,dy\,dx</mrow>
+        <mrow>\amp = \int_a^b\bigl({}^xf(z) - {}^xf(c)\bigr)\,dx</mrow>
+        <mrow>\amp = \int_a^b\bigl(f(x,z) - f(x,c)\bigr)\,dx</mrow>
+        <mrow>\amp = g(z) - g(c)\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Differentiating we obtain
+      <me>
+        h(z) = g'(z)
+      </me>
+      for <m>c \lt  z \lt  d</m>. This shows that <m>g</m> is continuously differentiable on <m>(c,d)</m> and that
+      <md>
+        <mrow>\frac d{dy}\int_a^bf(x,y)\,dx
+                    \amp = g'(y)</mrow>
+        <mrow>\amp = h(y)</mrow>
+        <mrow>\amp = \int_a^b f_2(x,y)\,dx</mrow>
+        <mrow>\amp = \int_a^b\pd fy (x,y)\,dx\,. \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+</section>
