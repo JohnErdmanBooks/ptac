@@ -1,0 +1,294 @@
+
+<section>
+  <title><m>\lobo O</m> and <m>\lobo o</m> functions</title>
+  <notation>
+
+  <p>
+    Let <m>a \in V</m>. We denote
+    <index><main>f@<m>\fml F_a(V,W)</m> (functions defined in a neighborhood of<nbsp /><m>a</m>)</main></index>by<nbsp /><m>\fml F_a(V,W)</m> the family of all functions defined on a neighborhood of <m>a</m> taking values
+    in<nbsp /><m>W</m>. That is, <m>f</m> belongs to <m>\fml F_a(V,W)</m> if there exists a set <m>U</m> such that <m>a \in
+    \open U {\dom f} \subseteq V</m> and if the image of <m>f</m> is contained in<nbsp /><m>W</m>. We shorten <m>\fml
+    F_a(V,W)</m> to <m>\fml F_a</m> when no confusion will result. Notice that for each <m>a \in V</m>, the
+    set <m>\fml F_a</m> is closed under addition and scalar multiplication. (As usual, we define the
+    sum of two functions <m>f</m> and <m>g</m> in <m>\fml F_a</m> to be the function <m>f+g</m> whose value at <m>x</m> is
+    <m>f(x)+g(x)</m> whenever <m>x</m> belongs to <m>\dom f \,\cap\, \dom g</m>.) Despite the closure of <m>\fml
+    F_a</m> under these operations, <m>\fml F_a</m> is <em>not</em> a vector space.
+  </p>
+
+  </notation>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a \in V \ne \{\vc 0\}</m>. Prove that <m>\fml F_a(V,W)</m> is not a vector space.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Among the functions defined on a neighborhood of the zero vector in <m>V</m> are two
+    subfamilies of crucial importance; they are <m>\lobo O(V,W)</m> (the family of
+    <em><q>big-oh</q></em> functions) and <m>\lobo o(V,W)</m> (the family of <em><q>little-oh</q></em>
+    functions).
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A function <m>f</m> in <m>\fml F_{\vc 0}(V,W)</m> belongs to
+        <index><main>ohbig@<m>\lobo O(V,W)</m> functions</main></index><m>\lobo O(V,W)</m> if there exist numbers <m>c > 0</m> and <m>\delta > 0</m> such that
+        <me>
+          \norm{f(x)} \le c\,\norm x
+        </me>
+        whenever <m>\norm x \lt  \delta</m>.
+      </p>
+
+      <p>
+        A function <m>f</m> in <m>\fml F_{\vc 0}(V,W)</m> belongs to
+        <index><main>ohlittle@<m>\lobo o(V,W)</m> functions</main></index><m>\lobo o(V,W)</m> if for every <m>c > 0</m> there exists <m>\delta > 0</m> such that
+        <me>
+          \norm{f(x)} \le c\,\norm x
+        </me>
+        whenever <m>\norm x \lt  \delta</m>. Notice that <m>f</m> belongs to <m>\lobo o(V,W)</m> if and only if <m>f(\vc
+        0) = \vc 0</m> and
+        <me>
+          \lim_{h \sto \vc 0}\frac{\norm{f(h)}}{\norm h} = \vc 0\,.
+        </me>
+      </p>
+
+      <p>
+        When no confusion seems likely we will shorten <m>\lobo O(V,W)</m> to <m>\lobo O</m> and <m>\lobo o(V,W)</m>
+        to <m>\lobo o</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The properties of the families <m>\lobo O</m> and <m>\lobo o</m> are given in
+    <xref ref="prop_o_in_O">propositions</xref><ndash /> <xref ref="prop_comp_Oo"></xref>, <xref ref="prop_o_x_vect"></xref>,
+    and <xref ref="prop_O_x_fcn"></xref>.
+  </p>
+
+  <proposition xml:id="prop_o_in_O">
+    <statement>
+      <p>
+        Every member of <m>\lobo o(V,W)</m> belongs to <m>\lobo O(V,W)</m>; so does
+        every member of <m>\lobo B(V,W)</m>. Every member of <m>\lobo O(V,W)</m> is continuous at<nbsp /><m>\vc 0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Obvious from the definitions.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_bdd_not_o">
+    <statement>
+      <p>
+        Other than the zero transformation, no bounded linear
+        transformation belongs to<nbsp /><m>\lobo o</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_bdd_not_o">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_O_cl_add">
+    <statement>
+      <p>
+        The family <m>\lobo O</m> is closed under addition and scalar
+        multiplication.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_O_cl_add">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_o_cl_add">
+    <statement>
+      <p>
+        The family <m>\lobo o</m> is closed under addition and scalar
+        multiplication.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The next two propositions say that the composite of a function in <m>\lobo O</m> with one in <m>\lobo
+    o</m> (in either order) ends up in <m>\lobo o</m>.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>g \in \lobo O(V,W)</m> and <m>f \in \lobo o(W,X)</m>, then <m>f \circ g \in \lobo o(V,X)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_comp_Oo">
+    <statement>
+      <p>
+        If <m>g \in \lobo o(V,W)</m> and <m>f \in \lobo O(W,X)</m>, then
+        <m>f \circ g \in \lobo o(V,X)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_comp_Oo">Solution</xref>.)
+    </p>
+  </proof>
+
+  <notation xml:id="notn_fcns_mult">
+
+  <p>
+    In the sequel it will be convenient to multiply vectors
+    not only by scalars but also by scalar valued functions. If <m>\phi</m> is a function in <m>\fml
+    F_a(V,\R)</m> and <m>w \in W</m>, we define the function <m>\phi w</m> by
+    <me>
+      (\phi w)(x) = \phi (x) \cdot w
+    </me>
+    for all <m>x</m> in the domain of <m>\phi</m>. Clearly, <m>\phi w</m> belongs to <m>\fml F_a(V,W)</m>.
+  </p>
+
+  <p>
+    Similarly, it is useful to multiply vector valued functions by scalar valued functions. If
+    <m>\phi \in \fml F_a(V,\R)</m> and <m>f \in \fml F_a(V,W)</m>, we define the function <m>\phi f</m> by
+    <me>
+      (\phi f)(x) = \phi (x) \cdot f(x)
+    </me>
+    for all <m>x</m> in <m>\dom \phi\, \cap\, \dom f</m>. Then <m>\phi f</m> belongs to <m>\fml F_a(V,W)</m>.
+  </p>
+
+  </notation>
+
+  <proposition xml:id="prop_o_x_vect">
+    <statement>
+      <p>
+        If <m>\phi \in \lobo o(V,\R)</m> and <m>w \in W</m>, then
+        <m>\phi w \in \lobo o(V,W)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_o_x_vect">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_O_x_fcn">
+    <statement>
+      <p>
+        If <m>\phi \in \lobo O(V,\R)</m> and <m>f \in \lobo O(V,W)</m>,
+        then <m>\phi f \in \lobo o(V,W)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_O_x_fcn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <remark>
+    <p>
+      The list summarizing these facts is almost the same as the one in <xref ref="rem_oO_R"></xref>.
+      In (1) and (2) the linear maps <m>\ofml L</m> have been replaced by continuous linear maps <m>\ofml
+      B</m>; and (7) is new. (As before,
+      <index><main>continuous@<m>\fml C_{\vc 0}</m> (functions continuous at<nbsp /><m>\vc 0</m>)</main></index><m>\fml C_{\vc 0}</m> is the set of all functions in <m>\fml F_{\vc 0}</m> which are continuous at<nbsp /><m>\vc
+      0</m>.)
+      <md>
+        <mrow>\amp (1)\qquad \lobo B \cup \lobo o \subseteq \lobo O \subseteq \fml C_{\vc 0} \, .</mrow>
+        <mrow>\amp (2)\qquad \lobo B \cap \lobo o = \{\vc 0\}\,.</mrow>
+        <mrow>\amp (3)\qquad \lobo O + \lobo O \subseteq \lobo O\,; \qquad \alpha\,\lobo O \subseteq \lobo O\,.</mrow>
+        <mrow>\amp (4)\qquad \lobo o + \lobo o \subseteq \lobo o\,; \qquad \alpha\,\lobo o \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (5)\qquad \lobo o \circ \lobo O \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (6)\qquad \lobo O \circ \lobo o \subseteq \lobo o\,.</mrow>
+        <mrow>\amp (7)\qquad \lobo o(V,\R)\cdot W\subseteq \lobo o(V,W)\,.</mrow>
+        <mrow>\amp (8)\qquad \lobo O(V,\R)\cdot \lobo O(V,W) \subseteq  \lobo o(V,W)\,.</mrow>
+      </md>
+    </p>
+  </remark>
+
+  <problem>
+    <statement>
+      <p>
+        Find a function in <m>\fml C_{\vc 0}(\R^2, \R) \setminus \lobo O(\R^2, \R)</m>. Also,
+        find a function in <m>\lobo O(\R^2, \R) \setminus \lobo o(\R^2, \R)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_O_comp_O">
+    <statement>
+      <p>
+        Show that <m>\lobo O \circ \lobo O\subseteq\lobo O</m>. That is,
+        if <m>g \in \lobo O(V,W)</m> and <m>f \in \lobo O(W,X)</m>, then <m>f \circ g \in \lobo O(V,X)</m>. (As
+        usual, the domain of <m>f \circ g</m> is taken to be <m>\{x \in V \colon g(x) \in \dom f\}</m>.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>f^1 \in \lobo O(V_1,W)</m> and <m>f^2 \in \lobo O(V_2,W)</m>, then the function <m>g</m>
+        defined on <m>\dom f^1 \times \dom f^2</m> by
+        <me>
+          g(v^1,v^2) = f^1(v^1) + f^2(v^2)
+        </me>
+        belongs to <m>\lobo O(V_1 \times V_2, W)</m>. <em>Hint.</em> The simplest proof never mentions the
+        domain elements <m>v^1</m> and <m>v^2</m>. Instead write <m>g</m> in terms of the projection maps <m>\pi_1</m> and
+        <m>\pi_2</m> on <m>V_1 \times V_2</m>, and apply <xref ref="prob_O_comp_O">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>\phi \in \lobo O(V_1,\R)</m> and <m>f \in \lobo O(V_2,W)</m>, then the function <m>h</m>
+        defined on <m>\dom \phi \times \dom f</m> by
+        <me>
+          h(v^1,v^2) = \phi(v^1)\,f(v^2)
+        </me>
+        belongs to <m>\lobo o(V_1 \times V_2,W)</m>. (Use the hint given in the preceding problem.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the membership of the families <m>\lobo O(V,W)</m> and <m>\lobo o(V,W)</m> is not
+        changed when the norms on the spaces <m>V</m> and <m>W</m> are replaced by equivalent norms.
+      </p>
+    </statement>
+  </problem>
+</section>

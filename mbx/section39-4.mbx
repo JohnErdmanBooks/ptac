@@ -1,0 +1,176 @@
+
+<section>
+  <title>The archimedean property</title>
+  <p>
+    One interesting property that distinguishes the set of real numbers from many other ordered
+    fields is that for any real number <m>a</m> (no matter how large) and any positive
+    number<nbsp /><m>\epsilon</m> (no matter how small) it is possible by adding together enough copies of
+    <m>\epsilon</m> to obtain a sum greater than<nbsp /><m>a</m>. This is the <em>Archimedean property</em> of the
+    real number system. It is an easy consequence of the order completeness of the reals; that
+    is, it follows from the <em>least upper bound axiom</em><xref ref="axiom_lub" />.
+  </p>
+
+  <proposition xml:id="arch_prop">
+    <title>The Archimedean Property of $\R$</title>
+    <statement>
+      <p>
+        <index><main>Archimedean property</main></index>
+        <index><main>property</main><sub>Archimedean</sub></index>If <m>a \in \R</m> and <m>\epsilon > 0</m>, then there exists <m>n \in \N</m> such that <m>n\epsilon > a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Argue by contradiction. Assume that the set
+      <m>A := \{n\epsilon \colon n \text{ belongs to } \N\}</m> is bounded above.
+    </p>
+  </proof>
+
+  <p>
+    It is worth noting that the preceding proposition shows that the set <m>\N</m> of natural numbers
+    is not bounded above. [Take <m>\epsilon = 1</m>.]
+  </p>
+
+  <p>
+    Another useful consequence of the <em>least upper bound axiom</em> is the existence of
+    <m>n^{\text{ th } }</m> roots of numbers <m>a \ge 0</m>. Below we establish the existence of square roots;
+    but the proof we give can be modified without great difficulty to show that every number <m>a
+    \ge 0</m> has an <m>n^{\text{ th } }</m> root (see <xref ref="proj_nth_roots">project</xref>).
+  </p>
+
+  <proposition xml:id="prop_exist_sqrt">
+    <statement>
+      <p>
+        Let <m>a \ge 0</m>. There exists a unique number <m>x \ge 0</m>
+        such that <m>x^2 = a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>A = \{t > 0 \colon t^2 \lt  a\}</m>. Show that <m>A</m> is
+      not empty and that it is bounded above. Let <m>x = \sup A</m>. Show that assuming <m>x^2 \lt  a</m> leads
+      to a contradiction. [Choose <m>\epsilon</m> in <m>(0, 1)</m> so that <m>\epsilon \lt  3^{-1} x^{-2}(a -
+      x^2)</m> and prove that <m>x(1 + \epsilon)</m> belongs to <m>A</m>.] Also show that assuming <m>x^2 > a</m>
+      produces a contradiction. [Choose <m>\epsilon</m> in <m>(0, 1)</m> so that <m>\epsilon \lt  (3a)^{-1}(x^2 -
+      a)</m>, and prove that the set <m>A \cap \bigl(x(1 + \epsilon)^{-1}, x\bigr)</m> is not empty. What
+      can be said about <m>x(1 + \epsilon)^{-1}</m>?] (<xref ref="sol_prop_exist_sqrt">Solution</xref>.)
+    </p>
+  </proof>
+
+  <notation>
+
+  <p>
+    The unique number <m>x</m> guaranteed by the preceding proposition is denoted by
+    <m>\sqrt a</m> or by <m>a^{\frac 12}</m>. Similarly, <m>n^{\text{ th } }</m> roots are denoted by either <m>\root
+    n \of a</m> or <m>a^{\frac1n}</m>.
+  </p>
+
+  </notation>
+
+  <problem>
+    <statement>
+      <p>
+        Prove the following properties of the square root function.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>x,y \ge 0</m>, then <m>\sqrt{xy} = \sqrt x \sqrt y</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>0 \lt  x \lt  y</m>, then <m>\sqrt x \lt  \sqrt y</m>. <em>Hint.</em> Consider
+              <m>(\sqrt y)^2 - (\sqrt x)^2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>0 \lt  x \lt  1</m>, then <m>x^2 \lt  x</m> and <m>x \lt  \sqrt x</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              If <m>x > 1</m>, then <m>x \lt  x^2</m> and <m>\sqrt x \lt  x</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="proj_nth_roots">
+    <statement>
+      <p>
+        Restate the assertions of the preceding problem for
+        <m>n^{\text{ th } }</m> roots (and <m>n^{\text{ th } }</m> powers). Explain what alterations in the proofs
+        must be made to accommodate this change.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>x \in \R</m>. The
+        <index><main>absolute</main><sub>value</sub></index><term>absolute value</term> of <m>x</m>, denoted
+        <index><main><@<m>\abs{x}</m> (absolute value of <m>x</m>)</main></index>
+        by <m>\abs x</m>, is defined to be <m>\sqrt{x^2}</m>. In light of the preceding proposition it is clear
+        that if <m>x \ge 0</m>, then <m>\abs x = x</m>; and if <m>x \lt  0</m>, then <m>\abs x = -x</m>. From this
+        observation it is easy to deduce two standard procedures for establishing an inequality of the
+        form <m>\abs x \lt  c</m> (where <m>c > 0</m>). One is to show that <m>x^2 \lt  c^2</m>. The other is to show that
+        <m>-c \lt  x \lt  c</m> (or what is the same thing: that both <m>x \lt  c</m> and <m>-x \lt  c</m> hold). Both methods
+        are used extensively throughout the text, especially in <xref ref="cont_on_R">chapter</xref> when we
+        discuss continuity of real valued functions.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="prob_abs_val">
+    <statement>
+      <p>
+        Prove that if <m>a</m>, <m>b \in \R</m>, then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\abs{ab} = \abs a \, \abs b</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\abs{a + b} \le \abs a + \abs b</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\bigl\lvert\abs a - \abs b\bigr\lvert \le \abs{a-b}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that if <m>a</m>, <m>b \in \R</m>, then <m>\abs{ab} \le \frac12 (a^2 + b^2)</m>. <em>Hint.</em>
+        Consider the square of <m>a - b</m> and of <m>a + b</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

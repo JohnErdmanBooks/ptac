@@ -1,0 +1,190 @@
+
+<section>
+  <title>Definition and elementary properties</title>
+  <definition>
+    <statement>
+      <p>
+        Recall that a family <m>\sfml U</m> of sets is said to
+        <index><main>cover</main></index><term>cover</term> a set <m>S</m> if <m>\bigcup \sfml U \supseteq S</m>. The phrases <q><m>\sfml U</m> covers
+        <m>S</m></q>, <q><m>\sfml U</m> is a cover for <m>S</m></q>, and <q><m>\sfml U</m> is a covering of<nbsp /><m>S</m></q> are used
+        interchangeably. If a cover <m>\sfml U</m> for a metric space <m>M</m> consists entirely of open
+        subsets of <m>M</m>, then <m>\sfml U</m> is an
+        <index><main>open</main><sub>cover</sub></index>
+        <index><main>cover</main><sub>open</sub></index><term>open cover</term> for<nbsp /><m>M</m>. If <m>\sfml U</m> is a family of sets which covers a set <m>S</m> and
+        <m>\sfml V</m> is a subfamily of <m>\sfml U</m> which also covers <m>S</m>, then <m>\sfml V</m> is a
+        <index><main>subcover</main></index><term>subcover</term> of <m>\sfml U</m> for<nbsp /><m>S</m>. A metric space <m>M</m> is
+        <index><main>compact</main><sub>metric space</sub></index><term>compact</term> if <em>every</em> open cover of <m>M</m> has a finite subcover.
+      </p>
+
+      <p>
+        We have just defined what we mean by a compact <em>space</em>. It will be convenient also to
+        speak of a compact <em>subset</em> of a metric space<nbsp /><m>M</m>. If <m>A \subseteq M</m>, we say that <m>A</m>
+        is a
+        <index><main>compact</main><sub>subset</sub></index><term>compact subset</term> of <m>M</m> if, regarded as a subspace of <m>M</m>, it is a compact metric space.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that the definition of compactness is identical to the one given for subsets of the
+    real line in <xref ref="df_cpt">definition</xref>. Recall also that we have proved that every closed
+    bounded subset of <m>\R</m> is compact (see <xref ref="HBthm">example</xref>).
+  </p>
+
+  <remark>
+    <title>A Matter of Technical Convenience</title>
+    <p>
+      Suppose we wish to show that some particular
+      subset <m>A</m> of a metric space <m>M</m> is compact. Is it really necessary that we work with
+      coverings made up of open subsets of <m>A</m> (as the definition demands) or can we just as well
+      use coverings whose members are open subsets of<nbsp /><m>M</m>? Fortunately, either will do. This is an
+      almost obvious consequence of <xref ref="open_in_subsp">proposition</xref>. Nevertheless, providing a
+      careful verification takes a few lines, and it is good practice to attempt it.
+    </p>
+  </remark>
+
+  <proposition xml:id="mtc">
+    <statement>
+      <p>
+        A subset <m>A</m> of a metric space <m>M</m> is compact if and only if every
+        cover of <m>A</m> by open subsets of <m>M</m> has a finite subcover.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_mtc">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    An obvious corollary of the preceding proposition: If <m>M_1</m> is a subspace of a metric space
+    <m>M_2</m> and <m>K \subseteq M_1</m>, then <m>K</m> is a compact subset of <m>M_1</m> if and only if it is a
+    compact subset of <m>M_2</m>.
+  </p>
+
+  <problem xml:id="CPT_cnd1">
+    <statement>
+      <p>
+        Generalize the result of <xref ref="cpt_cnd1">proposition</xref> to metric
+        spaces. That is, show that every closed subset of a compact metric space is compact.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A subset of a metric space is
+        <index><main>bounded</main><sub>subset of a metric space</sub></index><term>bounded</term> if it is contained in some open ball.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="cpt_clbdd">
+    <statement>
+      <p>
+        Generalize the result of <xref ref="cpt_cb">proposition</xref> to metric
+        spaces. That is, show that every compact subset of a metric space is closed and bounded.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    As we will see, the converse of the preceding theorem holds for subsets of <m>\R^n</m> under its
+    usual metric; this is the <em>Heine-Borel theorem</em>. It is most important to know, however,
+    that this converse is not true in arbitrary metric spaces, where sets which are closed and
+    bounded may fail to be compact.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Consider an infinite set <m>M</m> under the discrete metric. Regarded as a subset
+        of itself <m>M</m> is clearly closed and bounded. But since the family <m>\sfml U = \bigl\{\{x\}
+        \colon x \in M \bigr\}</m> is a cover for <m>M</m> which has no proper subcover, the space <m>M</m> is
+        certainly not compact.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        With its usual metric <m>\R^2</m> is not compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The open unit ball <m>\{(x,y,z) \colon x^2 + y^2 + z^2 \lt  1\}</m>
+        in <m>\R^3</m> is not compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The strip <m>\{(x,y) \colon 2 \le y \le 5\}</m> in <m>\R^2</m> is not
+        compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The closed first quadrant <m>\{(x,y) \colon x \ge 0 \text{ and }  y \ge 0\}</m> in
+        <m>\R^2</m> is not compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the intersection of an arbitrary nonempty collection of compact subsets
+        of a metric space is itself compact.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the union of a finite collection of compact subsets of a metric space is
+        itself compact. <em>Hint.</em> What about <em>two</em> compact sets? Give an example to show
+        that the union of an arbitrary collection of compact subsets of a metric space need not be
+        compact.
+      </p>
+    </statement>
+  </problem>
+</section>

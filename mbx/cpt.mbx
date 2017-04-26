@@ -1,0 +1,7 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cpt">
+  <title>Compact metric spaces</title>
+  <xi:include  href="section15-1.mbx" />
+  <xi:include  href="section15-2.mbx" />
+  <xi:include  href="section15-3.mbx" />
+</chapter>

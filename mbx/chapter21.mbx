@@ -1,0 +1,9 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Linearity</title>
+  <xi:include  href="section21-1.mbx" />
+  <xi:include  href="section21-2.mbx" />
+  <xi:include  href="matr.mbx" />
+  <xi:include  href="dets.mbx" />
+  <xi:include  href="section21-5.mbx" />
+</chapter>

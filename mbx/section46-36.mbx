@@ -1,0 +1,52 @@
+
+<section>
+  <title>Exercises in Appendix k</title>
+  <solution xml:id="sol_lex1">
+    <p>
+      (Solution to <xref ref="lex1"></xref>)
+      Suppose that <m>(x,y) = (u,v)</m>. Then
+      <me>
+        \bigl\{\{x,y\},\{x\}\bigr\} = \bigl\{\{u,v\},\{u\}\bigr\}.
+      </me>
+    </p>
+
+    <p>
+      We consider two cases.
+    </p>
+
+    <p>
+      Case 1: <m>\{x,y\} = \{u,v\}</m> and <m>\{x\} = \{u\}</m>. The second equality implies that <m>x =
+      u</m>. Then from the first equality we infer that <m>y = v</m>.
+    </p>
+
+    <p>
+      Case 2: <m>\{x,y\} = \{u\}</m> and <m>\{x\} = \{u,v\}</m>. We derive <m>x = u = y</m> from the first
+      equality and <m>u = x = v</m> from the second. Thus <m>x = y = u = v</m>. In either case <m>x = u</m> and <m>y = v</m>.
+      The converse is obvious.
+    </p>
+  </solution>
+  <solution xml:id="sol_lex2">
+    <p>
+      (Solution to <xref ref="lex2"></xref>)
+    </p>
+
+    <p>
+      (a) <m>f(\frac12) = 3</m>;
+    </p>
+
+    <p>
+      (b) Notice that <m>(1 - x)^{-1}</m> does not exist if <m>x = 1</m>, <m>(1 + (1 - x)^{-1})^{-1}</m>
+      does not exist if <m>x = 2</m>, and <m>(1 - 2(1 + (1 - x)^{-1})^{-1})^{-1}</m> does not exist if <m>x =
+      0</m>; so <m>\dom f = \R \setminus \{0,1,2\}</m>. \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_lex3">
+    <p>
+      (Solution to <xref ref="lex3"></xref>)
+      We can take the square root of <m>g(x) = -x^2 - 4x - 1</m> only when <m>g(x) \ge 0</m>, and since we
+      take its reciprocal, it should not be zero. But <m>g(x) > 0</m> if and only if <m>x^2 + 4 x + 1 \lt  0</m>
+      if and only if <m>(x + 2)^2 \lt  3</m> if and only if <m>\abs{x + 2} \lt  \sqrt3</m> if and only if <m>-2 -
+      \sqrt3 \lt  x \lt  -2 + \sqrt3</m>. So <m>\dom f = (-2 - \sqrt3, -2 + \sqrt3)</m>.
+    </p>
+  </solution>
+</section>

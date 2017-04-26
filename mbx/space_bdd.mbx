@@ -1,0 +1,203 @@
+
+<section xml:id="space_bdd">
+  <title>The space <m>\fml B(S,V)</m></title>
+  <p>
+    Throughout this section <m>S</m> will be a nonempty set and <m>V</m> a normed linear space. In the first
+    section of this chapter we listed <m>\fml B(S,\R)</m> as an example of a normed linear space. Here
+    we do little more than observe that the fundamental facts presented in <xref ref="unif_conv">chapter</xref>
+    concerning pointwise and uniform convergence in the space <m>\fml B(S,\R)</m> all remain true when
+    the set <m>\R</m> is replaced by an arbitrary normed linear space. It is very easy to generalize
+    these results: replace absolute values by norms.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>V</m> be a normed linear space. A function <m>f \colon S \sto V</m> is
+        <index><main>bounded</main><sub>vector valued function</sub></index><term>bounded</term> if there exists a number <m>M > 0</m>
+        such that
+        <me>
+          \norm{f(x)} \le M
+        </me>
+        for all <m>x</m> in<nbsp /><m>S</m>. We denote by
+        <index><main>bounded@<m>\fml B(S,V)</m>(bounded vector valued functions on a set)</main></index><m>\fml B(S,V)</m> the family of all bounded <m>V</m> valued functions on<nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_B_vs">
+    <statement>
+      <p>
+        Under the usual pointwise operations <m>\fml B(S,V)</m> is a vector
+        space. (<xref ref="sol_exer_B_vs">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition xml:id="def_unif_norm">
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>V</m> be a normed linear space. For every
+        <m>f</m> in <m>\fml B(S,V)</m> define
+        <me>
+          \norm f_u := \sup\{\norm{f(x)} \colon x \in S\}\,.
+        </me>
+      </p>
+
+      <p>
+        The function <m>f \mapsto \norm f_u</m> is called the
+        <index><main><@<m>\norm{f}_u</m> (uniform norm on <m>\fml B(S,V)</m>)</main></index>
+        <index><main>uniform</main><sub>norm!on<nbsp /><m>\fml B(S,V)</m></sub></index>
+        <index><main>norm</main><sub>uniform <fillin /> on <m>\fml B(S,V)</m></sub></index><term>uniform norm</term> on <m>\fml B(S,V)</m>. This is the
+        <index><main>usual</main><sub>norm!on <m>\fml B(S,V)</m></sub></index>
+        <index><main>norm</main><sub>usual!on <m>\fml B(S,V)</m></sub></index>usual norm on <m>\fml B(S,V)</m>.
+      </p>
+
+      <p>
+        In the following problem you are asked to show that this function really is a norm. The
+        metric <m>d_u</m> induced by the uniform norm <m>\norm{}_u</m> on <m>\fml B(S,V)</m> is the
+        <index><main>uniform</main><sub>metric</sub></index>
+        <index><main>metric</main><sub>uniform</sub></index><term>uniform metric</term> on<nbsp /><m>\fml B(S,V)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the uniform norm defined in <xref ref="def_unif_norm"></xref> is in fact a norm
+        on<nbsp /><m>\fml B(S,V)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(f_n)</m> be a sequence of functions in <m>\fml F(S,V)</m>. If there is a function
+        <m>g</m> in <m>\fml F(S,V)</m> such that
+        <me>
+          \sup\{\norm{f_n(x) - g(x)}\colon x \in S\} \sto 0  \text{ as \(n \sto \infty\), }
+        </me>
+        then we say that the sequence <m>(f_n)</m>
+        <index><main><@<m>f_n \sto g</m> (unif) (uniform convergence)</main></index>
+        <index><main>uniform</main><sub>convergence</sub></index>
+        <index><main>convergence</main><sub>uniform</sub></index><term>converges uniformly</term> to<nbsp /><m>g</m> and write <m>f_n \sto g \text{ (unif) }</m>. The function <m>g</m> is
+        the
+        <index><main>uniform</main><sub>limit</sub></index>
+        <index><main>limit</main><sub>uniform</sub></index><term>uniform limit</term> of the sequence <m>(f_n)</m>. Notice that if <m>g</m> and all the <m>f_n</m>'s belong to
+        <m>\fml B(S,V)</m>, then uniform convergence of <m>(f_n)</m> to <m>g</m> is just convergence of <m>(f_n)</m> to
+        <m>g</m> with respect to the uniform metric. Notice also that the preceding repeats verbatim
+        <xref ref="def_uc_R">definition</xref>, except that <m>\R</m> has been replaced by <m>V</m> and absolute values by
+        norms. We may similarly generalize <xref ref="def_pc_R">definition</xref>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>(f_n)</m> be a sequence in <m>\fml F(S,V)</m>. If there is a function <m>g</m> such that
+        <me>
+          f_n(x) \sto g(x) \qquad  \text{ for all \(x \in S\) } ,
+        </me>
+        then <m>(fn)</m>
+        <index><main>pointwise</main><sub>convergence</sub></index>
+        <index><main>convergence</main><sub>pointwise</sub></index><term>converges pointwise</term> to<nbsp /><m>g</m>. In this case we write
+        <me>
+          f_n \sto g \text{ (ptws) } .
+        </me>
+      </p>
+
+      <p>
+        The function <m>g</m> is the
+        <index><main>pointwise</main><sub>limit</sub></index>
+        <index><main>limit</main><sub>pointwise</sub></index>
+        <index><main><@<m>f_n \sto g</m> (ptws) (pointwise convergence)</main></index><term>pointwise limit</term> of the<nbsp /><m>f_n</m>'s. <xref ref="prob_uc_pwc">Problem</xref> repeats
+        <xref ref="uc_vs_pwc">proposition</xref><mdash />uniform convergence implies pointwise convergence<mdash />except that
+        it now holds for <m>V</m> valued functions (not just real valued ones). <xref ref="prob_uc_bdd">Problem</xref>
+        generalizes <xref ref="unif_lim_bdd">proposition</xref>(a).
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="prob_uc_pwc">
+    <statement>
+      <p>
+        If a sequence <m>(f_n)</m> in <m>\fml F(S,V)</m> converges uniformly to
+        a function <m>g</m> in <m>\fml F(S,V)</m>, then <m>f_n \sto g \text{ (ptws) }</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_uc_bdd">
+    <statement>
+      <p>
+        Let <m>f_n)</m> be a sequence in <m>\fml B(S,V)</m> and <m>g</m> be a member
+        of <m>\fml F(S,V)</m>. If <m>f_n \sto g\text{ (unif) }</m>, then <m>g</m> is bounded.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Define
+        <me>
+          f(t) =
+                \begin{cases}(t,0),    \amp \text{ if \(0 \le t \le 1\) } ;   \\
+                       (1,t-1)   \amp \text{ if \(1 \lt  t \le 2\) } ;     \\
+                       (3-t,1)   \amp \text{ if \(2 \lt  t \le 3\) } ;     \\
+                       (0,4-t)   \amp \text{ if \(3 \lt  t \le 4\) } .
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Regarding <m>f</m> as a member of the space <m>\fml B([0,4],\R^2)</m> find<nbsp /><m>\norm f_u</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space, then the family <m>\fml C(M,V)</m> of all continuous
+        <m>V</m>-valued functions on <m>M</m> is a normed linear space.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_clo_alg">
+    <statement>
+      <p>
+        Let <m>M</m> be a compact metric space. Show that the family
+        <m>\fml C(M,\R)</m> of all continuous real valued functions on <m>M</m> is a unital algebra and that
+        <m>\norm{fg}_u \le \norm f_u\norm g_u</m>. Show also that if <m>A</m> is a subalgebra of <m>\fml
+        C(M,\R)</m>, then so is<nbsp /><m>\clo A</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_unif_lim">
+    <statement>
+      <p>
+        If <m>(f_n)</m> is a sequence of continuous <m>V</m> valued functions
+        on a metric space <m>M</m> and if this sequence converges uniformly to a <m>V</m> valued function <m>g</m> on
+        <m>M</m>, then <m>g</m> is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Modify the proof of <xref ref="unif_lim_cont">proposition</xref>.
+    </p>
+  </proof>
+</section>

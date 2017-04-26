@@ -1,0 +1,108 @@
+
+<section>
+  <title>Dini's theorem</title>
+  <definition>
+    <statement>
+      <p>
+        A family <m>\sfml F</m> of sets is said to have the
+        <index><main>finite</main><sub>intersection property</sub></index><term>finite intersection property</term> if every finite subfamily of <m>\sfml F</m> has nonempty
+        intersection.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="fip">
+    <statement>
+      <p>
+        Show that a metric space <m>M</m> is compact if and only if every family
+        of closed subsets of <m>M</m> having the finite intersection property has nonempty intersection.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <index><main>Dini's theorem</main></index>
+  </p>
+
+  <proposition xml:id="Dini_thm">
+    <title>Dini's Theorem</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact metric space and <m>(f_n)</m> be
+        a sequence of continuous real valued functions on <m>M</m> such that <m>f_n(x) \ge f_{n+1}(x)</m> for
+        all <m>x</m> in <m>M</m> and all <m>n</m> in <m>\N</m>. If the sequence <m>(f_n)</m> converges pointwise on <m>M</m> to a
+        continuous function<nbsp /><m>g</m>, then it converges uniformly to<nbsp /><m>g</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> First establish the correctness of the assertion for
+      the special case where <m>g = 0</m>. For <m>\epsilon > 0</m> consider the sets <m>A_n =
+      {f_n}^{\gets}([\epsilon, \infty))</m>. Argue by contradiction to show that
+      <m>\cap_{n=1}^{\infty}A_n</m> is empty. Then use <xref ref="fip">problem</xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        <em>Dini's theorem</em> (<xref ref="Dini_thm">problem</xref>) is no longer true if we remove
+        the hypothesis that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the sequence <m>(f_n)</m> is decreasing;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              the function <m>g</m> is continuous; or
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              the space <m>M</m> is compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="exam_approx_sqrt">
+    <statement>
+      <p>
+        On the interval <m>[0,1]</m> the square root function
+        <m>x \mapsto \sqrt x</m> is the uniform limit of a sequence of polynomials.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>p_0</m> be the zero function on <m>[0,1]</m>, and for
+      <m>n \ge 0</m> define <m>p_{n+1}</m> on <m>[0,1]</m> by
+      <me>
+        p_{n+1}(t) = p_n(t) + \tfrac12\bigl(t - (p_n(t))^2\bigr)\,,
+      </me>
+      and verify that
+      <me>
+        0 \le \sqrt t - p_n(t) \le \frac{2\sqrt t}{2 + n\sqrt t} \le \frac2n
+      </me>
+      for <m>0 \le t \le 1</m> and <m>n \in \N</m>.
+    </p>
+  </proof>
+</section>

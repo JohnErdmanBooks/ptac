@@ -1,0 +1,892 @@
+
+<section xml:id="pow_ser">
+  <title>Power series</title>
+  <p>
+    According to <xref ref="prob_geomser2">problem</xref> we may express the reciprocal of the real number <m>1 -
+    r</m> as the sum of a power series <m>\sum_0^\infty r^k</m> provided that <m>\abs r \lt  1</m>. One may
+    reasonably ask if anything like this is true in Banach spaces other than <m>\R</m>, in the space of
+    bounded linear maps from some Banach space into itself, for example. If <m>T</m> is such a map and
+    if <m>\norm T \lt  1</m>, is it necessarily true that <m>I- T</m> is invertible? And if it is, can the
+    inverse of <m>I- T</m> be expressed as the sum of the power series <m>\sum_0^\infty T^k</m>? It turns
+    out that the answer to both questions is <em>yes</em>. Our interest in pursuing this matter is
+    not limited to the fact that it provides an interesting generalization of facts concerning
+    <m>\R</m> to spaces with richer structure. In the next chapter we will need exactly this result
+    for the proof we give of the <em>inverse function theorem</em>.
+  </p>
+
+  <p>
+    Of course it is not possible to study power series in arbitrary Banach spaces; there are, in
+    general, no powers of vectors because there is no multiplication. Thus we restrict our
+    attention to those Banach spaces which (like the space of bounded linear maps) are equipped
+    with an additional operation <m>(x,y) \mapsto xy</m> (we call it <em>multiplication</em>) under which
+    they become linear associative algebras (<xref ref="def_alg">see</xref> for the definition) and on which
+    the norm is
+    <index><main>submultiplicative</main></index><term>submultiplicative</term> (that is, <m>\norm{xy} \le \norm x\,\norm y</m> for all <m>x</m> and<nbsp /><m>y</m>). We
+    will, for simplicity, insist further that these algebras be unital and that the multiplicative
+    identity <m>\boldsymbol 1</m> have norm one. Any Banach space thus endowed is a <term>(unital)
+    Banach algebra</term>. It is clear that Banach algebras have many properties in common with<nbsp /><m>\R</m>.
+    It is important, however, to keep firmly in mind those properties <em>not</em> shared with<nbsp /><m>\R</m>.
+    Certainly there is, in general, no linear ordering <m>\lt</m> of the elements of a Banach algebra (or
+    for that matter of a Banach space). Another crucial difference is that in <m>\R</m> every nonzero
+    element has a multiplicative inverse (its reciprocal); this is not true in general Banach
+    algebras (see, for example, <xref ref="prop_matr_inv">proposition</xref>). Furthermore, Banach algebras may
+    have nonzero
+    <index><main>nilpotent</main></index><term>nilpotent</term> elements (that is, elements <m>x \ne 0</m> such that <m>x^n = 0</m> for some natural
+    number<nbsp /><m>n</m>). (Example: the <m>2 \times 2</m> matrix
+    <m>a = \begin{bmatrix}0  \amp   1 \\
+                                   0  \amp   0
+    \end{bmatrix}</m> is not zero, but <m>a^2 = 0</m>.) This,of course, prevents us from requiring
+    that the norm be multiplicative: while <m>\abs{xy} = \abs x\,\abs y</m> holds in<nbsp /><m>\R</m>, all that is
+    true in general Banach algebras is <m>\norm{xy} \le \norm x\,\norm y</m>. Finally, multiplication
+    in Banach algebras need not be commutative.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be a normed linear space. Suppose there is an operation <m>(x,y) \mapsto xy</m>
+        from <m>A \times A</m> into <m>A</m> satisfying the following: for all <m>x</m>, <m>y</m>, <m>z \in A</m> and <m>\alpha
+        \in \R</m>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>(xy)z = x(yz)</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(x+y)z = xz+yz</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>x(y+z) = xy+xz</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\alpha(xy) = (\alpha x)y = x(\alpha y)</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\norm{xy} \le \norm x\,\norm y</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Suppose additionally that there exists a vector <m>\vc 1</m> in <m>A</m> such that
+        <ol>
+          <li>
+            <title>(f)</title>
+            <p>
+              <m>x\,\vc 1 = \vc 1\,x = x</m> for all <m>x \in A</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(g)</title>
+            <p>
+              <m>\norm{\vc 1} = 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Then <m>A</m> is a
+        <index><main>normed</main><sub>algebra</sub></index>
+        <index><main>algebra</main><sub>normed</sub></index>
+        <index><main>identity@<m>\vc 1</m> (multiplicative identity in an algebra)</main></index>
+        <index><main>unital</main><sub>normed algebra</sub></index><term>(unital) normed algebra</term>. If <m>A</m> is complete it is a
+        <index><main>Banach</main><sub>algebra</sub></index>
+        <index><main>algebra</main><sub>Banach</sub></index>
+        <index><main>unital</main><sub>Banach algebra</sub></index><term>(unital) Banach algebra</term>. If all elements <m>x</m> and <m>y</m> in a normed (or Banach) algebra
+        satisfy <m>xy = yx</m>, then the algebra <m>A</m> is
+        <index><main>commutative</main><sub>normed algebra</sub></index>
+        <index><main>commutative</main><sub>Banach algebra</sub></index><term>commutative</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\R</m> of real numbers is a commutative Banach algebra. The number <m>1</m>
+        is the multiplicative identity.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>S</m> is a nonempty set, then with pointwise multiplication
+        <me>
+          (fg)(x) :=  f(x)g(x) \qquad \text{ for all \(x \in S\) }
+        </me>
+        the Banach space <m>\fml B(S,\R)</m> becomes a commutative Banach algebra. The constant function
+        <m>\vc 1 \colon x \mapsto 1</m> is the multiplicative identity.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="exer_bddfn_ba">
+    <statement>
+      <p>
+        Show that if <m>f</m> and <m>g</m> belong to <m>\fml B(S,\R)</m>, then
+        <m>\norm{fg}_u \le \norm f_u\norm g_u</m>. Show by example that equality need not hold.
+        (<xref ref="sol_exer_bddfn_ba">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <example>
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space then (again with pointwise multiplication)
+        <m>\fml C(M,\R)</m> is a commutative Banach algebra. It is a
+        <index><main>subalgebra</main></index><term>subalgebra</term> of <m>\fml B(M,\R)</m> (that is, a subset of <m>\fml B(M,\R)</m> containing the
+        multiplicative identity which is a Banach algebra under the induced operations).
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>E</m> is a Banach space, then <m>\ofml B(E,E)</m> is a Banach algebra (with
+        composition as <q>multiplication</q>). We have proved in <xref ref="prob_lt_alg">problem</xref> that the
+        space of linear maps from <m>E</m> into <m>E</m> is a unital algebra. The same is easily seen to be
+        true of <m>\ofml B(E,E)</m> the corresponding space of bounded linear maps. The identity
+        transformation <m>I_E</m> is the multiplicative identity. Its norm is <m>1</m>
+        by <xref ref="exer_exam_norm"></xref>(a). In <xref ref="prop_opnorm">proposition</xref> it was shown that <m>\ofml B(E,E)</m>
+        is a normed linear space; the submultiplicative property of the norm on this space was proved
+        in <xref ref="prop_comp_op">proposition</xref>. Completeness was proved in
+        <xref ref="prop_BVW_compl">proposition</xref>.
+      </p>
+    </statement>
+  </example>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> is a normed algebra, then the operation of multiplication
+        <me>
+          M \colon A \times A \sto A\colon  (x,y) \mapsto xy
+        </me>
+        is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Try to adapt the proof of <xref ref="cont_mult">example</xref>.
+    </p>
+  </proof>
+
+  <corollary>
+    <statement>
+      <p>
+        If <m>x_n \sto a</m> and <m>y_n \sto b</m> in a normed algebra, then <m>x_ny_n \sto ab</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        An element <m>x</m> of a unital algebra <m>A</m> (with or without norm) is
+        <index><main>invertible</main><sub>element of an algebra</sub></index><term>invertible</term> if there exists an element
+        <index><main>inverse</main><sub>of an element of an algebra</sub></index>
+        <index><main><@<m>x^{-1}</m> (inverse of an element of an algebra</main></index><m>x^{-1}</m> (called the
+        <index><main>inverse</main><sub>multiplicative</sub></index>
+        <index><main>multiplicative inverse</main></index><term>multiplicative inverse</term> of <m>x</m>) such that <m>xx^{-1} = x^{-1}x = \vc 1</m>. The set of all
+        invertible elements of A is denoted
+        <index><main>invertible@<m>\inv A</m> (invertible elements of an algebra)</main></index>by<nbsp /><m>\inv A</m>. We list several almost obvious properties of inverses.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_prop_inv">
+    <statement>
+      <p>
+        If <m>A</m> is a unital algebra, then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Each element of <m>A</m> has at most one multiplicative inverse.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The multiplicative identity <m>\boldsymbol 1</m> of <m>A</m> is invertible and <m>\vc 1^{-1}
+              = \vc 1</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>x</m> is invertible, then so is <m>x^{-1}</m> and <m>\bigl(x^{-1}\bigr)^{-1} = x</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              If <m>x</m> and <m>y</m> are invertible, then so is <m>xy</m> and <m>(xy)^{-1} = y^{-1}x^{-1}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              If <m>x</m> and <m>y</m> are invertible, then <m>x^{-1} - y^{-1} = x^{-1}(y - x)y^{-1}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>\vc 1</m> be the multiplicative identity of<nbsp /><m>A</m>.
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            If <m>y</m> and <m>z</m> are multiplicative inverses of <m>x</m>, then <m>y = y\,\vc 1 = y(xz)
+            = (yx)z = \vc 1\,z = z</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            <m>\vc 1 \cdot \vc 1 = \vc 1</m> implies <m>\vc 1^{-1} = \vc 1</m> by<nbsp />(a).
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            <m>x^{-1}x = xx^{-1} = 1</m> implies <m>x</m> is the inverse of<nbsp /><m>x^{-1}</m> by<nbsp />(a).
+          </p>
+        </li>
+
+        <li>
+          <title>(d)</title>
+          <p>
+            <m>(xy)(y^{-1}x^{-1}) = xx^{-1} = \vc 1</m> and <m>(y^{-1}x^{-1})(xy) = y^{-1}y =
+            \vc 1</m> imply <m>y^{-1}x^{-1}</m> is the inverse of <m>xy</m> (again by<nbsp />(a)).
+          </p>
+        </li>
+
+        <li>
+          <title>(e)</title>
+          <p>
+            <m>x^{-1}(y - x)y^{-1} = (x^{-1}y - 1)y^{-1} = x^{-1} - y^{-1}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_inv_ps">
+    <statement>
+      <p>
+        If <m>x</m> is an element of a unital Banach algebra and <m>\norm x \lt  1</m>,
+        then <m>\vc 1 - x</m> is invertible and <m>(\vc 1 - x)^{-1} = \sum_{k=0}^\infty x^k</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> First show that the geometric series <m>\sum_{k=0}^\infty x^k</m>
+      converges absolutely. Next evaluate <m>(\vc 1 - x)s_n</m> and <m>s_n(\vc 1 - x)</m> where <m>s_n =
+      \sum_{k=0}^n x^k</m>. Then take limits as <m>n \sto \infty</m>. (<xref ref="sol_prop_inv_ps">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_inv_ps">
+    <statement>
+      <p>
+        If <m>x</m> is an element of a unital Banach algebra and
+        <m>\norm x \lt  1</m>, then
+        <me>
+          \norm{(\boldsymbol 1-x)^{-1} - \boldsymbol 1} \le \frac{\norm x}{1 - \norm x}\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    <xref ref="prop_inv_ps">Proposition</xref> says that anything close to <m>\vc 1</m> in a Banach algebra <m>A</m> is
+    invertible. In other words <m>\vc 1</m> is an interior point of<nbsp /><m>\inv A</m>.
+    <xref ref="cor_inv_ps">Corollary</xref> says that if <m>\norm x</m> is small, that is, if <m>\vc 1 - x</m> is close
+    to <m>\vc 1</m>, then <m>(\vc 1 - x)^{-1}</m> is close to <m>\vc 1^{-1}</m> (<m>= \vc 1</m>). In other words, the
+    operation of inversion <m>x \mapsto x^{-1}</m> is continuous at<nbsp /><m>\vc 1</m>. These results are actually
+    special cases of much more satisfying results: every point of <m>\inv A</m> is an interior point of
+    that set (that is, <m>\inv A</m> is open); and the operation of inversion is continuous at every
+    point of <m>\inv A</m>. We use the special cases above to prove the more general results.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>A</m> is a Banach algebra, then <m>\open{\inv A}A</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>a \in \inv A</m>, <m>r = \norm{a^{-1}}^{-1}</m>, <m>y \in
+      B_r(a)</m>, and <m>x = a^{-1}(a - y)</m>. What can you say about<nbsp /><m>a(\boldsymbol 1 - x)</m>?
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_inv_cont">
+    <statement>
+      <p>
+        If <m>A</m> is a Banach algebra, then the operation of inversion
+        <me>
+          r \colon \inv A \sto \inv A \colon  x \mapsto x^{-1}
+        </me>
+        is continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Show that <m>r</m> is continuous at an arbitrary point <m>a</m> in
+      <m>\inv A</m>. Given <m>\epsilon > 0</m> find <m>\delta > 0</m> sufficiently small that if <m>y</m> belongs to
+      <m>B_{\delta}(a)</m> and <m>x = \boldsymbol 1 - a^{-1}y</m>, then
+      <me>
+        \norm x \lt  \norm{a^{-1}}\delta \lt  \tfrac12
+      </me>
+      and
+      <men xml:id="eqn_inv_cont1" >
+        \norm{r(y) - r(a)} \le \frac{\norm x \norm{a^{-1}}}{1 - \norm x} \lt  \epsilon
+      </men>
+    </p>
+
+    <p>
+      For <xref ref="eqn_inv_cont1" /> <xref ref="prop_prop_inv">use</xref>(e), the fact that <m>y^{-1}a =
+      \bigl(a^{-1}y\bigr)^{-1}</m>, and <xref ref="cor_inv_ps"></xref>. (<xref ref="sol_prop_inv_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    There are a number of ways of multiplying infinite series. The most common is the
+    <em>Cauchy product</em>. And it is the only one we will consider.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>\sum_{n=0}^\infty a_n</m> and <m>\sum_{n=0}^\infty b_n</m> are infinite series in a
+        Banach algebra, then their
+        <index><main>Cauchy</main><sub>product</sub></index>
+        <index><main>product</main><sub>Cauchy</sub></index><term>Cauchy product</term> is the series <m>\sum_{n=0}^\infty c_n</m> where <m>c_n = \sum_{k=0}^n a_k
+        b_{n-k}</m>. To see why this definition is rather natural, imagine trying to multiply two power
+        series <m>\sum_0^\infty a_kx^k</m> and <m>\sum_0^\infty b_kx^k</m> just as if they were infinitely long
+        polynomials. The result would be another power series. The coefficient of <m>x^n</m> in the
+        resulting series would be the sum of all the products <m>a_ib_j</m> where <m>i+j = n</m>. There are
+        several ways of writing this sum
+        <me>
+          \sum_{i+j = n}a_ib_j = \sum_{k=0}^n a_kb_{n-k} = \sum_{k=0}^n a_{n-k}b_k\,.
+        </me>
+      </p>
+
+      <p>
+        If we just forget about the variable <m>x</m>, we have the preceding definition of the Cauchy
+        product.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The first thing we observe about these products is that convergence of both the series <m>\sum
+    a_k</m> and <m>\sum b_k</m> does <em>not</em> imply convergence of their Cauchy product.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>a_k = b_k = (-1)^k(k+1)^{-1/2}</m> for all <m>k \ge 0</m>. Then <m>\sum_0^\infty a_k</m>
+        and <m>\sum_0^\infty b_k</m> converge by the alternating series test (<xref ref="prob_ast">problem</xref>). The
+        <m>n^{\text{ th } }</m> term of their Cauchy product is
+        <me>
+          c_n = \sum_{k=0}^na_kb_{n-k} = (-1)^n\sum_{k=0}^n\frac1{\sqrt{k+1}\sqrt{n-k+1}}\,.
+        </me>
+      </p>
+
+      <p>
+        Since for <m>0 \le k \le n</m>
+        <md>
+          <mrow>(k + 1)(n - k + 1) \amp = k(n - k) + n + 1</mrow>
+          <mrow>\amp \le n^2 + 2n + 1</mrow>
+          <mrow>\amp = (n + 1)^2</mrow>
+        </md>
+        we see that
+        <me>
+          \abs{c_n} = \sum_{k=0}^n\frac1{\sqrt{k + 1}\sqrt{n - k + 1}}
+                                                  \ge \sum_{k=0}^n\frac1{n + 1} = 1\,.
+        </me>
+      </p>
+
+      <p>
+        Since <m>c_n \nrightarrow 0</m>, the series <m>\sum_0^\infty c_k</m> does not converge (see
+        <xref ref="prop_terms_zero">proposition</xref>).
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    Fortunately quite modest additional hypotheses do guarantee convergence of the Cauchy product.
+    One very useful sufficient condition is that at least one of the series <m>\sum a_k</m> or <m>\sum
+    b_k</m> converge absolutely.
+  </p>
+
+  <p>
+    <index><main>Mertens' theorem</main></index>
+  </p>
+
+  <theorem xml:id="thm_Mertens">
+    <title>Mertens' Theorem</title>
+    <statement>
+      <p>
+        If in a Banach algebra <m>\sum_0^\infty a_k</m> is
+        absolutely convergent and has sum <m>a</m> and the series <m>\sum_0^\infty b_k</m> is convergent with
+        sum<nbsp /><m>b</m>, then the Cauchy product of these series converges and has sum<nbsp /><m>ab</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise <em>Hint.</em> Although this exercise is slightly tricky, the difficulty
+      has nothing whatever to do with Banach algebras. Anyone who can prove <em>Mertens' theorem</em>
+      for series of real numbers can prove it for arbitrary Banach algebras.
+    </p>
+
+    <p>
+      For each <m>k \in \N</m> let <m>c_k = \sum_{j=0}^k a_j b_{k-j}</m>. Let <m>s_n</m>, <m>t_n</m>, and <m>u_n</m> be the
+      <m>n^{\text{ th } }</m> partial sums of the sequences <m>(a_k)</m>, <m>(b_k)</m>, and <m>(c_k)</m>, respectively.
+      First verify that for every <m>n</m> in <m>\N</m>
+      <men xml:id="eqn_Mertens1" >
+        u_n =  \sum_{k=0}^n a_{n-k}t_k
+      </men>
+    </p>
+
+    <p>
+      To this end define, for <m>0 \le j,k \le n</m>, the vector <m>d_{jk}</m> by
+      <me>
+        d_{jk} =
+                \begin{cases}a_jb_{k-j},   \amp \text{ if \(j \le k\) }  \\
+                                    0,       \amp \text{ if \(j > k\). } 
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Notice that both the expression which defines <m>u_n</m> and the expression on the right side of
+      equation<nbsp /><xref ref="eqn_Mertens1" /> involve only finding the sum of the elements of the matrix
+      <m>[d_{jk}]</m> but in different orders.
+    </p>
+
+    <p>
+      From <xref ref="eqn_Mertens1" /> it is easy to see that for every <m>n</m>
+      <me>
+        u_n = s_nb + \sum_{k=0}^n a_{n-k}(t_k - b).
+      </me>
+    </p>
+
+    <p>
+      Since <m>s_n b \sto ab</m> as <m>n \sto \infty</m>, the proof of the theorem is reduced to showing that
+      <me>
+        \norm{\sum_{k=0}^n a_{n-k}(t_k - b)} \sto 0 \qquad \text{ as \(n \sto \infty\). }
+      </me>
+    </p>
+
+    <p>
+      Let <m>\alpha_k = \norm{a_k}</m> and <m>\beta_k = \norm{t_k - b}</m> for all<nbsp /><m>k</m>. Why does it suffice
+      to prove that <m>\sum_{k=0}^n \alpha_{n-k}\beta_k \sto 0</m> as <m>n \sto \infty</m>? In the finite sum
+      <men xml:id="eqn_Mertens2" >
+        \alpha_n\beta_0 + \alpha_{n-1}\beta_1 + \dots + \alpha_0\beta_n
+      </men>
+      the <m>\alpha_k</m>'s towards the left are small (for large<nbsp /><m>n</m>) and the <m>\beta_k</m>'s towards the
+      right are small (for large<nbsp /><m>n</m>). This suggests breaking the sum<nbsp /><xref ref="eqn_Mertens2" /> into two
+      pieces
+      <me>
+        p = \sum_{k=0}^{n_1} \alpha_{n-k}\beta_k \qquad \text{ and } 
+                                         \qquad q = \sum_{k=n_1+1}^n \alpha_{n - k}\beta_k
+      </me>
+      and trying to make each piece small (smaller, say, than <m>\frac12\epsilon</m> for a
+      preassigned<nbsp /><m>\epsilon</m>).
+    </p>
+
+    <p>
+      For any positive number <m>\epsilon_1</m> it is possible (since <m>\beta_k \sto 0</m>) to choose <m>n_1</m>
+      in <m>\N</m> so that <m>\beta_k \lt  \epsilon_1</m> whenever <m>k \ge n_1</m>. What choice of <m>\epsilon_1</m> will
+      ensure that <m>q \lt  \frac12\epsilon</m>?
+    </p>
+
+    <p>
+      For any <m>\epsilon_2 > 0</m> it is possible (since <m>\alpha_k \sto 0</m>) to choose <m>n_2</m> in <m>\N</m> so
+      that <m>\alpha_k \lt  \epsilon_2</m> whenever <m>k \ge n_2</m>. Notice that <m>n-k \ge n_2</m> for all <m>k \le
+      n_1</m> provided that <m>n \ge n_1 + n_2</m>. What choice of <m>\epsilon_2</m> will guarantee that <m>p \lt 
+      \frac12\epsilon</m>? (<xref ref="sol_thm_Mertens">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_bamult_diff">
+    <statement>
+      <p>
+        On a Banach algebra <m>A</m> the operation of multiplication
+        <me>
+          M\colon  A \times A \sto A\colon  (x,y) \mapsto xy
+        </me>
+        is differentiable.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Fix <m>(a,b)</m> in <m>A \times A</m>. Compute the value of the
+      function <m>\Delta M_{(a,b)}</m> at the point <m>(h,j)</m> in <m>A \times A</m>. Show that
+      <m>\norm{(h,j)}^{-1}hj \sto 0</m> in A as <m>(h,j) \sto 0</m> in <m>A \times A</m>. How should <m>dM_{(a,b)}</m>
+      be chosen so that the Newton quotient
+      <me>
+        \frac{\Delta M_{(a,b)}(h,j) - dM_{(a,b)}(h,j)}{\norm{(h,j)}}
+      </me>
+      approaches zero (in <m>A</m>) as <m>(h,j) \sto 0</m> (in <m>A \times A</m>)? Don't forget to show that your
+      choice for <m>dM_{(a,b)}</m> is a bounded linear map.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>c \in V</m> where <m>V</m> is a normed linear space and let <m>A</m> be a Banach algebra.
+        If <m>f</m>, <m>g \in \fml D_c(V,A)</m>, then their product <m>fg</m> defined by
+        <me>
+          (fg)(x) := f(x)\, g(x)
+        </me>
+      </p>
+
+      <p>
+        (for all <m>x</m> in some neighborhood of<nbsp /><m>c</m>) is differentiable at <m>c</m> and
+        <me>
+          d(fg)_c = f(c)dg_c + df_c \cdot g(c)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="prop_bamult_diff">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_bapower_diff">
+    <statement>
+      <p>
+        If <m>A</m> is a commutative Banach algebra and <m>n \in \N</m>,
+        then the function <m>f \colon x \mapsto x^n</m> is differentiable and <m>df_a(h) = na^{n-1}h</m> for all
+        <m>a</m>, <m>h \in A</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> A simple induction proof works. Alternatively, you may
+      choose to convince yourself that the usual form of the <em>binomial theorem</em>
+      (<xref ref="binom_thm">see</xref>) holds in every commutative Banach algebra.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        What happens in <xref ref="prop_bapower_diff"></xref> if we do not assume that the Banach algebra
+        is commutative? Is <m>f</m> differentiable? <em>Hint.</em> Try the cases <m>n = 2</m>, <m>3</m>, and<nbsp /><m>4</m>.
+        Then generalize.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize <xref ref="prop_abssum_x_bdd">proposition</xref> to produce a theorem concerning the
+        convergence of a series <m>\sum a_kb_k</m> in a Banach algebra.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>(a_k)</m> is a sequence in a Banach algebra <m>A</m> and <m>x \in A</m>, then a series of the
+        form <m>\sum_{k=0}^\infty a_kx^k</m> is a
+        <index><main>power series</main></index>
+        <index><main>series</main><sub>power</sub></index><term>power series</term> in<nbsp /><m>x</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <notation>
+
+  <p>
+    It is a bad (but very common) habit to use the same notation for a polynomial function
+    and for its value at a point<nbsp /><m>x</m>. One often encounters an expression such as <q>the function
+    <m>x^2 - x + 5</m></q> when clearly what is meant is <q>the function <m>x \mapsto x^2 - x + 5</m>.</q> This
+    abuse of language is carried over to power series. If <m>(a_k)</m> is a sequence in a Banach
+    algebra <m>A</m> and <m>D = \{x \in A\colon \sum_{k=0}^\infty a_kx^k \text{ converges } \}</m>, then the
+    function <m>x \mapsto \sum_{k=0}^\infty a_kx^k</m> from <m>D</m> into <m>A</m> is usually denoted by
+    <m>\sum_{k=0}^\infty a_kx^k</m>. Thus for example one may find the expression,
+    <q><m>\sum_{k=0}^\infty a_kx^k</m> converges uniformly on the set<nbsp /><m>U</m>.</q> What does this mean?
+    Answer: if <m>s_n(x) = \sum_{k=0}^n a_kx^k</m> for all <m>n \in \N</m> and <m>f(x) = \sum_{k=0}^\infty
+    a_kx^k</m>, then <m>s_n \sto f\text{ (unif) }</m>.
+  </p>
+
+  </notation>
+
+  <proposition xml:id="prop_pser_unif_conv">
+    <statement>
+      <p>
+        Let <m>(a_k)</m> be a sequence in a Banach algebra and
+        <m>r > 0</m>. If the sequence <m>(\norm{a_k}r^k)</m> is bounded, then the power series
+        <m>\sum_{k=0}^\infty a_kx^k</m> converges uniformly on every open ball <m>B_s(0)</m> such that <m>0 \lt  s \lt 
+        r</m>. (And therefore it converges on the ball<nbsp /><m>B_r(0)</m>. )
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>p = s/r</m> where <m>0 \lt  s \lt  r</m>. Let <m>f_k(x) = a_kx^k</m>.
+      Use the <em>Weierstrass M-test</em><nbsp /> <xref ref="M_test"></xref>. (<xref ref="sol_prop_pser_unif_conv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Since the uniform limit of a sequence of continuous functions is continuous
+    (<xref ref="unif_lim_cont">see</xref>), it follows easily from preceding proposition that (under the
+    hypotheses given) the function <m>f\colon x \mapsto \sum_0^\infty a_kx^k</m> is continuous on
+    <m>B_r(0)</m>. We will prove considerably more than this: the function is actually differentiable
+    on <m>B_r(0)</m>, and furthermore, the correct formula for its differential is found by
+    differentiating the power series term-by-term. That is, <m>f</m> behaves on <m>B_r(0)</m> just like a
+    <q>polynomial</q> with infinitely many terms. This is proved in <xref ref="term_by_term_diff"></xref>. We
+    need however a preliminary result.
+  </p>
+
+  <proposition xml:id="unif_lim_dffrntls">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be normed linear spaces, <m>U</m> be an open
+        convex subset of<nbsp /><m>V</m>, and <m>(f_n)</m> be a sequence of functions in <m>\fml C^1(U,W)</m>. If the
+        sequence <m>(f_n)</m> converges pointwise to a function <m>F\colon U \sto W</m> and if the sequence
+        <m>\bigl(d(f_n)\bigr)</m> converges uniformly on <m>U</m>, then <m>F</m> is differentiable at each point <m>a</m>
+        of <m>U</m> and
+        <me>
+          dF_a = \lim_{n \sto \infty} d\bigl(f_n\bigr)_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Fix <m>a \in U</m>. Let
+      <m>\phi\colon U \sto \ofml B(V,W)</m> be the function to which the sequence <m>\bigl(d(f_n)\bigr)</m>
+      converges uniformly. Given <m>\epsilon
+      > 0</m> show that there exists <m>N \in \N</m> such that
+      <m>\bignorm{d\bigl(f_n - f_N\bigr)_x} \lt  \epsilon/4</m> for all <m>x \in
+      U</m> and <m>n \in \N</m>. Let <m>g_n = f_n - f_N</m> for each<nbsp /><m>n</m>. Use one
+      version of the <em>mean value theorem</em> to show that
+      <men xml:id="eqn_uld" >
+        \norm{\Delta\bigl(g_n\bigr)_a(h) - d\bigl(g_n\bigr)_a(h)}
+                        \le \textstyle{\frac12}\epsilon\norm h
+      </men>
+      whenever <m>n \ge N</m> and <m>h</m> is a vector such that <m>a + h \in U</m>. In<nbsp /><xref ref="eqn_uld" /> take the
+      limit as <m>n \sto \infty</m>. Use the result of this together with the fact that
+      <m>\Delta\bigl(f_N\bigr)_a \simeq d\bigl(f_N\bigr)_a</m> to show that <m>\Delta F_a \simeq T</m> when <m>T
+      = \phi(a)</m>. (<xref ref="sol_unif_lim_dffrntls">Solution</xref>.)
+    </p>
+  </proof>
+
+  <theorem xml:id="term_by_term_diff">
+    <title>Term-by-Term Differentiation of Power Series</title>
+    <statement>
+      <p>
+        Suppose that
+        <m>(a_n)</m> is a sequence in a commutative Banach algebra <m>A</m> and that <m>r > 0</m>. If the sequence
+        <m>(\norm{a_k}r^k)</m> is bounded, then the function <m>F\colon B_r(0) \sto A</m> defined by
+        <me>
+          F(x) = \sum_{k=0}^\infty a_kx^k
+        </me>
+        is differentiable and
+        <me>
+          dF_x(h) = \sum_{k=1}^\infty k a_k x^{k-1}h
+        </me>
+        for every <m>x \in B_r(0)</m> and <m>h \in A</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>f_n(x) = \sum_0^n a_kx^k</m>. Fix <m>x</m> in <m>B_r(0)</m> and
+      choose a number <m>s</m> satisfying <m>\norm x \lt  s \lt  r</m>. Use <xref ref="prop_bapower_diff">propositions</xref>
+      and <xref ref="unif_lim_dffrntls"></xref> to show that <m>F</m> is differentiable at <m>x</m> and to compute its
+      differential there. In the process you will need to show that the sequence
+      <m>\bigl(d(f_n)\bigr)</m> converges uniformly on <m>B_s(0)</m>. Use <xref ref="prop_pser_unif_conv">propositions</xref> and <xref ref="x4exam2"></xref>. If <m>s \lt  t \lt  r</m>, then there exists <m>N \in \N</m> such
+      that <m>k^{1/k} \lt  r/t</m> for all <m>k \ge N</m>. (Why ?)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give a definition of and develop the properties of the <em>exponential function</em>
+        on a commutative Banach algebra<nbsp /><m>A</m>. Include at least the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The series <m>\sum_{k=0}^\infty \frac1{k!}x^k</m> converges absolutely for all <m>x</m>
+              in<nbsp /><m>A</m> and uniformly on <m>B_r(0)</m> for every <m>r > 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>\exp(x) := \sum_{k=0}^\infty \frac1{k!}x^k</m>, then <m>\exp\colon A \sto A</m> is
+              differentiable and
+              <me>
+                d\exp_x(h) = \exp(x) \cdot h\,.
+              </me>
+              This is the
+               <index><main>exponential function</main></index>
+               <index><main>function</main><sub>exponential</sub></index><term>exponential function</term> on<nbsp /><m>A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>x</m>, <m>y \in A</m>, then
+              <me>
+                \exp(x)\cdot\exp(y) = \exp(x + y)\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              If <m>x \in A</m>, then <m>x</m> is invertible and
+              <me>
+                \bigl(\exp(x)\bigr)^{-1} = \exp(-x)\,.
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Develop some trigonometry on a commutative Banach algebra<nbsp /><m>A</m>. (It will be convenient
+        to be able to take the
+        <index><main>derivative</main><sub>in Banach algebras</sub></index><term>derivative</term> of a Banach algebra valued function. If <m>G \colon A \sto A</m> is a
+        differentiable function, define <m>DG(a) := dG_a(1)</m> for every <m>a \in A</m>.) Include at least the
+        following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The series <m>\sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^k</m> converges absolutely for all
+              <m>x</m> in<nbsp /><m>A</m> and uniformly on every open ball centered at the origin.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The function <m>F\colon x \mapsto \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^k</m> is
+              differentiable at every <m>x \in A</m>.   Find <m>dF_x(h)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              For every <m>x\in A</m>, let <m>\cos x := F(x^2)</m>.  Let <m>\sin x := D\cos x</m> for every<nbsp /><m>x</m>.
+              Show that
+              <me>
+                \sin x = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1}
+              </me>
+              for every <m>x \in A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Show that <m>D\sin x = \cos x</m> for every <m>x \in A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              Show that <m>\sin^2 x + \cos^2 x = 1</m> for every <m>x \in
+                A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

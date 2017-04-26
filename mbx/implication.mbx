@@ -1,0 +1,283 @@
+
+<section xml:id="implication">
+  <title>Implication</title>
+  <p>
+    Consider the assertion, <q>If <m>1=2</m>, then <m>2=3</m>.</q>
+    If you ask a large number of people (not mathematically trained) about the truth of this,
+    you will probably find some who think it is true, some who think it is false, and some
+    who think it is meaningless (therefore neither true nor false). This is another example
+    of the ambiguity of ordinary language. In order to avoid ambiguity and to insure that
+    <q><m>P</m> implies <m>Q</m></q> has a truth value whenever <m>P</m> and <m>Q</m> do, we define the operation of
+    <index><main>implication</main></index><term>implication</term>, denoted
+    <index><main>#@<m>\Rightarrow</m> (implies)</main></index>by<nbsp /><m>\Rightarrow</m>, by means of the
+    following truth table.
+  </p>
+  <tabular>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>P</m></cell>
+      <cell><m>Q</m></cell>
+      <cell><m>P \Rightarrow Q</m></cell>
+    </row>
+    <row bottom="medium">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell  ><m>T</m></cell>
+      <cell><m>T</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>T</m></cell>
+      <cell><m>F</m></cell>
+      <cell><m>F</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>F</m></cell>
+      <cell><m>T</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>F</m></cell>
+      <cell><m>F</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+  <p>
+    There are many ways of saying that <m>P</m> implies <m>Q</m>. The following assertions are all identical.
+    <md>
+      <mrow>\amp P \Rightarrow Q.</mrow>
+      <mrow>\amp \text{ \(P\) implies \(Q\). }</mrow>
+      <mrow>\amp \text{ If \(P\), then \(Q\). }</mrow>
+      <mrow>\amp \text{ \(P\) is sufficient (or a sufficient condition) for \(Q\). }</mrow>
+      <mrow>\amp \text{ Whenever \(P\), then \(Q\). }</mrow>
+      <mrow>\amp Q \Leftarrow P</mrow>
+      <mrow>\amp \text{ \(Q\) is implied by \(P\). }</mrow>
+      <mrow>\amp \text{ \(Q\) is a consequence of \(P\). }</mrow>
+      <mrow>\amp \text{ \(Q\) follows from \(P\). }</mrow>
+      <mrow>\amp \text{ \(Q\) is necessary (or a necessary condition) for \(P\). }</mrow>
+      <mrow>\amp \text{ \(Q\) whenever \(P\). }</mrow>
+    </md>
+  </p>
+
+  <p>
+    The statement <m>Q \Rightarrow P</m> is the
+    <index><main>converse</main></index><term>converse</term> of <m>P \Rightarrow Q</m>. It is a common mistake to confuse a statement with its
+    converse. This is a grievous error. For example: it is correct to say that if a geometric
+    figure is a square, then it is a quadrilateral; but it is <em>not</em> correct to say that if a
+    figure is a quadrilateral it must be a square.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>P</m> and <m>Q</m> are sentences, we define the logical connective <q>iff</q> (read
+        <q>if and only if</q>) by the following truth table.
+      </p>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>P</m></cell>
+          <cell><m>Q</m></cell>
+          <cell><m>P \text{ iff }  Q</m></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  ><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+      <p>
+        Notice that the sentence <q><m>P</m> iff <m>Q</m></q> is true exactly in those cases where <m>P</m> and <m>Q</m> have
+        the same truth values. That is, saying that <q><m>P</m> iff <m>Q</m></q> is a
+        <index><main>tautology</main></index><term>tautology</term> (true for all truth values of <m>P</m> and <m>Q</m>) is the same as saying that <m>P</m> and
+        <m>Q</m> are equivalent sentences. Thus the connective <q>iff</q> is called
+        <index><main>logical equivalence</main></index>
+        <index><main>equivalent</main><sub>logically</sub></index><term>equivalence</term>. An alternative notation
+        <index><main>iff (logical equivalence)</main></index>for<nbsp /><q>iff</q>
+        <index><main>#@<m>\Leftrightarrow</m> (logical equivalence)</main></index>is<nbsp /><q><m>\Leftrightarrow</m></q>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        By comparing columns (3) and (6) of the following truth table, we see that
+        <q><m>P</m> iff <m>Q</m></q> is logically equivalent to <q><m>(P \Rightarrow Q) \land (Q \Rightarrow P)</m></q>.
+      </p>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>(1)</cell>
+          <cell>(2)</cell>
+          <cell>(3)</cell>
+          <cell>(4)</cell>
+          <cell>(5)</cell>
+          <cell>(6)</cell>
+        </row>
+        <row>
+          <cell><m>P</m></cell>
+          <cell><m>Q</m></cell>
+          <cell><m>P \text{ iff }  Q</m></cell>
+          <cell><m>P \Rightarrow Q</m></cell>
+          <cell><m>Q \lor (\sim P)</m></cell>
+          <cell><m>(P \Rightarrow Q) \land (Q \Rightarrow P)</m></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  ><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+      <p>
+        This is a very important fact. Many theorems of the form <m>P</m> iff <m>Q</m> are most conveniently
+        proved by verifying separately that <m>P \Rightarrow Q</m> and that <m>Q \Rightarrow P</m>.
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,70 @@
+
+<section>
+  <title>Definitions</title>
+  <definition xml:id="def_met">
+    <statement>
+      <p>
+        Let <m>M</m> be a nonempty set. A function <m>d \colon M \times M \sto \R</m> is a
+        <index><main>metric</main></index><term>metric</term> (or
+        <index><main>distance</main><sub>function</sub></index>
+        <index><main>dxy@<m>d(x,y)</m> (distance between two points)</main></index><term>distance function</term>) on <m>M</m> if for all <m>x</m>, <m>y</m>, <m>z \in M</m>
+        <md>
+          <mrow>\amp \text{ (1) }  d(x,y) = d(y,x)</mrow>
+          <mrow>\amp \text{ (2) }  d(x,y) \le d(x,z) + d(z,y)</mrow>
+          <mrow>\amp \text{ (3) }  d(x,y) = 0 \text{ if and only if }  x = y.</mrow>
+        </md>
+      </p>
+
+      <p>
+        If <m>d</m> is a metric on a set <m>M</m>, then we say that the pair <m>(M,d)</m> is a
+        <index><main>metric</main><sub>space</sub></index>
+        <index><main>space</main><sub>metric</sub></index><term>metric space</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    It is standard practice<mdash />although certainly an abuse of language<mdash />to refer to <q>the metric
+    space <m>M</m></q> when in fact we mean <q>the metric space <m>(M,d)</m></q>. We will adopt this convention
+    when it appears that no confusion will result. We must keep in mind, however, that there are
+    situations where it is clearly inappropriate; if, for example, we are considering two
+    different metrics on the same set <m>M</m>, a reference to <q>the metric space <m>M</m></q> would be
+    ambiguous.
+  </p>
+
+  <p>
+    In our formal definition of <q>metric</q>, what happened to condition (i) above, which requires a
+    metric to be nonnegative? It is an easy exercise to show that it is implied by the remaining
+    conditions.
+  </p>
+
+  <proposition xml:id="met_pos">
+    <statement>
+      <p>
+        If <m>d</m> is a metric on a set <m>M</m>, then <m>d(x,y) \ge 0</m> for all <m>x</m>,
+        <m>y \in M</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_met_pos">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        For each point <m>a</m> in a metric space <m>(M,d)</m> and each number <m>r > 0</m> we define
+        <index><main>ball@<m>B_r(a)</m> (open ball of radius <m>r</m> about<nbsp /><m>a</m>)</main></index><m>B_r(a)</m>, the
+        <index><main>open</main><sub>ball</sub></index>
+        <index><main>ball</main><sub>open</sub></index><term>open ball</term> about <m>a</m> of radius<nbsp /><m>r</m>, to be the set of all those points whose distance from
+        <m>a</m> is less than <m>r</m>. That is,
+        <me>
+          B_r(a) := \{x \in M \colon d(x,a) \lt  r\}\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+</section>

@@ -1,0 +1,56 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="inf_ser">
+  <title>Infinite series</title>
+  <introduction>
+    <p>
+      It is perhaps tempting to think of an infinite series
+      <me>
+        \sum_{k=1}^\infty a_k = a_1 + a_2 + a_3 + \dots
+      </me>
+      as being nothing but <q>addition performed infinitely often</q>. This view of series is
+      misleading, can lead to curious errors, and should not be taken seriously. Consider the
+      infinite series
+      <men xml:id="nonsense_ser" >
+        1 - 1 + 1 - 1 + 1 - 1 + ...   .
+      </men>
+    </p>
+
+    <p>
+      If we think of the <q>+</q> and <q>-</q> signs as functioning in essentially the same manner as the
+      symbols we encounter in ordinary arithmetic, we might be led to the following <q>discovery</q>.
+      <md>
+        <mrow>0 \amp =  (1 - 1) + (1 - 1) + (1 - 1) + \dots</mrow>
+        <mrow>\amp = 1 - 1 + 1 - 1 + 1 - 1 + \dots</mrow>
+        <mrow>\amp = 1 - (1 - 1) - (1 - 1) - \dots</mrow>
+        <mrow>\amp = 1 - 0 - 0 - \dots</mrow>
+        <mrow>\amp =1\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      One can be more inventive: If <m>S</m> is the sum of the series<nbsp /><xref ref="nonsense_ser" />, then
+      <me>
+        1 - S = 1 - (1 - 1 + 1 - 1 + \dots) = 1 - 1 + 1 - 1 + 1 - 1 + \dots = S
+      </me>
+      from which it follows that <m>S = \frac12</m>. This last result, incidentally, was believed (for
+      quite different reasons) by both Leibniz and Euler. See<nbsp /><nbsp /><xref ref="Moore_1932" />. The point here is
+      that if an intuitive notion of infinite sums and plausible arguments lead us to conclude that
+      <m>1 = 0 = \frac12</m>, then it is surely crucial for us to exercise great care in defining and
+      working with convergence of infinite series.
+    </p>
+
+    <p>
+      In the first section of this chapter we discuss convergence of series in arbitrary normed
+      linear spaces. One reason for giving the definitions in this generality is that doing so is
+      no more complicated than discussing convergence of series in <m>\R</m>. A second reason is that it
+      displays with much greater clarity the role of completeness of the underlying space in
+      questions of convergence. (See, in particular, <xref ref="prop_Cauchy_crit">propositions</xref> and <xref ref="prop_compl_abssum"></xref>.) A final reason is that this generality is actually needed. We use
+      it, for example, in the proofs of the <em>inverse and implicit function theorems</em> in the
+      next chapter.
+    </p>
+  </introduction>
+  <xi:include  href="section28-1.mbx" />
+  <xi:include  href="section28-2.mbx" />
+  <xi:include  href="section28-3.mbx" />
+  <xi:include  href="pow_ser.mbx" />
+</chapter>

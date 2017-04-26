@@ -1,0 +1,14 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="lub">
+  <title>Least upper bounds and greatest lower bounds</title>
+  <introduction>
+    <p>
+      The last axiom for the set <m>\R</m> of real numbers is the <em>least
+      upper bound axiom</em>. Before stating it we make some definitions.
+    </p>
+  </introduction>
+  <xi:include  href="section39-1.mbx" />
+  <xi:include  href="section39-2.mbx" />
+  <xi:include  href="axiom_lub.mbx" />
+  <xi:include  href="section39-4.mbx" />
+</chapter>

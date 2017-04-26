@@ -1,0 +1,523 @@
+
+<section>
+  <title>Linear transformations</title>
+  <p>
+    Linear transformations are central to our study of calculus.
+    Functions are differentiable, for example, if they are smooth enough to admit decent
+    approximation by (translates of) linear transformations. Thus before tackling differentiation
+    (in <xref ref="diff_calc">chapter</xref>) we familiarize ourselves with some elementary facts about
+    linearity.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A function <m>T \colon V \sto W</m> between vector spaces is
+        <index><main>linear</main></index>
+        <index><main>linear</main><sub>function</sub></index>
+        <index><main>function</main><sub>linear</sub></index><term>linear</term> if
+        <men xml:id="lt_cond1" >
+          T(x + y) = Tx + Ty \qquad \text{ for all \(x,y \in V\) }
+        </men>
+        and
+        <men xml:id="lt_cond2" >
+          T(\alpha x) = \alpha Tx \qquad \text{ for all \(x \in V\) and
+                     \(\alpha \in \R\). }
+        </men>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    A linear function is most commonly called a
+    <index><main>linear</main><sub>transformation</sub></index>
+    <index><main>transformation</main><sub>linear</sub></index><term>linear transformation</term>,
+    sometimes a
+    <index><main>linear</main><sub>mapping</sub></index>
+    <index><main>mapping</main><sub>linear</sub></index><term>linear mapping</term>. If the domain and codomain of a linear transformation are the same vector
+    space, then it is often called a
+    <index><main>linear</main><sub>operator</sub></index>
+    <index><main>operator</main><sub>linear</sub></index><term>linear operator</term>, and occasionally a
+    <index><main>vector</main><sub>space!endomorphism</sub></index><term>vector space endomorphism</term>. The family of all linear transformations from <m>V</m> into <m>W</m> is
+    denoted
+    <index><main>l@<m>\ofml L(V,W)</m> (linear maps between vector spaces)</main></index>by<nbsp /><m>\ofml L(V,W)</m>. Two oddities of notation concerning linear transformations deserve
+    comment. First, the value of <m>T</m> at x is usually written <m>Tx</m> rather than<nbsp /><m>T(x)</m>. Naturally
+    the parentheses are used whenever their omission would create ambiguity. For example, in
+    <xref ref="lt_cond1" /> above <m>Tx + y</m> is not an acceptable substitute for <m>T(x + y)</m>. Second, the
+    symbol for composition of two linear transformations is ordinarily omitted. If <m>S \in \ofml
+    L(U,V)</m> and <m>T \in \ofml L(V,W)</m>, then the composite of <m>T</m> and <m>S</m> is denoted
+    <index><main><@<m>TS</m> (composite of linear maps)</main></index>
+    <index><main>composite</main><sub>of linear maps</sub></index>by<nbsp /><m>TS</m> (rather than by <m>T \circ S</m>). This will cause no confusion since we will define no
+    other <q>multiplication</q> of linear maps. As a consequence of this convention if <m>T</m> is a
+    linear operator, then <m>T \circ T</m> is written as <m>T^2</m>, <m>T \circ T \circ T</m> as <m>T^3</m>, and so
+    on. One may think of condition <xref ref="lt_cond1" /> in the definition of linearity in the
+    following fashion. Let <m>T \times T</m> be the mapping from <m>V \times V</m> into <m>W \times W</m> defined
+    by
+    <me>
+      (T \times T)(x,y) = (Tx,Ty).
+    </me>
+  </p>
+
+  <p>
+    Then condition <xref ref="lt_cond1" /> holds if and only if the diagram
+    <me>
+      \xy
+           \square\lt 800,500>[V \times V`W \times W`V`W;T \times T`+`+`T]
+          \endxy
+    </me>
+    commutes. (The vertical maps are addition in <m>V</m> and in <m>W</m>.)
+  </p>
+
+  <p>
+    Condition <xref ref="lt_cond2" /> of the definition can similarly be thought of in terms of a
+    diagram. For each scalar a define the function <m>M_\alpha</m>, <term>multiplication by</term> <m>\alpha</m>,
+    from a vector space into itself by
+    <me>
+      M_\alpha(x) = \alpha x\,.
+    </me>
+  </p>
+
+  <p>
+    (We use the same symbol for multiplication by <m>\alpha</m> in both of the spaces <m>V</m> and<nbsp /><m>W</m>.)
+    Then condition <xref ref="lt_cond2" /> holds if and only if for every scalar <m>\alpha</m> the following
+    diagram commutes.
+    <me>
+      \xy
+           \square[V`W`V`W;T`M_\alpha`M_\alpha`T]
+          \endxy
+    </me>
+  </p>
+
+  <example xml:id="lt_exam1">
+    <statement>
+      <p>
+        If <m>T \colon \R^3 \sto \R^2 \colon  x \mapsto (x_1
+        + x_3, x_1 - 2x_2)</m>, then <m>T</m> is linear.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lt_exam1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T \colon  \R^2 \sto \R^4</m> be defined by
+        <me>
+          T(x,y) = (x + 2y, 3x - y, -2x, -x + y).
+        </me>
+      </p>
+
+      <p>
+        Show that T is linear.
+      </p>
+    </statement>
+  </problem>
+
+  <exercise xml:id="lt_exer1">
+    <statement>
+      <p>
+        Let <m>T \colon  \R^3 \sto \R^3</m> be a linear transformation which
+        satisfies <m>T(e^1) = (1, 0, 1)</m>, <m>T(e^2) = (0, 2, -1)</m>, and <m>T(e^3) = (-4, -1, 3)</m> (where
+        <m>e^1</m>, <m>e^2</m>, and <m>e^3</m> are the standard basis vectors for <m>\R^3</m> defined in <xref ref="basis_vect">example</xref>). Find <m>T(2, 1, 5)</m>. <em>Hint.</em> Use <xref ref="vs_prob3">problem</xref>.
+        (<xref ref="sol_lt_exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>T \in \ofml L(\R^3,\R^3)</m> satisfies
+        <md>
+          <mrow>T e^1 \amp = (1,2,-3)</mrow>
+          <mrow>T e^2 \amp = (1,-1,0)</mrow>
+          <mrow>T e^3 \amp = (-2,0,1)</mrow>
+        </md>
+      </p>
+
+      <p>
+        Find <m>T(3,-2,1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="lt_prop1">
+    <statement>
+      <p>
+        Let <m>T \colon  V \sto W</m> be a linear transformation between two vector
+        spaces. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>T(0) = 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>T(x - y) = Tx - Ty</m> for all <m>x</m>, <m>y \in V</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_lt_prop1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The identity map from a vector space into itself is linear.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Obvious.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Each coordinate projection defined on <m>\R^n</m>
+        <me>
+          \pi_k \colon  \R^n \sto \R \colon  x \mapsto x_k
+        </me>
+        is linear.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      For <m>1 \le k \le n</m>, we have <m>\pi_k(x + y) = \pi_k(x_1 + y_1, \dots, x_n + y_n) =
+      x_k + y_k = \pi_k(x) + \pi_k(y)</m> and <m>\pi_k(\alpha x) = \pi_k(\alpha x_1, \dots, \alpha x_n) =
+      \alpha x_k = \alpha \pi_k(x)</m>.
+    </p>
+  </proof>
+
+  <example xml:id="lt_exam2">
+    <statement>
+      <p>
+        Let <m>\fml F = \fml F((a,b),\R)</m> be the family of all real valued
+        functions defined on the open interval <m>(a,b)</m> and let <m>\fml D = \fml D((a,b),\R)</m> be the set
+        of all members of <m>\fml F</m> which are differentiable at each point of<nbsp /><m>(a,b)</m>. Then <m>\fml D</m>
+        is a vector subspace of <m>\fml F</m> and that the differentiation operator
+        <me>
+          D \colon \fml D \sto \fml F \colon  f \mapsto f'
+        </me>
+      </p>
+
+      <p>
+        (where <m>f'</m> is the derivative of <m>f</m>) is linear.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We know from <xref ref="vs_exam1">example</xref> that <m>\fml F</m> is a vector space. To show that
+      <m>\fml D</m> is a vector subspace of<nbsp /><m>\fml F</m> use <xref ref="vs_prop1">proposition</xref>. That <m>\fml D</m> is
+      nonempty is clear since constant functions are differentiable. That the space <m>\fml D</m> of
+      differentiable functions is closed under addition and scalar multiplication and that the
+      operation <m>D</m> of differentiation is linear (that is, <m>D(\alpha f) = \alpha Df</m> and <m>D(f + g) =
+      Df + Dg</m>) are immediate consequences of <xref ref="diff_sm">propositions</xref> and <xref ref="diff_sum"></xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        We have not yet discussed integration of continuous functions, but recalling a few
+        basic facts about integration from beginning calculus shows us that this is another example of
+        a linear transformation. Let <m>\fml C = \fml C([a,b],\R)</m> be the family of all members of
+        <m>\fml F = \fml F([a,b],\R)</m> which are continuous. We know from beginning calculus that any
+        continuous function on a closed and bounded interval is (Riemann) integrable, that
+        <me>
+          \int_a^b \alpha f(x)\,dx = \alpha \int_a^b f(x)\,dx
+        </me>
+        where <m>\alpha \in \R</m> and <m>f \in \fml C</m>, and that
+        <me>
+          \int_a^b (f(x) + g(x))\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx
+        </me>
+        where <m>f,g \in \fml C</m>. It then follows easily (again from <xref ref="vs_prop1"></xref>) that <m>\fml C</m> is a
+        vector subspace of <m>\fml F</m> and that the function <m>K \colon \fml C \sto \R \colon  f \mapsto
+        \int_a^b f(x)\,dx</m> is linear.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    An important observation is that the composite of two linear transformations is linear.
+  </p>
+
+  <proposition xml:id="prop_comp_lt">
+    <statement>
+      <p>
+        Let <m>U</m>, <m>V</m>, and <m>W</m> be vector spaces. If <m>S \in \ofml L(U,V)</m>
+        and <m>T \in \ofml L(V,W)</m> then <m>TS \in \ofml L(U,W)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>T \colon  V \sto W</m> is a linear transformation between vector spaces, then the
+        <index><main>kernel</main></index><term>kernel</term> (or
+        <index><main>null space</main></index><term>null space</term>) of<nbsp /><m>T</m>, denoted
+        <index><main>kernel@<m>\ker T</m> (kernel of a linear map)</main></index>by<nbsp /><m>\ker T</m>, is <m>T^\gets\{\vc 0\}</m>. That is,
+        <me>
+          \ker T := \{x \in V \colon  Tx = \vc 0\}.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="lt_exer2">
+    <statement>
+      <p>
+        Let <m>T \in \ofml L(\R^3,\R^3)</m>
+        satisfy
+        <md>
+          <mrow>T e^1 \amp = (1,-2,3)</mrow>
+          <mrow>T e^2 \amp = (0,0,0)</mrow>
+          <mrow>T e^3 \amp = (-2,4,-6)</mrow>
+        </md>
+        where <m>e^1</m>, <m>e^2</m>, and <m>e^3</m> are the standard basis vectors in <m>\R^3</m>. Find and describe
+        geometrically both the kernel of <m>T</m> and the range of<nbsp /><m>T</m>. (<xref ref="sol_lt_exer2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T</m> be the linear transformation of <xref ref="lt_exam1">example</xref>. Find and describe
+        geometrically the kernel and the range of<nbsp /><m>T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>D</m> be the linear transformation defined in <xref ref="lt_exam2"></xref>. What is the kernel
+        of<nbsp /><m>D</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    It is useful to know that the kernel of a linear transformation is always a vector subspace of
+    its domain, that its range is a vector subspace of its codomain, and that a necessary and
+    sufficient condition for a linear transformation to be injective is that its kernel contain
+    only the zero vector.
+  </p>
+
+  <proposition xml:id="prop_ker_vsubsp">
+    <statement>
+      <p>
+        If <m>T \colon  V \sto W</m> is a linear transformation between vector
+        spaces, then <m>\ker T</m> is a subspace of<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="vs_prop1">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition xml:id="lt_prop2">
+    <statement>
+      <p>
+        If <m>T \colon  V \sto W</m> is a linear transformation between vector spaces,
+        then <m>\ran T</m> is a subspace of<nbsp /><m>W</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="vs_prop1">proposition</xref>.
+      (<xref ref="sol_lt_prop2">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="lt_prop3">
+    <statement>
+      <p>
+        A linear transformation <m>T</m> is injective if and only if <m>\ker~T~=~\{0\}</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> First show that if <m>T</m> is injective and <m>x \in \ker T</m>, then <m>x=0</m>.
+      For the converse, suppose that <m>\ker T = \{\vc 0\}</m> and that <m>Tx = Ty</m>. Show that <m>x = y</m>.
+    </p>
+  </proof>
+
+  <problem xml:id="prob_lt_det_bas">
+    <statement>
+      <p>
+        Let <m>W</m> be a vector space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that a linear transformation <m>T \colon  \R^n \sto W</m> is
+              completely determined by its values on the standard basis vectors
+              <m>e^1, \dots e^n</m> of<nbsp /><m>\R^n</m>.  <em>Hint.</em> Use <xref ref="vs_prob3">problem</xref>(b).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if <m>S,T \in \ofml L(\R^n, W)</m> and <m>Se^k =
+              Te^k</m> for <m>1 \le k \le n</m>, then <m>S = T</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>w^1, \dots, w^n \in W</m>.  Show that there exists a
+              unique <m>T \in \ofml L(\R^n)</m> such that <m>Te^k = w^k</m> for <m>1 \le k
+              \le n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Injective linear mappings take linearly independent sets to linearly independent sets
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>T \in \ofml L(V,W)</m> is injective and <m>A</m> is a linearly independent subset of <m>V</m>,
+        then <m>T^\sto(A)</m> is a linearly independent set in<nbsp /><m>W</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Start with vectors <m>y^1, \dots y^n</m> in <m>T^\sto(A)</m> and suppose
+      that some linear combination of them <m>\sum_{k=1}^n \alpha_kx^k</m> is<nbsp /><m>0</m>. Show that all the
+      scalars <m>\alpha_k</m> are<nbsp /><m>0</m>. Use <xref ref="lt_prop3">proposition</xref>.
+    </p>
+  </proof>
+
+  <p>
+    Linear mappings take convex sets to convex sets.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>V</m> and <m>W</m> are vector spaces, <m>C</m> is a convex subset of <m>V</m>, and <m>T \colon
+        V \sto W</m> is linear, then <m>T^\sto(C)</m> is a convex subset of<nbsp /><m>W</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>u</m>, <m>v \in T^\sto(C)</m> and <m>0 \le t \le 1</m>. Show
+      that <m>(1-t)u + tv \in T^\sto(C)</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T \in \ofml L(\R^3,\R^3)</m> satisfy :
+        <md>
+          <mrow>Te^1 \amp = (0,1,0)</mrow>
+          <mrow>Te^2 \amp = (0,0,1)</mrow>
+          <mrow>Te^3 \amp = (3,-2,0)</mrow>
+        </md>
+      </p>
+
+      <p>
+        Show that <m>T</m> is bijective. <em>Hint.</em> To show that <m>T</m> is injective use
+        <xref ref="lt_prop3">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_intop_c1">
+    <statement>
+      <p>
+        Let <m>\fml C^1 = \fml C^1([a,b],\R)</m> be the set of all functions
+        <m>f</m> in <m>\fml F = \fml F([a,b],\R)</m> such that <m>f'</m> exists on <m>[a,b]</m> in the usual sense of
+        having one-sided derivatives at <m>a</m> and <m>b</m>) and is continuous. (A function belonging to
+        <m>\fml C^1</m> is said to be
+        <index><main>continuously differentiable</main></index>
+        <index><main>differentiable</main><sub>continuously</sub></index><term>continuously differentiable</term>.) It is easy to see that the set of all <m>C^1</m> functions is a
+        vector subspace of<nbsp /><m>\fml F</m>. Let <m>\fml C = \fml C([a,b],\R)</m> be the family of all continuous
+        members of<nbsp /><m>\fml F</m>. For every <m>f \in \fml C</m> and every <m>x \in [a,b]</m> let
+        <me>
+          (Jf)(x) := \int_a^x f(t)\,dt\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Why does <m>Jf</m> belong to <m>\fml C^1</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the map <m>J \colon \fml C \sto \fml C^1 \colon  f \mapsto Jf</m> is linear.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        (Products) Recall (see <xref ref="prods">Appendix</xref>) that for every pair of functions
+        <m>f^1 \colon T \sto S_1</m> and <m>f^2 \colon T \sto S_2</m> having the same domain there exists a
+        unique map, namely <m>f = (f^1, f^2)</m>, mapping <m>T</m> into the product space <m>S^1 \times S^2</m> which
+        satisfies <m>\pi_1 \circ f = f^1</m> and <m>\pi_2 \circ f = f^2</m>. (See in particular <xref ref="prod_exer">exercise</xref>.) Now suppose that <m>T</m>, <m>S_1</m>, and <m>S_2</m> are vector spaces and that <m>f^1</m> and
+        <m>f^2</m> are linear. Then <m>S_1 \times S_2</m> is a vector space (see <xref ref="prod_vs">example</xref>). Show
+        that the function <m>f = (f^1,f^2)</m> is linear.
+      </p>
+    </statement>
+  </problem>
+</section>

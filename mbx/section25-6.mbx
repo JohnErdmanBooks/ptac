@@ -1,0 +1,115 @@
+
+<section>
+  <title>Functions mapping into product spaces</title>
+  <p>
+    In this short section we examine the
+    differentiability of functions which map into the product of normed linear spaces. This turns
+    out to be a very simple matter: a necessary and sufficient condition for a function whose
+    codomain is a product to be differentiable is that each of its components be differentiable.
+    The somewhat more complicated topic of differentiation of functions whose <em>domain</em> lies
+    in a product of normed linear spaces is deferred until the next chapter when we have the
+    <em>mean value theorem</em> at our disposal.
+  </p>
+
+  <proposition xml:id="prop_diff_prodsp">
+    <statement>
+      <p>
+        If <m>f^1 \in \fml D_a(V,W_1)</m> and <m>f^2 \in \fml D_a(V,W_2)</m>,
+        then the function <m>f = \bigl(f^1,f^2\bigr)</m> belongs to <m>\fml D_a(V,W_1 \times W_2)</m> and <m>df_a
+        = \bigl(d(f^1)_a,d(f^2)_a\bigr)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> The function <m>f</m> is defined by <m>f(x) =
+      \bigl(f^1(x),f^2(x)\bigr)</m> for all <m>x \in \dom f^1 \cap \dom f^2</m>. Check that <m>f =
+      j_{{}_{\sst 1}} \circ f^1 \,+\, j_{{}_{\sst 2}} \circ f^2</m> where <m>j_{{}_{\sst 1}}\colon  W_1
+      \sto W_1 \times W_2\colon  u \mapsto (u,0)</m> and <m>j_{{}_{\sst 2}}\colon W_2 \sto W_1 \times
+      W_2\colon  v \mapsto (0,v)</m>. Use <xref ref="prop_diff_sum">proposition</xref>, <xref ref="thm_ch_rul">theorem</xref>,
+      and <xref ref="prob_diff_lt">problem</xref>. (<xref ref="sol_prop_diff_prodsp">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The preceding proposition says that a function is differentiable if its components are. The
+    converse, which is the next proposition, is also true: the components of a differentiable
+    function are differentiable.
+  </p>
+
+  <proposition xml:id="prop_diff_coord">
+    <statement>
+      <p>
+        If <m>f</m> belongs to <m>\fml D_a(V, W_1 \times W_2)</m>, then its
+        components <m>f^1</m> and <m>f^2</m> belong to <m>\fml D_a(V,W_1)</m> and <m>\fml D_a(V,W_2)</m>, respectively,
+        and
+        <me>
+          df_a = \bigl(d(f^1)_a, d(f^2)_a\bigr)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> For <m>k = 1</m>, <m>2</m> write <m>f^k = \pi_k \circ f</m> where, as usual,
+      <m>\pi_k(x_1,x_2) = x_k</m>. Then use the <em>chain rule</em><nbsp /> <xref ref="thm_ch_rul"></xref> and
+      <xref ref="prob_diff_lt">problem</xref>.
+    </p>
+  </proof>
+
+  <p>
+    An easy consequence of the two preceding propositions is that curves in product spaces have
+    derivatives if and only if their components do.
+  </p>
+
+  <corollary xml:id="cor_diff_prodcurv">
+    <statement>
+      <p>
+        Let <m>c^1</m> and <m>c^2</m> be curves in <m>W_1</m> and <m>W_2</m>,
+        respectively. If <m>c^1</m> and <m>c^2</m> are differentiable at <m>t</m>, then so is the curve <m>c =
+        (c^1,c^2)</m> in <m>W_1 \times W_2</m> and <m>Dc(t) = \bigl(Dc^1(t), Dc^2(t)\bigr)</m>. Conversely, if <m>c</m>
+        is a differentiable curve in the product <m>W_1 \times W_2</m>, then its components <m>c^1</m> and <m>c^2</m>
+        are differentiable and <m>Dc = \bigl(Dc^1,Dc^2\bigr)</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cor_diff_prodcurv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    It is easy to see how to generalize the three preceding results to functions whose codomains
+    are the products of any finite collection of normed linear spaces. Differentiation is done
+    componentwise.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Consider the helix
+        <me>
+          c \colon \R \sto \R^3 \colon t \mapsto (\cos t,\sin t,t)\,.
+        </me>
+      </p>
+
+      <p>
+        Its derivative at <m>t</m> is found by differentiating each component separately. That is, <m>Dc(t) =
+        (-\sin t,\cos t,1)</m> for all <m>t \in \R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x,y) = (\ln(xy), y^2 - x^2)</m>, <m>a = (1,1)</m>, and <m>v = (\frac35,\frac45)</m>.
+        Find the directional derivative <m>D_vf(a)</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

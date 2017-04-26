@@ -1,0 +1,153 @@
+
+<section>
+  <title>Distance and neighborhoods</title>
+  <definition>
+    <statement>
+      <p>
+        If <m>x</m> and <m>a</m> are real numbers, the
+        <index><main>distance</main><sub>between real numbers</sub></index><term>distance between</term> <m>x</m> and <m>a</m>, which we denote by <m>d(x,a)</m>, is defined to be <m>\abs{x-a}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        There are exactly two real numbers whose distance from the number <m>3</m> is<nbsp /><m>7</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We are looking for all numbers <m>x \in \R</m> such that <m>d(x,3)=7</m>. In other words
+      we want solutions to the equation <m>\abs{x-3}=7</m>. There are two such solutions. If <m>x-3 \ge
+      0</m>, then <m>\abs{x-3} = x-3</m>; so <m>x=10</m> satisfies the equation. On the other hand, if <m>x-3 \lt 
+      0</m>, then <m>\abs{x-3} = -(x-3) = 3-x</m>, in which case <m>x=-4</m> is a solution.
+    </p>
+  </proof>
+
+  <exercise xml:id="x1exer1">
+    <statement>
+      <p>
+        Find the set of all points on the real line which are within <m>5</m>
+        units of the number<nbsp /><m>-2</m>. (<xref ref="sol_1exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Find the set of all real numbers whose distance from <m>4</m> is greater than<nbsp /><m>15</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> be a point in <m>\R</m> and <m>\epsilon > 0</m>. The open interval
+        <m>(a - \epsilon, a + \epsilon)</m> centered at <m>a</m> is called the
+        <index><main>epsilon@<m>\epsilon</m>-neighborhood</main></index>
+        <index><main>neighborhood</main><sub>of a point</sub></index><term><m>\epsilon</m>-neighborhood</term> of <m>a</m> and is denoted
+        <index><main><@<m>J_\epsilon(a)</m> (<m>\epsilon</m>-neighborhood about<nbsp /><m>a</m>)</main></index>
+        <index><main>j@<m>J_\epsilon(a)</m> (<m>\epsilon</m>-neighborhood about<nbsp /><m>a</m>)</main></index>by<nbsp /><m>J_\epsilon(a)</m>. Notice that this neighborhood consists of all
+        numbers <m>x</m> whose distance from <m>a</m> is less than <m>\epsilon</m>; that
+        is, such that <m>\abs{x-a}\lt \epsilon</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The <m>\frac12</m> - neighborhood of <m>3</m> is the open interval
+        <m>\bigl(\frac52,\frac72\bigr)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We have <m>d(x,3) \lt  \frac12</m> only if <m>\abs{x-3} \lt  \frac12</m>. Solve this
+      inequality to obtain <m>J_\frac12(3) = \bigl(\frac52,\frac72\bigr)</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The open interval <m>(1,4)</m> is an <m>\epsilon</m>-neighborhood of an appropriate point.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The midpoint of <m>(1,4)</m> is the point <m>\frac52</m>. The distance from this point to
+      either end of the interval is <m>\frac32</m>. Thus <m>(1,4) = J_\frac32\bigl(\frac52\bigr)</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Find, if possible, a number <m>\epsilon</m> such that the <m>\epsilon</m>-neighborhood
+        of <m>\frac13</m> contains both <m>\frac14</m> and <m>\frac12</m> but does not contain <m>\frac{17}{30}</m>.
+        If such a neighborhood does not exist, explain why.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find, if possible, a number <m>\epsilon</m> such that the <m>\epsilon</m>-neighborhood
+        of <m>\frac13</m> contains <m>\frac{11}{12}</m> but does not contain either <m>\frac12</m> or <m>\frac58</m>. If
+        such a neighborhood does not exist, explain why.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>U = \bigl(\frac14, \frac23\bigr)</m> and <m>V = \bigl(\frac12,\frac65\bigr)</m>.
+        Write <m>U</m> and <m>V</m> as <m>\epsilon</m>-neighborhoods of appropriate points. (That is, find
+        numbers <m>a</m> and <m>\epsilon</m> such that <m>U = J_\epsilon(a)</m> and find numbers <m>b</m> and
+        <m>\delta</m> such that <m>V = J_\delta(b)</m>. ) Also write the sets <m>U \cup V</m> and <m>U \cap V</m>
+        as <m>\epsilon</m>-neighborhoods of appropriate points.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize your solution to the preceding problem to show that the union and the
+        intersection of any two <m>\epsilon</m>-neighborhoods which overlap is itself an
+        <m>\epsilon</m>-neighborhood of some point. <em>Hint.</em> Since <m>\epsilon</m>-neighborhoods are open
+        intervals of finite length, we can write the given neighborhoods as <m>(a,b)</m> and <m>(c,d)</m>.
+        There are really just two distinct cases. One neighborhood may contain the other; say, <m>a \le
+        c \lt  d \le b</m>. Or each may have points that are not in the other; say <m>a \lt  c \lt  b \lt  d</m>. Deal
+        with the two cases separately.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="d_less_e">
+    <statement>
+      <p>
+        If <m>a \in \R</m> and <m>0 \lt  \delta \le \epsilon</m>, then <m>J_\delta(a)
+        \subseteq J_\epsilon(a)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_d_less_e">Solution</xref>.)
+    </p>
+  </proof>
+</section>

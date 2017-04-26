@@ -1,0 +1,127 @@
+
+<section>
+  <title>Interior points</title>
+  <lemma xml:id="sm_in_lar">
+    <statement>
+      <p>
+        Let <m>M</m> be a metric space, <m>a \in M</m>, and <m>r > 0</m>. If <m>c \in B_r(a)</m>,
+        then there is a number <m>t > 0</m> such that
+        <me>
+          B_t(c) \subseteq B_r(a)\,.
+        </me>
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_sm_in_lar">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_int">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be subsets of a metric space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A \subseteq B</m>, then <m>\intr A \subseteq \intr B</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>A^{\circ\circ} = \intr A</m>. \mbox{(<m>A^{\circ\circ}</m> means
+              <m>\intr{\bigl(\intr A\bigr)}</m>.)}
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_int">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="in_in">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are subsets of a metric space, then
+        <me>
+          \intr{(A \cap B)} = \intr A \cap \intr B\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="un_int">
+    <statement>
+      <p>
+        Let <m>\sfml A</m> be a family of subsets of a metric space. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\bigcup\{\intr A \colon A \in \sfml A\} \subseteq \intr{\bigl(\bigcup \sfml A\bigr)}\,.</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in \mbox{(a)} .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_un_int">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="in_int">
+    <statement>
+      <p>
+        Let <m>\sfml A</m> be a family of subsets of a metric space. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\intr{\bigl(\bigcap \sfml A \bigr)} \subseteq \bigcap\{\intr A \colon A
+              \in \sfml A\}\,.</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in \mbox{(a)} .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

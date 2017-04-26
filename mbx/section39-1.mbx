@@ -1,0 +1,66 @@
+
+<section>
+  <title>Upper and lower bounds</title>
+  <definition>
+    <statement>
+      <p>
+        A number <m>u</m> is an
+        <index><main>upper bound</main></index>
+        <index><main>bound</main><sub>upper</sub></index><term>upper bound</term> for a set <m>A</m> of real numbers if <m>u \ge a</m> for every <m>a \in A</m>. If the set
+        <m>A</m> has at least one upper bound, it is said to be
+        <index><main>bounded</main><sub>above</sub></index><term>bounded above</term>. Similarly, <m>v</m> is a
+        <index><main>lower bound</main></index>
+        <index><main>bound</main><sub>lower</sub></index><term>lower bound</term> for <m>A</m> if <m>v \le a</m> for every <m>a \in A</m>, and a set with at least one lower
+        bound is
+        <index><main>bounded</main><sub>below</sub></index><term>bounded below</term>. The set <m>A</m> is
+        <index><main>bounded</main><sub>subset of <m>\R</m></sub></index><term>bounded</term> if it is bounded both above and below. (Perhaps it should be emphasized that when
+        we say, for example, that <m>A</m> <em>has</em> an upper bound we mean only that there is a real
+        number <m>u</m> which is greater than or equal to each member of <m>A</m>; we do <em>not</em> mean that
+        <m>u</m> necessarily belongs to <m>A</m><mdash />although of course it may.)
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>A = \{x \in \R \colon \abs{x - 2} \lt  5 \}</m> is bounded.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The open interval <m>(-1,1)</m> has infinitely many upper bounds. In fact, any set
+        which is bounded above has infinitely many upper bounds.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>A = \{x \in \R \colon x^3 - x \le 0\}</m> is not bounded.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

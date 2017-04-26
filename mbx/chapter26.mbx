@@ -1,0 +1,21 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Partial derivatives and iterated integrals</title>
+  <introduction>
+    <p>
+      In this chapter we consider questions which arise concerning a function <m>f</m> whose domain is
+      the product <m>V_1 \times V_2</m> of normed linear spaces. What relationship (if any) exists
+      between the differentiability of <m>f</m> and the differentiability of the functions <m>x \mapsto
+      f(x,b)</m> and <m>y \mapsto f(a,y)</m>, where <m>a</m> and <m>b</m> are fixed points in <m>V_1</m> and <m>V_2</m>,
+      respectively? What happens in the special case <m>V_1 = V_2 = \R</m> if we integrate <m>f</m> first with
+      respect to <m>y</m> (that is, integrate, for arbitrary <m>x</m>, the function <m>y \mapsto f(x,y)</m> over
+      the interval <m>[c,d]</m>) and then integrate with respect to <m>x</m> (that is, integrate the function
+      <m>x \mapsto \int_c^d f(x,y)\,dy</m>)? Does this produce the same result as integrating first with
+      respect to <m>x</m> and then with respect to <m>y</m>? Before we can answer these and similar questions
+      we must develop a fundamental tool of analysis: the <em>mean value theorem</em>.
+    </p>
+  </introduction>
+  <xi:include  href="section26-1.mbx" />
+  <xi:include  href="section26-2.mbx" />
+  <xi:include  href="section26-3.mbx" />
+</chapter>

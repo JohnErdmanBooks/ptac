@@ -1,0 +1,298 @@
+
+<section>
+  <title>Maps into and from products</title>
+  <p>
+    Let <m>(M_1,\rho_1)</m> and <m>(M_2,\rho_2)</m> be metric spaces. Define the
+    <index><main>coordinate projections</main></index>
+    <index><main>projections</main><sub>coordinate</sub></index><term>coordinate projections</term> <m>\pi_1</m> and <m>\pi_2</m> on the product <m>M_1\times M_2</m> by
+    <me>
+      \pi_k\colon M_1 \times M_2 \sto M_k\colon (x_1,x_2) \mapsto x_k
+                           \qquad\text{ for \(k=1,2\). }
+    </me>
+  </p>
+
+  <p>
+    If <m>M_1 \times M_2</m> has the product metric <m>d_1</m> (<xref ref="x3prods">see</xref> and <xref ref="prod_met"></xref>),
+    then the coordinate projections turn out to be continuous functions.
+  </p>
+  <exercise xml:id="coord_projs">
+    <statement>
+      <p>
+        Prove the assertion made in the preceding sentence.
+        (<xref ref="sol_coord_projs">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <notation>
+
+  <p>
+    Let <m>S_1</m>, <m>S_2</m>, and <m>T</m> be sets. If <m>f\colon  T \sto S_1 \times S_2</m>, then we
+    define functions
+    <index><main><@<m>f^k</m> (<m>k^{\text{ th } }</m> component of a function)</main></index><m>f^1 := \pi_1 \circ f</m> and <m>f^2 := \pi_2 \circ f</m>. These are the
+    <index><main>components</main><sub>of a function</sub></index><term>components</term> of <m>f</m>.
+  </p>
+
+  <p>
+    If, on the other hand, functions <m>g\colon T \sto S_1</m> and <m>h\colon T \sto S_2</m> are given, we define
+    the function <m>(g,h)</m> by
+    <me>
+      (g,h)\colon T \sto S_1 \times S_2\colon x \mapsto (g(x),h(x))\,.
+    </me>
+  </p>
+
+  <p>
+    Thus it is clear that whenever <m>f\colon T \sto S_1 \times S_2</m>, we have
+    <me>
+      f = (f^1,f^2)\,.
+    </me>
+  </p>
+
+  </notation>
+
+  <proposition xml:id="components">
+    <statement>
+      <p>
+        Let <m>M_1</m>, <m>M_2</m>, and <m>N</m> be metric spaces and <m>f\colon N \sto M_1
+        \times M_2</m>. The function <m>f</m> is continuous if and only if its components <m>f^1</m> and <m>f^2</m> are.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_components">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prod_cont">
+    <statement>
+      <p>
+        Let <m>f</m> and <m>g</m> be continuous real valued functions on a metric space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The product <m>fg</m> is a continuous function.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              For every real number <m>\alpha</m> the function <m>\alpha g\colon x \mapsto \alpha g(x)</m>
+              is continuous.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prod_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f</m> and <m>g</m> be continuous real valued functions on a metric space and suppose that
+        <m>g</m> is never zero. Show that the function <m>f/g</m> is continuous.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are continuous real valued functions on a metric space, then <m>f+g</m> is
+        continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Show that every polynomial function on <m>\R</m> is continuous. <em>Hint.</em> An induction
+        on the degree of the polynomial works nicely.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>f</m>, <m>g\colon S \sto \R</m>. Then <m>f \lor g</m>, the
+        <index><main><@<m>f \lor g</m> (supremum of two functions)</main></index>
+        <index><main>supremum</main><sub>of two functions</sub></index><term>supremum</term> (or
+        <index><main>maximum</main><sub>of two functions</sub></index><term>maximum</term>) of <m>f</m> and <m>g</m>, is defined by
+        <me>
+          (f \lor g)(x) := \max\{f(x),g(x)\}
+        </me>
+        for every <m>x \in S</m>. Similarly, <m>f \land g</m>, the
+        <index><main><@<m>f \land g</m> (infimum of two functions)</main></index>
+        <index><main>infimum</main><sub>of two functions</sub></index><term>infimum</term> (or
+        <index><main>minimum</main><sub>of two functions</sub></index><term>minimum</term>) of <m>f</m> and <m>g</m>, is defined by
+        <me>
+          (f \land g)(x) := \min\{f(x),g(x)\}
+        </me>
+        for every <m>x \in S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x)= \sin x</m> and <m>g(x) = \cos x</m> for <m>0 \le x \le 2\pi</m>. Make a careful
+        sketch of <m>f \lor g</m> and <m>f \land g</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_cont_sup">
+    <statement>
+      <p>
+        Show that if <m>f</m> and <m>g</m> are continuous real valued functions
+        on a metric space, then <m>f \lor g</m> and <m>f \land g</m> are continuous. <em>Hint.</em> Consider
+        things like <m>f + g + \abs{f - g}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    In <xref ref="components">proposition</xref> we have dealt with the continuity of functions which map
+    <em>into</em> products of metric spaces. We now turn to functions which map <em>from</em>
+    products; that is, to functions of several variables.
+  </p>
+
+  <notation>
+
+  <p>
+    Let <m>S_1</m>, <m>S_2</m>, and <m>T</m> be sets and <m>f\colon S_1 \times S_2 \sto T</m>. For each
+    <m>a \in S_1</m> we define the function
+    <index><main><@<m>f(a,\,\cdot\,)</m>, <m>f(\,\cdot\,,b)</m></main></index>
+    <me>
+      f(a,\,\cdot\,)\colon S_2 \sto T\colon y \mapsto f(a,y)
+    </me>
+    and for each <m>b \in S_2</m> we define the function
+    <me>
+      f(\,\cdot\,,b)\colon S_1 \sto T\colon  x \mapsto f(x,b)\,.
+    </me>
+  </p>
+
+  <p>
+    Loosely speaking, <m>f(a,\,\cdot\,)</m> is the result of regarding <m>f</m> as a function of only its
+    second variable; <m>f(\,\cdot\,,b)</m> results from thinking of <m>f</m> as depending on only its first
+    variable.
+  </p>
+
+  </notation>
+
+  <proposition xml:id="jc_sc">
+    <statement>
+      <p>
+        Let <m>M_1</m>, <m>M_2</m>, and <m>N</m> be metric spaces and <m>f\colon M_1 \times
+        M_2 \sto N</m>. If <m>f</m> is continuous, then so are <m>f(a,\,\cdot\,)</m> and <m>f(\,\cdot\,,b)</m> for all <m>a
+        \in M_1</m> and <m>b \in M_2</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_jc_sc">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    This proposition is sometimes paraphrased as follows: Joint continuity implies separate continuity.
+    The converse is <em>not</em> true. (See <xref ref="sc_n_jc">problem</xref>.)
+  </p>
+
+  <remark>
+    <p>
+      It should be clear how to extend the results of
+      <xref ref="components">propositions</xref> and <xref ref="jc_sc"></xref> to products of any finite number of metric spaces.
+    </p>
+  </remark>
+
+  <problem xml:id="sc_n_jc">
+    <statement>
+      <p>
+        Let <m>f\colon \R^2 \sto \R</m> be defined by
+        <me>
+          f(x,y) = \begin{cases}xy(x^2+y^2)^{-1},
+                              \amp \text{ for \((x,y) \ne (0,0)\) }  \\
+                           0, \amp \text{ for \(x = y = 0\). } 
+          \end{cases}
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>f</m> is continuous at each point of <m>\R^2</m> except at <m>(0,0)</m>, where it is
+              <em>not</em> continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the converse of <xref ref="jc_sc">proposition</xref> is not true.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <notation>
+
+  <p>
+    Let <m>M</m> and <m>N</m> be metric spaces. We denote by
+    <index><main>continuous@<m>\fml C(M,N)</m></main><sub>family of continuous functions from <m>M</m> into <m>N</m></sub></index><m>\fml C(M,N)</m> the family of all continuous functions <m>f</m> taking <m>M</m> into<nbsp /><m>N</m>.
+  </p>
+
+  </notation>
+
+  <p>
+    In <xref ref="unif_lim_bdd">proposition</xref> we showed that the uniform limit of a sequence of bounded real
+    valued functions is bounded. We now prove an analogous result for continuous real valued
+    functions: The uniform limit of a sequence of continuous real valued functions is continuous.
+  </p>
+
+  <proposition xml:id="unif_lim_cont">
+    <statement>
+      <p>
+        If <m>(f_n)</m> is a sequence of continuous real valued functions
+        on a metric space <m>M</m> which converges uniformly to a real valued function <m>g</m> on <m>M</m>, then <m>g</m> is
+        continuous.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_unif_lim_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        If the word <q>pointwise</q> is substituted for <q>uniformly</q> in <xref ref="unif_lim_cont">proposition</xref>, the conclusion no longer follows. In particular, find an example of a
+        sequence <m>(f_n)</m> of continuous functions on <m>[0,1]</m> which converges pointwise to a function <m>g</m> on
+        <m>[0,1]</m> which is <em>not</em> continuous.
+      </p>
+    </statement>
+  </problem>
+</section>

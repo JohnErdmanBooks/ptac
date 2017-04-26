@@ -1,0 +1,99 @@
+
+<section>
+  <title>Definition</title>
+  <p>
+    To facilitate the definition of <q>limit</q> we introduce the notion of a
+    <em>deleted neighborhood</em> of a point.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>J = (b,c)</m> is a neighborhood of a point<nbsp /><m>a</m> (that is, if <m>b \lt  a \lt  c</m>), then
+        <index><main><@<m>J^*</m> (deleted neighborhood)</main></index>
+        <index><main>j@<m>J^*</m> (deleted neighborhood)</main></index><m>J^*</m>, the
+        <index><main>deleted</main><sub>neighborhood</sub></index>
+        <index><main>neighborhood</main><sub>deleted</sub></index><term>deleted neighborhood</term> associated with <m>J</m>, is just <m>J</m> with the point <m>a</m> deleted. That
+        is, <m>J^* = (b,a) \cup (a,c)</m>. In particular, if <m>J_\delta(a)</m> is the <m>\delta</m>-neighborhood of
+        <m>a</m>, then <m>J^*_\delta(a)</m> denotes <m>(a-\delta,a) \cup (a,a+\delta)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of <m>\R</m>, let <m>f \colon A \sto \R</m>, let <m>a</m> be an accumulation
+        point of <m>A</m>, and let <m>l</m> be a real number. We say that <m>l</m> is the
+        <index><main>limit</main><sub>of a function</sub></index><term>limit of <m>f</m> as <m>x</m> approaches <m>a</m></term> (or the <term>limit of <m>f</m> at <m>a</m></term>) if: for every
+        <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that <m>f(x)\in J_\epsilon(l)</m> whenever <m>x \in A
+        \cap J_\delta^*(a)</m>.
+      </p>
+
+      <p>
+        Using slightly different notation we may write this condition as
+        <me>
+          (\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A)\,
+                              0 \lt  \abs{x-a} \lt  \delta \implies \abs{f(x) - l} \lt  \epsilon\,.
+        </me>
+      </p>
+
+      <p>
+        If this condition is satisfied we write
+        <index><main><@<m>f(x) \sto l \text{ as }  x \sto a</m> (limit of a function at a point)</main></index>
+        <me>
+          f(x) \sto l \text{ as }  x \sto a
+        </me>
+        or
+        <index><main>limit@<m>\lim_{x \sto a}f(x)</m> (limit of a function at a point)</main></index>
+        <me>
+          \lim_{x \sto a}f(x) = l\,.
+        </me>
+      </p>
+
+      <p>
+        (Notice that this last notation is a bit optimistic. It would not make sense if <m>f</m> could
+        have two distinct limits as <m>x</m> approaches<nbsp /><m>a</m>. We will show in <xref ref="rlim_uniq">proposition</xref>
+        that this cannot happen.)
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The first thing we notice about the preceding definition is that the point <m>a</m> at which we
+    take the limit need not belong to the domain <m>A</m> of the function<nbsp /><m>f</m>. Very often in practice
+    it does not. Recall the definition in beginning calculus of the derivative of a function <m>f
+    \colon \R \sto \R</m> at a point <m>a</m>. It is the limit as <m>h \sto 0</m> of the Newton quotient
+    <m>\dfrac{f(a+h) - f(a)}h</m>. This quotient is not defined at the point <m>h = 0</m>. Nevertheless we
+    may still take the limit as <m>h</m> approaches<nbsp /><m>0</m>.
+  </p>
+
+  <p>
+    Here is another example of the same phenomenon. The function on <m>(0,\infty)</m> defined by <m>x
+    \mapsto (1+x)^{1/x}</m> is not defined at <m>x = 0</m>. But its limit at <m>0</m> exists: recall from
+    beginning calculus that <m>\lim_{x \sto 0}(1+x)^{1/x} = e</m>.
+  </p>
+
+  <p>
+    One last comment about the definition: even if a function <m>f</m> is defined at a point <m>a</m>, the
+    value of <m>f</m> at <m>a</m> is irrelevant to the question of the existence of a limit there.
+    According to the definition we consider only points <m>x</m> satisfying <m>0 \lt  \abs{x-a} \lt  \delta</m>.
+    The condition <m>0 \lt  \abs{x-a}</m> says just one thing: <m>x \ne a</m>.
+  </p>
+
+  <proposition xml:id="rlim_uniq">
+    <statement>
+      <p>
+        Let <m>f \colon A \sto \R</m> where <m>A \subseteq \R</m>, and let <m>a</m> be an
+        accumulation point of <m>A</m>. If <m>f(x) \sto b</m> as <m>x \sto a</m>, and if <m>f(x) \sto c</m> as <m>x \sto
+        a</m>, then <m>b = c</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_rlim_uniq">Solution</xref>.)
+    </p>
+  </proof>
+</section>

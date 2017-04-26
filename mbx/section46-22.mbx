@@ -1,0 +1,192 @@
+
+<section>
+  <title>Exercises in Chapter 22</title>
+  <solution xml:id="sol_exer_nls_r34">
+    <p>
+      (Solution to <xref ref="exer_nls_r34"></xref>)
+      Here of course we use the usual norm on<nbsp /><m>\R^4</m>.
+      <md>
+        <mrow>\norm{f(a+ \lambda h)}
+                 \amp = \norm{f\bigl((4,2,-4) + (-\frac12)(2,4,-4)\bigr)}</mrow>
+        <mrow>\amp = \norm{f(3,0,-2)}</mrow>
+        <mrow>\amp = \norm{(-6,9,3,-3\sqrt2)}</mrow>
+        <mrow>\amp = 3\bigl[(-2)^2 + 3^2 + 1^2 + (-\sqrt2)^2\bigr]^{1/2}</mrow>
+        <mrow>\amp = 12      \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_nls_r32">
+    <p>
+      (Solution to <xref ref="exer_nls_r32"></xref>)
+      Since
+      <md>
+        <mrow>f(a + h) - f(a) - mh
+               \amp = f(1+h_1, h_2, -2+h_3) - f(1,0,-2)
+                     - \begin{bmatrix}
+                            6  \amp   0  \amp   0</mrow>
+        <mrow>0  \amp   1  \amp  -1
+                       \end{bmatrix}
+                       \begin{bmatrix}
+                            h_1</mrow>
+        <mrow>h_2</mrow>
+        <mrow>h_3
+                       \end{bmatrix}</mrow>
+        <mrow>\amp = \bigl(3(1+2h_1+{h_1}^2), h_2 + h_1h_2 + 2 - h_3\bigr)
+                        - (3,2) - (6h_1,h_2 - h_3)</mrow>
+        <mrow>\amp = (3{h_1}^2,h_1h_2),</mrow>
+      </md>
+      we have
+      <me>
+        \norm{f(a+h) - f(a) - mh} = (9{h_1}^4 + {h_1}^2{h_2}^2)^{1/2}
+                                       = \abs{h_1}(9{h_1}^2+{h_2}^2)^{1/2}\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_un_sin">
+    <p>
+      (Solution to <xref ref="exer_un_sin"></xref>)
+      Using the second derivative test from beginning calculus (and checking the value of <m>f + g</m> at
+      the endpoints of the interval) we see that <m>f(x) + g(x)</m> assumes a maximum value of <m>\sqrt2</m>
+      at <m>x = \pi/4</m> and a minimum value of <m>-\sqrt2</m> at <m>x = 5\pi/4</m>. So
+      <me>
+        \norm{f+g}_u = \sup\{\abs{f(x)+g(x)}\colon 0 \le x \le 2\pi\} = \sqrt2\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_norm_obv">
+    <p>
+      (Solution to <xref ref="prop_norm_obv"></xref>)
+      Let <m>x \in V</m>. Then
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            <m>\norm{\vc 0} = \norm{0 \cdot x} = \abs 0\, \norm x = 0</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            <m>\norm{-x} = \norm{(-1)x} = \abs{-1}\,\norm x  = \norm x</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            <m>0 = \norm{\vc 0} = \norm{x + (-x)} \le \norm x + \norm{-x} = 2\norm x</m>. \qedhere
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_ind_metr">
+    <p>
+      (Solution to <xref ref="prop_ind_metr"></xref>(a))
+      By <xref ref="prop_norm_obv">proposition</xref>(b) it is clear that <m>\norm x \lt  r</m> if and only if <m>\norm{-x}
+      \lt  r</m>. That is, <m>d(x,\vc 0) \lt  r</m> if and only <m>d(-x,\vc 0) \lt  r</m>. Therefore, <m>x \in B_r(\vc 0)</m>
+      if and only if <m>-x \in B_r(\vc 0)</m>, which in turn holds if and only if <m>x = -(-x) \in -B_r(\vc 0)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_norm_equiv">
+    <p>
+      (Solution to <xref ref="prop_norm_equiv"></xref>)
+      Suppose <m>\norm{}_1</m> and <m>\norm{}_2</m> are equivalent norms on<nbsp />V. Let <m>d_1</m> and <m>d_2</m>
+      be the metrics induced by <m>\norm{}_1</m> and <m>\norm{}_2</m>, respectively. (That is,
+      <m>d_1(x,y) = \norm{x - y}_1</m> and <m>d_2(x,y) = \norm{x - y}_2</m> for all <m>x</m>, <m>y \in V</m>.) Then
+      <m>d_1</m> and <m>d_2</m> are equivalent metrics. Thus there exist <m>\alpha, \beta > 0</m> such that
+      <m>d_1(x,y) \le \alpha d_2(x,y)</m> and <m>d_2(x,y) \le \beta d_1(x,y)</m> for all <m>x</m>, <m>y \in V</m>. Then
+      in particular
+      <me>
+        \norm x_1 = \norm{x - \vc 0}_1 = d_1(x,\vc 0) \le \alpha d_2(x,\vc 0)
+                                       = \alpha \norm{x - \vc 0}_2  = \alpha \norm x_2
+      </me>
+      and similarly
+      <me>
+        \norm x_2 = d_2(x,\vc 0) \le \beta d_1(x,\vc 0) = \beta \norm x_1
+      </me>
+      for all <m>x</m> in<nbsp /><m>V</m>. Conversely, suppose there exist <m>\alpha</m>, <m>\beta > 0</m> such that <m>\norm
+      x_1 \le \alpha \norm x_2</m> and <m>\norm x_2 \le \beta \norm x_1</m> for all <m>x</m> in<nbsp /><m>V</m>. Then for
+      all <m>x</m>, <m>y \in V</m>
+      <me>
+        d_1(x,y) = \norm{x - y}_1 \le \alpha \norm{x - y}_2 = \alpha d_2(x,y)
+      </me>
+      and similarly
+      <me>
+        d_2(x,y) \le \beta d_1(x,y)\,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>d_1</m> and <m>d_2</m> are equivalent metrics.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_scmlt_cont">
+    <p>
+      (Solution to <xref ref="prop_scmlt_cont"></xref>)
+      Let <m>f\colon \R \times V \sto V\colon (\beta,x) \mapsto \beta x</m>. We show that f is
+      continuous at an arbitrary point <m>(\alpha,a)</m> in <m>\R \times V</m>. Given <m>\epsilon > 0</m> let <m>M</m>
+      be any number larger than both <m>\abs\alpha</m> and <m>\norm a + 1</m>. Choose <m>\delta =
+      \min\{1,\epsilon/M\}</m>. Notice that
+      <md>
+        <mrow>\abs{\beta - \alpha} + \norm{x-a}
+                     \amp = \norm{(\beta - \alpha, x - a)}_1</mrow>
+        <mrow>\amp = \norm{(\beta,x) - (\alpha,a)}_1 .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus whenever <m>\norm{(\beta,x) - (\alpha,a)}_1 \lt  \delta</m> we have
+      <me>
+        \norm x \le \norm a + \norm{x-a} \lt  \norm a + \delta \le \norm a + 1 \le M
+      </me>
+      so that
+      <md>
+        <mrow>\norm{f(\beta,x) - f(\alpha,a)}
+               \amp = \norm{\beta x - \alpha a}</mrow>
+        <mrow>\amp \le \norm{\beta x - \alpha x} + \norm{\alpha x - \alpha a}</mrow>
+        <mrow>\amp = \abs{\beta - \alpha}\,\norm x + \abs{\alpha}\,\norm{x - a}</mrow>
+        <mrow>\amp \le  M(\abs{\beta - \alpha} + \norm{x - a})</mrow>
+        <mrow>\amp \lt  M\,\delta</mrow>
+        <mrow>\amp \le \epsilon.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_cor_scmlt">
+    <p>
+      (Solution to <xref ref="cor_scmlt"></xref>)
+      If <m>\beta_n \sto \alpha</m> in <m>\R</m> and <m>x_n \sto a</m> in<nbsp /><m>V</m>, then <m>(\beta_n,x_n) \sto (\alpha,a)</m>
+      in <m>\R \times V</m> by <xref ref="seq_prod">proposition</xref>). According to the previous proposition
+      <me>
+        f\colon \R \times V \sto V\colon (\beta,x) \mapsto \beta x
+      </me>
+      is continuous. Thus it follows immediately from <xref ref="seq_ch_cont">proposition</xref> that
+      <me>
+        \beta_n x_n =f(\beta_n,x_n) \sto f(\alpha,a) = \alpha a\,.
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_B_vs">
+    <p>
+      (Solution to <xref ref="exer_B_vs"></xref>)
+      We know from <xref ref="vs_exam1">example</xref> that <m>\fml F(S,V)</m> is a vector space. We show that <m>\fml
+      B(S,V)</m> is a vector space by showing that it is a subspace of <m>\fml F(S,V)</m>. Since <m>\fml
+      B(S,V)</m> is nonempty (it contains every constant function), we need only verify that <m>f + g</m>
+      and <m>\alpha f</m> are bounded when <m>f</m>, <m>g \in \fml B(S,V)</m> and <m>\alpha \in \R</m>. There exist
+      constants <m>M</m>, <m>N > 0</m> such that <m>\norm{f(x)} \le M</m> and <m>\norm{g(x)} \le N</m> for all <m>x</m>
+      in<nbsp /><m>S</m>. But then
+      <me>
+        \norm{(f+g)(x)} \le \norm{f(x) + g(x)} \le \norm{f(x)} + \norm{g(x)} \le M + N
+      </me>
+      and
+      <me>
+        \norm{(\alpha f)(x)} = \norm{\alpha f(x)} = \abs \alpha\,\norm{f(x)} \le \abs\alpha\,M\,.
+      </me>
+    </p>
+
+    <p>
+      Thus the functions <m>f+g</m> and <m>\alpha f</m> are bounded.
+    </p>
+  </solution>
+</section>

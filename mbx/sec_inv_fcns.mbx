@@ -1,0 +1,135 @@
+
+<section xml:id="sec_inv_fcns">
+  <title>Inverse functions</title>
+  <p>
+    Let <m>f\colon S \sto T</m>
+    and <m>g\colon T \sto S</m>. If <m>g\circ f = I_S</m>, then <m>g</m> is a
+    <index><main>left inverse</main></index>
+    <index><main>inverse</main><sub>left</sub></index><term>left inverse</term> of <m>f</m> and, equivalently, <m>f</m> is a
+    <index><main>right inverse</main></index>
+    <index><main>inverse</main><sub>right</sub></index><term>right inverse</term> of <m>g</m>. We say that <m>f</m> is
+    <index><main>invertible</main></index><term>invertible</term> if there exists a function from <m>T</m> into <m>S</m> which is both a left and a right
+    inverse for<nbsp /><m>f</m>. Such a function is denoted by <m>f^{-1}</m> and is called the
+    <index><main><@<m>f^{-1}</m> (inverse of a function <m>f</m>)</main></index><term>inverse</term> of<nbsp /><m>f</m>. (Notice that the last <q>the</q> in the preceding sentence requires
+    justification. See <xref ref="prop_finv_unique">proposition</xref> below.) A function is
+    <index><main>invertible</main></index><term>invertible</term> if it has an inverse. According to the definition just given, the inverse
+    <m>f^{-1}</m> of a function <m>f</m> must satisfy
+    <me>
+      f \circ f^{-1} = I_T \qquad\text{ and } \qquad f^{-1}\circ f = I_S\,.
+    </me>
+  </p>
+
+  <p>
+    A simple, but important, consequence of this is that for an invertible function, <m>y = f(x)</m> if
+    and only if <m>x = f^{-1}(y)</m>. [Proof: if <m>y = f(x)</m>, then <m>f^{-1}(y) = f^{-1}(f(x)) = I_S(x) =
+    x</m>. Conversely, if <m>x = f^{-1}(y)</m>, then <m>f(x) = f(f^{-1}(y)) = I_T(y) = y</m>.]
+  </p>
+
+  <proposition xml:id="prop_finv_unique">
+    <statement>
+      <p>
+        A function can have at most one inverse.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_finv_unique">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If a function has both a left inverse and a right inverse, then the left and right
+        inverses are equal (and therefore the function is invertible).
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_inv_trig">
+    <statement>
+      <p>
+        The <em>arcsine</em> function is defined to be the inverse
+        of what function? (<em>Hint.</em> The answer is not <em>sine</em>.) What about <em>arccosine</em>?
+        <em>arctangent</em>? (<xref ref="sol_exer_inv_trig">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The next two propositions tell us that a necessary and sufficient condition for a function to
+    have right inverse is that it be surjective and that a necessary and sufficient condition for
+    a function to have a left inverse is that it be injective. Thus, in particular, a function is
+    invertible if and only if it is bijective. In other words, the invertible members of <m>\fml
+    F(S,T)</m> are the bijections.
+  </p>
+
+  <proposition xml:id="prop_rinv_surj">
+    <statement>
+      <p>
+        Let <m>S \ne \emptyset</m>. A function <m>f\colon S \sto T</m> has a
+        right inverse if and only if it is surjective.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_rinv_surj">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_linv_inj">
+    <statement>
+      <p>
+        Let <m>S \ne \emptyset</m>. A function <m>f\colon S \sto T</m> has a left
+        inverse if and only if it is injective.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Prove: if a function <m>f</m> is bijective, then <m>\bigl(f^{-1}\bigr)^\gets = f^{\sto}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac{ax + b}{cx + d}</m> where <m>a</m>, <m>b</m>, <m>c</m>, <m>d \in \R</m> and not both
+        <m>c</m> and <m>d</m> are zero.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Under what conditions on the constants <m>a, b, c, \text{ and }  d</m> is <m>f</m> injective?
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Under what conditions on the constants <m>a, b, c, \text{ and }  d</m> is <m>f</m> its own inverse?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

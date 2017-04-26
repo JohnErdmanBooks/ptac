@@ -1,0 +1,35 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="intervals">
+  <title>Intervals</title>
+  <introduction>
+    <p>
+      The three great realms of calculus are differential calculus, integral calculus, and the
+      theory of infinite series. Central to each of these is the notion of <em>limit</em>:
+      derivatives, integrals, and infinite series can be defined as limits of appropriate objects.
+      Before entering these realms, however, one must have some background. There are the basic
+      facts about the algebra, the order properties, and the topology of the real line<nbsp /><m>\R</m>. One
+      must know about functions and the various ways in which they can be combined (addition,
+      composition, and so on). And, finally, one needs some basic facts about continuous functions,
+      in particular the <em>intermediate value theorem</em> and the <em>extreme value theorem</em>.
+    </p>
+
+    <p>
+      Much of this material appears in the appendices. The remainder (the topology of <m>\R</m>,
+      continuity, and the <em>intermediate</em> and <em>extreme value theorems</em>) occupies the first
+      six chapters. After these have been completed we proceed with limits and the differential
+      calculus of functions of a single variable.
+    </p>
+
+    <p>
+      As you will recall from beginning calculus we are accustomed to calling certain intervals
+      <q>open</q> (for example, <m>(0,1)</m> and <m>(-\infty, 3)</m> are open intervals) and other intervals
+      <q>closed</q> (for example, <m>[0,1]</m> and <m>[1,\infty)</m> are closed intervals). In this chapter and
+      the next we investigate the meaning of the terms <q>open</q> and <q>closed</q>. These concepts turn
+      out to be rather more important than one might at first expect. It will become clear after
+      our discussion in subsequent chapters of such matters as continuity, connectedness, and
+      compactness just how important they really are.
+    </p>
+  </introduction>
+  <xi:include  href="section1-1.mbx" />
+  <xi:include  href="section1-2.mbx" />
+</chapter>

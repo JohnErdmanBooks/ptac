@@ -1,0 +1,227 @@
+
+<section>
+  <title>Arcwise connected spaces</title>
+  <p>
+    A concept closely related to (but stronger than) connectedness is <em>arcwise
+    connectedness</em>.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A metric space is
+        <index><main>arcwise connected</main></index>
+        <index><main>connected</main><sub>arcwise</sub></index><term>arcwise connected</term> (or
+        <index><main>path connected</main></index>
+        <index><main>connected</main><sub>path</sub></index><term>path connected</term>) if for every <m>x</m>, <m>y \in M</m> there exists a continuous map <m>f \colon [0,1]
+        \sto M</m> such that <m>f(0) = x</m> and <m>f(1) = y</m>. Such a function <m>f</m> is an
+        <index><main>arc</main></index><term>arc</term> (or
+        <index><main>path</main></index><term>path</term> , or
+        <index><main>curve</main></index><term>curve</term>) connecting <m>x</m> to<nbsp /><m>y</m>. It is very easy to prove that arcwise connected spaces are
+        connected (<xref ref="prop_arcw_conn">proposition</xref>). The converse is false
+        (<xref ref="exam_conn_notarcw">example</xref>). If, however, we restrict our attention to open subsets of
+        <m>\R^n</m>, then the converse does hold (<xref ref="prop_opconn_arcw">proposition</xref>).
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_arcw_conn">
+    <statement>
+      <p>
+        If a metric space is arcwise connected, then it is connected.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The following subset of <m>\R^2</m> is not connected.
+        <me>
+          <md>
+          \{(x,y) \colon (x-1)^2 + (y-1)^2 \amp \lt  4\} \cup \{(x,y) \colon x \lt  0\} \\
+                               \amp \cup  \{(x,y) \colon (x-10)^2 + (y-1)^2 \lt  49\}
+          </md>
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The following subset of <m>\R^2</m> is connected.
+        <me>
+          <md>
+          \{(x,y) \colon (x-1)^2 + (y-1)^2 \amp \lt  4\} \cup \{(x,y) \colon y \lt  0\} \\
+                   \amp \cup  \{(x,y) \colon (x-10)^2 + (y-1)^2 \lt  49\}
+          </md>
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The following subset of <m>\R^2</m> is connected.
+        <me>
+          \{(x,x^3 + 2x) \colon x \in \R\} \cup \{(x,x^2+56) \colon x \in \R\}
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Every open ball in <m>\R^n</m> is connected. So is every closed ball.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="exam_conn_notarcw">
+    <statement>
+      <p>
+        Let <m>B = \{(x,\sin x^{-1}) \colon 0 \lt  x \le 1\}</m>. Then
+        <m>\clo B</m> is a connected subset of <m>\R^2</m> but is not arcwise connected.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>M = \clo B</m>. To show that <m>M</m> is not arcwise
+      connected argue by contradiction. Assume there exists a continuous function <m>f \colon [0,1]
+      \sto M</m> such that <m>f(1) \in B</m> and <m>f(0) \notin B</m>. Prove that <m>f^2 = \pi_2 \circ f</m> is
+      discontinuous at the point <m>t_0 = \sup f^\gets(M \setminus B)</m>. To this end show that <m>t_0
+      \in f^\gets(M \setminus B)</m>. Then, given <m>\delta > 0</m>, choose <m>t_1</m> in <m>[0,1]</m> so that <m>t_0 \lt 
+      t_1 \lt  t_0 + \delta</m>. Without loss of generality one may suppose that <m>f^2(t_0) \le 0</m>. Show
+      that <m>\bigl(f^1\bigr)^\sto[t_0,t_1]</m> is an interval containing <m>0</m> and <m>f^1(t_1)</m> (where <m>f^1
+      = \pi_1 \circ f</m>). Find a point <m>t</m> in <m>[t_0,t_1]</m> such that <m>0 \lt  f^1(t) \lt  f^1(t_1)</m> and
+      <m>f^2(t) = 1</m>. (<xref ref="sol_exam_conn_notarcw">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_opconn_arcw">
+    <statement>
+      <p>
+        Every connected open subset of <m>\R^n</m> is arcwise connected.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>A</m> be a connected open subset of <m>\R^n</m> and
+      <m>a \in A</m>. Let <m>U</m> be the set of all points in <m>A</m> which can be joined to <m>a</m> by an arc
+      in<nbsp /><m>A</m>. Show that <m>A \setminus U</m> is empty by showing that <m>U</m> and <m>A \setminus U</m>
+      disconnect<nbsp /><m>A</m>. (<xref ref="sol_prop_opconn_arcw">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Does there exist a continuous bijection from a closed disk in <m>\R^2</m> to its
+        circumference? Does there exist a continuous bijection from the interval <m>[0,1]</m> to the
+        circumference of a disk in <m>\R^2</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>x</m> be a point in a metric space<nbsp /><m>M</m>. Define the
+        <index><main>components</main><sub>of a metric space</sub></index><term>component</term> of <m>M</m> containing <m>x</m> to be the largest connected subset of <m>M</m> which
+        contains<nbsp /><m>x</m>. Discover as much about components of metric spaces as you can. First, of
+        course, you must make sure that the definition just given makes sense. (How do we know that
+        there really <em>is</em> a <q>largest</q> connected set containing<nbsp /><m>x</m>?)
+      </p>
+
+      <p>
+        Here are some more things to think about.
+        <ol>
+          <li>
+            <p>
+              The components of a metric space are a disjoint family whose union is the whole space.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              It is fairly clear that the components of a discrete metric space are the points of
+              the space.  If the components are points must the space be discrete?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Components of a metric space are closed sets;  must they be open?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Distinct components of a metric space are mutually separated.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              If a metric space <m>M</m> is the union of two mutually separated sets <m>C</m> and <m>D</m> and if
+              points <m>x</m> and <m>y</m> belong to the same component of <m>M</m>, then both points are in <m>C</m> or both
+              are in<nbsp /><m>D</m>. What about the converse?  Suppose <m>x</m> and <m>y</m> are points in <m>M</m> such that whenever
+              <m>M</m> is written as the union of two mutually separated sets <m>C</m> and <m>D</m>, both points lie in <m>C</m>
+              or both lie in<nbsp /><m>D</m>.  Must <m>x</m> and <m>y</m> lie in the same component?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        A function <m>f</m> in <m>\fml C(M,\R)</m>, where <m>M</m> is a metric space, is
+        <index><main>idempotent</main></index><term>idempotent</term> if <m>(f(x))^2 = f(x)</m> for all <m>x \in M</m>. The constant functions <m>0</m> and <m>1</m>
+        are the <term>trivial</term> idempotents of <m>\fml C(M,\R)</m>. Show that <m>\fml C(M,\R)</m> possesses a
+        nontrivial idempotent if and only if the underlying metric space is disconnected. (This is one
+        of a large number of results which link algebraic properties of <m>\fml C(M,\R)</m> to topological
+        properties of the underlying space<nbsp /><m>M</m>.)
+      </p>
+    </statement>
+  </problem>
+</section>

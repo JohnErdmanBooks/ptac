@@ -1,0 +1,274 @@
+
+<section>
+  <title>Intersections</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets. The
+        <index><main><@<m>\cap</m> (intersection)</main></index><term>intersection</term> of <m>S</m> and <m>T</m> is the set of all <m>x</m> such that <m>x \in S</m> and <m>x \in T</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        If <m>S = [0,3]</m> and <m>T = [2,5]</m>, then <m>S \cap T = [2,3]</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proposition xml:id="prop_intersection_sets">
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T</m>, <m>U</m>, and <m>V</m> be sets. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>S \cap (T \cap U) = (S \cap T) \cap U</m>;  (associativity)
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>S \cap T = T \cap S</m>;  (commutativity)
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>S \cap \emptyset = \emptyset</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>S \cap T \subseteq S</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>S = S \cap T</m> if and only if <m>S \subseteq T</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              If <m>S \subseteq T</m> and <m>U \subseteq V</m>, then <m>S \cap U \subseteq T \cap V</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    There are two distributive laws for sets: union distributes over intersection (<xref ref="uoveri_fin">proposition</xref> below) and intersection distributes over union (<xref ref="ioveru_fin">proposition</xref>).
+  </p>
+
+  <proposition xml:id="uoveri_fin">
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T</m>, and <m>U</m> be sets. Then
+        <me>
+          S \cup (T \cap U)  =  (S \cup T) \cap (S \cup U)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prob_disj_conj">problem</xref>.
+      (<xref ref="sol_uoveri_fin">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="ioveru_fin">
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T</m>, and <m>U</m> be sets. Then
+        <me>
+          S \cap (T \cup U)  =  (S \cap T) \cup (S \cap U)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Just as we may take the union of an arbitrary family of sets, we may also take its
+    intersection.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>\sfml S</m> be a family of sets. We define the
+        <index><main>intersection</main></index><term>intersection</term> of the family <m>\sfml S</m> to be the set of all <m>x</m> such that <m>x \in \sfml
+        S</m> for every <m>S</m> in <m>\sfml S</m>. We denote the intersection of <m>\sfml S</m> by <m>\bigcap\sfml
+        S</m> (or by <m>\bigcap_{S \in \sfml{S}}S</m>, or by <m>\bigcap\{S: S \in \sfml S\}</m>).
+      </p>
+    </statement>
+  </definition>
+
+  <notation>
+
+  <p>
+    If <m>S</m> is a finite family of sets <m>S_1,\dots,S_n</m>, then we may write
+    <m>\bigcap_{k=1}^n S_k</m> or <m>S_1 \cap S_2 \cap \dots \cap S_n</m> for <m>\bigcap\sfml S</m>.
+    Similarly, if <m>\sfml S = \{S_1,S_2,\dots\}</m>, then we may write
+    <m>\smash[t]{\bigcap_{k=1}^\infty S_k}</m> or <m>S_1 \cap S_2 \cap \dots</m> for <m>\bigcap\sfml S</m>.
+  </p>
+
+  </notation>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = \{0,1,3\}</m>, <m>T = \{1,2,3\}</m>, <m>U = \{1,3,4,5\}</m>, and <m>S = \{S,T,U\}</m>.
+        Then
+        <me>
+          \bigcap S = S \cap T \cap U = \{1,3\}\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    <xref ref="uoveri_fin">Proposition</xref> may be generalized to say that union distributes over the
+    intersection of an arbitrary family of sets. Similarly there is a more general form of
+    <xref ref="ioveru_fin">proposition</xref> which says that intersection distributes over the union of an
+    arbitrary family of sets. These two facts, which are stated precisely in the next two
+    propositions, are known as
+    <index><main>generalized distributive law</main></index>
+    <index><main>distributive law</main><sub>generalized</sub></index><term>generalized distributive laws</term>.
+  </p>
+
+  <proposition xml:id="uoveri_inf">
+    <statement>
+      <p>
+        Let <m>T</m> be a set and <m>\sfml S</m> be a family of sets. Then
+        <me>
+          T \cup \bigl(\,\bigcap\sfml S\,\bigr) = \bigcap\{T \cup S \colon  S \in \sfml S\}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_uoveri_inf">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="ioveru_inf">
+    <statement>
+      <p>
+        Let <m>T</m> be a set and <m>\sfml S</m> be a family of sets. Then
+        <me>
+          T \cap \bigl(\,\bigcup \sfml S\,\bigr) = \bigcup\{T \cap S: S \in \sfml S\}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Sets <m>S</m> and <m>T</m> are said to be
+        <index><main>disjoint</main></index><term>disjoint</term> if <m>S \cap T = \emptyset</m>. More generally, a family <m>\sfml S</m> of sets is a
+        <index><main>disjoint</main><sub>family</sub></index><term>disjoint family</term> (or a
+        <index><main>pairwise disjoint</main></index>
+        <index><main>disjoint</main><sub>pairwise</sub></index><term>pairwise disjoint family</term>) if <m>S \cap T = \emptyset</m> whenever <m>S</m> and <m>T</m> are
+        distinct (that is, not equal) sets which belong to<nbsp /><m>\sfml S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <caution>
+
+  <p>
+    Let <m>\sfml S</m> be a family of sets. Do not confuse the following two statements.
+    <ol>
+      <li>
+        <title>(a)</title>
+        <p>
+          <m>\sfml S</m> is a (pairwise) disjoint family.
+        </p>
+      </li>
+
+      <li>
+        <title>(b)</title>
+        <p>
+          <m>\bigcap \sfml S = \emptyset</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Certainly, if <m>\sfml S</m> contains more than a single set, then (a) implies (b). But if
+    <m>\sfml S</m> contains three or more sets the converse need not hold. For example, let <m>S =
+    \{0,1\}</m>, <m>T = \{3,4\}</m>, <m>U = \{0,2\}</m>, and <m>\sfml S = \{S,T,U\}</m>. Then <m>\sfml S</m> is not
+    a disjoint family (because <m>S \cap U</m> is nonempty), but <m>\bigcap\sfml S = \emptyset</m>.
+  </p>
+
+  </caution>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T</m>, <m>U</m>, and <m>V</m> be sets.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Then <m>(S \cap T) \cup (U \cap V) \subseteq (S \cup U)
+              \cap (T \cup V)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Give an example to show that equality need not hold
+              in<nbsp />(a).
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="prop_union_sets">propositions</xref>(d) and <xref ref="prop_intersection_sets"></xref>(f) to show that <m>S \cap T</m> and <m>U \cap V</m> are contained in <m>(S
+      \cup U) \cap (T \cup V)</m>. Then <xref ref="prop_union_sets">use</xref>(f).
+    </p>
+  </proof>
+</section>

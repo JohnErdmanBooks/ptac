@@ -1,0 +1,47 @@
+
+<section>
+  <title>Diagrams</title>
+  <p>
+    It is frequently useful to think of functions as arrows in diagrams. For example,
+    the situation <m>f\colon R \sto S</m>, <m>h\colon R \sto T</m>, <m>j\colon T \sto U</m>, <m>g\colon S \sto U</m>
+    may be represented by the following diagram.
+    <me>
+      \xy
+         \square[R`S`T`U;f`h`g`j]
+         \morphism\lt 500,500>[T`S;]
+         \endxy
+    </me>
+  </p>
+
+  <p>
+    The diagram is said to
+    <index><main>commute</main></index>
+    <index><main>commuting</main><sub>diagram</sub></index><term>commute</term> if <m>j \circ h = g \circ f</m>.
+  </p>
+
+  <p>
+    Diagrams need not be rectangular. For instance,
+    <me>
+      \xy
+           \btriangle[R`S`T;f`k`g]
+         \endxy
+    </me>
+    is a commutative diagram if <m>k = g \circ f</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Here is a diagrammatic way of stating the associative law for composition of functions.
+        If the triangles in the diagram
+        <me>
+          \xy
+               \square[R`U`S`T;j`f`h`k]
+               \morphism\lt 500,500>[S`U;g]
+             \endxy
+        </me>
+        commute, then so does the rectangle.
+      </p>
+    </statement>
+  </example>
+</section>

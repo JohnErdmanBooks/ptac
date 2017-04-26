@@ -1,0 +1,427 @@
+
+<section>
+  <title>Matrix representations of linear transformations</title>
+  <p>
+    We are now in a position to represent
+    members of <m>\ofml L(\R^n,\R^m)</m> by means of matrices. This will simplify computations
+    involving such linear transformations.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        If <m>T \in \ofml L(\R^n,\R^m)</m>, we define <m>[T]</m> to be the <m>m \times n</m> matrix whose
+        entry in the <m>j^{\text{ th } }</m> row and <m>k^{\text{ th } }</m> column is <m>(Te^k)_j</m>, the <m>j^{\text{ th } }</m>
+        component of the vector <m>Te^k</m> in <m>\R^m</m>. That is, if <m>a = [T]</m>, then <m>a_k^j = (Te^k)_j</m>.
+        The matrix
+        <index><main><@<m>[T]</m> (matrix representation of a linear map)</main></index><m>[T]</m> is the
+        <index><main>matrix</main><sub>representation</sub></index>
+        <index><main>representation</main><sub>matrix</sub></index><term>matrix representation</term> of <m>T</m> (with respect to the standard bases in <m>\R^n</m> and<nbsp /><m>\R^m</m>).
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>T \colon \R^4 \sto \R^3 \colon  (w,x,y,z) \mapsto (w+2x+3y, 5w+6x+7y+8z,
+        -2x-3y-4z)</m>. Then <m>T</m> is linear and
+        <md>
+          <mrow>Te^1 \amp = T(1,0,0,0) = (1,5,0)</mrow>
+          <mrow>Te^2 \amp = T(0,1,0,0) = (2,6,-2)</mrow>
+          <mrow>Te^3 \amp = T(0,0,1,0) = (3,7,-3)</mrow>
+          <mrow>Te^4 \amp = T(0,0,0,1) = (0,8,-4).</mrow>
+        </md>
+      </p>
+
+      <p>
+        Having computed <m>Te^1,\dots, Te^4</m>, we use these as the successive columns of<nbsp /><m>[T]</m>. Thus
+        <me>
+          T = \begin{bmatrix}1 \amp   2 \amp   3 \amp   0 \\
+                       5 \amp   6 \amp   7 \amp   8 \\
+                       0 \amp  -2 \amp  -3 \amp  -4
+          \end{bmatrix} .
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        If <m>I \colon \R^n \sto \R^n</m> is the identity map on <m>\R^n</m>, then its matrix
+        representation <m>[I]</m> is just the <m>n \times n</m> identity matrix<nbsp /><m>I_n</m>.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="exer_mrlt_exam">
+    <statement>
+      <p>
+        Let <m>T \colon \R^2 \sto \R^4 \colon  (x,y) \mapsto
+        (x - 3y, 7y, 2x + y, -4x + 5y)</m>. Find <m>[T]</m>. (<xref ref="sol_exer_mrlt_exam">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The point of the representation just defined is that if we compute the action of the matrix
+    <m>[T]</m> on a vector <m>x</m> (as defined in <xref ref="def_act_matr"></xref>), what we get is the value of <m>T</m>
+    at<nbsp /><m>x</m>. Moreover, this representation is unique; that is, two distinct matrices cannot
+    represent the same linear map.
+  </p>
+
+  <proposition xml:id="prop_mrT_is_T">
+    <statement>
+      <p>
+        If <m>T \in \ofml L(\R^n,\R^m)</m>, then for all <m>x</m> in<nbsp /><m>\R^n</m>
+        <me>
+          Tx = [T]x\,.
+        </me>
+      </p>
+
+      <p>
+        Furthermore, if <m>a</m> is any <m>m \times n</m> matrix which satisfies
+        <me>
+          Tx = ax  \qquad \text{ for all \(x \in \R^n\) } ,
+        </me>
+        then <m>a = [T]</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> For simplicity of notation let <m>b = [T]</m>. The map
+      <m>S \colon \R^n \sto \R^m \colon  x \mapsto bx</m> is linear. Why? To show that <m>Sx = Tx</m> for all
+      <m>x</m> in <m>\R^n</m> it suffices to show that <m>(Se^k)_j = (Te^k)_j</m> for <m>1 \le k \le n</m> and <m>1 \le j
+      \le m</m>. Why? (<xref ref="sol_prop_mrT_is_T">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_matrep_bij">
+    <statement>
+      <p>
+        Let <m>m</m>, <m>n \in \N</m>. The map <m>T \mapsto [T]</m> from
+        <m>\ofml L(\R^n,\R^m)</m> into <m>\ofml M_{m \times n}</m> is a bijection.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_matrep_bij">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_arith_matrep">
+    <statement>
+      <p>
+        Let <m>m</m>, <m>n \in \N</m>; let <m>S</m>, <m>T \in \ofml L(\R^n,\R^m)</m>;
+        and let <m>\alpha \in \R</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>[S + T] = [S] + [T]</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>[\alpha T] = \alpha [T]</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> For (a) use <xref ref="prop_mrlt_bas">propositions</xref>, <xref ref="prop_mrT_is_T"></xref>, and <xref ref="prop_matr_arith"></xref>(c). (<xref ref="sol_prop_arith_matrep">Solution</xref>.)
+    </p>
+  </proof>
+
+  <theorem>
+    <statement>
+      <p>
+        Under the operations of addition and scalar multiplication (defined in
+        <xref ref="matr">section</xref>) <m>\ofml M_{m \times n}</m> is a vector space and the map <m>T \mapsto [T]</m>,
+        which takes a linear transformation to its matrix representation, is an isomorphism between
+        <m>\ofml L(\R^n,\R^m)</m> and<nbsp /><m>\ofml M_{m \times n}</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="lt_transfer">problem</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Define <m>T \colon \R^3 \sto \R^4</m> by
+        <me>
+          T(x,y,z) = (x - 2y, x + y - 3z, y + 4z, 3x - 2y + z)\,.
+        </me>
+      </p>
+
+      <p>
+        Find <m>[T]</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Define <m>T \colon \R^4 \sto \R^3</m> by
+        <me>
+          T(w,x,y,z) = (w - 3x + z, 2w + x + y - 4z, w + y + z)\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>[T]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use <xref ref="prop_mrT_is_T">proposition</xref> to calculate <m>T(4,0,-3,1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^2 \sto \R^4</m> be defined by
+        <me>
+          f(x) = (x_1x_2, (x_1)^2 - 4(x_2)^2, (x_1)^3, x_1\sin(\pi x_2))
+        </me>
+        for all <m>x = (x_1, x_2)</m> in <m>\R^2</m>, and let <m>T \colon \R^2 \sto \R^4</m> be the linear
+        transformation whose matrix representation is
+        <me>
+          \begin{bmatrix}4 \amp   0 \\
+                    2 \amp  -1 \\
+                    5 \amp  -8 \\
+                   -1 \amp   2
+          \end{bmatrix} \,.
+        </me>
+      </p>
+
+      <p>
+        Find <m>f(a + h) - f(a) - Th</m> when <m>a = (-2,1/2)</m> and <m>h = (-1,1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_comp_mrlt">
+    <statement>
+      <p>
+        If <m>S \in \ofml L(\R^p,\R^n)</m> and
+        <m>T \in \ofml L(\R^n,\R^m)</m>, then
+        <me>
+          [TS] = [T] [S]\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Why does it suffice to show that <m>[TS]x = ([T][S])x</m>
+      for all <m>x</m> in <m>\R^p</m>? Use <xref ref="prop_mrT_is_T">propositions</xref> and <xref ref="prop_matr_arith"></xref>(e).
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let
+        <md>
+          <mrow>T \colon \R^3 \sto \R^4 \amp  \colon  (x,y,z) \mapsto (2x+y, x-z, y+z, 3x)</mrow>
+          <intertext>and</intertext>
+          <mrow>S \colon \R^4 \sto \R^3 \amp  \colon  (w,x,y,z) \mapsto (x-y, y+z, z-w).</mrow>
+        </md>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Use <xref ref="prop_comp_mrlt">proposition</xref> to find<nbsp /><m>[TS]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use <xref ref="prop_comp_mrlt">proposition</xref> to find<nbsp /><m>[ST]</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_madd_assoc">
+    <statement>
+      <p>
+        Show that matrix multiplication is associative; that is,
+        show that if <m>a \in \ofml M_{m \times n}</m>, <m>b \in \ofml M_{n \times p}</m>, and <m>c \in \ofml M_{p
+        \times r}</m>, then <m>(ab)c = a(bc)</m>. <em>Hint.</em> Don't make a complicated and messy computation
+        of this by trying to prove it directly. Use <xref ref="prop_assoc_comp">propositions</xref>, <xref ref="prop_matrep_bij"></xref>, and <xref ref="prop_comp_mrlt"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>\ofml M_{n \times n}</m> is a unital algebra. <em>Hint.</em> Use the
+        <xref ref="def_alg">definition</xref>. Notice that <xref ref="prob_madd_assoc">problem</xref> establishes condition (c)
+        of <xref ref="prob_madd_assoc"></xref>. Verify the other conditions in a similar fashion.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_matr_inv">
+    <statement>
+      <p>
+        A linear map <m>T \in \ofml L(\R^n,\R^n)</m> is invertible if and
+        only if <m>\det[T] \ne 0</m>. If <m>T</m> is invertible, then <m>[T^{-1}] = [T]^{-1}</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show that <m>T</m> is invertible if and only if its matrix
+      representation is. Then <xref ref="fact_matr_inv">use</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T \colon \R^3 \sto \R^3 \colon  (x,y,z) \mapsto (x + 2z, y - z, x + y)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Compute <m>[T]</m> by calculating <m>T</m> and then writing down its matrix representation.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use <xref ref="prop_matr_inv">proposition</xref> to find<nbsp /><m>[T]</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_p4_vs">
+    <statement>
+      <p>
+        Let <m>\fml P_4</m> be the family of all polynomial functions on <m>\R</m>
+        with degree (strictly) less than<nbsp /><m>4</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that (under the usual pointwise operations) <m>\fml P_4</m> is a vector space which
+              is isomorphic to<nbsp /><m>\R^4</m>. <em>Hint.</em> <xref ref="lt_transfer">Problem</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>D \colon \fml P_4 \sto \fml P_4 \colon  f \mapsto f'</m> (where <m>f'</m> is the
+              derivative of <m>f</m>).  Using part (a) to identify the spaces <m>\fml P_4</m> and <m>\R^4</m>, find a
+              matrix representation for the (obviously linear) differentiation operator<nbsp /><m>D</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use your answer to part (b) to differentiate the polynomial <m>7x^3 - 4x^2 + 5x - 81</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\fml P_4</m> be as in <xref ref="prob_p4_vs">problem</xref>. Consider the map
+        <me>
+          K \colon \fml P_4 \sto \R \colon  f \mapsto \int_0^1 f(x)\,dx\,.
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>K</m> is linear.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find a way to represent <m>K</m> as a matrix. <em>Hint.</em> Use <xref ref="prob_p4_vs">problem</xref>(a).
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use your answer to part (b) to integrate the polynomial
+              <m>8x^3 - 5x^2 - 4x + 6</m> over the interval<nbsp /><m>[0,1]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Let <m>D</m> be as in <xref ref="prob_p4_vs">problem</xref>.  Find <m>[KD]</m> by two different techniques.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>T \in \ofml L(\R^4,\R^4)</m> satisfy:
+        <md>
+          <mrow>Te^1 \amp = (1, 2, 0, -1)</mrow>
+          <mrow>Te^2 \amp = (1, 0, -3, 2)</mrow>
+          <mrow>Te^3 \amp = (1, -1,-1, 1)</mrow>
+          <mrow>Te^4 \amp = (0, 2, -1, 0).</mrow>
+        </md>
+      </p>
+
+      <p>
+        Also let <m>x = (1,-2,3,-1)</m> and <m>y = (0,1,2,1)</m>. Find<nbsp /><m>x[T]y</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,510 @@
+
+<section>
+  <title>The contractive mapping theorem</title>
+  <definition>
+    <statement>
+      <p>
+        A mapping <m>f \colon M \sto N</m> between metric spaces is
+        <index><main>contraction mapping</main></index><term>contractive</term> if there exists a constant <m>c</m> such that <m>0 \lt  c \lt  1</m> and
+        <me>
+          d(f(x),f(y))  \le  c\, d(x,y)
+        </me>
+        for all <m>x</m>, <m>y \in M</m>. Such a number <m>c</m> is a
+        <index><main>contraction</main><sub>constant</sub></index><term>contraction constant</term> for<nbsp /><m>f</m>. A contractive map is also
+        called a
+        <index><main>contraction</main></index><term>contraction</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="cntr_cnt">
+    <statement>
+      <p>
+        Show that every contractive map is continuous.
+        (<xref ref="sol_cntr_cnt">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <example xml:id="cntr_exm1">
+    <statement>
+      <p>
+        The map <m>f \colon \R^2 \sto \R^3</m> defined by
+        <me>
+          f(x,y) = \bigl(1 - \tfrac13x, 1 +\tfrac13y, 2 + \tfrac13x - \tfrac13y\bigr)
+        </me>
+        is a contraction.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cntr_exml">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The map
+        <me>
+          f \colon \R^2 \sto \R^2:(x,y) \mapsto \bigl(\tfrac12(1 + y), \tfrac12(3 - x)\bigr)
+        </me>
+        is a contraction on <m>\R^2</m>, where <m>\R^2</m> has its usual (Euclidean) metric.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The next theorem is the basis for a number of interesting applications. Also it will turn out to
+    be a crucial ingredient of the extremely important <em>inverse function theorem</em> (in <xref ref="IFT">chapter</xref>). Although the statement of <xref ref="cmthm">theorem</xref> is important in applications, its proof
+    is even more so. The theorem guarantees the existence (and uniqueness) of solutions to certain
+    kinds of equations; its proof allows us to approximate these solutions as closely as our
+    computational machinery permits. Recall from <xref ref="ivt">chapter</xref> that a
+    <index><main>fixed point</main></index><term>fixed point</term> of a mapping <m>f</m> from a set <m>S</m> into itself is a point <m>p \in S</m> such that <m>f(p) =
+    p</m>.
+  </p>
+
+  <p>
+    <index><main>contractive mapping theorem</main></index>
+  </p>
+
+  <theorem xml:id="cmthm">
+    <title>Contractive Mapping Theorem</title>
+    <statement>
+      <p>
+        Every contraction from a complete metric
+        space into itself has a unique fixed point.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>M</m> be a complete metric space and <m>f \colon M \sto M</m>
+      be contractive. Start with an arbitrary point <m>x_0</m> in <m>M</m>. Obtain a sequence
+      <m>(x_n)_{n=0}^\infty</m> of points in <m>M</m> by letting <m>x_1 = f(x_0)</m>, <m>x_2 = f(x_1)</m>, and so on. Show
+      that this sequence is Cauchy. (<xref ref="sol_cmthm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="fpt_exm1">
+    <statement>
+      <p>
+        We use the <em>contractive mapping theorem</em> to solve the following
+        system of equations
+        <men xml:id="fpt_eq1" >
+          \left\{   \begin{aligned}9x - 2y  \amp =  7 \\
+                                                      3x + 8y  \amp =  11 \,.
+          \end{aligned} 
+                           \right.
+        </men>
+      </p>
+
+      <p>
+        Define
+        <me>
+          S \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (9x - 2y, 3x + 8y)\,.
+        </me>
+      </p>
+
+      <p>
+        The system <xref ref="fpt_eq1" /> may be written as a single equation
+        <me>
+          S(x,y) = (7, 11)\,,
+        </me>
+        or equivalently as
+        <men xml:id="fpt_eq2" >
+          (x,y) - S(x,y) + (7, 11) = (x, y)\,.
+        </men>
+      </p>
+
+      <p>
+        [<em>Definition.</em> Addition and subtraction on <m>\R^2</m> are defined coordinatewise. That is, if
+        <m>(x,y)</m> and <m>(u,v)</m> are points in <m>\R^2</m>, then <m>(x,y) + (u,v) := (x + u,y + v)</m> and <m>(x,y) - (u,v)
+        := (x - u,y - v)</m>. Similar definitions hold for <m>\R^n</m> with <m>n > 2</m>.] Let <m>T(x,y)</m> be the left
+        hand side of <xref ref="fpt_eq2" />; that is, define
+        <me>
+          T \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x,y) - S(x,y) + (7,11)\,.
+        </me>
+      </p>
+
+      <p>
+        With this notation <xref ref="fpt_eq2" /> becomes
+        <me>
+          T(x,y) = (x,y)\,.
+        </me>
+      </p>
+
+      <p>
+        Thus, and this is the crucial point, to solve <xref ref="fpt_eq1" /> we need only find a fixed point of
+        the mapping<nbsp /><m>T</m>. If <m>T</m> is contractive, then the preceding theorem guarantees that <m>T</m> has a
+        unique fixed point and therefore that the system of equations <xref ref="fpt_eq1" /> has a unique
+        solution.
+      </p>
+
+      <p>
+        Unfortunately, as things stand, <m>T</m> is <em>not</em> contractive with respect to the product metric on
+        <m>\R^2</m>. (It is for convenience that we use the product metric <m>d_1</m> on <m>\R^2</m> rather than the
+        usual Euclidean metric. Square roots are a nuisance.) To see that <m>T</m> is not contractive notice
+        that <m>d_1\bigl((1,0),(0,0)\bigr) = 1</m> whereas <m>d_1\bigl(T(1,0),T(0,0)\bigr) =
+        d_1\bigl((-1,8),(7,11)\bigr) = 11</m>. All is not lost however. One simple-minded remedy is to
+        divide everything in <xref ref="fpt_eq1" /> by a large constant<nbsp /><m>c</m>. A little experimentation shows that
+        <m>c = 10</m> works. Instead of working with the system <xref ref="fpt_eq1" /> of equations, consider the
+        system
+        <men xml:id="fpt_eq4" >
+          \left\{     \begin{aligned}0.9 x - 0.2 y = 0.7 \\
+                                                    0.3 x + 0.8 y = 1.1
+          \end{aligned} 
+                     \right.
+        </men>
+        which obviously has the same solutions as<nbsp /><xref ref="fpt_eq1" />. Redefine <m>S</m> and <m>T</m> in the obvious
+        fashion. Let
+        <me>
+          S \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (0.9x - 0.2y, 0.3x + 0.8y)
+        </me>
+        and
+        <me>
+          T \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x,y) - S(x,y) + (0.7,1.1)\,.
+        </me>
+      </p>
+
+      <p>
+        Thus redefined, <m>T</m> is contractive with respect to the product metric. <em>Proof:</em> Since
+        <men xml:id="fpt_eq5" >
+          T(x,y) = (0.1 x + 0.2 y + 0.7, -0.3 x + 0.2 y + 1.1)
+        </men>
+        for all <m>(x,y) \in \R^2</m>, we see that
+        <md>
+          <mrow>d_1\bigl(T(x,y),T(u,v)\bigr)
+                  \amp = 10^{-1}\bigl(\abs{(x+2y)-(u+2v)} + \abs{(-3x+2y)-(-3u+2v)}\bigr)</mrow>
+          <mrow>\amp \le 10^{-1}\bigl(\abs{x-u} + 2\abs{y-v} + 3\abs{x-u} + 2\abs{y-v}\bigr)</mrow>
+          <mrow>\amp = 0.4\,(\abs{x-u} + \abs{y-v})</mrow>
+          <mrow>\amp = 0.4\,d_1\bigl((x,y),(u,v)\bigr)</mrow>
+        </md>
+        for all points <m>(x,y)</m> and <m>(u,v)</m> in<nbsp /><m>\R^2</m>.
+      </p>
+
+      <p>
+        Now since <m>T</m> is contractive and <m>\R^2</m> is complete (with respect to the product metric<mdash /><xref ref="prod_compl">see</xref>), the <em>contractive mapping theorem</em> <xref ref="cmthm" /> tells us that <m>T</m> has a
+        unique fixed point. But a fixed point of <m>T</m> is a solution for the system <xref ref="fpt_eq4" /> and
+        consequently for<nbsp /><xref ref="fpt_eq1" />.
+      </p>
+
+      <p>
+        The construction used in the proof of <xref ref="cmthm"></xref> allows us to approximate the fixed point of <m>T</m>
+        to any desired degree of accuracy. As in that proof choose <m>x_0</m> to be any point whatever in
+        <m>\R^2</m>. Then the points <m>x_0,x_1,x_2,\dots</m> (where <m>x_n = T\bigl(x_{n-1}\bigr)</m> for each <m>n</m>)
+        converge to the fixed point of<nbsp /><m>T</m>. This is a technique of
+        <index><main>successive approximation</main></index><term>successive approximation</term>.
+      </p>
+
+      <p>
+        For the present example let <m>x_0 = (0,0)</m>. (The origin is chosen just for convenience.) Now use
+        <xref ref="fpt_eq5" /> and compute.
+        <md>
+          <mrow>x_0 \amp = (0,0)</mrow>
+          <mrow>x_1 \amp = T(0,0) = (0.7,1.1)</mrow>
+          <mrow>x_2 \amp = T(x_1) = (1.021, 1.025)</mrow>
+          <mrow>x_3 \amp = T(x_2) = (1.0071, 0.9987)</mrow>
+          <mrow>\vdots \amp {}</mrow>
+        </md>
+      </p>
+
+      <p>
+        It is reasonable to conjecture that the system <xref ref="fpt_eq1" /> has a solution consisting of
+        rational numbers and then to guess that the points <m>x_0,x_1,x_2,\dots</m> as computed above are
+        converging to the point <m>(1,1)</m> in<nbsp /><m>\R^2</m>. Putting <m>x=1</m> and <m>y=1</m> in <xref ref="fpt_eq5" />, we see that
+        the point <m>(1,1)</m> is indeed the fixed point of <m>T</m> and therefore the solution to<nbsp /><xref ref="fpt_eq1" />.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    In the preceding example we discovered an exact solution to a system of equations. In general, of
+    course, we cannot hope that a successive approximation technique will yield exact answers. In
+    those cases in which it does not, it is most important to have some idea how accurate our
+    approximations are. After <m>n</m> iterations, how close to the true solution are we? How many
+    iterations must be computed in order to achieve a desired degree of accuracy? The answer to these
+    questions in an easy consequence of the proof of <xref ref="cmthm">theorem</xref>.
+  </p>
+
+  <corollary xml:id="error1">
+    <statement>
+      <p>
+        Let the space <m>M</m>, the mapping <m>f</m>, the sequence <m>(x_n)</m>, the constant <m>c</m>,
+        and the point <m>p</m> be as in <xref ref="cmthm">theorem</xref> and its proof. Then for every <m>m \ge 0</m>
+        <me>
+          d(x_m,p) \le d(x_0,x_1)\frac{c^m}{(1 - c)}\,.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Inequality <xref ref="fpt_eq9" /> in the proof of <xref ref="cmthm"></xref> says that for <m>m \lt  n</m>
+      <me>
+        d(x_m,x_n) \le d(x_0,x_1)c^m (1 - c)^{-1}\,.
+      </me>
+    </p>
+
+    <p>
+      Take limits as <m>n \sto \infty</m>.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        Notation as in the preceding corollary. If we think of the point <m>x_n</m> as being the
+        <m>n^{\text{ th } }</m> approximation to<nbsp /><m>p</m>, then the distance <m>d(x_n,p)</m> between <m>x_n</m> and <m>p</m> is the
+        <index><main>error</main></index><term>error</term> associated with the <m>n^{\text{ th } }</m> approximation.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that because the product metric <m>d_1</m> was chosen for <m>\R^2</m> in <xref ref="fpt_exm1">example</xref>, the
+    word <q>error</q> there means the <em>sum</em> of the errors in <m>x</m> and<nbsp /><m>y</m>. Had we wished for
+    <q>error</q> to mean the <em>maximum</em> of the errors in <m>x</m> and <m>y</m>, we would have used the uniform
+    metric <m>d_u</m> on<nbsp /><m>\R^2</m>. Similarly, if <em>root-mean-square</em> <q>error</q> were desired (that is, the
+    square root of the sum of the squares of the errors in <m>x</m> and <m>y</m>), then we would have used the
+    usual Euclidean metric on<nbsp /><m>\R^2</m>.
+  </p>
+  <exercise xml:id="fpt_exr1">
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be the sequence of points in <m>\R^2</m> considered in
+        <xref ref="fpt_exm1">example</xref>. We showed that <m>(x_n)</m> converges to the point <m>p = (1,1)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Use <xref ref="error1">corollary</xref> to find an upper bound for the error associated with the
+              approximation<nbsp /><m>x_4</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              What is the actual error associated with <m>x_4</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              According to <xref ref="error1"></xref> how many terms of the sequence <m>(x_n)</m> should we compute to
+              be sure of obtaining an approximation which is correct to within<nbsp /><m>10^{-4}</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_fpt_exr1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Show by example that the conclusion of the <em>contractive mapping theorem</em> fails if:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the contraction constant is allowed to have the value 1; or
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              the space is not complete.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the map
+        <me>
+          g \colon [0, \infty) \sto [0, \infty) \colon x \mapsto \frac 1{x+1}
+        </me>
+        is not a contraction even though
+        <me>
+          d\bigl(g(x),g(y)\bigr) \lt  d(x,y)
+        </me>
+        for all <m>x</m>, <m>y \ge 0</m> with <m>x \ne y</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = (x/2) + (1/x)</m> for <m>x \ge 1</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>f</m> maps the interval <m>[1,\infty)</m> into itself.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that f is contractive.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>x_0 = 1</m> and for <m>n \ge 0</m> let
+              <me>
+                x_{n+1} = \frac{x_n}2 + \frac1{x_n}\,.
+              </me>
+              Show that the sequence <m>(x_n)</m> converges.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              Find <m>\lim_{n \sto \infty}x_n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              Show that the distance between <m>x_n</m> and the limit found in (d) is no greater
+              than<nbsp /><m>2^{-n}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Solve the system of equations
+        <md>
+          <mrow>{4}
+                   9\amp x  \amp    -\amp y  \amp   + 2\amp z \amp \amp = 37</mrow>
+          <mrow>\amp x  \amp  +10\amp y  \amp   - 3\amp z \amp \amp = -69</mrow>
+          <mrow>-2\amp x  \amp   +3\amp y  \amp   +11\amp z \amp \amp = 58</mrow>
+        </md>
+        following the procedure of <xref ref="fpt_exm1">example</xref>. <em>Hint.</em> As in <xref ref="fpt_exm1"></xref> divide by
+        <m>10</m> to obtain a contractive mapping. Before guessing at a rational solution, compute <m>10</m> or <m>11</m>
+        successive approximations. Since this involves a lot of arithmetic, it will be helpful to have
+        some computational assistance<mdash />a programmable calculator, for example.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Consider the following system of equations.
+        <md>
+          <mrow>{4}
+                   75\amp x  \amp  +16\amp y  \amp    -20\amp z \amp \amp = 40</mrow>
+          <mrow>33\amp x  \amp  +80\amp y  \amp    +30\amp z \amp \amp = -48</mrow>
+          <mrow>-27\amp x  \amp  +32\amp y  \amp    +80\amp z \amp \amp = 36</mrow>
+        </md>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Solve the system following the method of <xref ref="fpt_exm1">example</xref>.  <em>Hint.</em> Because
+              the contraction constant is close to<nbsp />1, the approximations converge slowly. It may take 20 or 30
+              iterations before it is clear what the exact (rational) solutions should be.  So as in the
+              preceding example, it will be desirable to use computational assistance.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>(x_n)</m> be the sequence of approximations in <m>\R^3</m> converging to the solution of
+              the system in<nbsp />(a).  Use <xref ref="error1">corollary</xref> to find an upper bound for the error associated with
+              the approximation<nbsp /><m>x_{25}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              To 4 decimal places, what is the actual error associated with<nbsp /><m>x_{25}</m>?
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              According to <xref ref="error1"></xref>, how many terms must be computed to be sure that the error
+              in our approximation is no greater than<nbsp /><m>10^{-3}</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f:\R^2 \sto \R^2</m> be the rotation of the plane about the point <m>(0,1)</m> through an
+        angle of <m>\pi</m> radians. Let <m>g \colon \R^2 \sto \R^2</m> be the map which takes the point <m>(x,y)</m> to
+        the midpoint of the line segment connecting <m>(x,y)</m> and<nbsp /><m>(1,0)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Prove that <m>g \circ f</m> is a contraction on <m>\R^2</m> (with its usual metric).
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find the unique fixed point of <m>g \circ f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>(x_0,y_0) = (0,1)</m> and define (as in the proof of <xref ref="cmthm"></xref>)
+              <me>
+                \bigl(x_{n+1},y_{n+1}\bigr) = (g \circ f)\bigl(x_n,y_n\bigr)
+              </me>
+              for all <m>n \ge 0</m>.  For each <m>n</m> compute the exact Euclidean distance between <m>(x_n,y_n)</m> and the
+              fixed point of<nbsp /><m>g \circ f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

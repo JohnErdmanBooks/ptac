@@ -1,0 +1,113 @@
+
+<section>
+  <title>Series of positive scalars</title>
+  <p>
+    In this brief section we derive some of the standard tests of beginning calculus for
+    convergence of series of positive numbers.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>S(n)</m> be a statement in which the natural number <m>n</m> is a variable. We say
+        that <m>S(n)</m> holds for <m>n</m>
+        <index><main>sufficiently large</main></index><term>sufficiently large</term> if there exists <m>N</m> in <m>\N</m> such that <m>S(n)</m> is true whenever <m>n \ge
+        N</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="comp_test">
+    <title>Comparison Test</title>
+    <statement>
+      <p>
+        <index><main>comparison test</main></index>Let <m>(a_k)</m> and <m>(b_k)</m> be sequences in <m>[0, \infty)</m> and suppose that there exists <m>M > 0</m>
+        such that <m>a_k \le Mb_k</m> for sufficiently large <m>k \in \N</m>. If <m>\sum b_k</m> converges, then
+        <m>\sum a_k</m> converges. If <m>\sum a_k</m> diverges, so does <m>\sum b_k</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="ratio_test">
+    <title>Ratio Test</title>
+    <statement>
+      <p>
+        <index><main>ratio test</main></index>Let <m>(a_k)</m> be a sequence in <m>(0,\infty)</m>. If there exists <m>\delta \in (0,1)</m> such that
+        <m>a_{k+1} \le \delta a_k</m> for <m>k</m> sufficiently large, then <m>\sum a_k</m> converges. If there
+        exists <m>M>1</m> such that <m>a_{k+1} \ge Ma_k</m> for <m>k</m> sufficiently large, then <m>\sum a_k</m>
+        diverges.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_ratio_test">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <title>Integral Test</title>
+    <statement>
+      <p>
+        <index><main>integral test</main></index>Let <m>f\colon [1,\infty) \sto [0,\infty)</m> be decreasing; that is, <m>f(x) \ge f(y)</m> whenever <m>x\lt 
+        y</m>. If <m>\lim_{M \sto \infty}\int_1^M f</m> exists, then <m>\sum_1^\infty f(k)</m> converges. If
+        <m>\lim_{M\sto\infty}\int_1^M f</m> does not exist, then <m>\sum_1^\infty f(k)</m> diverges.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show that <m>\int_k^{k+1}f \le f(k) \le \int_{k-1}^kf</m> for
+      <m>k \ge 2</m>.
+    </p>
+  </proof>
+
+  <proposition>
+    <title>The Root Test</title>
+    <statement>
+      <p>
+        <index><main>root test</main></index>Let <m>\sum a_k</m> be a series of numbers in <m>[0,\infty)</m>. Suppose that the limit <m>L =
+        \lim_{k\sto\infty}(a_k)^{1/k}</m> exists.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>L \lt  1</m>, then <m>\sum a_k</m> converges.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>L > 1</m>, then <m>\sum a_k</m> diverges.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>(a_k)</m> and <m>(b_k)</m> be decreasing sequences in <m>(0,\infty)</m> and let <m>c_k =
+        \min\{a_k,b_k\}</m> for each <m>k</m>. If <m>\sum a_k</m> and <m>\sum b_k</m> both diverge, must <m>\sum c_k</m>
+        also diverge?
+      </p>
+    </statement>
+  </problem>
+</section>

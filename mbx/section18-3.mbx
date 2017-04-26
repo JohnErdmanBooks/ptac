@@ -1,0 +1,217 @@
+
+<section>
+  <title>Completeness vs. compactness</title>
+  <p>
+    In <xref ref="prop_cpt_impl_cmpl">proposition</xref> we saw that every compact metric space is complete.
+    The converse of this is not true without additional assumptions. (Think of the reals.) In the
+    remainder of this chapter we show that adding total boundedness to completeness will suffice.
+    For the next problem we require the notion of the <q>diameter</q> of a set in a metric space.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        The
+        <index><main>diameter@<m>\diam A</m> (diameter of a set)</main></index><term>diameter</term> of a subset <m>A</m> of a metric space is defined by
+        <me>
+          \diam A := \sup\{d(x,y) \colon x,y \in A\}
+        </me>
+        if this supremum exists. Otherwise <m>\diam A := \infty</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Show that <m>\operatorname{diam} A = \diam \clo A</m> for every subset <m>A</m> of a metric space.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        In a metric space <m>M</m> the following are equivalent:
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              <m>M</m> is complete.
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              Every nested sequence of nonempty closed sets in <m>M</m> whose diameters approach
+              <m>0</m> has nonempty intersection.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> For the definition of <q>nested</q> <xref ref="nested">see</xref>.
+      To show that (1) implies (2), let <m>(F_k)</m> be a nested sequence of nonempty closed subsets
+      of<nbsp /><m>M</m>. For each <m>k</m> choose <m>x_k \in F_k</m>. Show that the sequence <m>(x_k)</m> is Cauchy. To show
+      that (2) implies (1), let <m>(x_k)</m> be a Cauchy sequence in <m>M</m>. Define <m>A_n = \{x_k \colon k
+      \ge n\}</m> and <m>F_n = \clo{A_n}</m>. Show that <m>(F_n)</m> is a nested sequence of closed sets whose
+      diameters approach<nbsp /><m>0</m> (see the preceding problem). Choose a point <m>a</m> in <m>\cap F_n</m>. Find a
+      subsequence <m>\left(x_{n_k}\right)</m> of <m>(x_n)</m> such that <m>d\left(a,x_{n_k}\right) \lt  2^{-k}</m>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Since <m>\R</m> is complete, the preceding problem tells us that every nested sequence
+        of nonempty closed subsets of <m>\R</m> whose diameters approach <m>0</m> has nonempty intersection.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that this statement is no longer correct if the words <q>whose diameters
+              approach<nbsp /><m>0</m></q> are deleted.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the statement is no longer correct if the word <q>closed</q> is deleted.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        In a totally bounded metric space every sequence has a Cauchy subsequence.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>(x_n)</m> be a sequence in a totally bounded metric
+      space<nbsp /><m>M</m>. For every <m>n \in \N</m> the space <m>M</m> can be covered by a finite collection of open
+      balls of radius <m>1/n</m>. Thus, in particular, there is an open ball of radius <m>1</m> which
+      contains infinitely many of the terms of the sequence<nbsp /><m>(x_n)</m>. Show that it is possible
+      inductively to choose subsets <m>N_1, N_2, \dots</m> of <m>\N</m> such that for every <m>m,n \in \N</m>
+      <ol>
+        <li>
+          <title>(i)</title>
+          <p>
+            <m>n > m</m> implies <m>N_n \subseteq N_m</m>,
+          </p>
+        </li>
+
+        <li>
+          <title>(ii)</title>
+          <p>
+            <m>N_n</m> is infinite, and
+          </p>
+        </li>
+
+        <li>
+          <title>(iii)</title>
+          <p>
+            <m>\{x_k: k \in N_n\}</m> is contained in some open ball of
+            radius <m>1/n</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Then show that we may choose (again, inductively) <m>n_1, n_2, \dots</m>
+      in <m>\N</m> such that for every <m>j,k \in \N</m>
+      <ol>
+        <li>
+          <title>(iv)</title>
+          <p>
+            <m>k > j</m> implies <m>n_k > n_j</m>, and
+          </p>
+        </li>
+
+        <li>
+          <title>(v)</title>
+          <p>
+            <m>n_k \in N_k</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Finally, show that the sequence <m>(x_n)</m> is Cauchy.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        A metric space is compact if and only if it is complete and totally bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>(x_n)</m> be a sequence of real numbers with the property that each term of
+        the sequence (from the third term on) is the average of the two preceding terms. Show that
+        the sequence converges and find its limit. <em>Hint.</em> Proceed as follows.
+      </p>
+
+      <p>
+        (a) Compute the distance between <m>x_{n+1}</m> and <m>x_n</m> in terms of the distance between <m>x_n</m>
+        and<nbsp /><m>x_{n-1}</m>.
+      </p>
+
+      <p>
+        (b) Show (inductively) that
+        <me>
+          \abs{x_{n+1} - x_n} = 2^{1-n}\abs{x_2 - x_1}\,.
+        </me>
+      </p>
+
+      <p>
+        (c) Prove that <m>(x_n)</m> has a limit by showing that for <m>m \lt  n</m>
+        <me>
+          \abs{x_n - x_m} \le 2^{2-m}\abs{x_2 - x_1}\,.
+        </me>
+      </p>
+
+      <p>
+        (d) Show (again inductively) that <m>2x_{n+1} + x_n = 2x_2 + x_1</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>(x_n)</m> is a sequence lying in the
+        interval <m>[-1,1]</m> which satisfies
+        <me>
+          \abs{x_{n+1} - x_n} \le \tfrac14 \abs{x_n^2 - x_{n-1}^2} \qquad\text{ for \(n \ge 2\) } \,,
+        </me>
+        then <m>(x_n)</m> converges.
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,239 @@
+
+<section>
+  <title>The uniform metric on the space of bounded functions</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set. A function <m>f \colon S \sto \R</m> is
+        <index><main>bounded</main><sub>function</sub></index>
+        <index><main>function</main><sub>bounded</sub></index><term>bounded</term> if there exists a number <m>M \ge 0</m> such that
+        <me>
+          \abs{f(x)} \le M \qquad \text{ for all \(x \in S\) } \,.
+        </me>
+      </p>
+
+      <p>
+        We denote by
+        <index><main>bounded@<m>\fml B(S)</m>, <m>\fml B(S,\R)</m> (bounded real valued functions on a set)</main></index><m>\fml B(S,\R)</m> (or just by <m>\fml B(S)</m>) the set of all bounded real valued functions on<nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="uc_prop1">
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are bounded real valued functions on a nonempty set
+        <m>S</m> and <m>\alpha</m> is a real number, then the functions <m>f + g</m>, <m>\alpha f</m>, and <m>fg</m> are all
+        bounded.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      There exist numbers <m>M</m>, <m>N \ge 0</m> such that <m>\abs{f(x)} \le M</m> and <m>\abs{g(x)}
+      \le N</m> for all <m>x \in S</m>. Then, for all <m>x \in S</m>
+      <md>
+        <mrow>\abs{(f + g)(x)} \amp \le \abs{f(x)} + \abs{g(x)} \le M + N,</mrow>
+        <mrow>\abs{(\alpha f)(x)}  \amp = \abs{\alpha}\,\abs{f(x)} \le \abs{\alpha}\,M, \text{ and }</mrow>
+        <mrow>\abs{(fg)(x)} \amp = \abs{f(x)}\,\abs{g(x)} \le MN.  \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <definition xml:id="unif_met">
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set. We define a metric <m>d_u</m> on the set
+        <m>\fml B(S,\R)</m> by
+        <me>
+          d_u(f,g) \equiv \sup\{\abs{f(x) - g(x)} \colon x \in S\}
+        </me>
+        whenever <m>f</m>, <m>g \in \fml B(S,\R)</m>. The metric <m>d_u</m> is the
+        <index><main>du@<m>d_u</m> (uniform metric)</main></index>
+        <index><main>uniform</main><sub>metric</sub></index>
+        <index><main>metric</main><sub>uniform</sub></index><term>uniform metric</term> on<nbsp /><m>\fml B(S,\R)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = [-1,1]</m> and for all <m>x \in S</m> let <m>f(x) = \abs{x}</m> and <m>g(x) = \frac12(x-1)</m>.
+        Then <m>d_u(f,g) = 2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      It is clear from the graphs of <m>f</m> and <m>g</m> that the functions are farthest apart at
+      <m>x = -1</m>. Thus
+      <md>
+        <mrow>d_u(f,g) \amp = \sup\{\abs{f(x) - g(x)} \colon -1 \le x \le 1\}</mrow>
+        <mrow>\amp = \abs{f(-1) - g(-1)} = 2.   \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = x^2</m> and <m>g(x) = x^3</m> for <m>0 \le x \le 1</m>. Then <m>d_u(f,g) = 4/27</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>h(x) = \abs{f(x) - g(x)} = f(x) - g(x)</m> for <m>0 \le x \le 1</m>. To maximize <m>h</m>
+      on <m>[0,1]</m> use elementary calculus to find critical points. Since <m>h'(x) = 2x - 3x^2 = 0</m>
+      only if <m>x=0</m> or <m>x=\frac23</m>, it is clear that the maximum value of <m>h</m> occurs at <m>x =
+      \frac23</m>. Thus
+      <me>
+        d_u(f,g) = \sup\{h(x) \colon 0 \le x \le 1\}
+                      = h\biggl(\frac23\biggr) = \frac4{27}\,.  \qedhere
+      </me>
+    </p>
+  </proof>
+
+  <exercise xml:id="uc_exer1">
+    <statement>
+      <p>
+        Suppose <m>f</m> is the constant function defined on <m>[0,1]</m> whose
+        value is<nbsp /><m>1</m>. Asked to describe those functions in <m>\fml B([0,1])</m> which lie in the open ball
+        about <m>f</m> of radius <m>1</m>, a student replies (somewhat incautiously) that <m>B_1(f)</m> is the set of
+        all real-valued functions <m>g</m> on <m>[0,1]</m> satisfying <m>0 \lt  g(x) \lt  2</m> for all <m>x \in [0,1]</m>. Why
+        is this response wrong? (<xref ref="sol_uc_exer1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \sin x</m> and <m>g(x) = \cos x</m> for <m>0 \le x \le \pi</m>. Find <m>d_u(f,g)</m>
+        in the set of functions <m>\fml B([0,\pi])</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = 3x - 3x^3</m> and <m>g(x) = 3x - 3x^2</m> for <m>0 \le x \le 2</m>. Find <m>d_u(f,g)</m>
+        in the set of functions <m>\fml B([0,2])</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Explain why it is reasonable to use the same notation <m>d_u</m> (and the same name)
+        for both the metric in <xref ref="unif_rn">example</xref> and the one defined in <xref ref="unif_met"></xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    The terminology in <xref ref="unif_met"></xref> is somewhat optimistic. We have not yet verified that the
+    <q>uniform metric</q> is indeed a metric on <m>\fml B(S,\R)</m>. We now remedy this.
+  </p>
+
+  <proposition xml:id="uc_exer2">
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty set. The function <m>d_u</m> defined
+        in <xref ref="unif_met"></xref> is a metric on the set of functions <m>\fml B(S,\R)</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_uc_exer2">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x</m> and <m>g(x) = 0</m> for all <m>x \in [0,1]</m>. Find a function <m>h</m> in
+        <m>\fml B([0,1])</m> such that
+        <me>
+          d_u(f,h) = d_u(f,g) = d_u(g,h)\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <definition xml:id="def_uc_R">
+    <statement>
+      <p>
+        Let <m>(f_n)</m> be a sequence of real valued functions on a nonempty
+        set<nbsp /><m>S</m>. If there is a function <m>g</m> in <m>\fml F(S,\R)</m> such that
+        <me>
+          \sup\{\abs{f_n(x) - g(x)} \colon x \in S\} \sto 0 \qquad \text{ as \(n \sto \infty\) }
+        </me>
+        we say that the sequence <m>(f_n)</m>
+        <index><main>convergence</main><sub>uniform</sub></index>
+        <index><main>uniform</main><sub>convergence</sub></index><term>converges uniformly</term> to <m>g</m> and we write
+        <index><main><@<m>f_n \sto g \text{ (unif) }</m> (uniform convergence)</main></index>
+        <me>
+          f_n \sto g \text{ (unif) } \,.
+        </me>
+      </p>
+
+      <p>
+        The function <m>g</m> is the
+        <index><main>uniform</main><sub>limit</sub></index>
+        <index><main>limit</main><sub>uniform</sub></index><term>uniform limit</term> of the sequence <m>(f_n)</m>. Notice that if <m>g</m> and all the <m>f_n</m>'s belong to
+        <m>\fml B(S,\R)</m>, then uniform convergence of <m>(f_n)</m> to <m>g</m> is the same thing as convergence of
+        <m>f_n</m> to <m>g</m> in the uniform metric.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        For each <m>n \in \N</m> and <m>x \in \R</m> let
+        <me>
+          f_n(x) = \frac1n\,\sin(nx)\,.
+        </me>
+      </p>
+
+      <p>
+        Then <m>f_n \sto \vc 0 \text{ (unif) }</m>. (Here <m>\vc 0</m> is the constant function zero.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <md>
+      <mrow>d_u(f_n,0) \amp = \sup\bigl\{\tfrac1n \abs{\sin nx} \colon x\in \R\bigr\}</mrow>
+      <mrow>\amp = \frac1n \sto 0 \qquad\text{ as \(n \sto \infty\) } \,.   \qedhere</mrow>
+    </md>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>g(x) = x</m> and <m>f_n(x) = x + \frac1n</m> for all <m>x \in \R</m> and <m>n \in \N</m>.
+        Then <m>f_n \sto g \text{ (unif) }</m> since
+        <me>
+          \sup\{\abs{f_n(x) - g(x)}\colon  x \in \R\} = \frac1n \sto 0
+                                \qquad\text{ as \(n \sto \infty\) } .
+        </me>
+      </p>
+
+      <p>
+        It is not correct (although perhaps tempting) to write <m>d_u(f_n,g) \sto 0</m>. This expression
+        is meaningless since the functions <m>f_n</m> and <m>g</m> do not belong to the metric space <m>\fml
+        B(\R)</m> on which <m>d_u</m> is defined.
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,112 @@
+
+<section>
+  <title>Composition of functions</title>
+  <p>
+    Let <m>f \colon S \sto T</m> and <m>g \colon T \sto U</m>. The
+    <index><main>composite</main><sub>function</sub></index><term>composite</term> of <m>g</m> and <m>f</m>, denoted by <m>g \circ f</m>, is the function taking <m>S</m> to <m>U</m>
+    defined by
+    <me>
+      (g \circ f)(x) = g(f(x))
+    </me>
+    for all <m>x</m> in <m>S</m>. The operation <m>\circ</m> is
+    <index><main><@<m>\circ</m> (composition)</main></index><term>composition</term>. We again make a special convention for real valued functions of a real
+    variable: The domain of <m>g \circ f</m> is the set of all <m>x</m> in <m>\R</m> for which the expression
+    <m>g(f(x))</m> makes sense.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = (x - 1)^{-1}</m> and <m>g(x) = \sqrt x</m>. Then
+        the domain of <m>g \circ f</m> is the interval <m>(1,\infty)</m>, and for all
+        <m>x</m> in that interval
+        <me>
+          (g \circ f)(x) = g(f(x)) = \frac1{\sqrt{x - 1}}.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The square root of <m>x-1</m> exists only when <m>x \ge 1</m>; and since we take its
+      reciprocal, we exclude <m>x=1</m>. Thus <m>\dom(g \circ f) = (1,\infty)</m>.
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_fcn5">
+    <statement>
+      <p>
+        Let
+        <me>
+          f(x) =
+                \begin{cases}0,  \amp \text{ for \(x\lt 0\) } \\
+                               3x, \amp \text{ for \(0 \le x \le 2\) } \\
+                               2,  \amp \text{ for \(x>2\) } 
+          \end{cases}
+        </me>
+        and
+        <me>
+          g(x) =
+                \begin{cases}x^2, \amp \text{ for \(1\lt x\lt 3\) } \\
+                              -1,  \amp \text{ otherwise. } 
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Sketch the graph of <m>g \circ f</m>. (<xref ref="sol_exer_fcn5">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <proposition xml:id="prop_assoc_comp">
+    <statement>
+      <p>
+        Composition of functions is associative but not necessarily
+        commutative.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Let <m>f\colon S \sto T</m>, <m>g\colon T \sto U</m>,
+      and <m>h\colon U \sto V</m>. Show that <m>h \circ (g \circ f) = (h \circ g) \circ f</m>. Give an example
+      to show that <m>f \circ g</m> and <m>g \circ f</m> may fail to be equal.
+      (<xref ref="sol_prop_assoc_comp">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x^2 + 2x^{-1}</m>, <m>g(x) = 2(2x + 3)^{-1}</m>,
+        and <m>h(x) = \sqrt{2x}</m>. Find <m>(h \circ g \circ f)(4)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>f\colon S \sto T</m> and <m>g:T \sto U</m>, then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>(g \circ f)^{\sto}(A) = g^{\sto}(f^{\sto}(A))</m> for every <m>A \subseteq S</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(g \circ f)^{\gets}(B) = f^{\gets}(g^{\gets}(B))</m> for every <m>B \subseteq U</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,367 @@
+
+<section>
+  <title>Continuity<mdash />as a global property</title>
+  <definition>
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is
+        <index><main>continuous</main></index><term>continuous</term> if it is continuous at every point in its domain.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The purpose of the next few items is to give you practice in showing that particular functions
+    are (or are not) continuous. If you did a lot of this in beginning calculus, you may wish to
+    skip to the paragraph preceding <xref ref="cond3_cont">proposition</xref>.
+  </p>
+
+  <example xml:id="cont_exam1">
+    <statement>
+      <p>
+        The function <m>f\colon\R \sto \R\colon x \mapsto -2x + 3</m> is
+        continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      We use <xref ref="cond2_cont">corollary</xref>. Let <m>a \in \R</m>. Given <m>\epsilon > 0</m> choose
+      <m>\delta = \frac12 \epsilon</m>. If <m>\abs{x - a} \lt   \delta</m>,then
+      <md>
+        <mrow>\abs{f(x)-f(a)} \amp = \abs{(-2x + 3) - (-2a + 3)}</mrow>
+        <mrow>\amp = 2\abs{x - a} \lt  2\delta = \epsilon.</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The function <m>f\colon\R \sto \R</m> defined by
+        <me>
+          f(x) = \begin{cases}0  \amp \text{ for \(x \le 0\) } , \\
+                                 1   \amp \text{ for \(x > 0\) } 
+          \end{cases}
+        </me>
+        is not continuous at <m>a = 0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Use <xref ref="cond1_cont">proposition</xref>; the denial of the condition given there is
+      that there exists a number <m>\epsilon</m> such that for all <m>\delta > 0</m> <xref ref="continuity1">property</xref> fails. (See <xref ref="exam_not_cont">example</xref>.) Let <m>\epsilon = \frac12</m>. Then
+      <m>f^\gets\bigl(J_{1/2}(f(0))\bigr) = f^\gets(J_{1/2}(0)) = f^\gets(-\frac12, \frac12) =
+      (-\infty, 0]</m>. Clearly this contains no <m>\delta</m>-neighborhood of <m>0</m>. <xref ref="continuity1">Thus</xref>
+      is violated, and <m>f</m> is not continuous at<nbsp /><m>0</m>.
+    </p>
+  </proof>
+
+  <example xml:id="cont_exam2">
+    <statement>
+      <p>
+        The function <m>f\colon\R \sto \R\colon x \mapsto 5x - 8</m> is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cont_exam2">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="cont_exam3">
+    <statement>
+      <p>
+        The function <m>f\colon x \mapsto x^3</m> is continuous at the
+        point<nbsp /><m>a~=~-1</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cont_exam3">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example xml:id="cont_exam4">
+    <statement>
+      <p>
+        The function <m>f\colon x \mapsto 2x^2 - 5</m> is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cont_exam4">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = 7 - 5x</m> for all <m>x \in \R</m>. Then <m>f</m> is continuous at the point<nbsp /><m>a = -2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = \sqrt{|x + 2|}</m> for all <m>x \in \R</m>. Then <m>f</m> is continuous at the
+        point<nbsp /><m>a = 0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        If <m>f(x) = 3x - 5</m> for all <m>x \in \R</m>, then <m>f</m> is continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The function <m>f</m> defined by
+        <me>
+          f(x) = \begin{cases}-x^2        \amp \text{ for \(x \lt  0\) } , \\
+                              x+\frac1{10}    \amp \text{ for \(x \ge 0\) } 
+          \end{cases}
+        </me>
+        is not continuous.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        For <m>x > 0</m> sketch the functions <m>x \mapsto \sin\frac1x</m> and
+        <m>x \mapsto x\sin\frac1x</m>. Then verify the following.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The function <m>f</m> defined by
+              <me>
+                f(x) = \begin{cases}0    \amp \text{ for \(x \le 0\) } , \\
+                                      \sin\frac1x,    \amp \text{ for \(x > 0\) } 
+                \end{cases}
+              </me>
+              is not continuous.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The function <m>f</m> defined by
+              <me>
+                f(x) = \begin{cases}0    \amp \text{ for \(x \le 0\) } , \\
+                                    x \sin\frac1x,    \amp \text{ for \(x > 0\) } 
+                \end{cases}
+              </me>
+              is continuous at <m>0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The continuity of a function <m>f</m> at a point is a
+    <index><main>local</main><sub>property</sub></index><term>local</term> property; that is, it is entirely determined by the behavior of <m>f</m> in arbitrarily
+    small neighborhoods of the point. The continuity of <m>f</m>, on the other hand, is a
+    <index><main>global</main><sub>property</sub></index><term>global</term> property; it can be determined only if we know how <m>f</m> behaves everywhere on its
+    domain. <xref ref="df_continuity">In</xref><ndash /> <xref ref="cond2_cont"></xref> we gave three equivalent conditions for
+    local continuity. <xref ref="cond3_cont">In</xref><ndash /> <xref ref="cond7_cont"></xref> we give equivalent conditions for the
+    corresponding global concept. The next proposition gives the most useful of these conditions;
+    it is the one that becomes the <em>definition</em> of continuity in arbitrary topological
+    spaces. It says: a necessary and sufficient condition for <m>f</m> to be continuous is that the
+    inverse image under <m>f</m> of open sets be open. This shows that continuity is a purely
+    <index><main>topological</main><sub>property</sub></index><term>topological property</term>; that is, it is entirely determined by the topologies (families of
+    all open sets) of the domain and the codomain of the function.
+  </p>
+
+  <proposition xml:id="cond3_cont">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous if and only if
+        <m>f^\gets(U)</m> is open whenever <m>U</m> is open in <m>\R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cond3_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="cond4_cont">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous if and only if
+        <m>f^\gets(C)</m> is a closed set whenever <m>C</m> is a closed subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous if and only if
+        <me>
+          f^\gets(\intr B) \subseteq \intr{(f^\gets(B))}
+        </me>
+        for all <m>B \subseteq \R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous if and only if
+        <me>
+          f^\sto(\,\clo A\,) \subseteq \clo{f^\sto (A)}
+        </me>
+        for all <m>A \subseteq \R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> This isn't so easy. Use <xref ref="cond4_cont">problem</xref>
+      and the fact (see <xref ref="prop_f_finv">propositions</xref> and <xref ref="prop_finv_f"></xref>) that for any sets <m>A</m>
+      and <m>B</m>
+      <me>
+        f^\sto(f^\gets(B)) \subseteq B \text{ and } 
+                              A \subseteq f^\gets(f^\sto(A)).
+      </me>
+    </p>
+
+    <p>
+      Show that if <m>f</m> is continuous, then <m>\clo A \subseteq
+      f^\gets\bigl(\,\clo{f^\sto(A)}\,\bigr)</m>. Then apply <m>f^\sto</m>. For the converse, apply the
+      hypothesis to the set <m>f^\gets(C)</m> where <m>C</m> is a closed subset of <m>\R</m>. Then apply
+      <m>f^\gets</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="cond7_cont">
+    <statement>
+      <p>
+        A function <m>f\colon\R \sto \R</m> is continuous if and only if
+        <me>
+          \clo{f^\gets(B)} \subseteq f^\gets(\,\clo B\,)
+        </me>
+        for all <m>B \subseteq \R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="comp_cont_loc">
+    <statement>
+      <p>
+        Let <m>f,g\colon\R \sto \R</m>. If <m>f</m> is continuous at <m>a</m> and
+        <m>g</m> is continuous at <m>f(a)</m>, then the composite function <m>g \circ f</m> is continuous at <m>a</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>W</m> be a neighborhood of <m>g(f(a))</m>. We wish to show that the inverse image
+      of <m>W</m> under <m>g \circ f</m> contains a neighborhood of<nbsp /><m>a</m>. Since <m>g</m> is continuous at <m>f(a)</m>,
+      the set <m>g^\gets(W)</m> contains a neighborhood <m>V</m> of <m>f(a)</m>. And since <m>f</m> is continuous at
+      <m>a</m>, the set <m>f^\gets(V)</m> contains a neighborhood <m>U</m> of<nbsp /><m>a</m>. Then
+      <md>
+        <mrow>(g \circ f)^\gets(W) \amp = f^\gets(g^\gets(W))</mrow>
+        <mrow>\amp \supseteq f^\gets(V)</mrow>
+        <mrow>\amp \supseteq U\,,</mrow>
+      </md>
+      which is what we wanted.
+    </p>
+  </proof>
+
+  <p>
+    This important result has an equally important but entirely obvious consequence.
+  </p>
+
+  <corollary xml:id="comp_cont">
+    <statement>
+      <p>
+        The composite of two continuous functions is continuous.
+      </p>
+    </statement>
+  </corollary>
+
+  <problem>
+    <statement>
+      <p>
+        Give a direct proof of <xref ref="comp_cont">corollary</xref>. (That is, give a proof which
+        does not rely on <xref ref="comp_cont_loc">proposition</xref>.)
+      </p>
+    </statement>
+  </problem>
+</section>

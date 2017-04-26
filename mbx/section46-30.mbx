@@ -1,0 +1,201 @@
+
+<section>
+  <title>Exercises in Appendix d</title>
+  <solution xml:id="sol_and">
+    <p>
+      (Solution to <xref ref="and"></xref>)
+    </p>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>P</m></cell>
+        <cell><m>Q</m></cell>
+        <cell><m>P \land Q</m></cell>
+      </row>
+      <row bottom="medium">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell  ><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>T</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>F</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>F</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+  </solution>
+  <solution xml:id="sol_exer_ueq">
+    <p>
+      (Solution to <xref ref="exer_ueq"></xref>)
+      First observe that the operation <m>\land</m> is commutative and associative. (The former is
+      obvious and the latter may be easily checked by means of a truth table.) Therefore if <m>A</m>,
+      <m>B</m>, and <m>C</m> are propositions
+      <md>
+        <mrow>A \land (B \land C) \amp \text{ iff } (A \land B)\land C</mrow>
+        <mrow>\amp \text{ iff }   (B \land A) \land C</mrow>
+        <mrow>\amp \text{ iff }    B \land (A \land C).</mrow>
+      </md>
+    </p>
+
+    <p>
+      It then follows that
+      <md>
+        <mrow>(\exists x \in S)(\exists y \in T)\,P(x, y)
+                \amp \text{ iff }  (\exists x \in S)
+                    (\exists y) ((y \in T) \land P(x,y))</mrow>
+        <mrow>\amp \text{ iff }  (\exists x)\bigl((x \in S) \land
+                    (\exists y) ((y \in T) \land P(x,y))\bigr)</mrow>
+        <mrow>\amp \text{ iff }  (\exists x)(\exists y)\bigl((x \in S)
+                     \land ((y \in T) \land P(x,y))\bigr)</mrow>
+        <mrow>\amp \text{ iff }  (\exists x)(\exists y)\bigl((y \in T)
+                     \land ((x \in S) \land P(x,y))\bigr)
+                     \text{ (by (46.30.1)) }</mrow>
+        <mrow>\amp \text{ iff }  (\exists y)(\exists x)\bigl((y \in T)
+                     \land ((x \in S) \land P(x,y))\bigr)</mrow>
+        <mrow>\amp \text{ iff }  (\exists y)\bigl((y \in T)
+                     \land (\exists x)((x \in S) \land P(x,y))\bigr)</mrow>
+        <mrow>\amp \text{ iff }  (\exists y)((y \in T)
+                     \land (\exists x \in S)\,P(x,y))</mrow>
+        <mrow>\amp \text{ iff }  (\exists y \in T)(\exists x \in S)\,P(x,y) .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Notice that at the third and sixth steps we used the remark made in the last paragraph of
+      <xref ref="d_and_c">section</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_equiv_impl">
+    <p>
+      (Solution to <xref ref="equiv_impl"></xref>)
+    </p>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>(1)</cell>
+        <cell>(2)</cell>
+        <cell>(3)</cell>
+        <cell>(4)</cell>
+        <cell>(5)</cell>
+      </row>
+      <row>
+        <cell><m>P</m></cell>
+        <cell><m>Q</m></cell>
+        <cell><m>P \Rightarrow Q</m></cell>
+        <cell><m>\sim P</m></cell>
+        <cell><m>Q \lor (\sim P)</m></cell>
+      </row>
+      <row bottom="medium">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell  ><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>T</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>T</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>F</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>F</m></cell>
+        <cell><m>F</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+        <cell><m>T</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+    <p>
+      The third and fifth columns have the same truth values.
+    </p>
+  </solution>
+</section>

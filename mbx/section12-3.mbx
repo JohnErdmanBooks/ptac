@@ -1,0 +1,149 @@
+
+<section>
+  <title>Products of metric spaces</title>
+  <definition xml:id="x3prods">
+    <statement>
+      <p>
+        Let <m>(M_1, \rho_1)</m> and <m>(M_2,\rho_2)</m> be metric spaces. We define three
+        <index><main>product</main><sub>metrics</sub></index>
+        <index><main>metrics</main><sub>on products</sub></index>metrics, <m>d</m>, <m>d_1</m>, and <m>d_u</m>, on the product <m>M_1 \times M_2</m>. For <m>x = (x_1,x_2)</m> and <m>y =
+        (y_1,y_2)</m> in <m>M_1 \times M_2</m> let
+        <index><main>done@<m>d_1</m> (taxicab metric, product metric)</main></index>
+        <index><main>du@<m>d_u</m> (uniform metric)</main></index>
+        <md>
+          <mrow>d(x,y)   \amp = \bigl((\rho_1(x_1,y_1))^2 +
+                             (\rho_2(x_2,y_2))^2\bigr)^{\frac12},
+                                         \displaybreak[0]</mrow>
+          <mrow>[.1 true in]
+                    d_1(x,y) \amp = \rho_1(x_1,y_1) + \rho_2(x_2,y_2),
+                          \ \ \text{ and } 
+                                         \displaybreak[0]</mrow>
+          <mrow>[.1 true in]
+                    d_u(x,y) \amp = \max\{\rho_1(x_1,y_1), \rho_2(x_2,y_2)\}\,.</mrow>
+        </md>
+      </p>
+
+      <p>
+        It is not difficult to show that these really are metrics. They are just generalizations, to
+        arbitrary products, of the metrics on <m>\R \times \R</m> defined in <xref ref="Eucl_met"></xref>, <xref ref="taxicab"></xref>,
+        and <xref ref="unif_rn"></xref>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="x3equiv_ms">
+    <statement>
+      <p>
+        The three metrics on <m>M_1 \times M_2</m> defined in <xref ref="x3prods"></xref>
+        are strongly equivalent.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Review <xref ref="x3equiv">proposition</xref>.
+      (<xref ref="sol_3equiv_ms">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    In light of the preceding result and <xref ref="mtr_vs_top">proposition</xref> the three metrics defined on
+    <m>M_1 \times M_2</m> (in <xref ref="x3prods"></xref>) all give rise to exactly the same topology on <m>M_1 \times
+    M_2</m>. Since we will be concerned primarily with <em>topological properties</em> of product
+    spaces, it makes little difference which of these metrics we officially adopt as <q>the</q>
+    product metric. We choose <m>d_1</m> because it is arithmetically simple (no square roots of sums
+    of squares).
+  </p>
+
+  <definition xml:id="prod_met">
+    <statement>
+      <p>
+        If <m>M_1</m> and <m>M_2</m> are metric spaces, then we say that the metric
+        space <m>(M_1 \times M_2, d_1)</m>, where <m>d_1</m> is defined in <xref ref="x3prods"></xref>, is the
+        <index><main>product</main><sub>of metric spaces</sub></index>
+        <index><main>space</main><sub>product</sub></index><term>product (metric) space</term> of <m>M_1</m> and <m>M_2</m>; and the metric <m>d_1</m> is the
+        <index><main>done@<m>d_1</m> (taxicab metric, product metric)</main></index>
+        <index><main>product</main><sub>metric, <q>the</q></sub></index>
+        <index><main>metric</main><sub>product, <q>the</q></sub></index><term>product metric</term>. When we encounter a reference to <q>the metric space <m>M_1 \times M_2</m></q>
+        we assume, unless the contrary is explicitly stated, that this space is equipped with
+        <em>the</em> product metric <m>d_1</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    A minor technical point, which is perhaps worth mentioning, is that the usual (Euclidean)
+    metric on <m>\R^2</m> is not (according to the definition just given) the product metric. Since
+    these two metrics <em>are</em> equivalent and since most of the properties we consider are
+    topological ones, this will cause little difficulty.
+  </p>
+
+  <p>
+    It is easy to work with sequences in product spaces. This is a consequence of the fact, which
+    we prove next, that a necessary and sufficient condition for the convergence of a sequence in
+    a product space is the convergence of its coordinates.
+  </p>
+
+  <proposition xml:id="seq_prod">
+    <statement>
+      <p>
+        Let <m>M_1</m> and <m>M_2</m> be metric spaces. A sequence
+        <m>\bigl(\,(x_n,y_n)\,\bigr)_{n=1}^{\infty}</m> in the product space converges to a point <m>(a,b)</m>
+        in <m>M_1 \times M_2</m> if and only if <m>x_n \sto a</m> and <m>y_n \sto b</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      For <m>k=1,2</m> let <m>\rho_k</m> be the metric on the space <m>M_k</m>. The product metric
+      <m>d_1</m> on <m>M_1 \times M_2</m> is defined in <xref ref="x3prods"></xref>.
+    </p>
+
+    <p>
+      Suppose <m>(x_n,y_n) \sto (a,b)</m>. Then
+      <md>
+        <mrow>\rho_1(x_n,a) \amp \le \rho_1(x_n,a) + \rho_2(y_n,b)</mrow>
+        <mrow>\amp = d_1\bigl((x_n,y_n)\,,\,(a,b)\bigr) \sto 0;</mrow>
+      </md>
+      so <m>x_n \sto a</m>. Similarly, <m>y_n \sto b</m>.
+    </p>
+
+    <p>
+      Conversely, suppose <m>x_n \sto a</m> in <m>M_1</m> and <m>y_n \sto b</m> in <m>M_2</m>. Given <m>\epsilon > 0</m> we
+      may choose <m>n_1,n_2 \in \N</m> such that <m>\rho_1(x_n,a) \lt  \frac12\epsilon</m> when <m>n \ge n_1</m> and
+      <m>\rho_2(y_n,b) \lt  \frac12\epsilon</m> when <m>n \ge n_2</m>. Thus if <m>n \ge \max\{n_1,n_2\}</m>,
+      <me>
+        d_1\bigl((x_n,y_n)\,,\,(a,b)\bigr)
+                               = \rho_1(x_n,a) + \rho_2(y_n,b)
+                         \lt  \tfrac12\epsilon + \tfrac12\epsilon = \epsilon\,;
+      </me>
+      so <m>(x_n,y_n) \sto (a,b)</m> in <m>M_1 \times M_2</m>.
+    </p>
+  </proof>
+
+  <remark>
+    <p>
+      By virtue of <xref ref="conv_eqm">proposition</xref>, the truth of the preceding proposition
+      would not have been affected had either <m>d</m> or <m>d_u</m> (as defined in <xref ref="x3prods"></xref>) been chosen
+      as the product metric for <m>M_1 \times M_2</m>.
+    </p>
+  </remark>
+
+  <problem>
+    <statement>
+      <p>
+        Generalize <xref ref="x3prods">definitions</xref> and <xref ref="prod_met"></xref> to <m>\R^n</m> where <m>n \in \N</m>.
+        That is, write appropriate formulas for <m>d(x,y)</m>, <m>d_1(x,y)</m>, and <m>d_u(x,y)</m> for <m>x,y \in
+        \R^n</m>, and explain what we mean by the product metric on an arbitrary finite product <m>M_1
+        \times M_2 \times \cdots \times M_n</m> of metric spaces.
+      </p>
+
+      <p>
+        Also state and prove generalizations of <xref ref="x3equiv_ms">propositions</xref> and <xref ref="seq_prod"></xref> to
+        arbitrary finite products.
+      </p>
+    </statement>
+  </problem>
+</section>

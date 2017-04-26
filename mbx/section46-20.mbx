@@ -1,0 +1,169 @@
+
+<section>
+  <title>Exercises in Chapter 20</title>
+  <solution xml:id="sol_vs_exer3">
+    <p>
+      (Solution to <xref ref="vs_exer3"></xref>)
+      Suppose that <m>\vc 0</m> and <m>\vc 0'</m> are vectors in <m>V</m> such that <m>x + \vc 0 = x</m> and <m>x + \vc 0'
+      = x</m> for all <m>x \in V</m>. Then
+      <me>
+        \vc 0' = \vc 0'+ \vc 0 = \vc 0 + \vc 0' = \vc 0\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer1">
+    <p>
+      (Solution to <xref ref="vs_exer1"></xref>)
+      The proof takes one line:
+      <me>
+        x = x + \vc 0 = x + (x + (-x)) = (x + x) + (-x) = x + (-x) = \vc 0\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer2">
+    <p>
+      (Solution to <xref ref="vs_exer2"></xref>)
+      Establish (a), (b), and (c) of the hint.
+      <ol>
+        <li>
+          <title>(a)</title>
+          <p>
+            Since <m>\alpha \vc 0 + \alpha \vc 0 = \alpha(\vc 0 + \vc 0) = \alpha \vc 0</m>,
+            we conclude from <xref ref="vs_exer1"></xref> that <m>\alpha \vc 0 = \vc 0</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(b)</title>
+          <p>
+            Use the same technique as in (a): since <m>0x + 0x = (0 + 0)x = 0x</m>, we deduce
+            from <xref ref="vs_exer1"></xref> that <m>0x = \vc 0</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>(c)</title>
+          <p>
+            We suppose that <m>\alpha \ne 0</m> and that <m>\alpha x = \vc 0</m>.
+            We prove that <m>x = \vc 0</m>.  Since the real number  <m>\alpha</m> is not zero, its reciprocal
+            <m>a^{-1}</m> exists.  Then
+            <me>
+              x = 1\cdot x = \bigl(\alpha^{-1}\alpha\bigr)x =
+                                         \alpha^{-1}(\alpha x) = \alpha^{-1}\vc 0 = \vc 0\,.
+            </me>
+            (The last equality uses part (a).)  \qedhere
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer4">
+    <p>
+      (Solution to <xref ref="vs_exer4"></xref>)
+      Notice that <m>(-x) + x  =  x + (-x) = \vc 0</m>. According to <xref ref="vs_prob2"></xref>, the vector <m>x</m> must
+      be the (unique) additive inverse of<nbsp /><m>-x</m>. That is, <m>x = -(-x)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_prop1">
+    <p>
+      (Solution to <xref ref="vs_prop1"></xref>)
+      The set <m>W</m> is closed under addition and scalar multiplication; so vector space axioms (1) and
+      (4) through (8) hold in <m>W</m> because they do in<nbsp /><m>V</m>. Choose an arbitrary vector <m>x</m> in<nbsp /><m>W</m>.
+      Then using<nbsp />(c) we see that the zero vector <m>\vc 0</m> of <m>V</m> belongs to <m>W</m> because it is just
+      the result of multiplying <m>x</m> by the scalar <m>0</m> (see <xref ref="vs_exer2">exercise</xref>). To show
+      that<nbsp />(3) holds we need only verify that if <m>x \in W</m>, then its additive inverse <m>-x</m> in <m>V</m>
+      also belongs to<nbsp /><m>W</m>. But this is clear from <xref ref="vs_prob1">problem</xref> since the vector <m>-x</m> is
+      obtained by multiplying <m>x</m> by the scalar<nbsp /><m>-1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_intr_vsbs">
+    <p>
+      (Solution to <xref ref="intr_vsbs"></xref>)
+      Use <xref ref="vs_prop1">proposition</xref>.
+    </p>
+
+    <p>
+      (a) The zero vector belongs to every member of <m>\sfml S</m> and thus to<nbsp /><m>\bigcap \sfml S</m>.
+      Therefore <m>\bigcap \sfml S \ne \emptyset</m>.
+    </p>
+
+    <p>
+      (b) Let <m>x</m>, <m>y \in \bigcap \sfml S</m>. Then <m>x</m>, <m>y \in S</m> for every <m>S \in \sfml S</m>.
+      Since each member of <m>\sfml S</m> is a subspace, <m>x + y</m> belongs to <m>S</m> for every <m>S \in
+      \sfml S</m>. Thus <m>x + y \in \bigcap \sfml S</m>.
+    </p>
+
+    <p>
+      (c) Let <m>x \in \bigcap \sfml S</m> and <m>\alpha \in \R</m>. Then <m>x \in S</m> for every <m>S \in
+      \sfml S</m>. Since each member of <m>\sfml S</m> is closed under scalar multiplication, <m>\alpha
+      x</m> belongs to <m>S</m> for every <m>S \in \sfml S</m>. Thus <m>\alpha x \in \bigcap \sfml S</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer5">
+    <p>
+      (Solution to <xref ref="vs_exer5"></xref>)
+      We wish to find scalars <m>\alpha</m>, <m>\beta</m>, <m>\gamma</m>, and <m>\delta</m> such that
+      <me>
+        \alpha(1,0,0) + \beta(1,0,1) + \gamma(1,1,1) + \delta(1,1,0) = (0,0,0)\,.
+      </me>
+    </p>
+
+    <p>
+      This equation is equivalent to
+      <me>
+        (\alpha + \beta + \gamma + \delta, \gamma + \delta, \beta + \gamma)= (0,0,0)\,.
+      </me>
+    </p>
+
+    <p>
+      Thus we wish to find a (not necessarily unique) solution to the system of equations:
+      <md>
+        <mrow>{5}
+                 \amp \alpha  \amp  +\amp \beta \amp   +\amp \gamma \amp  +\amp \delta \amp \amp = 0</mrow>
+        <mrow>\amp {}      \amp   \amp {}  \amp     +\amp \gamma \amp  +\amp \delta \amp \amp = 0</mrow>
+        <mrow>\amp {}      \amp   \amp \beta \amp   +\amp \gamma \amp  +\amp {}     \amp \amp = 0</mrow>
+      </md>
+    </p>
+
+    <p>
+      One solution is <m>\alpha = \gamma =1</m>, <m>\beta = \delta = -1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer6">
+    <p>
+      (Solution to <xref ref="vs_exer6"></xref>)
+      We must find scalars <m>\alpha</m>, <m>\beta</m>, <m>\gamma \ge 0</m> such that <m>\alpha + \beta + \gamma = 1</m>
+      and
+      <me>
+        \alpha(1,0) + \beta(0,1) + \gamma(3,0) = (2,1/4)\,.
+      </me>
+    </p>
+
+    <p>
+      This last vector equation is equivalent to the system of scalar equations
+      <me>
+        \left\{
+           \begin{aligned}\alpha + 3\gamma \amp = 2 \\
+                              \beta \amp = \tfrac14\,.
+        \end{aligned} \right.
+      </me>
+    </p>
+
+    <p>
+      From <m>\alpha + \frac14 + \gamma = 1</m> and <m>\alpha + 3\gamma = 2</m>, we conclude that <m>\alpha =
+      \frac18</m> and <m>\gamma = \frac58</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_vs_exer7">
+    <p>
+      (Solution to <xref ref="vs_exer7"></xref>)
+      In order to say that the intersection of the family of all convex sets which contain <m>A</m>
+      is the <q>smallest convex set containing <m>A</m></q>, we must know that this intersection is
+      indeed a convex set. This is an immediate consequence of the fact that the intersection
+      of any family of convex sets is convex. (Proof. Let <m>\sfml A</m> be a family of convex
+      subsets of a vector space and let <m>x,y \in \bigcap \sfml A</m>. Then <m>x,y \in A</m> for every
+      <m>A \in \sfml A</m>. Since each <m>A</m> in <m>\sfml A</m> is convex, the segment <m>[x,y]</m> belongs to
+      <m>A</m> for every<nbsp /><m>A</m>. Thus <m>[x,y] \subseteq \bigcap \sfml A</m>.)
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,25 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="v_sps">
+  <title>Vector spaces</title>
+  <introduction>
+    <p>
+      Most introductory calculus texts, for pedagogical reasons, do calculus twice, once for a
+      single variable and then for either two or three variables, leaving the general finite
+      dimensional and infinite dimensional cases for future courses. It is our goal eventually (in
+      <xref ref="diff_calc">chapter</xref>) to develop differential calculus in a manner that is valid for any
+      number of variables (even infinitely many).
+    </p>
+
+    <p>
+      A certain amount of algebra always underlies analysis. Before one studies the calculus of a
+      single variable, a knowledge of arithmetic in <m>\R</m> is required. For the calculus of a finite
+      number of variables it is necessary to know something about <m>\R^n</m>. In this chapter and the
+      next we lay the algebraic foundations for the differential calculus of an arbitrary number of
+      variables; we study vector spaces and the operation preserving maps between them, called
+      linear transformations.
+    </p>
+  </introduction>
+  <xi:include  href="section20-1.mbx" />
+  <xi:include  href="section20-2.mbx" />
+  <xi:include  href="section20-3.mbx" />
+</chapter>

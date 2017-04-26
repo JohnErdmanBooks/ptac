@@ -1,0 +1,196 @@
+
+<section>
+  <title>Exercises in Appendix m</title>
+  <solution xml:id="sol_exam_inj_fcn">
+    <p>
+      (Solution to <xref ref="exam_inj_fcn"></xref>)
+      If <m>f(x) = f(y)</m>, then <m>(x + 2)(3y - 5) = (y + 2)(3x - 5)</m>. Thus <m>6y - 5x = 6x - 5y</m>, which
+      implies <m>x = y</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_inj_q">
+    <p>
+      (Solution to <xref ref="exer_inj_q"></xref>)
+      Suppose that <m>m</m> and <m>n</m> are positive integers with no common prime factors. Let <m>f\bigl(\frac
+      mn\bigr) = 2^m3^n</m>. Then <m>f</m> is injective by the <em>unique factorization theorem</em> (see,
+      for example, <xref ref="BirkhoffMacL_1953" />, page<nbsp />21).
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_surj">
+    <p>
+      (Solution to <xref ref="exer_surj"></xref>)
+      Let <m>f(x) = \frac1x - 1</m> for <m>x \ne 0</m> and <m>f(0)~=~3</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bij1">
+    <p>
+      (Solution to <xref ref="exer_bij1"></xref>)
+      Define <m>f\colon \Z \sto \N</m> by
+      <me>
+        f(n) = \begin{cases}2n + 1, \amp \text{ for \(n \ge 0\) }  \\
+                                     -2n,  \amp \text{ for \(n \lt  0\) } .
+        \end{cases}    \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bij2">
+    <p>
+      (Solution to <xref ref="exer_bij2"></xref>)
+      Define <m>f\colon \R \sto (0,1)</m> by <m>f(x) = \frac12 + \frac1\pi \arctan x</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bij3">
+    <p>
+      (Solution to <xref ref="exer_bij3"></xref>)
+      Let <m>\Sp^1</m> be <m>\{(x,y)\colon  x^2 + y^2 = 1\}</m>. Define <m>f\colon [0,1) \sto \Sp^1</m> by <m>f(t) =
+      (\cos(2\pi t), \sin (2\pi t))</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bij4">
+    <p>
+      (Solution to <xref ref="exer_bij4"></xref>)
+      Let
+      <me>
+        g(x) = \begin{cases}3 - 2x,   \amp \text{ for \(0 \le x \lt  1\) }  \\
+                                  f(x),       \amp \text{ for \(1 \le x \le 2\) } \\
+                                \frac12(3-x), \amp \text{ for \(2 \lt  x \le 3\) } .
+        \end{cases}    \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_bij5">
+    <p>
+      (Solution to <xref ref="exer_bij5"></xref>)
+      <m>\bigl[-\frac\pi2, \frac\pi2\bigr]</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_f_finv">
+    <p>
+      (Solution to <xref ref="prop_f_finv"></xref>)
+    </p>
+
+    <p>
+      (a) We show that if <m>y \in f^{\sto}(f^\gets(B))</m>, then <m>y \in B</m>. Suppose that <m>y \in
+      f^{\sto}(f^\gets(B))</m>. Then (by the definition of <m>f^{\sto}</m>) there exists <m>x \in f^\gets(B)</m>
+      such that <m>y = f(x)</m>. From <m>x \in f^\gets(B)</m> we infer (using the definition of <m>f^\gets</m>)
+      that <m>f(x) \in B</m>. That is, <m>y \in B</m>.
+    </p>
+
+    <p>
+      (b) Let <m>f(x) = x^2</m> and <m>B = \{-1\}</m>. Then <m>f^{\sto}(f^\gets(B)) = f^{\sto}(f^\gets\{-1\}) =
+      f^{\sto}(\emptyset) = \emptyset \ne~B</m>.
+    </p>
+
+    <p>
+      (c) Suppose that <m>f</m> is surjective. Show that <m>B \subseteq f^{\sto}(f^\gets(B))</m> by showing
+      that <m>y \in B</m> implies <m>y \in f^{\sto}(f^\gets(B))</m>. If <m>y \in B</m>, then (since <m>f</m> is
+      surjective) there exists <m>x \in S</m> such that <m>y = f(x)</m>. Since <m>f(x) \in B</m>, we see that <m>x
+      \in f^\gets(B)</m> (by the definition of <m>f^\gets</m>). From this it follows (using the definition
+      of <m>f^{\sto}</m>) that <m>y = f(x) \in f^{\sto}(f^\gets(B))</m>. \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_f_union">
+    <p>
+      (Solution to <xref ref="prop_f_union"></xref>)
+      This requires nothing other than the definitions of <m>\cup</m> and <m>f^{\sto}</m>:
+      <md>
+        <mrow>y \in f^{\sto}(A \cup B)
+           \amp \text{ iff there exists \(x \in A \cup B\) such that \(y=f(x)\) }</mrow>
+        <mrow>\amp \text{ iff there exists \(x \in A\) such that \(y = f(x)\) or }</mrow>
+        <mrow>\amp \qquad\text{ there exists \(x \in B\) such that \(y = f(x)\) }</mrow>
+        <mrow>\amp \text{ iff \(y \in f^{\sto}(A)\) or \(y \in f^{\sto}(B)\)}</mrow>
+        <mrow>\amp \text{ iff \(y \in f^{\sto}(A) \cup f^{\sto}(B)\).}   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_finv_intrs">
+    <p>
+      (Solution to <xref ref="prop_finv_intrs"></xref>)
+      Here the definitions of <m>\cap</m> and <m>f^\gets</m> are used:
+      <md>
+        <mrow>x \in f^\gets(C \cap D)
+           \amp \text{ iff \(f(x) \in C \cap D\) }</mrow>
+        <mrow>\amp \text{ iff \(f(x) \in C\) and \(f(x) \in D\) }</mrow>
+        <mrow>\amp \text{ iff \(x \in f^\gets(C)\) and \(x \in f^\gets(D)\) }</mrow>
+        <mrow>\amp \text{ iff \(x \in f^\gets(C) \cap f^\gets(D)\). }   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_f_fam">
+    <p>
+      (Solution to <xref ref="prop_f_fam"></xref>)
+    </p>
+
+    <p>
+      (a) Show that if <m>y \in f^{\sto}(\bigcap \sfml A)</m>, then <m>y \in \bigcap\{f^{\sto}(A)
+      \colon A \in \sfml A\}</m>. Suppose that <m>y \in f^{\sto}(\bigcap \sfml A)</m>. Then there
+      exists <m>x \in \bigcap\sfml A</m> such that <m>y = f(x)</m>. Since <m>x</m> belongs to the intersection
+      of the family <m>\sfml A</m> it must belong to every member of <m>\sfml A</m>. That is, <m>x \in A</m>
+      for every <m>A \in \sfml A</m>. Thus <m>y = f(x)</m> belongs to <m>f^{\sto}(A)</m> for every <m>A \in
+      \sfml A</m>; and so <m>y \in \bigcap\{f^{\sto}(A)\colon A \in \sfml A\}</m>.
+    </p>
+
+    <p>
+      (b) Suppose <m>f</m> is injective. If <m>y \in \bigcap\{f^{\sto}(A)\colon A \in \sfml A\}</m>, then
+      <m>y \in f^{\sto}(A)</m> for every <m>A \in \sfml A</m>. Choose a set <m>A_0 \in \sfml A</m>. Since <m>y
+      \in f^{\sto}(A_0)</m>, there exists <m>x_0 \in A_0</m> such that <m>y = f(x_0)</m>. The point <m>x_0</m>
+      belongs to every member of <m>\sfml A</m>. To see this, let <m>A</m> be an arbitrary set belonging
+      to <m>\sfml A</m>. Since <m>y \in f^{\sto}(A)</m>, there exists <m>x \in A</m> such that <m>y = f(x)</m>; and
+      since <m>f(x) = y = f(x_0)</m> and <m>f</m> is injective, we conclude that <m>x_0 = x \in A</m>. Thus we
+      have shown that <m>x_0 \in \bigcap\sfml A</m> and therefore that <m>y = f(x_0) \in
+      f^{\sto}(\bigcap\sfml A)</m>.
+    </p>
+
+    <p>
+      (c) If <m>y \in f^{\sto}(\bigcup\sfml A)</m>, then there exists <m>x \in \bigcup\sfml A</m> such
+      that <m>y = f(x)</m>. Since <m>x \in \bigcup\sfml A</m> there exists <m>A \in \sfml A</m> such that <m>x
+      \in A</m>. Then <m>y = f(x) \in f^{\sto}(A)</m> and so <m>y \in \bigcup\{f^{\sto}(A): A \in \sfml
+      A\}</m>. Conversely, if <m>y</m> belongs to <m>\bigcup\{f^{\sto}(A): A \in \sfml A\}</m>, then it must
+      be a member of <m>f^{\sto}(A)</m> for some <m>A \in \sfml A</m>. Then <m>y = f(x)</m> for some <m>x \in A
+      \subseteq \bigcup\sfml A</m> and therefore <m>y = f(x) \in f^{\sto}(\bigcup\sfml A)</m>. \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_finv_unique">
+    <p>
+      (Solution to <xref ref="prop_finv_unique"></xref>)
+      Let <m>f\colon S \sto T</m> and suppose that <m>g</m> and <m>h</m> are inverses of <m>f</m>. Then
+      <me>
+        g = g \circ I_T = g \circ (f \circ h) = (g \circ f) \circ h = I_S
+                         \circ h = h\,.\qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_inv_trig">
+    <p>
+      (Solution to <xref ref="exer_inv_trig"></xref>)
+      <em>Arcsine</em> is the inverse of the restriction of the <em>sine</em> function to the interval
+      <m>[-\frac\pi2,\frac\pi2]</m>. The <em>arccosine</em> is the inverse of the restriction of
+      <em>cosine</em> to <m>[0,\pi]</m>. And <em>arctangent</em> is the inverse of the restriction of
+      <em>tangent</em> to <m>(-\frac\pi2,\frac\pi2)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_rinv_surj">
+    <p>
+      (Solution to <xref ref="prop_rinv_surj"></xref>)
+      Suppose that <m>f</m> has a right inverse<nbsp /><m>f_r</m>. For each <m>y \in T</m> it is clear that <m>y = I_T(y) =
+      f\bigl(f_r(y)\bigr) \in \ran f</m>; so <m>\ran f = T</m> and <m>f</m> is surjective.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>f</m> is surjective. Then for every <m>y \in T</m> the set
+      <m>f^{\gets}(\{y\})</m> is nonempty. For each <m>y \in T</m> let <m>x_y</m> be a member of <m>f^{\gets}(\{y\})</m>
+      and define
+      <me>
+        f_r\colon T \sto S\colon y \mapsto x_y\,.
+      </me>
+    </p>
+
+    <p>
+      Then <m>f\bigl(f_r(y)\bigr) = f(x_y) = y</m>, showing that <m>f_r</m> is a right inverse of<nbsp /><m>f</m>.
+      (The reader who has studied a bit of set theory will likely have noticed the unadvertised
+      use of the
+      <index><main>axiom</main><sub>of choice</sub></index>
+      <index><main>choice, axiom of</main></index><em>axiom of choice</em> in this proof. It is used in this fashion throughout the text.)
+    </p>
+  </solution>
+</section>

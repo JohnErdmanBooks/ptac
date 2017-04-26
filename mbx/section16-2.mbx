@@ -1,0 +1,165 @@
+
+<section>
+  <title>Conditions equivalent to compactness</title>
+  <p>
+    We are now ready for a major result of this chapter<mdash />a sequential characterization of
+    compactness. We show that a space <m>M</m> is compact if and only if every sequence in <m>M</m> has a
+    convergent subsequence. In other words, a space is compact if and only if it is sequentially
+    compact. We will see later in the section how useful this result is when we use it to prove
+    that a finite product of compact spaces is compact.
+  </p>
+
+  <p>
+    The following theorem also provides a second characterization of compactness: a space <m>M</m> is
+    compact if and only if every infinite subset of <m>M</m> has a point of accumulation in<nbsp /><m>M</m>. The
+    proof of the theorem is fairly straightforward except for one complicated bit. It is not easy
+    to prove that every sequentially compact space is compact. This part of the proof comes
+    equipped with an lengthy hint.
+  </p>
+
+  <theorem xml:id="cpt_scpt">
+    <statement>
+      <p>
+        If <m>M</m> is a metric space then the following are equivalent:
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              <m>M</m> is compact;
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              every infinite subset of <m>M</m> has an accumulation point in <m>M</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(3)</title>
+            <p>
+              <m>M</m> is sequentially compact.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Showing that (3) implies (1) is not so easy. To
+      show that a sequentially compact metric space <m>M</m> is compact start with an arbitrary open
+      cover <m>\sfml U</m> for <m>M</m> and show first that
+      <me>
+        \text{(A) \(\sfml U\) has a \textsl{countable} subfamily \(\sfml V\) which covers \(M\).}
+      </me>
+    </p>
+
+    <p>
+      Then show that
+      <me>
+        \text{ (B) there is a finite subfamily of \(\sfml V\) which covers \(M\). }
+      </me>
+    </p>
+
+    <p>
+      The hard part is (A). According to <xref ref="scpt_sep">corollary</xref> we may choose a countable
+      dense subset <m>A</m> of <m>M</m>. Let <m>\sfml B</m> be the family of all open balls <m>B_r(a)</m> such that
+      <md>
+        <mrow>\text{ (i) }  \amp a \in A;</mrow>
+        <mrow>\text{ (ii) }  \amp r \in \Q \text{ and; }</mrow>
+        <mrow>\text{ (iii) }  \amp B_r(a) \subseteq U \ \ \text{ for some } U \in \sfml U.</mrow>
+      </md>
+    </p>
+
+    <p>
+      For each <m>B</m> in <m>\sfml B</m> choose a set <m>U_B</m> in <m>\sfml U</m> such that <m>B \subseteq U_B</m> and
+      let
+      <me>
+        \sfml V = \{U_B \colon B \in \sfml B\}.
+      </me>
+    </p>
+
+    <p>
+      Then verify that <m>\sfml V</m> is a countable subfamily of <m>\sfml U</m> which covers<nbsp /><m>M</m>.
+    </p>
+
+    <p>
+      To show that <m>\sfml V</m> covers <m>M</m>, start with an arbitrary point <m>x \in M</m> and a set <m>U
+      \in \sfml U</m> containing <m>x</m>. All that is needed is to find an open ball <m>B_s(a)</m> in
+      <m>\sfml B</m> such that <m>x \in B_s(a) \subseteq U</m>. In order to do this the point <m>a \in A</m>
+      must be taken sufficiently close to <m>x</m> so that it is possible to choose a rational
+      number <m>s</m> which is both
+      <md>
+        <mrow>\text{ (i) }  \amp \text{ small enough for \(B_s(a)\) to be a subset of~\(U\), and }</mrow>
+        <mrow>\text{ (ii) }  \amp \text{ large enough for \(B_s(a)\) to contain \(x\). }</mrow>
+      </md>
+    </p>
+
+    <p>
+      To establish (B) let <m>(V_1, V_2, V_3, \dots)</m> be an enumeration of <m>\sfml V</m> and <m>W_n =
+      \cup_{k=1}^n V_k</m> for each <m>n \in \N</m>. If no one set <m>W_n</m> covers <m>M</m>, then for every <m>k
+      \in \N</m> there is a point <m>x_k \in {W_k}^c</m>. (<xref ref="sol_cpt_scpt">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="cpt_scpt">theorem</xref> to give three different proofs that the metric space
+        <m>[0,1)</m> (with the usual metric inherited from<nbsp /><m>\R</m>) is not compact.
+      </p>
+    </statement>
+  </problem>
+
+  <caution>
+
+  <p>
+    It is a common (and usually helpful) mnemonic device to reduce statements of
+    complicated theorems in analysis to brief paraphrases. In doing this considerable care should
+    be exercised so that crucial information is not lost. Here is an example of the kind of thing
+    that can go wrong.
+  </p>
+
+  <p>
+    Consider the two statements:
+    <ol>
+      <li>
+        <title>(1)</title>
+        <p>
+          In the metric space <m>\R</m> every infinite subset of the open unit interval has a point
+          of accumulation; and
+        </p>
+      </li>
+
+      <li>
+        <title>(2)</title>
+        <p>
+          A metric space is compact if every infinite subset has a point of accumulation.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    Assertion (1) is a special case of <xref ref="Bolzano_thm">proposition</xref>; and (2) is just part of
+    <xref ref="cpt_scpt">theorem</xref>. The unwary tourist might be tempted to conclude from (1) and (2) that
+    the open unit interval <m>(0,1)</m> is compact, which, of course, it is not. The problem here is
+    that (1) is a correct assertion about <m>(0,1)</m> regarded as a subset of the space <m>\R</m>; every
+    infinite subset of <m>(0,1)</m> does have a point of accumulation <em>lying in</em><nbsp /><m>\R</m>.
+  </p>
+
+  <p>
+    If, however, the metric space under consideration is <m>(0,1)</m> itself, then (1) is no longer
+    true. For example, the set of all numbers of the form <m>1/n</m> for <m>n \ge 2</m> has no accumulation
+    point in <m>(0,1)</m>. When we use (2) to establish the compactness of a metric space<nbsp /><m>M</m>, what we
+    must verify is that every infinite subset of <m>M</m> has a point of accumulation <em>which lies
+    in</em><nbsp /><m>M</m>. Showing that these points of accumulation exist in some space which contains <m>M</m> just
+    does not do the job. The complete statements of <xref ref="Bolzano_thm"></xref> and <xref ref="cpt_scpt"></xref> make this
+    distinction clear; the paraphrases (1) and (2) above do not.
+  </p>
+
+  </caution>
+</section>

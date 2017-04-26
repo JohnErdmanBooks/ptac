@@ -1,0 +1,6 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="unif_conv">
+  <title>Uniform convergence</title>
+  <xi:include  href="section13-1.mbx" />
+  <xi:include  href="section13-2.mbx" />
+</chapter>

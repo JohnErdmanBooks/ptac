@@ -1,0 +1,162 @@
+
+<section>
+  <title>Linear combinations</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space. A
+        <index><main>linear</main><sub>combination</sub></index><term>linear combination</term> of a finite set <m>\{x_1, \dots, x_n\}</m> of vectors in <m>V</m> is a vector of
+        the form <m>\sum_{k=1}^n \alpha_k x_k</m> where <m>\alpha_1, \dots, \alpha_n \in \R</m>. If <m>\alpha_1 =
+        \alpha_2 = \dots = \alpha_n = 0</m>, then the linear combination is <term>trivial</term>; if at least one
+        <m>\alpha_k</m> is different from zero, the linear combination is <term>nontrivial</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="vs_exer5">
+    <statement>
+      <p>
+        Find a nontrivial linear combination of the following vectors in
+        <m>\R^3</m> which equals zero: <m>(1,0,0)</m>, <m>(1,0,1)</m>, <m>(1,1,1)</m>, and <m>(1,1,0)</m>.
+        (<xref ref="sol_vs_exer5">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Find, if possible, a nontrivial linear combination of the following vectors in
+        <m>\R^3</m> which equals zero: <m>(4,1,3)</m>, <m>(-1,1,-7)</m>, and <m>(1,2,-8)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find, if possible, a nontrivial linear combination of the following vectors in <m>\R^3</m>
+        which equals zero: <m>(1,2,-3)</m>, <m>(1,-1,4)</m>, and <m>(5,4,-1)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a nontrivial linear combination of the polynomials <m>p^1</m>, <m>p^2</m>, <m>p^3</m>, and <m>p^4</m>
+        which equal zero, where
+        <md>
+          <mrow>p^1(x) \amp = x + 1</mrow>
+          <mrow>p^2(x) \amp = x^3 - 1</mrow>
+          <mrow>p^3(x) \amp = 3x^3 + 2x - 1</mrow>
+          <mrow>p^4(x) \amp = -x^3 + x\,.</mrow>
+        </md>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="basis_vect">
+    <statement>
+      <p>
+        Define vectors <m>e^1,\dots , e^n</m> in <m>\R^n</m> by
+        <md>
+          <mrow>e^1 \amp := (1,0,0, \dots, 0)</mrow>
+          <mrow>e^2 \amp := (0,1,0, \dots, 0)</mrow>
+          <mrow>\vdots \amp {}</mrow>
+          <mrow>e^n \amp := (0,0, \dots ,0,1).</mrow>
+        </md>
+      </p>
+
+      <p>
+        In other words, for <m>1 \le j \le n</m> and <m>1 \le k \le n</m>, the <m>k^{\text{ th } }</m> coordinate of the
+        vector <m>e^j</m> (denote it by <m>(e^j)_k</m> or <m>e_k^j</m>) is <m>1</m> if <m>j=k</m> and <m>0</m> if <m>j \ne k</m>. The
+        vectors <m>e^1, \dots, e^n</m> are the
+        <index><main>e@<m>e^1, \dots, e^n</m> (standard basis vectors)</main></index>
+        <index><main>standard basis</main></index>
+        <index><main>basis</main><sub>standard</sub></index><term>standard basis vectors</term> in <m>\R^n</m>. (Note that the superscripts here have nothing to do
+        with powers.) In <m>\R^3</m> the three standard basis vectors are often denoted by <m>\vc i</m>, <m>\vc
+        j</m>, and <m>\vc k</m> rather than <m>e^1</m>, <m>e^2</m>, and <m>e^3</m>, respectively.
+      </p>
+
+      <p>
+        Every vector in <m>\R^n</m> is a linear combination of the standard basis vectors in that space. In
+        fact, if <m>x = (x_1, \dots, x_n) \in \R^n</m>, then
+        <me>
+          x = \sum_{k=1}^n x_ke^k\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The proof is quite easy:
+      <md>
+        <mrow>x \amp = (x_1,x_2, \dots, x_n)</mrow>
+        <mrow>\amp = (x_1,0, \dots, 0) + (0,x_2, \dots, 0) + \dots + (0,0,
+                      \dots, x_n)</mrow>
+        <mrow>\amp = x_1e^1 + x_2e^2 + \dots + x_ne^n</mrow>
+        <mrow>\amp = \sum_{k=1}^n x_ke^k\,.    \qedhere</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>A</m> (finite or not) of a vector space is
+        <index><main>linear</main><sub>dependence, independence</sub></index>
+        <index><main>dependent</main><sub>linearly</sub></index><term>linearly dependent</term> if the zero vector <m>\vc 0</m> can be written as a nontrivial linear
+        combination of elements of<nbsp /><m>A</m>; that is, if there exist vectors <m>\vc x_1, \dots, \vc x_n
+        \in A</m> and scalars <m>\alpha_1, \dots, \alpha_n</m>, <em>not all zero,</em> such that
+        <m>\sum_{k=1}^n \alpha_k\vc x_k = \vc 0</m>. A subset of a vector space is
+        <index><main>independent</main><sub>linearly</sub></index><term>linearly independent</term> if it is not linearly dependent.
+      </p>
+    </statement>
+  </definition>
+
+  <definition>
+    <statement>
+      <p>
+        A set <m>A</m> of vectors in a vector space <m>V</m>
+        <index><main>span</main></index><term>spans</term> the space if every member of <m>V</m> can be written as a linear combination of members
+        of<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem xml:id="vs_prob3">
+    <statement>
+      <p>
+        Let <m>e^1, e^2, \dots e^n</m> be the standard basis vectors in<nbsp /><m>\R^n</m>
+        (see <xref ref="basis_vect">example</xref>).
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that the set of standard basis vectors in<nbsp /><m>\R^n</m> is a linearly
+              independent set.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that the standard basis vectors span<nbsp /><m>\R^n</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Show that in part (b) the representation of a vector in <m>\R^n</m> as a linear
+              combination of standard basis vectors is unique. (That is, show that if <m>x = \sum_{k=1}^n
+              \alpha_k e^k = \sum_{k=1}^n \beta_k e^k</m>, then <m>\alpha_k = \beta_k</m> for each<nbsp /><m>k</m>.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,168 @@
+
+<section>
+  <title>Checklist for writing mathematics</title>
+  <p>
+    After you have solved a problem or discovered a
+    counterexample or proved a theorem, there arises the problem of writing up your result. You
+    want to do this in a way that will be as clear and as easy to digest as possible. Check your
+    work against the following list of suggestions.
+    <ol>
+      <li>
+        <p>
+          <em>Have you clearly stated the problem you are asked to solve or the result you
+          are trying to prove?</em>
+          <blockquote>
+          Have an audience in mind.  Write to someone.  And don't assume the person you are writing to
+          remembers the problem.  (S)he may have gone on vacation, or been fired; or maybe (s)he just
+          has a bad memory.  You need not include every detail of the problem, but there should be
+          enough explanation so that a person not familiar with the situation can understand what you
+          are talking (writing) about.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Have you included a paragraph at the beginning explaining the method you are
+          going to use to address the problem?</em>
+          <blockquote>
+          No one is happy being thrown into a sea of mathematics with no clue as to what is going on or
+          why.  Be nice.  Tell the reader what you are doing, what steps you intend to take, and what
+          advantages you see to your particular approach to the problem.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Have you defined all the variables you use in your writeup?</em>
+          <blockquote>
+          <em>Never</em> be so rude as to permit a symbol to appear that has not been properly introduced.
+          You may have a mental picture of a triangle with vertices labelled <m>A</m>, <m>B</m>, and<nbsp /><m>C</m>.  When
+          you use those letters no one will know what they stand for unless you tell them.  (Even if you
+          have included a graph appropriately labelled, still tell the reader <em>in the text</em> what
+          the letters denote.) Similarly, you may be consistent in always using the letter <m>j</m> to denote
+          a natural number.  But how would you expect the reader to know?
+
+          \vspace{5pt}
+
+          It is good practice to italicize variables so that they can be easily distinguished from
+          regular text.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Is the logic of your report entirely clear and entirely correct?</em>
+          <blockquote>
+          It is an unfortunate fact of life that the slightest error in logic can make a <q>solution</q> to
+          a problem totally worthless.  It is also unfortunate that even a technically correct argument
+          can be so badly expressed that no one will believe it.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>In your writeup are your mathematical symbols and mathematical terms all correctly
+          used in a standard fashion? And are all abbreviations standard?</em>
+          <blockquote>
+          Few things can make mathematics more confusing than misused or eccentrically used symbols.
+          Symbols should <em>clarify</em> arguments not create yet another level of difficulty.  By the
+          way, symbols such as <q>=</q> and <q><m>\lt</m></q> are used <em>only</em> in formulas. They are not
+          substitutes for the words <q>equals</q> and <q>less than</q> in ordinary text.  Logical symbols such
+          as <m>\Rightarrow</m> are rarely appropriate in mathematical exposition: write <q>If A then B,</q> not
+          <q><m>A \Rightarrow B</m>.</q>  Occasionally they may be used in displays.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Are the spelling, punctuation, diction, and grammar of your report all correct?</em>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Is every word, every symbol, and every equation part of a sentence?  And is every
+          sentence part of a paragraph?</em>
+          <blockquote>
+          For some reason this seems hard for many students.  Scratchwork, of course, tends to be full
+          of free floating symbols and formulas. When you write up a result get rid of all this clutter.
+          Keep only what is necessary for a logically complete report of your work. And make sure any
+          formula you keep becomes (an intelligible) part of a sentence.  Study how the author of any
+          good mathematics text deals with the problem of incorporating symbols and formulas into text.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Does every sentence start correctly and end correctly?</em>
+          <blockquote>
+          Sentences start with capital letters.  <em>Never</em> start a sentence with a number or with a
+          mathematical or logical symbol. Every declarative sentence ends with a period.  Other
+          sentences may end with a question mark or (rarely) an exclamation mark.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Is the <em>function</em> of every sentence of your report clear?</em>
+          <blockquote>
+          Every sentence has a function.  It may be a definition.  Or it may be an assertion you are
+          about to prove.  Or it may be a consequence of the preceding statement.  Or it may be a
+          standard result your argument depends on.  Or it may be a summary of what you have just
+          proved.  <em>Whatever function a sentence serves, that function should be entirely clear
+          to your reader.</em>
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Have you avoided all unnecessary clutter?</em>
+          <blockquote>
+          Mindless clutter is one of the worst enemies of clear exposition.  No one wants to see all the
+          details of your arithmetic or algebra or trigonometry or calculus.  Either your reader knows
+          this stuff and could do it more easily than read it, or doesn't know it and will find it
+          meaningless.  In either case, get rid of it.  If you solve an equation, for example, state
+          what the solutions are; don't show how you used the quadratic formula to find them.  Write
+          only things that inform.  Logical argument informs, reams of routine calculations do not.  Be
+          ruthless in rooting out useless clutter.
+          </blockquote>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <em>Is the word <q>any</q> used unambiguously?  And is the order in which quantifiers
+          act entirely clear?</em>
+          <blockquote>
+          Be careful with the word <q>any</q>, especially when taking negations.  It can be surprisingly
+          treacherous.  <q>Any</q> may be used to indicate universal quantification.  (In the assertion,
+          <q>It is true for any <m>x</m> that <m>x^2 - 1 = (x + 1)(x - 1)</m></q>, the word <q>any</q> means <q>every</q>.)
+          It may also be used for existential quantification.  (In the question, <q>Does <m>x^2 + 2 = 2x</m>
+          hold for any <m>x</m>?</q> the word <q>any</q> means <q>for some</q>.  Also notice that answering
+          <em>yes</em> to this question does not mean that you believe it is true that <q><m>x^2 + 2 = 2x</m>
+          holds for any<nbsp /><m>x</m>.</q>) Negations are worse.  (What does <q>It is not true that <m>x^2 + 2 = 2x</m>
+          for any <m>x</m></q> mean?)   One good way to avoid trouble: don't use <q>any</q>.
+
+          \vspace{5pt}
+
+          And be careful of word order.  The assertions <q>Not every element of <m>A</m> is an element of
+          <m>B</m></q> and <q>Every element of <m>A</m> is not an element of <m>B</m></q> say quite different things.  I
+          recommend avoiding the second construction entirely.  Putting (some or all) quantifiers at the
+          end of a sentence can be a dangerous business. (The statement, <q><m>P(x)</m> or <m>Q(x)</m> fails to
+          hold for all<nbsp /><m>x</m>,</q> has at least two possible interpretations. So does <q><m>x \neq 2</m> for all <m>x
+          \in A</m>,</q> depending on whether we read <m>\neq</m> as <q>is not equal to</q> or as <q>is different
+          from</q>.)
+          </blockquote>
+        </p>
+      </li>
+    </ol>
+  </p>
+</section>

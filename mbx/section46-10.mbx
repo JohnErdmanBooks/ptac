@@ -1,0 +1,62 @@
+
+<section>
+  <title>Exercises in Chapter 10</title>
+  <solution xml:id="sol_icb1ex">
+    <p>
+      (Solution to <xref ref="icb1ex"></xref>)
+      The three open balls are <m>B_1(-1) = \{-1\}</m>, <m>B_1(0) = [0,1)</m>, and <m>B_2(0) = \{-1\} \cup [0,2)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_icb2ex">
+    <p>
+      (Solution to <xref ref="icb2ex"></xref>)
+      (a)<m>\intr A = \emptyset</m>; <m>A' = \{0\}</m>; <m>\clo A = \partial A = \{0\} \cup A</m>.
+    </p>
+
+    <p>
+      (b)<m>\intr A = \emptyset</m>; <m>A' = \clo A = \partial A = [0,\infty)</m>.
+    </p>
+
+    <p>
+      (c)<m>\intr A = A</m>; <m>A' = \clo A = A \cup \{0\}</m>; <m>\partial A = \{0\}</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_sm_in_lar">
+    <p>
+      (Solution to <xref ref="sm_in_lar"></xref>)
+      Let <m>t = r - d(a,c)</m>. (Note that <m>t > 0</m>.) If <m>x \in B_t(c)</m>, then <m>d(a,x) \le d(a,c) +
+      d(c,x) \lt  (r - t) + t = r</m>; so <m>x \in B_r(a)</m>. (Easier solution: This is just a special case
+      of <xref ref="ball_int">proposition</xref>. Take <m>b = a</m> and <m>s = r</m> there.)
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_int">
+    <p>
+      (Solution to <xref ref="prop_int"></xref>)
+      (a)If <m>x \in \intr A</m>, then there exists <m>r > 0</m> such that <m>B_r(x) \subseteq A \subseteq
+      B</m>. So <m>x \in \intr B</m>.
+    </p>
+
+    <p>
+      (b)Since <m>\intr A \subseteq A</m> we may conclude from (a) that <m>A^{\circ\circ} \subseteq
+      \intr A</m>. For the reverse inclusion take <m>a \in \intr A</m>. Then there exists <m>r > 0</m> such that
+      <m>B_r(a) \subseteq A</m>. By <xref ref="sm_in_lar">lemma</xref>, about each point <m>b</m> in the open ball <m>B_r(a)</m>
+      we can find an open ball <m>B_s(b)</m> contained in <m>B_r(a)</m> and hence in <m>A</m>. This shows that
+      <m>B_r(a) \subseteq \intr A</m>. Since some open ball about <m>a</m> lies inside <m>\intr A</m>, we conclude
+      that <m>a \in A^{\circ\circ}</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_un_int">
+    <p>
+      (Solution to <xref ref="un_int"></xref>)
+      (a)Since <m>A \subseteq \bigcup \sfml A</m> for every <m>A \in \sfml A</m>, we can conclude
+      from <xref ref="prop_int">proposition</xref>(a) that <m>\intr A \subseteq \intr{\bigl(\bigcup \sfml
+      A\bigr)}</m> for every <m>A \in \sfml A</m>. Thus <m>\bigcup\{\intr A \colon A \in \sfml A\}
+      \subseteq \intr{\bigl(\bigcup \sfml A\bigr)}</m>.
+    </p>
+
+    <p>
+      (b)Let <m>\R</m> be the metric space and <m>\sfml A = \{A,B\}</m> where <m>A = \Q</m> and <m>B =
+      \Q^c</m>. Then <m>\intr A \cup \intr B = \emptyset</m> while <m>\intr{(A \cup B)} = \R</m>.
+    </p>
+  </solution>
+</section>

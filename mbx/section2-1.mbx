@@ -1,0 +1,262 @@
+
+<section>
+  <title>Open subsets of <m>\R</m></title>
+  <definition>
+    <statement>
+      <p>
+        A subset <m>U</m> of <m>\R</m> is
+        <index><main>open</main></index><term>open</term> if <m>U^\circ = U</m>. That is, a set is open if and only if every point of the set is
+        an interior point of the set. If <m>U</m> is an open subset of <m>\R</m> we
+        <index><main><@<m>\open{}{}</m> (open subset of)</main></index>write<nbsp /><m>\open{U}{\R}</m>.
+      </p>
+
+      <p>
+        Notice, in particular, that the empty set is open. This is a consequence of the way
+        implication is defined in <xref ref="implication">section</xref>: the condition that each point of
+        <m>\emptyset</m> be an interior point is <em>vacuously satisfied</em> because there <em>are no
+        points</em> in <m>\emptyset</m>. (One argues that <em>if</em> an element <m>x</m> belongs to the empty
+        set, <em>then</em> it is an interior point of the set. The hypothesis is false; so the
+        implication is true.) Also notice that <m>\R</m> itself is an open subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="open_int_open">
+    <statement>
+      <p>
+        Bounded open intervals are open sets. That is, if <m>a \lt  b</m>,
+        then the open interval <m>(a,b)</m> is an open set.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      <xref ref="interior_open_int">Example</xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The interval <m>(0,\infty)</m> is an open set.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    One way of seeing that a set is open is to verify that each of its points is an interior point
+    of the set. That is what the definition says. Often it is easier to observe that the set can
+    be written as a union of bounded open intervals. That this happens exactly when a set is open
+    is the point of the next proposition.
+  </p>
+
+  <proposition xml:id="union_open_intervals">
+    <statement>
+      <p>
+        A nonempty subset of <m>\R</m> is open if and only if it is
+        a union of bounded open intervals.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>U \subseteq \R</m>. First, let us suppose <m>U</m> is a nonempty open subset of<nbsp /><m>\R</m>.
+      Each point of <m>U</m> is then an interior point of <m>U</m>. So for each <m>x \in U</m> we may choose a
+      bounded open interval <m>J(x)</m> centered at <m>x</m> which is entirely contained in <m>U</m>. Since <m>x \in
+      J(x)</m> for each <m>x \in U</m>, we see that
+      <men xml:id="x2eqn1" >
+        U = \bigcup_{x \in U}\{x\} \subseteq
+                        \bigcup_{x \in U}J(x).
+      </men>
+    </p>
+
+    <p>
+      On the other hand, since <m>J(x) \subseteq U</m> for each <m>x \in U</m>, we have (see
+      <xref ref="union_of_fam1">proposition</xref>)
+      <men xml:id="x2eqn2" >
+        \bigcup_{x \in U} J(x) \subseteq U.
+      </men>
+    </p>
+
+    <p>
+      Together <xref ref="x2eqn1" /> and <xref ref="x2eqn2" /> show that <m>U</m> is a union of bounded open intervals.
+    </p>
+
+    <p>
+      For the converse suppose <m>U = \bigcup \sfml{J}</m> where <m>\sfml{J}</m> is a family of open
+      bounded intervals. Let <m>x</m> be an arbitrary point of <m>U</m>. We need only show that <m>x</m> is
+      an interior point of<nbsp /><m>U</m>. To this end choose an interval <m>J \in \sfml{J}</m> which
+      contains<nbsp /><m>x</m>. Since <m>J</m> is a bounded open interval we may write <m>J = (a,b)</m> where<nbsp /><m>a \lt 
+      b</m>. Choose <m>\epsilon</m> to be the smaller of the numbers <m>x - a</m> and <m>b - x</m>. Then it is
+      easy to see that <m>\epsilon > 0</m> and that <m>x \in J_\epsilon(x) = (x - \epsilon, x +
+      \epsilon) \subseteq (a,b)</m>. Thus <m>x</m> is an interior point of<nbsp /><m>U</m>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Every interval of the form <m>(-\infty,a)</m> is an open set. So is every interval of
+        the form <m>(a,\infty)</m>. (Notice that this and <xref ref="open_int_open">example</xref> give us the very
+        comforting result that the things we are accustomed to calling open intervals are indeed open
+        sets.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The study of calculus has two main ingredients: algebra and topology. Algebra deals with
+    operations and their properties, and with the resulting structure of groups, fields, vector
+    spaces, algebras, and the like. Topology, on the other hand, is concerned with closeness,
+    <m>\epsilon</m>-neighborhoods, open sets, and with the associated structure of metric spaces and
+    various kinds of topological spaces. Almost everything in calculus results from the interplay
+    between algebra and topology.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        The word <q>topology</q> has a technical meaning. A family <m>\sfml{T}</m> of subsets
+        of a set <m>X</m> is a
+        <index><main>topology</main></index><term>topology</term> on <m>X</m> if
+        <ol>
+          <li>
+            <p>
+              <m>\emptyset</m> and <m>X</m> belong to <m>\sfml{T}</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              if <m>\sfml{S} \subseteq \sfml{T}</m> (that is, if <m>\sfml S</m> is a
+              subfamily of<nbsp /><m>\sfml T</m>), then <m>\bigcup\sfml{S} \in \sfml{T}</m>; and
+            </p>
+          </li>
+
+          <li>
+            <p>
+              if <m>\sfml{S}</m> is a <em>finite</em> subfamily of <m>\sfml{T}</m>, then
+              <m>\bigcap\sfml{S} \in \sfml{T}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    We can paraphrase this definition by saying that a family of subsets of <m>X</m>, which contains
+    both <m>\emptyset</m> and <m>X</m>, is a topology on <m>X</m> if it is closed under arbitrary unions and
+    finite intersections. If this definition doesn't make any sense to you at first reading,
+    don't fret. This kind of abstract definition, although easy enough to remember, is
+    irritatingly difficult to understand. Staring at it doesn't help. It appears that a
+    bewildering array of entirely different things might turn out to be topologies. And this is
+    indeed the case. An understanding and appreciation of the definition come only gradually.
+    You will notice as you advance through this material that many important concepts such as
+    continuity, compactness, and connectedness are defined by (or characterized by) open sets.
+    Thus theorems which involve these ideas will rely on properties of open sets for their proofs.
+    This is true not only in the present realm of the real line but in the much wider world of
+    metric spaces, which we will shortly encounter in all their fascinating variety. You will
+    notice that two properties of open sets are used over and over: that unions of open sets are
+    open and that finite intersections of open sets are open. Nothing else about open sets turns
+    out to be of much importance. Gradually one comes to see that these two facts completely
+    dominate the discussion of continuity, compactness, and so on. Ultimately it becomes clear
+    that nearly everything in the proofs goes through in situations where <em>only</em> these
+    properties are available<mdash />that is, in topological spaces.
+  </p>
+
+  <p>
+    Our goal at the moment is quite modest: we show that the family of all open subsets of <m>\R</m> is
+    indeed a topology on <m>\R</m>.
+  </p>
+
+  <proposition xml:id="union_intersection_open">
+    <statement>
+      <p>
+        Let <m>\sfml S</m> be a family of open sets in <m>\R</m>.
+        Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the union of <m>\sfml S</m> is an open subset of<nbsp /><m>\R</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              if <m>\sfml S</m> is finite, the intersection of <m>\sfml S</m> is
+              an open subset of<nbsp /><m>\R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_union_intersection_open">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>U = \{x \in \R\colon  x \lt  -2\} \cup \{x > 0\colon x^2-x-6 \lt  0\}</m> is an
+        open subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\R \setminus \N</m> is an open subset of <m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The family <m>\sfml{T}</m> of open subsets of <m>\R</m> is not closed under arbitrary
+        intersections.s (That is, there exists a family <m>\sfml{S}</m> of open subsets of <m>\R</m> such
+        that <m>\bigcap \sfml{S}</m> is <em>not</em> open.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

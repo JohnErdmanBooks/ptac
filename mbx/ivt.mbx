@@ -1,0 +1,7 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ivt">
+  <title>Connectedness and the intermediate value theorem</title>
+  <xi:include  href="section5-1.mbx" />
+  <xi:include  href="section5-2.mbx" />
+  <xi:include  href="section5-3.mbx" />
+</chapter>

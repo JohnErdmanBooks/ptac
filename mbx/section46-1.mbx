@@ -1,0 +1,63 @@
+
+<section>
+  <title>Exercises in Chapter 01</title>
+  <solution xml:id="sol_1exer1">
+    <p>
+      (Solution to <xref ref="x1exer1"></xref>)
+      Find those numbers <m>x</m> such that <m>d(x,-2) \le 5</m>. In other words, solve the inequality
+      <me>
+        \abs{x+2} = \abs{x-(-2)} \le 5.
+      </me>
+    </p>
+
+    <p>
+      This may be rewritten as
+      <me>
+        -5 \le x+2 \le 5,
+      </me>
+      which is the same as
+      <me>
+        -7 \le x \le 3.
+      </me>
+    </p>
+
+    <p>
+      Thus the points in the closed interval <m>[-7,3]</m> are those that lie within <m>5</m> units of <m>-2</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_d_less_e">
+    <p>
+      (Solution to <xref ref="d_less_e"></xref>)
+      If <m>x \in J_\delta(a)</m>, then <m>\abs{x-a} \lt  \delta \le \epsilon</m>. Thus <m>x</m> lies within
+      <m>\epsilon</m> units of<nbsp /><m>a</m>; that is, <m>x \in J_\epsilon(a)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_1exer3">
+    <p>
+      (Solution to <xref ref="x1exer3"></xref>)
+      Factor the left side of the inequality <m>x^2-x-6 \ge 0</m>. This yields <m>(x+2)(x-3) \ge~0</m>. This
+      inequality holds for those <m>x</m> satisfying <m>x \le -2</m> and for those satisfying <m>x \ge 3</m>. Thus
+      <m>A = (-\infty,-2] \cup [3,\infty)</m>. No neighborhood of <m>-2</m> or of <m>3</m> lies in<nbsp /><m>A</m>. Thus
+      <m>A^\circ = (-\infty,-2) \cup (3,\infty)</m> and <m>A^\circ \ne A</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_intr_intersection">
+    <p>
+      (Solution to <xref ref="intr_intersection"></xref>)
+      Since <m>A \cap B \subseteq A</m> we have <m>\intr{(A \cap B)} \subseteq \intr A</m> by <xref ref="intr_subsets"></xref>. Similarly, <m>\intr{(A \cap B)} \subseteq \intr B</m>. Thus <m>\intr{(A \cap B)}
+      \subseteq \intr A \cap \intr B</m>. To obtain the reverse inclusion take <m>x \in \intr A \cap
+      \intr B</m>. Then there exist <m>\epsilon_1,\epsilon_2 > 0</m> such that <m>J_{\epsilon_1}(x) \subseteq
+      A</m> and <m>J_{\epsilon_2}(x) \subseteq B</m>. Then <m>J_\epsilon(x)  \subseteq A \cap B</m> where
+      <m>\epsilon = \min\{\epsilon_1,\epsilon_2\}</m>. This shows that <m>x \in \intr{(A \cap B)}</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_intr_union">
+    <p>
+      (Solution to <xref ref="intr_union"></xref>)
+      Since <m>A \subseteq \bigcup \sfml A</m> for every <m>A \in \sfml A</m>, we can conclude from
+      <xref ref="intr_subsets">proposition</xref> that <m>\intr A \subseteq \intr{\bigl(\bigcup \sfml
+      A\bigr)}</m> for every <m>A \in \sfml A</m>. Thus <m>\bigcup\{\intr A: A \in \sfml A\} \subseteq
+      \intr{\bigl(\bigcup \sfml A\bigr)}</m>. (<xref ref="union_of_fam1">See</xref>.)
+    </p>
+  </solution>
+</section>

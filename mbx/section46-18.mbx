@@ -1,0 +1,113 @@
+
+<section>
+  <title>Exercises in Chapter 18</title>
+  <solution xml:id="sol_conv_cau">
+    <p>
+      (Solution to <xref ref="conv_cau"></xref>)
+      Suppose <m>(x_n)</m> is a convergent sequence in a metric space and <m>a</m> is its limit. Given
+      <m>\epsilon > 0</m> choose <m>n_0 \in \N</m> so that <m>d(x_n,a) \lt  \frac12\epsilon</m> whenever <m>n \ge n_0</m>.
+      Then <m>d(x_m,x_n) \le d(x_m,a) + d(a,x_n) \lt  \frac12\epsilon + \frac12\epsilon = \epsilon</m>
+      whenever <m>m,n \ge n_0</m>. This shows that <m>(x_n)</m> is Cauchy.
+    </p>
+  </solution>
+  <solution xml:id="sol_cs_css">
+    <p>
+      (Solution to <xref ref="cs_css"></xref>)
+      Suppose that <m>\left(x_{n_k}\right)</m> is a convergent subsequence of a Cauchy sequence <m>(x_n)</m>
+      and that <m>x_{n_k} \sto a</m>. Given <m>\epsilon > 0</m> choose <m>n_0</m> such that <m>d(x_m,x_n) \lt 
+      \frac12\epsilon</m> whenever <m>m</m>, <m>n \ge n_0</m>. Next choose <m>k \in \N</m> such that <m>n_k \ge n_0</m>
+      and <m>d\left(x_{n_k},a\right) \lt  \frac12\epsilon</m>. Then for all <m>m \ge n_0</m>
+      <me>
+        d(x_m,a) \le d\left(x_m,x_{n_k}\right) + d\left(x_{n_k},a\right)
+                       \lt  \tfrac12\epsilon + \tfrac12\epsilon = \epsilon\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_cau_bdd">
+    <p>
+      (Solution to <xref ref="cau_bdd"></xref>)
+      A sequence in a metric space <m>M</m>, being a function, is said to be bounded if its range is a
+      bounded subset of <m>M</m>. If <m>(x_n)</m> is a Cauchy sequence in <m>M</m>, then there exists <m>n_0 \in \N</m>
+      such that <m>d(x_m,x_n) \lt  1</m> whenever <m>m,n \ge n_0</m>. For <m>1 \le k \le n_0 - 1</m>, let <m>d_k =
+      d\left(x_k,x_{n_0}\right)</m>; and let <m>r = \max\left\{d_1, \dots, d_{n_0 - 1},1\right\}</m>. Then
+      for every <m>k \in \N</m> it is clear that <m>x_k</m> belongs to <m>C_r\left(x_{n_0}\right)</m> (the closed
+      ball about <m>x_{n_0}</m> of radius<nbsp /><m>r</m>). Thus the range of the sequence <m>(x_n)</m> is bounded.
+    </p>
+  </solution>
+  <solution xml:id="sol_prod_compl">
+    <p>
+      (Solution to <xref ref="prod_compl"></xref>)
+      Let <m>(M,d)</m> and <m>(N,\rho)</m> be complete metric spaces. Let <m>d_1</m> be the usual product metric on
+      <m>M \times N</m> (<xref ref="prod_met">see</xref>). If <m>\left((x_n,y_n)\right)_{n=1}^\infty</m> is a Cauchy
+      sequence in <m>M \times N</m>, then <m>(x_n)</m> is a Cauchy sequence in <m>M</m> since
+      <md>
+        <mrow>d(x_m,x_n) \amp \le d(x_m,x_n) + \rho(y_m,y_n)</mrow>
+        <mrow>\amp = d_1\left((x_m,y_m)\,,\,(x_n,y_n)\right)\sto 0</mrow>
+      </md>
+      as <m>m</m>, <m>n \sto \infty</m>.
+    </p>
+
+    <p>
+      Similarly, <m>(y_n)</m> is a Cauchy sequence in <m>N</m>. Since <m>M</m> and <m>N</m> are complete, there are
+      points <m>a</m> and <m>b</m> in <m>M</m> and <m>N</m> respectively such that <m>x_n \sto a</m> and <m>y_n \sto b</m>. By
+      <xref ref="seq_prod">proposition</xref>, <m>(x_n,y_n) \sto (a,b)</m>. Thus <m>M \times N</m> is complete.
+    </p>
+  </solution>
+  <solution xml:id="sol_eq_compl">
+    <p>
+      (Solution to <xref ref="eq_compl"></xref>)
+      It suffices to show that if <m>(M,d)</m> is complete, then <m>(M,\rho)</m> is. There exist
+      <m>\alpha,\beta > 0</m> such that <m>d(x,y) \le \alpha\, \rho(x,y)</m> and <m>\rho(x,y) \le \beta\,
+      d(x,y)</m> for all <m>x,y \in M</m>. Let <m>(x_n)</m> be a Cauchy sequence in <m>(M,\rho)</m>. Then since
+      <me>
+        d(x_m,x_n) \le \alpha\,\rho(x_m,x_n) \sto 0 \qquad \text{ as \(m\), \(n \sto \infty\) } \,,
+      </me>
+      the sequence <m>(x_n)</m> is Cauchy in<nbsp /><m>(M,d)</m>. By hypothesis <m>(M,d)</m> is complete; so there is a
+      point <m>a</m> in <m>M</m> such that <m>x_n \sto a</m> in <m>(M,d)</m>. But then <m>x_n \sto a</m> in <m>(M,\rho)</m> since
+      <me>
+        \rho(x_n,a) \le \beta\,d(x_n,a) \sto 0 \qquad \text{ as \(n \sto \infty\) } \,.
+      </me>
+    </p>
+
+    <p>
+      This shows that <m>(M,\rho)</m> is complete.
+    </p>
+  </solution>
+  <solution xml:id="sol_bdd_compl">
+    <p>
+      (Solution to <xref ref="bdd_compl"></xref>)
+      Let <m>(f_n)</m> be a Cauchy sequence in <m>\fml B(S,\R)</m>. Since for every <m>x \in S</m>
+      <me>
+        \abs{f_m(x) - f_n(x)} \le d_u(f_m,f_n) \sto 0 \qquad \text{ as \(m\), \(n \sto \infty\) } \,,
+      </me>
+      it is clear that <m>\bigl(f_n(x)\bigr)</m> is a Cauchy sequence in <m>\R</m> for each <m>x \in S</m>. Since
+      <m>\R</m> is complete, there exists, for each <m>x \in S</m>, a real number <m>g(x)</m> such that <m>f_n(x)
+      \sto g(x)</m> as <m>n \sto \infty</m>. Consider the function <m>g</m> defined by
+      <me>
+        g \colon S \sto \R \colon x \mapsto g(x)\,.
+      </me>
+    </p>
+
+    <p>
+      We show that <m>g</m> is bounded and that <m>f_n \sto g \text{ (unif) }</m>. Given <m>\epsilon > 0</m>
+      choose <m>n_0 \in \N</m> so that <m>d_u(f_m,f_n) \lt  \epsilon</m> whenever <m>m</m>, <m>n \ge n_0</m>. Then for
+      each such <m>m</m> and <m>n</m>
+      <me>
+        \abs{f_m(x) - f_n(x)} \lt  \epsilon  \text{ whenever \(x \in S\) } \,.
+      </me>
+    </p>
+
+    <p>
+      Take the limit as <m>m \sto \infty</m> and obtain
+      <me>
+        \abs{g(x) - f_n(x)} \le \epsilon
+      </me>
+      for every <m>n \ge n_0</m> and <m>x \in S</m>. This shows that <m>g - f_n</m> is bounded and that
+      <m>d_u(g,f_n) \le \epsilon</m>. Therefore the function
+      <me>
+        g = (g - f_n) + f_n
+      </me>
+      is bounded and <m>d_u(g,f_n) \sto 0</m> as <m>n \sto \infty</m>.
+    </p>
+  </solution>
+</section>

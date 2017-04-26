@@ -1,0 +1,223 @@
+
+<section>
+  <title>Exercises in Chapter 19</title>
+  <solution xml:id="sol_cntr_cnt">
+    <p>
+      (Solution to <xref ref="cntr_cnt"></xref>)
+      <em> <xref ref="cntr_cnt"></xref></em>Let <m>f:M \sto N</m> be a contraction and let <m>a \in M</m>. We
+      show <m>f</m> is continuous at <m>a</m>. Given <m>\epsilon > 0</m>, choose <m>\delta = \epsilon</m>. If <m>d(x,a) \lt 
+      \delta</m> then <m>d(f(x),f(a)) \le c d(x,a) \le d(x,a) \lt  \delta = \epsilon</m>, where <m>c</m> is a
+      contraction constant for<nbsp /><m>f</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cntr_exml">
+    <p>
+      (Solution to <xref ref="cntr_exm1"></xref>)
+      If <m>(x,y)</m> and <m>(u,v)</m> are points in <m>\R^2</m>, then
+      <md>
+        <mrow>d\bigl(f(x,y),f(u,v)\bigr)
+             \amp = \tfrac13\left[(u-x)^2 + (y-v)^2 + (x-y-u+v)^2\right]^{1/2}</mrow>
+        <mrow>\amp = \tfrac13\left[2(x-u)^2 +
+                             2(y-v)^2 - 2(x-u)(y-v)\right]^{1/2}</mrow>
+        <mrow>\amp \le \tfrac13\left[2(x-u)^2 + 2(y-v)^2 +
+                              2\abs{x-u}\,\abs{y-v}\right]^{1/2}</mrow>
+        <mrow>\amp \le \tfrac13\left[2(x-u)^2 + 2(y-v)^2 + (x-u)^2 +
+                         (y-v)^2\right]^{1/2}</mrow>
+        <mrow>\amp = \tfrac{\sqrt3}3\left[(x-u)^2 + (y-v)^2\right]^{1/2}</mrow>
+        <mrow>\amp = \tfrac1{\sqrt3} d\bigl((x,y),(u,v)\bigr)\,. \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_cmthm">
+    <p>
+      (Solution to <xref ref="cmthm"></xref>)
+      Let <m>M</m> be a complete metric space and <m>f \colon M \sto M</m> be contractive. Since <m>f</m> is
+      contractive, there exists <m>c \in (0,1)</m> such that
+      <men>
+        d(f(x),f(y)) \le c\, d(x,y)
+      </men>
+      for all <m>x</m>, <m>y \in M</m>. First we establish the existence of a fixed point. Define
+      inductively a sequence <m>\bigl(x_n\bigr)_{n=0}^\infty</m> of points in <m>M</m> as follows: Let <m>x_0</m>
+      be an arbitrary point in <m>M</m>. Having chosen <m>x_0,\dots,x_n</m> let <m>x_{n+1} = f(x_n)</m>. We show
+      that <m>(x_n)</m> is Cauchy. Notice that for each <m>k \in \N</m>
+      <men xml:id="fpt_eq8" >
+        d(x_k,x_{k+1}) \le c^k d(x_0,x_1)\,.
+      </men>
+    </p>
+
+    <p>
+      [Inductive proof: If <m>k = 1</m>, then <m>d(x_1,x_2) = d\left(f(x_0),f(x_1)\right) \le
+      c\,d(x_0,x_1)</m>. Suppose that <xref ref="fpt_eq8" /> holds for <m>k = n</m>. Then
+      <m>d\bigl(x_{n+1},x_{n+2}\bigr) = d\bigl(f(x_n),f(x_{n+1})\bigr) \le c\,d\bigl(x_n,x_{n+1}\bigr)
+      \le c \cdot c^n\,d\bigl(x_0,x_1\bigr) = c^{n+1}d\bigl(x_0,x_1\bigr)</m>.) Thus whenever <m>m \lt  n</m>
+      <md>
+        <mrow>d\bigl(x_m,x_n\bigr)
+                \amp \le \sum_{k=m}^{n-1}d\bigl(x_k,x_{k+1}\bigr)</mrow>
+        <mrow>\amp \le \sum_{k=m}^{n-1}c^kd\bigl(x_0,x_1\bigr)</mrow>
+        <mrow>\amp \le d\bigl(x_0,x_1\bigr)\sum_{k=m}^\infty c^k</mrow>
+        <mrow>\amp = d\bigl(x_0,x_1\bigr)\frac{c^m}{1-c}\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Since <m>c^m \sto 0</m> as <m>m \sto \infty</m>, we see that
+      <me>
+        d(x_m,x_n) \sto 0 \qquad \text{ as \(m\), \(n \sto \infty\) } \,.
+      </me>
+    </p>
+
+    <p>
+      That is, the sequence <m>(x_n)</m> is Cauchy. Since <m>M</m> is complete there exists a point <m>p</m> in
+      <m>M</m> such that <m>x_n \sto p</m>. The point <m>p</m> is fixed under <m>f</m> since <m>f</m> is continuous and
+      therefore
+      <me>
+        f(p) = f(\lim x_n) = \lim f(x_n) = \lim x_{n+1} = p\,.
+      </me>
+    </p>
+
+    <p>
+      Finally, to show that there is at most one point fixed by <m>f</m>, argue by contradiction. Assume
+      that <m>f(p) = p</m>, <m>f(q) = q</m>, and <m>p \ne q</m>. Then
+      <md>
+        <mrow>d(p,q) \amp = d\bigl(f(p),f(q)\bigr)</mrow>
+        <mrow>\amp \le c\,d(p,q)</mrow>
+        <mrow>\amp \lt  d(p,q)</mrow>
+      </md>
+      which certainly cannot be true.
+    </p>
+  </solution>
+  <solution xml:id="sol_fpt_exr1">
+    <p>
+      (Solution to <xref ref="fpt_exr1"></xref>)
+      (a) In inequality <xref ref="fpt_eq6" /> of <xref ref="fpt_exm1">example</xref> we found that <m>c = 0.4</m> is a
+      contraction constant for the mapping<nbsp /><m>T</m>. Thus, according to <xref ref="error1"></xref>,
+      <md>
+        <mrow>d_1(x_4,p) \amp \le  d_1(x_0,x_1)\frac{c^4}{1 - c}</mrow>
+        <mrow>\amp = (0.7 + 1.1)\frac{(0.4)^4}{1 - 0.4}</mrow>
+        <mrow>\amp = 0.0768.</mrow>
+      </md>
+    </p>
+
+    <p>
+      (b) The <m>d_1</m> distance between <m>x_4</m> and <m>p</m> is
+      <md>
+        <mrow>d_1(x_4,p) \amp = \abs{1.0071 - 1.0000} + \abs{0.9987 - 1.0000}</mrow>
+        <mrow>\amp = 0.0084 \,.  \qedhere</mrow>
+      </md>
+    </p>
+
+    <p>
+      (c) We wish to choose <m>n</m> sufficiently large that <m>d_1(x_n,p) \le 10^{-4}</m>. According to
+      <xref ref="error1">corollary</xref> it suffices to find <m>n</m> such that
+      <me>
+        d_1(x_0,x_1) \frac{c^n}{1 - c} \le 10^{-4}\,.
+      </me>
+    </p>
+
+    <p>
+      This is equivalent to requiring
+      <me>
+        (0.4)^n \le \frac{10^{-4} (0.6)}{1.8} = \tfrac13 10^{-4}\,.
+      </me>
+    </p>
+
+    <p>
+      For this, <m>n = 12</m> suffices.
+    </p>
+  </solution>
+  <solution xml:id="sol_fpt_inteq">
+    <p>
+      (Solution to <xref ref="fpt_inteq"></xref>)
+      Define <m>T</m> on <m>\fml C([0,1],\R)</m> as in the hint. The space <m>\fml C([0,1],\R)</m> is a complete
+      metric space by <xref ref="CMR_cmpl">example</xref>. To see that <m>T</m> is contractive, notice that for <m>f,g
+      \in \fml C([0,1],\R)</m> and <m>0 \le x \le 1</m>
+      <md>
+        <mrow>\abs{Tf(x) - Tg(x)} \amp = \left\lvert\int_0^x t^2f(t)\,dt - \int_0^x t^2g(t)\,dt\right\rvert</mrow>
+        <mrow>\amp = \left\lvert\int_0^x t^2(f(t) - g(t))\,dt\right\rvert</mrow>
+        <mrow>\amp \le \int_0^x t^2\abs{f(t) - g(t)}\,dt</mrow>
+        <mrow>\amp \le d_u(f,g) \int_0^x t^2\,dt</mrow>
+        <mrow>\amp = \tfrac13x^3\,d_u(f,g)\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Thus
+      <md>
+        <mrow>d_u(Tf,Tg) \amp = \sup\{\abs{Tf(x) - Tg(x)}: 0 \le x \le 1\}</mrow>
+        <mrow>\amp \le \tfrac13\,d_u(f,g)\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      This shows that <m>T</m> is contractive.
+    </p>
+
+    <p>
+      <xref ref="cmthm">Theorem</xref> tells us that the mapping <m>T</m> has a unique fixed point in <m>\fml
+      C([0,1],\R)</m>. That is, there is a unique continuous function on <m>[0,1]</m> which
+      satisfies<nbsp /><xref ref="fpt_eq7" />.
+    </p>
+
+    <p>
+      To find this function we start, for convenience, with the function <m>g_0 = 0</m> and let <m>g_{n+1}
+      = Tg_n</m> for all <m>n \ge 0</m>. Compute <m>g_1</m>, <m>g_2</m>, <m>g_3</m>, and<nbsp /><m>g_4</m>.
+      <md>
+        <mrow>g_1(x) \amp = Tg_0(x) = \tfrac13 x^3,</mrow>
+        <mrow>g_2(x) \amp = Tg_1(x)</mrow>
+        <mrow>\amp = \tfrac13 x^3 + \int_0^x t^2
+                                 \left(\tfrac13t^3\right)\,dt</mrow>
+        <mrow>\amp = \tfrac13 x^3 + \tfrac1{3\cdot6}x^6\,,</mrow>
+        <mrow>g_3(x) \amp = Tg_2(x)</mrow>
+        <mrow>\amp = \tfrac13 x^3 + \int_0^x t^2 \left(\tfrac13t^3
+                                 + \tfrac1{3\cdot6}x^6 \right)\,dt</mrow>
+        <mrow>\amp = \tfrac13 x^3 + \tfrac1{3\cdot6}x^6
+                                 + \tfrac1{3\cdot6\cdot9}x^9 \,,</mrow>
+      </md>
+    </p>
+
+    <p>
+      It should now be clear that for every <m>n \in \N</m>
+      <me>
+        g_n(x) = \sum_{k=1}^n \frac1{3^k\,k!}x^{3k}
+                   = \sum_{k=1}^n \frac1{k!}\left(\frac{x^3}3\right)^k
+      </me>
+      and that the uniform limit of the sequence <m>(g_n)</m> is the function <m>f</m> represented by the
+      power series
+      <me>
+        \sum_{k=1}^\infty \frac1{k!} \left(\frac{x^3}3\right)^k\,.
+      </me>
+    </p>
+
+    <p>
+      Recall from elementary calculus that the power series expansion for <m>e^y</m> (also written
+      <m>\exp(y)</m>) is
+      <me>
+        \sum_{k=0}^\infty \frac1{k!} y^k
+      </me>
+      for all <m>y</m> in <m>\R</m>; that is,
+      <me>
+        \sum_{k=1}^\infty \frac1{k!} y^k = e^y - 1\,.
+      </me>
+    </p>
+
+    <p>
+      Thus
+      <md>
+        <mrow>f(x) \amp = \sum_{k=1}^\infty \frac1{k!} \left(\frac{x^3}3\right)^k</mrow>
+        <mrow>\amp = \exp\left(\tfrac13 x^3\right) - 1\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Finally we check that this function satisfies <xref ref="fpt_eq7" /> for all <m>x</m> in<nbsp /><m>\R</m>.
+      <md>
+        <mrow>\tfrac13 x^3 + \int_0^x t^2 f(t)\,dt
+                   \amp = \tfrac13 x^3 + \int_0^x t^2 \left(\exp\left(\tfrac13 t^3\right) - 1\right)\,dt</mrow>
+        <mrow>\amp = \tfrac13 x^3 + \left. \left(\exp\left(\tfrac13 t^3\right)
+                                                  - \tfrac13 t^3\right) \right\rvert_0^x</mrow>
+        <mrow>\amp = \exp\left(\tfrac13 x^3\right) - 1</mrow>
+        <mrow>\amp = f(x).    \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+</section>

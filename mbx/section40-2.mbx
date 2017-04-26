@@ -1,0 +1,33 @@
+
+<section>
+  <title>Relations</title>
+  <p>
+    Calculus is primarily about functions. We differentiate functions,
+    we integrate them, we represent them as infinite series. A function is a special kind of
+    relation. So it is convenient before introducing functions to make a few observations
+    concerning the more general concept<mdash />relations.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A
+        <index><main>relation</main></index><term>relation</term> from a set <m>S</m> to a set <m>T</m> is a subset of the Cartesian product <m>S \times T</m>. A
+        relation from the set <m>S</m> to itself is often called a relation <em>on</em> <m>S</m> or a relation
+        <em>among members of</em><nbsp /><m>S</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    There is a notational oddity concerning relations. To indicate that an ordered pair <m>(a,b)</m>
+    belongs to a relation <m>R \subseteq S \times T</m>, we almost always write something like <m>aRb</m>
+    rather than <m>(a,b) \in R</m>, which we would expect from the definition. For example, the
+    relation <q>less than</q> is a relation on the real numbers. (We discussed this relation in
+    <xref ref="order_R">appendix</xref>.) Technically then, since <m>\lt</m> is a subset of <m>\R \times \R</m>, we could
+    (correctly) write expressions such as <m>(3,7) \in \lt</m>. Of course we don't. We write <m>3\lt 7</m>
+    instead. And we say, <q><m>3</m> is less than<nbsp /><m>7</m></q>, not <q>the pair <m>(3,7)</m> belongs to the relation
+    <em>less than</em></q>. This is simply a matter of convention; it has no mathematical or logical
+    content.
+  </p>
+</section>

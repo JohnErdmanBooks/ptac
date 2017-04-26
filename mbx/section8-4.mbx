@@ -1,0 +1,527 @@
+
+<section>
+  <title>Differentiability</title>
+  <p>
+    We now have developed enough machinery to talk sensibly about <em>differentiating</em> real
+    valued functions.
+  </p>
+
+  <definition xml:id="df_diff">
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a</m>. We say that <m>f</m> is
+        <index><main>differentiable</main><sub>at a point</sub></index><term>differentiable at</term><nbsp /><m>a</m> if there exists a linear function which is tangent at <m>0</m>
+        to<nbsp /><m>\Delta f_a</m>. If such a function exists, it is called the
+        <index><main>differential</main></index><term>differential</term> of <m>f</m> at <m>a</m> and is denoted
+        <index><main>dfa@<m>df_a</m> (differential of <m>f</m> at<nbsp /><m>a</m>)</main></index>by<nbsp /><m>df_a</m>. (Don't be put off by the slightly complicated notation; <m>df_a</m> is just a
+        member of <m>\ofml L</m> satisfying <m>df_a \simeq \Delta f_a</m>.) We denote by <m>\fml D_a</m> the
+        family of all functions in <m>\fml F_a</m> which are differentiable at<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The next proposition justifies the use of the definite article which modifies <q>differential</q>
+    in the preceding paragraph.
+  </p>
+
+  <proposition xml:id="diff_uniq">
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a</m>. If <m>f</m> is differentiable at <m>a</m>, then its
+        differential is unique. (That is, there is at most one linear map tangent at <m>0</m> to <m>\Delta
+        f_a</m>.)
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      <xref ref="tan_uniq">Proposition</xref>.
+    </p>
+  </proof>
+
+  <example xml:id="deriv">
+    <statement>
+      <p>
+        It is instructive to examine the relationship between the differential
+        of <m>f</m> at <m>a</m>, which we defined in <xref ref="df_diff"></xref>, and the derivative of <m>f</m> at <m>a</m> as defined
+        in beginning calculus. For <m>f \in \fml F_a</m> to be differentiable at <m>a</m> it is necessary that
+        there be a linear function <m>T \colon \R \sto \R</m> which is tangent at <m>0</m> to <m>\Delta f_a</m>.
+        According to <xref ref="lin_R"></xref> there must exist a constant <m>c</m> such that <m>Tx = cx</m> for all <m>x</m>
+        in<nbsp /><m>\R</m>. For <m>T</m> to be tangent to <m>\Delta f_a</m>, it must be the case that
+        <me>
+          \Delta f_a - T \in \lobo o\,;
+        </me>
+        that is,
+        <me>
+          \lim_{h \sto 0}\frac{\Delta f_a(h) - ch}h = 0\,.
+        </me>
+      </p>
+
+      <p>
+        Equivalently,
+        <me>
+          \lim_{h \sto 0}\frac{f(a+h) - f(a)}h
+                        = \lim_{h \sto 0}\frac{\Delta f_a(h)}h = c\,.
+        </me>
+      </p>
+
+      <p>
+        In other words, the function <m>T</m>, which is tangent to <m>\Delta f_a</m> at <m>0</m>, must be a line
+        through the origin whose slope is
+        <me>
+          \lim_{h \sto 0}\frac{f(a + h) - f(a)}h\,.
+        </me>
+      </p>
+
+      <p>
+        This is, of course, the familiar <q>derivative of <m>f</m> at <m>a</m></q> from beginning calculus. Thus
+        for any real valued function <m>f</m> which is differentiable at <m>a</m> in<nbsp /><m>\R</m>
+        <index><main><@<m>f'</m> (derivative of <m>f</m>)</main></index>
+        <me>
+          df_a(h) = f'(a)\cdot h
+        </me>
+        for all <m>h \in \R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Explain carefully the quotation from Dieudonn&#xe9; given at the beginning of the chapter.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) =3x^2 - 7x + 5</m> and <m>a=2</m>. Then <m>f</m> is differentiable at<nbsp /><m>a</m>. (Sketch the
+        graph of the differential<nbsp /><m>df_a</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = \sin x</m> and <m>a = \pi/3</m>. Then <m>f</m> is differentiable at<nbsp /><m>a</m>. (Sketch the
+        graph of the differential<nbsp /><m>df_a</m>.)
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>T \in \ofml L</m> and <m>a \in \R</m>. Then <m>dT_a = T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="del_in_O">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a</m>, then <m>\Delta f_a \in \lobo O</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_del_in_O">Solution</xref>.)
+    </p>
+  </proof>
+
+  <corollary xml:id="diff_cont">
+    <statement>
+      <p>
+        Every function which is differentiable at a point is continuous there.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_diff_cont">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="diff_sm">
+    <statement>
+      <p>
+        If <m>f</m> is differentiable at <m>a</m> and <m>\alpha \in \R</m>, then <m>\alpha f</m>
+        is differentiable at <m>a</m> and
+        <me>
+          d(\alpha f)_a = \alpha\,df_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_diff_sm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="diff_sum">
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are differentiable at <m>a</m>, then <m>f + g</m> is
+        differentiable at <m>a</m> and
+        <me>
+          d(f+g)_a = df_a + dg_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="diff_mult">
+    <title>Leibniz's Rule.</title>
+    <statement>
+      <p>
+        If <m>\phi, f \in \fml D_a</m>,
+        <index><main>Leibniz's rule</main></index>then <m>\phi f \in \fml D_a</m> and
+        <me>
+          d(\phi f)_a = d\phi_a \cdot f(a) \,+\, \phi(a)\,df_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_diff_mult">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    <index><main>chain rule</main></index>
+  </p>
+
+  <theorem xml:id="ch_rul">
+    <title>The Chain Rule</title>
+    <statement>
+      <p>
+        If <m>f \in \fml D_a</m> and <m>g \in \fml D_{f(a)}</m>, then
+        <m>g \circ f \in \fml D_a</m> and
+        <me>
+          d(g \circ f)_a = dg_{{}_{\scriptstyle{f(a)}}} \circ df_a\,.
+        </me>
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_ch_rul">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <title>A Problem Set on Functions from $\R$ into $\R$</title>
+    <p>
+      We are
+      now in a position to derive the standard results, usually contained
+      in the first term of a beginning calculus course, concerning the
+      differentiation of real valued functions of a single real variable.
+      Having at our disposal the machinery developed earlier in this
+      chapter, we may derive these results quite easily; and so the proof
+      of each is a problem.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m>, the
+          <index><main>derivative</main><sub>of a function from <m>\R</m> into <m>\R</m></sub></index><term>derivative of <m>f</m> at</term> <m>a</m>, denoted by <m>f'(a)</m> or <m>Df(a)</m>, is defined to be <m>{\D\lim_{h
+          \sto 0}\frac{f(a + h) - f(a)}h}</m>. <xref ref="trnsl_lim">By</xref> this is the same as <m>{\D\lim_{x \sto
+          a}\frac{f(x) - f(a)}{x - a}}</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <proposition xml:id="diff_deriv">
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m>, then <m>Df(a) = df_a(1)</m>.
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem.
+      </p>
+    </proof>
+
+    <proposition>
+      <statement>
+        <p>
+          If <m>f</m>, <m>g \in \fml D_a</m>, then
+          <me>
+            D(fg)(a) = Df(a) \cdot g(a) + f(a) \cdot Dg(a)\,.
+          </me>
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Use <em>Leibniz's rule</em> <xref ref="diff_mult" /> and
+        <xref ref="diff_deriv">proposition</xref>.
+      </p>
+    </proof>
+
+    <example xml:id="x8exam1">
+      <statement>
+        <p>
+          Let <m>r(t) = \dfrac1t</m> for all <m>t \ne 0</m>. Then <m>r</m> is differentiable
+          and <m>Dr(t) = -\dfrac1{t^2}</m> for all <m>t \ne 0</m>.
+        </p>
+      </statement>
+    </example>
+
+    <proof>
+      <p>
+        Problem.
+      </p>
+    </proof>
+
+    <p>
+      <index><main>chain rule</main></index>
+    </p>
+
+    <proposition xml:id="c_ru">
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m> and <m>g \in \fml D_{f(a)}</m>, then <m>g \circ f \in
+          \fml D_a</m>
+          and
+          <me>
+            D(g \circ f)(a) = (Dg)(f(a)) \cdot Df(a)\,.
+          </me>
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem.
+      </p>
+    </proof>
+
+    <proposition>
+      <statement>
+        <p>
+          If <m>f</m>, <m>g \in \fml D_a</m> and <m>g(a) \ne 0</m>, then
+          <me>
+            D\biggl(\frac fg\biggr)(a) = \frac{g(a)\,Df(a) - f(a)\,Dg(a)}{(g(a))^2}\;.
+          </me>
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Write <m>\dfrac fg</m> as <m>f \cdot (r \circ g)</m> and <xref ref="diff_deriv">use</xref>, <xref ref="c_ru"></xref>, and <xref ref="x8exam1"></xref>.
+      </p>
+    </proof>
+
+    <proposition xml:id="pos_deriv">
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m> and <m>Df(a) > 0</m>, then there exists <m>r > 0</m>
+          such that
+          <ol>
+            <li>
+              <title>(i)</title>
+              <p>
+                <m>f(x) > f(a)</m> whenever <m>a \lt  x \lt  a+r</m>, and
+              </p>
+            </li>
+
+            <li>
+              <title>(ii)</title>
+              <p>
+                <m>f(x) \lt  f(a)</m> whenever <m>a-r \lt x \lt  a</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Define <m>g(h) = h^{-1}\,\Delta f_a(h)</m> if <m>h \ne 0</m> and
+        <m>g(0) = Df(a)</m>. Use <xref ref="cnt_vs_lim">proposition</xref> to show that <m>g</m> is continuous at <m>0</m>. Then
+        apply <xref ref="pos_at_pt">proposition</xref>.
+      </p>
+    </proof>
+
+    <proposition xml:id="neg_deriv">
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m> and <m>Df(a) \lt  0</m>, then there exists <m>r > 0</m>
+          such that
+          <ol>
+            <li>
+              <title>(i)</title>
+              <p>
+                <m>f(x) \lt  f(a)</m> whenever <m>a \lt  x \lt  a+r</m>, and
+              </p>
+            </li>
+
+            <li>
+              <title>(ii)</title>
+              <p>
+                <m>f(x) > f(a)</m> whenever <m>a-r \lt  x \lt  a</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Of course it is possible to obtain this result by <xref ref="pos_deriv">doing</xref> again with some inequalities reversed. That is the hard way.
+      </p>
+    </proof>
+
+    <definition>
+      <statement>
+        <p>
+          Let <m>f \colon A \sto \R</m> where <m>A \subseteq \R</m>. The function <m>f</m> has a
+          <index><main>local</main><sub>maximum</sub></index>
+          <index><main>maximum</main><sub>local</sub></index><term>local</term> (or
+          <index><main>relative</main><sub>maximum</sub></index>
+          <index><main>maximum</main><sub>relative</sub></index><term>relative</term>) <term>maximum</term> at a point <m>a \in A</m> if there exists <m>r > 0</m> such that <m>f(a) \ge
+          f(x)</m> whenever <m>\abs{x - a} \lt  r</m> and <m>x \in \dom f</m>. It has a
+          <index><main>local</main><sub>minimum</sub></index>
+          <index><main>minimum</main><sub>local</sub></index><term>local</term> (or
+          <index><main>relative</main><sub>minimum</sub></index>
+          <index><main>minimum</main><sub>relative</sub></index><term>relative</term>) <term>minimum</term> at a point <m>a \in A</m> if there exists <m>r > 0</m> such that <m>f(a) \le
+          f(x)</m> whenever <m>\abs{x - a} \lt  r</m> and <m>x \in \dom f</m>.
+        </p>
+
+        <p>
+          Recall from <xref ref="evt">chapter</xref> that <m>f \colon A \sto \R</m> is said to attain a
+          <index><main>maximum</main></index><term>maximum</term> at <m>a</m> if <m>f(a) \ge f(x)</m> for all <m>x \in \dom f</m>.
+          This is often called a
+          <index><main>global</main><sub>maximum</sub></index>
+          <index><main>maximum</main><sub>global</sub></index><term>global</term> (or
+          <index><main>absolute</main><sub>maximum</sub></index>
+          <index><main>maximum</main><sub>absolute</sub></index><term>absolute</term>) <term>maximum</term> to help distinguish it from the local version just defined. It is
+          clear that every global maximum is also a local maximum but not <em>vice versa</em>. (Of course
+          a similar remark holds for minima.)
+        </p>
+      </statement>
+    </definition>
+
+    <proposition xml:id="extr_crit">
+      <statement>
+        <p>
+          If <m>f \in \fml D_a</m> and <m>f</m> has either a local maximum or a
+          local minimum at <m>a</m>, then <m>Df(a) = 0</m>.
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Use <xref ref="pos_deriv">propositions</xref> and <xref ref="neg_deriv"></xref>.)
+      </p>
+    </proof>
+
+    <p>
+      <index><main>Rolle's theorem</main></index>
+    </p>
+
+    <proposition xml:id="Rthm">
+      <title>Rolle's Theorem</title>
+      <statement>
+        <p>
+          Let <m>a\lt b</m>. If <m>f \colon [a,b] \sto \R</m> is continuous,
+          if it is differentiable on <m>(a,b)</m>, and if <m>f(a) = f(b)</m>, then there exists a point <m>c</m> in
+          <m>(a,b)</m> such that <m>Df(c) = 0</m>.
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Argue by contradiction. Use the <em>extreme value
+        theorem</em><nbsp /> <xref ref="evthm"></xref> and <xref ref="extr_crit">proposition</xref>.
+      </p>
+    </proof>
+
+    <p>
+      <index><main>mean value theorem</main></index>
+    </p>
+
+    <theorem xml:id="mvthm">
+      <title>Mean Value Theorem</title>
+      <statement>
+        <p>
+          Let <m>a \lt  b</m>. If <m>f \colon [a,b] \sto \R</m> is continuous
+          and if it is differentiable on <m>(a,b)</m>, then there exists a point <m>c</m> in <m>(a,b)</m> such that
+          <me>
+            Df(c) = \frac{f(b) - f(a)}{b - a}\,.
+          </me>
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Let <m>y = g(x)</m> be the equation of the line which passes through
+        the points <m>(a,f(a))</m> and <m>(b,f(b))</m>. Show that the function <m>f - g</m> satisfies the hypotheses
+        of <em>Rolle's theorem</em><nbsp /><xref ref="Rthm" />
+      </p>
+    </proof>
+
+    <proposition>
+      <statement>
+        <p>
+          Let <m>J</m> be an open interval in <m>\R</m>. If <m>f \colon J \sto \R</m> is differentiable and
+          <m>Df(x) = 0</m> for every <m>x \in J</m>, then <m>f</m> is constant on <m>J</m>.
+        </p>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p>
+        Problem. <em>Hint.</em> Use the <em>mean value theorem</em><nbsp /><xref ref="mvthm" />.
+      </p>
+    </proof>
+  </problem>
+</section>

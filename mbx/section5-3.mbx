@@ -1,0 +1,90 @@
+
+<section>
+  <title>Homeomorphisms</title>
+  <definition>
+    <statement>
+      <p>
+        Two subsets <m>A</m> and <m>B</m> of <m>\R</m> are
+        <index><main>homeomorphic</main></index><term>homeomorphic</term> if there exists a continuous bijection <m>f</m> from <m>A</m> onto <m>B</m> such that
+        <m>f^{-1}</m> is also continuous. In this case the function <m>f</m> is a
+        <index><main>homeomorphism</main></index><term>homeomorphism</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice that if two subsets <m>A</m> and <m>B</m> are homeomorphic, then there is a one-to-one
+    correspondence between the open subsets of <m>A</m> and those of<nbsp /><m>B</m>. In terms of topology, the
+    two sets are identical. Thus if we know that the open intervals <m>(0,1)</m> and <m>(3,7)</m> are
+    homeomorphic (see the next problem), then we treat these two intervals for all topological
+    purposes as indistinguishable. (Of course, a concept such as distance is another matter; it
+    is <em>not</em> a topological property. When we consider the distance between points of our two
+    intervals, we can certainly distinguish between them: one is four times the length of the
+    other.) A homeomorphism is sometimes called a
+    <index><main>topological</main><sub>isomorphism</sub></index>
+    <index><main>isomorphism</main><sub>topological</sub></index><term>topological isomorphism</term>.
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Discuss the homeomorphism classes of intervals in <m>\R</m>. That is, tell, as generally
+        as you can, which intervals in <m>\R</m> are homeomorphic to which others<mdash />and, of course, explain
+        why. It might be easiest to start with some examples. Show that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the open intervals <m>(0,1)</m> and <m>(3,7)</m> are homeomorphic; and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              the three intervals <m>(0,1)</m>, <m>(0,\infty)</m>, and <m>\R</m> are homeomorphic.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Then do some counterexamples. Show that
+        <ol>
+          <li>
+            <title>(c)</title>
+            <p>
+              no two of the intervals <m>(0,1)</m>, <m>(0,1]</m>, and <m>[0,1]</m> are homeomorphic.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> For (a) consider the function <m>x \mapsto 4x+3</m>. For part of (c) suppose that
+        <m>f:(0,1] \sto (0,1)</m> is a homeomorphism. What can you say about the restriction of <m>f</m>
+        to<nbsp /><m>(0,1)</m>?
+      </p>
+
+      <p>
+        When you feel comfortable with the examples, then try to prove more general statements. For
+        example, show that any two bounded open intervals are homeomorphic.
+      </p>
+
+      <p>
+        Finally, try to find the <em>most general</em> possible homeomorphism classes. (A
+        <index><main>homeomorphism</main><sub>class</sub></index>
+        <term>homeomorphism class</term> is a family of intervals any two of which
+        are homeomorphic.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Describe the class of all continuous mappings from <m>\R</m> into<nbsp /><m>\Q</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

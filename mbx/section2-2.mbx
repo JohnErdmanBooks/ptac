@@ -1,0 +1,359 @@
+
+<section>
+  <title>Closed subsets of <m>\R</m></title>
+  <p>
+    Next we will investigate the closed subsets of <m>\R</m>. These will turn out to be the
+    complements of open sets. But initially we will approach them from a different perspective.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        A point <m>b</m> in <m>\R</m> is an
+        <index><main>accumulation point</main></index><term>accumulation point</term> of a set <m>A \subseteq \R</m> if every <m>\epsilon</m>-neighborhood of <m>b</m>
+        contains at least one point of <m>A</m> distinct from <m>b</m>. (We do <em>not</em> require that <m>b</m>
+        belong to<nbsp /><m>A</m>, although, of course, it may.) The set of all accumulation points of <m>A</m> is
+        called the
+        <index><main>derived set</main></index><term>derived set</term> of <m>A</m> and is denoted
+        <index><main><@<m>A'</m> (derived set of <m>A</m>, set of accumulation points)</main></index>by<nbsp /><m>A'</m>. The
+        <index><main>closure</main></index><term>closure</term> of<nbsp /><m>A</m>, denoted
+        <index><main><@<m>\clo A</m> (closure of <m>A</m>)</main></index>by<nbsp /><m>\overline A</m>, is<nbsp /><m>A \cup A'</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \{1/n\colon n \in \N\}</m>. Then <m>0</m> is an accumulation point of <m>A</m>.
+        Furthermore, <m>\clo A = \{0\} \cup A</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>A</m> be <m>(0,1) \cup \{2\} \subseteq \R</m>. Then <m>A' = [0,1]</m> and <m>\clo A =
+        [0,1] \cup \{2\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="q_dense">
+    <statement>
+      <p>
+        Every real number is an accumulation point of the set <m>\Q</m> of
+        rational numbers (since every open interval in <m>\R</m> contains infinitely many rationals); so
+        <m>\overline{\Q}</m> is all of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="exam_clo_rats">
+    <statement>
+      <p>
+        Let <m>A = \Q \cap (0,\infty)</m>. Find <m>A^\circ</m>, <m>A'</m>, and
+        <m>\clo A</m>. (<xref ref="sol_exam_clo_rats">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A = (0,1] \cup \bigl([2,3] \cap \Q \bigr)</m>. Find:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\intr A</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\clo A</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\clo{\intr A}</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\intr{\bigl(\,\clo A\,\bigr)}</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\clo{A^c}</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              <m>\intr{\left(\,\clo{A^c}\,\right)}</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(g)</title>
+            <p>
+              <m>\intr{\bigl(A^c\bigr)}</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(h)</title>
+            <p>
+              <m>\clo{\intr{\bigl(A^c\bigr)}}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="sup_in_clo">
+    <statement>
+      <p>
+        Let <m>A</m> be a nonempty subset of <m>\R</m>. If <m>A</m> is bounded above,
+        then <m>\sup A</m> belongs to the closure of <m>A</m>. Similarly, if <m>A</m> is bounded below, then <m>\inf
+        A</m> belongs to<nbsp /><m>\clo A</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Starting with a set <m>A</m>, what is the greatest number of <em>different</em> sets you
+        can get by applying successively the operations of closure, interior, and complement? Apply
+        them as many times as you wish and in any order. For example, starting with the empty set
+        doesn't produce much. We get only <m>\emptyset</m> and <m>\R</m>. If we start with the closed interval
+        <m>[0,1]</m>, we get four sets: <m>[0,1]</m>, <m>(0,1)</m>, <m>(-\infty,0] \cup [1, \infty)</m>, and <m>(-\infty,0)
+        \cup (1, \infty)</m>. By making a more cunning choice of <m>A</m>, how many different sets can you
+        get?
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="intr_vs_clo">
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\bigl(\intr A \bigr)^c = \clo{A^c}</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\intr{\bigl(A^c\bigr)} = \bigl(\,\clo A\,\bigr)^c</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Part (b) is a very easy consequence of<nbsp />(a).
+      (<xref ref="sol_intr_vs_clo">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A subset <m>A</m> of <m>\R</m> is
+        <index><main>closed</main></index><term>closed</term> if <m>\clo A = A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="cl_int_cl">
+    <statement>
+      <p>
+        Every closed interval <m>\bigl(</m>that is, intervals of the form
+        <m>[a,b]</m> or <m>(-\infty,a]</m> or<nbsp /><m>[a,\infty)</m> or<nbsp /><m>(-\infty,\infty)</m> <m>\bigr)</m> are closed.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <caution>
+
+  <p>
+    It is a common mistake to treat subsets of <m>\R</m> as if they were doors or windows,
+    and to conclude, for example, that a set is closed because it is not open, or that it cannot
+    be closed because it is open. These <q>conclusions</q> are wrong! A subset of <m>\R</m> may be open
+    and not closed, or closed and not open, or both open and closed, or neither. For example,
+    in<nbsp /><m>\R</m>:
+    <ol>
+      <li>
+        <p>
+          <m>(0,1)</m> is open but not closed;
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>[0,1]</m> is closed but not open;
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>\R</m> is both open and closed; and
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>[0,1)</m> is neither open nor closed.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <p>
+    This is not to say, however, that there is no relationship between these properties. In the
+    next proposition we discover that the correct relation has to do with complements.
+  </p>
+
+  </caution>
+
+  <proposition xml:id="open_vs_closed">
+    <statement>
+      <p>
+        A subset of <m>\R</m> is open if and only if its complement is
+        closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="intr_vs_clo">proposition</xref>.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        The intersection of an arbitrary family of closed subsets of <m>\R</m> is closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Let <m>\sfml A</m> be a family of closed subsets of <m>\R</m>. By <em>De Morgan's law</em>
+      (see <xref ref="comp_of_union">proposition</xref>) <m>\bigcap \sfml{A}</m> is the complement of <m>\bigcup
+      \{A^c\colon A \in \sfml A\}</m>. Since each set <m>A^c</m> is open (by <xref ref="open_vs_closed"></xref>), the
+      union of <m>\{A^c\colon A \in \sfml A\}</m> is open (by <xref ref="union_intersection_open"></xref>(a)); and
+      its complement <m>\bigcap \sfml A</m> is closed ( <xref ref="open_vs_closed"></xref> again).
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        The union of a finite family of closed subsets of <m>\R</m> is closed.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example to show that the union of an arbitrary family of closed subsets
+        of <m>\R</m> need not be closed.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> be a real number. Any open subset of <m>\R</m> which contains <m>a</m> is a
+        <index><main>neighborhood</main><sub>of a point</sub></index><term>neighborhood</term> of <m>a</m>. Notice that an <m>\epsilon</m>-neighborhood of <m>a</m> is a very special
+        type of neighborhood: it is an interval and it is symmetric about<nbsp /><m>a</m>. For most purposes the
+        extra internal structure possessed by <m>\epsilon</m>-neighborhoods is irrelevant to the matter at
+        hand. To see that we can operate as easily with general neighborhoods as with
+        <m>\epsilon</m>-neighborhoods do the next problem.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of <m>\R</m>. Prove the following.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              A point <m>a</m> is an interior point of <m>A</m> if and only if some
+              neighborhood of <m>a</m> lies entirely in<nbsp /><m>A</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              A point <m>b</m> is an accumulation point of <m>A</m> if and only if every
+              neighborhood of <m>b</m> contains at least one point of <m>A</m> distinct
+              from<nbsp /><m>b</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

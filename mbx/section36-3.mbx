@@ -1,0 +1,88 @@
+
+<section>
+  <title>Uniqueness of inverses</title>
+  <p>
+    The question of uniqueness also arises for inverses; only
+    their existence is guaranteed by axiom<nbsp />III. Is it possible for a number to have more than one
+    additive inverse? That is, if <m>x</m> is a real number is it possible that there are two
+    different numbers, say <m>-x</m> and <m>\overline x</m>, such that the equations
+    <men xml:id="arith_eqn2" >
+      x + (-x) = 0 \qquad
+                  \text{ and }  \qquad x + \overline x = 0
+    </men>
+    both hold? The answer is <em>no</em>.
+  </p>
+
+  <proposition xml:id="addinv_uniq">
+    <statement>
+      <p>
+        Additive inverses in <m>\R</m> are unique.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Assume that the equations <xref ref="arith_eqn2" /> are true. We show that <m>-x</m> and
+      <m>\overline x</m> are the same number.
+      <md>
+        <mrow>\overline x \amp = \overline x + 0</mrow>
+        <mrow>\amp = \overline x + (x + (-x))</mrow>
+        <mrow>\amp = (\overline x + x) + (-x)</mrow>
+        <mrow>\amp = (x + \overline x) + (-x)</mrow>
+        <mrow>\amp = 0 + (-x)</mrow>
+        <mrow>\amp = (-x) + 0</mrow>
+        <mrow>\amp = -x.</mrow>
+      </md>
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        The proof of proposition <xref ref="addinv_uniq" /> contains seven equal signs. Justify each one.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Prove that in <m>\R</m> multiplicative inverses are unique.
+      </p>
+    </statement>
+  </problem>
+
+  <example>
+    <statement>
+      <p>
+        Knowing that identities and inverses are unique is helpful in deriving additional
+        properties of the real numbers. For example, the familiar fact that
+        <me>
+          -(-x) = x
+        </me>
+        follows immediately from the equation
+        <men xml:id="arith_eqn3" >
+          (-x) + x = 0.
+        </men>
+      </p>
+
+      <p>
+        What <xref ref="addinv_uniq">proposition</xref> tells us is that if <m>a + b = 0</m> then <m>b</m> must be the
+        additive inverse of<nbsp /><m>a</m>. So from <xref ref="arith_eqn3" /> we conclude that <m>x</m> must be the additive
+        inverse of <m>-x</m>; in symbols, <m>x = -(-x)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Show that if <m>x</m> is a nonzero real number, then
+        <me>
+          \bigl(x^{-1}\bigr)^{-1} = x\,.
+        </me>
+      </p>
+    </statement>
+  </problem>
+</section>

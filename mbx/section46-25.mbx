@@ -1,0 +1,389 @@
+
+<section>
+  <title>Exercises in Chapter 25</title>
+  <solution xml:id="sol_prop_bdd_not_o">
+    <p>
+      (Solution to <xref ref="prop_bdd_not_o"></xref>)
+      Suppose that <m>T \in \ofml B \cap \lobo o</m>. Then given <m>\epsilon > 0</m>, we may choose <m>\delta >
+      0</m> so that <m>\norm{Ty} \le \epsilon\norm y</m> whenever <m>\norm y \lt  \delta</m>. Let <m>x</m> be an
+      arbitrary unit vector. Choose <m>0 \lt  t \lt  \delta</m>. Then <m>\norm{tx} = t \lt  \delta</m>; so <m>\norm{Tx}
+      = \norm{T(\frac1t tx)} = \frac1t\norm{T(tx)} \le \frac1t\epsilon\norm{tx} = \epsilon</m>. Since
+      this last inequality holds for every unit vector <m>x</m>, <m>\norm T \le \epsilon</m>. And since
+      <m>\epsilon</m> was arbitrary, <m>\norm T = 0</m>. That is, <m>T = \vc 0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_O_cl_add">
+    <p>
+      (Solution to <xref ref="prop_O_cl_add"></xref>)
+      If <m>f</m>, <m>g \in \lobo O</m>, then there exist positive numbers <m>M</m>, <m>N</m>, <m>\delta</m>, and <m>\eta</m> such
+      that <m>\norm{f(x)} \le M\norm x</m> whenever <m>\norm x \lt  \delta</m> and <m>\norm{g(x)} \le N\norm x</m>
+      whenever <m>\norm x \lt  \eta</m>. Then <m>\norm{f(x) + g(x)} \le (M+N)\norm x</m> whenever <m>\norm x \lt 
+      \min\{\delta, \eta\}</m>. So <m>f + g \in \lobo O</m>.
+    </p>
+
+    <p>
+      If <m>\alpha \in \R</m>, then <m>\norm{\alpha f(x)} \le \abs\alpha M \norm x</m> whenever <m>\norm x \lt 
+      \delta</m>; so <m>\alpha f \in \lobo O</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_comp_Oo">
+    <p>
+      (Solution to <xref ref="prop_comp_Oo"></xref>)
+      The domain of <m>f \circ g</m> is taken to be the set of all <m>x</m> in <m>V</m> such that <m>g(x)</m> belongs to
+      the domain of <m>f</m>; that is, <m>\dom(f \circ g) = g^\gets(\dom f)</m>. Since <m>f \in \lobo O</m> there
+      exist <m>M</m>, <m>\delta > 0</m> such that <m>\norm{f(y)} \le M \norm y</m> whenever <m>\norm y \lt  \delta</m>.
+      Given <m>\epsilon > 0</m>, choose <m>\eta > 0</m> so that <m>\norm{g(x)} \le \frac{\epsilon}M\norm x</m>
+      whenever <m>\norm x \lt  \eta</m>. If <m>\norm x \lt  \min\{\eta, \frac M{\epsilon} \delta\}</m>, then
+      <m>\norm{g(x)} \le \frac{\epsilon}M\norm x \lt  \delta</m>, so that <m>\norm{(f \circ g)(x)}\| \le
+      M\norm{g(x)} \le \epsilon\norm x</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_o_x_vect">
+    <p>
+      (Solution to <xref ref="prop_o_x_vect"></xref>)
+      Suppose <m>w \ne \vc 0</m>. If <m>\epsilon > 0</m>, then there exists <m>\delta > 0</m> such that
+      <m>\abs{\phi(x)} \le \frac{\epsilon}{\norm w} \norm x</m> whenever <m>\norm x \lt  \delta</m>. Thus
+      <m>\norm{(\phi w)(x)} = \abs{\phi(x)} \norm w \le \epsilon \norm x</m> when <m>\norm x \lt  \delta</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_O_x_fcn">
+    <p>
+      (Solution to <xref ref="prop_O_x_fcn"></xref>)
+      There exist positive numbers <m>M</m>, <m>N</m>, <m>\delta</m>, and <m>\eta</m> such that <m>\norm{\phi(x)} \le
+      M\norm x</m> whenever <m>\norm x \lt  \delta</m> and <m>\norm{f(x)} \le N\norm x</m> whenever <m>\norm x \lt 
+      \eta</m>. Suppose that <m>\epsilon > 0</m>. If <m>x \in V</m> and <m>\norm x \lt  \min\bigl\{\epsilon(MN)^{-1},
+      \delta, \eta\bigr\}</m>, then
+      <me>
+        \norm{(\phi f)(x)} = \abs{\phi(x)} \norm{f(x)} \le MN\norm x^2 \le \epsilon \norm x\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_tan_equiv">
+    <p>
+      (Solution to <xref ref="prop_tan_equiv"></xref>)
+      Reflexivity is obvious. Symmetry: If <m>f \simeq g</m>, then <m>f - g \in \lobo o</m>; so <m>g - f =
+      (-1)(f - g) \in \lobo o</m> by <xref ref="prop_o_cl_add">proposition</xref>. This proves <m>g \simeq f</m>.
+      Transitivity: If <m>f \simeq g</m> and <m>g \simeq h</m>, then both <m>f - g</m> and <m>g - h</m> belong to <m>\lobo
+      o</m>; thus <m>f \simeq h</m>, since <m>f - h = (f - g) + (g - h) \in \lobo o + \lobo o \subseteq \lobo
+      o</m> (again by <xref ref="prop_o_cl_add"></xref>).
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_tan_lin">
+    <p>
+      (Solution to <xref ref="prop_tan_lin"></xref>)
+      By the preceding proposition <m>S \simeq T</m>. Thus <m>S - T \in \ofml B \cap \lobo o = \{\vc 0\}</m>
+      by <xref ref="prop_bdd_not_o">proposition</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_tan_x_vec">
+    <p>
+      (Solution to <xref ref="prop_tan_x_vec"></xref>)
+      This requires only a simple computation: <m>\phi w - \psi w = (\phi - \psi)w \in \lobo o(V,\R)
+      \cdot W \subseteq \lobo o(V,W)</m> by <xref ref="prop_o_x_vect">proposition</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_diff_R2">
+    <p>
+      (Solution to <xref ref="exer_diff_R2"></xref>)
+      The map <m>(x,y) \mapsto 7x - 9y</m> is clearly continuous and linear. So all that needs to be
+      verified is condition (iii) of <xref ref="rem_prop_diff">remark</xref>:
+      <md>
+        <mrow>\amp \lim_{(x,y) \sto (0,0)}\frac{\Delta f_{(1,-1)}(x,y) -
+                                               (7x - 9y)}{\sqrt{x^2 + y^2}}</mrow>
+        <mrow>= \amp \lim_{(x,y) \sto (0,0)}\frac{3(x+1)^2 - (x+1)(y-1) +
+                                          4(y-1)^2 - 8 - 7x + 9y}{\sqrt{x^2+y^2}}</mrow>
+        <mrow>= \amp \lim_{(x,y) \sto (0,0)}\frac{3x^2 - xy +4y^2}{\sqrt{x^2 + y^2}} = 0.
+                                        \qquad\text{ (See <xref ref="prob_lim_Rn">problem</xref>(a).) }</mrow>
+      </md>
+    </p>
+
+    <p>
+      (The equation <m>z = 7x - 9y</m> represents a plane through the origin.)
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_diff_R3R2">
+    <p>
+      (Solution to <xref ref="exer_diff_R3R2"></xref>)
+      Since
+      <md>
+        <mrow>\Delta f_{(1,-1,0)}(h,j,k) \amp = f(h + 1,j - 1,k) - f(1,-1,0)</mrow>
+        <mrow>\amp =\bigl((h + 1)^2(j - 1)-7, 3(h + 1)k + 4(j - 1)\bigr) - (-8,-4)</mrow>
+        <mrow>\amp =\bigl(h^2(j - 1) + 2hj - 2h + j, 3hk + 4j + 3k\bigr)</mrow>
+      </md>
+      and
+      <md>
+        <mrow>M(h,j,k) \amp = \begin{bmatrix}
+                                r \amp  s \amp  t</mrow>
+        <mrow>u \amp  v \amp  w
+                           \end{bmatrix} (h,j,k)</mrow>
+        <mrow>\amp = (rh + sj + tk, uh + vj + wk),</mrow>
+      </md>
+      we find that the first coordinate of the Newton quotient
+      <me>
+        \frac{\Delta f_{(1,-1,0)}(h,j,k) - M(h,j,k)}{\norm{(h,j,k)}}
+      </me>
+      turns out to be
+      <me>
+        \frac{h^2(j-1) + 2hj - (2+r)h + (1-s)j - tk}{\sqrt{h^2 + j^2 + k^2}}\,.
+      </me>
+    </p>
+
+    <p>
+      If we choose <m>r = -2</m>, <m>s = 1</m>, and <m>t = 0</m>, then the preceding expression approaches zero as
+      <m>(h,j,k) \sto (0,0,0)</m>. (See <xref ref="prob_lim_Rn">problem</xref>(a).) Similarly, the second
+      coordinate of the Newton quotient is
+      <me>
+        \frac{3hk - uh + (4 - v)j + (3 - w)k}{\sqrt{h^2 + j^2 + k^2}}\,,
+      </me>
+      which approaches zero as <m>(h,j,k) \sto (0,0,0)</m> if we choose <m>u = 0</m>, <m>v = 4</m>, and <m>w = 3</m>.
+      We conclude from the uniqueness of differentials (<xref ref="prop_diff_uniq">proposition</xref>) that
+      <me>
+        \bigl[df_{(1,-1,0,)}\bigr] = \begin{bmatrix}-2 \amp  1 \amp  0 \\
+                                                 0 \amp  4 \amp  3
+        \end{bmatrix} \,.
+      </me>
+    </p>
+
+    <p>
+      Equivalently we may write
+      <me>
+        df_{(1,-1,0)}(h,j,k) = (-2h + j, 4j + 3k)\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_Leib_rul">
+    <p>
+      (Solution to <xref ref="prop_Leib_rul"></xref>)
+      It is easy to check that <m>\phi(a)df_a + d\phi_a\cdot f(a)</m> is bounded and linear. From our
+      hypotheses <m>\Delta f_a \simeq df_a</m> and <m>\Delta\phi_a \simeq d\phi_a</m> we infer (using
+      <xref ref="prop_tan_sum">propositions</xref> and <xref ref="prop_tan_x_vec"></xref>) that <m>\phi(a)\Delta f_a \simeq
+      \phi(a)df_a</m> and that <m>\Delta\phi_a\cdot f(a) \simeq d\phi_a\cdot f(a)</m>. Then from
+      <xref ref="cor_diff_cont">corollary</xref> and <xref ref="prop_O_x_fcn">proposition</xref> we conclude that
+      <m>\Delta\phi_a\,\Delta f_a</m> belongs to <m>\lobo O(V,\R)\cdot\lobo O(V,W)</m> and therefore to <m>\lobo
+      o(V,W)</m>. That is, <m>\Delta\phi_a\,\Delta f_a \simeq 0</m>. Thus by <xref ref="prop_del_mult">propositions</xref> and <xref ref="prop_tan_sum"></xref>
+      <md>
+        <mrow>\Delta(\phi f)_a
+                    \amp = \phi(a)\cdot\Delta f_a + \Delta\phi_a\cdot f(a) + \Delta\phi_a\cdot\Delta f_a</mrow>
+        <mrow>\amp \simeq \phi(a)df_a + d\phi_a\cdot f(a) + 0</mrow>
+        <mrow>\amp = \phi(a)df_a + d\phi_a\cdot f(a).   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_thm_ch_rul">
+    <p>
+      (Solution to <xref ref="thm_ch_rul"></xref>)
+      Our hypotheses are <m>\Delta f_a \simeq df_a</m> and <m>\Delta g_{f(a)} \simeq dg_{f(a)}</m>. By
+      <xref ref="prop_diff_O">proposition</xref> <m>\Delta f_a \in \lobo O</m>. Then by
+      <xref ref="prop_tan_comp_O">proposition</xref>
+      <men xml:id="eqn_chnrl1" >
+        \Delta g_{f(a)} \circ \Delta f_a
+                                               \simeq dg_{f(a)}  \circ \Delta f_a
+      </men>
+      and by <xref ref="prop_lin_comp_tan">proposition</xref>
+      <men xml:id="eqn_chnrl2" >
+        dg_{f(a)} \circ \Delta f_a
+                                               \simeq dg_{f(a)} \circ df_a\,.
+      </men>
+    </p>
+
+    <p>
+      According to <xref ref="prop_del_comp">proposition</xref>
+      <men xml:id="eqn_chnrl3" >
+        \Delta(g \circ f)_a
+                                       \simeq \Delta g_{f(a)} \circ \Delta f_a\,.
+      </men>
+    </p>
+
+    <p>
+      From <xref ref="eqn_chnrl1" />, <xref ref="eqn_chnrl2" />,<xref ref="eqn_chnrl3" />, and
+      <xref ref="prop_tan_equiv">proposition</xref> it is clear that
+      <me>
+        \Delta(g \circ f)_a \simeq dg_{f(a)} \circ df_a\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>dg_{f(a)} \circ df_a</m> is a bounded linear transformation, the desired conclusion is an
+      immediate consequence of <xref ref="prop_diff_uniq">proposition</xref>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_tang_curv">
+    <p>
+      (Solution to <xref ref="exer_tang_curv"></xref>)
+    </p>
+
+    <p>
+      (a) <m>Dc(\pi/3) = (-\sin(\pi/3), \cos(\pi/3)) = (-\sqrt3/2, 1/2)</m>.
+    </p>
+
+    <p>
+      (b) <m>l(t) = (1/2,\sqrt3/2)+ t(-\sqrt3/2,1/2) = \frac12(1 - \sqrt3t, \sqrt3 + t)</m>.
+    </p>
+
+    <p>
+      (c) <m>x + \sqrt3 y = 2</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_diff_der">
+    <p>
+      (Solution to <xref ref="prop_diff_der"></xref>)
+      If <m>c</m> is differentiable at <m>a</m>, then there exists a bounded linear transformation <m>dc_a\colon
+      \R \sto V</m> which is tangent to <m>\Delta c_a</m> at <m>0</m>. Then
+      <md>
+        <mrow>Dc(a) \amp = \lim_{h \sto 0}\frac{\Delta c_a(h)}h</mrow>
+        <mrow>\amp = \lim_{h \sto 0}\frac{\Delta c_a(h) - dc_a(h) + dc_a(h)}h</mrow>
+        <mrow>\amp = \lim_{h \sto 0}\frac{\Delta c_a(h) - dc_a(h)}h
+                                           + \lim_{h \sto 0}\frac{h\,dc_a(1)}h</mrow>
+        <mrow>\amp = dc_a(1).     \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_thm_ftc">
+    <p>
+      (Solution to <xref ref="thm_ftc"></xref>)
+      Let <m>\epsilon > 0</m>. Since <m>f</m> is continuous at <m>c</m> and the interval <m>J</m> is open, we may choose
+      <m>\delta > 0</m> so that <m>c + h \in J</m> and <m>\norm{\Delta f_c(h)} \lt  \epsilon</m> whenever <m>\abs h \lt 
+      \delta</m>. Thus if <m>0 \lt  \abs h \lt  \delta</m>,
+      <md>
+        <mrow>{2} \norm{\Delta F_c(h) - h\,f(c)}
+             \amp = \bignorm{\int_a^{c + h}f - \int_a^cf - h\,f(c)} \amp \amp {}</mrow>
+        <mrow>\amp = \bignorm{\int_c^{c + h}f(t)\,dt - \int_c^{c + h}f(c)\,dt}\amp \amp {}</mrow>
+        <mrow>\amp = \bignorm{\int_c^{c + h}\Delta f_c(t - c)\,dt} \amp \amp {}</mrow>
+        <mrow>\amp \le \bigabs{\int_c^{c + h}\norm{\Delta f_c(t - c)}\,dt}
+                     \amp \amp \text{ (by <xref ref="prop_norm_Cint"></xref>) }</mrow>
+        <mrow>\amp \lt  \epsilon\,\abs h\,. \amp \amp {}</mrow>
+      </md>
+    </p>
+
+    <p>
+      It follows immediately that
+      <me>
+        \bignorm{\frac{\Delta F_c(h)}h - f(c)} \lt  \frac1{\abs h}\epsilon\abs h = \epsilon
+      </me>
+      whenever <m>0 \lt  \abs h \lt  \delta</m>; that is,
+      <me>
+        DF(c) = \lim_{h \sto 0}\frac{\Delta F_c(h)}h = f(c)\,.  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_diff_dd">
+    <p>
+      (Solution to <xref ref="prop_diff_dd"></xref>)
+      If <m>l(t) = a + tv</m>, then
+      <md>
+        <mrow>D(f \circ l)(0)
+                 \amp = \lim_{t \sto 0}\frac1t\Delta(f \circ l)_0(t)</mrow>
+        <mrow>\amp = \lim_{t \sto 0}\frac1t((f \circ l)(0 + t) - (f \circ l)(0))</mrow>
+        <mrow>\amp = \lim_{t \sto 0}\frac1t(f(a + tv) - f(a))</mrow>
+        <mrow>\amp = \lim_{t \sto 0}\frac1t\Delta f_a(tv)</mrow>
+        <mrow>\amp = D_vf(a).  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_dd1">
+    <p>
+      (Solution to <xref ref="exer_dd1"></xref>)
+      Let <m>l(t) = a + tv</m>. Then
+      <md>
+        <mrow>(f \circ l)(t) \amp = f(a+tv)</mrow>
+        <mrow>\amp = f((1,1) + t(\tfrac35,\tfrac45))</mrow>
+        <mrow>\amp = f(1 + \tfrac35t, 1 + \tfrac45t)</mrow>
+        <mrow>\amp = \tfrac12\ln\bigl((1+\tfrac35t)^2
+                                 + (1+\tfrac45t)^2\bigr)</mrow>
+        <mrow>\amp = \tfrac12\ln\bigl(2 + \tfrac{14}5t + t^2\bigr).</mrow>
+      </md>
+    </p>
+
+    <p>
+      It follows that <m>D(f \circ l)(t) = \frac12\bigl(\frac{14}5+2t\bigr) \bigl(2 + \frac{14}5t +
+      t^2\bigr)^{-1}</m>, so that <m>D_vf(a) = D(f \circ l)(0) = \frac7{10}</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_dd2">
+    <p>
+      (Solution to <xref ref="exer_dd2"></xref>)
+      As usual let <m>l(t) = a + tv</m>. Then
+      <md>
+        <mrow>(\phi \circ l)(t)
+                 \amp = \int_0^{\pi/2}(\cos x + Da(x) + tDv(x))^2\,dx</mrow>
+        <mrow>\amp = \int_0^{\pi/2}(2\cos x + t\sin x)^2\,dx</mrow>
+        <mrow>\amp = \int_0^{\pi/2}4\cos^2x\,dx
+                              + 4t\int_0^{\pi/2}\sin x \cos x\,dx
+                              + t^2\int_0^{\pi/2}\sin^2 x\,dx\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Differentiating we obtain
+      <me>
+        D(\phi \circ l)(t) = 4\int_0^{\pi/2}\sin x \cos x\,dx
+                                          + 2t\int_0^{\pi/2}\sin^2 x\,dx\,;
+      </me>
+      so
+      <me>
+        D_v\phi(a) = D(\phi \circ l)(0) = 4\int_0^{\pi/2}\sin x \cos x\,dx = 2\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_dd_diff">
+    <p>
+      (Solution to <xref ref="prop_dd_diff"></xref>)
+      If <m>l = a + tv</m>, then, since <m>l(0) = a</m> and <m>Dl(0) = v</m>, we have
+      <md>
+        <mrow>{2} D_vf(a) \amp = D(f \circ l)(0) \amp \amp {}</mrow>
+        <mrow>\amp = df_{l(0)}(Dl(0))   \amp \amp \text{ (by <xref ref="prob_der_curv1"></xref>) }</mrow>
+        <mrow>\amp = df_a(v).           \amp \amp {}</mrow>
+      </md>
+    </p>
+
+    <p>
+      \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_diff_prodsp">
+    <p>
+      (Solution to <xref ref="prop_diff_prodsp"></xref>)
+      If <m>x \in \dom f^1 \cap \dom f^2</m>, then
+      <md>
+        <mrow>\bigl((j_1 \circ f^1) + (j_2 \circ f^2)\bigr)(x)
+                    \amp = j_1\bigl(f^1(x)\bigr) + j_2\bigl(f^2(x)\bigr)</mrow>
+        <mrow>\amp = \bigl(f^1(x),0\bigr) + \bigl(0,f^2(x)\bigr)</mrow>
+        <mrow>\amp = \bigl(f^1(x),f^2(x)\bigr)</mrow>
+        <mrow>\amp = f(x)\,.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Being the sum of composites of differentiable functions, <m>f</m> is differentiable, and
+      <md>
+        <mrow>{2}
+             df_a \amp = d\bigl((j_1 \circ f^1) + (j_2 \circ f^2)\bigr)_a \amp \amp {}</mrow>
+        <mrow>\amp = d\bigl(j_1 \circ f^1\bigr)_a + d\bigl(j_2 \circ f^2\bigr)_a
+                         \amp \amp \text{ (by <xref ref="prop_diff_sum"></xref>) }</mrow>
+        <mrow>\amp = d\bigl(j_1\bigr)_{f^1(a)} \circ d\bigl(f^1\bigr)_a
+                         + d\bigl(j_2\bigr)_{f^2(a)}\circ d\bigl(f^2\bigr)_a
+                         \amp \amp \text{ (by <xref ref="thm_ch_rul"></xref>) }</mrow>
+        <mrow>\amp = j_1 \circ d\bigl(f^1\bigr)_a + j_2 \circ d\bigl(f^2\bigr)_a
+                         \amp \amp \text{ (by <xref ref="prob_diff_lt"></xref>) }</mrow>
+        <mrow>\amp = \left(d\bigl(f^1\bigr)_a \,,\, d\bigl(f^2\bigr)_a\right)\,. \amp \amp {}</mrow>
+      </md>
+    </p>
+
+    <p>
+      \qedhere
+    </p>
+  </solution>
+  <solution xml:id="sol_cor_diff_prodcurv">
+    <p>
+      (Solution to <xref ref="cor_diff_prodcurv"></xref>)
+      By <xref ref="prop_diff_der">propositions</xref> and <xref ref="prop_der_diff"></xref> a curve has a derivative at <m>t</m> if
+      and only if it is differentiable at<nbsp /><m>t</m>. Thus the desired result is an immediate consequence
+      of the following easy computation:
+      <md>
+        <mrow>Dc(t) \amp = dc_t(1)</mrow>
+        <mrow>\amp = \left(d\bigl(c^1\bigr)_t(1)\,,\, d\bigl(c^2\bigr)_t(1)\right)</mrow>
+        <mrow>\amp = \left(Dc^1(t)\,,\,Dc^2(t)\right)\,.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,344 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" >
+  <title>Finite and infinite sets</title>
+  <p>
+    There are a number of ways of comparing the <q>sizes</q> of sets. In this chapter and the next we
+    examine perhaps the simplest of these, cardinality. Roughly speaking, we say that two sets
+    have the <q>same number of elements</q> if there is a one-to-one correspondence between the
+    elements of the sets. In this sense the open intervals <m>(0,1)</m> and <m>(0,2)</m> have the same
+    number of elements. (The map <m>x \mapsto 2x</m> is a bijection.) Clearly this is only one sense of
+    the idea of <q>size</q>. It is certainly also reasonable to regard <m>(0,2)</m> as being bigger than
+    <m>(0,1)</m> because it is twice as long.
+  </p>
+
+  <p>
+    We derive only the most basic facts concerning cardinality. In this appendix we discuss some
+    elementary properties of finite and infinite sets, and in the next we distinguish between
+    countable and uncountable sets. This is all we will need.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two sets <m>S</m> and <m>T</m> are
+        <index><main><@<m>\sim</m> (cardinal equivalence)</main></index>
+        <index><main>equivalent</main><sub>cardinally</sub></index><term>cardinally equivalent</term> if there exists a bijection from <m>S</m> onto <m>T</m>, in which case we
+        write <m>S \sim T</m>. It is easy to see that cardinal equivalence is indeed an equivalence
+        relation; that is, it is reflexive, symmetric, and transitive.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_ce_er">
+    <statement>
+      <p>
+        Cardinal equivalence is an equivalence relation. Let <m>S</m>, <m>T</m>,
+        and <m>U</m> be sets. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>S \sim S</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              if <m>S \sim T</m>, then <m>T \sim S</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              if <m>S \sim T</m> and <m>T \sim U</m>, then <m>S \sim U</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A set <m>S</m> is
+        <index><main>finite</main></index><term>finite</term> if it is empty or if there exists <m>n \in \N</m> such that <m>S \sim \{1,\dots,n\}</m>. A
+        set is
+        <index><main>infinite</main></index><term>infinite</term> if it is not finite. The next few facts concerning finite and infinite sets
+        probably appear obvious, but writing down the proofs may in several instances require a bit of
+        thought. Here is a question which merits some reflection: if one is unable to explain exactly
+        why a result is obvious, is it really obvious?
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    One <q>obvious</q> result is that if two initial segments <m>\{1,\dots,m\}</m> and <m>\{1,\dots,n\}</m> of
+    the set of natural numbers are cardinally equivalent, then <m>m = n</m>. We prove this next.
+  </p>
+
+  <proposition xml:id="prop_card_n">
+    <statement>
+      <p>
+        Let <m>n \in \N</m>. If <m>m \in \N</m> and <m>\{1,\dots,m\} \sim
+        \{1,\dots,n\}</m>, then <m>m = n</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use induction on <m>n</m>.
+      (<xref ref="sol_prop_card_n">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        We define
+        <index><main>cardinalnumber@<m>\card S</m> (cardinal number of <m>S</m>)</main></index><m>\card \emptyset</m>, the cardinal number of the empty set, to be <m>0</m>. If <m>S</m> is a nonempty
+        finite set, then by the preceding proposition there exists only one positive integer <m>n</m> such
+        that <m>S \sim \{1,\dots,n\}</m>. This integer, <m>\card S</m>, is the
+        <index><main>cardinal number</main></index><term>cardinal number</term> of the set <m>S</m>, or the <term>number of elements</term> in <m>S</m>. Notice that if
+        <m>S</m> is finite with cardinal number <m>n</m> and <m>T \sim S</m>, then <m>T</m> is also finite and has
+        cardinal number<nbsp /><m>n</m>. Thus for finite sets the expressions <q>cardinally equivalent</q> and <q>have
+        the same cardinal number</q> are interchangeable.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>S = \{a,b,c,d\}</m>. Then <m>\card S = 4</m>, since <m>\{a,b,c,d\} \sim \{1,2,3,4\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    One simple fact about cardinal numbers is that the number of elements in the union of two
+    disjoint finite sets is the sum of the numbers of elements in each.
+  </p>
+
+  <proposition xml:id="prop_card_union">
+    <statement>
+      <p>
+        If <m>S</m> and <m>T</m> are disjoint finite sets, then <m>S \cup T</m>
+        is finite and
+        <me>
+          \card (S \cup T) = \card S + \card T\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_card_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    A variant of the preceding result is given in <xref ref="prob_card_diff">problem</xref>. We now take a
+    preliminary step toward proving that subsets of finite sets are themselves finite
+    (<xref ref="prop_card_sub">proposition</xref>).
+  </p>
+
+  <lemma xml:id="lem_card_sub">
+    <statement>
+      <p>
+        If <m>C \subseteq \{1,\dots,n\}</m>, then <m>C</m> is finite and
+        <m>\card C \le n</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use mathematical induction. If <m>C \subseteq
+      \{1,\dots,k + 1\}</m>, then <m>C \setminus \{k + 1\} \subseteq \{1,\dots,k\}</m>. Examine the cases
+      <m>k + 1 \notin C</m> and <m>k + 1 \in C</m> separately. (<xref ref="sol_lem_card_sub">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_card_sub">
+    <statement>
+      <p>
+        Let <m>S \subseteq T</m>. If <m>T</m> is finite, then <m>S</m> is finite
+        and <m>\card S \le \card T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> The case <m>T = \emptyset</m> is trivial. Suppose <m>T \ne
+      \emptyset</m>. Let <m>\iota:S \sto T</m> be the inclusion map of <m>S</m> into <m>T</m> (see
+      <xref ref="images">chapter</xref>). There exist <m>n \in \N</m> and a bijection <m>f \colon T \sto \{1,\dots,n\}</m>.
+      Let <m>C = \ran(f \circ\iota)</m>. The map from <m>S</m> to <m>C</m> defined by <m>x \mapsto f(x)</m> is a
+      bijection. Use <xref ref="lem_card_sub">lemma</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The preceding proposition <q>subsets of finite sets are finite</q> has a useful contrapositive:
+    <q>sets which contain infinite sets are themselves infinite.</q>
+  </p>
+
+  <problem xml:id="prob_card_diff">
+    <statement>
+      <p>
+        Let <m>S</m> be a set and <m>T</m> be a finite set. Prove that
+        <me>
+          \card (T \setminus S) = \card T - \card (T \cap S)\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use <xref ref="prob_sdiff1">problem</xref> and <xref ref="prop_card_union">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Notice that it is a consequence of the preceding <xref ref="prob_card_diff">result</xref> that if <m>S
+    \subseteq T</m> (where <m>T</m> is finite), then
+    <me>
+      \card (T \setminus S)  = \card T - \card S.
+    </me>
+  </p>
+
+  <p>
+    How do we show that a set <m>S</m> is infinite? If our only tool were the definition, we would
+    face the prospect of proving that there does <em>not</em> exist a bijection from <m>S</m> onto an
+    initial segment of the natural numbers. It would be pleasant to have a more direct approach
+    than establishing the nonexistence of maps. This is the point of our next proposition.
+  </p>
+
+  <proposition xml:id="prop_ce_sub">
+    <statement>
+      <p>
+        A set is infinite if and only if it is cardinally equivalent
+        to a proper subset of itself.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Suppose a set <m>S</m> is infinite. Show that it is possible to
+      choose inductively a sequence of distinct elements <m>a_1, a_2, a_3,\dots</m> in <m>S</m>. (Suppose
+      <m>a_1,\dots,a_n</m> have already been chosen. Can <m>S \setminus \{a_1,\dots,a_n\}</m> be empty?) Map
+      each <m>a_k</m> to <m>a_{k+1}</m> and map each member of <m>S</m> which is not an <m>a_k</m> to itself.
+    </p>
+
+    <p>
+      For the converse argue by contradiction. Suppose that <m>T \sim S</m> where <m>T</m> is a proper subset
+      of <m>S</m>, and assume that <m>S \sim \{1,\dots,n\}</m>. Prove that <m>S \setminus T \sim \{1,\dots,p\}</m>
+      for some <m>p \in \N</m>. Write <m>T</m> as <m>S \setminus (S \setminus T)</m> and obtain <m>n = n - p</m> by
+      computing the cardinality of <m>T</m> in two ways. (Make use of <xref ref="prob_card_diff">problem</xref>.) What
+      does <m>n = n - p</m> contradict? (<xref ref="sol_prop_ce_sub">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\N</m> of natural numbers is infinite.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The map <m>n \mapsto n + 1</m> is a bijection from <m>\N</m> onto <m>\N \setminus \{1\}</m>,
+      which is a proper subset of<nbsp /><m>\N</m>.
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_int_inf">
+    <statement>
+      <p>
+        The interval <m>(0,1)</m> is infinite.
+        (<xref ref="sol_exer_int_inf">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\R</m> of real numbers is infinite.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    The next two results tell us that functions take finite sets to finite sets and that for
+    injective functions finite sets come from finite sets.
+  </p>
+
+  <proposition xml:id="prop_ran_fin">
+    <statement>
+      <p>
+        If <m>T</m> is a set, <m>S</m> is a finite set, and <m>f:S \sto T</m> is
+        surjective, then <m>T</m> is finite.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prop_rinv_surj">propositions</xref> and <xref ref="prop_linv_inj"></xref>. (<xref ref="sol_prop_ran_fin">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_preimg_fin">
+    <statement>
+      <p>
+        If <m>S</m> is a set, <m>T</m> is a finite set, and <m>f \colon S \sto T</m>
+        is injective, then <m>S</m> is finite.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_preimg_fin">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem xml:id="prob_union_fin">
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be finite sets. Prove that <m>S \cup T</m> is
+        finite and that
+        <me>
+          \card (S \cup T)  = \card S + \card T - \card (S \cap T)\,.
+        </me>
+      </p>
+
+      <p>
+        <em>Hint.</em> Use <xref ref="prob_card_diff">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>S</m> is a finite set with cardinal number <m>n</m>, what is the cardinal number
+        of<nbsp /><m>\sfml P(S)</m>?
+      </p>
+    </statement>
+  </problem>
+</chapter>

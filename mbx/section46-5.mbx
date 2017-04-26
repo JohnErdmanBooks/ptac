@@ -1,0 +1,62 @@
+
+<section>
+  <title>Exercises in Chapter 05</title>
+  <solution xml:id="sol_nasc_conn">
+    <p>
+      (Solution to <xref ref="prop_nasc_conn"></xref>)
+      Suppose there exists a nonempty set <m>U</m> which is properly contained in <m>A</m> and which is both
+      open and closed in <m>A</m>. Then, clearly, the sets <m>U</m> and <m>U^c</m> (both open in <m>A</m>) disconnect
+      <m>A</m>. Conversely, suppose that <m>A</m> is disconnected by sets <m>U</m> and <m>V</m> (both open in <m>A</m>). Then
+      the set <m>U</m> is not the null set, is not equal to <m>A</m> (because <m>V</m>, its complement with respect
+      to <m>A</m>, is nonempty), is open in <m>A</m>, and is closed in <m>A</m> (because <m>V</m> is open in<nbsp /><m>A</m>).
+    </p>
+  </solution>
+  <solution xml:id="sol_contimg_conn">
+    <p>
+      (Solution to <xref ref="thm_contimg_conn"></xref>)
+      Let <m>A</m> be a subset of <m>\R</m> and <m>f\colon A \sto \R</m> be continuous. Suppose that <m>\ran f</m> is
+      disconnected. Then there exist disjoint nonempty sets <m>U</m> and <m>V</m> both open in <m>\ran f</m> whose
+      union is<nbsp /><m>\ran f</m>. <xref ref="cond3a_cont">By</xref> the sets <m>f^\gets(U)</m> and <m>f^\gets(V)</m> are open
+      subsets of<nbsp /><m>A</m>. Clearly these two sets are nonempty, they are disjoint, and their union
+      is<nbsp /><m>A</m>. This shows that <m>A</m> is disconnected.
+    </p>
+  </solution>
+  <solution xml:id="sol_ivt2">
+    <p>
+      (Solution to <xref ref="thm_ivt2"></xref>)
+      The continuous image of an interval is an interval (by <xref ref="thm_ivt1">theorem</xref>). Thus the
+      range of <m>f</m> (that is, <m>f^\sto(J)</m>) is an interval. So a point belongs to the range of <m>f</m> if
+      it lies between two other points which belong to the range of<nbsp /><m>f</m>. That is, if <m>a</m>, <m>b \in
+      \ran f</m> and <m>z</m> lies between <m>a</m> and <m>b</m>, then there exists a point <m>x</m> in the domain of <m>f</m>
+      such that <m>z = f(x)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_ivt_eqn">
+    <p>
+      (Solution to <xref ref="exam_ivt_eqn"></xref>)
+      Let
+      <me>
+        f(x) = x^{27} + 5x^{13} + x - x^3 - x^5 - \frac2{\sqrt{1+3x^2}}
+      </me>
+      for all <m>x \in \R</m>. The function <m>f</m> is defined on an interval (the real line), and it is
+      easy, using the results of <xref ref="cont_on_R">chapter</xref>, to show that <m>f</m> is continuous. Notice
+      that <m>f(0) = -2</m> and that <m>f(1) = 4</m>. Since <m>-2</m> and <m>4</m> are in the range of <m>f</m> and <m>0</m> lies
+      between <m>-2</m> and <m>4</m>, we conclude from the <em>intermediate value theorem</em> that <m>0</m> is in
+      the range of <m>f</m>. In fact, there exists an <m>x</m> such that <m>0 \lt  x \lt  1</m> and <m>f(x) = 0</m>. Such a
+      number <m>x</m> is a solution to<nbsp /><xref ref="ivt_soln_eqn2" />. Notice that we have not only shown the
+      existence of a solution to<nbsp /><xref ref="ivt_soln_eqn2" /> but also located it between consecutive
+      integers.
+    </p>
+  </solution>
+  <solution xml:id="sol_ivt_fp">
+    <p>
+      (Solution to <xref ref="prop_ivt_fp"></xref>)
+      Let <m>f \colon [a,b] \sto [a,b]</m> be continuous. If <m>f(a) = a</m> or <m>f(b) = b</m>, then the result is
+      obvious; so we suppose that <m>f(a) > a</m> and <m>f(b) \lt  b</m>. Define <m>g(x) = x - f(x)</m>. The function
+      <m>g</m> is continuous on the interval <m>[a,b]</m>. (Verify the last assertion.) Notice that <m>g(a) = a
+      - f(a) \lt  0</m> and that <m>g(b) = b - f(b) > 0</m>. Since <m>g(a) \lt  0 \lt  g(b)</m>, we may conclude from the
+      <em>intermediate value theorem</em> that <m>0 \in \ran g</m>. That is, there exists <m>z</m> in <m>(a,b)</m>
+      such that <m>g(z) = z - f(z) = 0</m>. Thus <m>z</m> is a fixed point of <m>f</m>.
+    </p>
+  </solution>
+</section>

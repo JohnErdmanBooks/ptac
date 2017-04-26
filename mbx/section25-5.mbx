@@ -1,0 +1,208 @@
+
+<section>
+  <title>Directional derivatives</title>
+  <p>
+    We now return to the study of maps between arbitrary normed
+    linear spaces. Closely related to differentiability is the concept of <em>directional
+    derivative</em>, an examination of which provides some technical advantages and also throws light
+    on the geometric aspect of differentiation.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>f</m> be a member of <m>\fml F_a(V,W)</m> and <m>v</m> be a nonzero vector in<nbsp /><m>V</m>. Then
+        <m>D_vf(a)</m>, the
+        <index><main>dvf@<m>D_vf</m> (directional derivative)</main></index>
+        <index><main>derivative</main><sub>directional</sub></index>
+        <index><main>directional derivative</main></index><term>derivative of <m>f</m> at <m>a</m> in the direction of <m>v</m></term>, is defined by
+        <me>
+          D_vf(a) := \lim_{t \sto 0} \frac1t\,\Delta f_a(tv)
+        </me>
+        if this limit exists. This directional derivative is also called the
+        <index><main>G&acirc;teaux</main><sub>differential</sub></index>
+        <index><main>differential</main><sub>G&acirc;teaux</sub></index><term>G&acirc;teaux differential</term> (or
+        <index><main>G&acirc;teaux</main><sub>variation</sub></index>
+        <index><main>variation</main><sub>G&acirc;teaux</sub></index><term>G&acirc;teaux variation</term>) of <m>f</m>, and is sometimes denoted by <m>\delta f(a;v)</m>. Many authors
+        require that in the preceding definition <m>v</m> be a unit vector. We will <em>not</em> adopt this
+        convention.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Recall that for <m>\vc 0 \ne v \in V</m> the curve <m>\ell \colon \R \sto V</m> defined by <m>\ell(t) = a
+    + tv</m> is the parametrized line through <m>a</m> in the direction of<nbsp /><m>v</m>. In the following
+    proposition, which helps illuminate our use of the adjective <q>directional</q>, we understand
+    the domain of <m>f \circ \ell</m> to be the set of all numbers <m>t</m> for which the expression
+    <m>f(\ell(t))</m> makes sense; that is,
+    <me>
+      \dom(f \circ \ell) = \{t \in \R \colon  a + tv \in \dom f\}\,.
+    </me>
+  </p>
+
+  <p>
+    Since <m>a</m> is an interior point of the domain of <m>f</m>, the domain of <m>f \circ \ell</m> contains an
+    open interval about<nbsp /><m>0</m>.
+  </p>
+
+  <proposition xml:id="prop_diff_dd">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a(V,W)</m> and <m>\vc 0 \ne v \in V</m>, then the
+        directional derivative <m>D_vf(a)</m> exists and is the tangent vector to the curve <m>f \circ \ell</m>
+        at <m>0</m> (where <m>\ell</m> is the parametrized line through <m>a</m> in the direction of<nbsp /><m>v</m>). That is,
+        <me>
+          D_vf(a) = D(f \circ \ell)(0)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_diff_dd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_dd1">
+    <statement>
+      <p>
+        Let <m>f(x,y) = \ln\bigl(x^2 + y^2\bigr)^{\frac12}</m>. Find <m>D_vf(a)</m>
+        when <m>a=(1,1)</m> and <m>v=(\frac35,\frac45)</m>. (<xref ref="sol_exer_dd1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <notation>
+
+  <p>
+    For <m>a \lt  b</m> let <m>\fml C^1([a,b],\R)</m> be the family of all functions <m>f</m> differentiable
+    on some open subset of <m>\R</m> containing <m>[a,b]</m> whose derivative <m>Df</m> is continuous on<nbsp /><m>[a,b]</m>.
+  </p>
+
+  </notation>
+  <exercise xml:id="exer_dd2">
+    <statement>
+      <p>
+        For all <m>f</m> in <m>\fml C^1([0,\frac{\pi}2],\R)</m> define
+        <me>
+          \phi(f) = \int_0^{\frac{\pi}2}(\cos x + Df(x))^2\,dx\,.
+        </me>
+      </p>
+
+      <p>
+        Compute <m>D_v\phi(a)</m> when <m>a(x) = 1 + \sin x</m> and <m>v(x) = 2 - \cos x</m> for <m>0 \le x \le
+        \frac{\pi}2</m>. (<xref ref="sol_exer_dd2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x,y) = e^{x^2 + y^2}</m>, <m>a = (1,-1)</m>, and <m>v = (-1,2)</m>. Find <m>D_vf(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x,y) = (2xy,y^2 - x^2)</m>, <m>a = (-1,2)</m>, and <m>v =
+        \bigl(\frac1{\sqrt2},\frac1{\sqrt2}\bigr)</m>. Find <m>D_vf(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\phi\colon \fml C([0,1],\R) \sto \R\colon  f \mapsto
+        \int_0^1\bigl(\sin^6\pi x + (f(x))^2\bigr)\,dx</m>, and for <m>0 \le x \le 1</m> let <m>a(x) = e^{-x} -
+        x + 3</m> and <m>v(x) = e^x</m>. Find <m>D_v\phi(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    According to <xref ref="prop_diff_dd">proposition</xref>, differentiability implies the existence of
+    directional derivatives in all directions. (In <xref ref="prob_dd3">problem</xref> you are asked to show
+    that the converse is not true.) The next proposition makes explicit the relationship between
+    differentials and directional derivatives for differentiable functions.
+  </p>
+
+  <proposition xml:id="prop_dd_diff">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a(V,W)</m>, then for every nonzero <m>v</m> in <m>V</m>
+        <me>
+          D_vf(a) = df_a(v)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="prob_der_curv1">problem</xref>
+      (<xref ref="sol_prop_dd_diff">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    It is worth noticing that even though the domain of a curve is <m>1</m>-dimensional, it is still
+    possible to take directional derivatives. The relationship between derivatives and
+    directional derivatives is very simple: the derivative of a curve <m>c</m> at a point <m>t</m> is just
+    the directional derivative at <m>t</m> in the direction of the unit vector <m>1</m> in<nbsp /><m>\R</m>. Proof:
+    <md>
+      <mrow>{2}
+          Dc(t) \amp = dc_t(1) \amp  \amp  \text{ (by
+                                 <xref ref="prop_diff_der">proposition</xref>) }</mrow>
+      <mrow>\amp = D_1c(t) \amp  \amp  \text{ (by
+                                 <xref ref="prop_dd_diff">proposition</xref>) }</mrow>
+    </md>
+  </p>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>\phi \colon \fml C([0,1],\R) \sto \fml C^1([0,1],\R)</m> be defined by <m>\phi f(x)
+        = \int_0^x f(s)\,ds</m> for all <m>f</m> in <m>\fml C([0,1],\R)</m> and <m>x</m> in<nbsp /><m>[0,1]</m>. For arbitrary
+        functions <m>a</m> and <m>v \ne 0</m> in <m>\fml C([0,1],\R)</m> compute <m>D_v\phi(a)</m> using
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the definition of <q>directional derivative</q>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <xref ref="prop_diff_dd">proposition</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <xref ref="prop_dd_diff">proposition</xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_dd3">
+    <statement>
+      <p>
+        Show that the converse of <xref ref="prop_diff_dd">proposition</xref> need not hold.
+        A function may have directional derivatives in all directions but fail to be differentiable.
+        <em>Hint.</em> Consider the function defined by <m>f(x,y) = \smash[b]{\dfrac{x^3}{x^2 + y^2}}</m>
+        for <m>(x,y) \ne (0,0)</m> and <m>f(0,0) = 0</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,223 @@
+
+<section>
+  <title>The extreme value theorem</title>
+  <definition>
+    <statement>
+      <p>
+        A real-valued function <m>f</m> on a set <m>A</m> is said to have a
+        <index><main>maximum</main></index><term>maximum</term> at a point <m>a</m> in <m>A</m> if <m>f(a) \ge f(x)</m> for every <m>x</m> in<nbsp /><m>A</m>; the number <m>f(a)</m>
+        is the
+        <index><main>maximum</main><sub>value</sub></index><term>maximum value</term> of <m>f</m>. The function has a
+        <index><main>minimum</main></index><term>minimum</term> at <m>a</m> if <m>f(a) \le f(x)</m> for every <m>x</m> in <m>A</m>; and in this case <m>f(a)</m> is the
+        <index><main>minimum</main><sub>value</sub></index><term>minimum value</term> of <m>f</m>. A number is an
+        <index><main>extreme</main><sub>value</sub></index><term>extreme value</term> of <m>f</m> if it is either a maximum or a minimum value. It is clear that a
+        function may fail to have maximum or minimum values. For example, on the open interval
+        <m>(0,1)</m> the function <m>f:x\mapsto x</m> assumes neither a maximum nor a minimum.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The concepts we have just defined are frequently called
+    <index><main>global</main><sub>maximum</sub></index>
+    <index><main>absolute</main><sub>maximum</sub></index>
+    <index><main>maximum</main><sub>global</sub></index>
+    <index><main>maximum</main><sub>absolute</sub></index><term>global</term> (or <term>absolute</term>) <term>maximum</term> and
+    <index><main>global</main><sub>minimum</sub></index>
+    <index><main>absolute</main><sub>minimum</sub></index>
+    <index><main>minimum</main><sub>global</sub></index>
+    <index><main>minimum</main><sub>absolute</sub></index><term>global</term> (or <term>absolute</term>) <term>minimum</term>. This is to
+    distinguish them from two different ideas
+    <index><main>local</main><sub>maximum</sub></index>
+    <index><main>relative</main><sub>maximum</sub></index>
+    <index><main>maximum</main><sub>local</sub></index>
+    <index><main>maximum</main><sub>relative</sub></index><em>local</em> (or <em>relative</em>) <em>maximum</em> and
+    <index><main>local</main><sub>minimum</sub></index>
+    <index><main>relative</main><sub>minimum</sub></index>
+    <index><main>minimum</main><sub>local</sub></index>
+    <index><main>minimum</main><sub>relative</sub></index><em>local</em> (or <em>relative</em>) <em>minimum</em>, which we will encounter later. In this
+    text, <q>maximum</q> and <q>minimum</q> without qualifiers will be the global concepts defined
+    above.
+  </p>
+
+  <p>
+    Our goal now is to show that every continuous function on a compact set attains both a maximum
+    and a minimum. This turns out to be an easy consequence of the fact, which we prove next,
+    that the continuous image of a compact set is compact.
+  </p>
+
+  <theorem xml:id="cpt_cnd4">
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of <m>\R</m>. If <m>A</m> is compact and <m>f\colon A \sto \R</m>
+        is continuous, then <m>f^{\sto}(A)</m> is compact.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cpt_cnd4">Solution</xref>.)
+    </p>
+  </proof>
+
+  <theorem xml:id="evthm">
+    <title>Extreme Value Theorem</title>
+    <statement>
+      <p>
+        If <m>A</m> is a compact subset of <m>\R</m> and
+        <m>f \colon A \sto \R</m> is continuous, then <m>f</m> assumes both a maximum and a minimum value
+        on<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_evthm">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The closed interval <m>[-3,7]</m> is a compact subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Let <m>A = [0,1]</m> and <m>f(x) = 10x-3</m>. Since <m>A</m> is compact and <m>f</m> is continuous,
+      <xref ref="cpt_cnd4">theorem</xref> tells us that the set <m>[-3,7] = f^\sto(A)</m> is compact.
+    </p>
+  </proof>
+
+  <example xml:id="cpt_exm3">
+    <statement>
+      <p>
+        If <m>a \lt  b</m>, then the closed interval <m>[a,b]</m> is a compact subset of<nbsp /><m>\R</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example xml:id="HBthm">
+    <title>Heine-Borel Theorem for $\R$</title>
+    <statement>
+      <p>
+        Every closed and bounded subset of <m>\R</m> is compact.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> <xref ref="cpt_exm3">Use</xref> and <xref ref="cpt_cnd1"></xref>.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Define <m>f \colon [-1,1] \sto \R</m> by
+        <me>
+          f(x) = \begin{cases}x\sin\left(\dfrac1x\right), \amp \text{ if \(x \ne 0\) } \\
+                                                0, \amp \text{ if \(x=0\) } .
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        The set of all <m>x</m> such that <m>f(x) = 0</m> is a compact subset of<nbsp /><m>[-1,1]</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon A \sto B</m> be a continuous bijection between subsets of<nbsp /><m>\R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show by example that <m>f</m> need not be a homeomorphism.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that if <m>A</m> is compact, then <m>f</m> must be a homeomorphism.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="cpt_prb2">
+    <statement>
+      <p>
+        Find in <m>\Q</m> a set which is both relatively closed and bounded
+        but which is not compact.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the interval <m>[0,\infty)</m> is not compact using each of the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              the definition of compactness;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <xref ref="cpt_cb">proposition</xref>;
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              the <em>extreme value theorem</em>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f</m> and <m>g</m> be two continuous functions mapping the interval <m>[0,1]</m> into itself.
+        Show that if <m>f \circ g = g \circ f</m>, then <m>f</m> and <m>g</m> agree at some point of <m>[0,1]</m>.
+        <em>Hint.</em> Argue by contradiction. Show that we may suppose, without loss of generality,
+        that <m>f(x) - g(x) > 0</m> for all <m>x</m> in<nbsp /><m>[0,1]</m>. Now try to show that there is a number <m>a > 0</m>
+        such that <m>f^n(x) \ge g^n(x) + na</m> for every natural number <m>n</m> and every <m>x</m> in<nbsp /><m>[0,1]</m>.
+        (Here <m>f^n = f \circ f \circ \dots \circ f</m> (<m>n</m> copies of <m>f</m>); and <m>g^n</m> is defined
+        similarly.)
+      </p>
+    </statement>
+  </problem>
+</section>

@@ -1,0 +1,149 @@
+
+<section>
+  <title>Norms induce metrics</title>
+  <p>
+    We now introduce a crucial fact: <em>every normed linear space is a metric space.</em> That is,
+    the norm on a normed linear space induces a
+    <index><main>metric</main><sub>induced by a norm</sub></index>metric <m>d</m> defined by <m>d(x,y) = \norm{x - y}</m>. The distance between two vectors is the length
+    of their difference.
+    <me>
+      \xy
+            \Atriangle/\lt -`\lt -`>/[``;x`x-y`y]
+          \endxy
+    </me>
+  </p>
+
+  <p>
+    If no other metric is specified we always regard a normed linear space as a metric space under
+    this induced metric. Thus the concepts of compactness, open sets, continuity, completeness,
+    and so on, make sense on any normed linear space.
+  </p>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>V</m> be a normed linear space. Define <m>d\colon V \times V \sto \R</m> by <m>d(x,y) =
+        \norm{x - y}</m>. Then <m>d</m> is a metric on<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The existence of a metric on a normed linear space <m>V</m> makes it possible to speak of
+    neighborhoods of points in <m>V</m>. These neighborhoods satisfy some simple algebraic properties.
+  </p>
+
+  <proposition xml:id="prop_ind_metr">
+    <statement>
+      <p>
+        Let <m>V</m> be a normed linear space, <m>x \in V</m>, and <m>r</m>, <m>s~>~0</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>B_r(0) = -B_r(0)</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>B_{rs}(0) = r\,B_s(0)</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>x + B_r(0) = B_r(x)</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>B_r(0) + B_r(0) = 2B_r(0)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Part (a) is an exercise. (<xref ref="sol_prop_ind_metr">Solution</xref>.)
+      Parts (b), (c), and (d) are problems. <em>Hint.</em> For (d) divide the proof into two parts:
+      <m>B_r(0) + B_r(0) \subseteq 2B_r(0)</m> and the reverse inclusion. For the first, suppose x
+      belongs to <m>B_r(0) + B_r(0)</m>. Then there exist <m>u</m>, <m>v \in B_r(0)</m> such that <m>x = u + v</m>. Show
+      that <m>x = 2w</m> for some <m>w</m> in <m>B_r(0)</m>. You may wish to use <xref ref="prob_ball_conv">problem</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_norm_cont">
+    <statement>
+      <p>
+        If <m>V</m> is a normed linear space then the following hold.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\bigl|\,\norm x - \norm y \,\bigr| \le \norm{x - y}</m> for all <m>x</m>, <m>y \in V</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              The norm <m>x \mapsto \norm x</m> is a continuous function on<nbsp /><m>V</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>x_n \sto a</m> in <m>V</m>, then <m>\norm{x_n} \sto \norm a</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>x_n \sto 0</m> in <m>V</m> if and only if <m>\norm{x_n} \sto 0</m> in <m>\R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Give an example to show that the converse of part (c) of
+        <xref ref="prop_norm_cont">proposition</xref> does not hold.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_ball_conv">
+    <statement>
+      <p>
+        Prove that in a normed linear space every open ball is a convex
+        set. And so is every closed ball.
+      </p>
+    </statement>
+  </problem>
+</section>

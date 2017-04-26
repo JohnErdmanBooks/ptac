@@ -1,0 +1,134 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="quan">
+  <title>Quantifiers</title>
+  <p>
+    Certainly <q><m>2 + 2 = 4</m></q> and <q><m>2 + 2 = 5</m></q> are statements<mdash />one true, the other false. On
+    the other hand the appearance of the variable <m>x</m> prevents the expression <q><m>x + 2 = 5</m></q>
+    from being a statement. Such an expression we will call an
+    <index><main>open</main><sub>sentence</sub></index><term>open sentence</term>; its truth is open to question since <m>x</m> is unidentified. There are three
+    standard ways of converting open sentences into statements.
+  </p>
+
+  <p>
+    The first, and simplest, of these is to give the variable a particular value. If we
+    <q>evaluate</q> the expression <q><m>x + 2 = 5</m></q> at <m>x = 4</m>, we obtain the (false) statement <q><m>4
+    + 2 = 5</m></q>.
+  </p>
+
+  <p>
+    A second way of obtaining a statement from an expression involving a variable is <term>universal
+    quantification</term>: we assert that the expression is true for all values of the variable. In the
+    preceding example we get, <q>For all <m>x</m>, <m>x + 2 = 5</m>.</q> This is now a statement (and again
+    false). The expression <q>for all <m>x</m></q> (or equivalently, <q>for every x</q>) is often denoted
+    symbolically
+    <index><main>all@<m>\forall</m> (for all, for every)</main></index>
+    <index><main><@<m>\forall</m> (for all, for every)</main></index>by<nbsp /><m>(\forall x)</m>. Thus the preceding sentence may be written, <m>(\forall x) x + 2 = 5</m>. (The
+    parentheses are optional; they may be used in the interest of clarity.) We call <m>\forall</m> a
+    <index><main>universal quantifier</main></index>
+    <index><main>quantifier</main><sub>universal</sub></index><term>universal quantifier</term>.
+  </p>
+
+  <p>
+    Frequently there are several variables in an expression. They may all be universally
+    quantified. For example
+    <men xml:id="eq_first" >
+      (\forall x)(\forall y)\, x^2 - y^2 = (x - y)(x + y)
+    </men>
+    is a (true) statement, which says that for every <m>x</m> and for every <m>y</m> the expression <m>x^2 -
+    y^2</m> factors in the familiar way. The order of consecutive universal quantifiers is
+    unimportant: the statement
+    <me>
+      (\forall y)(\forall x)\, x^2 - y^2 = (x - y)(x + y)
+    </me>
+    says exactly the same thing as<nbsp /><xref ref="eq_first" />. For this reason the notation may be
+    contracted slightly to read
+    <me>
+      (\forall x,y)\, x^2 - y^2 = (x - y)(x + y)\,.
+    </me>
+  </p>
+
+  <p>
+    A third way of obtaining a statement from an open sentence <m>P(x)</m> is <term>existential
+    quantification</term>. Here we assert that <m>P(x)</m> is true for <em>at least one</em> value of<nbsp /><m>x</m>.
+    This is often written
+    <index><main>exists@<m>\exists</m> (there exists)</main></index>
+    <index><main><@<m>\exists</m> (there exists)</main></index><q><m>(\exists x)</m> such that <m>P(x)</m></q> or more briefly <q><m>(\exists x) P(x)</m></q>, and is read <q>there
+    exists an <m>x</m> such that <m>P(x)</m></q> or <q><m>P(x)</m> is true for some<nbsp /><m>x</m>.</q> For example, if we
+    existentially quantify the expression <q><m>x + 2 = 5</m></q> we obtain <q><m>(\exists x)</m> such that <m>x
+    + 2 = 5</m></q> (which happens to be true). We call <m>\exists</m> an
+    <index><main>existential quantifier</main></index>
+    <index><main>quantifier</main><sub>existential</sub></index><term>existential quantifier</term>.
+  </p>
+
+  <p>
+    As is true for universal quantifiers, the order of consecutive existential quantifiers is
+    immaterial.
+  </p>
+
+  <caution>
+
+  <p>
+    It is absolutely essential to realize that the order of an existential and a
+    universal quantifier may <em>not</em> in general be reversed. For example,
+    <me>
+      (\exists x)(\forall y)\, x \lt  y
+    </me>
+    says that there is a number <m>x</m> with the property that no matter how <m>y</m> is chosen, <m>x</m> is
+    less than <m>y</m>; that is, there is a smallest real number. (This is, of course, false.) On the
+    other hand
+    <me>
+      (\forall y)(\exists x)\, x \lt  y
+    </me>
+    says that for every <m>y</m> we can find a number <m>x</m> smaller than <m>y</m>. (This is true: take <m>x</m> to
+    be <m>y - 1</m> for example.) <em>The importance of getting quantifiers in the right order cannot
+    be overestimated.</em>
+  </p>
+
+  </caution>
+
+  <p>
+    There is one frequently used convention concerning quantifiers that should be mentioned. In
+    the statement of definitions, propositions, theorems, <em>etc.</em>, missing quantifiers are
+    assumed to be universal; furthermore, they are assumed to be the innermost quantifiers.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f</m> be a real valued function defined on the real line <m>\R</m>. Many texts give
+        the following definition. The function <m>f</m> is <em>continuous</em> at a point <m>a</m> in <m>\R</m> if: for
+        every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        <me>
+          \abs{f(x) - f(a)} \lt  \epsilon \text{ whenever }  \abs{x - a} \lt  \delta\,.
+        </me>
+      </p>
+
+      <p>
+        Here <m>\epsilon</m> and <m>\delta</m> are quantified; the function <m>f</m> and the point <m>a</m> are fixed for
+        the discussion, so they do not require quantifiers. What about <m>x</m>? According to the
+        convention just mentioned, <m>x</m> is universally quantified and that quantifier is the innermost
+        one. Thus the definition reads: for every <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such that
+        for every <m>x</m>
+        <me>
+          \abs{f(x) - f(a)} \lt  \epsilon \text{ whenever }  \abs{x - a} \lt  \delta\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Sometimes all quantifiers are missing. In this case the preceding convention dictates
+        that all variables are universally quantified. Thus
+        <me>
+          \text{ Theorem. }   x^2 - y^2 = (x - y)(x + y)
+        </me>
+        is interpreted to mean
+        <me>
+          \text{ Theorem. }   (\forall x)(\forall y)\, x^2 - y^2  = (x - y)(x+y)\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+</chapter>

@@ -1,0 +1,529 @@
+
+<section>
+  <title>Injections, surjections, and bijections</title>
+  <p>
+    A function <m>f</m> is
+    <index><main>injective</main></index><term>injective</term> (or
+    <index><main>one-to-one</main></index><term>one-to-one</term>) if <m>x = y</m> whenever <m>f(x) = f(y)</m>. That is, <m>f</m> is injective if no two
+    distinct elements in its domain have the same image. For a real valued function of a real
+    variable this condition may be interpreted graphically: A function is one-to-one if and only
+    if each horizontal line intersects the graph of the function at most once. An injective map is
+    called an
+    <index><main>injection</main></index><term>injection</term>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        The sine function is not injective (since, for example, <m>\sin 0 = \sin \pi</m>).
+      </p>
+    </statement>
+  </example>
+
+  <example xml:id="exam_inj_fcn">
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac{x+2}{3x-5}</m>. The function <m>f</m> is injective.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_inj_fcn">See</xref>.)
+    </p>
+  </proof>
+
+  <exercise xml:id="exer_inj_q">
+    <statement>
+      <p>
+        Find an injective mapping from <m>\{x \in \Q\colon  x > 0\}</m>
+        into<nbsp /><m>\N</m>. (<xref ref="sol_exer_inj_q">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \dfrac{2x-5}{3x+4}</m>. Show that <m>f</m> is injective.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = 2x^2 - x - 15</m>. Show that <m>f</m> is <em>not</em> injective.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x^3 - 2x^2 + x - 3</m>. Is <m>f</m> injective?
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x^3 - x^2 + x - 3</m>. Is <m>f</m> injective?
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A function is
+        <index><main>surjective</main></index><term>surjective</term> (or
+        <index><main>onto</main></index><term>onto</term>) if its range is equal to its codomain.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Define <m>f\colon \R \sto \R</m> by <m>f(x) = x^2</m> and <m>g\colon \R \sto [0, \infty)</m>
+        by <m>g(x) = x^2</m>. Then the function <m>g</m> is surjective while <m>f</m> is not (even though the two
+        functions have the same graph!).
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="exer_surj">
+    <statement>
+      <p>
+        Find a surjection (that is, a surjective map) from <m>[0,1]</m>
+        onto <m>[0, \infty)</m>.
+        (<xref ref="sol_exer_surj">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        A function is
+        <index><main>bijective</main></index><term>bijective</term> if it is both injective and surjective. A bijective
+        map is called a
+        <index><main>bijection</main></index><term>bijection</term> or a
+        <index><main>one-to-one correspondence</main></index><term>one-to-one correspondence</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_bij1">
+    <statement>
+      <p>
+        Give an explicit formula for a bijection between <m>\Z</m> and<nbsp /><m>\N</m>.
+        (<xref ref="sol_exer_bij1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_bij2">
+    <statement>
+      <p>
+        Give an explicit formula for a bijection between <m>\R</m> and the open
+        interval<nbsp /><m>(0,1)</m>.
+        (<xref ref="sol_exer_bij2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_bij3">
+    <statement>
+      <p>
+        Give a formula for a bijection between the interval <m>[0,1)</m> and the
+        unit circle <m>x^2 + y^2 = 1</m> in the plane.
+        (<xref ref="sol_exer_bij3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_bij4">
+    <statement>
+      <p>
+        Let <m>f\colon [1,2] \sto [0,3]</m> be defined by <m>f(x) = 1/x</m>. Find an
+        extension <m>g</m> of <m>f</m> to the interval <m>[0,3]</m> such that <m>g\colon [0, 3] \sto [0,3]</m> is a
+        bijection. (<xref ref="sol_exer_bij4">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <exercise xml:id="exer_bij5">
+    <statement>
+      <p>
+        Let <m>f\colon R \sto [-1,1]</m> be defined by <m>f(x) = \sin x</m>. Find a set
+        <m>A \subseteq R</m> such that the restriction of <m>f</m> to <m>A</m> is a bijection from <m>A</m> onto <m>[-1,1]</m>.
+        (<xref ref="sol_exer_bij5">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>g\colon T \sto U</m>. Prove the following.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>f</m> and <m>g</m> are injective, so is <m>g \circ f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>f</m> and <m>g</m> are surjective, so is <m>g \circ f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>f</m> and <m>g</m> are bijective, so is <m>g \circ f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a bijection between the open intervals <m>(0,1)</m> and <m>(-8,5)</m>. Prove that the
+        function you use really <em>is</em> a bijection between the two intervals.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a bijection between the open intervals <m>(0,1)</m> and <m>(3,\infty)</m>. (Proof not
+        required.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a bijection between the interval <m>(0,1)</m> and the parabola <m>y = x^2</m> in the
+        plane. (Proof not required.)
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f\colon [1,2] \sto [0,11]</m> be defined by <m>f(x) = 3x^2 - 1</m>. Find an extension
+        <m>g</m> of <m>f</m> to <m>[0,3]</m> which is a bijection from <m>[0,3]</m> onto<nbsp /><m>[0,11]</m>. (Proof not required.)
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    It is important for us to know how the image <m>f^{\sto}</m> and the inverse image <m>f^\gets</m> of a
+    function <m>f</m> behave with respect to unions, intersections, and complements of sets. The basic
+    facts are given in the next 10 propositions. Although these results are quite elementary, we
+    make extensive use of them in studying continuity.
+  </p>
+
+  <proposition xml:id="prop_f_finv">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>B \subseteq T</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>f^{\sto}(f^{\gets}(B)) \subseteq B</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in (a).
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Equality does hold in (a) if <m>f</m> is surjective.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_f_finv">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_finv_f">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>A \subseteq
+        S</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>A \subseteq f^{\gets}(f^{\sto}(A))</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in (a).
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Equality does hold in (a) if <m>f</m> is injective.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Prove the converse of <xref ref="prop_finv_f">proposition</xref>. That is, show that if
+        <m>f \colon S \sto T</m> and <m>f^{\gets}(f^{\sto}(A)) = A</m> for all <m>A \subseteq S</m>, then <m>f</m> is
+        injective. <em>Hint.</em> Suppose <m>f(x) = f(y)</m>. Let <m>A = \{x\}</m>. Show that <m>y \in
+        f^\gets(f^{\sto}(A))</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="prop_f_union">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>A,B \subseteq S</m>. Then
+        <me>
+          f^{\sto}(A \cup B) = f^{\sto}(A) \cup f^{\sto}(B).
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_f_union">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_finv_union">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>C</m>, <m>D \subseteq T</m>. Then
+        <me>
+          f^{\gets}(C \cup D) = f^{\gets}(C) \cup f^{\gets}(D)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_finv_intrs">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>C</m>, <m>D \subseteq T</m>. Then
+        <me>
+          f^\gets(C \cap D) = f^\gets(C) \cap f^\gets(D)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_finv_intrs">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>A</m>, <m>B \subseteq S</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>f^{\sto}(A \cap B) \subseteq f^{\sto}(A) \cap f^{\sto}(B)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in (a).
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Equality does hold in (a) if <m>f</m> is injective.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_finv_comp">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>D \subseteq T</m>. Then
+        <me>
+          f^\gets(D^c) = \bigl(f^\gets(D)\bigr)^c\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_f_comp">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>A \subseteq S</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>f</m> is injective, then <m>f^{\sto}(A^c) \subseteq \bigl(f^{\sto}(A)\bigr)^c</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>f</m> is surjective, then <m>f^{\sto}(A^c) \supseteq \bigl(f^{\sto}(A)\bigr)^c</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>f</m> is bijective, then <m>f^{\sto}(A^c) = \bigl(f^{\sto}(A)\bigr)^c</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hints.</em> For part (a), let <m>y \in f^{\sto}(A^c)</m>. To prove that
+      <m>y \in \bigl(f^{\sto}(A)\bigr)^c</m>, assume to the contrary that <m>y \in f^{\sto}(A)</m> and derive
+      a contradiction. For part (b), let <m>y \in \bigl(f^{\sto}(A)\bigr)^c</m>. Since <m>f</m> is surjective,
+      there exists <m>x \in S</m> such that <m>y = f(x)</m>. Can <m>x</m> belong to<nbsp /><m>A</m>?.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_f_fam">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>\sfml A \subseteq \sfml P(S)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>f^{\sto}(\bigcap\sfml A) \subseteq \bigcap\{f^{\sto}(A) \colon A \in \sfml A\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>f</m> is injective, equality holds in (a).
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>f^{\sto}(\bigcup\sfml A) = \bigcup\{f^{\sto}(A) \colon A \in \sfml A\}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_f_fam">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_finv_fam">
+    <statement>
+      <p>
+        Let <m>f\colon S \sto T</m> and <m>\sfml B \subseteq \sfml P(T)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>f^\gets(\bigcap \sfml B) = \bigcap\{f^\gets(B)\colon B \in \sfml B\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>f^\gets(\bigcup \sfml B) = \bigcup\{f^\gets(B)\colon B \in \sfml B\}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

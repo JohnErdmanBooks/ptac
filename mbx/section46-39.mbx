@@ -1,0 +1,18 @@
+
+<section>
+  <title>Exercises in Appendix n</title>
+  <solution xml:id="sol_prod_exer">
+    <p>
+      (Solution to <xref ref="prod_exer"></xref>)
+      The existence of the function has already been demonstrated: if <m>f = (f^1,f^2)</m>, then <m>(\pi_k
+      \circ f)(t) = \pi_k\bigl(f^1(t),f^2(t)\bigr) = f^k(t)</m> for <m>k = 1,2</m> and <m>t \in T</m>.
+    </p>
+
+    <p>
+      To prove uniqueness suppose that there is a function <m>g \in \fml F(T,S_1 \times S_2)</m> such
+      that <m>\pi_k \circ g = f^k</m> for <m>k = 1,2</m>. Then <m>g(t) = \bigl(\pi_1(g(t)), \pi_2(g(t))\bigr) =
+      \bigl(f^1(t),f^2(t)\bigr) = \bigl(f^1,f^2\bigr)(t)</m> for <m>k = 1,2</m> and <m>t \in T</m>. So <m>g =
+      \bigl(f^1,f^2\bigr)</m>.
+    </p>
+  </solution>
+</section>

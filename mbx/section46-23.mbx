@@ -1,0 +1,347 @@
+
+<section>
+  <title>Exercises in Chapter 23</title>
+  <solution xml:id="sol_prop_equiv_cont">
+    <p>
+      (Solution to <xref ref="prop_equiv_cont"></xref>)
+    </p>
+
+    <p>
+      <m>\text{ (a) } \implies \text{ (b) }</m>: Obvious.
+    </p>
+
+    <p>
+      <m>\text{ (b) }  \implies \text{ (c) }</m>: Suppose <m>T</m> is continuous at a point <m>a</m> in <m>V</m>.
+      Given <m>\epsilon > 0</m> choose <m>\delta > 0</m> so that <m>\norm{Tx - Ta} \lt  \epsilon</m> whenever <m>\norm{x
+      - a} \lt  \delta</m>. If <m>\norm{h - \vc 0} = \norm h \lt  \delta</m> then <m>\norm{(a + h) - a} \lt  \delta</m>
+      and <m>\norm{Th - T\vc 0} = \norm{Th} = \norm{T(a + h) - Ta} \lt  \epsilon</m>. Thus <m>T</m> is
+      continuous at<nbsp /><m>\vc 0</m>.
+    </p>
+
+    <p>
+      <m>\text{ (c) }  \implies \text{ (d) }</m>: Argue by contradiction. Assume that <m>T</m> is
+      continuous at <m>\vc 0</m> but is not bounded. Then for each <m>n \in \N</m> there is a vector <m>x_n</m> in
+      <m>V</m> such that <m>\norm{Tx_n} > n\norm{x_n}</m>. Let <m>y_n = \bigl(n\norm{x_n}\bigr)^{-1}x_n</m>. Then
+      <m>\norm{y_n} = n^{-1}</m>; so <m>y_n \sto \vc 0</m>. Since <m>T</m> is continuous at <m>\vc 0</m> we conclude
+      that <m>Ty_n \sto \vc 0</m> as <m>n \sto \infty</m>. On the other hand
+      <me>
+        \norm{Ty_n} = \bigl(n\norm{x_n}\bigr)^{-1}\norm{Tx_n} > 1
+      </me>
+      for every<nbsp /><m>n</m>. This shows that <m>Ty_n \not\sto \vc 0</m> as <m>n \sto \infty</m>, which contradicts
+      the preceding assertion.
+    </p>
+
+    <p>
+      <m>\text{ (d) }  \implies \text{ (a) }</m>: If <m>T</m> is bounded, there exists <m>M > 0</m> such
+      that <m>\norm{Tx} \le M\norm x</m> for all <m>x</m> in<nbsp /><m>V</m>. It is easy to see that <m>T</m> is
+      continuous at an arbitrary point <m>a</m> in<nbsp /><m>V</m>. Given <m>\epsilon > 0</m> choose <m>\delta =
+      \epsilon/M</m>. If <m>\norm{x - a} \lt  \delta</m>, then
+      <me>
+        \norm{Tx - Ta} = \norm{T(x - a)} \le M\norm{x - a} \lt  M\delta = \epsilon\,.
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_equiv_norm">
+    <p>
+      (Solution to <xref ref="lem_equiv_norm"></xref>)
+      The first equality is an easy computation.
+      <md>
+        <mrow>\sup\{ \norm x^{-1}\,\norm{Tx}\colon x \ne \vc 0\}
+                    \amp = \inf\{M > 0 \colon M \ge \norm x^{-1}\norm{Tx} \text{ for all \(x \ne \vc 0\) } \}</mrow>
+        <mrow>\amp = \inf\{M > 0\colon \norm{Tx} \le M\norm x \text{ for all \(x\) } \}</mrow>
+        <mrow>\amp = \norm T</mrow>
+      </md>
+    </p>
+
+    <p>
+      The second is even easier.
+      <md>
+        <mrow>\sup\{ \norm x^{-1}\,\norm{Tx} \colon x \ne \vc 0\}
+                             \amp = \sup\{\norm{T\bigl(\norm x^{-1} x\bigr)}\}</mrow>
+        <mrow>\amp = \sup\{\norm{Tu} \colon \norm u = 1\}.</mrow>
+      </md>
+    </p>
+
+    <p>
+      To obtain the last equality notice that since
+      <me>
+        \{\norm{Tu} \colon \norm u = 1\} \subseteq \{\norm{Tx} \colon \norm x \le 1\}
+      </me>
+      it is obvious that
+      <me>
+        \sup\{\norm{Tu} \colon \norm u = 1\} \le \sup\{\norm{Tx} \colon \norm x \le 1\}\,.
+      </me>
+    </p>
+
+    <p>
+      On the other hand, if <m>\norm x \le 1</m> and <m>x \ne 0</m>, then <m>v := \norm x^{-1}x</m> is a unit
+      vector, and so
+      <md>
+        <mrow>\norm{Tx} \amp \le \norm x^{-1}\norm{Tx}</mrow>
+        <mrow>\amp = \norm{Tv}</mrow>
+        <mrow>\amp \le \sup\{\norm{Tu} \colon \norm u = 1\}.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Therefore
+      <me>
+        \sup\{\norm{Tx}\colon \norm x \le 1\} \le \sup\{\norm{Tu} \colon \norm u = 1\}\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_exam_norm">
+    <p>
+      (Solution to <xref ref="exer_exam_norm"></xref>)
+    </p>
+
+    <p>
+      (a) Let <m>I\colon V \sto V \colon x \mapsto x</m>. Then (by <xref ref="lem_equiv_norm">lemma</xref>)
+      <me>
+        \norm I = \sup\{\norm{Ix} \colon \norm x = 1\} = \sup\{\norm x \colon \norm x = 1\} = 1\,.
+      </me>
+    </p>
+
+    <p>
+      (b) Let <m>\wh{\vc 0} \colon V \sto W \colon x \mapsto \vc 0</m>. Then <m>\norm{\wh{\vc 0}} =
+      \sup\{\norm{\wh{\vc 0}x} \colon \norm x = 1\} = \sup\{0\} = 0.</m>
+    </p>
+
+    <p>
+      (c) We suppose <m>k = 1</m>. (The case <m>k = 2</m> is similar.) Let <m>x</m> be a nonzero vector in <m>V_1</m>
+      and <m>u = \norm x^{-1}x</m>. Since <m>\norm{(u,\vc 0)}_1 = \norm u + \norm{\vc 0} = \norm u = 1</m>, we
+      see (from <xref ref="lem_equiv_norm">lemma</xref>) that
+      <md>
+        <mrow>\norm{\pi_1}
+                 \amp = \sup\{\norm{\pi_1(x_1,x_2)} \colon \norm{(x_1,x_2)} = 1\}</mrow>
+        <mrow>\amp \ge \norm{\pi_1(u,\vc 0)}</mrow>
+        <mrow>\amp = \norm u</mrow>
+        <mrow>\amp = 1.</mrow>
+      </md>
+    </p>
+
+    <p>
+      On the other hand since <m>\norm{\pi_1(x_1,x_2)} = \norm{x_1} \le \norm{(x_1,x_2)}_1</m> for all
+      <m>(x_1,x_2)</m> in <m>V_1 \times V_2</m>, it follows from the definition of the norm of a
+      transformation that <m>\norm{\pi_1} \le 1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_norm_int">
+    <p>
+      (Solution to <xref ref="exer_norm_int"></xref>)
+      Let <m>f</m>, <m>g \in \fml C</m> and <m>\alpha \in \R</m>. Then
+      <me>
+        J(f + g) = \int_a^b (f(x) + g(x))\,dx
+                      = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx
+                      = Jf + Jg
+      </me>
+      and
+      <me>
+        J(\alpha f) = \int_a^b \alpha f(x)\,dx
+                       = \alpha\int_a^b f(x)\,dx = \alpha Jf.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>J</m> is linear. If <m>f \in \fml C</m>, then
+      <me>
+        \abs{Jf} = \abs{\int_a^b f(x)\,dx}
+                     \le \int_a^b \abs{f(x)}\,dx
+                     \le \int_a^b \norm f_u\,dx
+                     = (b - a)\norm f_u\,.
+      </me>
+    </p>
+
+    <p>
+      This shows that <m>J</m> is bounded and that <m>\norm J \le b - a</m>. Let <m>g(x) = 1</m> for all <m>x</m> in
+      <m>[a,b]</m>. Then <m>g</m> is a unit vector in <m>\fml C</m> (that is, <m>\norm g_u = 1</m>) and <m>Jg = \int_a^b
+      g(x)\,dx = b - a</m>. From <xref ref="lem_equiv_norm">lemma</xref> we conclude that <m>\norm J \ge b - a</m>. This
+      and the preceding inequality prove that <m>\norm J = b - a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_opnorm">
+    <p>
+      (Solution to <xref ref="prop_opnorm"></xref>)
+      It was shown in <xref ref="endo_vs">proposition</xref> that <m>\ofml L(V,W)</m> is a vector space. Since <m>\ofml
+      B(V,W)</m> is a nonempty subset of <m>\ofml L(V,W)</m> [it contains the zero transformation], we need
+      only show that sums and scalar multiples of bounded linear maps are bounded in order to
+      establish that <m>\ofml B(V,W)</m> is a vector space. This is done below in the process of showing
+      that the map <m>T \mapsto \norm T</m> is a norm.
+    </p>
+
+    <p>
+      Let <m>S</m>, <m>T \in \ofml B(V,W)</m> and <m>\alpha \in \R</m>. To show that <m>\norm{S + T} \le \norm S +
+      \norm T</m> and <m>\norm{\alpha T} = \abs{\alpha} \norm T</m> we make use of the characterization
+      <m>\norm T = \sup\{\norm{Tu}\colon \norm u = 1\}</m> given in <xref ref="lem_equiv_norm">lemma</xref>. If <m>v</m>
+      is a unit vector in <m>V</m>, then
+      <md>
+        <mrow>\norm{(S + T)v} \amp = \norm{Sv + Tv}</mrow>
+        <mrow>\amp \le \norm{Sv} + \norm{Tv}</mrow>
+        <mrow>\amp \le \sup\{\norm{Su} \colon \norm u = 1\} + \sup\{\norm{Tv} \colon \norm v = 1\}</mrow>
+        <mrow>\amp = \norm S + \norm T .</mrow>
+      </md>
+    </p>
+
+    <p>
+      This shows that <m>S + T</m> is bounded and that
+      <md>
+        <mrow>\norm{S + T} \amp = \sup\{\norm{(S + T)v} \colon \norm v = 1\}</mrow>
+        <mrow>\amp \le \norm S + \norm T .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Also
+      <md>
+        <mrow>\sup\{\norm{\alpha Tv} \colon \norm v = 1\}
+                          \amp = \abs{\alpha} \sup\{\norm{Tv} \colon \norm v = 1\}</mrow>
+        <mrow>\amp = \abs{\alpha} \norm T ,</mrow>
+      </md>
+      which shows that <m>\alpha T</m> is bounded and that <m>\norm{\alpha T} = \abs{\alpha}\norm T</m>.
+    </p>
+
+    <p>
+      Finally, if <m>\sup\{\norm x^{-1}\norm{Tx}\colon x \ne \vc 0\} = \norm T = 0</m>, then <m>\norm
+      x^{-1}\norm{Tx} = 0</m> for all <m>x</m> in <m>V</m>, so that <m>Tx = \vc 0</m> for all <m>x</m> and therefore <m>T =
+      \vc 0</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_comp_op">
+    <p>
+      (Solution to <xref ref="prop_comp_op"></xref>)
+      The composite of linear maps is linear by <xref ref="prop_comp_lt">proposition</xref>. From
+      <xref ref="cor_norm_op">corollary</xref> we have
+      <me>
+        \norm{TSx} \le \norm T \, \norm{Sx} \le \norm T \, \norm S \, \norm x
+      </me>
+      for all <m>x</m> in<nbsp /><m>U</m>. Thus <m>TS</m> is bounded and <m>\norm{TS} \le \norm T \, \norm S</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_SW_prep">
+    <p>
+      (Solution to <xref ref="prop_SW_prep"></xref>)
+      First deal with the case <m>\norm f_u \le 1</m>. Let <m>(p_n)</m> be a sequence of polynomials on
+      <m>[0,1]</m> which converges uniformly to the square root function (<xref ref="exam_approx_sqrt">see</xref>).
+      Given <m>\epsilon > 0</m>, choose <m>n_0 \in \N</m> so that <m>n \ge n_0</m> implies <m>\abs{p_n((t) - \sqrt t}
+      \le \epsilon</m> for all <m>t \in [0,1]</m>. Since <m>\norm f_u \le 1</m>
+      <me>
+        \bigabs{p_n\bigl([f(x)]^2\bigr) - \abs{f(x)}}
+                     = \bigabs{p_n\bigl([f(x)]^2\bigr) - \sqrt{[f(x)]^2}}
+                     \lt  \epsilon
+      </me>
+      whenever <m>x \in M</m> and <m>n \ge n_0</m>. Thus <m>p_n \circ f^2 \sto  \abs f\text{ (unif) }</m>. For
+      every <m>n \in \N</m> the function <m>p_n \circ f^2</m> belongs to<nbsp /><m>A</m>. Consequently, <m>\abs f</m> is the
+      uniform limit of functions in <m>A</m> and therefore belongs to<nbsp /><m>\clo A</m>.
+    </p>
+
+    <p>
+      If <m>\norm f_u > 1</m> replace <m>f</m> in the argument above by <m>g = f/\norm f_u</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_SW_prep">
+    <p>
+      (Solution to <xref ref="lem_SW_prep"></xref>)
+      Let <m>f \in \fml C(M,\R)</m>, <m>a \in M</m>, and <m>\epsilon > 0</m>. According to
+      <xref ref="prop_sep_subalg">proposition</xref> we can choose, for each <m>y \ne a</m> in <m>M</m>, a function <m>\phi_y
+      \in A</m> such that
+      <me>
+        \phi_y(a) = f(a) \qquad \text{ and }  \qquad \phi_y(y) = f(y)\,.
+      </me>
+    </p>
+
+    <p>
+      And for <m>y = a</m> let <m>\phi_y</m> be the constant function whose value is <m>f(a)</m>. Since in either
+      case <m>\phi_y</m> and <m>f</m> are continuous functions which agree at <m>y</m>, there exists a neighborhood
+      <m>U_y</m> of <m>y</m> such that
+      <me>
+        \phi_y(x) \lt  f(x) + \epsilon
+      </me>
+      for all <m>x \in U_y</m>. Clearly <m>\{U_y \colon y \in M\}</m> covers <m>M</m>. Since <m>M</m> is compact there
+      exist points <m>y_1, \dots, y_n</m> in <m>M</m> such that the family <m>\{U_{y_1}, \dots, U_{y_n}\}</m>
+      covers <m>M</m>. Let <m>g = \phi_{y_1} \land \dots \land \phi_{y_n}</m>. By <xref ref="cor_sup_clo">corollary</xref>
+      the function <m>g</m> belongs to <m>\clo A</m>. Now <m>g(a) = \phi_{y_1}(a) \land \dots \land
+      \phi_{y_n}(a) = f(a)</m>. Furthermore, given any <m>x</m> in <m>M</m> there is an index <m>k</m> such that <m>x
+      \in U_{y_k}</m>. Thus
+      <me>
+        g(x) \le \phi_{y_k}(x) \lt  f(x) + \epsilon \,.
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_BVW_compl">
+    <p>
+      (Solution to <xref ref="prop_BVW_compl"></xref>)
+      Let <m>(T_n)</m> be a Cauchy sequence in the normed linear space <m>\ofml B(V,W)</m>. For each <m>x</m> in
+      <m>V</m>
+      <me>
+        \norm{T_mx - T_nx} \le  \norm{T_m - T_n}\,\norm x \sto 0
+      </me>
+      as <m>m</m>, <m>n \sto \infty</m>. Thus <m>(T_nx)</m> is a Cauchy sequence in <m>W</m> for each<nbsp /><m>x</m>. Since <m>W</m>
+      is complete, there exists a vector <m>Sx</m> in <m>W</m> such that <m>T_nx \sto Sx</m>. Define the map
+      <me>
+        S \colon V \sto W \colon x \mapsto Sx\,.
+      </me>
+    </p>
+
+    <p>
+      It is easy to see that <m>S</m> is linear: <m>S(x + y) = \lim T_n(x + y) = \lim(T_nx + T_ny) = \lim
+      T_nx + \lim T_ny = Sx + Sy</m>; <m>S(\alpha x) = \lim T_n(\alpha x) = \alpha \lim T_nx = \alpha
+      Sx</m>. For every <m>\epsilon > 0</m> there exists <m>N \in \N</m> such that <m>\norm{T_m - T_n} \lt 
+      þ\frac12\epsilon</m> whenever <m>m</m>, <m>n \ge N</m>. Then for all such <m>m</m> and <m>n</m> and for all <m>x</m> in
+      <m>V</m>
+      <md>
+        <mrow>\norm{(S - T_n)x}
+                      \amp = \norm{Sx - T_nx}</mrow>
+        <mrow>\amp \le \norm{Sx - T_mx} + \norm{T_mx - T_nx}</mrow>
+        <mrow>\amp \le \norm{Sx - T_mx} + \norm{T_m - T_n}\norm x</mrow>
+        <mrow>\amp \le \norm{Sx - T_mx} + \tfrac12\epsilon\norm x.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Taking limits as <m>m \sto \infty</m> we obtain
+      <me>
+        \norm{(S - T_n)x} \le \tfrac12\epsilon\norm x
+      </me>
+      for all <m>n \ge N</m> and <m>x \in V</m>. This shows that <m>S - T_n</m> is bounded and that <m>\norm{S -
+      T_n} \le \frac12\epsilon \lt  \epsilon</m> for <m>n \ge N</m>. Therefore the transformation
+      <me>
+        S = (S - T_n) + T_n
+      </me>
+      is bounded and
+      <me>
+        \norm{S - Tn} \sto 0
+      </me>
+      as <m>n \sto \infty</m>. Since the Cauchy sequence <m>(T_n)</m> converges in the space <m>\ofml B(V,W)</m>,
+      that space is complete.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_adj1">
+    <p>
+      (Solution to <xref ref="prop_adj1"></xref>)
+      We wish to show that if <m>g \in W^*</m>, then <m>T^*g \in V^*</m>. First we check linearity: if <m>x</m>,
+      <m>y \in V</m> and <m>\alpha \in \R</m>, then
+      <md>
+        <mrow>(T^*g)(x + y) \amp = gT(x + y)</mrow>
+        <mrow>\amp = g(Tx + Ty)</mrow>
+        <mrow>\amp = gTx + gTy</mrow>
+        <mrow>\amp = (T^*g)(x) + (T^*g)(y)</mrow>
+      </md>
+      and
+      <me>
+        (T^*g)(\alpha x) = gT(\alpha x) = g(\alpha Tx) = \alpha gTx = \alpha(T^*g)(x)\,.
+      </me>
+    </p>
+
+    <p>
+      To see that <m>T^*g</m> is bounded use <xref ref="cor_norm_op">corollary</xref>. For every <m>x</m> in <m>V</m>
+      <me>
+        \abs{(T^*g)(x)} = \abs{gTx} \le \norm g \, \norm{Tx}
+                                       \le \norm g \, \norm T \, \norm x\,.
+      </me>
+    </p>
+
+    <p>
+      Thus <m>T^*g</m> is bounded and <m>\norm{T^*g} \le \norm T \, \norm g</m>.
+    </p>
+  </solution>
+</section>

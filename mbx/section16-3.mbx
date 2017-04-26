@@ -1,0 +1,177 @@
+
+<section>
+  <title>Products of compact spaces</title>
+  <p>
+    It is possible using just the definition of compactness to prove that the product of two
+    compact metric spaces is compact. It is a pleasant reward for the effort put into proving
+    <xref ref="cpt_scpt">theorem</xref> that it can be used to give a genuinely simple proof of this important
+    result.
+  </p>
+
+  <theorem>
+    <statement>
+      <p>
+        If <m>M_1</m> and <m>M_2</m> are compact metric spaces, then so is <m>M_1 \times M_2</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <corollary xml:id="prod_cpt">
+    <statement>
+      <p>
+        If <m>M_1, \dots, M_n</m> are compact metric spaces, then the product
+        space <m>M_1 \times \dots \times M_n</m> is compact.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Induction.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be subsets of a metric space. Recall from <xref ref="dist_sets">definition</xref>
+        that the distance between <m>A</m> and <m>B</m> is defined by
+        <me>
+          d(A,B) := \inf\{d(a,b) \colon a \in A \text{ and }  b \in B\}\,.
+        </me>
+      </p>
+
+      <p>
+        Prove or disprove:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A \cap B = \emptyset</m>, then <m>d(A,B) > 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>A</m> and <m>B</m> are closed and <m>A \cap B = \emptyset</m>, then <m>d(A,B) > 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>A</m> is closed, <m>B</m> is compact, and <m>A \cap B = \emptyset</m>, then <m>d(A,B) > 0</m>.
+              <em>Hint.</em> If <m>d(A,B) = 0</m> then there exist sequences <m>a</m> in <m>A</m> and <m>b</m> in <m>B</m> such that
+              <m>d(a_n,b_n) \sto 0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              If <m>A</m> and <m>B</m> are compact and <m>A \cap B = \emptyset</m>, then <m>d(A,B) > 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="elps_cpt">
+    <statement>
+      <p>
+        Let <m>a</m>, <m>b > 0</m>. The elliptic disk
+        <me>
+          D := \biggl\{(x,y) \colon \frac{x^2}{a^2} + \frac{y^2}{b^2} \le 1 \biggr\}
+        </me>
+        is a compact subset of<nbsp /><m>\R^2</m>. <em>Hint.</em> Write the disk as a continuous image of the unit
+        square <m>[0,1] \times [0,1]</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        The unit sphere
+        <me>
+          S^2 \equiv \{(x,y,z) \colon x^2 + y^2 + z^2 = 1\}
+        </me>
+        is a compact subset of <m>\R^3</m>. <em>Hint.</em> Spherical coordinates.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Show that the interval <m>[0,\infty)</m> is not a compact subset of <m>\R</m> using each
+        of the following:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              The definition of compactness.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <xref ref="mtc">Proposition</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <xref ref="cpt_clbdd">Proposition</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              The <em>extreme value theorem</em><nbsp /><xref ref="EVThm" />.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <xref ref="cpt_scpt">Theorem</xref>, condition (2).
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              <xref ref="cpt_scpt">Theorem</xref>, condition (3).
+            </p>
+          </li>
+
+          <li>
+            <title>(g)</title>
+            <p>
+              The <em>finite intersection property</em>. (See <xref ref="fip">problem</xref>.)
+            </p>
+          </li>
+
+          <li>
+            <title>(h)</title>
+            <p>
+              <em>Dini's theorem.</em> (See <xref ref="Dini_thm">problem</xref>.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

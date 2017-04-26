@@ -1,0 +1,168 @@
+
+<section>
+  <title>Continuity and limits</title>
+  <p>
+    There is a close connection between the existence of a limit of a function at a point <m>a</m> and
+    the continuity of the function at <m>a</m>. In <xref ref="cnt_vs_lim">proposition</xref> we state the precise
+    relationship. But first we give two examples to show that in the absence of additional
+    hypotheses neither of these implies the other.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        The inclusion function <m>f \colon  \N \sto \R \colon  n \mapsto n</m> is continuous
+        (because <em>every</em> subset of <m>\N</m> is open in <m>\N</m>, and thus every function defined on <m>\N</m>
+        is continuous). But the limit of <m>f</m> exists at no point (because <m>\N</m> has no accumulation
+        points).
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let
+        <me>
+          f(x) = \begin{cases}0,  \amp \text{ for \(x \ne 0\) }  \\
+                                        1,  \amp \text{ for \(x=0\)\,. } 
+          \end{cases}
+        </me>
+      </p>
+
+      <p>
+        Then <m>\lim_{x \sto 0}f(x)</m> exists (and equals <m>0</m>), but <m>f</m> is not continuous at <m>x = 0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    We have shown in the two preceding examples that a function <m>f</m> may be continuous at a point
+    <m>a</m> without having a limit there and that it may have a limit at <m>a</m> without being continuous
+    there. If we require the point <m>a</m> to belong to the domain of <m>f</m> and to be an accumulation
+    point of the domain of <m>f</m> (these conditions are independent!), then a necessary and
+    sufficient condition for <m>f</m> to be continuous at <m>a</m> is that the limit of <m>f</m> as <m>x</m>
+    approaches <m>a</m> (exist and) be equal to <m>f(a)</m>.
+  </p>
+
+  <proposition xml:id="cnt_vs_lim">
+    <statement>
+      <p>
+        Let <m>f \colon  A \sto \R</m> where <m>A \subseteq \R</m>, and let
+        <m>a \in A \cap A'</m>. Then <m>f</m> is continuous at <m>a</m> if and only if
+        <me>
+          \lim_{x \sto a}f(x) = f(a)\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_cnt_vs_lim">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="trnsl_lim">
+    <statement>
+      <p>
+        If <m>f \colon A \sto \R</m> where <m>A \subseteq \R</m>, and <m>a \in A'</m>, then
+        <me>
+          \lim_{h \sto 0} f(a + h) = \lim_{x \sto a} f(x)
+        </me>
+        in the sense that if either limit exists, then so does the other and the two limits are equal.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_trnsl_lim">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = 4 - x</m> if <m>x \lt  0</m> and <m>f(x) = (2 + x)^2</m> if <m>x > 0</m>. Using the
+        definition of <q>limit</q> show that <m>\lim_{x \sto 0}f(x)</m> exists.
+      </p>
+    </statement>
+  </problem>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f \colon A \sto \R</m> where <m>A \subseteq \R</m> and let <m>a \in A'</m>. Then
+        <me>
+          \lim_{x \sto a}f(x) = 0 \qquad \text{ if and only if }  \qquad
+                                                  \lim_{x \sto a}\abs{f(x)} = 0\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="sand_fcn">
+    <statement>
+      <p>
+        Let <m>f</m>, <m>g</m>, <m>h \colon A \sto \R</m> where <m>A \subseteq \R</m>, and
+        let <m>a \in A'</m>. If <m>f \le g \le h</m> and
+        <me>
+          \lim_{x \sto a}f(x) = \lim_{x \sto a}h(x) = l,
+        </me>
+        then <m>\lim_{x \sto a}g(x) = l</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> A slight modification of your proof of <xref ref="sand_seq">proposition</xref> should do the trick.
+    </p>
+  </proof>
+
+  <problem>
+    <title>Limits of algebraic combinations of functions</title>
+    <statement>
+      <p>
+        Carefully formulate and prove
+        the standard results from beginning calculus on the limits of sums, constant multiples,
+        products, and quotients of functions.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>A</m>, <m>B \subseteq \R</m>, <m>a \in A</m>, <m>f \colon A \sto B</m>, and <m>g \colon B \sto \R</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>l = \lim_{x \sto a}f(x)</m> exists and <m>g</m> is continuous at <m>l</m>, then
+              <me>
+                \lim_{x \sto a}(g \circ f)(x) = g(l)\,.
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show by example that the following assertion need not be true: If
+              <m>l = \lim_{x \sto a}f(x)</m> exists and <m>\lim_{y \sto l}g(y)</m> exists, then <m>\lim_{x \sto a}(g
+              \circ f)(x)</m> exists.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

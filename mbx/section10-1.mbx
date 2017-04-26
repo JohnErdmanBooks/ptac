@@ -1,0 +1,202 @@
+
+<section>
+  <title>Definitions and examples</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>(M,d)</m> be a metric space and <m>M_0</m> be a nonempty subset of<nbsp /><m>M</m>. If <m>d_0</m>
+        is the restriction of <m>d</m> to <m>M_0 \times M_0</m>, then, clearly, <m>(M_0,d_0)</m> is a metric space.
+        It is a
+        <index><main>subspace</main><sub>of a metric space</sub></index><term>metric subspace</term> of<nbsp /><m>(M,d)</m>. In practice the restricted function (often called the
+        <index><main>induced metric</main></index>
+        <index><main>metric</main><sub>induced</sub></index><term>induced metric</term>) is seldom given a name of its own; one usually writes, <q><m>(M_0,d)</m> is a
+        (metric) subspace of <m>(M,d)</m></q>. When the metric on <m>M</m> is understood, this is further
+        shortened to, <q><m>M_0</m> is a subspace of<nbsp /><m>M</m></q>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be <m>\R^2</m> equipped with the usual Euclidean metric <m>d</m> and <m>M_0 =~\Q^2</m>.
+        The induced metric <m>d_0</m> agrees with <m>d</m> where they are both defined:
+        <me>
+          d(x,y) = d_0(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}
+        </me>
+        where <m>x = (x_1,x_2)</m> and <m>y = (y_1,y_2)</m>. The only difference is that <m>d_0(x,y)</m> is defined
+        only when both <m>x</m> and <m>y</m> have rational coordinates.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="icb1ex">
+    <statement>
+      <p>
+        Regard <m>M_0 = \{-1\} \cup [0,4)</m> as a subspace of <m>\R</m> under its
+        usual metric. In this subspace find the open balls <m>B_1(-1)</m>, <m>B_1(0)</m>, and<nbsp /><m>B_2(0)</m>.
+        (<xref ref="sol_icb1ex">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of a metric space <m>M</m>. A point <m>a</m> is an
+        <index><main>interior</main><sub>point</sub></index>
+        <index><main>point</main><sub>interior</sub></index><term>interior point</term> of <m>A</m> if some open ball about <m>a</m> lies entirely in<nbsp /><m>A</m>. The
+        <index><main>interior</main></index><term>interior</term> of <m>A</m>, denoted
+        <index><main><@<m>A^\circ</m> (interior of<nbsp /><m>A</m>)</main></index>by<nbsp /><m>\intr A</m>, is the set of all interior points of<nbsp /><m>A</m>. That is,
+        <me>
+          \intr A := \{x \in M: B_r(x) \subseteq A \text{ for some }  r > 0\}\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be <m>\R</m> with its usual metric and <m>A</m> be the closed interval <m>[0,1]</m>.
+        Then <m>\intr A = (0,1)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be <m>\R^2</m> with its usual metric and <m>A</m> be the unit disk <m>\{(x,y) \colon x^2 + y^2 \le 1\}</m>.
+        Then the interior of <m>A</m> is the open disk <m>\{(x,y) \colon x^2 + y^2 \lt  1\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>M = \R^2</m> with its usual metric and <m>A = \Q^2</m>. Then <m>\intr A = \emptyset</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      No open ball in <m>\R^2</m> contains only points both of whose coordinates are rational.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Consider the metrics <m>d</m>, <m>d_1</m>, and <m>d_u</m> on <m>\R^2</m>. Let <m>A = \{x \in \R^2
+        \colon d(x,0) \le~1\}</m>, <m>A_1 = \{x \in \R^2 \colon d_1(x,0) \le 1\}</m>, and <m>A_u = \{x \in \R^2
+        \colon d_u(x,0) \le 1\}</m>. The point <m>\bigl(\frac23,\frac38\bigr)</m> belongs to <m>\intr A</m> and
+        <m>\intr{A_u}</m>, but not to <m>\intr{A_1}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A point <m>x</m> in a metric space <m>M</m> is an
+        <index><main>accumulation point</main></index>
+        <index><main>point</main><sub>accumulation</sub></index><term>accumulation point</term> of a set <m>A \subseteq M</m> if every open ball about <m>x</m> contains a point
+        of <m>A</m> distinct from<nbsp /><m>x</m>. (We do <em>not</em> require that <m>x</m> belong to <m>A</m>.) We denote the set
+        of all accumulation points of <m>A</m>
+        <index><main><@<m>A'</m> (derived set of <m>A</m>, set of accumulation points)</main></index>by<nbsp /><m>A'</m>. This is sometimes called
+        the
+        <index><main>derived set</main></index><term>derived set</term> of <m>A</m>. The
+        <index><main>closure</main></index><term>closure</term> of the set <m>A</m>, denoted
+        <index><main><@<m>\overline A</m> (closure of <m>A</m>)</main></index>by<nbsp /><m>\clo A</m>, is <m>A \cup A'</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>\R^2</m> have its usual metric and <m>A</m> be <m>\bigl[(0,1) \times (0,1)\bigr] \cup
+        \{(2,3)\} \subseteq \R^2</m>. Then <m>A' = [0,1] \times [0,1]</m> and <m>\clo A =\bigl([0,1] \times
+        [0,1]\bigr) \cup \{(2,3)\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\Q^2</m> is a subset of the metric space <m>\R^2</m>. Every ordered pair of real
+        numbers is an accumulation point of <m>\Q^2</m> since every open ball in <m>\R^2</m> contains
+        (infinitely many) points with both coordinates rational. So the closure of <m>\Q^2</m> is all
+        of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <definition>
+    <statement>
+      <p>
+        The
+        <index><main>boundary</main></index><term>boundary</term> of a set <m>A</m> in a metric space is the intersection of the closures of <m>A</m> and
+        its complement. We denote it
+        <index><main><@<m>\partial A</m> (boundary of <m>A</m>)</main></index>by<nbsp /><m>\partial A</m>. In symbols,
+        <me>
+          \partial A := \clo A \cap \clo{A^c}\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Take <m>M</m> to be <m>\R</m> with its usual metric. If <m>A = (0,1)</m>, then <m>\clo A = A' =
+        [0,1]</m> and <m>\clo{A^c} = A^c = (-\infty,0] \cup [1,\infty)</m>; so <m>\partial A = \{0,1\}</m>.
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="icb2ex">
+    <statement>
+      <p>
+        In each of the following find <m>\intr A</m>, <m>A'</m>, <m>\clo A</m>, and<nbsp /><m>\partial A</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Let <m>A = \{\frac1n: n \in \N\}</m>. Regard <m>A</m> as a subset of the metric space<nbsp /><m>\R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Let <m>A = \Q \cap (0,\infty)</m>. Regard <m>A</m> as a subset of the metric space<nbsp /><m>\R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Let <m>A = \Q \cap (0,\infty)</m>. Regard <m>A</m> as a subset of the metric space<nbsp /><m>\Q</m>
+              (where <m>\Q</m> is a subspace of <m>\R</m>).
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_icb2ex">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+</section>

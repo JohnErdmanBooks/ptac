@@ -1,0 +1,305 @@
+
+<section>
+  <title>Exercises in Chapter 24</title>
+  <solution xml:id="sol_exam_ucont">
+    <p>
+      (Solution to <xref ref="exam_ucont"></xref>)
+      Given <m>\epsilon > 0</m> choose <m>\delta = \epsilon</m>. Assume <m>\abs{x - y} \lt  \delta</m>. Then
+      <me>
+        \abs{f(x) - f(y)} = \bigabs{\frac1x - \frac1y} = \bigabs{\frac{y - x}{xy}}
+                   = \bigabs{\frac{x - y}{xy}} \le \abs{x - y} \lt  \delta = \epsilon\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_not_ucont">
+    <p>
+      (Solution to <xref ref="exam_not_ucont"></xref>)
+      We must show that
+      <me>
+        (\exists\epsilon > 0)(\forall\delta > 0)(\exists x,y \in (0,1])
+                \abs{x - y} \lt  \delta \text{ and }  \abs{f(x) - f(y)} \ge \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      Let <m>\epsilon = 1</m>. Suppose <m>\delta > 0</m>. Let <m>\delta_0 = \min\{1,\delta\}</m>, <m>x = \frac12
+      \delta_0</m>, and <m>y = \delta_0</m>. Then <m>x</m>, <m>y \in (0,1]</m>, <m>\abs{x - y} = \frac12\delta_0 \le
+      \frac12\delta \lt  \delta</m>, and <m>\abs{f(x) - f(y)} = \abs{\frac2{\delta_0} - \frac1{\delta_0}} =
+      \frac1\delta_0 \ge 1</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_conv_subseq">
+    <p>
+      (Solution to <xref ref="lem_conv_subseq"></xref>)
+      Since <m>M</m> is compact it is sequentially compact (by <xref ref="cpt_scpt">theorem</xref>). Thus the
+      sequence <m>(x_n)</m> has a convergent subsequence <m>(x_{n_k})</m>. Let <m>a</m> be the limit of this
+      subsequence. Since for each <m>k</m>
+      <me>
+        d\bigl(y_{n_k},a\bigr)
+                  \le d\bigl(y_{n_k}, x_{n_k}\bigr) + d\bigl(x_{n_k},a\bigr)
+      </me>
+      and since both sequences on the right converge to zero, it follows that <m>y_{n_k} \sto a</m> as <m>k
+      \sto \infty</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_cont_ucont">
+    <p>
+      (Solution to <xref ref="prop_cont_ucont"></xref>)
+      Assume that <m>f</m> is not uniformly continuous. Then there is a number <m>\epsilon > 0</m> such that
+      for every <m>n</m> in <m>\N</m> there correspond points <m>x_n</m> and <m>y_n</m> in <m>M_1</m> such that <m>d(x_n,y_n) \lt 
+      1/n</m> but <m>d\bigl(f(x_n), f(y_n)\bigr) \ge \epsilon</m>. By <xref ref="lem_conv_subseq">lemma</xref> there
+      exist subsequences <m>\bigl(x_{n_k}\bigr)</m> of <m>(x_n)</m> and <m>\bigl(y_{n_k}\bigr)</m> of <m>(y_n)</m> both
+      of which converge to some point <m>a</m> in<nbsp /><m>M_1</m>. It follows from the continuity of <m>f</m> that for
+      some integer <m>k</m> sufficiently large, <m>d\bigl(f(x_{n_k}), f(a)\bigr) \lt  \epsilon/2</m> and
+      <m>d\bigl(f(y_{n_k}),f(a)\bigr) \lt  \epsilon/2</m>. This contradicts the assertion that
+      <m>d\bigl(f(x_n),f(y_n)\bigr) \ge \epsilon</m> for every <m>n</m> in <m>\N</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_ucont_lim">
+    <p>
+      (Solution to <xref ref="lem_ucont_lim"></xref>)
+      By hypothesis there exists a point <m>a</m> in <m>M_1</m> such that <m>x_n \sto a</m> and <m>y_n \sto a</m>. It is
+      easy to see that the <q>interlaced</q> sequence <m>(z_n) = (x_1, y_1, x_2, y_2, x_3, y_3,\dots)</m>
+      also converges to<nbsp /><m>a</m>. By <xref ref="conv_cau">proposition</xref> the sequence <m>(z_n)</m> is Cauchy (in <m>M_1</m>
+      and therefore) in <m>S</m>, and by <xref ref="prop_ucont_Cauchy">proposition</xref> (applied to the metric
+      space<nbsp /><m>S</m>) the sequence <m>\bigl(f(z_n)\bigr)</m> is Cauchy in<nbsp /><m>M_2</m>. The sequence
+      <m>\bigl(f(x_n)\bigr)</m> is a subsequence of <m>\bigl(f(z_n)\bigr)</m> and is, by hypothesis,
+      convergent. Therefore, according to <xref ref="cs_css">proposition</xref>, the sequence
+      <m>\bigl(f(z_n)\bigr)</m> converges and
+      <me>
+        \lim f(x_n) = \lim f(z_n) = \lim f(y_n)\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_partition">
+    <p>
+      (Solution to <xref ref="exer_partition"></xref>)
+      Just take the union of the sets of points in <m>P</m> and <m>Q</m> and put them in increasing order.
+      Thus
+      <me>
+        P \lor Q = \bigl(0, \tfrac15, \tfrac14, \tfrac13, \tfrac12,
+                                        \tfrac23, \tfrac34, \tfrac56, 1\bigr)\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_int_stepf">
+    <p>
+      (Solution to <xref ref="exer_int_stepf"></xref>)
+      (a) Either sketch the graph of <m>\sigma</m> or reduce the function algebraically to obtain
+      <me>
+        \sigma  = -\chi_{{}_\sst{\{2\}}} -2\chi_{{}_\sst{(2,3)}} - \chi_{{}_\sst{\{5\}}}\,.
+      </me>
+    </p>
+
+    <p>
+      Then the partition associated with <m>\sigma</m> is <m>P = (0,2,3,5)</m>.
+    </p>
+
+    <p>
+      (b) <m>\sigma_Q = (0,0,-2,0,0)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_int_stepf2">
+    <p>
+      (Solution to <xref ref="exer_int_stepf2"></xref>)
+      The values of <m>\sigma</m> on the subintervals of <m>P</m> are given by <m>\sigma_P = (0,-2,0)</m>. Multiply
+      each of these by the length of the corresponding subinterval:
+      <me>
+        \int_0^5\sigma = (2-0)(0) + (3-2)(-2) + (5-3)(0) = -2\,. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_lem_int_stepf">
+    <p>
+      (Solution to <xref ref="lem_int_stepf"></xref>)
+      Perhaps the simplest way to go about this is to observe first that we can get from the
+      partition associated with <m>\sigma</m> to the refinement <m>Q</m> one point at a time. That is, there
+      exist partitions
+      <me>
+        P_1 \preceq P_2 \preceq \dots \preceq P_r = Q
+      </me>
+      where <m>P_1</m> is the partition associated with <m>\sigma</m> and <m>P_{j+1}</m> contains exactly one point
+      more than <m>P_j</m> (for <m>1 \le j \le r-1</m>).
+    </p>
+
+    <p>
+      Thus it suffices to prove the following: If <m>\sigma</m> is a step function on <m>[a,b]</m>, if <m>P =
+      (s_0, \dots, s_n)</m> is a refinement of the partition associated with <m>\sigma</m>, and if <m>P
+      \preceq Q = (t_0, \dots,t_{n+1})</m>, then
+      <me>
+        \sum_{k=1}^{n+1}(\Delta t_k)y_k = \sum_{k=1}^n(\Delta s_k)x_k
+      </me>
+      where <m>\sigma_P = (x_1, \dots, x_n)</m> and <m>\sigma_Q = (y_1, \dots, y_{n+1})</m>.
+    </p>
+
+    <p>
+      To prove this assertion, notice that since the partition <m>Q</m> contains exactly one point more
+      than <m>P</m>, it must be of the form
+      <me>
+        Q = (s_0, \dots, s_{p-1}, u, s_p, \dots, s_n)
+      </me>
+      for some <m>p</m> such that <m>1 \le p \le n</m>. Thus
+      <me>
+        y_k =
+              \begin{cases}x_k, \amp \text{ for \(1 \le k \le p\) } \\
+                        x_{k-1}, \amp \text{ for \(p+1 \le k \le n+1\). } 
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Therefore,
+      <md>
+        <mrow>\sum_{k=1}^{n+1} (\Delta t_k)y_k
+               \amp = \sum_{k=1}^{p-1} (\Delta t_k)y_k
+                     + (\Delta t_p)y_p + (\Delta t_{p+1})y_{p+1}
+                     + \sum_{k=p+2}^{n+1} (\Delta t_k)y_k</mrow>
+        <mrow>\amp = \sum_{k=1}^{p-1} (\Delta s_k)x_k
+                     + (u - s_{p-1})x_p + (s_p - u)x_p
+                     + \sum_{k=p+2}^{n+1} (\Delta s_{k-1})x_{k-1}</mrow>
+        <mrow>\amp = \sum_{k=1}^{p-1} (\Delta s_k)x_k
+                     + (s_p - s_{p-1})x_p
+                     + \sum_{k=p+1}^n (\Delta s_k)x_k</mrow>
+        <mrow>\amp = \sum_{k=1}^n (\Delta s_k)x_k  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_int_adj_int">
+    <p>
+      (Solution to <xref ref="prop_int_adj_int"></xref>)
+      That <m>\sigma</m> is an <m>E</m> valued step function on <m>[a,b]</m> is obvious. Let <m>Q = (u_0, \dots,
+      u_m)</m> and <m>R = (v_0, \dots,  v_n)</m> be the partitions associated with <m>\tau</m> and <m>\rho</m>,
+      respectively; and suppose that <m>\tau_Q = (y_1, \dots, y_m)</m> and <m>\rho_R = (z_1, \dots, z_n)</m>.
+      For <m>1 \le k \le m+n</m>, let
+      <me>
+        t_k =
+              \begin{cases}u_k, \amp \text{ for \(0 \le k \le m\) }  \\
+                         v_{k-m}, \amp \text{ for \(m+1 \le k \le m+n\) } 
+        \end{cases}
+      </me>
+      and <m>P = (t_0, \dots, t_{m+n})</m>. Also define
+      <me>
+        x_k =
+               \begin{cases}y_k, \amp \text{ for \(1 \le k \le m\) }  \\
+                          z_{k-m}, \amp \text{ for \(m+1 \le k \le m+n\) } .
+        \end{cases}
+      </me>
+    </p>
+
+    <p>
+      Then <m>P</m> is a partition of <m>[a,b]</m> and <m>\sigma_P = (x_1, \dots, x_{m+n})</m>. Furthermore,
+      <md>
+        <mrow>\int_a^b\sigma
+                     \amp = \sum_{k=1}^m+n (\Delta t_k)x_k</mrow>
+        <mrow>\amp = \sum_{k=1}^m (\Delta t_k)x_k
+                          + \sum_{k=m+1}^{m+n} (\Delta t_k)x_k</mrow>
+        <mrow>\amp = \sum_{k=1}^m (\Delta u_k)y_k
+                          + \sum_{k=m+1}^{m+n} (\Delta v_{k-m})z_{k-m}</mrow>
+        <mrow>\amp = \sum_{k=1}^m (\Delta u_k)y_k
+                          + \sum_{k=1}^{n} (\Delta v_k)z_k</mrow>
+        <mrow>\amp = \int_a^c \tau + \int_c^b \rho.</mrow>
+      </md>
+    </p>
+
+    <p>
+      (The third equality requires the observation that <m>\Delta t_{m+1} = v_1 - u_m = v_1 - c = v_1 - v_0</m>.)
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_cont_reg">
+    <p>
+      (Solution to <xref ref="prop_cont_reg"></xref>)
+      Let <m>f\colon [a,b] \sto E</m> be continuous. Given <m>\epsilon > 0</m> we find a step function
+      <m>\sigma</m> such that <m>\norm{f - \sigma}_u \lt  \epsilon</m>. Since the domain of <m>f</m> is compact,
+      <xref ref="prop_cont_ucont">proposition</xref> guarantees that <m>f</m> is uniformly continuous. Thus there
+      exists <m>\delta > 0</m> such that <m>\norm{f(u) - f(v)} \lt  \epsilon/2</m> whenever <m>u</m> and <m>v</m> are
+      points in <m>[a,b]</m> such that <m>\abs{u-v} \lt  \delta</m>. Choose a partition <m>(t_0, \dots, t_n)</m> of
+      <m>[a,b]</m> so that <m>t_k - t_{k-1} \lt  \delta</m> for each <m>k = 1, \dots, n</m>.
+    </p>
+
+    <p>
+      Define <m>\sigma\colon [a,b] \sto E</m> by <m>\sigma(s) = f(t_{k-1})</m> if <m>t_{k-1} \le s \le t_k</m> <m>(1
+      \le k \le n)</m> and define <m>\sigma(b) = f(b)</m>. It is easy to see that <m>\norm{f(s) - \sigma(s)}
+      \lt  \epsilon/2</m> for every <m>s</m> in <m>[a,b]</m>. Thus <m>\norm{f - \sigma}_u \lt  \epsilon</m>; so <m>f</m> belongs
+      to the closure of the family of step functions.
+    </p>
+  </solution>
+  <solution xml:id="sol_thm_Cint_blt">
+    <p>
+      (Solution to <xref ref="thm_Cint_blt"></xref>)
+      Let <m>\clo{\fml S}</m> be the closure of <m>\fml S([a,b],E)</m> in the space <m>\fml B([a,b],E)</m>. If <m>g,
+      h \in \clo{\fml S}</m>, then there exist sequences <m>(\sigma_n)</m> and <m>(\tau_n)</m> of step functions
+      which converge uniformly to <m>g</m> and <m>h</m>, respectively. Then <m>(\sigma_n + \tau_n)</m> is a
+      sequence of step functions and <m>\sigma_n + \tau_n \sto g + h \text{ (unif) }</m>; so <m>g + h \in
+      \clo{\fml S}</m>. Thus
+      <md>
+        <mrow>\int(g + h)
+                    \amp = \lim \int(\sigma_n + \tau_n)</mrow>
+        <mrow>\amp = \lim\left(\int\sigma_n + \int\tau_n\right)</mrow>
+        <mrow>\amp = \lim\int\sigma_n + \lim\int\tau_n</mrow>
+        <mrow>\amp = \int g + \int h.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Similarly, if <m>\alpha \in \R</m>, then <m>(\alpha \sigma_n)</m> is a sequence of step functions which
+      converges to <m>\alpha g</m>. Thus <m>\alpha g \in \clo{\fml S}</m> and
+      <me>
+        \int(\alpha g) = \lim \int(\alpha \sigma_n) = \lim \left(\alpha\int \sigma_n\right)
+                    = \alpha \lim \int \sigma_n = \alpha \int g\,.
+      </me>
+    </p>
+
+    <p>
+      The map <m>\int\colon  \clo{\fml S} \sto E</m> is bounded since it is both linear and uniformly
+      continuous (<xref ref="thm_ext_uc">see</xref> and <xref ref="prop_lin_ucont"></xref>).
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_int_compop">
+    <p>
+      (Solution to <xref ref="prop_int_compop"></xref>)
+      The function <m>f</m>, being regulated, is the uniform limit in <m>\fml B([a,b],E)</m> of a sequence
+      <m>(\sigma_n)</m> of step functions. Since <m>\int\sigma_n \sto \int f</m> in <m>E</m> and <m>T</m> is
+      continuous, we see that
+      <men xml:id="eqn_compop1" >
+        T\left(\int f\right) = \lim T \left(\int\sigma_n\right)\,.
+      </men>
+    </p>
+
+    <p>
+      By <xref ref="prob_int_compop">problem</xref> each <m>T \circ \sigma_n</m> is an <m>F</m> valued step function and
+      <men xml:id="eqn_compop2" >
+        \int(T \circ \sigma_n) = T\left(\int\sigma_n\right) \qquad \text{ for each \(n\). }
+      </men>
+    </p>
+
+    <p>
+      For every <m>t</m> in <m>[a,b]</m>
+      <md>
+        <mrow>\norm{(T \circ f - T \circ \sigma_n)(t)}</mrow>
+        <mrow>\amp = \norm{T\bigl((f - \sigma_n)(t)\bigr)}</mrow>
+        <mrow>\amp \le \norm T \norm{(f - \sigma_n)(t)}</mrow>
+        <mrow>\amp \le \norm T \norm{f - \sigma_n}_u</mrow>
+      </md>
+      so
+      <me>
+        \norm{T \circ f - T \circ \sigma_n}_u \le \norm T \norm{f - \sigma_n}_u\,.
+      </me>
+    </p>
+
+    <p>
+      Since <m>\norm{f - \sigma_n}_u \sto 0</m>, we conclude that
+      <me>
+        T \circ \sigma_n \sto T \circ f \text{ (unif) }
+      </me>
+      in <m>\fml B([a,b],F)</m>. Thus <m>T \circ f</m> is regulated and
+      <men xml:id="eqn_compop3" >
+        \int(T \circ f) = \lim\int(T \circ \sigma_n).
+      </men>
+    </p>
+
+    <p>
+      The desired conclusion follows immediately from <xref ref="eqn_compop1" />, <xref ref="eqn_compop2" />,
+      and<nbsp /><xref ref="eqn_compop3" />.
+    </p>
+  </solution>
+</section>

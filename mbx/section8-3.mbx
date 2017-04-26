@@ -1,0 +1,176 @@
+
+<section>
+  <title>Linear approximation</title>
+  <p>
+    One often hears that differentiation of a smooth function <m>f</m> at a point <m>a</m> in its domain is
+    the process of finding the best <q>linear approximation</q> to <m>f</m> at<nbsp /><m>a</m>. This informal
+    assertion is not quite correct. For example, as we know from beginning calculus, the tangent
+    line at <m>x=1</m> to the curve <m>y = 4 + x^2</m> is the line <m>y = 2x + 3</m>, which is not a linear
+    function since it does not pass through the origin. To rectify this rather minor shortcoming
+    we first translate the graph of the function <m>f</m> so that the point <m>(a,f(a))</m> goes to the
+    origin, and <em>then</em> find the best linear approximation at the origin. The operation of
+    translation is carried out by a somewhat notorious acquaintance from beginning calculus
+    <m>\Delta y</m>. The source of its notoriety is two-fold: first, in many texts it is inadequately
+    defined; and second, the notation <m>\Delta y</m> fails to alert the reader to the fact that under
+    consideration is a function of <em>two</em> variables. We will be careful on both counts.
+  </p>
+
+  <definition xml:id="Delta">
+    <statement>
+      <p>
+        Let <m>f \in \fml F_a</m>. Define the function
+        <index><main><@<m>\Delta F_a</m></main></index>
+        <index><main>delta@<m>\Delta F_a</m></main></index><m>\Delta f_a</m> by
+        <me>
+          \Delta f_a(h) := f(a + h) - f(a)
+        </me>
+        for all <m>h</m> such that <m>a + h</m> is in the domain of <m>f</m>. Notice that since <m>f</m> is defined in a
+        neighborhood of <m>a</m>, the function <m>\Delta f_a</m> is defined in a neighborhood of 0; that is,
+        <m>\Delta f_a</m> belongs to <m>\fml F_0</m>. Notice also that <m>\Delta f_a(0) = 0</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \cos x</m> for <m>0 \le x \le 2\pi</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Sketch the graph of the function <m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Sketch the graph of the function <m>\Delta f_{\pi}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <proposition xml:id="del_sm">
+    <statement>
+      <p>
+        If <m>f \in \fml F_a</m> and <m>\alpha \in \R</m>, then
+        <me>
+          \Delta(\alpha f)_a = \alpha\,\Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      To show that two functions are equal show that they agree at each point in their
+      domain. Here
+      <md>
+        <mrow>\Delta(\alpha f)_a(h) \amp = (\alpha f)(a + h) - (\alpha f)(a)</mrow>
+        <mrow>\amp = \alpha f(a + h) - \alpha f(a)</mrow>
+        <mrow>\amp = \alpha(f(a + h) - f(a))</mrow>
+        <mrow>\amp = \alpha\,\Delta f_a(h)</mrow>
+      </md>
+      for every <m>h</m> in the domain of<nbsp /><m>\Delta f_a</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="del_sum">
+    <statement>
+      <p>
+        If <m>f,g \in \fml F_a</m>, then
+        <me>
+          \Delta(f+g)_a = \Delta f_a + \Delta g_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_del_sum">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The last two propositions prefigure the fact that differentiation is a linear operator; the
+    next result will lead to <em>Leibniz's rule</em> for differentiating products.
+  </p>
+
+  <proposition xml:id="del_mult">
+    <statement>
+      <p>
+        If <m>\phi, f \in \fml F_a</m>, then
+        <me>
+          \Delta(\phi f)_a = \phi(a)\cdot\Delta f_a \,+\, \Delta\phi_a\cdot f(a)
+                                  \,+\, \Delta\phi_a\cdot\Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Finally, we present a result which prepares the way for the <em>chain rule</em>.
+  </p>
+
+  <proposition xml:id="del_comp">
+    <statement>
+      <p>
+        If <m>f \in \fml F_a</m>, <m>g \in \fml F_{f(a)}</m>, and
+        <m>g \circ f \in \fml F_a</m>, then
+        <me>
+          \Delta(g \circ f)_a = \Delta g_{{}_{\scriptstyle{f(a)}}} \circ \Delta f_a\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_del_comp">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>A \subseteq \R</m>. A function <m>f \colon A \sto \R</m> is continuous at the
+        point <m>a</m> in <m>A</m> if and only if <m>\Delta f_a</m> is continuous at<nbsp /><m>0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        If <m>f \colon U \sto U_1</m> is a bijection between subsets of <m>\R</m>, then for each
+        <m>a</m> in <m>U</m> the function <m>\Delta f_a \colon  U - a \sto U_1 - f(a)</m> is invertible and
+        <me>
+          \bigl(\Delta f_a\bigr)^{-1}=\Delta\bigl(f^{-1}\bigr)_{f(a)}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+</section>

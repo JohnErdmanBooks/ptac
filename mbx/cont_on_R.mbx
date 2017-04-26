@@ -1,0 +1,20 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="cont_on_R">
+  <title>Continuous functions from <m>\R</m> to <m>\R</m></title>
+  <introduction>
+    <p>
+      The continuous functions are perhaps the most important single class of functions studied in
+      calculus. Very roughly, a function <m>f\colon\R \sto \R</m> is continuous at a point <m>a</m> in <m>\R</m>
+      if <m>f(x)</m> can be made arbitrarily close to <m>f(a)</m> by insisting that <m>x</m> be sufficiently close
+      to <m>a</m>. In this chapter we define continuity for real valued functions of a real variable and
+      derive some useful necessary and sufficient conditions for such a function to be continuous.
+      Also we will show that composites of continuous functions are themselves continuous. We will
+      postpone until the next chapter proofs that other combinations (sums, products, and so on) of
+      continuous functions are continuous. The first applications of continuity will come in
+      <xref ref="ivt">chapters</xref> and <xref ref="evt"></xref> on connectedness and compactness.
+    </p>
+  </introduction>
+  <xi:include  href="section3-1.mbx" />
+  <xi:include  href="section3-2.mbx" />
+  <xi:include  href="section3-3.mbx" />
+</chapter>

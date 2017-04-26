@@ -1,0 +1,51 @@
+
+<section>
+  <title>Convergence of sequences</title>
+  <p>
+    Recall that a
+    <index><main>sequence</main></index><term>sequence</term> is any function whose domain is the set <m>\N</m> of natural numbers. If <m>S</m> is a
+    set and <m>x \colon \N \sto S</m>, then we say that <m>x</m> is a sequence of members of <m>S</m>. A map <m>x
+    \colon \N \sto \R</m>, for example, is a sequence of real numbers. In dealing with sequences one
+    usually (but not always) writes <m>x_n</m> for <m>x(n)</m>. The element <m>x_n</m> in the range of a
+    sequence is the <m>n^{\text{ th } }</m>
+    <index><main>term</main><sub>of a sequence</sub></index><term>term</term> of the sequence. Frequently we use the notations <m>(x_n)_{n=1}^{\infty}</m> or just
+    <m>(x_n)</m> to denote the sequence<nbsp /><m>x</m>.
+  </p>
+
+  <definition xml:id="defn_nbhd_pt">
+    <statement>
+      <p>
+        A
+        <index><main>neighborhood</main><sub>of a point</sub></index><term>neighborhood</term> of a point in a metric space is any open set containing the point. Let <m>x</m>
+        be a sequence in a set <m>S</m> and <m>B</m> be a subset of<nbsp /><m>S</m>. The sequence <m>x</m> is
+        <index><main>eventually</main></index><term>eventually</term> in the set <m>B</m> if there is a natural number <m>n_0</m> such that <m>x_n \in B</m>
+        whenever <m>n \ge n_0</m>. A sequence <m>x</m> in a metric space <m>M</m>
+        <index><main>convergence</main><sub>of a sequence</sub></index><term>converges</term> to a point <m>a</m> in <m>M</m> if <m>x</m> is eventually in every neighborhood of <m>a</m>
+        (equivalently, if it is eventually in every open ball about<nbsp /><m>a</m>). The point <m>a</m> is the
+        <index><main>limit</main><sub>of a sequence</sub></index><term>limit</term> of the sequence<nbsp /><m>x</m>. (In <xref ref="lim_uniq">proposition</xref> we find that limits of
+        sequences are unique, so references to <q>the</q> limit of a sequence are justified.)
+      </p>
+
+      <p>
+        If a sequence <m>x</m> converges to a point <m>a</m> in a metric space we write
+        <index><main><@<m>x_n \sto a \text{ as \(n \sto \infty\) }</m> (limit of a sequence)</main></index>
+        <me>
+          x_n \sto a   \text{ as }   n \sto \infty
+        </me>
+        or
+        <index><main>limit@<m>\lim_{n \sto \infty}x_n</m> (limit of a sequence)</main></index>
+        <me>
+          \lim_{n \sto \infty}x_n = a\,.
+        </me>
+      </p>
+
+      <p>
+        It should be clear that the preceding definition may be rephrased as follows: The sequence <m>x</m>
+        converges to the point <m>a</m> if for every <m>\epsilon > 0</m> there exists <m>n_0 \in \N</m> such that
+        <m>d(x_n,a) \lt  \epsilon</m> whenever <m>n \ge n_0</m>. It follows immediately that <m>x_n \sto a</m> if and
+        only if <m>d(x_n,a) \sto 0</m> as <m>n \sto \infty</m>. Notice that in the metric space <m>\R</m> the
+        current definition agrees with the one given in <xref ref="seqs_rn">chapter</xref>.
+      </p>
+    </statement>
+  </definition>
+</section>

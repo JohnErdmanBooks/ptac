@@ -1,0 +1,257 @@
+
+<section>
+  <title>Tangency</title>
+  <p>
+    The fundamental idea of differential calculus is the local approximation of a <q>smooth</q>
+    function by a translate of a linear one. Certainly the expression <q>local approximation</q>
+    could be taken to mean many different things. One sense of this expression which has stood the
+    test of usefulness over time is <q>tangency</q>. Two functions are said to be tangent at zero if
+    their difference lies in the family <m>\lobo o</m>. We can of course define tangency of functions
+    at an arbitrary point (see <xref ref="tan_at_a">project</xref> below); but for our purposes, <q>tangency at
+    0</q> will suffice. All the facts we need to know concerning this relation turn out to be
+    trivial consequences of the results we have just proved.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two functions <m>f</m> and <m>g</m> in <m>\fml F_0</m> are
+        <index><main>tangent</main><sub>at <m>0</m></sub></index><term>tangent at zero</term>, in which case we write
+        <index><main><@<m>\simeq</m> (tangency)</main></index><m>f \simeq g</m>, if <m>f - g \in \lobo o</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = x</m> and <m>g(x) = \sin x</m>. Then <m>f \simeq g</m> since <m>f(0) = g(0) = 0</m> and
+        <m>\lim\limits_{x \sto 0} \dfrac{x - \sin x}x = \lim\limits_{x \sto 0}\biggl(1 - \dfrac{\sin
+        x}x\biggr) = 0</m>.
+      </p>
+    </statement>
+  </example>
+
+  <example xml:id="x8exer1">
+    <statement>
+      <p>
+        If <m>f(x) = x^2 - 4x - 1</m> and <m>g(x) = \bigl(3x^2 + 4x - 1\bigr)^{-1}</m>,
+        then<nbsp /><m>f \simeq g</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_8exer1">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="tan_er">
+    <statement>
+      <p>
+        The relation <q>tangency at zero</q> is an equivalence relation
+        on<nbsp /><m>\fml F_0</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_tan_er">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    The next result shows that at most one linear function can be tangent at zero to a given
+    function.
+  </p>
+
+  <proposition xml:id="tan_uniq">
+    <statement>
+      <p>
+        Let <m>S</m>, <m>T \in \ofml L</m> and <m>f \in \fml F_0</m>. If <m>S \simeq f</m>
+        and <m>T \simeq f</m>, then <m>S = T</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_tan_uniq">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="tan_alg">
+    <statement>
+      <p>
+        If <m>f \simeq g</m> and <m>j \simeq k</m>, then <m>f + j \simeq g + k</m>,
+        and furthermore, <m>\alpha f \simeq \alpha g</m> for all <m>\alpha \in \R</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    Suppose that <m>f</m> and <m>g</m> are tangent at zero. Under what circumstances are <m>h \circ f</m> and <m>h
+    \circ g</m> tangent at zero? And when are <m>f \circ j</m> and <m>g \circ j</m> tangent at zero? We prove
+    next that sufficient conditions are: <m>h</m> is linear and <m>j</m> belongs to <m>\lobo O</m>.
+  </p>
+
+  <proposition xml:id="L_tan">
+    <statement>
+      <p>
+        Let <m>f,g \in \fml F_0</m> and <m>T \in \ofml L</m>. If <m>f \simeq g</m>, then
+        <m>T \circ f \simeq T \circ g</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="tan_O">
+    <statement>
+      <p>
+        Let <m>h \in \lobo O</m> and <m>f,g \in \fml F_0</m>. If <m>f \simeq g</m>, then
+        <m>f \circ h \simeq g \circ h</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x) = 3x^2 - 2x + 3</m> and <m>g(x) = \sqrt{-20x + 25} - 2</m> for <m>x \le 1</m>.
+        Then <m>f \simeq g</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x^3 - 6x^2 + 7x</m>. Find a linear function <m>T \colon \R \sto \R</m>
+        which is tangent to <m>f</m> at<nbsp />0.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = \abs x</m>. Show that there is no linear function <m>T \colon \R \sto \R</m>
+        which is tangent to <m>f</m> at<nbsp /><m>0</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="tan_at_a">
+    <statement>
+      <p>
+        Let <m>T_a \colon x \mapsto x + a</m>. The mapping <m>T_a</m> is called
+        <index><main>translation</main></index><term>translation by</term><nbsp /><m>a</m>. Note that it is <em>not</em> linear (unless, of course, <m>a = 0</m>). We
+        say that functions <m>f</m> and <m>g</m> in <m>\fml F_a</m> are
+        <index><main>tangent</main><sub>at points other than <m>0</m></sub></index><term>tangent at</term> <m>a</m> if the functions <m>f \circ T_a</m> and <m>g \circ T_a</m> are tangent at zero.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Let <m>f(x) = 3x^2 + 10x + 13</m> and <m>g(x) = \sqrt{-20x -15}</m>. Show that <m>f</m> and
+              <m>g</m> are tangent at<nbsp /><m>-2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Develop a theory  for the relationship <q>tangency at <m>a</m></q> which generalizes
+              our work on <q>tangency at<nbsp /><m>0</m></q>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Each of the following is an abbreviated version of a proposition. Formulate
+        precisely and prove.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\fml C_0 + \lobo O \subseteq \fml C_0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\fml C_0 + \lobo o \subseteq \fml C_0</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\lobo O + \lobo o \subseteq \lobo O</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>f \simeq g</m>. Then the following hold.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>g</m> is continuous at 0, so is <m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              If <m>g</m> belongs to <m>\lobo O</m>, so does <m>f</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              If <m>g</m> belongs to <m>\lobo o</m>, so does <m>f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

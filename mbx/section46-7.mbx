@@ -1,0 +1,103 @@
+
+<section>
+  <title>Exercises in Chapter 07</title>
+  <solution xml:id="sol_rlim_uniq">
+    <p>
+      (Solution to <xref ref="rlim_uniq"></xref>)
+      Argue by contradiction. If <m>b \ne c</m>, then <m>\epsilon := \abs{b - c} > 0</m>. Thus there exists
+      <m>\delta_1 > 0</m> such that <m>\abs{f(x) - b} \lt  \epsilon/2</m> whenever <m>x \in A</m> and <m>0 \lt  \abs{x- a}
+      \lt  \delta_1</m> and there exists <m>\delta_2 > 0</m> such that <m>\abs{f(x) - c} \lt  \epsilon/2</m> whenever
+      <m>x \in A</m> and <m>0 \lt  \abs{x - a} \lt  \delta_2</m>. Let <m>\delta = \min\{\delta_1,\delta_2\}</m>. Since
+      <m>a \in A'</m>, the set <m>A \cap J_\delta(a)</m> is nonempty. Choose a point <m>x</m> in this set. Then
+      <me>
+        \epsilon = \abs{b - c} \le \abs{b - f(x)} + \abs{f(x) - c}
+                                     \lt  \epsilon/2 + \epsilon/2 = \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      This is a contradiction.
+    </p>
+
+    <p>
+      It is worth noticing that the preceding proof cannot be made to work if <m>a</m> is not required to
+      be an accumulation point of <m>A</m>. To obtain a contradiction we must know that the condition <m>0
+      \lt  \abs{x - a} \lt  \delta</m> is satisfied for at least one <m>x</m> in the domain of<nbsp /><m>f</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_cnt_vs_lim">
+    <p>
+      (Solution to <xref ref="cnt_vs_lim"></xref>)
+      Both halves of the proof make use of the fact that in <m>A</m> the open interval about <m>a</m> of
+      radius <m>\delta</m> is just <m>J_\delta(a) \cap A</m> where <m>J_\delta(a)</m> denotes the corresponding
+      open interval in<nbsp /><m>\R</m>.
+    </p>
+
+    <p>
+      Suppose <m>f</m> is continuous at <m>a</m>. Given <m>\epsilon > 0</m> choose <m>\delta > 0</m> so that <m>x \in
+      J_\delta(a) \cap A</m> implies <m>f(x) \in J_\epsilon(f(a))</m>. If <m>x \in A</m> and <m>0 \lt  \abs{x - a} \lt 
+      \delta</m>, then <m>\abs{f(x) - f(a)} \lt  \epsilon</m>. That is, <m>\lim_{x \sto a}f(x) = f(a)</m>.
+    </p>
+
+    <p>
+      Conversely, suppose that <m>\lim_{x \sto a}f(x) = f(a)</m>. Given <m>\epsilon > 0</m> choose <m>\delta >
+      0</m> so that <m>\abs{f(x) - f(a)} \lt  \epsilon</m> whenever <m>x \in A</m> and <m>0 \lt  \abs{x - a} \lt  \delta</m>.
+      If <m>x = a</m>, then <m>\abs{f(x) - f(a)} = 0 \lt  \epsilon</m>. Thus <m>x \in J_\delta(a) \cap A</m> implies
+      <m>f(x) \in J_\epsilon(f(a))</m>. This shows that <m>f</m> is continuous at <m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_trnsl_lim">
+    <p>
+      (Solution to <xref ref="trnsl_lim"></xref>)
+      Let <m>g \colon h \mapsto f(a+h)</m>. Notice that <m>h \in \dom g</m> if and only if <m>a + h \in \dom f</m>;
+      <men xml:id="x7eqn1" >
+        \dom f = a + \dom g\,.
+      </men>
+    </p>
+
+    <p>
+      That is, <m>\dom f = \{a + h \colon  h \in \dom g\}</m>.
+    </p>
+
+    <p>
+      First we suppose that
+      <men xml:id="x7eqn2" >
+        l := \lim_{h \sto 0}g(h) =
+                                         \lim_{h \sto 0}f(a + h) \text{ exists. }
+      </men>
+    </p>
+
+    <p>
+      We show that <m>\lim_{x \sto a}f(x)</m> exists and equals<nbsp /><m>l</m>. Given <m>\epsilon > 0</m> there exists
+      (by <xref ref="x7eqn2" />) a number <m>\delta > 0</m> such that
+      <men xml:id="x7eqn3" >
+        \abs{g(h) - l} \lt  \epsilon
+                      \text{ whenever }  h \in \dom g \text{ and }  0 \lt  \abs{h} \lt  \delta.
+      </men>
+    </p>
+
+    <p>
+      Now suppose that <m>x \in \dom f</m> and <m>0 \lt  \abs{x - a} \lt  \delta</m>. Then by <xref ref="x7eqn1" />
+      <me>
+        x - a \in \dom g
+      </me>
+      and by <xref ref="x7eqn3" />
+      <me>
+        \abs{f(x) - l} = \abs{g(x - a) - l} \lt  \epsilon\,.
+      </me>
+    </p>
+
+    <p>
+      Thus given <m>\epsilon > 0</m> we have found <m>\delta > 0</m> such that <m>\abs{f(x) - l} \lt  \epsilon</m>
+      whenever <m>x \in \dom f</m> and <m>0 \lt  \abs{x - a} \lt  \delta</m>. That is, <m>\lim_{x \sto a}f(x) = l</m>.
+    </p>
+
+    <p>
+      The converse argument is similar. Suppose <m>l := \lim_{x \sto a}f(x)</m> exists. Given <m>\epsilon
+      > 0</m> there exists <m>\delta > 0</m> such that <m>\abs{f(x) - l} \lt  \epsilon</m> whenever <m>x \in \dom f</m> and
+      <m>0 \lt  \abs{x - a} \lt  \delta</m>. If <m>h \in \dom g</m> and <m>0 \lt  \abs{h} \lt  \delta</m>, then <m>a + h \in
+      \dom f</m> and <m>0 \lt  \abs{(a + h) - a} \lt  \delta</m>. Therefore <m>\abs{g(h) - l} = \abs{f(a + h) - l} \lt 
+      \epsilon</m>, which shows that <m>\lim_{h \sto 0}\,g(h) = l</m>.
+    </p>
+  </solution>
+</section>

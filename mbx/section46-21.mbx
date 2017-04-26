@@ -1,0 +1,432 @@
+
+<section>
+  <title>Exercises in Chapter 21</title>
+  <solution xml:id="sol_lt_exam1">
+    <p>
+      (Solution to <xref ref="lt_exam1"></xref>)
+      If <m>x</m>, <m>y \in \R^3</m> and <m>\alpha \in \R</m>, then
+      <md>
+        <mrow>T(x+y) \amp = T(x_1+y_1, x_2+y_2, x_3+y_3)</mrow>
+        <mrow>\amp = (x_1+y_1+x_3+y_3, x_1+y_1-2x_2-2y_2)</mrow>
+        <mrow>\amp = (x_1+x_3, x_1-2x_2) + (y_1+y_3, y_1-2y_2)</mrow>
+        <mrow>\amp = Tx + Ty</mrow>
+      </md>
+      and
+      <md>
+        <mrow>T(\alpha x) \amp = T(\alpha x_1, \alpha x_2, \alpha x_3)</mrow>
+        <mrow>\amp = (\alpha x_1 + \alpha x_3,
+                                       \alpha x_1 - 2\alpha x_2)</mrow>
+        <mrow>\amp = \alpha(x_1+x_3, x_1-2x_2)</mrow>
+        <mrow>\amp = \alpha Tx .   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_lt_exer1">
+    <p>
+      (Solution to <xref ref="lt_exer1"></xref>)
+      Write <m>(2,1,5)</m> as <m>2e^1 + e^2 + 5e^3</m>. Use the linearity of <m>T</m> to see that
+      <md>
+        <mrow>T(2,1,5) \amp = T(2e^1 + e^2 + 5e^3)</mrow>
+        <mrow>\amp = 2Te^1 + Te^2 + 5Te^3</mrow>
+        <mrow>\amp = 2(1,0,1) + (0,2,-1) + 5(-4,-1,3)</mrow>
+        <mrow>\amp = (2,0,2) + (0,2,-1) + (-20,-5,15)</mrow>
+        <mrow>\amp = (-18, -3, 16) .   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_lt_prop1">
+    <p>
+      (Solution to <xref ref="lt_prop1"></xref>)
+      (a) Let <m>x</m> be any vector in<nbsp /><m>V</m>; then (by <xref ref="vs_exer2">proposition</xref>) <m>0\,x = \vc 0</m>. Thus
+      <m>T(\vc 0) = T(0x) = 0\,Tx = \vc 0</m>.
+    </p>
+
+    <p>
+      (b) By <xref ref="vs_prob1">proposition</xref>
+      <md>
+        <mrow>T(x-y) \amp = T(x + (-y))</mrow>
+        <mrow>\amp = T(x + (-1)y)</mrow>
+        <mrow>\amp = Tx + (-1)Ty</mrow>
+        <mrow>\amp = Tx - Ty .  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_lt_exer2">
+    <p>
+      (Solution to <xref ref="lt_exer2"></xref>)
+      First we determine where <m>T</m> takes an arbitrary vector <m>(x,y,z)</m> in its domain.
+      <md>
+        <mrow>T(x,y,z) \amp = T(xe^1 + ye^2 + ze^3)</mrow>
+        <mrow>\amp = xTe^1 + yTe^2 + zTe^3</mrow>
+        <mrow>\amp = x(1,-2,3) + y(0,0,0) + z(-2,4,-6)</mrow>
+        <mrow>\amp = (x-2z, -2x+4z, 3x-6z) .</mrow>
+      </md>
+    </p>
+
+    <p>
+      A vector <m>(x,y,z)</m> belongs to the kernel of <m>T</m> if and only if <m>T(x,y,z) = (0,0,0)</m>; that is,
+      if and only if <m>x-2z = 0</m>. (Notice that the two remaining equations, <m>-2x+4z = 0</m> and <m>3x-6z
+      = 0</m>, have exactly the same solutions.) Thus the kernel of <m>T</m> is the set of points <m>(x,y,z)</m>
+      in <m>\R^3</m> such that <m>x = 2z</m>. This is a plane in <m>\R^3</m> which contains the <m>y</m>-axis. A
+      vector <m>(u,v,w)</m> belongs to the range of <m>T</m> if an only if there exists a vector <m>(x,y,z) \in
+      \R^3</m> such that <m>(u,v,w) = T(x,y,z)</m>. This happens if an only if
+      <me>
+        (u,v,w) = (x - 2z, -2x + 4z, 3x - 6z)\,;
+      </me>
+      that is, if an only if
+      <md>
+        <mrow>u \amp = x - 2z</mrow>
+        <mrow>v \amp = -2x + 4z = -2u</mrow>
+        <mrow>w \amp = 3x - 6z = 3u .</mrow>
+      </md>
+    </p>
+
+    <p>
+      Consequently, only points of the form <m>(u,-2u,3u) = u(1,-2,3)</m> belong to<nbsp /><m>\ran T</m>. Thus the
+      range of <m>T</m> is the straight line in <m>\R^3</m> through the origin which contains the point
+      <m>(1,-2,3)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_lt_prop2">
+    <p>
+      (Solution to <xref ref="lt_prop2"></xref>)
+      According to <xref ref="vs_prop1">proposition</xref> we must show that <m>\ran T</m> is nonempty and that it is
+      closed under addition and scalar multiplication. That it is nonempty is clear from
+      <xref ref="lt_prop1">proposition</xref>(a): <m>0 = T0 \in \ran T</m>. Suppose that <m>u,v \in \ran T</m>. Then
+      there exist <m>x,y \in V</m> such that <m>u = Tx</m> and <m>v = Ty</m>. Thus
+      <me>
+        u + v = Tx + Ty = T(x + y)\,;
+      </me>
+      so <m>u + v</m> belongs to <m>\ran T</m>. This shows that <m>\ran T</m> is closed under addition. Finally,
+      to show that it is closed under scalar multiplication let <m>u \in \ran T</m> and <m>\alpha \in \R</m>.
+      There exists <m>x \in V</m> such that <m>u = Tx</m>; so
+      <me>
+        \alpha u = \alpha Tx = T(\alpha x)
+      </me>
+      which shows that <m>\alpha u</m> belongs to <m>\ran T</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_endo_vs">
+    <p>
+      (Solution to <xref ref="endo_vs"></xref>)
+      Recall from <xref ref="vs_exam1">example</xref> that under pointwise operations of addition and scalar
+      multiplication <m>\fml F(V,W)</m> is a vector space. To prove that <m>\ofml L(V,W)</m> is a vector
+      space it suffices to show that it is a vector subspace of <m>\fml F(V,W)</m>. This may be
+      accomplished by invoking <xref ref="vs_prop1">proposition</xref>, according to which we need only verify
+      that <m>\ofml L(V,W)</m> is nonempty and is closed under addition and scalar multiplication. Since
+      the zero transformation (the one which takes every <m>x</m> in <m>V</m> to the zero vector in <m>W</m>) is
+      certainly linear, <m>\ofml L(V,W)</m> is not empty. To prove that it is closed under addition we
+      verify that the sum of two linear transformations is itself linear. To this end let <m>S</m> and
+      <m>T</m> be members of <m>\ofml L(V,W)</m>. Then for all <m>x</m> and <m>y</m> in <m>V</m>
+      <men xml:id="endo_vs1" >
+        \begin{split}
+              (S + T)(x + y) \amp = S(x + y) + T(x + y) \\
+                             \amp = Sx + Sy + Tx + Ty \\
+                             \amp = (S + T)x + (S + T)y.
+          \end{split}
+      </men>
+    </p>
+
+    <p>
+      (It is important to be cognizant of the reason for each of these steps. There is no
+      <q>distributive law</q> ate work here. The first and last use the definition of addition as a
+      pointwise operation, while the middle one uses the linearity of <m>S</m> and <m>T</m>.) Similarly, for
+      all <m>x</m> in <m>V</m> and <m>\alpha</m> in<nbsp /><m>\R</m>
+      <men xml:id="endo_vs2" >
+        \begin{split}
+               (S + T)(\alpha x) \amp = S(\alpha x) + T(\alpha x) \\
+                                 \amp = \alpha Sx + \alpha Tx \\
+                                 \amp = \alpha (Sx + Tx) \\
+                                 \amp = \alpha (S+T)x .
+          \end{split}
+      </men>
+    </p>
+
+    <p>
+      Equations<nbsp /><xref ref="endo_vs1" /> and<nbsp /><xref ref="endo_vs2" /> show that <m>S + T</m> is linear and therefore
+      belongs to <m>\ofml L(V,W)</m>.
+    </p>
+
+    <p>
+      We must also prove that <m>\ofml L(V,W)</m> is closed under scalar multiplication. Let <m>T \in
+      \ofml L(V,W)</m> and <m>\alpha \in \R</m>, and show that the function <m>\alpha T</m> is linear. For all
+      <m>x,y \in V</m>
+      <men xml:id="endo_vs3" >
+        \begin{split}
+                   (\alpha T)(x + y) \amp = \alpha(T(x + y)) \\
+                                     \amp = \alpha(Tx + Ty) \\
+                                     \amp = \alpha(Tx) + \alpha(Ty) \\
+                                     \amp = (\alpha T)x + (\alpha T)y .
+          \end{split}
+      </men>
+    </p>
+
+    <p>
+      Finally, for all <m>x</m> in <m>V</m> and <m>\beta</m> in<nbsp /><m>\R</m>
+      <men xml:id="endo_vs4" >
+        \begin{split}
+                  (\alpha T)(\beta x) \amp = \alpha(T(\beta x)) \\
+                                      \amp = \alpha(\beta(Tx)) \\
+                                      \amp = (\alpha\beta)Tx \\
+                                      \amp = (\beta\alpha)Tx \\
+                                      \amp = \beta(\alpha(Tx)) \\
+                                      \amp = \beta((\alpha T)x)\, .
+          \end{split}
+      </men>
+    </p>
+
+    <p>
+      Equations<nbsp /><xref ref="endo_vs3" /> and<nbsp /><xref ref="endo_vs4" /> show that <m>\alpha T</m> belongs to<nbsp /><m>\ofml
+      L(V,W)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_Tinv_lin">
+    <p>
+      (Solution to <xref ref="prop_Tinv_lin"></xref>)
+      Since <m>T</m> is bijective there exists a function <m>T^{-1} \colon W \sto V</m> satisfying <m>T^{-1}
+      \circ T = I_V</m> and <m>T \circ T^{-1} = I_W</m>. We must show that this function is linear. To
+      this end let <m>u,v \in W</m>. Then
+      <md>
+        <mrow>T(T^{-1}(u + v)) \amp = I_W(u + v)</mrow>
+        <mrow>\amp = u + v</mrow>
+        <mrow>\amp = I_W(u) + I_W(v)</mrow>
+        <mrow>\amp = T(T^{-1}(u) + T(T^{-1}(v)</mrow>
+        <mrow>\amp = T(T^{-1}u + T^{-1}v).</mrow>
+      </md>
+    </p>
+
+    <p>
+      Since <m>T</m> is injective the preceding computation implies that
+      <me>
+        T^{-1}(u+v) = T^{-1}u + T^{-1}v.
+      </me>
+    </p>
+
+    <p>
+      Similarly, from
+      <me>
+        TT^{-1}(\alpha x) = \alpha x = \alpha TT^{-1}x
+                              = T(\alpha T^{-1}x)
+      </me>
+      we infer that
+      <me>
+        T^{-1}(\alpha x) = \alpha T^{-1}x. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_add">
+    <p>
+      (Solution to <xref ref="ex_mat_add"></xref>)
+      <md>
+        <mrow>a + b \amp = \begin{bmatrix}  5 \amp  -3 \amp   3 \amp  -2</mrow>
+        <mrow>2 \amp  -2 \amp   1 \amp   4 \end{bmatrix}
+                   3a \amp = \begin{bmatrix} 12 \amp   6 \amp   0 \amp  -3</mrow>
+        <mrow>-3 \amp  -9 \amp   3 \amp  15 \end{bmatrix}
+               a - 2b \amp = \begin{bmatrix}  2 \amp  12 \amp  -6 \amp   1</mrow>
+        <mrow>-7 \amp  -5 \amp   1 \amp   7 \end{bmatrix}\,.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_mult">
+    <p>
+      (Solution to <xref ref="ex_mat_mult"></xref>)
+      <m>ab = \begin{bmatrix}2(1) + 3(2) + (-1)1  \amp   2(0) + 3(-1) + (-1)(-2) \\
+               0(1) + 1(2) +  4(1)  \amp   0(0) + 1(-1) +   4(-2)
+      \end{bmatrix}  =
+       \begin{bmatrix}7 \amp  -1 \\
+              6 \amp  -9
+      \end{bmatrix}</m> .
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_act">
+    <p>
+      (Solution to <xref ref="ex_mat_act"></xref>)
+      <m>ax = (1,4,1)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_matr_arith">
+    <p>
+      (Solution to <xref ref="prop_matr_arith"></xref>(a))
+      To show that the vectors <m>a(x+y)</m> and <m>ax + ay</m> are equal show that <m>(a(x + y))_j</m> (that is,
+      the <m>j^{\text{ th } }</m> component of <m>a(x + y)</m>) is equal to <m>(ax + ay)_j</m> (the <m>j^{\text{ th } }</m>
+      component of <m>ax + ay</m>) for each <m>j</m> in<nbsp /><m>\N_m</m>. This is straight forward
+      <md>
+        <mrow>(a(x + y))_j \amp = \sum_{k=1}^n a_k^j(x + y)_k</mrow>
+        <mrow>\amp = \sum_{k=1}^n a_k^j(x_k + y_k)</mrow>
+        <mrow>\amp = \sum_{k=1}^n (a_k^j x_k + a_k^j y_k)</mrow>
+        <mrow>\amp = \sum_{k=1}^n a_k^j x_k + \sum_{k=1}^na_k^j y_k</mrow>
+        <mrow>\amp = (ax)_j + (ay)_j</mrow>
+        <mrow>\amp = (ax + ay)_j.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_act3">
+    <p>
+      (Solution to <xref ref="ex_mat_act3"></xref>)
+      <md>
+        <mrow>xay \amp = \begin{bmatrix}1 \amp  -2 \amp   0
+        \end{bmatrix} 
+                   \begin{bmatrix}
+                        1 \amp   3 \amp  -1</mrow>
+        <mrow>0 \amp   2 \amp   4</mrow>
+        <mrow>1 \amp  -1 \amp   1
+                   \end{bmatrix}
+                   \begin{bmatrix} 3</mrow>
+        <mrow>0</mrow>
+        <mrow>1 \end{bmatrix}</mrow>
+        <mrow>\amp = \begin{bmatrix}1 \amp  -2 \amp   0
+        \end{bmatrix} 
+                   \begin{bmatrix} 2</mrow>
+        <mrow>4</mrow>
+        <mrow>4 \end{bmatrix} = -6\,.  \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_mmult_uniq_inv">
+    <p>
+      (Solution to <xref ref="mmult_uniq_inv"></xref>)
+      Suppose <m>a</m> is an <m>n \times n</m>-matrix with inverses <m>b</m> and<nbsp /><m>c</m>. Then <m>ab = ba = I_n</m> and <m>ac
+      = ca = I_n</m>. Thus
+      <me>
+        b = bI_n = b(ac) = (ba)c = I_nc = c\,.   \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_inv">
+    <p>
+      (Solution to <xref ref="ex_mat_inv"></xref>)
+      Multiply <m>a</m> and <m>b</m> to obtain <m>ab = I_3</m> and <m>ba = I_3</m>. By the uniqueness of inverses
+      (<xref ref="mmult_uniq_inv">proposition</xref>) <m>b</m> is the inverse of<nbsp /><m>a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_ex_mat_inv2">
+    <p>
+      (Solution to <xref ref="ex_mat_inv2"></xref>)
+      Expanding the determinant of <m>a</m> along the first row (fact 5) we obtain
+      <md>
+        <mrow>\det a \amp = \sum_{k=1}^3 a_k^1 C_k^1</mrow>
+        <mrow>\amp = 1 \cdot (-1)^{1+1} \det\begin{bmatrix}
+                                         3 \amp  -1</mrow>
+        <mrow>-1 \amp   1 \end{bmatrix}
+                            + 0 \cdot (-1)^{1+2} \det\begin{bmatrix}
+                                         0 \amp  -1</mrow>
+        <mrow>1 \amp   1 \end{bmatrix}
+                            + 2 \cdot (-1)^{1+3} \det\begin{bmatrix}
+                                         0 \amp   3</mrow>
+        <mrow>1 \amp  -1 \end{bmatrix}</mrow>
+        <mrow>\amp = 2 + 0 - 6 = -4.</mrow>
+      </md>
+    </p>
+
+    <p>
+      Since <m>\det a \ne 0</m>, the matrix <m>a</m> is invertible. Furthermore,
+      <md>
+        <mrow>a^{-1} \amp = (\det a)^{-1} \begin{bmatrix}
+                            C_1^1 \amp  C_2^1 \amp  C_3^1</mrow>
+        <mrow>C_1^2 \amp  C_2^2 \amp  C_3^2</mrow>
+        <mrow>C_1^3 \amp  C_2^3 \amp  C_3^3 \end{bmatrix}^t</mrow>
+        <mrow>\amp = -\frac14 \begin{bmatrix}
+                            C_1^1 \amp  C_1^2 \amp  C_1^3</mrow>
+        <mrow>C_2^1 \amp  C_2^2 \amp  C_2^3</mrow>
+        <mrow>C_3^1 \amp  C_3^2 \amp  C_3^3 \end{bmatrix}^t</mrow>
+        <mrow>\amp = -\frac14 \begin{bmatrix}
+                             2 \amp  -2 \amp  -6</mrow>
+        <mrow>-1 \amp  -1 \amp   1</mrow>
+        <mrow>-3 \amp   1 \amp   3 \end{bmatrix}</mrow>
+        <mrow>\amp = \begin{bmatrix}
+                            -\frac12 \amp   \frac12 \amp   \frac32</mrow>
+        <mrow>\frac14 \amp   \frac14 \amp  -\frac14</mrow>
+        <mrow>\frac34 \amp  -\frac14 \amp  -\frac34 \end{bmatrix}.   \qedhere</mrow>
+      </md>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_mrlt_exam">
+    <p>
+      (Solution to <xref ref="exer_mrlt_exam"></xref>)
+      Since <m>Te^1 = T(1,0) = (1, 0, 2, -4)</m> and <m>Te^2 = T(0,1) = (-3, 7, 1, 5)</m> the matrix
+      representation of <m>T</m> is given by
+      <me>
+        [T] =  \begin{bmatrix}1 \amp  -3 \\
+                                      0 \amp   7 \\
+                                      2 \amp   1 \\
+                                     -4 \amp   5
+        \end{bmatrix} .  \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_mrT_is_T">
+    <p>
+      (Solution to <xref ref="prop_mrT_is_T"></xref>)
+      Let <m>a = [T]</m>. Then <m>a_k^j = (Te^k)_j</m> for each <m>j</m> and<nbsp /><m>k</m>. Notice that the map
+      <me>
+        S \colon \R^n \sto \R^m \colon  x \mapsto ax
+      </me>
+      is linear by <xref ref="prop_matr_arith">proposition</xref> (a) and<nbsp />(b). We wish to show that <m>S = T</m>.
+      According to <xref ref="prob_lt_det_bas">problem</xref> (b) it suffices to show that <m>Se^k = Te^k</m> for <m>1
+      \le k \le n</m>. But this is essentially obvious: for each <m>j \in \N_m</m>
+      <me>
+        (Se^k)_j = (ae^k)_j = \sum_{l=1}^n a_l^j e_l^k
+                                        = a_k^j = (Te^k)_j.
+      </me>
+    </p>
+
+    <p>
+      To prove the last assertion of the proposition, suppose that <m>Tx = ax</m> for all <m>x</m> in <m>\R^n</m>.
+      By the first part of the proposition <m>[T]x = ax</m> for all <m>x</m> in <m>\R^n</m>. But then
+      <xref ref="prop_mrlt_bas">proposition</xref> implies that <m>[T] = a</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_matrep_bij">
+    <p>
+      (Solution to <xref ref="prop_matrep_bij"></xref>)
+      First we show that the map <m>T \mapsto [T]</m> is surjective. Given an <m>m \times n</m>-matrix <m>a</m> we
+      wish to find a linear map <m>T</m> such that <m>a = [T]</m>. This is easy: let <m>T \colon \R^n \sto \R^m
+      \colon  x \mapsto ax</m>. By <xref ref="prop_matr_arith">proposition</xref> (a) and (b) the map <m>T</m> is
+      linear. By <xref ref="prop_mrT_is_T">proposition</xref>
+      <me>
+        {[T]x} = Tx = ax \qquad \text{ for all \(x \in \R^n\). }
+      </me>
+    </p>
+
+    <p>
+      Then <xref ref="prop_mrlt_bas">proposition</xref> tells us that <m>[T] = a</m>.
+    </p>
+
+    <p>
+      Next we show that the map <m>T \mapsto [T]</m> is injective. If <m>[T] = [S]</m>, then by
+      <xref ref="prop_mrT_is_T">proposition</xref>
+      <me>
+        Tx = [T]x = [S]x = Sx \qquad \text{ for all \(x \in \R^n\). }
+      </me>
+    </p>
+
+    <p>
+      This shows that <m>T = S</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_prop_arith_matrep">
+    <p>
+      (Solution to <xref ref="prop_arith_matrep"></xref>)
+      By <xref ref="prop_mrlt_bas">proposition</xref> it suffices to show that <m>[S + T]x = ([S] + [T])x</m> for all
+      <m>x</m> in <m>\R^n</m>. By <xref ref="prop_mrT_is_T">proposition</xref>
+      <me>
+        [S + T]x = (S + T)x = Sx + Tx = [S]x + [T]x = ([S] + [T])x\,.
+      </me>
+    </p>
+
+    <p>
+      The last step uses <xref ref="prop_matr_arith">proposition</xref>(c).
+    </p>
+
+    <p>
+      (b) Show that <m>[\alpha T]x = (\alpha [T])x</m> for all <m>x</m> in<nbsp /><m>\R^n</m>.
+      <me>
+        [\alpha T]x = (\alpha T)x = \alpha(Tx) = \alpha([T]x) = (\alpha[T])x\,.
+      </me>
+    </p>
+
+    <p>
+      The last step uses <xref ref="prop_matr_arith">proposition</xref>(d).
+    </p>
+  </solution>
+</section>

@@ -1,0 +1,216 @@
+
+<section>
+  <title>The jacobian matrix</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\open U{\R^n}</m> and <m>f\colon U \sto \R^m</m> be a differentiable function. Recall
+        that the components <m>f^1, \dots, f^m</m> of <m>f</m> satisfy
+        <me>
+          f(x) = \bigl(f^1(x), \dots, f^m(x)\bigr) = \sum_{j=1}^m f^j(x) e^j
+        </me>
+        for all <m>x</m> in<nbsp /><m>U</m>. More briefly we may write
+        <me>
+          f = (f^1, \dots, f^m) = \sum_{j=1}^m f^j e^j\,.
+        </me>
+      </p>
+
+      <p>
+        Recall also (from <xref ref="prop_pd_vvf">proposition</xref>) that
+        <me>
+          (f^j)_k(a)  =  (f_k)^j(a)
+        </me>
+        whenever <m>1 \le j \le m</m>, <m>1 \le k \le n</m>, and <m>a \in U</m>. Consequently the notation <m>f_k^j(a)</m>
+        is unambiguous; from now on we use it. As the differential of <m>f</m> at a point <m>a</m> in <m>U</m> is a
+        (bounded) linear map from <m>\R^n</m> into <m>\R^m</m>, it may be represented by an <m>m \times n</m> matrix.
+        This is called the
+        <index><main><@<m>\bigl[f_k^j(a)\bigr]</m> (Jacobian matrix)</main></index>
+        <index><main>Jacobian</main><sub>matrix</sub></index>
+        <index><main>matrix</main><sub>Jacobian</sub></index><term>Jacobian matrix</term> of <m>f</m> at<nbsp /><m>a</m>. The entry in the <m>j^{\text{ th } }</m> row and <m>k^{\text{ th } }</m>
+        column of this matrix is<nbsp /><m>f_k^j(a)</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_jm_pd">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a(\R^n,\R^m)</m>, then
+        <me>
+          [df_a] = [f_k^j(a)]\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> It helps to distinguish notationally between the standard
+      basis vectors in <m>\R^n</m> and those in <m>\R^m</m>. Denote the ones in <m>\R^n</m> by <m>e^1, \dots, e^n</m>
+      and those in <m>\R^m</m> by <m>\hat e^1, \dots, \hat e^m</m>. <xref ref="prop_mrlt_bas">Use</xref>.
+      (<xref ref="sol_prop_jm_pd">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Note that the <m>j^{\text{ th } }</m> row of the Jacobian matrix is <m>f_1^j, \dots, f_n^j</m>. Thought of
+    as a vector in <m>\R^n</m> this is just the gradient of the scalar field<nbsp /><m>f^j</m>. Thus we may think
+    of the Jacobian matrix <m>[df_a]</m> as being in the form
+    <me>
+      \begin{bmatrix}\nabla f^1(a)  \\
+                               \vdots       \\
+                             \nabla f^m(a)
+      \end{bmatrix} \,.
+    </me>
+  </p>
+  <exercise xml:id="exer_jm_comp">
+    <statement>
+      <p>
+        Let <m>f\colon \R^4 \sto \R^3\colon  (w,x,y,z) \mapsto
+        (wxz, x^2 + 2y^2 + 3z^2, wy\arctan z)</m>, let <m>a = (1,1,1,1)</m>, and let <m>v = (0,2,-3,1)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>[df_a]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Find <m>df_a(v)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_jm_comp">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^2 \sto \R^2\colon  x \mapsto ({x_1}^2 - {x_2}^2, 3x_1x_2)</m> and
+        <m>a = (2,1)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>[df_a]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use part (a) to find <m>df_a(-1,3)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^3 \sto \R^4 \colon (x,y,z) \mapsto (xy, y - z^2, 2xz, y + 3z)</m>,
+        let <m>a = (1,-2,3)</m>, and let <m>v = (2,1,-1)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Find <m>[df_a]</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use part (a) to calculate <m>D_vf(a)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \colon \R^2 \sto \R^2 \colon (x,y) \mapsto (x^2y, 2xy^2)</m>, let <m>a = (2,-1)</m>,
+        and let <m>u = (\frac35, \frac45)</m>. Compute <m>D_uf(a)</m> in three ways:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Use the definition of <em>directional derivative</em>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use <xref ref="prop_diff_dd">proposition</xref>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use <xref ref="prop_dd_diff">proposition</xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Suppose that <m>f \in \fml D_a(\R^3,\R^4)</m> and that the Jacobian matrix of <m>f</m> at
+        <m>a</m> is
+        <me>
+          \begin{bmatrix}b \amp  c \amp  e \\
+                                g \amp  h \amp  i \\
+                                j \amp  k \amp  l \\
+                                m \amp  n \amp  p
+          \end{bmatrix}
+        </me>
+      </p>
+
+      <p>
+        Find <m>f_1(a)</m>, <m>f_2(a)</m>, <m>f_3(a)</m>, <m>\nabla f^1(a)</m>, <m>\nabla f^2(a)</m>, <m>\nabla f^3(a)</m>, and
+        <m>\nabla f^4(a)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f \in \fml D_a(\R^n,\R^m)</m> and <m>v \in \R^n</m>. Show that
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>df_a(v) = \sum_{j=1}^m \langle \nabla f^j(a),v \rangle e^j</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\norm{df_a} \le \sum_{j=1}^m \norm{\nabla f^j(a)}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

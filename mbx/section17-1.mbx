@@ -1,0 +1,243 @@
+
+<section>
+  <title>Connected spaces</title>
+  <definition xml:id="def_conn">
+    <statement>
+      <p>
+        A metric space <m>M</m> is
+        <index><main>disconnected</main><sub>metric space</sub></index><term>disconnected</term> if there exist disjoint nonempty open sets <m>U</m> and <m>V</m> whose union is<nbsp /><m>M</m>.
+        In this case we say that the sets <m>U</m> and <m>V</m> <term>disconnect</term><nbsp /><m>M</m>. A metric space is
+        <index><main>connected</main><sub>metric space</sub></index><term>connected</term> if it is not disconnected. A subset of a metric space M is
+        <index><main>connected</main><sub>subset</sub></index><term>connected</term> (respectively,
+        <index><main>disconnected</main><sub>subset</sub></index><term>disconnected</term>) if it is connected (respectively, disconnected) as a subspace of<nbsp /><m>M</m>. Thus
+        a subset <m>N</m> of <m>M</m> is disconnected if there exist nonempty disjoint sets <m>U</m> and <m>V</m> open in
+        the <em>relative</em> topology on <m>N</m> whose union is<nbsp /><m>N</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>
+        Every discrete metric space with more than one point is disconnected.
+      </p>
+    </statement>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        The set <m>\Q^2</m> of points in <m>\R^2</m> both of whose coordinates are rational is a
+        disconnected subset of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      The subspace <m>\Q^2</m> is disconnected by the sets <m>\{(x,y) \in \Q^2 \colon x \lt  \pi\}</m>
+      and <m>\{(x,y) \in \Q^2 \colon x > \pi\}</m>. (Why are these sets open in the relative topology
+      on<nbsp /><m>\Q^2</m>?)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The following subset of <m>\R^2</m> is not connected.
+        <me>
+          \{(x,x^{-1}) \colon x > 0\} \cup \{(0,y) \colon y \in \R\}
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_dconn_2ptimg">
+    <statement>
+      <p>
+        A metric space <m>M</m> is disconnected if and only if there
+        exists a continuous surjection from <m>M</m> onto a two element discrete space, say <m>\{0,1\}</m>. A
+        metric space <m>M</m> is connected if and only if every continuous function <m>f</m> from <m>M</m> into a two
+        element discrete space is constant.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    <xref ref="prop_nasc_conn">Proposition</xref> remains true for arbitrary metric spaces; and the same proof
+    works.
+  </p>
+
+  <proposition xml:id="prop_conn_oc">
+    <statement>
+      <p>
+        A metric space <m>M</m> is connected
+        if and only if the only subsets of <m>M</m> which are both open and
+        closed are the null set and <m>M</m> itself.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_prop_conn_oc">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Just as in <xref ref="ivt">chapter</xref>, dealing with the relative topology on a subset of a metric space
+    can sometimes be a nuisance. The remedy used there is available here: work with mutually
+    separated sets.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Two nonempty subsets <m>C</m> and <m>D</m> of a metric space <m>M</m> are said to be
+        <index><main>mutually separated</main></index>
+        <index><main>separated</main><sub>mutually</sub></index><term>mutually separated</term> if
+        <me>
+          C \cap \clo D = \clo C \cap D = \emptyset\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop_mut_sep2">
+    <statement>
+      <p>
+        A subset <m>N</m> of a metric space <m>M</m> is disconnected if and
+        only if it is the union of two nonempty sets mutually separated in<nbsp /><m>M</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Make a few changes in the
+      proof of <xref ref="prop_mut_sep">proposition</xref>. (<xref ref="sol_prop_mut_sep2">Solution</xref>.)
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_clconn_conn">
+    <statement>
+      <p>
+        If <m>A</m> is a connected subset of a metric space, then any
+        set <m>B</m> satisfying <m>A \subseteq B \subseteq \clo A</m> is also connected.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="prop_mut_sep2">proposition</xref>
+    </p>
+  </proof>
+
+  <p>
+    If a metric space is disconnected, it is often a rather simple job to demonstrate this fact.
+    All one has to do is track down two subsets which disconnect the space. If the space is
+    connected, however, one is confronted with the unenviable task of showing that <em>every</em>
+    pair of subsets fails for some reason to disconnect the space. How, for example, does one go
+    about showing that the unit square <m>[0,1] \times [0,1]</m> is connected? Or the unit circle? Or
+    the curve <m>y = \sin x</m>? <xref ref="thm_contimg_conn2">In</xref>, <xref ref="prop_un_conn"></xref>,
+    and <xref ref="prop_arcw_conn"></xref> we give sufficient conditions for a metric space to be connected.
+    The first of these is that the space be the continuous image of a connected space .
+  </p>
+
+  <theorem xml:id="thm_contimg_conn2">
+    <statement>
+      <p>
+        A metric space <m>N</m> is connected if there exist a connected
+        metric space <m>M</m> and a continuous surjection from <m>M</m> onto<nbsp /><m>N</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Change <q><m>\R</m></q> to <q><m>M</m></q> in the proof of <xref ref="thm_contimg_conn">theorem</xref>.
+    </p>
+  </proof>
+
+  <example xml:id="exam_sin_conn">
+    <statement>
+      <p>
+        The graph of the curve <m>y = \sin x</m> is a connected subset
+        of<nbsp /><m>\R^2</m>.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_sin_conn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <example>
+    <statement>
+      <p>
+        The unit circle <m>\{(x,y) \in \R^2 \colon x^2 + y^2 = 1\}</m> is a connected subset of
+        the plane.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_un_conn">
+    <statement>
+      <p>
+        A metric space is connected if it is the union of a family of
+        connected subsets with nonempty intersection.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. (Argue by contradiction. Use <xref ref="def_conn">definition</xref>.)
+      (<xref ref="sol_prop_un_conn">Solution</xref>.)
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="prop_dconn_2ptimg">proposition</xref> to give a second proof of
+        <xref ref="prop_un_conn">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <example xml:id="exam_sqr_conn">
+    <statement>
+      <p>
+        The closed unit square <m>[0,1] \times [0,1]</m> in <m>\R^2</m> is connected.
+      </p>
+    </statement>
+  </example>
+
+  <proof>
+    <p>
+      Exercise. (<xref ref="sol_exam_sqr_conn">Solution</xref>.)
+    </p>
+  </proof>
+</section>

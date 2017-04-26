@@ -1,0 +1,93 @@
+
+<section>
+  <title>Exercises in Appendix l</title>
+  <solution xml:id="sol_exer_fcn1">
+    <p>
+      (Solution to <xref ref="exer_fcn1"></xref>)
+      We may write <m>A</m> as the union of three intervals
+      <me>
+        A = (-4,4) = (-4,-2) \cup [-2,1) \cup [1,4)\,.
+      </me>
+    </p>
+
+    <p>
+      Then
+      <men xml:id="exer_fcn1_eqn1" >
+        f^{\sto}(A) = f^{\sto}\bigl(\,(-4,4)\,\bigr)\\
+                         = f^{\sto}\bigl(\,(-4,-2)\,\bigr) \cup f^{\sto}\bigl(\,[-2,1)\,\bigr)
+                                   \cup f^{\sto}\bigl(\,[1,4)\,\bigr)\,.
+      </men>
+    </p>
+
+    <p>
+      (This step is justified in the next section by <xref ref="prop_f_union"></xref>.) Since <m>f</m> is constant on
+      the interval <m>(-4,-2)</m> we see that <m>f^{\sto}\bigl(\,(-4,-2)\,\bigr) = \{-1\}</m>. On the
+      interval <m>[-2,1)</m> the function increases from <m>f(-2) = 3</m> to <m>f(0) = 7</m> and then decreases to
+      <m>f(1) = 6</m> so that <m>f^{\sto}\bigl(\,[-2,1)\,\bigr) = [3,7]</m>. (This interval is closed because
+      both <m>-2</m> and <m>0</m> belong to<nbsp /><m>[-2,1)</m>.) Finally, since <m>f</m> is decreasing on <m>[1,4)</m> we see that
+      <m>f^{\sto}\bigl(\,[1,4)\,\bigr) = \bigl(f(4),f(1)\,\bigr] = (\frac14,1]</m>. Thus from equation
+      <xref ref="exer_fcn1_eqn1" /> we conclude that
+      <me>
+        f^{\sto}(A) = \{-1\} \cup (\tfrac14,1] \cup [3,7]. \qedhere
+      </me>
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_fcn2">
+    <p>
+      (Solution to <xref ref="exer_fcn2"></xref>)
+      Use techniques from beginning calculus. The function is a fourth degree polynomial, so <m>f(x)
+      \sto \infty</m> as <m>x \sto -\infty</m> and as <m>x \sto \infty</m>. Thus the range of <m>f</m> is not bounded
+      above. The minimum value of the range will occur at a critical point, that is, at a point
+      where <m>f'(x) = 0</m>. But this occurs at <m>x = -3</m>, <m>x = 0</m>, and <m>x = 2</m>. The values of <m>f</m> at
+      these points are, respectively <m>-188</m>, <m>0</m>, and <m>-63</m>. We conclude that <m>\ran f = [-188,\infty)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_fcn3">
+    <p>
+      (Solution to <xref ref="exer_fcn3"></xref>)
+      Notice that the arctangent function is strictly increasing (its derivative at each <m>x</m> is <m>(1
+      + x^2)^{-1}</m>). Its range is <m>(-\pi/2,\pi/2)</m>. Thus <m>f^{\gets}(B) =
+      f^{\gets}\bigl((\pi/4,2)\bigr) = f^{\gets}\bigl((\pi/4,\pi/2)\bigr) = (1, \infty)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_fcn4">
+    <p>
+      (Solution to <xref ref="exer_fcn4"></xref>)
+      For <m>-\sqrt{9 - x^2}</m> to lie between <m>1</m> and <m>3</m>, we would need <m>-3 \lt  \sqrt{9 - x^2} \lt  -1</m>.
+      But since the square root function on <m>\R</m> takes on only positive values, this is not
+      possible. So <m>f^{\gets}(B) = \emptyset</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_exer_fcn5">
+    <p>
+      (Solution to <xref ref="exer_fcn5"></xref>)
+      For <m>x \le \frac13</m>, <m>f(x) \le 1</m> which implies <m>g(f(x)) = -1</m>. For <m>x \in (\frac13,1)</m>, <m>f(x)
+      \in (1,3)</m>, so <m>g(f(x)) = 9x^2</m>. For <m>1 \le x \le 2</m>, <m>f(x) = 2</m>, so <m>g(f(x)) = -1</m>. Finally,
+      for <m>x > 2</m>, <m>f(x) = 2</m> and therefore <m>g(f(x)) = 4</m>.
+    </p>
+
+    <figure>
+      <me>
+        <image width="73%" source="images/zzzgraph.png" />
+        \qedhere
+      </me>
+    </figure>
+  </solution>
+  <solution xml:id="sol_prop_assoc_comp">
+    <p>
+      (Solution to <xref ref="prop_assoc_comp"></xref>)
+      Associativity: for every <m>x</m>
+      <me>
+        (h \circ (g \circ f))(x) = h((g \circ f)(x)) = h(g(f(x)))=
+                      (h \circ g)(f(x)) = ((h \circ g) \circ f)(x)\,;
+      </me>
+      so <m>h \circ (g \circ f) = (h \circ g) \circ f</m>.
+    </p>
+
+    <p>
+      To see that composition is not commutative take, for example, <m>f(x) = x + 1</m> and <m>g(x) = x^2</m>.
+      Since <m>(g \circ f)(1) = 4</m> and <m>(f \circ g)(1) = 2</m>, the functions <m>g \circ f</m> and <m>f \circ g</m>
+      cannot be equal.
+    </p>
+  </solution>
+</section>

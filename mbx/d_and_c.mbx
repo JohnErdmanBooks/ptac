@@ -1,0 +1,384 @@
+
+<section xml:id="d_and_c">
+  <title>Disjunction and conjunction</title>
+  <p>
+    The word <q>or</q> in English has two
+    distinct uses. Suppose you ask a friend how he intends to spend the evening, and he replies,
+    <q>I'll</q> walk home or I'll take in a film.'' If you find that he then walked home and on the
+    way stopped to see a film, it would not be reasonable to accuse him of having lied. He was
+    using the inclusive <q>or</q>, which is true when one or both alternatives are. On the other hand
+    suppose that while walking along a street you are accosted by an armed robber who says, <q>Put
+    up your hands or I'll shoot.</q> You obligingly raise your hands. If he then shoots you, you
+    have every reason to feel ill-used. Convention and context dictate that he used the exclusive
+    <q>or</q>: either alternative, but not both.
+  </p>
+
+  <p>
+    Since it is undesirable for ambiguities to arise in mathematical discourse, the inclusive
+    <q>or</q> has been adopted as standard for mathematical (and most scientific) purposes. A
+    convenient way of defining logical connectives such as <q>or</q> is by means of a truth table.
+    The formal definition of <q>or</q> looks like this.
+  </p>
+  <tabular>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>P</m></cell>
+      <cell><m>Q</m></cell>
+      <cell><m>P \lor Q</m></cell>
+    </row>
+    <row bottom="medium">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell  ><m>T</m></cell>
+      <cell><m>T</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>T</m></cell>
+      <cell><m>F</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>F</m></cell>
+      <cell><m>T</m></cell>
+      <cell><m>T</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell><m>F</m></cell>
+      <cell><m>F</m></cell>
+      <cell><m>F</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+  <p>
+    Here <m>P</m> and <m>Q</m> are any sentences. In the columns labeled <m>P</m> and <m>Q</m> we list all possible
+    combinations of truth values for <m>P</m> and <m>Q</m> (<m>T</m> for true, <m>F</m> for false). In the third
+    column appears the corresponding truth value for <q><m>P</m> or <m>Q</m></q>. According to the table <q><m>P</m>
+    or <m>Q</m></q> is true in all cases except when both <m>P</m> and <m>Q</m> are false. The notation
+    <index><main>#@<m>\lor</m> (or, disjunction)</main></index><q><m>P \lor Q</m></q> is frequently used for <q><m>P</m> or <m>Q</m></q>. The
+    operation <m>\lor</m> is called
+    <index><main>disjunction</main></index><term>disjunction</term>.
+  </p>
+  <exercise xml:id="and">
+    <statement>
+      <p>
+        Construct a truth table giving the formal definition of <q>and</q>,
+        frequently denoted
+        <index><main>#@<m>\land</m> (and, conjunction)</main></index>by<nbsp /><m>\land</m>. The operation <m>\land</m> is called
+        <index><main>conjunction</main></index><term>conjunction</term>. (<xref ref="sol_and">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    We say that two sentences depending on variables <m>P,Q,\dots</m> are
+    <index><main>logical equivalence</main></index>
+    <index><main>equivalent</main><sub>logically</sub></index><term>logically equivalent</term> if they have the same truth value no matter how truth values <m>T</m> and
+    <m>F</m> are assigned to the variables <m>P,Q,\dots</m>. It turns out that truth tables are quite
+    helpful in deciding whether certain statements encountered in mathematical reasoning are
+    logically equivalent to one another. (But do <em>not</em> clutter up mathematical proofs with
+    truth tables. Everyone is supposed to argue logically. Truth tables are only scratch work for
+    the perplexed.)
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Suppose that <m>P</m>, <m>Q</m>, and <m>R</m> are any sentences. To a person who habitually uses
+        language carefully, it will certainly be clear that the following two assertions are
+        equivalent:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>P</m> is true and so is either <m>Q</m> or <m>R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Either both <m>P</m> and <m>Q</m> are true or both <m>P</m> and <m>R</m> are
+              true.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        Suppose for a moment, however, that we are in doubt concerning the relation between (a) and
+        (b). We may represent (a) symbolically by <m>P \land (Q \lor R)</m> and (b) by <m>(P \land Q) \lor
+        (P \land R)</m>. We conclude that they are indeed logically equivalent by examining the
+        following truth table. (Keep in mind that since there are 3 variables, <m>P</m>, <m>Q</m>, and <m>R</m>,
+        there are <m>2^3 = 8</m> ways of assigning truth values to them; so we need 8 lines in our truth
+        table.)
+      </p>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>(1)</cell>
+          <cell>(2)</cell>
+          <cell>(3)</cell>
+          <cell>(4)</cell>
+          <cell>(5)</cell>
+          <cell>(6)</cell>
+          <cell>(7)</cell>
+          <cell>(8)</cell>
+        </row>
+        <row>
+          <cell><m>P</m></cell>
+          <cell><m>Q</m></cell>
+          <cell><m>R</m></cell>
+          <cell><m>Q \lor R</m></cell>
+          <cell><m>P \land (Q \lor R)</m></cell>
+          <cell><m>P \land Q</m></cell>
+          <cell><m>P \land R</m></cell>
+          <cell><m>(P \land Q) \lor (P \land R)</m></cell>
+        </row>
+        <row bottom="medium">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell  ><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>T</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+      <p>
+        Column (4) is obtained from (2) and (3), column (5) from (1) and (4), column (6) from (l) and
+        (2), column (7) from (1) and (3), and column (8) from (6) and (7). Comparing the truth values
+        in columns (5) and (8), we see that they are exactly the same. Thus <m>P \land (Q \lor R)</m> is
+        logically equivalent to <m>(P \land Q) \lor (P \land R)</m>. This result is a
+        <index><main>distributive law</main><sub>in logic</sub></index><term>distributive law</term>; it says that conjunction distributes over
+        disjunction.
+      </p>
+    </statement>
+  </example>
+
+  <problem>
+    <statement>
+      <p>
+        Use truth tables to show that the operation of disjunction is associative; that is,
+        show that <m>(P \lor Q) \lor R</m> and <m>P \lor (Q \lor R)</m> are logically equivalent.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_disj_conj">
+    <statement>
+      <p>
+        Use truth tables to show that disjunction distributes over
+        conjunction; that is, show that <m>P \lor (Q \land R)</m> is logically equivalent to <m>(P \lor Q)
+        \land (P \lor R)</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    One final remark: quantifiers may be <q>moved past</q> portions of disjunctions and conjunctions
+    which do not contain the variable being quantified. For example,
+    <me>
+      (\exists y)(\exists x)\,[(y^2 \le 9) \land (2\lt x\lt y)]
+    </me>
+    says the same thing as
+    <me>
+      (\exists y)\,[(y^2 \le 9) \land (\exists x)\,2\lt x\lt y].
+    </me>
+  </p>
+</section>

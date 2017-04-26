@@ -1,0 +1,585 @@
+
+<section>
+  <title>Partial derivatives</title>
+  <p>
+    Suppose that <m>V_1, V_2, \dots, V_n</m>, and <m>W</m> are normed linear spaces.
+    Let <m>V = V_1\times \dots \times V_n</m>. In the following discussion we will need the
+    <index><main>canonical injection maps</main></index>
+    <index><main>injection maps</main><sub>canonical</sub></index>
+    <index><main><@<m>j_{{}_{\sst k}}</m> (<m>k^{\text{ th } }</m> canonical injection)</main></index>
+    <index><main>j@<m>j_{{}_{\sst k}}</m> (<m>k^{\text{ th } }</m> canonical injection)</main></index><term>canonical injection maps</term> <m>j_{{}_{\sst 1}}, \dots, j_{{}_{\sst n}}</m> which map the
+    coordinate spaces <m>V_1, \dots, V_n</m> into the product space<nbsp /><m>V</m>. For <m>1\le k \le n</m> the map
+    <m>j_{{}_{\sst k}}\colon V_k \sto V</m> is defined by <m>j_{{}_{\sst k}}(x) = (0, \dots, 0, x, 0,
+    \dots, 0)</m> (where <m>x</m> appears in the <m>k^{\text {th}}</m> coordinate). It is an easy exercise to
+    verify that each <m>j_{{}_{\sst k}}</m> is a bounded linear transformation and that if <m>V_k</m> does
+    not consist solely of the zero vector then <m>\norm{j_{{}_{\sst k}}} = 1</m>. Also worth noting is
+    the relationship given in the following exercise between the injections <m>j_{{}_{\sst k}}</m> and
+    the projections<nbsp /><m>\pi_k</m>.
+  </p>
+  <exercise xml:id="exer_inj_proj">
+    <statement>
+      <p>
+        Let <m>V_1, \dots, V_n</m> be normed linear spaces and <m>V =
+        V_1 \times \dots \times V_n</m>. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              For <m>k = 1, \dots, n</m> the injection <m>j_{{}_{\sst k}}</m> is a right inverse of the
+              projection<nbsp /><m>\pi_k</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\sum\limits_{k=1}^n (j_{{}_{\sst k}} \circ \pi_k) = I_V</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        (<xref ref="sol_exer_inj_proj">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem xml:id="prob_proj_ball">
+    <statement>
+      <p>
+        Let <m>V = V_1 \times \dots \times V_n</m> where <m>V_1, \dots, V_n</m>
+        are normed linear spaces. Also let <m>a \in V</m>, <m>r > 0</m>, and <m>1 \le k \le n</m>. Then the image
+        under the projection map <m>\pi_k</m> of the open ball in <m>V</m> about <m>a</m> of radius <m>r</m> is the open
+        ball in <m>V_k</m> about <m>a_k</m> of radius <m>r</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        A mapping <m>f \colon M_1 \sto M_2</m> between metric spaces is
+        <index><main>open</main><sub>mapping</sub></index><term>open</term>
+        <index><main>closed</main><sub>mapping</sub></index>[resp., <term>closed</term>] if <m>f^\sto(U)</m> is an open [resp., closed] subset of <m>M_2</m> whenever
+        <m>U</m> is an open [resp., closed] subset of<nbsp /><m>M_1</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Show that each projection mapping <m>\pi_k\colon  V_1 \times \dots \times V_n \sto V_k</m>
+        on the product of normed linear spaces is an open mapping. Construct an example to show that
+        projection mappings need not be closed.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Now suppose that <m>f</m> belongs to <m>\fml F_a(V,W)</m> and that <m>1 \le k \le n</m>. Let <m>B</m> be an open
+    ball about <m>a</m> which is contained in the domain of <m>f</m> and <m>B_k = \left(\pi_k^{\sto}(B)\right)
+    - a_k</m>. From <xref ref="prob_proj_ball">problem</xref> and the fact that translation by <m>a_k</m> is an
+    isometry (see <xref ref="prob_transl">problem</xref>) we see that <m>B_k</m> is an open ball in <m>V_k</m> about the
+    origin (whose radius is the same as the radius of <m>B</m>). Define
+    <me>
+      g \colon B_k \sto W \colon x \mapsto f(a + j_{{}_{\sst k}}(x))\,.
+    </me>
+  </p>
+
+  <p>
+    Notice that as <m>x</m> changes, only the <m>k^{\text {th}}</m> variable of the domain of <m>f</m> is
+    changing; the other <m>k - 1</m> variables are fixed. Also notice that we can write <m>g = f \circ
+    T_a \circ j_{{}_{\sst k}}</m>, where <m>T_a</m> is translation by <m>a</m> (that is, <m>T_a \colon x \mapsto
+    x + a</m>).
+  </p>
+  <exercise xml:id="exer_Del_inj">
+    <statement>
+      <p>
+        With notation as above show that
+        <me>
+          \Delta g_{\vc 0} = \Delta f_a \circ j_{{}_{\sst k}}\,.
+        </me>
+        in some neighborhood of the origin in<nbsp /><m>V_k</m>. (<xref ref="sol_exer_Del_inj">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>f</m>, <m>g</m>, and <m>a</m> be as above. If <m>f</m> is differentiable at <m>a</m>, then <m>g</m> is
+        differentiable at <m>\vc 0</m> and
+        <me>
+          dg_{\vc 0} = df_a \circ j_{{}_{\sst k}}\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Use <xref ref="exer_Del_inj">exercise</xref> and
+      <xref ref="prop_tan_comp_O">proposition</xref>.
+    </p>
+  </proof>
+
+  <notation>
+
+  <p>
+    Suppose that the function <m>g\colon  B_k \sto W\colon x \mapsto f(a +
+    j_{{}_{\sst k}}(x))</m> is differentiable at <m>\vc 0</m>. Since <m>g</m> depends only on the function
+    <m>f</m>, the point <m>a</m>, and the index <m>k</m>, it is desirable to have a notation for <m>dg_{\vc 0}</m>
+    which does not require the use of the extraneous letter <q><m>g</m></q>. A fairly common convention
+    is to write <m>d_kf_a</m> for <m>dg_{\vc 0}</m>; this bounded linear map is the <m>k^{\text {th}}</m>
+    <index><main>partial</main><sub>differential</sub></index>
+    <index><main>differential</main><sub>partial</sub></index>
+    <index><main><@<m>d_kf_a</m> (<m>k^{\text{ th } }</m> partial differential)</main></index>
+    <index><main>d@<m>d_kf_a</m> (<m>k^{\text{ th } }</m> partial differential)</main></index><term>partial differential</term> of <m>f</m> at<nbsp /><m>a</m>. Thus <m>d_kf_a</m> is the unique bounded linear map which
+    is tangent to <m>\Delta f_a \circ j_{{}_{\sst k}}</m>. We restate the preceding proposition using
+    this notation.
+  </p>
+
+  </notation>
+
+  <corollary xml:id="cor_dffntl_inj">
+    <statement>
+      <p>
+        Let <m>V_1, V_2, \dots ,V_n</m>, and <m>W</m> be normed linear spaces.
+        If the function <m>f</m> belongs to <m>\fml D_a(V_1 \times \dots \times V_n, W)</m>, then for each <m>k =
+        1,\dots ,n</m> the <m>k^{\text{ th } }</m> partial differential of <m>f</m> at <m>a</m> exists and
+        <me>
+          d_kf_a = df_a \circ j_{{}_{\sst k}}\;.
+        </me>
+      </p>
+    </statement>
+  </corollary>
+
+  <corollary>
+    <statement>
+      <p>
+        Let <m>V_1, V_2, \dots ,V_n</m>, and <m>W</m> be normed linear spaces. If the function <m>f</m>
+        belongs to <m>\fml D_a(V_1 \times \dots \times V_n, W)</m>, then
+        <me>
+          df_a(x) = \sum\limits_{k=1}^n d_kf_a(x_k)
+        </me>
+        for each <m>x</m> in <m>V_1\times \dots\times V_n</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Write <m>df_a</m> as <m>df_a \circ I</m> (where <m>I</m> is the identity
+      map on <m>V_1 \times \dots \times V_n</m>) and use <xref ref="exer_inj_proj">exercise</xref>(b).
+    </p>
+  </proof>
+
+  <p>
+    The preceding corollaries assure us that if <m>f</m> is differentiable at a point, then it has
+    partial differentials at that point. The converse is not true. (Consider the function
+    defined on <m>\R^2</m> whose value is <m>1</m> everywhere except on the coordinate axes, where its value
+    is <m>0</m>. This function has partial differentials at the origin, but is certainly not
+    differentiable<mdash />or even continuous<mdash />there.) The following proposition shows that if we
+    assume continuity (as well as the existence) of the partial differentials of a function in an
+    open set, then the function is differentiable (in fact, continuously differentiable) on that
+    set. To avoid complicated notation we prove this only for the product of two spaces.
+  </p>
+
+  <proposition xml:id="prop_par_dffntl">
+    <statement>
+      <p>
+        Let <m>V_1</m>, <m>V_2</m>, and <m>W</m> be normed linear spaces, and let
+        <m>f\colon U \sto W</m> where <m>\open U{V_1 \times V_2}</m>. If the partial differentials <m>d_1f</m> and
+        <m>d_2f</m> exist and are continuous on <m>U</m>, then <m>f</m> is continuously differentiable on <m>U</m> and
+        <men xml:id="eqn_par_dffntl1" >
+          df_{(a,b)} = d_1f_{(a,b)} \circ \pi_1 + d_2f_{(a,b)} \circ \pi_2
+        </men>
+        at each point <m>(a,b)</m> in<nbsp /><m>U</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> To show that <m>f</m> is differentiable at a point <m>(a,b)</m>
+      in <m>U</m> and that its differential there is the expression on the right side
+      of<nbsp /><xref ref="eqn_par_dffntl1" />, we must establish that <m>\Delta f_{(a,b)}</m> is tangent to <m>R = S
+      \circ \pi_1 + T \circ \pi_2</m> where <m>S = d_1f_{(a,b)}</m> and <m>T = d_2f_{(a,b)}</m>. Let <m>g \colon t
+      \mapsto f(a,b + t)</m> for all <m>t</m> such that <m>(a,b + t) \in U</m> and <m>h^t \colon s \mapsto f(a + s,
+      b + t)</m> for all <m>s</m> and <m>t</m> such that <m>(a + s, b + t) \in U</m>. Show that <m>\Delta f_{(a,b)}
+      (s,t)</m> is the sum of <m>\Delta \left(h^t \right)_{\vc 0}(s)</m> and <m>\Delta g_{\vc 0}(t)</m>. Conclude
+      from this that it suffices to show that: given <m>\epsilon > 0</m> there exists <m>\delta > 0</m> such
+      that if <m>\norm{(u,v)}_1 \lt  \delta</m> , then
+      <men xml:id="eqn_par_dffntl2" >
+        \norm{\Delta\left(h^v\right)_{\vc 0}(u) - Su} \leq \epsilon\,\norm u
+      </men>
+      and
+      <men xml:id="eqn_par_dffntl3" >
+        \norm{\Delta g_{\vc 0}(v) - Tv} \leq \epsilon\,\norm v\,.
+      </men>
+    </p>
+
+    <p>
+      Find <m>\delta_1 > 0</m> so that<nbsp /><xref ref="eqn_par_dffntl3" /> holds whenever <m>\norm v \lt  \delta_1</m>.
+      (This is easy.) Then find <m>\delta_2 > 0</m> so that<nbsp /><xref ref="eqn_par_dffntl2" /> holds whenever
+      <m>\norm{(u,v)}_1 \lt  \delta_2</m>. This requires a little thought. Notice
+      that<nbsp /><xref ref="eqn_par_dffntl2" /> follows from the <em>mean value theorem</em>
+      (<xref ref="cor_mvt_nls">corollary</xref>) provided that we can verify that
+      <me>
+        \norm{d\left(h^v\right)_z - S} \leq \epsilon
+      </me>
+      for all <m>z</m> in the segment<nbsp /><m>[\vc 0,u]</m>. To this end show that <m>d\left(h^v\right)_z = d_1f_{(a
+      + z, b + v)}</m> and use the fact that <m>d_1f</m> is assumed to be continuous.
+      (<xref ref="sol_prop_par_dffntl">Solution</xref>.)
+    </p>
+  </proof>
+
+  <notation>
+
+  <p>
+    Up to this point we have had no occasion to consider the problem of the various ways
+    in which a Euclidean space <m>\R^n</m> may be regarded as a product. Take <m>\R^5</m> for example. If
+    nothing to the contrary is specified it is natural to think of <m>\R^5</m> as being the product of
+    5 copies of <m>\R</m>; that is, points of <m>\R^5</m> are 5-tuples <m>x = (x_1, \dots, x_5)</m> of real
+    numbers. If, however we wish to regard <m>\R^5</m> as the product of <m>\R^2</m> and <m>\R^3</m>, then a
+    point in <m>\R^5</m> is an ordered pair <m>(x,y)</m> with <m>x \in \R^2</m> and <m>y \in \R^3</m>. One good way
+    of informing a reader that you wish <m>\R^5</m> considered as a product in this particular fashion
+    is to write <m>\R^2 \times \R^3</m>; another is to
+    <index><main><@<m>\R^{m+n}</m> (<m>\R^m \times \R^n</m>)</main></index>
+    <index><main>realnumbersss@<m>\R^{m+n}</m> (<m>\R^m \times \R^n</m>)</main></index>write<nbsp /><m>\R^{2+3}</m>. (Note the distinction between <m>\R^{2+3}</m> and <m>\R^{3+2}</m>.) In many
+    concrete problems the names of variables are given in the statement of the problem: for
+    example, suppose we encounter several equations involving the variables <m>u</m>, <m>v</m>, <m>w</m>, <m>x</m>,
+    and <m>y</m> and wish to solve for the last three variables in terms of the first two. We are then
+    thinking of <m>\R^5</m> as the product of <m>\R^2</m> (the space of independent variables) and <m>\R^3</m>
+    (the space of dependent variables). This particular factorization may be emphasized by
+    writing a point <m>(u,v,w,x,y)</m> of the product as <m>((u,v),(w,x,y))</m>. And if you wish to avoid
+    such an abundance of parentheses you may choose to write <m>(u,v;w,x,y)</m> instead. Ordinarily
+    when <m>\R^n</m> appears, it is clear from context what factorization (if any) is intended. The
+    preceding notational devices are merely reminders designed to ease the burden on the reader.
+    In the next exercise a function <m>f</m> of 4 variables is given and you are asked to compute
+    <m>d_1f_a</m> in several different circumstances; it is important to realize that the value of
+    <m>d_1f_a</m> <em>depends on the factorization of</em><nbsp /><m>\R^4</m> <em>that is assumed</em>.
+  </p>
+
+  </notation>
+  <exercise xml:id="exer_pd_R4">
+    <statement>
+      <p>
+        Let
+        <men xml:id="eqn_pd_R4" >
+          f(t,u,v,w) = tu^2 + 3\,vw
+        </men>
+        for all <m>t</m>, <m>u</m>, <m>v</m>, <m>w \in \R</m>, and let <m>a = (1,1,2,-1)</m>. Find <m>d_1f_a</m> assuming that the
+        domain of <m>f</m> is:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\R^4</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\R \times \R^3</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\R^2 \times \R^2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\R^2 \times \R \times \R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\R^3 \times \R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> First compute <m>df_a</m>. Then <xref ref="cor_dffntl_inj">use</xref>. <em>Note.</em> The
+        default case is (a); that is, if we were given only equation<nbsp /><xref ref="eqn_pd_R4" /> we would assume
+        that the domain of <m>f</m> is <m>\R \times \R \times \R \times \R</m>. In this case it is possible to
+        compute <m>d_kf_a</m> for <m>k = 1,2,3, 4</m>. In cases (b), (c), and (e) only <m>d_1f_a</m> and <m>d_2f_a</m>
+        make sense; and in (d) we can compute <m>d_kf_a</m> for <m>k = 1</m>, <m>2</m>, <m>3</m>.
+        (<xref ref="sol_exer_pd_R4">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let
+        <me>
+          f(t,u,v,w) = tuv - 4\,u^2w
+        </me>
+        for all <m>t</m>, <m>u</m>, <m>v</m>, <m>w \in \R</m> and let <m>a = (1,2,-1,3)</m>. Compute <m>d_kf_a</m> for all <m>k</m> for
+        which this expression makes sense, assuming that the domain of <m>f</m> is:
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\R^4</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\R \times \R^3</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>\R^2 \times \R^2</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\R \times \R^2 \times \R</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>\R^3 \times \R</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <definition>
+    <statement>
+      <p>
+        We now consider the special case of a function <m>f</m> which maps an open subset of
+        <m>\R^n</m> into a normed linear space. For <m>1 \le k \le n</m> the injection <m>j_{{}_{\sst k}}\colon \R
+        \sto \R^n</m> takes the real number <m>t</m> to the vector <m>t\,e^k</m>. Thus the function <m>g \equiv f
+        \circ T_a \circ j_{{}_{\sst k}}</m> is just <m>f \circ l</m> where as usual <m>l</m> is the parametrized
+        line through <m>a</m> in the direction of <m>e^k</m>. [Proof: <m>g(t) = f\left(a + j_{{}_{\sst
+        k}}(t)\right) = f(a + t\,e^k) = (f \circ l)(t)</m>.] We define
+        <index><main><@<m>f_k</m> (<m>k^{\text{ th } }</m> partial derivative of<nbsp /><m>f</m>)</main></index>
+        <index><main><@<m>\pd f{x_k}</m> (<m>k^{\text{ th } }</m> partial derivative of<nbsp /><m>f</m>)</main></index>
+        <index><main><@<m>D_kf</m> (<m>k^{\text{ th } }</m> partial derivative of<nbsp /><m>f</m>)</main></index><m>f_k(a)</m> (or <m>\pd f{x_k}(a)</m>, or <m>D_kf(a))</m>, the <m>k^{\text {th}}</m>
+        <index><main>partial</main><sub>derivative</sub></index>
+        <index><main>derivative</main><sub>partial</sub></index><term>partial derivative</term> of <m>f</m> at <m>a</m>, to be <m>d_kf_a(1)</m>. Using
+        <xref ref="prop_diff_der">propositions</xref> and <xref ref="prop_diff_dd"></xref> we see that
+        <md>
+          <mrow>f_k(a) \amp = d_kf_a(1)</mrow>
+          <mrow>\amp = dg_0(1)</mrow>
+          <mrow>\amp = Dg(0)</mrow>
+          <mrow>\amp = D(f \circ l)(0)</mrow>
+          <mrow>\amp = D_{e^k}f(a).</mrow>
+        </md>
+      </p>
+
+      <p>
+        That is, the <m>k^{\text {th}}</m> partial derivative of <m>f</m> is the directional derivative of <m>f</m>
+        in the direction of the <m>k^{\text {th}}</m> coordinate axis of<nbsp /><m>\R^n</m>. Thus the notation <m>D_kf</m>
+        for the <m>k^{\text {th}}</m> partial derivative can be regarded as a slight abbreviation of the
+        usual notation <m>D_{e^k}f</m> used for directional derivatives of functions on<nbsp /><m>\R^n</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    It is also useful to note that
+    <men xml:id="eqn_def_pd" >
+      \begin{aligned}f_k(a) \amp = Dg(0)        \\
+                     \amp = \lim_{t \sto 0} \frac {g(t) - g(0)}t  \\
+                     \amp = \lim_{t \sto 0} \frac {f(a + t\,e^k) - f(a)}t.
+      \end{aligned}
+    </men>
+  </p>
+
+  <p>
+    This is the usual definition given for partial derivatives in beginning calculus. The
+    mechanics of computing partial derivatives is familiar and is justified by<nbsp /><xref ref="eqn_def_pd" />:
+    pretend that a function of <m>n</m> variables is a function only of its <m>k^{\text {th}}</m> variable,
+    then take the ordinary derivative.
+  </p>
+
+  <p>
+    One more observation: if <m>f</m> is differentiable at <m>a</m> in <m>\R^n</m>, then by
+    <xref ref="prop_dd_diff">proposition</xref>
+    <me>
+      f_k(a) = D_{e^k}f(a) = df_a(e^k)\,.
+    </me>
+  </p>
+
+  <p>
+    Let <m>f \in \fml D_a(\R^n,W)</m> where <m>W = W_1 \times \dots \times W_m</m> is the product of <m>m</m>
+    normed linear spaces. From <xref ref="prop_diff_coord">proposition</xref> (and induction) we know that
+    <me>
+      df_a = \left(d(f^1)_a, \dots ,d(f^m)_a\right)\,.
+    </me>
+  </p>
+
+  <p>
+    From this it is an easy step to the next proposition.
+  </p>
+
+  <proposition xml:id="prop_pd_vvf">
+    <statement>
+      <p>
+        If <m>f \in \fml D_a(\R^n,W)</m> where <m>W = W_1 \times \dots \times
+        W_m</m> is the product of <m>m</m> normed linear spaces, then
+        <me>
+          \left(f^j\right)_k = \left(f_k\right)^j
+        </me>
+        for <m>1 \le j \le m</m> and <m>1 \le k \le n</m>.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <p>
+    The point of the preceding proposition is that no ambiguity arises if we write the
+    <index><main><@<m>f^j_k</m> (<m>k^{\text{ th } }</m> partial derivative of
+    <m>j^{\text{ th } }</m> component)</main></index>expression<nbsp /><m>f^j_k</m>. It may correctly be interpreted either as the <m>k^{\text {th}}</m> partial
+    derivative of the <m>j^{\text {th}}</m> component function <m>f^j</m> or as the <m>j^{\text {th}}</m>
+    component of the <m>k^{\text {th}}</m> partial derivative <m>f_k</m>.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let <m>f(x,y) = (x^5y^2,x^3 - y^3)</m>. To find <m>f_1(x,y)</m> hold <m>y</m> fixed and
+        differentiate with respect to <m>x</m> using <xref ref="cor_diff_prodcurv">corollary</xref>. Then
+        <me>
+          f_1(x,y) = (5\,x^4y^2,3\,x^2)\,.
+        </me>
+      </p>
+
+      <p>
+        Similarly,
+        <me>
+          f_2(x,y) = (2\,x^5y,-3\,y^2)\,.
+        </me>
+      </p>
+    </statement>
+  </example>
+
+  <exercise xml:id="exer_pd_R3">
+    <statement>
+      <p>
+        Let <m>f(x,y,z) = (x^3y^2\sin z, x^2 + y\cos z)</m> and <m>a =
+        (1,-2,\frac\pi2)</m>. Find <m>f_1(a)</m>, <m>f_2(a)</m>, and <m>f_3(a)</m>. (<xref ref="sol_exer_pd_R3">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(w,x,y,z) = (wxy^2z^3, w^2 + x^2 + y^2, wx + xy + yz)</m> and <m>a = (-3,1,-2,1)</m>.
+        Find <m>f_k(a)</m> for all appropriate<nbsp /><m>k</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_dk">
+    <statement>
+      <p>
+        Let <m>V_1,\dots,V_n,W</m> be normed linear spaces, <m>\open UV = V_1 \times
+        \dots \times V_n</m>, <m>\alpha \in \R</m>, and <m>f</m>, <m>g\colon U \sto W</m>. If the <m>k^{\text {th}}</m>
+        partial derivatives of <m>f</m> and <m>g</m> exist at a point <m>a</m> in <m>U</m>, then so do the <m>k^{\text
+        {th}}</m> partial differentials of <m>f+g</m> and <m>\alpha f</m>, and
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>d_k(f + g)_a = d_kf_a + d_kg_a</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>d_k(\alpha f)_a = \alpha d_kf_a</m>;
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>(f + g)_k(a) = f_k(a) + g_k(a)</m>; and
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>(\alpha f)_k(a) = \alpha f_k(a)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        <em>Hint.</em> In (a), consider the function <m>(f + g) \circ T_a \circ j_{{}_{\sst k}}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f</m>, <m>g \in \fml F_a(V,W)</m>, <m>\alpha \in \R</m>, and <m>\vc 0 \ne v \in V</m>. Suppose
+        that <m>D_vf(a)</m> and <m>D_vg(a)</m> exist.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>D_v(f + g)(a)</m> exists and is the sum of <m>D_vf(a)</m> and <m>D_vg(a)</m>.
+              <em>Hint.</em>  Use the definition of directional derivative and <xref ref="prop_del_sum">proposition</xref>.
+              We can <em>not</em> use <xref ref="prop_diff_dd">either</xref> <xref ref="prop_dd_diff">or</xref> here because we are
+              <em>not</em> assuming that <m>f</m> and <m>g</m> are differentiable at<nbsp /><m>a</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Show that <m>D_v(\alpha f)(a)</m> exists and is equal to <m>\alpha D_vf(a)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Use (a) and (b) to prove parts (c) and (d) of <xref ref="prob_dk">problem</xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+</section>

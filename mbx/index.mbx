@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<docinfo>
+<macros>
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\arraystretch}{1.5}
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\C}{\field{C}}
+\newcommand{\E}{\field{E}}
+\newcommand{\N}{\field{N}}
+\newcommand{\Po}{\field{P}}
+\newcommand{\Q}{\field{Q}}
+\newcommand{\R}{\field{R}}
+\newcommand{\Sp}{\field{S}}
+\newcommand{\Z}{\field{Z}}
+\newcommand{\sto}{\rightarrow}
+\newcommand{\ofml}[1]{\mathfrak{#1}}
+\newcommand{\fml}[1]{\mathcal{#1}}
+\newcommand{\sfml}[1]{\mathfrak{#1}}
+\newcommand{\df}[1]{#1}
+\newcommand{\lobo}[1]{\mathfrak{#1}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\bigabs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\bignorm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\trinorm}[1]{\vert\mspace{-2mu}\vert
+     \mspace{-2mu}\vert#1\vert\mspace{-2mu}\vert
+     \mspace{-2mu}\vert}
+\newcommand{\id}[1]{\operatorname{id_{#1}}}
+\newcommand{\intr}[1]{#1^{\circ}}
+\newcommand{\clo}[1]{\overline{#1}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\open}[2]{#1\overset{\;{}_\circ}{\subseteq}#2}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\cpd}[3]{\left(\frac{\partial#1}{\partial#2}\right)_{#3}}
+\newcommand{\dt}[2]{d^{\,2}\!#1_{#2}}
+\newcommand{\delt}[2]{\Delta^2\!#1_{#2}}
+\newcommand{\simt}[2]{#1\overset{\scriptscriptstyle2}{\simeq}#2}
+\newcommand{\locinv}[1]{#1_{\mathstrut\text{loc}}^{\mathstrut{-1}}}
+\newcommand{\sbsb}[2]{#1_{{}_\sst{#2}}}
+\newcommand{\sst}[1]{{\scriptstyle{#1}}}
+\newcommand{\ssst}[1]{{\scriptscriptstyle{#1}}}
+\newcommand{\symdif}[2]{#1 \bigtriangleup #2}
+\newcommand{\vc}[1]{\mathbf{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\inv}{Inv}
+\DeclareMathOperator{\ran}{ran}
+</macros>
+
+<latex-image-preamble>
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{through,intersections,decorations,shadows,fadings}
+
+\usepackage{pgfplots}
+
+</latex-image-preamble>
+
+</docinfo>
+
+
+<book>
+<title>A ProblemText in Advanced Calculus</title>
+<frontmatter>
+<titlepage>
+<author>
+<personname>John M. Erdman</personname>
+</author>
+</titlepage>
+</frontmatter>
+
+
+<xi:include href="./chapter1x.mbx" />
+
+<xi:include href="./chapter2x.mbx" />
+
+<xi:include href="./intervals.mbx" />
+
+<xi:include href="./nbhds_in_r.mbx" />
+
+<xi:include href="./cont_on_R.mbx" />
+
+<xi:include href="./seqs_rn.mbx" />
+
+<xi:include href="./ivt.mbx" />
+
+<xi:include href="./evt.mbx" />
+
+<xi:include href="./lim_rvf.mbx" />
+
+<xi:include href="./dorf.mbx" />
+
+<xi:include href="./metric.mbx" />
+
+<xi:include href="./chapter10.mbx" />
+
+<xi:include href="./chapter11.mbx" />
+
+<xi:include href="./seqs_msps.mbx" />
+
+<xi:include href="./unif_conv.mbx" />
+
+<xi:include href="./chapter14.mbx" />
+
+<xi:include href="./cpt.mbx" />
+
+<xi:include href="./chapter16.mbx" />
+
+<xi:include href="./conn.mbx" />
+
+<xi:include href="./chapter18.mbx" />
+
+<xi:include href="./fpt.mbx" />
+
+<xi:include href="./v_sps.mbx" />
+
+<xi:include href="./chapter21.mbx" />
+
+<xi:include href="./nls.mbx" />
+
+<xi:include href="./chapter23.mbx" />
+
+<xi:include href="./C_int.mbx" />
+
+<xi:include href="./diff_calc.mbx" />
+
+<xi:include href="./chapter26.mbx" />
+
+<xi:include href="./comp_Rn.mbx" />
+
+<xi:include href="./inf_ser.mbx" />
+
+<xi:include href="./IFT.mbx" />
+
+<xi:include href="./quan.mbx" />
+
+<xi:include href="./sets.mbx" />
+
+<xi:include href="./chapter32.mbx" />
+
+<xi:include href="./log_con.mbx" />
+
+<xi:include href="./chapter34.mbx" />
+
+<xi:include href="./chapter35.mbx" />
+
+<xi:include href="./arithmetic.mbx" />
+
+<xi:include href="./order_R.mbx" />
+
+<xi:include href="./nat_nos.mbx" />
+
+<xi:include href="./lub.mbx" />
+
+<xi:include href="./fcns.mbx" />
+
+<xi:include href="./images.mbx" />
+
+<xi:include href="./inverses.mbx" />
+
+<xi:include href="./prods.mbx" />
+
+<xi:include href="./chapter44.mbx" />
+
+<xi:include href="./chapter45.mbx" />
+
+<xi:include href="./chapter46.mbx" />
+
+<backmatter>
+
+<xi:include href="./bibliography.mbx" />
+<index-part>
+<title>Index</title>
+<index-list />
+</index-part>
+
+</backmatter>
+</book>
+</mathbook>

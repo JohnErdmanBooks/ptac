@@ -1,0 +1,110 @@
+
+<section>
+  <title>Exercises in Chapter 16</title>
+  <solution xml:id="sol_scpt_tbdd">
+    <p>
+      (Solution to <xref ref="scpt_tbdd"></xref>)
+      If a metric space <m>M</m> is not totally bounded then there exists a positive number <m>\epsilon</m>
+      such that for every finite subset <m>F</m> of <m>M</m> there is a point <m>a</m> in <m>M</m> such that <m>F \cap
+      B_{\epsilon}(a) = \emptyset</m>. Starting with an arbitrary point <m>x_1</m> in <m>M</m>, construct a
+      sequence <m>(x_k)</m> inductively as follows: having chosen <m>x_1, \dots, x_n</m> no two of which are
+      closer together than <m>\epsilon</m>, choose <m>x_{n+1} \in M</m> so that
+      <me>
+        B_{\epsilon}(x_{n+1}) \cap \{x_1, \dots, x_n\} = \emptyset\,.
+      </me>
+    </p>
+
+    <p>
+      Since no two terms of the resulting sequence are closer together than <m>\epsilon</m>, it has no
+      convergent subsequence.
+    </p>
+  </solution>
+  <solution xml:id="sol_cpt_scpt">
+    <p>
+      (Solution to <xref ref="cpt_scpt"></xref>)
+      (1) <m>\Rightarrow</m> (2): Suppose that there exists an infinite subset <m>A</m> of <m>M</m> which has no
+      accumulation point in<nbsp /><m>M</m>. Then <m>\clo A = A</m>, so that <m>A</m> is closed. Each point <m>a \in A</m> has
+      a neighborhood <m>B_a</m> which contains no point of <m>A</m> other than <m>a</m>. Thus <m>\{B_a \colon a \in
+      A\}</m> is a cover for <m>A</m> by open subsets of <m>M</m> no finite subfamily of which covers<nbsp /><m>A</m>. This
+      shows that <m>A</m> is not compact. We conclude from <xref ref="CPT_cnd1">proposition</xref> that <m>M</m> is not
+      compact.
+    </p>
+
+    <p>
+      (2) <m>\Rightarrow</m> (3): Suppose that (2) holds. Let <m>a</m> be a sequence in<nbsp /><m>M</m>. If the range of
+      <m>a</m> is finite, then <m>a</m> has a constant (therefore convergent) subsequence. Thus we assume that
+      the image of <m>a</m> is infinite. By hypothesis <m>\ran a</m> has an accumulation point <m>m \in M</m>. We
+      define <m>n \colon \N \sto \N</m> inductively: let <m>n(1) = 1</m>; if <m>n(1), \dots, n(k)</m> have been
+      defined, let <m>n(k+1)</m> be an integer greater than <m>n(k)</m> such that <m>a_{n_{k+1}} \in
+      B_{1/(k+1)}(m)</m>. (This is possible since <m>B_{1/(k+1)}(m)</m> contains infinitely many distinct
+      points of the range of<nbsp /><m>a</m>.) It is clear that <m>a \circ n</m> is a subsequence of <m>a</m> and that
+      <m>a_{n_k} \sto m</m> as <m>k \sto \infty</m>.
+    </p>
+
+    <p>
+      (3) <m>\Rightarrow</m> (1): Let <m>\sfml U</m> be an open cover for <m>M</m>. By
+      <xref ref="scpt_sep">corollary</xref> the space <m>M</m> is separable. Let <m>A</m> be a countable dense subset
+      of <m>M</m> and <m>\sfml B</m> be the family of all open balls <m>B(a;r)</m> such that
+      <md>
+        <mrow>\text{ (i) }  \amp a \in A;</mrow>
+        <mrow>\text{ (ii) }  \amp r \in \Q \text{ and; }</mrow>
+        <mrow>\text{ (iii) }  \amp B_r(a) \text{ is contained in at least one member of~\(\sfml U\). }</mrow>
+      </md>
+    </p>
+
+    <p>
+      Then for each <m>B \in \sfml B</m> choose a set <m>U_B</m> in <m>\sfml U</m> which contains <m>B</m>. Let
+      <me>
+        \sfml V = \{U_B \in \sfml U : B \in \sfml B\}\,.
+      </me>
+    </p>
+
+    <p>
+      It is clear that <m>\sfml V</m> is countable; we show that <m>V</m> covers <m>M</m>.
+    </p>
+
+    <p>
+      Let <m>x \in M</m>. There exist <m>U_0</m> in <m>\sfml U</m> and <m>r > 0</m> such that <m>B_r(x) \subseteq
+      U_0</m>. Since <m>A</m> is dense in <m>M</m>, <xref ref="cnd_dns">proposition</xref> allows us to select a point
+      <m>a</m> in <m>A \cap B_{\frac13r}(x)</m>. Next let <m>s</m> be any rational number such that <m>\frac13r
+      \lt  s \lt  \frac23r</m>. Then <m>x \in B_s(a) \subseteq B_r(x) \subseteq U_0</m>. [Proof: if <m>y \in
+      B_s(a)</m>, then
+      <me>
+        d(y,x) \le d(y,a) + d(a,x) \lt  s + \frac13r \lt  r\,;
+      </me>
+      so <m>y \in B_r(x)</m>.] This shows that <m>B_s(a)</m> belongs to <m>\sfml B</m> and that <m>x \in
+      U_{B_s(a)} \in \sfml V</m>. Thus <m>\sfml V</m> covers <m>M</m>. Now enumerate the members of <m>\sfml
+      V</m> as a sequence <m>(V_1, V_2, V_3, \dots)</m> and let <m>W_n = \cup_{k=1}^n V_k</m> for each <m>n
+      \in \N</m>. To complete the proof it suffices to find an index <m>n</m> such that <m>W_n = M</m>.
+      Assume there is no such<nbsp /><m>n</m>. Then for every <m>k</m> we may choose a point <m>x_k</m> in
+      <m>{W_k}^c</m>. The sequence <m>(x_k)</m> has, by hypothesis, a convergent subsequence <m>(x_{n_k})</m>.
+      Let <m>b</m> be the limit of this sequence. Then for some <m>m</m> in <m>\N</m> we have <m>b \in V_m
+      \subseteq W_m</m>. Thus <m>W_m</m> is an open set which contains <m>b</m> but only finitely many of
+      the points <m>x_{n_k}</m>. (<m>W_m</m> contains at most the points <m>x_1, \dots, x_{m-1}</m>.) Since
+      <m>x_{n_k} \sto b</m>, this is not possible.
+    </p>
+  </solution>
+  <solution xml:id="sol_HBThm">
+    <p>
+      (Solution to <xref ref="HBThm"></xref>)
+      A compact subset of <em>any</em> metric space is closed and bounded (by
+      <xref ref="cpt_clbdd">problem</xref>). It is the converse we are concerned with here.
+    </p>
+
+    <p>
+      Let <m>A</m> be a closed and bounded subset of <m>\R^n</m>. Since it is bounded, there exist closed
+      bounded intervals <m>J_1, \dots, J_n</m> in <m>\R</m> such that
+      <me>
+        A \subseteq J \equiv J_1 \times\dots\times J_n\,.
+      </me>
+    </p>
+
+    <p>
+      Each <m>J_k</m> is compact by <xref ref="cpt_exm3">example</xref>. Their product J is compact by
+      <xref ref="prod_cpt">corollary</xref>. Since <m>J</m> is a compact subset of <m>\R^n</m> under the product metric,
+      it is a compact subset of <m>\R^n</m> under its usual Euclidean metric (see
+      <xref ref="mtr_vs_top">proposition</xref> and the remarks preceding it). Since <m>A</m> is a closed subset
+      of<nbsp /><m>J</m>, it is compact by <xref ref="CPT_cnd1">proposition</xref>.
+    </p>
+  </solution>
+</section>

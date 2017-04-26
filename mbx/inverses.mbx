@@ -1,0 +1,6 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="inverses">
+  <title>Functions which have inverses</title>
+  <xi:include  href="section42-1.mbx" />
+  <xi:include  href="sec_inv_fcns.mbx" />
+</chapter>

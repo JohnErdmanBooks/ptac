@@ -1,0 +1,286 @@
+
+<section>
+  <title>The algebra of linear transformations</title>
+  <p>
+    The set <m>\ofml L(V,W)</m> of linear transformations
+    between two vector spaces is contained in the vector space <m>\fml F(V,W)</m> of <em>all</em>
+    <m>W</m>-valued functions whose domain is<nbsp /><m>V</m>. (That <m>\fml F</m> is a vector space was proved in
+    <xref ref="vs_exam1">example</xref>.) It is easy to show that <m>\ofml L(V,W)</m> is a vector space; just show
+    that it is a subspace of<nbsp /><m>\fml F(V,W)</m>.
+  </p>
+
+  <proposition xml:id="endo_vs">
+    <statement>
+      <p>
+        Let <m>V</m> and <m>W</m> be vector spaces. Then <m>\ofml L(V,W)</m> with pointwise
+        operations of addition and scalar multiplication is a vector space.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise. <em>Hint.</em> Use <xref ref="vs_exam1">example</xref> and <xref ref="vs_prop1">proposition</xref>.
+      (<xref ref="sol_endo_vs">Solution</xref>.)
+    </p>
+  </proof>
+
+  <p>
+    Let <m>T \colon V \sto W</m> be a function between two sets. We say that <m>T</m> is
+    <index><main>invertible</main><sub>function</sub></index><term>invertible</term> if there exists a function <m>T^{-1}</m> mapping <m>W</m> to <m>V</m> such that <m>T \circ
+    T^{-1}</m> is the identity function on <m>V</m> and <m>T^{-1} \circ T</m> is the identity function on<nbsp /><m>W</m>.
+    (For details about this see <xref ref="inverses">appendix</xref>.) Now, suppose that <m>V</m> and <m>W</m> are
+    vector spaces and that <m>T \colon V\sto W</m> is a linear transformation. In this context what do
+    we mean when we say that <m>T</m> is <em>invertible</em>? For a linear transformation to be
+    invertible we will require two things: the transformation must possess an inverse function,
+    and this function must itself be linear. It is a pleasant fact about linear transformations
+    that the second condition is automatically satisfied whenever the first is.
+  </p>
+
+  <proposition xml:id="prop_Tinv_lin">
+    <statement>
+      <p>
+        If <m>T \in \ofml L(V,W)</m> is bijective, then its inverse
+        <m>T^{-1} \colon W \sto V</m> is linear.
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Exercise (<xref ref="sol_prop_Tinv_lin">Solution</xref>.)
+    </p>
+  </proof>
+
+  <definition>
+    <statement>
+      <p>
+        A linear transformation <m>T \colon V \sto W</m> is
+        <index><main>invertible</main><sub>linear mapping</sub></index>
+        <index><main>linear</main><sub>mapping!invertible</sub></index>
+        <index><main>mapping</main><sub>linear!invertible</sub></index><term>invertible</term> (or is an
+        <index><main>isomorphism</main></index><term>isomorphism</term>) if there exists a linear transformation <m>T^{-1}</m> such that <m>T^{-1}\circ T =
+        I_V</m> and <m>T \circ T^{-1} = I_W</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The point of the preceding proposition is that this definition is somewhat redundant. In
+    particular, the following are just different ways of saying the same thing about a linear
+    transformation<nbsp /><m>T</m>.
+    <ol>
+      <li>
+        <title>(a)</title>
+        <p>
+          <m>T</m> is invertible.
+        </p>
+      </li>
+
+      <li>
+        <title>(b)</title>
+        <p>
+          <m>T</m> is an isomorphism.
+        </p>
+      </li>
+
+      <li>
+        <title>(c)</title>
+        <p>
+          As a function <m>T</m> has an inverse.
+        </p>
+      </li>
+
+      <li>
+        <title>(d)</title>
+        <p>
+          <m>T</m> is bijective.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Vector spaces <m>V</m> and <m>W</m> are
+        <index><main>isomorphic</main></index><term>isomorphic</term> if there exists an isomorphism from <m>V</m> onto<nbsp /><m>W</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>s</m> be the set of all sequences of real numbers. Regard <m>s</m> as a vector space
+        under pointwise operations. That is,
+        <md>
+          <mrow>x + y \amp := (x_1 + y_1, x_2 + y_2, \dots)</mrow>
+          <mrow>\alpha x \amp := (\alpha x_1, \alpha x_2, \dots)</mrow>
+        </md>
+        whenever <m>x = (x_1, x_2,  \dots)</m> and <m>y = (y_1, y_2, \dots)</m> belong to <m>s</m> and <m>\alpha</m> is a
+        scalar. Define the
+        <index><main>unilateral shift</main></index>
+        <index><main>shift</main><sub>unilateral</sub></index>
+        <index><main>operator</main><sub>unilateral shift</sub></index><term>unilateral shift operator</term> <m>U \colon  s \sto s</m> by
+        <me>
+          U(x_1,x_2,x_3,\dots) := (0,x_1,x_2,
+          \dots).
+        </me>
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>U \in \ofml L(s,s)</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Does <m>U</m> have a right inverse?  If so, what is it?
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Does <m>U</m> have a left inverse?  If so, what is it?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <definition xml:id="def_alg">
+    <statement>
+      <p>
+        Suppose that a vector space <m>V</m> is equipped with an additional operation
+        <m>(x,y) \mapsto xy</m> from <m>V \times V</m> into<nbsp /><m>V</m> (we will call it <em>multiplication</em>) which
+        satisfies
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>x(y + z) = xy + xz</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>(x + y)z = xz + yz</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              <m>(xy)z = x(yz)</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>\alpha(xy) = x(\alpha  y)</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        whenever <m>x,y,z \in V</m> and <m>\alpha \in \R</m>. Then <m>V</m> is an
+        <index><main>algebra</main></index><term>algebra</term>. (Sometimes it is called a <term>linear associative algebra</term>.) If an algebra
+        possesses a multiplicative identity (that is, a vector <m>\vc 1</m> such that <m>\vc 1\,x = x\,\vc 1
+        = x</m> for all <m>x \in V</m>), then it is a
+        <index><main>unital</main><sub>algebra</sub></index>
+        <index><main>algebra</main><sub>unital</sub></index><term>unital algebra</term>. A subset of an algebra <m>A</m> which is closed under the operations of
+        addition, multiplication, and scalar multiplication is a
+        <index><main>subalgebra</main></index><term>subalgebra</term> of<nbsp /><m>A</m>. If <m>A</m> is a unital algebra and <m>B</m> is a subalgebra of <m>A</m> which
+        contains the multiplicative identity of <m>A</m>, then <m>B</m> is a
+        <index><main>unital</main><sub>subalgebra</sub></index>
+        <index><main>subalgebra</main><sub>unital</sub></index><term>unital subalgebra</term> of<nbsp /><m>A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <example xml:id="exam_cont_alg">
+    <statement>
+      <p>
+        If <m>M</m> is a compact metric space, then the vector space
+        <m>\fml B(M,\R)</m> of bounded functions on <m>M</m> is a unital algebra under pointwise operations.
+        (The constant function <m>1</m> is its multiplicative identity.) We have already seen in
+        <xref ref="cpt">chapter</xref> that the space <m>\fml C(M,\R)</m> of continuous functions on <m>M</m> is a vector
+        subspace of <m>\fml B(M,\R)</m>. Since the product of continuous functions is continuous (and
+        constant functions are continuous) <m>\fml C(M,\R)</m> is a unital subalgebra of <m>\fml B(M,\R)</m>.
+      </p>
+    </statement>
+  </example>
+
+  <problem xml:id="prob_lt_alg">
+    <statement>
+      <p>
+        It has already been shown (in <xref ref="endo_vs">proposition</xref>) that
+        if <m>V</m> is a vector space, then so is<nbsp /><m>\ofml L(V,V)</m>. Show that with the additional operation
+        of composition serving as multiplication <m>\ofml L(V,V)</m> is a unital algebra.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>T \in \ofml L(V,W)</m> is invertible, then so is <m>T^{-1}</m> and
+        <m>\bigl(T^{-1})\bigr)^{-1} = T</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>S \in \ofml L(U,V)</m> and <m>T \in \ofml L(V,W)</m> are both invertible, then so is
+        <m>TS</m> and <m>(TS)^{-1} = S^{-1}T^{-1}</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        If <m>T \in \ofml L(V,V)</m> satisfies the equation
+        <me>
+          T^2 - T + I = \vc 0
+        </me>
+        then it is invertible. What is <m>T^{-1}</m>?
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="lt_transfer">
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space; let <m>W</m> be a set which is provided
+        with operations <m>(u,v) \mapsto u + v</m> from <m>W \times W</m> into <m>W</m> and <m>(\alpha,u) \mapsto
+        \alpha u</m> from <m>\R \times W</m> into <m>W</m>; and let <m>T \colon V \sto W</m>. If <m>T</m> is bijective and it
+        preserves operations (that is, <m>T(x + y) = Tx + Ty</m> and <m>T(\alpha x) = \alpha Tx</m> for all <m>x</m>,
+        <m>y \in V</m> and <m>\alpha \in \R</m>), then <m>W</m> is a vector space which is isomorphic to<nbsp /><m>V</m>.
+        <em>Hint.</em> Verify the eight defining axioms for a vector space. The first axiom is
+        associativity of addition. Let <m>u</m>, <m>v</m>, <m>w \in W</m>. Write <m>(u + v) + w</m> as <m>\bigl(T(T^{-1}u)
+        + T(T^{-1}v)\bigr) + T(T^{-1}w)</m> and use the hypothesis that <m>T</m> is operation preserving.
+      </p>
+    </statement>
+  </problem>
+
+  <problem xml:id="prob_vsp_from_bij">
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space, <m>W</m> be a set, and <m>T \colon
+        V \sto W</m> be a bijection. Explain carefully how <m>W</m> can be made into a vector space
+        isomorphic to<nbsp /><m>V</m>. <em>Hint.</em> Use <xref ref="lt_transfer">problem</xref>.
+      </p>
+    </statement>
+  </problem>
+</section>

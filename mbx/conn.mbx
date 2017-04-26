@@ -1,0 +1,14 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="conn">
+  <title>Connectedness</title>
+  <introduction>
+    <p>
+      In <xref ref="ivt">chapter</xref> we discussed connected subsets of the real line. Although they are
+      easily characterized (they are just the intervals), they possess important properties, most
+      notably the <em>intermediate value property</em>. Connected subsets of arbitrary metric spaces
+      can be somewhat more complicated, but they are no less important.
+    </p>
+  </introduction>
+  <xi:include  href="section17-1.mbx" />
+  <xi:include  href="section17-2.mbx" />
+</chapter>

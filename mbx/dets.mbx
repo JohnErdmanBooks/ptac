@@ -1,0 +1,171 @@
+
+<section xml:id="dets">
+  <title>Determinants</title>
+  <p>
+    A careful development of the properties of the determinant
+    function on <m>n \times n</m> matrices is not a central concern of this course. In this section we
+    record without proof some of its elementary properties. (Proofs of these facts can be found in
+    almost any linear algebra text. Two elegant (if not entirely elementary) presentations can be
+    found in<nbsp /><nbsp /><xref ref="Halmos_1958" /> and<nbsp /><nbsp /><xref ref="HoffmanK_1971" />.)
+  </p>
+
+  <fact xml:id="mat_fact1">
+
+  <p>
+    Let <m>n \in \N</m>. There is exactly one function
+    <me>
+      \det \colon  M_{n \times n} \sto \R \colon  a \mapsto \det a
+    </me>
+    which satisfies
+    <ol>
+      <li>
+        <title>(a)</title>
+        <p>
+          <m>\det I_n = 1</m>.
+        </p>
+      </li>
+
+      <li>
+        <title>(b)</title>
+        <p>
+          If <m>a \in \ofml M_{n \times n}</m> and <m>a'</m> is the matrix obtained by interchanging two
+          rows of <m>a</m>, then <m>\det a' = - \det a</m>.
+        </p>
+      </li>
+
+      <li>
+        <title>(c)</title>
+        <p>
+          If <m>a \in \ofml M_{n \times n}</m>, <m>c \in \R</m>, and <m>a'</m> is the matrix obtained by
+          multiplying each element in one row of <m>a</m> by <m>c</m>, then <m>\det a' = c \det a</m>.
+        </p>
+      </li>
+
+      <li>
+        <title>(d)</title>
+        <p>
+          If <m>a \in \ofml M_{n \times n}</m>, <m>c \in \R</m>, and <m>a'</m> is the matrix obtained from <m>a</m>
+          by multiplying one row of <m>a</m> by <m>c</m> and adding it to another row of <m>a</m> (that is, choose <m>i,j
+          \in \N_n</m> with <m>i \ne j</m> and replace <m>a_k^j</m> by <m>a_k^j + ca_k^i</m> for each <m>k</m> in <m>N_n</m>), then
+          <m>\det a' = \det a</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  </fact>
+
+  <definition>
+    <statement>
+      <p>
+        The unique function <m>\det \colon  \ofml M_{n \times n} \sto \R</m> described above is
+        the <m>n \times n</m>
+        <index><main>determinant@<m>\det a</m> (determinant of a matrix)</main></index><term>determinant function</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <fact>
+
+  <p>
+    If <m>a \in \R</m> ( = <m>\ofml M_{1 \times 1}</m>), then <m>\det a = a</m>; if
+    <m>a \in \ofml M_{2 \times 2}</m>, then <m>\det a = a_1^1 a_2^2 - a_2^1 a_1^2</m>.
+  </p>
+
+  </fact>
+  
+  <fact>
+
+  <p>
+    If <m>a, b \in \ofml M_{n \times n}</m>, then <m>\det(ab) = (\det a)(\det b)</m>.
+  </p>
+
+  </fact>
+  
+  <fact xml:id="mat_fact4">
+
+  <p>
+    If <m>a \in \ofml M_{n \times n}</m>, then <m>\det a^t = \det a</m>.
+    (An obvious corollary of this: in conditions (b), (c), and (d) of <xref ref="mat_fact1">fact</xref> the
+    word <q>columns</q> may be substituted for the word <q>rows</q>.)
+  </p>
+
+  </fact>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> be an <m>n \times n</m> matrix. The
+        <index><main>minor</main></index><term>minor</term> of the element <m>a_k^j</m>, denoted by <m>M_k^j</m>, is the determinant of the <m>(n-1) \times
+        (n-1)</m> matrix which results from the deletion of the j<m>^{\text{ th } }</m> row and k<m>^{\text{ th } }</m>
+        column of<nbsp /><m>a</m>. The
+        <index><main>cofactor</main></index><term>cofactor</term> of the element<nbsp /><m>a_k^j</m>, denoted by <m>C_k^j</m> is defined
+        by
+        <me>
+          C_k^j := (-1)^{j+k}M_k^j\,.
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <fact>
+
+  <p>
+    If <m>a \in \ofml M_{n \times n}</m> and <m>1 \le j \le n</m>, then
+    <me>
+      \det a = \sum_{k=1}^n a_k^j C_k^j\,.
+    </me>
+  </p>
+
+  <p>
+    This is the
+    <index><main>Laplace expansion</main></index>
+    <index><main>expansion</main><sub>of a determinant</sub></index><term>(Laplace) expansion</term> of the determinant along the j<m>^{\text{ th } }</m> row.
+  </p>
+
+  </fact>
+
+  <p>
+    In light of <xref ref="mat_fact4">fact</xref>, it is clear that expansion along columns works as well as
+    expansion along rows. That is,
+    <me>
+      \det a = \sum_{j=1}^n a_k^j C_k^j
+    </me>
+    for any <m>k</m> between <m>1</m> and<nbsp /><m>n</m>. This is the <term>(Laplace) expansion</term> of the determinant
+    along the k<m>^{\text{ th } }</m> column.
+  </p>
+
+  <fact xml:id="fact_matr_inv">
+
+  <p>
+    An <m>n \times n</m> matrix <m>a</m> is invertible if and only if
+    <m>\det a \ne 0</m>. If <m>a</m> is invertible, then
+    <me>
+      a^{-1} =  (\det a)^{-1} C^t
+    </me>
+    where <m>C = \bigl[C_k^j\bigr]</m> is the matrix of cofactors of elements of<nbsp /><m>a</m>.
+  </p>
+
+  </fact>
+  <exercise xml:id="ex_mat_inv2">
+    <statement>
+      <p>
+        Let <m>a =
+                 \begin{bmatrix}1  \amp   0  \amp   2 \\
+                       0  \amp   3  \amp  -1 \\
+                       1  \amp  -1  \amp   1
+        \end{bmatrix}</m>. Use the preceding facts to show that <m>a</m> is invertible and to compute
+        the inverse of<nbsp /><m>a</m>. (<xref ref="sol_ex_mat_inv2">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>a</m> be the matrix given in <xref ref="prob_matr_inv">problem</xref>. Use the facts stated in
+        <xref ref="dets">section</xref> to show that <m>a</m> is invertible and to compute<nbsp /><m>a^{-1}</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

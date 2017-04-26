@@ -1,0 +1,16 @@
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="seqs_rn">
+  <title>Sequences of real numbers</title>
+  <introduction>
+    <p>
+      Sequences are an extremely useful tool in dealing with topological properties of sets in <m>\R</m>
+      and, as we will see later, in general metric spaces. A major goal of this chapter is to
+      illustrate this usefulness by showing how sequences may be used to characterize open sets,
+      closed sets, and continuous functions.
+    </p>
+  </introduction>
+  <xi:include  href="section4-1.mbx" />
+  <xi:include  href="section4-2.mbx" />
+  <xi:include  href="section4-3.mbx" />
+  <xi:include  href="section4-4.mbx" />
+</chapter>

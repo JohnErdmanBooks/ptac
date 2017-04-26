@@ -1,0 +1,527 @@
+
+<section>
+  <title>The inverse function theorem</title>
+  <p>
+    Recall that in <xref ref="diff_calc">chapter</xref> formulas concerning
+    the function <m>f \mapsto \Delta f</m> lead to corresponding formulas involving differentials. For
+    example, <m>d(f+g)_a = df_a + dg_a</m> followed from <m>\Delta (f+g)_a = \Delta f_a + \Delta g_a</m>
+    (<xref ref="prop_diff_sum">see</xref>). It is natural to ask whether the formula
+    <me>
+      \Delta \bigl(f^{-1}\bigr)_{f(x)} = (\Delta f_x)^{-1}
+    </me>
+    derived for bijective functions <m>f</m> in <xref ref="prop_del_inv">proposition</xref> leads to a corresponding
+    formula
+    <men xml:id="eqn_diff_inv" >
+      d\bigl(f^{-1}\bigr)_{f(x)} = (df_x)^{-1}
+    </men>
+    for differentials. Obviously, a necessary condition for<nbsp /><xref ref="eqn_diff_inv" /> to hold for all
+    <m>x</m> in some neighborhood of a point <m>a</m> is that the linear map <m>df_a</m> be invertible. The
+    <index><main>inverse</main><sub>function theorem</sub></index><em>inverse function theorem</em> states that for continuously differentiable (but not
+    necessarily bijective) functions this is all that is required. The proof of the <em>inverse
+    function theorem</em> is a fascinating application of the <em>contractive mapping theorem</em>
+    (<xref ref="cmthm">theorem</xref>). First some terminology.
+  </p>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>E</m> and <m>F</m> be Banach spaces and <m>\emptyset \ne \open UE</m>. A function <m>f</m>
+        belonging to <m>\fml C^1(U,F)</m> is
+        <index><main>c@<m>\fml C^1</m>-invertible</main></index>
+        <index><main>invertible</main><sub><m>\fml C^1</m>-</sub></index><m>\fml C^1</m>-<term>invertible</term> if <m>f</m> is a bijection between <m>U</m> and an open subset <m>V</m> of <m>F</m> and
+        if <m>f^{-1}</m> belongs to <m>\fml C^1(V,E)</m>. Such a function is also called a
+        <index><main>c@<m>\fml C^1</m>-isomorphism</main></index>
+        <index><main>isomorphism</main><sub><m>\fml C^1</m>-</sub></index><m>\fml C^1</m>-<term>isomorphism</term> between <m>U</m> and<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_not_c1">
+    <statement>
+      <p>
+        Find nonempty open subsets <m>U</m> and <m>V</m> of <m>\R</m> and a
+        continuously differentiable bijection <m>f \colon U \sto V</m> which is <em>not</em> a <m>\fml
+        C^1</m>-isomorphism between <m>U</m> and<nbsp /><m>V</m>. (<xref ref="sol_exer_not_c1">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <definition>
+    <statement>
+      <p>
+        Let <m>E</m> and <m>F</m> be Banach spaces. A function <m>f</m> in <m>\fml F_a(E,F)</m> is
+        <index><main>locally <m>\fml C^1</m>-invertible</main></index>
+        <index><main>c@<m>\fml C^1</m>-invertible</main><sub>locally</sub></index>
+        <index><main>invertible</main><sub>locally <m>\fml C^1</m>-</sub></index><term>locally <m>\fml C^1</m>-invertible</term> (or a
+        <index><main>local</main><sub><m>\fml C^1</m>-isomorphism</sub></index>
+        <index><main>c@<m>\fml C^1</m>-isomorphism</main><sub>local</sub></index>
+        <index><main>isomorphism</main><sub>local <m>\fml C^1</m>-</sub></index><term>local <m>\fml C^1</m>-isomorphism</term>) at a point <m>a</m> in <m>E</m> if there exists a neighborhood of <m>a</m>
+        on which the restriction of <m>f</m> is <m>\fml C^1</m>-invertible. The inverse of this restriction is
+        a
+        <index><main>local</main><sub><m>\fml C^1</m>-inverse</sub></index>
+        <index><main>c@<m>\fml C^1</m>-inverse</main><sub>local</sub></index>
+        <index><main>inverse</main><sub>local <m>\fml C^1</m>-</sub></index><term>local <m>\fml C^1</m>-inverse</term> of <m>f</m> at <m>a</m> and is denoted
+        <index><main><@<m>f_{\text{ loc } }^{-1}</m> (local <m>\fml C^1</m>-inverse of<nbsp /><m>f</m>)</main></index>by<nbsp /><m>f_{\text{ loc } }^{-1}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <exercise xml:id="exer_c1_inv">
+    <statement>
+      <p>
+        Let <m>f(x) = x^2 - 6x + 5</m> for all <m>x</m> in<nbsp /><m>\R</m>. Find a local
+        <m>\fml C^1</m>-inverse of <m>f</m> at <m>x = 1</m>. (<xref ref="sol_exer_c1_inv">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>f(x) = x^6 - 2x^3 -7</m> for all <m>x</m> in<nbsp /><m>\R</m>. Find local <m>\fml C^1</m>-inverses
+        for <m>f</m> at <m>0</m> and at<nbsp /><m>10</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Find a nonempty open subset <m>U</m> of <m>\R</m> and a function <m>f</m> in <m>\fml C^1(U,\R)</m>
+        which is <em>not</em> <m>\fml C^1</m>-invertible but is locally <m>\fml C^1</m>-invertible at every point
+        in<nbsp /><m>U</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Before embarking on a proof of the <em>inverse function theorem</em> it is worthwhile seeing why
+    a naive <q>proof</q> of this result using the chain rule fails<mdash />even in the simple case of a
+    real valued function of a real variable.
+  </p>
+  <exercise xml:id="exer_der_finv">
+    <statement>
+      <p>
+        If <m>f \in \fml F_a(\R,\R)</m> and if <m>Df(a) \ne 0</m>, then <m>f</m>
+        is locally <m>\fml C^1</m>-invertible at <m>a</m> and
+        <men xml:id="eqn_der_finv" >
+          Df^{-1}_{\text{ loc } }(b) = \frac1{Df(a)}
+        </men>
+        where <m>\locinv f</m> is a local <m>\fml C^1</m>-inverse of <m>f</m> at <m>a</m> and <m>b = f(a)</m>.
+      </p>
+
+      <p>
+        This assertion is correct. Criticize the following <q>proof</q> of the result: Since <m>\locinv
+        f</m> is a local <m>\fml C^1</m>-inverse of <m>f</m> at <m>a</m>
+        <me>
+          \locinv f(f(x)) = x
+        </me>
+        for all <m>x</m> in some neighborhood <m>U</m> of<nbsp /><m>a</m>. Applying the chain rule (<xref ref="c_ru">proposition</xref>)
+        we obtain
+        <me>
+          (D\locinv f)(f(x)) \cdot Df(x)  =  1
+        </me>
+        for all <m>x</m> in<nbsp /><m>U</m>. Letting <m>x = a</m> we have
+        <me>
+          (D\locinv f)(b)\,Df(a)  =  1
+        </me>
+        and since <m>Df(a) \ne 0</m> equation<nbsp /><xref ref="eqn_der_finv" /> follows.
+        (<xref ref="sol_exer_der_finv">Solution</xref>.)
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The <em>inverse function theorem</em> <xref ref="thm_inft3" /> deals with a continuously differentiable
+    function <m>f</m> which is defined on a neighborhood of a point <m>a</m> in a Banach space <m>E</m> and which
+    maps into a second Banach space <m>F</m>. We assume that the differential of <m>f</m> at <m>a</m> is
+    invertible. Under these hypotheses we prove that <m>f</m> is locally <m>\fml C^1</m>-invertible at <m>a</m>
+    and in some neighborhood of <m>a</m> equation<nbsp /><xref ref="eqn_diff_inv" /> holds. To simplify the proof we
+    temporarily make some additional assumptions: we suppose that <m>H</m> is a continuously
+    differentiable function which is defined on a neighborhood of <m>0</m> in a Banach space <m>E</m> and
+    which maps into this same space <m>E</m>, that <m>H(\vc 0) = \vc 0</m>, and that the differential of <m>H</m>
+    at <m>0</m> is the identity map on <m>E</m>. Once the conclusion of the <em>inverse function theorem</em>
+    has been established in this restricted case the more general version follows easily. The
+    strategy we employ to attack the special case is straightforward, but there are numerous
+    details which must be checked along the way. Recall that in <xref ref="fpt">chapter</xref> we were able to
+    solve certain systems of simultaneous linear equations by putting them in the form <m>Ax = b</m>
+    where <m>A</m> is a square matrix and <m>x</m> and <m>b</m> are vectors in the Euclidean space of appropriate
+    dimension. This equation was rewritten in the form <m>Tx = x</m> where <m>Tx := x - b + Ax</m>, thereby
+    reducing the problem to one of finding a fixed point of the mapping <m>T</m>. When <m>T</m> is
+    contractive a simple application of the <em>contractive mapping theorem</em> <xref ref="cmthm" /> is
+    all that is required. We make use of exactly the same idea here. We want a local inverse of
+    <m>H</m>. That is, we wish to solve the equation <m>H(x) = y</m> for <m>x</m> in terms of <m>y</m> in some
+    neighborhood of<nbsp /><m>\vc 0</m>. Rewrite the equation <m>H(x) = y</m> in the form <m>\phi_y(x) = x</m> where for
+    each <m>y</m> near <m>\vc 0</m> the function <m>\phi_y</m> is defined by <m>\phi_y(x) := x - H(x) + y</m>. Thus,
+    as before, the problem is to find for each <m>y</m> a unique fixed point of <m>\phi_y</m>. In order to
+    apply the <em>contractive mapping theorem</em> to <m>\phi_y</m>, the domain of this function must be
+    a <em>complete</em> metric space. For this reason we choose temporarily to take the domain of
+    <m>\phi_y</m> to be a <em>closed</em> ball about the origin in<nbsp /><m>E</m>.
+  </p>
+
+  <p>
+    In <xref ref="lem_inft1">lemma</xref> we find such a closed ball<nbsp /><m>C</m>. It must satisfy two conditions:
+    first, <m>C</m> must lie in the domain of <m>H</m>; and second, if <m>u</m> belongs to <m>C</m>, then <m>dH_u</m> must
+    be close to the identity map on <m>E</m>, say, <m>\norm{dH_u - I} \lt  \frac12</m>. (This latter condition
+    turns out to be a crucial ingredient in proving that <m>\phi_y</m> is contractive.) In
+    <xref ref="lem_inft2">lemma</xref> we show that (for <m>y</m> sufficiently small) <m>\phi_y</m> maps the closed ball
+    <m>C</m> into itself; and in <xref ref="lem_inft3"></xref> the basic task is to show that <m>\phi_y</m> is contractive
+    and therefore has a unique fixed point. The result of all this is that there exists a number
+    <m>r > 0</m> such that for every <m>y</m> in <m>B = B_r(0)</m> there exists a unique <m>x</m> in the closed ball
+    <m>C = C_{2r}(\vc 0)</m> such that <m>y = H(x)</m>. Now this is not quite the end of the story. First
+    of all we do <em>not</em> know that <m>H</m> restricted to <m>C</m> is injective: some points in <m>C</m> may
+    be mapped to the region outside <m>B</m>, about which the preceding says nothing. Furthermore, the
+    definition of local <m>\fml C^1</m>-invertibility requires a homeomorphism between <em>open</em>
+    sets, and <m>C</m> is not open. This suggests we restrict our attention to points lying in the
+    interior of <m>C</m> which map into<nbsp /><m>B</m>. So let <m>V = \intr C \cap H^{\gets}(B)</m> and consider the
+    restriction of <m>H</m> to <m>V</m>, which we denote by <m>H_{\text{ loc } }</m>. In <xref ref="lem_inft4">lemma</xref> we
+    show that <m>V</m> is a neighborhood of <m>0</m> and that <m>H_{\text{ loc } }</m> is injective. Thus the
+    inverse function <m>\locinv H: H^{\sto}(V) \sto V</m> exists. The succeeding lemma is devoted to
+    showing that this inverse is continuous.
+  </p>
+
+  <p>
+    In order to conclude that <m>H</m> is locally <m>C^1</m>-invertible we still need two things: we must
+    know that <m>H_{\text{ loc } }</m> is a homeomorphism between <em>open</em> sets and that <m>\locinv H</m> is
+    continuously differentiable. <xref ref="lem_inft6">Lemma</xref> shows that <m>H^{\sto}(V)</m> is open in <m>E</m>.
+    And in <xref ref="lem_inft7">lemma</xref> we complete the proof of this special case of the <em>inverse
+    function theorem</em> by showing that <m>\locinv H</m> is continuously differentiable and that in the
+    open set <m>V</m> its differential is given by<nbsp /><xref ref="eqn_diff_inv" />.
+  </p>
+
+  <p>
+    <xref ref="cor_inft">Corollary</xref> shows that the conclusions of the preceding result remain true even
+    when one of the hypotheses is eliminated and another weakened. Here we prove the
+    <em>inverse function theorem</em> for a function <m>G</m> whose domain <m>E</m> and codomain <m>F</m> are
+    <em>not</em> required to be identical. Of course, if <m>E \ne F</m> we cannot assume that the
+    differential of <m>G</m> at <m>\vc 0</m> is the identity map; we assume only that it is invertible.
+  </p>
+
+  <p>
+    Finally, in <xref ref="thm_inft3">theorem</xref> we prove our final version of
+    the <em>inverse function theorem</em>. Here we drop the requirement
+    that the domain of the function in question be a neighborhood of
+    the origin.
+  </p>
+
+  <p>
+    <xref ref="lem_inft1">In</xref><ndash /> <xref ref="lem_inft7"></xref> the following hypotheses are in
+    force:
+    <ol>
+      <li>
+        <title>(1')</title>
+        <p>
+          <m>\vc 0 \in \open{U_1}E</m> (where <m>E</m> is a Banach space);
+        </p>
+      </li>
+
+      <li>
+        <title>(2')</title>
+        <p>
+          <m>H \in \fml C^1(U_1,E)</m>;
+        </p>
+      </li>
+
+      <li>
+        <title>(3')</title>
+        <p>
+          <m>H(\vc 0) = \vc 0</m>; and
+        </p>
+      </li>
+
+      <li>
+        <title>(4')</title>
+        <p>
+          <m>dH_{\vc 0} = I</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <lemma xml:id="lem_inft1">
+    <statement>
+      <p>
+        There exists <m>r > 0</m> such that <m>B_{3r}(\vc 0) \subseteq U_1</m> and
+        <m>\norm{dH_u - I} \lt  \frac12</m> whenever <m>\norm u \le 2r</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft2">
+    <statement>
+      <p>
+        For <m>\norm y \lt  r</m> define a function <m>\phi_y</m> by
+        <me>
+          \phi_y(x) := x - H(x) + y
+        </me>
+        for all <m>x</m> such that <m>\norm x \le 2r</m>. Show that <m>\phi_y</m> maps <m>C_{2r}(\vc 0)</m> into itself.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft3">
+    <statement>
+      <p>
+        For every <m>y</m> in <m>B_r(\vc 0)</m> there exists a unique <m>x</m> in
+        <m>C_{2r}(\vc 0)</m> such that <m>y = H(x)</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show that the function <m>\phi_y</m> defined in
+      <xref ref="lem_inft2">lemma</xref> is contractive on the metric space <m>C_{2r}(\vc 0)</m> and has <m>\frac12</m> as
+      a contraction constant. To find an appropriate inequality involving <m>\norm{\phi_y(u) -
+      \phi_y(v)}</m> apply <xref ref="cor_mvt_nls">corollary</xref> to <m>\norm{H(v) - H(u) - dH_{\vc 0}(v - u)}</m>.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft4">
+    <statement>
+      <p>
+        Show that if <m>V := \{x \in B_{2r}(\vc 0) \colon \norm{H(x)} \lt  r\}</m>,
+        then <m>\vc 0 \in \open VE</m>. Let <m>H_{\text{ loc } }</m> be the restriction of <m>H</m> to<nbsp /><m>V</m>. Show that
+        <m>H_{\text{ loc } }</m> is a bijection between <m>V</m> and <m>H^{\sto}(V)</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft5">
+    <statement>
+      <p>
+        The function <m>\locinv H \colon H^{\sto}(V) \sto V</m> is continuous.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Prove first that if <m>u</m>, <m>v \in C_{2r}(\vc 0)</m>, then
+      <m>\norm{u - v} \le 2\norm{H(u) - H(v)}</m>. In order to do this, look at
+      <me>
+        2\norm{\phi_{\vc 0}(u) + H(u) - \phi_{\vc 0}(v) - H(v)} - \norm{u - v}
+      </me>
+      and recall (from the proof of <xref ref="lem_inft3"></xref>) that <m>\phi_{\vc 0}</m> has contraction constant
+      <m>\frac12</m>. Use this to conclude that if <m>w</m>, <m>z \in H^{\sto}(V)</m>, then
+      <me>
+        \norm{\locinv H(w) - \locinv H(z)} \le 2\,\norm{w - z}
+      </me>
+      where <m>H_{\text{ loc } }</m> is the restriction of <m>H</m> to <m>V</m> (see <xref ref="lem_inft3">lemma</xref>.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft6">
+    <statement>
+      <p>
+        Show that <m>\open{H^{\sto}(V)}E</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Show that if a point <m>b</m> belongs to <m>H^{\sto}(V)</m>, then
+      so does the open ball <m>B_{r - \norm b}(b)</m>. Proceed as follows: Show that if a point <m>y</m> lies
+      in this open ball, then <m>\norm y \lt  r</m> and therefore <m>y = H(x)</m> for some (unique) <m>x</m> in
+      <m>C_{2r}(\vc 0)</m>. Prove that <m>y \in H^{\sto}(V)</m> by verifying <m>\norm x \lt  2r</m>. To do this look
+      at
+      <me>
+        \norm{x - \locinv H(b)} + \norm{\locinv H(b) - \locinv H(\vc 0)}
+      </me>
+      and use the first inequality given in the hint to the preceding problem.
+    </p>
+  </proof>
+
+  <lemma xml:id="lem_inft7">
+    <statement>
+      <p>
+        The function <m>H</m> is locally <m>\fml C^1-invertible</m> at<nbsp /><m>0</m>. Furthermore,
+        <me>
+          d\bigl(\locinv H\bigr)_{H(x)} = (dH_x)^{-1}
+        </me>
+        for every <m>x</m> in<nbsp /><m>V</m>.
+      </p>
+    </statement>
+  </lemma>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> First prove the differentiability of <m>\locinv H</m> on
+      <m>H^{\sto}(V)</m>. If <m>y \in H^{\sto}(V)</m>, then there exists a unique <m>x</m> in <m>V</m> such that <m>y =
+      H(x)</m>. By hypothesis <m>\Delta H_x \sim dH_x</m>. Show that multiplication on the right by <m>\Delta
+      \bigl(\locinv H\bigr)_y</m> preserves tangency. (For this it must be established that <m>\Delta
+      \bigl(\locinv H\bigr)_y</m> belongs to <m>\ofml O(E,E)</m>.) Then show that multiplication on the left
+      by <m>(dH_x)^{-1}</m> preserves tangency. (How do we know that this inverse exists for all <m>x</m> in
+      <m>V</m>?) Finally show that the map <m>y \mapsto d\bigl(\locinv H\bigr)_y</m> is continuous on
+      <m>H^{\sto}(V)</m> by using <xref ref="eqn_diff_inv" /> to write it as the composite of <m>\locinv H</m>, <m>dH</m>,
+      and the map <m>T \mapsto T^{-1}</m> on <m>\inv\,\ofml B(E,E)</m> (see <xref ref="prop_inv_cont">proposition</xref>).
+    </p>
+  </proof>
+
+  <corollary xml:id="cor_inft">
+    <title>A second, more general, version of the inverse function theorem</title>
+    <statement>
+      <p>
+        Let <m>E</m> and <m>F</m> be Banach spaces. If
+        <ol>
+          <li>
+            <title>(1'')</title>
+            <p>
+              <m>\vc 0 \in \open{U_1}E</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(2'')</title>
+            <p>
+              <m>G \in \fml C^1(U_1,F)</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(3'')</title>
+            <p>
+              <m>G(\vc 0) = \vc 0</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(4'')</title>
+            <p>
+              <m>dG_{\vc 0} \in \inv\,\ofml B(E,F)</m>,
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        then <m>G</m> is locally <m>\fml C^1</m>-invertible at<nbsp /><m>\vc 0</m>. Furthermore,
+        <me>
+          d\bigl(\locinv G\bigr)_{G(x)} = (dG_x)^{-1}
+        </me>
+        for all <m>x</m> in some neighborhood of <m>\vc 0</m>, where <m>\locinv G</m> is a local <m>\fml C^1</m>-inverse
+        of <m>G</m> at<nbsp /><m>\vc 0</m>.
+      </p>
+    </statement>
+  </corollary>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>H = (dG_{\vc 0})^{-1} \circ G</m>. Apply <xref ref="lem_inft7">lemma</xref>.
+    </p>
+  </proof>
+
+  <p>
+    <index><main>inverse function theorem</main></index>
+  </p>
+
+  <theorem xml:id="thm_inft3">
+    <title>Inverse Function Theorem (third, and final, version)</title>
+    <statement>
+      <p>
+        Let <m>E</m> and
+        <m>F</m> be Banach spaces. If
+        <ol>
+          <li>
+            <title>(1)</title>
+            <p>
+              <m>a \in \open UE</m>,
+            </p>
+          </li>
+
+          <li>
+            <title>(2)</title>
+            <p>
+              <m>f \in \fml C^1(U,F)</m>, and
+            </p>
+          </li>
+
+          <li>
+            <title>(3)</title>
+            <p>
+              <m>df_a \in \inv\,\ofml B(E,F)</m>,
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        then <m>f</m> is locally <m>\fml C^1</m>-invertible at <m>a</m>. Furthermore,
+        <me>
+          d\bigl(\locinv f\bigr)_{f(x)} = (df_x)^{-1}
+        </me>
+        for all <m>x</m> in some neighborhood of<nbsp /><m>a</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      Problem. <em>Hint.</em> Let <m>U_1 = U - a</m> and <m>G = \Delta f_a</m>. Write <m>G</m> as a
+      composite of <m>f</m> with translation maps. Apply <xref ref="cor_inft">corollary</xref>.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>P \colon \R^2 \sto \R^2 \colon (r,\theta) \mapsto (r\cos\theta, r\sin\theta)</m>
+        and <m>a</m> be a point in <m>\R^2</m> such that <m>P(a) = (1, \sqrt 3)</m>.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              Show that <m>P</m> is locally <m>\fml C^1</m>-invertible at <m>a</m> by finding a local <m>\fml
+              C^1</m>-inverse <m>\locinv P</m> of <m>P</m> at<nbsp /><m>a</m>.  For the inverse you have found, compute
+              <m>d\bigl(\locinv P\bigr)_{(1,\sqrt 3)}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Use the <em>inverse function theorem</em><nbsp /> <xref ref="thm_inft3"></xref> to show that <m>P</m> is locally
+              <m>\fml C^1</m>-invertible at <m>a</m>.  Then use the formula given in that theorem to compute
+              <m>d\bigl(\locinv P\bigr)_{(1,\sqrt 3)}</m> (where <m>\locinv P</m> is a local <m>\fml C^1</m>-inverse of <m>P</m>
+              at<nbsp /><m>a</m>).  <em>Hint.</em>  Use <xref ref="prop_matr_inv">proposition</xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Let <m>U = \{(x,y,z) \in \R^3 \colon  x,y,z > 0\}</m> and let <m>g \colon U \sto \R^3</m> be
+        defined by
+        <me>
+          g(x,y,z) =\biggl(\frac x{y^2z^2}\,,\,yz\,,\, \ln y\biggr)\,.
+        </me>
+      </p>
+
+      <p>
+        Calculate separately <m>\bigl[dg_{(x,y,z)}\bigr]^{-1}</m> and <m>\bigl[d(g^{-1})_{g(x,y,z)}\bigr]</m>.
+      </p>
+    </statement>
+  </problem>
+</section>

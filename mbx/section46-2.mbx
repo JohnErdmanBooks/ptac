@@ -1,0 +1,94 @@
+
+<section>
+  <title>Exercises in Chapter 02</title>
+  <solution xml:id="sol_union_intersection_open">
+    <p>
+      (Solution to <xref ref="union_intersection_open"></xref>)
+      (a)Let <m>\sfml{S}</m> be a family of open subsets of <m>\R</m>. By
+      <xref ref="union_open_intervals">proposition</xref> each nonempty member of <m>\sfml{S}</m> is a union of
+      bounded open intervals. But then <m>\bigcup \sfml{S}</m> is itself a union of bounded open
+      intervals. So <m>\bigcup \sfml{S}</m> is open.
+    </p>
+
+    <p>
+      (b)We show that if <m>S_1</m> and <m>S_2</m> are open subsets of <m>\R</m>, then <m>S_1 \cap S_2</m> is
+      open. From this it follows easily by mathematical induction that if <m>S_1, \dots, S_n</m> are all
+      open in <m>\R</m>, then <m>S_1 \cap \dots \cap S_n</m> is open. Let us suppose then that <m>S_1</m> and <m>S_2</m>
+      are open subsets of <m>\R</m>. If <m>S_1 \cap S_2 = \emptyset</m>, there is nothing to prove; so we
+      assume that <m>S_1 \cap S_2 \ne \emptyset</m>. Let <m>x</m> be an arbitrary point in <m>S_1 \cap S_2</m>.
+      Since <m>x \in S_1 = {S_1}^\circ</m>, there exists <m>\epsilon_1 > 0</m> such that <m>J_{\epsilon_1}(x)
+      \subseteq S_1</m>. Similarly, there exists <m>\epsilon_2 > 0</m> such that <m>J_{\epsilon_2}(x)
+      \subseteq S_2</m>. Let <m>\epsilon</m> be the smaller of <m>\epsilon_1</m> and <m>\epsilon_2</m>. Then clearly
+      <m>J_\epsilon(x) \subseteq S_1 \cap S_2</m>, which shows that <m>x</m> is an interior point of <m>S_1 \cap
+      S_2</m>. Since every point of the set <m>S_1 \cap S_2</m> is an interior point of the set, <m>S_1 \cap
+      S_2</m> is open.
+    </p>
+  </solution>
+  <solution xml:id="sol_exam_clo_rats">
+    <p>
+      (Solution to <xref ref="exam_clo_rats"></xref>)
+      Since no point in <m>\R</m> has an <m>\epsilon</m>-neighborhood consisting entirely of rational numbers,
+      <m>A^\circ = \emptyset</m>. If <m>x \ge 0</m>, then every <m>\epsilon</m>-neighborhood of <m>x</m> contains
+      infinitely many positive rational numbers. Thus each such <m>x</m> belongs to <m>A'</m>. If <m>x \lt  0</m>, it
+      is possible to find an <m>\epsilon</m>-neighborhood of <m>x</m> which contains no positive rational
+      number. Thus <m>A' = [0,\infty)</m> and <m>\clo A = A \cup A' = [0,\infty)</m>.
+    </p>
+  </solution>
+  <solution xml:id="sol_intr_vs_clo">
+    <p>
+      (Solution to <xref ref="intr_vs_clo"></xref>)
+      (a)First we show that <m>\clo{A^c} \subseteq A^{\circ c}</m>. If <m>x \in \clo{A^c}</m>, then
+      either <m>x \in A^c</m> or <m>x</m> is an accumulation point of <m>A^c</m>. If <m>x \in A^c</m>, then <m>x</m> is
+      certainly not in the interior of <m>A</m>; that is, <m>x \in A^{\circ c}</m>. On the other hand, if <m>x</m>
+      is an accumulation point of <m>A^c</m>, then every <m>\epsilon</m>-neighborhood of <m>x</m> contains points
+      of <m>A^c</m>. This means that no <m>\epsilon</m>-neighborhood of <m>x</m> lies entirely in <m>A</m>. So, in this
+      case too, <m>x \in A^{\circ c}</m>.
+    </p>
+
+    <p>
+      For the reverse inclusion suppose <m>x \in A^{\circ c}</m>. Since <m>x</m> is not in the interior of
+      <m>A</m>, no <m>\epsilon</m>-neighborhood of <m>x</m> lies entirely in <m>A</m>. Thus either <m>x</m> itself fails to
+      be in <m>A</m>, in which case <m>x</m> belongs to <m>A^c</m> and therefore to <m>\clo{A^c}</m>, or else every
+      <m>\epsilon</m>-neighborhood of <m>x</m> contains a point of <m>A^c</m> different from<nbsp /><m>x</m>. In this latter
+      case also, <m>x</m> belongs to the closure of<nbsp /><m>A^c</m>.
+    </p>
+
+    <remark>
+      <p>
+        It is interesting to observe that the proof of (a) can be accomplished by a single
+        string of <q>iff</q> statements. That is, each step of the argument uses a reversible
+        implication. One needs to be careful, however, with the negation of quantifiers (see
+        <xref ref="neg">section</xref> of <xref ref="log_con">appendix</xref>). It will be convenient to let
+        <m>J_\epsilon^\ast(x)</m> denote the <m>\epsilon</m>-neighborhood of <m>x</m> with <m>x</m> deleted; that is,
+        <m>J_\epsilon^\ast(x) = (x - \epsilon, x) \cup (x, x + \epsilon)</m>. The proof goes like this:
+        <md>
+          <mrow>x \in A^{\circ c}
+                  \amp \text{ iff }  \sim(x \in A^\circ)</mrow>
+          <mrow>\amp \text{ iff }  \sim((\exists\epsilon > 0)\,J_\epsilon(x)
+                                     \subseteq A)</mrow>
+          <mrow>\amp \text{ iff }  (\forall\epsilon > 0)\, J_\epsilon(x)
+                                      \nsubseteq A</mrow>
+          <mrow>\amp \text{ iff }  (\forall\epsilon>0)\,J_\epsilon(x)
+                                      \cap A^c \ne \emptyset</mrow>
+          <mrow>\amp \text{ iff }  (\forall\epsilon > 0)\, (x \in A^c
+                        \text{ or }  J_\epsilon^\ast(x) \cap A^c
+                                       \ne \emptyset)</mrow>
+          <mrow>\amp \text{ iff }  (x \in A^c \text{ or }  (\forall\epsilon >
+                         0)\, J_\epsilon^\ast(x) \cap A^c \ne \emptyset)</mrow>
+          <mrow>\amp \text{ iff }  (x \in A^c \text{ or }  x \in (A^c)')</mrow>
+          <mrow>\amp \text{ iff }  x \in \clo{A^c}.</mrow>
+        </md>
+      </p>
+
+      <p>
+        Proofs of this sort are not universally loved. Some people admire their precision and
+        efficiency. Others feel that reading such a proof has all the charm of reading computer code.
+      </p>
+    </remark>
+
+    <p>
+      (b)The easiest proof of (b) is produced by substituting <m>A^c</m> for <m>A</m> in part<nbsp />(a). Then
+      <m>\clo A = \clo{A^{cc}} = A^{c \circ c}</m>. Take complements to get <m>{\clo A}^c = A^{c \circ}</m>.
+    </p>
+  </solution>
+</section>

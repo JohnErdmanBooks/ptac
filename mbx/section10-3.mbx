@@ -1,0 +1,248 @@
+
+<section>
+  <title>Accumulation points and closures</title>
+  <p>
+    <xref ref="sm_in_lar">In</xref><ndash /> <xref ref="in_int"></xref> some of the fundamental properties of the interior operator
+    <m>A \mapsto \intr A</m> were developed. In the next proposition we study accumulation points. Once
+    their properties are understood it is quite easy to derive the basic facts about the closure
+    operator <m>A \mapsto \clo A</m>.
+  </p>
+
+  <proposition xml:id="prop_accpt">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be subsets of a metric space.
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              If <m>A \subseteq B</m>, then <m>A' \subseteq B'</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>A'' \subseteq A'</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(c)</title>
+            <p>
+              Equality need not hold in \mbox{(b)} .
+            </p>
+          </li>
+
+          <li>
+            <title>(d)</title>
+            <p>
+              <m>(A \cup B)' = A' \cup B'</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(e)</title>
+            <p>
+              <m>(A \cap B)' \subseteq A' \cap B'</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(f)</title>
+            <p>
+              Equality need not hold in \mbox{(e)} .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      (a) Let <m>x \in A'</m>. Then each open ball about <m>x</m> contains a point of <m>A</m>, hence
+      of <m>B</m>, distinct from <m>x</m>. Thus <m>x \in B'</m>.
+    </p>
+
+    <p>
+      (b) Let <m>a \in A''</m>. If <m>r>0</m> then <m>B_r(a)</m> contains a point, say <m>b</m>, of <m>A'</m> distinct from
+      <m>a</m>. By <xref ref="sm_in_lar">lemma</xref> there exists <m>s > 0</m> such that <m>B_s(b) \subseteq B_r(a)</m>. Let <m>t
+      = \min\{s,d(a,b)\}</m>. Note that <m>t > 0</m>. Since <m>b \in A'</m>, there is a point <m>c \in B_t(b)
+      \subseteq B_r(a)</m> such that <m>c \in A</m>. Since <m>t \le d(a,b)</m>, it is clear that <m>c \ne a</m>. Thus
+      every open ball <m>B_r(a)</m> contains a point <m>c</m> of <m>A</m> distinct from <m>a</m>. This establishes that
+      <m>a \in A'</m>.
+    </p>
+
+    <p>
+      (c) Problem.
+    </p>
+
+    <p>
+      (d) Problem.
+    </p>
+
+    <p>
+      (e) Since <m>A \cap B \subseteq A</m>, part (a) implies that <m>(A \cap B)' \subseteq A'</m>. Similarly,
+      <m>(A \cap B)' \subseteq B'</m>. Conclusion: <m>(A \cap B)' \subseteq A' \cap B'</m>.
+    </p>
+
+    <p>
+      (f) In the metric space <m>\R</m> let <m>A = \Q</m> and <m>B = \Q^c</m>. Then <m>(A \cap B)' = \emptyset' =
+      \emptyset</m> while <m>A' \cap B' = \R \cap \R = \R</m>.
+    </p>
+  </proof>
+
+  <proposition xml:id="prop_clo">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be subsets of a metric space with <m>A \subseteq B</m>.
+        Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\clo A \subseteq \clo B</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\clo{\clo A} = \clo A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="un_clo">
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are subsets of a metric space, then
+        <me>
+          \clo{A \cup B} = \clo A \cup \clo B\,.
+        </me>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition>
+    <statement>
+      <p>
+        Let <m>\sfml A</m> be a family of subsets of a metric space. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\bigcup\{\clo A: A \in \sfml A\} \subseteq \clo{\bigcup \sfml A}.</m>
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in \mbox{(a)} .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="intr_cl">
+    <statement>
+      <p>
+        Let <m>\sfml A</m> be a family of subsets of a metric space.
+        Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\clo{\bigcap \sfml A} \subseteq \bigcap \{\clo A \colon A \in \sfml A\}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              Equality need not hold in \mbox{(a)} .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <proposition xml:id="int_vs_cl">
+    <statement>
+      <p>
+        Let <m>A</m> be a subset of a metric space. Then
+        <ol>
+          <li>
+            <title>(a)</title>
+            <p>
+              <m>\bigl(\intr A \bigr)^c = \clo{A^c}</m>.
+            </p>
+          </li>
+
+          <li>
+            <title>(b)</title>
+            <p>
+              <m>\intr{\bigl(A^c\bigr)} = \bigl(\,\clo A \,\bigr)^c</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      Problem.
+    </p>
+  </proof>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="int_vs_cl">proposition</xref> and <xref ref="prop_int">proposition</xref> (but not
+        <xref ref="prop_accpt">proposition</xref>) to give another proof of <xref ref="prop_clo">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <statement>
+      <p>
+        Use <xref ref="int_vs_cl">proposition</xref> and <xref ref="in_in">proposition</xref> (but not
+        <xref ref="prop_accpt">proposition</xref>) to give another proof of <xref ref="un_clo">proposition</xref>.
+      </p>
+    </statement>
+  </problem>
+</section>
